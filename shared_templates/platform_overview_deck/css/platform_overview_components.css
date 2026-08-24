@@ -1,0 +1,227 @@
+/* ==========================================================================
+   TURBASE PLATFORM — PLATFORM OVERVIEW COMPONENTS (BILLBOARD & GLASSMORPHISM)
+   Explainer Series: High-Impact Concept Cards, Comparison Grids, Topology Nodes
+   ========================================================================== */
+
+/* ==================== BILLBOARD TYPOGRAPHY ==================== */
+.slide-header {
+  margin-bottom: 22px;
+}
+
+.slide-title {
+  font-size: 52px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.slide-subtitle {
+  font-size: 26px;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.slide-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ==================== GLASSMORPHISM CONCEPT CARDS ==================== */
+.glass-cards-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.glass-cards-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.glass-card {
+  background: var(--bg-card-glass);
+  border: 1.5px solid var(--border-glass);
+  backdrop-filter: blur(16px);
+  border-radius: 14px;
+  padding: 30px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s ease;
+}
+
+.glass-card:hover {
+  background: var(--bg-card-glass-hover);
+  border-color: var(--horizon-cyan);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.2);
+}
+
+.card-pill-tag {
+  font-size: 16px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--horizon-gold);
+  background: rgba(250, 204, 21, 0.15);
+  border: 1px solid var(--horizon-gold);
+  padding: 4px 12px;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 14px;
+  width: fit-content;
+}
+
+.card-title {
+  font-size: 30px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.card-desc {
+  font-size: 23px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+.card-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-bullets li {
+  font-size: 21px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.35;
+}
+
+.card-bullets li::before {
+  content: '✦';
+  color: var(--horizon-cyan);
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+/* ==================== PARADIGM SHIFT COMPARISON ==================== */
+.paradigm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.paradigm-col {
+  border-radius: 14px;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.paradigm-cloud {
+  background: rgba(244, 63, 94, 0.08);
+  border: 1.5px solid rgba(244, 63, 94, 0.5);
+}
+
+.paradigm-edge {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1.5px solid rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
+}
+
+.paradigm-header {
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.paradigm-cloud .paradigm-header { color: #fda4af; }
+.paradigm-edge .paradigm-header { color: #6ee7b7; }
+
+.paradigm-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.paradigm-list li {
+  font-size: 22px;
+  line-height: 1.35;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.paradigm-cloud li::before {
+  content: '✕';
+  color: var(--horizon-danger);
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.paradigm-edge li::before {
+  content: '✓';
+  color: var(--horizon-emerald);
+  font-weight: 900;
+  font-size: 22px;
+}
+
+/* ==================== EXPLAINER KPI ROW ==================== */
+.kpi-row-explainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 22px;
+}
+
+.kpi-card-glass {
+  background: rgba(16, 24, 48, 0.85);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.kpi-val-explainer {
+  font-size: 54px;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  color: var(--horizon-gold);
+  line-height: 1.1;
+  text-shadow: 0 0 25px rgba(250, 204, 21, 0.35);
+}
+
+.kpi-lbl-explainer {
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin-top: 6px;
+}
+
+.kpi-sub-explainer {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}

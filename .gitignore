@@ -1,0 +1,67 @@
+# ==============================================================================
+# Turbase Presentation Suite — .gitignore
+# ==============================================================================
+
+# --- API Keys & Credentials ---
+text_to_speech_mcp_Open_API_key.txt
+*.key
+*.pem
+.env
+.env.*
+!.env.example
+
+# --- Generated Binary Artifacts (Deterministic Pipeline Outputs) ---
+# Audio
+*.mp3
+*.wav
+*.aac
+*.ogg
+
+# Video
+*.mp4
+*.webm
+*.mov
+*.mkv
+
+# Documents & PDFs
+*.pdf
+
+# Captured Slide Screenshots (generated from HTML web decks)
+**/slides_png/*.png
+**/slides_png/*.jpg
+**/slides_png/*.jpeg
+**/slides_png/*.webp
+
+# Preserve documentation inside artifact directories
+!**/slides_png/AGENTS.md
+!**/audio/AGENTS.md
+!**/docs/AGENTS.md
+!**/video_exports/AGENTS.md
+
+# --- Temporary & Build Directories ---
+**/temp_audio_segments/
+**/temp_video/
+**/individual_slide_pdfs/
+**/video_exports/
+**/*_preview.html
+**/concat_*.txt
+
+# --- OpenShot Video Editor Project Assets ---
+Video Project_assets/
+Video Project_parts_assets/
+
+# --- Node & Environment Artifacts ---
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# --- Operating System Artifacts ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

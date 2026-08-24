@@ -1,0 +1,186 @@
+/* ==========================================================================
+   PLATFORM TURBASE — DETAILED IMPACT PRESENTATIONS DESIGN SYSTEM (THEMES)
+   Series Identity: "ЭКОСИСТЕМА ТУРБАЗЫ: ДЕЙСТВУЮЩИЕ ЛИЦА" (10 Specialized Tracks)
+   Visual Markers: 6px Left Neon Stripe, Top-Right Corner Ribbon, Hero Badge
+   ========================================================================== */
+
+/* ==================== GLOBAL BASE TOKENS ==================== */
+:root {
+  /* Common Canvas Colors (Dual-Tone High Contrast) */
+  --canvas-bg: #050914;
+  --card-outer: #0b1329;
+  --card-inner: #111c38;
+  --card-inner-hover: #17264c;
+  
+  --text-main: #ffffff;
+  --text-body: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  
+  --border-default: rgba(255, 255, 255, 0.18);
+  --border-card: rgba(255, 255, 255, 0.28);
+  
+  /* Shared Semantic Colors */
+  --pro-green: #00e676;
+  --pro-green-bg: rgba(0, 230, 118, 0.12);
+  --pro-green-border: rgba(0, 230, 118, 0.6);
+  
+  --con-red: #ff3d71;
+  --con-red-bg: rgba(255, 61, 113, 0.12);
+  --con-red-border: rgba(255, 61, 113, 0.6);
+  
+  --mitigation-cyan: #00f0ff;
+  --mitigation-cyan-bg: rgba(0, 240, 255, 0.12);
+  --mitigation-cyan-border: rgba(0, 240, 255, 0.7);
+
+  /* Default Active Sector Accent (Overridden by specific track theme) */
+  --sector-color: #00f0ff;
+  --sector-glow: rgba(0, 240, 255, 0.35);
+  --sector-bg-subtle: rgba(0, 240, 255, 0.15);
+}
+
+/* ==================== 10 SECTOR THEME DEFINITIONS ==================== */
+
+/* 01. Citizens & Households (Electric Cyan) */
+.theme-citizens {
+  --sector-color: #00f0ff;
+  --sector-glow: rgba(0, 240, 255, 0.35);
+  --sector-bg-subtle: rgba(0, 240, 255, 0.15);
+}
+
+/* 02. Security & Law Enforcement Organs (Crimson Shield) */
+.theme-security {
+  --sector-color: #ff2a5f;
+  --sector-glow: rgba(255, 42, 95, 0.35);
+  --sector-bg-subtle: rgba(255, 42, 95, 0.15);
+}
+
+/* 03. Business & SME (Emerald Green) */
+.theme-business {
+  --sector-color: #00e676;
+  --sector-glow: rgba(0, 230, 118, 0.35);
+  --sector-bg-subtle: rgba(0, 230, 118, 0.15);
+}
+
+/* 04. Advertisers & Brands (Neon Magenta) */
+.theme-advertisers {
+  --sector-color: #e040fb;
+  --sector-glow: rgba(224, 64, 251, 0.35);
+  --sector-bg-subtle: rgba(224, 64, 251, 0.15);
+}
+
+/* 05. AdTech & Platforms (Vibrant Amber) */
+.theme-adtech {
+  --sector-color: #ffab00;
+  --sector-glow: rgba(255, 171, 0, 0.35);
+  --sector-bg-subtle: rgba(255, 171, 0, 0.15);
+}
+
+/* 06. Government, Municipalities & Trunk Infra (Federal Sapphire) */
+.theme-government {
+  --sector-color: #2979ff;
+  --sector-glow: rgba(41, 121, 255, 0.35);
+  --sector-bg-subtle: rgba(41, 121, 255, 0.15);
+}
+
+/* 07. Independent IT Developers & Engineers (Cyber Lime) */
+.theme-developers {
+  --sector-color: #76ff03;
+  --sector-glow: rgba(118, 255, 3, 0.35);
+  --sector-bg-subtle: rgba(118, 255, 3, 0.15);
+}
+
+/* 08. Banks, Fintech & Digital Ruble (Digital Ruble Teal) */
+.theme-fintech {
+  --sector-color: #1de9b6;
+  --sector-glow: rgba(29, 233, 182, 0.35);
+  --sector-bg-subtle: rgba(29, 233, 182, 0.15);
+}
+
+/* 09. Cross-Sector Synergies & Network Effects (Prism Gold) */
+.theme-synergies {
+  --sector-color: #ffd600;
+  --sector-glow: rgba(255, 214, 0, 0.35);
+  --sector-bg-subtle: rgba(255, 214, 0, 0.15);
+}
+
+/* 10. Phased Legacy Migration Roadmap (Titanium Silver-Blue) */
+.theme-roadmap {
+  --sector-color: #90caf9;
+  --sector-glow: rgba(144, 202, 249, 0.35);
+  --sector-bg-subtle: rgba(144, 202, 249, 0.15);
+}
+
+/* ==================== CANVAS & SLIDE FRAME STYLING ==================== */
+body {
+  background-color: var(--canvas-bg);
+  background-image: 
+    radial-gradient(circle at 15% 15%, var(--sector-bg-subtle) 0%, transparent 50%),
+    radial-gradient(circle at 85% 85%, rgba(11, 19, 41, 0.8) 0%, transparent 60%);
+}
+
+.deck-container {
+  border: 1.5px solid var(--border-card);
+  position: relative;
+}
+
+/* 6px Vertical Sector Accent Stripe along the left edge */
+.deck-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--sector-color);
+  box-shadow: 0 0 20px var(--sector-color);
+  z-index: 50;
+}
+
+/* ==================== CORNER RIBBON (SERIES MARKER) ==================== */
+.series-corner-ribbon {
+  position: absolute;
+  top: 14px;
+  right: -32px;
+  transform: rotate(45deg);
+  background: var(--sector-color);
+  color: #03060f;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 38px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6), 0 0 15px var(--sector-color);
+  z-index: 60;
+  pointer-events: none;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* ==================== HERO PARTICIPANT BADGE ==================== */
+.hero-participant-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--sector-bg-subtle);
+  border: 1.5px solid var(--sector-color);
+  box-shadow: 0 0 18px var(--sector-glow);
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+.hero-participant-badge .badge-icon {
+  font-size: 18px;
+}
+
+.hero-participant-badge .badge-track-num {
+  color: var(--sector-color);
+  font-weight: 900;
+  font-family: 'JetBrains Mono', monospace;
+}

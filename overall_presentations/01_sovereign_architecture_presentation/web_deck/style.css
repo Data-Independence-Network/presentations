@@ -1,0 +1,2920 @@
+/* ==========================================================================
+   Платформа «Турбаза» — Суверенная презентация (CSS Design System)
+   Презентационная типографика высокой четкости (+25% Base Scale & High Contrast)
+   ========================================================================== */
+
+:root {
+  --bg-dark: #070B14;
+  --bg-surface: #0E1626;
+  --bg-card: #141F36;
+  --bg-card-hover: #1A2844;
+  
+  --border-subtle: #223252;
+  --border-focus: #EAB308;
+  
+  --gold-primary: #EAB308;
+  --gold-light: #FEF08A;
+  --gold-glow: rgba(234, 179, 8, 0.25);
+  
+  --emerald-primary: #10B981;
+  --emerald-bg: rgba(16, 185, 129, 0.16);
+  
+  --crimson-primary: #EF4444;
+  --crimson-bg: rgba(239, 68, 68, 0.16);
+  
+  --blue-accent: #38BDF8;
+  --blue-bg: rgba(56, 189, 248, 0.16);
+  
+  --text-primary: #FFFFFF;
+  --text-secondary: #E2E8F0;
+  --text-muted: #94A3B8;
+  
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.5);
+  --shadow-gold: 0 0 25px rgba(234, 179, 8, 0.3);
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+html {
+  font-size: 25px; /* Base rem unit (+25% increase from 20px) */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.4;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==================== HEADER BAR ==================== */
+.presentation-header {
+  height: 52px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(212, 175, 55, 0.14);
+  border: 1.5px solid var(--gold-primary);
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.logo-icon {
+  font-size: 1.1rem;
+}
+
+.logo-text {
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--gold-primary);
+  font-size: 1.05rem;
+}
+
+.header-title {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+}
+
+.slide-indicator {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  padding: 3px 14px;
+  border-radius: 20px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-btn {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--gold-primary);
+  color: var(--gold-light);
+}
+
+.nav-btn.voice-btn {
+  border-color: rgba(52, 211, 153, 0.4);
+}
+
+.nav-btn.voice-btn.playing {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #10B981;
+  color: #6EE7B7;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+  animation: pulse-voice 2s infinite ease-in-out;
+}
+
+@keyframes pulse-voice {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+.notes-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.notes-audio-toggle {
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.2), rgba(202, 138, 4, 0.15));
+  border: 1.5px solid var(--gold-primary);
+  color: var(--gold-light);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.notes-audio-toggle:hover {
+  background: rgba(234, 179, 8, 0.35);
+  box-shadow: 0 0 12px rgba(234, 179, 8, 0.3);
+}
+
+.notes-audio-toggle.playing {
+  background: rgba(16, 185, 129, 0.25);
+  border-color: #10B981;
+  color: #6EE7B7;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
+}
+
+/* ==================== VIEWPORT & SLIDES ==================== */
+.presentation-viewport {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.deck-container {
+  width: 100%;
+  max-width: calc((100vh - 65px) * (16 / 9));
+  height: calc(100vh - 65px);
+  aspect-ratio: 16 / 9;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 22px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.98) translateY(6px);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.slide-card.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1) translateY(0);
+}
+
+/* ==================== SLIDE HEADERS ==================== */
+.slide-header {
+  margin-bottom: 8px;
+  border-bottom: 1.5px solid var(--border-subtle);
+  padding-bottom: 5px;
+}
+
+.slide-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 2px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--blue-bg);
+  color: var(--blue-accent);
+  margin-bottom: 3px;
+}
+
+.slide-tag.alert-tag {
+  background: var(--crimson-bg);
+  color: var(--crimson-primary);
+}
+
+.slide-tag.success-tag {
+  background: var(--emerald-bg);
+  color: var(--emerald-primary);
+}
+
+.slide-tag.security-tag {
+  background: rgba(234, 179, 8, 0.18);
+  color: var(--gold-primary);
+}
+
+.slide-tag.roadmap-tag {
+  background: rgba(168, 85, 247, 0.18);
+  color: #C084FC;
+}
+
+.slide-tag.ref-tag {
+  background: rgba(56, 189, 248, 0.18);
+  color: #7DD3FC;
+}
+
+.slide-title {
+  font-size: 1.72rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.slide-subtitle {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+.cite-tag {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  background: rgba(234, 179, 8, 0.18);
+  padding: 1px 7px;
+  border-radius: 4px;
+  border: 1px solid rgba(234, 179, 8, 0.4);
+}
+
+/* ==================== SLIDE BODY LAYOUTS ==================== */
+.slide-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 0;
+}
+
+.slide-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: visible;
+}
+
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+.grid-2col.equal-cols {
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  flex: 1;
+  min-height: 0;
+}
+
+.grid-4cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ==================== VISUAL PANELS & DIAGRAMS ==================== */
+.visual-panel {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.visual-panel.hero-diagram-panel {
+  padding: 8px 12px;
+  background: radial-gradient(circle at 50% 20%, #15223D 0%, #090E1A 100%);
+  border: 2px solid rgba(234, 179, 8, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), inset 0 0 25px rgba(234, 179, 8, 0.12);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sovereign-blueprint-viewport {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sovereign-blueprint-tree {
+  width: 100%;
+  max-width: 740px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Tree Levels */
+.tree-row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+  position: relative;
+}
+
+/* Master Root: СТВОЛ */
+.blueprint-node.root-node {
+  width: 100%;
+  background: linear-gradient(180deg, #18284B 0%, #0D162A 100%);
+  border: 2.5px solid var(--gold-primary);
+  border-radius: var(--radius-md);
+  padding: 6px 12px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(234, 179, 8, 0.35);
+  position: relative;
+}
+
+.root-header-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #000;
+  background: var(--gold-primary);
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  margin-bottom: 2px;
+  letter-spacing: 0.06em;
+}
+
+.root-node-title {
+  font-size: 1.22rem;
+  font-weight: 900;
+  color: var(--gold-light);
+  letter-spacing: 0.06em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+.root-node-sub {
+  font-size: 0.84rem;
+  color: #FFFFFF;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+/* Branch Nodes: ВЕТВЬ */
+.blueprint-node.branch-node {
+  flex: 1;
+  background: #15223C;
+  border: 1.5px solid #94A3B8;
+  border-radius: var(--radius-sm);
+  padding: 5px 8px;
+  text-align: center;
+}
+
+.branch-node-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #FFFFFF;
+}
+
+.branch-node-sub {
+  font-size: 0.76rem;
+  color: #CBD5E1;
+  margin-top: 1px;
+}
+
+/* Sub-branch Nodes: ВЕТКА */
+.blueprint-node.subbranch-node {
+  flex: 1;
+  background: #101A2E;
+  border: 1.5px solid #38BDF8;
+  border-radius: var(--radius-sm);
+  padding: 5px 8px;
+  text-align: center;
+}
+
+.subbranch-node-title {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #38BDF8;
+}
+
+.subbranch-node-sub {
+  font-size: 0.74rem;
+  color: #BAE6FD;
+  margin-top: 1px;
+}
+
+/* Leaf Nodes: ЛИСТ */
+.blueprint-node.leaf-node {
+  flex: 1;
+  background: #F8FAFC;
+  border: 2px solid #10B981;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  text-align: left;
+}
+
+.leaf-node-title {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: #065F46;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.leaf-node-bullets {
+  font-size: 0.76rem;
+  color: #0F172A;
+  margin-top: 2px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.p2p-sync-banner {
+  width: 100%;
+  background: rgba(16, 185, 129, 0.18);
+  border: 1.5px dashed #10B981;
+  color: #34D399;
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.tree-connector-arrow {
+  font-size: 0.9rem;
+  color: var(--gold-primary);
+  line-height: 1;
+  margin: -4px 0;
+}
+
+.diagram-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.diagram-wrapper svg {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 100% !important;
+}
+
+.diagram-mini {
+  width: 100%;
+  margin: 8px 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* ==================== FEATURE & CALLOUT CARDS ==================== */
+.info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.key-callout {
+  background: var(--bg-card);
+  border-left: 4px solid var(--border-subtle);
+  padding: 10px 14px;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+
+.key-callout.golden {
+  border-left-color: var(--gold-primary);
+  background: rgba(234, 179, 8, 0.1);
+}
+
+.key-callout strong {
+  color: var(--gold-primary);
+  display: block;
+  font-size: 1.05rem;
+  margin-bottom: 2px;
+}
+
+.feature-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  flex: 1;
+}
+
+.feature-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold-primary);
+}
+
+.feature-card .card-icon {
+  font-size: 1.2rem;
+  margin-bottom: 2px;
+}
+
+.feature-card h4 {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--gold-light);
+  margin-bottom: 2px;
+}
+
+.feature-card p {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  line-height: 1.28;
+}
+
+/* ==================== THREAT MATRIX (SLIDE 2) ==================== */
+.threat-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  transition: transform 0.2s;
+  height: 100%;
+}
+
+.threat-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--crimson-primary);
+}
+
+.threat-num {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--crimson-primary);
+  opacity: 0.8;
+}
+
+.threat-icon {
+  font-size: 1.5rem;
+  margin: 2px 0;
+}
+
+.threat-card h3 {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.threat-card ul {
+  list-style: none;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  line-height: 1.25;
+}
+
+.threat-card ul li {
+  position: relative;
+  padding-left: 14px;
+}
+
+.threat-card ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--crimson-primary);
+  font-weight: bold;
+}
+
+.threat-impact {
+  margin-top: 6px;
+  padding-top: 4px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.76rem;
+  color: #FCA5A5;
+  line-height: 1.25;
+}
+
+/* ==================== COMPARISON COLUMNS & FLOW DIAGRAMS (SLIDE 3, 5) ==================== */
+.comparison-column {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.col-badge {
+  font-size: 0.88rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.col-badge.bad {
+  background: var(--crimson-bg);
+  color: var(--crimson-primary);
+  border: 1.5px solid rgba(239, 68, 68, 0.5);
+}
+
+.col-badge.good {
+  background: var(--emerald-bg);
+  color: var(--emerald-primary);
+  border: 1.5px solid rgba(16, 185, 129, 0.5);
+}
+
+/* Flowchart Nodes for Slide 3, 5 */
+.flow-diagram-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 6px;
+  width: 100%;
+  flex: 1;
+  margin: 4px 0 6px 0;
+}
+
+.flow-node {
+  border-radius: var(--radius-sm);
+  padding: 7px 10px;
+  text-align: left;
+  position: relative;
+}
+
+.flow-node.red-node {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1.5px solid rgba(239, 68, 68, 0.45);
+}
+
+.flow-node.red-node-dark {
+  background: rgba(239, 68, 68, 0.22);
+  border: 2px solid #EF4444;
+}
+
+.flow-node.green-node-light {
+  background: #F8FAFC;
+  border: 2px solid #10B981;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
+}
+
+.flow-node.green-node-dark {
+  background: #101A2E;
+  border: 1.5px solid #38BDF8;
+}
+
+.flow-node.gold-node {
+  background: #15223C;
+  border: 1.5px solid #94A3B8;
+}
+
+.flow-node.gold-node-dark {
+  background: #0F172A;
+  border: 2px solid var(--gold-primary);
+  box-shadow: 0 4px 18px rgba(234, 179, 8, 0.25);
+}
+
+.node-badge {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-bottom: 2px;
+}
+
+.node-badge.red {
+  background: #EF4444;
+  color: #FFFFFF;
+}
+
+.node-badge.green {
+  background: #10B981;
+  color: #FFFFFF;
+}
+
+.node-badge.gold {
+  background: var(--gold-primary);
+  color: #0F172A;
+}
+
+.node-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.flow-node.red-node .node-title,
+.flow-node.red-node-dark .node-title {
+  color: #FCA5A5;
+}
+
+.flow-node.green-node-light .node-title {
+  color: #065F46;
+}
+
+.flow-node.green-node-dark .node-title {
+  color: #38BDF8;
+}
+
+.flow-node.gold-node .node-title {
+  color: #F8FAFC;
+}
+
+.flow-node.gold-node-dark .node-title {
+  color: var(--gold-light);
+}
+
+.node-desc {
+  font-size: 0.76rem;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.flow-node.red-node .node-desc,
+.flow-node.red-node-dark .node-desc {
+  color: #FECACA;
+}
+
+.flow-node.green-node-light .node-desc {
+  color: #0F172A;
+}
+
+.flow-node.green-node-dark .node-desc {
+  color: #BAE6FD;
+}
+
+.flow-node.gold-node .node-desc {
+  color: #CBD5E1;
+}
+
+.flow-node.gold-node-dark .node-desc {
+  color: #F1F5F9;
+}
+
+.flow-connector-bar {
+  width: 100%;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.flow-connector-bar.red {
+  background: rgba(239, 68, 68, 0.16);
+  border: 1.5px dashed #EF4444;
+  color: #FCA5A5;
+}
+
+.flow-connector-bar.green {
+  background: rgba(16, 185, 129, 0.16);
+  border: 1.5px dashed #10B981;
+  color: #34D399;
+}
+
+.flow-connector-bar.gold {
+  background: rgba(234, 179, 8, 0.16);
+  border: 1.5px dashed var(--gold-primary);
+  color: var(--gold-light);
+}
+
+.flow-horizontal-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 6px;
+}
+
+.flow-node-mini {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1.5px solid rgba(16, 185, 129, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 6px 8px;
+  text-align: center;
+}
+
+.mini-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #34D399;
+}
+
+.mini-desc {
+  font-size: 0.72rem;
+  color: #BAE6FD;
+}
+
+.card-point-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.84rem;
+}
+
+.point-item {
+  padding: 5px 8px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  line-height: 1.22;
+}
+
+/* ==================== SLIDE 4 TREE TOPOLOGY BLUEPRINT ==================== */
+.tree-tier {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tier-label {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.root-node-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #000;
+  background: var(--gold-primary);
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  margin-bottom: 2px;
+  letter-spacing: 0.06em;
+}
+
+.regional-dual {
+  width: 100%;
+}
+
+.dual-branches {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+
+.branch-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: center;
+  width: 100%;
+}
+
+.branch-col .blueprint-node {
+  width: 100%;
+}
+
+.branch-connector {
+  width: 2px;
+  height: 8px;
+  background: #38BDF8;
+}
+
+.tier-node.active-branch,
+.blueprint-node.active-branch {
+  border: 2px solid #38BDF8;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.3);
+}
+
+.client-p2p {
+  width: 100%;
+}
+
+.p2p-leaf-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.p2p-leaf-row .blueprint-node {
+  flex: 1;
+}
+
+.p2p-exchange-badge {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1.5px dashed #10B981;
+  color: #34D399;
+  font-size: 0.88rem;
+  font-weight: 800;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ==================== SLIDE 7 SSOT BLUEPRINT ==================== */
+.ssot-blueprint-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.ssot-master-card {
+  background: #0F172A;
+  border: 2px solid var(--gold-primary);
+  box-shadow: 0 4px 18px rgba(234, 179, 8, 0.25);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.ssot-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #0F172A;
+  background: var(--gold-primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 4px;
+  letter-spacing: 0.05em;
+}
+
+.ssot-master-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+
+.ssot-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.field-tag {
+  background: #1E293B;
+  border: 1px solid #38BDF8;
+  color: #BAE6FD;
+  font-size: 0.80rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+.ssot-master-footer {
+  font-size: 0.84rem;
+  color: #34D399;
+  font-weight: 700;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 6px;
+}
+
+.ssot-flow-connector {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1.5px dashed #38BDF8;
+  color: #38BDF8;
+  font-size: 0.84rem;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.ssot-apps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.ssot-app-card {
+  background: #15223C;
+  border: 1.5px solid #94A3B8;
+  border-radius: var(--radius-sm);
+  padding: 8px 6px;
+  text-align: center;
+}
+
+.app-icon {
+  font-size: 1.4rem;
+  margin-bottom: 2px;
+}
+
+.app-title {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: #F8FAFC;
+  margin-bottom: 2px;
+}
+
+.app-desc {
+  font-size: 0.78rem;
+  color: #CBD5E1;
+  line-height: 1.25;
+}
+
+.ssot-security-banner {
+  background: rgba(16, 185, 129, 0.14);
+  border: 1.5px solid #10B981;
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sec-icon {
+  font-size: 1.5rem;
+}
+
+.sec-text {
+  font-size: 0.84rem;
+  line-height: 1.35;
+  color: #E2E8F0;
+}
+
+/* ==================== SLIDE 8 SECURITY TIERS BLUEPRINT ==================== */
+.tiers-blueprint-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.tier-security-card {
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.tier-security-card.tier-1 {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1.5px solid rgba(239, 68, 68, 0.45);
+}
+
+.tier-security-card.tier-2 {
+  background: rgba(16, 185, 129, 0.14);
+  border: 2px solid #10B981;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.2);
+}
+
+.tier-security-card.tier-3 {
+  background: #0F172A;
+  border: 2px solid var(--gold-primary);
+  box-shadow: 0 4px 18px rgba(234, 179, 8, 0.25);
+}
+
+.tier-header-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.tier-lvl {
+  font-size: 0.68rem;
+  font-weight: 900;
+  padding: 1px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.tier-1 .tier-lvl { background: #EF4444; color: #FFF; }
+.tier-2 .tier-lvl { background: #10B981; color: #FFF; }
+.tier-3 .tier-lvl { background: var(--gold-primary); color: #0F172A; }
+
+.tier-name {
+  font-size: 0.94rem;
+  font-weight: 800;
+}
+
+.tier-1 .tier-name { color: #FCA5A5; }
+.tier-2 .tier-name { color: #34D399; }
+.tier-3 .tier-name { color: var(--gold-light); }
+
+.tier-body-text {
+  font-size: 0.78rem;
+  line-height: 1.3;
+  color: #E2E8F0;
+  font-weight: 600;
+}
+
+.perimeter-shield-box {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1.5px solid #38BDF8;
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: #BAE6FD;
+}
+
+.shield-icon {
+  font-size: 1.3rem;
+}
+
+/* ==================== SLIDE 9 PILLAR REFINEMENTS ==================== */
+.mini-flow-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 6px 0;
+  width: 100%;
+}
+
+.mf-node {
+  background: #15223C;
+  border: 1.5px solid #38BDF8;
+  color: #BAE6FD;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.mf-node.dark {
+  background: #0F172A;
+  border-color: #94A3B8;
+  color: #F8FAFC;
+}
+
+.mf-node.fns {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: #10B981;
+  color: #34D399;
+}
+
+.mf-arrow {
+  font-size: 0.74rem;
+  color: var(--gold-light);
+  text-align: center;
+  font-weight: 700;
+}
+
+.privacy-bullet-box {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: 6px 0;
+}
+
+.pb-item {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  color: #F8FAFC;
+  line-height: 1.25;
+}
+
+/* ==================== SLIDE 10 CIRCUIT REFINEMENTS ==================== */
+.agency-nodes-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 6px 0;
+}
+
+.agency-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.agency-chip {
+  flex: 1;
+  background: #15223C;
+  border: 1.5px solid #94A3B8;
+  border-radius: var(--radius-sm);
+  padding: 6px 4px;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #F8FAFC;
+}
+
+.agency-chip small {
+  display: block;
+  font-size: 0.68rem;
+  color: #CBD5E1;
+  font-weight: 500;
+  margin-top: 1px;
+}
+
+.agency-sync-icon {
+  font-size: 1.0rem;
+  color: #38BDF8;
+}
+
+.agency-crypto-banner {
+  background: rgba(16, 185, 129, 0.16);
+  border: 1.5px dashed #10B981;
+  color: #34D399;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.brics-nodes-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 6px 0;
+}
+
+.brics-center-node {
+  background: #0F172A;
+  border: 2px solid var(--gold-primary);
+  box-shadow: 0 4px 18px rgba(234, 179, 8, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  text-align: center;
+}
+
+.brics-center-node .flag-icon {
+  font-size: 1.3rem;
+}
+
+.brics-node-title {
+  font-size: 0.98rem;
+  font-weight: 900;
+  color: var(--gold-light);
+}
+
+.brics-node-sub {
+  font-size: 0.74rem;
+  color: #CBD5E1;
+  margin-top: 1px;
+}
+
+.brics-gateway-bar {
+  background: rgba(56, 189, 248, 0.16);
+  border: 1.5px dashed #38BDF8;
+  color: #38BDF8;
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 5px 8px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+.brics-partner-row {
+  display: flex;
+  gap: 6px;
+  justify-content: space-between;
+}
+
+.partner-chip {
+  flex: 1;
+  background: #15223C;
+  border: 1.5px solid #94A3B8;
+  border-radius: var(--radius-sm);
+  padding: 6px 4px;
+  text-align: center;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #F8FAFC;
+}
+
+/* ==================== BENEFIT BOXES (SLIDE 4, 7, 8) ==================== */
+.benefit-box {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+}
+
+.benefit-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.benefit-head .icon {
+  font-size: 1.2rem;
+}
+
+.benefit-head h4 {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--gold-light);
+}
+
+.benefit-box p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+/* ==================== OLAP CARDS (SLIDE 5) ==================== */
+.olap-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.olap-badge {
+  font-size: 0.88rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.client-olap .olap-badge {
+  background: var(--emerald-bg);
+  color: var(--emerald-primary);
+  border: 1.5px solid rgba(16, 185, 129, 0.4);
+}
+
+.federal-olap .olap-badge {
+  background: rgba(234, 179, 8, 0.18);
+  color: var(--gold-primary);
+  border: 1.5px solid var(--gold-primary);
+}
+
+.olap-content p {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  margin-top: 8px;
+  line-height: 1.35;
+}
+
+/* ==================== VERTICAL COLUMN BENCHMARKS (SLIDE 6) ==================== */
+.vbar-chart-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 20px 14px 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  gap: 10px;
+}
+
+/* Legend at Top */
+.vbar-legend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.vbar-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+.vbar-legend-color {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.vbar-legend-color.cloud {
+  background: linear-gradient(180deg, #F87171, #EF4444);
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+}
+
+.vbar-legend-color.turbase {
+  background: linear-gradient(180deg, #34D399, #10B981);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.vbar-legend-label strong {
+  color: var(--text-primary);
+}
+
+/* Chart Container */
+.vbar-chart-wrapper {
+  display: flex;
+  flex: 1;
+  min-height: 240px;
+  gap: 10px;
+  position: relative;
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+
+.vbar-y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.80rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-align: right;
+  width: 40px;
+  padding-bottom: 58px; /* reserve space for X-axis labels */
+  user-select: none;
+}
+
+.vbar-plot-area {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-left: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.25);
+  margin-bottom: 58px; /* reserve space for X-axis labels */
+}
+
+.vbar-grid-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+/* Columns Container */
+.vbar-columns-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  padding: 0 8px;
+}
+
+.vbar-category-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+  position: relative;
+  flex: 1;
+  max-width: 145px;
+}
+
+.vbar-bars-pair {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px; /* compact gap between bars in a pair */
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+.vbar-col {
+  width: 56px; /* wide prominent bars */
+  border-radius: 6px 6px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  transition: height 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-height: 12px;
+}
+
+.vbar-col.cloud {
+  background: linear-gradient(180deg, #F87171 0%, #EF4444 40%, #DC2626 100%);
+  border: 1px solid rgba(239, 68, 68, 0.7);
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.3);
+}
+
+.vbar-col.turbase {
+  background: linear-gradient(180deg, #34D399 0%, #10B981 40%, #059669 100%);
+  border: 1px solid rgba(16, 185, 129, 0.7);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.35);
+}
+
+.vbar-val-cloud {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 900;
+  color: #fff;
+  margin-top: 6px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+.vbar-turbase-stat {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.vbar-saving-badge {
+  background: rgba(16, 185, 129, 0.22);
+  border: 1.5px solid #10B981;
+  color: #6EE7B7;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 900;
+  padding: 1px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.vbar-val-turbase {
+  color: #34D399;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  font-weight: 900;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* X-axis Category Label */
+.vbar-cat-label {
+  position: absolute;
+  top: calc(100% + 10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1.20;
+  width: 100%;
+}
+
+.vbar-cat-label strong {
+  font-size: 1.04rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.vbar-cat-label small {
+  font-size: 0.80rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Glossary / Long text breakdown at bottom */
+.vbar-glossary-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 14px;
+  padding: 10px 14px;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.glossary-item strong {
+  color: var(--gold-light);
+  font-family: var(--font-mono);
+}
+
+.benchmark-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+  margin-bottom: 8px;
+}
+
+.benchmark-table th,
+.benchmark-table td {
+  padding: 5px 8px;
+  border: 1px solid var(--border-subtle);
+  text-align: left;
+}
+
+.benchmark-table th {
+  background: var(--bg-card);
+  color: var(--gold-light);
+  font-weight: 800;
+  font-size: 0.84rem;
+}
+
+.badge-success {
+  color: var(--emerald-primary);
+  font-weight: 800;
+}
+
+.golden-badge-box {
+  background: rgba(234, 179, 8, 0.12);
+  border: 1.5px solid var(--gold-primary);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.gold-icon {
+  font-size: 1.5rem;
+}
+
+.golden-badge-box h4 {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: var(--gold-primary);
+  margin-bottom: 2px;
+}
+
+.golden-badge-box p {
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  line-height: 1.25;
+}
+
+/* ==================== 3-COLUMN PILLARS (SLIDE 9, 12) ==================== */
+.pillar-card,
+.conclusion-pillar {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.conclusion-pillar.highlight {
+  border-color: var(--gold-primary);
+  background: rgba(234, 179, 8, 0.08);
+}
+
+.pillar-icon {
+  font-size: 1.8rem;
+  margin-bottom: 6px;
+}
+
+.pillar-card h3,
+.conclusion-pillar h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
+
+.pillar-card p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.conclusion-pillar ul {
+  list-style: none;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.conclusion-pillar ul li::before {
+  content: "✓";
+  color: var(--emerald-primary);
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.feature-badge-mini {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--blue-accent);
+  background: var(--blue-bg);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  display: inline-block;
+}
+
+.references-intro-banner {
+  margin-top: 14px;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1.5px solid var(--blue-accent);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.banner-icon {
+  font-size: 1.5rem;
+}
+
+.banner-text {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  line-height: 1.35;
+}
+
+/* ==================== CIRCUITS (SLIDE 10) ==================== */
+.circuit-box {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.circuit-header {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--gold-light);
+  border-bottom: 1.5px solid var(--border-subtle);
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+
+.circuit-desc {
+  margin-top: auto;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+/* ==================== GANTT & ROADMAP (SLIDE 11) ==================== */
+.gantt-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.gantt-phase {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+}
+
+.gantt-phase.active-phase {
+  border-color: var(--emerald-primary);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.phase-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.phase-badge {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+  background: var(--bg-card);
+  color: var(--emerald-primary);
+  border: 1.5px solid var(--emerald-primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.phase-badge.future {
+  color: #C084FC;
+  border-color: #C084FC;
+}
+
+.phase-header h4 {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.gantt-phase p {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  padding-left: 2px;
+  line-height: 1.25;
+}
+
+.roi-matrix {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.roi-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.roi-icon {
+  font-size: 1.6rem;
+}
+
+.roi-card h3 {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.roi-card p {
+  grid-column: 2 / 4;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.25;
+}
+
+.roi-number {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--gold-primary);
+}
+
+/* ==================== REFERENCES TABLES (SLIDES 13, 14, 15) ==================== */
+.references-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.references-table th,
+.references-table td {
+  padding: 4px 8px;
+  border: 1px solid var(--border-subtle);
+  text-align: left;
+  vertical-align: middle;
+  line-height: 1.22;
+}
+
+.references-table th {
+  background: var(--bg-card);
+  color: var(--gold-light);
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+.references-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.ref-num {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--gold-primary);
+  text-align: center;
+}
+
+.repo-callout-card {
+  margin-top: 6px;
+  background: rgba(234, 179, 8, 0.1);
+  border: 1.5px solid var(--gold-primary);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+}
+
+.repo-badge {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--gold-primary);
+  margin-bottom: 4px;
+}
+
+.repo-link {
+  color: #38BDF8;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.repo-link:hover {
+  text-decoration: underline;
+}
+
+.repo-content p {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  line-height: 1.25;
+}
+
+/* ==================== FOOTER & NAVIGATION ==================== */
+.presentation-footer {
+  height: 68px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  z-index: 100;
+}
+
+.nav-arrow-btn {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-subtle);
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-arrow-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--gold-primary);
+}
+
+.nav-arrow-btn.primary {
+  background: var(--gold-primary);
+  color: #000;
+  border-color: var(--gold-primary);
+}
+
+.nav-arrow-btn.primary:hover {
+  background: var(--gold-light);
+}
+
+.dots-container {
+  display: flex;
+  gap: 8px;
+}
+
+.slide-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--border-subtle);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.slide-dot:hover {
+  background: var(--text-muted);
+}
+
+.slide-dot.active {
+  background: var(--gold-primary);
+  transform: scale(1.35);
+  box-shadow: 0 0 10px var(--gold-primary);
+}
+
+/* ==================== MODALS ==================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(7, 11, 20, 0.88);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-card {
+  background: var(--bg-surface);
+  border: 2px solid var(--gold-primary);
+  box-shadow: var(--shadow-gold);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 900px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-card.wide {
+  max-width: 1300px;
+}
+
+.modal-header {
+  padding: 18px 28px;
+  background: var(--bg-card);
+  border-bottom: 1.5px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modal-title-wrap h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--gold-light);
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close-btn:hover {
+  color: #fff;
+}
+
+.modal-body {
+  padding: 28px;
+  overflow-y: auto;
+  font-size: 1.25rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+}
+
+.modal-body blockquote {
+  border-left: 4px solid var(--gold-primary);
+  padding-left: 20px;
+  margin: 16px 0;
+  color: var(--gold-light);
+}
+
+/* ==================== OVERVIEW GRID MODAL ==================== */
+.overview-grid {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+.overview-thumb {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.overview-thumb:hover {
+  border-color: var(--gold-primary);
+  transform: translateY(-2px);
+}
+
+.overview-thumb.active {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 12px var(--gold-primary);
+}
+
+.overview-thumb-num {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--gold-primary);
+  margin-bottom: 6px;
+}
+
+.overview-thumb-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   PER-SLIDE CUSTOM TYPOGRAPHY & LAYOUT OPTIMIZATIONS (SLIDES 1 TO 15)
+   ========================================================================== */
+
+/* ---------- SLIDE 1: Титульный / Суверенная архитектура «Турбаза» ---------- */
+.slide-card[data-slide="1"] .slide-title { font-size: 1.85rem; }
+.slide-card[data-slide="1"] .slide-subtitle { font-size: 1.08rem; }
+.slide-card[data-slide="1"] .hero-diagram-panel { padding: 12px 16px; }
+.slide-card[data-slide="1"] .root-node { padding: 10px 16px; }
+.slide-card[data-slide="1"] .root-header-tag { font-size: 0.78rem; }
+.slide-card[data-slide="1"] .root-node-title { font-size: 1.36rem; font-weight: 900; }
+.slide-card[data-slide="1"] .root-node-sub { font-size: 0.92rem; }
+.slide-card[data-slide="1"] .branch-node { padding: 8px 10px; }
+.slide-card[data-slide="1"] .branch-node-title { font-size: 1.05rem; font-weight: 800; }
+.slide-card[data-slide="1"] .branch-node-sub { font-size: 0.84rem; }
+.slide-card[data-slide="1"] .subbranch-node { padding: 8px 10px; }
+.slide-card[data-slide="1"] .subbranch-node-title { font-size: 1.02rem; font-weight: 800; }
+.slide-card[data-slide="1"] .subbranch-node-sub { font-size: 0.82rem; }
+.slide-card[data-slide="1"] .leaf-node { padding: 10px 14px; }
+.slide-card[data-slide="1"] .leaf-node-title { font-size: 1.08rem; font-weight: 800; }
+.slide-card[data-slide="1"] .leaf-node-bullets { font-size: 0.88rem; line-height: 1.38; }
+.slide-card[data-slide="1"] .p2p-sync-banner { font-size: 0.88rem; padding: 8px 10px; }
+.slide-card[data-slide="1"] .info-panel { gap: 12px; height: 100%; justify-content: space-between; }
+.slide-card[data-slide="1"] .key-callout { font-size: 1.04rem; padding: 16px 18px; line-height: 1.42; }
+.slide-card[data-slide="1"] .key-callout strong { font-size: 1.22rem; margin-bottom: 4px; }
+.slide-card[data-slide="1"] .feature-cards-grid { gap: 10px; flex: 1; }
+.slide-card[data-slide="1"] .feature-card { padding: 12px 14px; }
+.slide-card[data-slide="1"] .feature-card .card-icon { font-size: 1.5rem; }
+.slide-card[data-slide="1"] .feature-card h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 4px; }
+.slide-card[data-slide="1"] .feature-card p { font-size: 0.88rem; line-height: 1.38; }
+
+/* ---------- SLIDE 2: Вызовы национальной ИТ-инфраструктуры (Threat Matrix) ---------- */
+.slide-card[data-slide="2"] .slide-title { font-size: 1.85rem; }
+.slide-card[data-slide="2"] .slide-subtitle { font-size: 1.08rem; }
+.slide-card[data-slide="2"] .threat-card {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.slide-card[data-slide="2"] .threat-num { font-size: 1.8rem; font-weight: 900; }
+.slide-card[data-slide="2"] .threat-icon { font-size: 2.8rem; margin: 8px 0; }
+.slide-card[data-slide="2"] .threat-card h3 { font-size: 1.28rem; font-weight: 800; margin-bottom: 12px; min-height: 2.8rem; }
+.slide-card[data-slide="2"] .threat-card ul {
+  font-size: 1.04rem;
+  gap: 16px;
+  line-height: 1.5;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+.slide-card[data-slide="2"] .threat-impact {
+  font-size: 0.96rem;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  margin-top: auto;
+  line-height: 1.42;
+  font-weight: 700;
+}
+
+/* ---------- SLIDE 3: Edge & Local-First вычисления (Сравнение) ---------- */
+.slide-card[data-slide="3"] .slide-title { font-size: 1.80rem; }
+.slide-card[data-slide="3"] .slide-subtitle { font-size: 1.06rem; }
+.slide-card[data-slide="3"] .comparison-column {
+  padding: 20px 22px;
+  height: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+.slide-card[data-slide="3"] .col-badge { font-size: 1.02rem; padding: 8px 14px; }
+.slide-card[data-slide="3"] .flow-diagram-container {
+  gap: 12px;
+  justify-content: space-evenly;
+  flex: 1;
+}
+.slide-card[data-slide="3"] .flow-node { padding: 14px 18px; }
+.slide-card[data-slide="3"] .node-badge { font-size: 0.78rem; padding: 3px 8px; }
+.slide-card[data-slide="3"] .node-title { font-size: 1.12rem; font-weight: 800; margin-bottom: 4px; }
+.slide-card[data-slide="3"] .node-desc { font-size: 0.94rem; line-height: 1.42; }
+.slide-card[data-slide="3"] .flow-connector-bar { padding: 10px 14px; font-size: 0.88rem; font-weight: 700; }
+.slide-card[data-slide="3"] .card-point-list { gap: 8px; margin-top: 10px; }
+.slide-card[data-slide="3"] .point-item { font-size: 0.96rem; padding: 8px 12px; line-height: 1.35; }
+
+/* ---------- SLIDE 4: Древовидная топология и локальный поиск (OLTP) ---------- */
+.slide-card[data-slide="4"] .slide-title { font-size: 1.85rem; }
+.slide-card[data-slide="4"] .slide-subtitle { font-size: 1.08rem; }
+.slide-card[data-slide="4"] .visual-panel {
+  padding: 20px 22px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.slide-card[data-slide="4"] .sovereign-blueprint-tree {
+  max-width: 100%;
+  gap: 10px;
+}
+.slide-card[data-slide="4"] .tier-label { font-size: 0.88rem; font-weight: 800; margin-bottom: 6px; }
+.slide-card[data-slide="4"] .root-node { padding: 14px 20px; }
+.slide-card[data-slide="4"] .root-node-title { font-size: 1.28rem; font-weight: 900; }
+.slide-card[data-slide="4"] .root-node-sub { font-size: 0.94rem; }
+.slide-card[data-slide="4"] .dual-branches { gap: 18px; }
+.slide-card[data-slide="4"] .branch-col .branch-node { padding: 10px 14px; }
+.slide-card[data-slide="4"] .branch-node-title { font-size: 1.06rem; }
+.slide-card[data-slide="4"] .branch-col .subbranch-node { padding: 12px 14px; }
+.slide-card[data-slide="4"] .subbranch-node-title { font-size: 1.06rem; }
+.slide-card[data-slide="4"] .subbranch-node-sub { font-size: 0.88rem; }
+.slide-card[data-slide="4"] .p2p-leaf-row { gap: 12px; }
+.slide-card[data-slide="4"] .p2p-leaf-row .leaf-node { padding: 14px 16px; }
+.slide-card[data-slide="4"] .leaf-node-title { font-size: 1.06rem; }
+.slide-card[data-slide="4"] .leaf-node-bullets { font-size: 0.88rem; line-height: 1.38; }
+.slide-card[data-slide="4"] .p2p-exchange-badge { font-size: 0.96rem; padding: 10px 14px; }
+.slide-card[data-slide="4"] .info-panel { height: 100%; justify-content: space-between; gap: 14px; }
+.slide-card[data-slide="4"] .benefit-box {
+  padding: 22px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.slide-card[data-slide="4"] .benefit-head .icon { font-size: 1.8rem; }
+.slide-card[data-slide="4"] .benefit-head h4 { font-size: 1.24rem; font-weight: 800; }
+.slide-card[data-slide="4"] .benefit-box p { font-size: 1.04rem; line-height: 1.5; }
+
+/* ---------- SLIDE 5: Аналитический суверенитет: Private & Federated OLAP ---------- */
+.slide-card[data-slide="5"] .slide-title { font-size: 1.82rem; }
+.slide-card[data-slide="5"] .slide-subtitle { font-size: 1.06rem; }
+.slide-card[data-slide="5"] .olap-card {
+  padding: 24px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.slide-card[data-slide="5"] .olap-badge {
+  font-size: 1.05rem;
+  padding: 10px 18px;
+  margin-bottom: 6px;
+  font-weight: 800;
+}
+.slide-card[data-slide="5"] .olap-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+.slide-card[data-slide="5"] .flow-diagram-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+  justify-content: space-evenly;
+}
+.slide-card[data-slide="5"] .flow-horizontal-row { gap: 10px; margin-bottom: 0; }
+.slide-card[data-slide="5"] .flow-node-mini { padding: 14px 12px; }
+.slide-card[data-slide="5"] .mini-title { font-size: 1.06rem; font-weight: 800; }
+.slide-card[data-slide="5"] .mini-desc { font-size: 0.88rem; }
+.slide-card[data-slide="5"] .flow-connector-bar { padding: 12px 16px; font-size: 0.94rem; font-weight: 700; margin: 4px 0; }
+.slide-card[data-slide="5"] .flow-node { padding: 14px 18px; margin-bottom: 0; }
+.slide-card[data-slide="5"] .node-title { font-size: 1.15rem; font-weight: 800; }
+.slide-card[data-slide="5"] .node-desc { font-size: 0.94rem; line-height: 1.45; }
+.slide-card[data-slide="5"] .olap-content p {
+  font-size: 1.00rem;
+  margin-top: 14px;
+  line-height: 1.48;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+}
+
+/* ---------- SLIDE 6: Графики сравнительной эффективности (Бенчмарки) ---------- */
+.slide-card[data-slide="6"] .slide-title { font-size: 1.82rem; }
+.slide-card[data-slide="6"] .slide-subtitle { font-size: 1.06rem; }
+.slide-card[data-slide="6"] .vbar-chart-panel { height: 100%; padding: 18px 22px 14px 22px; }
+.slide-card[data-slide="6"] .vbar-legend { padding: 10px 16px; }
+.slide-card[data-slide="6"] .vbar-legend-item { font-size: 0.94rem; }
+.slide-card[data-slide="6"] .vbar-y-axis { font-size: 0.84rem; width: 44px; padding-bottom: 58px; }
+.slide-card[data-slide="6"] .vbar-plot-area { margin-bottom: 58px; }
+.slide-card[data-slide="6"] .vbar-col { width: 58px; }
+.slide-card[data-slide="6"] .vbar-bars-pair { gap: 6px; }
+.slide-card[data-slide="6"] .vbar-val-cloud { font-size: 0.92rem; font-weight: 900; margin-top: 6px; }
+.slide-card[data-slide="6"] .vbar-turbase-stat { bottom: calc(100% + 4px); }
+.slide-card[data-slide="6"] .vbar-saving-badge { font-size: 0.82rem; padding: 2px 7px; }
+.slide-card[data-slide="6"] .vbar-val-turbase { font-size: 0.90rem; font-weight: 900; }
+.slide-card[data-slide="6"] .vbar-cat-label { top: calc(100% + 10px); }
+.slide-card[data-slide="6"] .vbar-cat-label strong { font-size: 1.08rem; }
+.slide-card[data-slide="6"] .vbar-cat-label small { font-size: 0.84rem; }
+.slide-card[data-slide="6"] .vbar-glossary-box { font-size: 0.86rem; padding: 10px 16px; }
+.slide-card[data-slide="6"] .table-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.slide-card[data-slide="6"] .benchmark-table { margin-bottom: 10px; }
+.slide-card[data-slide="6"] .benchmark-table th { font-size: 1.04rem; padding: 12px 16px; font-weight: 800; }
+.slide-card[data-slide="6"] .benchmark-table td { font-size: 0.98rem; padding: 12px 16px; line-height: 1.42; }
+.slide-card[data-slide="6"] .golden-badge-box { padding: 18px 22px; margin-top: 10px; gap: 14px; }
+.slide-card[data-slide="6"] .gold-icon { font-size: 2.2rem; }
+.slide-card[data-slide="6"] .golden-badge-box h4 { font-size: 1.25rem; margin-bottom: 4px; }
+.slide-card[data-slide="6"] .golden-badge-box p { font-size: 0.98rem; line-height: 1.45; }
+
+/* ---------- SLIDE 7: Single Source of Truth (SSoT) ---------- */
+.slide-card[data-slide="7"] .slide-title { font-size: 1.82rem; }
+.slide-card[data-slide="7"] .slide-subtitle { font-size: 1.06rem; }
+.slide-card[data-slide="7"] .visual-panel { padding: 18px 20px; height: 100%; }
+.slide-card[data-slide="7"] .ssot-blueprint-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+}
+.slide-card[data-slide="7"] .ssot-master-card { padding: 16px 20px; }
+.slide-card[data-slide="7"] .ssot-badge { font-size: 0.80rem; padding: 3px 10px; }
+.slide-card[data-slide="7"] .ssot-master-title { font-size: 1.24rem; font-weight: 800; margin-bottom: 8px; }
+.slide-card[data-slide="7"] .field-tag { font-size: 0.90rem; padding: 6px 12px; }
+.slide-card[data-slide="7"] .ssot-master-footer { font-size: 0.90rem; padding-top: 8px; margin-top: 6px; }
+.slide-card[data-slide="7"] .ssot-flow-connector { padding: 8px 12px; font-size: 0.88rem; font-weight: 800; }
+.slide-card[data-slide="7"] .ssot-apps-grid { gap: 8px; }
+.slide-card[data-slide="7"] .ssot-app-card { padding: 12px 10px; }
+.slide-card[data-slide="7"] .app-icon { font-size: 1.6rem; margin-bottom: 4px; }
+.slide-card[data-slide="7"] .app-title { font-size: 1.04rem; font-weight: 800; margin-bottom: 4px; }
+.slide-card[data-slide="7"] .app-desc { font-size: 0.86rem; line-height: 1.35; }
+.slide-card[data-slide="7"] .ssot-security-banner { padding: 14px 18px; font-size: 0.94rem; }
+.slide-card[data-slide="7"] .sec-icon { font-size: 1.8rem; }
+.slide-card[data-slide="7"] .sec-text { font-size: 0.92rem; line-height: 1.4; }
+.slide-card[data-slide="7"] .info-panel { height: 100%; justify-content: space-between; gap: 14px; }
+.slide-card[data-slide="7"] .benefit-box {
+  padding: 20px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.slide-card[data-slide="7"] .benefit-head .icon { font-size: 1.8rem; }
+.slide-card[data-slide="7"] .benefit-head h4 { font-size: 1.22rem; font-weight: 800; }
+.slide-card[data-slide="7"] .benefit-box p { font-size: 1.02rem; line-height: 1.5; }
+
+/* ---------- SLIDE 8: Эшелонированная безопасность (3 эшелона) ---------- */
+.slide-card[data-slide="8"] .slide-title { font-size: 1.82rem; }
+.slide-card[data-slide="8"] .slide-subtitle { font-size: 1.06rem; }
+.slide-card[data-slide="8"] .visual-panel { padding: 18px 20px; height: 100%; }
+.slide-card[data-slide="8"] .tiers-blueprint-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  justify-content: space-between;
+}
+.slide-card[data-slide="8"] .tier-security-card {
+  padding: 16px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.slide-card[data-slide="8"] .tier-lvl { font-size: 0.82rem; padding: 3px 8px; }
+.slide-card[data-slide="8"] .tier-name { font-size: 1.18rem; font-weight: 800; }
+.slide-card[data-slide="8"] .tier-body-text { font-size: 0.96rem; line-height: 1.45; margin-top: 6px; }
+.slide-card[data-slide="8"] .perimeter-shield-box { padding: 14px 18px; font-size: 0.96rem; }
+.slide-card[data-slide="8"] .shield-icon { font-size: 1.8rem; }
+.slide-card[data-slide="8"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  justify-content: space-between;
+}
+.slide-card[data-slide="8"] .info-panel .benefit-box {
+  padding: 20px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.slide-card[data-slide="8"] .benefit-head .icon { font-size: 1.8rem; }
+.slide-card[data-slide="8"] .benefit-head h4 { font-size: 1.22rem; font-weight: 800; }
+.slide-card[data-slide="8"] .benefit-box p { font-size: 1.02rem; line-height: 1.5; }
+
+/* ---------- SLIDE 9: Институт Землячества и защита доверия ---------- */
+.slide-card[data-slide="9"] .slide-title { font-size: 1.85rem; }
+.slide-card[data-slide="9"] .slide-subtitle { font-size: 1.08rem; }
+.slide-card[data-slide="9"] .pillar-card {
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+.slide-card[data-slide="9"] .pillar-icon { font-size: 3.2rem; margin-bottom: 4px; }
+.slide-card[data-slide="9"] .pillar-card h3 { font-size: 1.42rem; font-weight: 800; margin-bottom: 6px; }
+.slide-card[data-slide="9"] .feature-badge-mini { font-size: 0.85rem; padding: 4px 10px; margin-bottom: 8px; }
+.slide-card[data-slide="9"] .mini-flow-box { display: flex; flex-direction: column; gap: 8px; margin: 10px 0; }
+.slide-card[data-slide="9"] .mf-node { font-size: 1.00rem; padding: 14px 16px; font-weight: 800; }
+.slide-card[data-slide="9"] .mf-arrow { font-size: 0.88rem; font-weight: 700; }
+.slide-card[data-slide="9"] .privacy-bullet-box { display: flex; flex-direction: column; gap: 10px; margin: 10px 0; }
+.slide-card[data-slide="9"] .pb-item { font-size: 1.00rem; padding: 14px 16px; line-height: 1.38; }
+.slide-card[data-slide="9"] .pillar-card p {
+  font-size: 1.02rem;
+  line-height: 1.5;
+  margin-top: auto;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+}
+
+/* ---------- SLIDE 10: Межведомственный контур и экспортная федерация БРИКС ---------- */
+.slide-card[data-slide="10"] .slide-title { font-size: 1.85rem; }
+.slide-card[data-slide="10"] .slide-subtitle { font-size: 1.08rem; }
+.slide-card[data-slide="10"] .circuit-box {
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+.slide-card[data-slide="10"] .circuit-header { font-size: 1.32rem; font-weight: 800; padding-bottom: 8px; margin-bottom: 10px; }
+.slide-card[data-slide="10"] .agency-nodes-flow { display: flex; flex-direction: column; gap: 12px; margin: 10px 0; }
+.slide-card[data-slide="10"] .agency-badge-row { gap: 8px; }
+.slide-card[data-slide="10"] .agency-chip { font-size: 0.98rem; padding: 16px 12px; }
+.slide-card[data-slide="10"] .agency-chip small { font-size: 0.82rem; margin-top: 3px; }
+.slide-card[data-slide="10"] .agency-sync-icon { font-size: 1.3rem; }
+.slide-card[data-slide="10"] .agency-crypto-banner { font-size: 0.95rem; padding: 12px 16px; }
+.slide-card[data-slide="10"] .agency-features-box { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.slide-card[data-slide="10"] .af-item {
+  font-size: 0.94rem;
+  padding: 10px 14px;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  line-height: 1.38;
+}
+.slide-card[data-slide="10"] .af-item strong { color: var(--text-primary); }
+.slide-card[data-slide="10"] .brics-nodes-flow { display: flex; flex-direction: column; gap: 12px; margin: 10px 0; }
+.slide-card[data-slide="10"] .brics-center-node { padding: 18px 20px; }
+.slide-card[data-slide="10"] .flag-icon { font-size: 2.0rem; }
+.slide-card[data-slide="10"] .brics-node-title { font-size: 1.32rem; font-weight: 900; }
+.slide-card[data-slide="10"] .brics-node-sub { font-size: 0.94rem; margin-top: 3px; }
+.slide-card[data-slide="10"] .brics-gateway-bar { font-size: 0.94rem; padding: 12px 14px; margin: 10px 0; }
+.slide-card[data-slide="10"] .brics-partner-row { gap: 8px; }
+.slide-card[data-slide="10"] .partner-chip { font-size: 0.96rem; padding: 16px 12px; }
+.slide-card[data-slide="10"] .circuit-desc {
+  font-size: 1.00rem;
+  line-height: 1.5;
+  margin-top: auto;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+}
+
+/* ---------- SLIDE 11: Экономический эффект и 3-летний план внедрения ---------- */
+.slide-card[data-slide="11"] .slide-title { font-size: 1.85rem; }
+.slide-card[data-slide="11"] .slide-subtitle { font-size: 1.08rem; }
+.slide-card[data-slide="11"] .visual-panel { padding: 18px 20px; height: 100%; }
+.slide-card[data-slide="11"] .gantt-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  justify-content: space-between;
+}
+.slide-card[data-slide="11"] .gantt-phase {
+  padding: 16px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.slide-card[data-slide="11"] .phase-badge { font-size: 0.88rem; padding: 4px 10px; }
+.slide-card[data-slide="11"] .phase-header h4 { font-size: 1.15rem; font-weight: 800; }
+.slide-card[data-slide="11"] .gantt-phase p { font-size: 0.96rem; line-height: 1.42; margin-top: 4px; }
+.slide-card[data-slide="11"] .info-panel { height: 100%; justify-content: space-between; gap: 14px; }
+.slide-card[data-slide="11"] .roi-matrix {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  justify-content: space-between;
+}
+.slide-card[data-slide="11"] .roi-card {
+  padding: 20px 24px;
+  flex: 1;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto;
+  align-content: center;
+  align-items: center;
+  column-gap: 16px;
+  row-gap: 8px;
+}
+.slide-card[data-slide="11"] .roi-icon {
+  grid-row: 1 / 3;
+  font-size: 2.4rem;
+  align-self: center;
+}
+.slide-card[data-slide="11"] .roi-card h3 {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0;
+}
+.slide-card[data-slide="11"] .roi-number {
+  grid-column: 3;
+  grid-row: 1;
+  font-size: 2.3rem;
+  font-weight: 900;
+  text-align: right;
+}
+.slide-card[data-slide="11"] .roi-card p {
+  grid-column: 2 / 4;
+  grid-row: 2;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ---------- SLIDE 12: Стратегическое резюме ---------- */
+.slide-card[data-slide="12"] .slide-title { font-size: 1.85rem; }
+.slide-card[data-slide="12"] .slide-subtitle { font-size: 1.08rem; }
+.slide-card[data-slide="12"] .conclusion-pillar {
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+.slide-card[data-slide="12"] .pillar-icon { font-size: 3.2rem; margin-bottom: 4px; }
+.slide-card[data-slide="12"] .conclusion-pillar h3 { font-size: 1.38rem; font-weight: 800; margin-bottom: 4px; }
+.slide-card[data-slide="12"] .conclusion-pillar ul {
+  font-size: 1.06rem;
+  gap: 18px;
+  line-height: 1.5;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-bottom: 0;
+}
+.slide-card[data-slide="12"] .references-intro-banner { padding: 16px 22px; margin-top: 16px; }
+.slide-card[data-slide="12"] .banner-icon { font-size: 2.0rem; }
+.slide-card[data-slide="12"] .banner-text { font-size: 1.05rem; line-height: 1.45; }
+
+/* Slide Link Styling */
+.slide-card a {
+  color: #38bdf8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+.slide-card a:hover {
+  color: #7dd3fc;
+}
+
+/* ---------- REUSABLE REF SUMMARY BANNER (SLIDES 13 & 14) ---------- */
+.ref-summary-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 18px;
+  background: rgba(234, 179, 8, 0.08);
+  border: 1.5px solid rgba(234, 179, 8, 0.4);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  flex-shrink: 0;
+}
+.ref-summary-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+.ref-summary-text {
+  font-size: 0.94rem;
+  line-height: 1.42;
+  color: var(--text-secondary);
+}
+.ref-summary-text strong {
+  color: var(--gold-light);
+  font-weight: 800;
+}
+
+/* ---------- SLIDE 13: Реестр первоисточников (1/3) ---------- */
+.slide-card[data-slide="13"] .slide-title { font-size: 1.80rem; }
+.slide-card[data-slide="13"] .slide-subtitle { font-size: 1.06rem; }
+.slide-card[data-slide="13"] .slide-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 12px;
+}
+.slide-card[data-slide="13"] .references-table {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  border-collapse: collapse;
+  margin-top: 0;
+}
+.slide-card[data-slide="13"] .references-table th {
+  font-size: 1.00rem;
+  padding: 8px 16px;
+  background: rgba(30, 41, 59, 0.9);
+}
+.slide-card[data-slide="13"] .references-table td {
+  font-size: 0.90rem;
+  padding: 7px 16px;
+  line-height: 1.34;
+  vertical-align: middle;
+}
+.slide-card[data-slide="13"] .ref-num { font-size: 0.98rem; font-weight: 800; }
+
+/* ---------- SLIDE 14: Реестр первоисточников (2/3) ---------- */
+.slide-card[data-slide="14"] .slide-title { font-size: 1.80rem; }
+.slide-card[data-slide="14"] .slide-subtitle { font-size: 1.06rem; }
+.slide-card[data-slide="14"] .slide-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 12px;
+}
+.slide-card[data-slide="14"] .references-table {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  border-collapse: collapse;
+  margin-top: 0;
+}
+.slide-card[data-slide="14"] .references-table th {
+  font-size: 1.00rem;
+  padding: 8px 16px;
+  background: rgba(30, 41, 59, 0.9);
+}
+.slide-card[data-slide="14"] .references-table td {
+  font-size: 0.90rem;
+  padding: 7px 16px;
+  line-height: 1.34;
+  vertical-align: middle;
+}
+.slide-card[data-slide="14"] .ref-num { font-size: 0.98rem; font-weight: 800; }
+
+/* ---------- SLIDE 15: Реестр первоисточников (3/3) & Репозиторий ---------- */
+.slide-card[data-slide="15"] .slide-title { font-size: 1.80rem; }
+.slide-card[data-slide="15"] .slide-subtitle { font-size: 1.06rem; }
+.slide-card[data-slide="15"] .slide-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 12px;
+}
+.slide-card[data-slide="15"] .references-table {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  border-collapse: collapse;
+  margin-top: 0;
+}
+.slide-card[data-slide="15"] .references-table th {
+  font-size: 1.00rem;
+  padding: 10px 16px;
+  background: rgba(30, 41, 59, 0.9);
+}
+.slide-card[data-slide="15"] .references-table td {
+  font-size: 0.90rem;
+  padding: 9px 16px;
+  line-height: 1.36;
+  vertical-align: middle;
+}
+.slide-card[data-slide="15"] .ref-num { font-size: 0.98rem; font-weight: 800; }
+.slide-card[data-slide="15"] .repo-callout-card {
+  padding: 16px 22px;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);
+  border: 1.5px solid var(--gold-primary);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+.slide-card[data-slide="15"] .repo-badge {
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--gold-primary);
+  margin-bottom: 2px;
+}
+.slide-card[data-slide="15"] .repo-link {
+  font-size: 1.18rem;
+  font-weight: 800;
+}
+.slide-card[data-slide="15"] .repo-content p {
+  font-size: 0.94rem;
+  line-height: 1.42;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+  body {
+    overflow: visible;
+    height: auto;
+    background: #fff;
+    color: #000;
+  }
+  
+  .presentation-header,
+  .presentation-footer,
+  .modal-overlay {
+    display: none !important;
+  }
+  
+  .presentation-viewport {
+    padding: 0;
+  }
+  
+  .deck-container {
+    height: auto;
+    display: block;
+  }
+  
+  .slide-card {
+    position: relative;
+    opacity: 1 !important;
+    transform: none !important;
+    page-break-after: always;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #000;
+    margin-bottom: 20px;
+    height: 100vh;
+  }
+  
+  .slide-title, .benefit-head h4, .pillar-card h3 {
+    color: #000 !important;
+  }
+  
+  .slide-subtitle, p, ul li {
+    color: #333 !important;
+  }
+}
