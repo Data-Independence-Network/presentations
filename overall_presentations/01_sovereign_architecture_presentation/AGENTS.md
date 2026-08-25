@@ -20,10 +20,10 @@ This directory contains all materials, assets, web presentation code, scripts, a
 ## 🚀 Quick Execution Commands
 ```bash
 # Incremental regeneration via NPM:
-npm run gen-overall-architecture
+npm run regen-overall-architecture
 
 # Build Architecture Visuals Whitepaper PDF:
-npm run gen-overall-architecture-doc
+npm run regen-overall-architecture-doc
 
 # Generate speaker notes Handout PDF (A4):
 NODE_PATH=$(npm root -g) node scripts/generate_handout_pdf.js

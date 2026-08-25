@@ -17,10 +17,10 @@ Houses the automated CLI tools for building all assets and deliverables for the 
 ## 🚀 Execution Guide
 ```bash
 # Recommended incremental rebuild via NPM:
-npm run gen-overall-stakeholder
+npm run regen-overall-stakeholder
 
 # Build Stakeholders Value Matrix PDF:
-npm run gen-overall-stakeholder-doc
+npm run regen-overall-stakeholder-doc
 
 # Generate Handout Notes PDF:
 NODE_PATH=$(npm root -g) node generate_stakeholders_handout_pdf.js

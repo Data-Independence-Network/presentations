@@ -20,10 +20,10 @@ This directory contains all materials, assets, web presentation code, and automa
 ## 🚀 Quick Execution Commands
 ```bash
 # Incremental regeneration via NPM:
-npm run gen-overall-stakeholder
+npm run regen-overall-stakeholder
 
 # Generate executive Stakeholders Value Matrix PDF Whitepaper (A4):
-npm run gen-overall-stakeholder-doc
+npm run regen-overall-stakeholder-doc
 
 # Generate speaker notes Handout PDF (A4):
 NODE_PATH=$(npm root -g) node scripts/generate_stakeholders_handout_pdf.js

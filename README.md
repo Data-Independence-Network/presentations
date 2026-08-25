@@ -54,17 +54,20 @@ turbase_benefits_presentation/
 В репозитории реализован интеллектуальный движок инкрементальной сборки на основе SHA-256 хэшей контента (`presentation_deck.md`) и Git-чекпоинтов (`scripts/core/incremental_engine.js`):
 
 ```bash
+# Комплексная регенерация всех мастер-презентаций и отчетов
+npm run regen-overall
+
 # Регенерация презентации по Архитектуре (только изменившиеся слайды/аудио/видео)
-npm run gen-overall-architecture
+npm run regen-overall-architecture
 
 # Регенерация презентации по Стейкхолдерам
-npm run gen-overall-stakeholder
+npm run regen-overall-stakeholder
 
 # Сборка аналитического отчета / Матрицы выгод стейкхолдеров (A4 Whitepaper PDF)
-npm run gen-overall-stakeholder-doc
+npm run regen-overall-stakeholder-doc
 
 # Сборка архитектурного отчета / Спецификации визуальных схем (A4 Visuals PDF)
-npm run gen-overall-architecture-doc
+npm run regen-overall-architecture-doc
 
 # Полная инкрементальная проверка всех презентаций репозитория
 npm run regenerate-all

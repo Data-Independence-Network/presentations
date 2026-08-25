@@ -26,8 +26,9 @@ overall_presentations/
 
 ## 🚀 NPM Regeneration Commands
 ```bash
-npm run gen-overall-architecture       # Rebuild 01 Architecture presentation
-npm run gen-overall-stakeholder        # Rebuild 02 Stakeholders presentation
-npm run gen-overall-stakeholder-doc    # Rebuild 02 Stakeholders Value Matrix PDF
-npm run gen-overall-architecture-doc   # Rebuild 01 Architecture Visuals PDF
+npm run regen-overall                  # Rebuild both master presentations and analytical PDFs
+npm run regen-overall-architecture     # Rebuild 01 Architecture presentation
+npm run regen-overall-stakeholder      # Rebuild 02 Stakeholders presentation
+npm run regen-overall-stakeholder-doc  # Rebuild 02 Stakeholders Value Matrix PDF
+npm run regen-overall-architecture-doc # Rebuild 01 Architecture Visuals PDF
 ```

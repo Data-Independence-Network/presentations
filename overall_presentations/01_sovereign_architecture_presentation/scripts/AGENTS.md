@@ -17,10 +17,10 @@ Contains automation tools for the Sovereign Architecture Presentation pipeline:
 ## 🚀 Execution Guide
 ```bash
 # Recommended incremental rebuild via NPM:
-npm run gen-overall-architecture
+npm run regen-overall-architecture
 
 # Build Architecture Visuals PDF:
-npm run gen-overall-architecture-doc
+npm run regen-overall-architecture-doc
 
 # Generate Handout Notes PDF:
 NODE_PATH=$(npm root -g) node generate_handout_pdf.js

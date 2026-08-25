@@ -34,9 +34,11 @@ scripts/
 ## 🛠️ Usage Examples
 ```bash
 # Incremental smart rebuild via NPM:
-npm run gen-overall-architecture
-npm run gen-overall-stakeholder
-npm run gen-overall-stakeholder-doc
+npm run regen-overall
+npm run regen-overall-architecture
+npm run regen-overall-stakeholder
+npm run regen-overall-stakeholder-doc
+npm run regen-overall-architecture-doc
 npm run regenerate-all
 
 # Direct CLI incremental regeneration:
