@@ -25,13 +25,15 @@ if (!fs.existsSync(docsDir)) {
   process.exit(1);
 }
 
-const mdFiles = fs.readdirSync(docsDir).filter(f => f.endsWith('narration.md'));
-if (mdFiles.length === 0) {
-  console.error(`Error: No *narration.md file found in ${docsDir}`);
-  process.exit(1);
+let narrationMdPath = path.join(docsDir, 'presentation_deck.md');
+if (!fs.existsSync(narrationMdPath)) {
+  const mdFiles = fs.readdirSync(docsDir).filter(f => f.endsWith('narration.md') || f.endsWith('deck.md'));
+  if (mdFiles.length === 0) {
+    console.error(`Error: No presentation_deck.md or *narration.md file found in ${docsDir}`);
+    process.exit(1);
+  }
+  narrationMdPath = path.join(docsDir, mdFiles[0]);
 }
-
-const narrationMdPath = path.join(docsDir, mdFiles[0]);
 
 // Check for existing notes PDF or generate canonical filename
 const existingPdf = fs.readdirSync(docsDir).find(f => f.endsWith('notes.pdf'));

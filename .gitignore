@@ -23,8 +23,9 @@ text_to_speech_mcp_Open_API_key.txt
 *.mov
 *.mkv
 
-# Documents & PDFs
+# Documents & PDFs & Generated Web Decks
 *.pdf
+**/web_deck/index.html
 
 # Captured Slide Screenshots (generated from HTML web decks)
 **/slides_png/*.png

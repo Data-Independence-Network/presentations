@@ -10,7 +10,7 @@ const path = require('path');
 const { buildHandoutPdf } = require('../../../scripts/core/handout_pdf_builder');
 
 const presentationDir = path.join(__dirname, '..');
-const narrationMdPath = path.join(presentationDir, 'docs', 'turbase_presentation_narration.md');
+const narrationMdPath = path.join(presentationDir, 'docs', 'presentation_deck.md');
 const slidesDir = path.join(presentationDir, 'slides_png');
 const outputPdfPath = path.join(presentationDir, 'docs', 'turbase_presentation_notes.pdf');
 

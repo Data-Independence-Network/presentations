@@ -7,7 +7,7 @@ This directory contains all materials, assets, web presentation code, scripts, a
 
 ## 📁 Subdirectory Layout
 - **`docs/`**: Markdown scripts, visual layouts, speaker notes, and generated handout PDFs.
-- **`web_deck/`**: Interactive HTML5/CSS3/JavaScript slide player (`index.html`, `style.css`, `app.js`).
+- **`web_deck/`**: Interactive HTML5/CSS3/JavaScript slide player (`index.html`, `architecture.css`, `architecture.js`).
 - **`audio/`**: Pre-synthesized MP3 audio tracks (`slide_01.mp3` .. `slide_15.mp3`).
 - **`slides_png/`**: 1920x1080 PNG slide images rendered from the web deck.
 - **`scripts/`**: Automated CLI tools for audio generation, slide capture, PDF handout compilation, and multi-profile video builds.

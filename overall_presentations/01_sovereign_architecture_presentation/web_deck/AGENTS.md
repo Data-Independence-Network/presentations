@@ -7,8 +7,8 @@ Houses the browser-based interactive presentation player for the Sovereign Archi
 
 ## 📄 Key Files
 - **`index.html`**: Semantic HTML structure for the 15 presentation slides.
-- **`style.css`**: Dark executive theme styles, layout grids, animations, and typography tokens.
-- **`app.js`**: Slide state management, keyboard navigation (Left/Right/Space/Home/End), audio narration playback via `../audio/slide_XX.mp3`, modal controls, and thumbnail overview.
+- **`architecture.css`**: Dark executive theme styles, layout grids, animations, and typography tokens.
+- **`architecture.js`**: Slide state management, keyboard navigation (Left/Right/Space/Home/End), audio narration playback via `../audio/slide_XX.mp3`, modal controls, and thumbnail overview.
 
 ---
 

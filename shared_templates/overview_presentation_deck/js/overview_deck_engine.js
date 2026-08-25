@@ -20,24 +20,43 @@ class OverviewDeckEngine {
 
   initElements() {
     this.slideCards = document.querySelectorAll('.slide-card');
-    this.counterEl = document.getElementById('slideCounter');
+    this.totalSlides = this.slideCards.length || this.totalSlides;
+    this.counterEl = document.getElementById('slideIndicator') || document.getElementById('slideCounter');
     this.progressFillEl = document.getElementById('progressFill');
     this.btnPrev = document.getElementById('btnPrev');
     this.btnNext = document.getElementById('btnNext');
     this.btnNotes = document.getElementById('btnNotes');
-    this.btnSound = document.getElementById('btnSound');
+    this.btnVoice = document.getElementById('btnVoice') || document.getElementById('btnSound');
     this.btnOverview = document.getElementById('btnOverview');
+    this.btnFullscreen = document.getElementById('btnFullscreen');
+    this.btnPrint = document.getElementById('btnPrint');
     this.notesDrawer = document.getElementById('notesDrawer');
     this.notesBody = document.getElementById('notesBody');
+    this.btnCloseNotes = document.getElementById('btnCloseNotes');
     this.overviewModal = document.getElementById('overviewModal');
+    this.overviewGrid = document.getElementById('overviewGrid');
+    this.btnCloseOverview = document.getElementById('btnCloseOverview');
+
+    this.populateOverviewGrid();
   }
 
   bindEvents() {
     if (this.btnPrev) this.btnPrev.addEventListener('click', () => this.prevSlide());
     if (this.btnNext) this.btnNext.addEventListener('click', () => this.nextSlide());
     if (this.btnNotes) this.btnNotes.addEventListener('click', () => this.toggleNotes());
-    if (this.btnSound) this.btnSound.addEventListener('click', () => this.toggleSound());
+    if (this.btnCloseNotes) this.btnCloseNotes.addEventListener('click', () => this.toggleNotes());
+    if (this.btnVoice) this.btnVoice.addEventListener('click', () => this.toggleSound());
     if (this.btnOverview) this.btnOverview.addEventListener('click', () => this.toggleOverview());
+    if (this.btnCloseOverview) this.btnCloseOverview.addEventListener('click', () => this.toggleOverview());
+    if (this.btnFullscreen) this.btnFullscreen.addEventListener('click', () => this.toggleFullscreen());
+    if (this.btnPrint) this.btnPrint.addEventListener('click', () => window.print());
+
+    // Close modal on outside click
+    if (this.overviewModal) {
+      this.overviewModal.addEventListener('click', (e) => {
+        if (e.target === this.overviewModal) this.toggleOverview();
+      });
+    }
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
@@ -57,8 +76,13 @@ class OverviewDeckEngine {
         this.toggleNotes();
       } else if (e.key.toLowerCase() === 'o') {
         this.toggleOverview();
-      } else if (e.key.toLowerCase() === 'm') {
+      } else if (e.key.toLowerCase() === 'v' || e.key.toLowerCase() === 'm') {
         this.toggleSound();
+      } else if (e.key.toLowerCase() === 'f') {
+        this.toggleFullscreen();
+      } else if (e.key === 'Escape') {
+        if (this.overviewModalOpen) this.toggleOverview();
+        if (this.notesDrawerOpen) this.toggleNotes();
       }
     });
 
@@ -81,6 +105,36 @@ class OverviewDeckEngine {
     window.prevSlide = () => this.prevSlide();
   }
 
+  populateOverviewGrid() {
+    if (!this.overviewGrid) return;
+    this.overviewGrid.innerHTML = '';
+    this.slideCards.forEach((card, idx) => {
+      const slideNum = idx + 1;
+      const titleEl = card.querySelector('.slide-title');
+      const tagEl = card.querySelector('.slide-category-tag');
+      const title = titleEl ? titleEl.textContent.trim() : `Слайд ${slideNum}`;
+      const tag = tagEl ? tagEl.textContent.trim() : '';
+
+      const thumb = document.createElement('div');
+      thumb.className = `grid-slide-thumb ${slideNum === this.currentSlide ? 'current' : ''}`;
+      thumb.setAttribute('data-target-slide', slideNum);
+      thumb.innerHTML = `
+        <div class="thumb-header">
+          <span class="thumb-num">#${slideNum}</span>
+          ${tag ? `<span class="thumb-tag">${tag}</span>` : ''}
+        </div>
+        <div class="thumb-title">${title}</div>
+      `;
+
+      thumb.addEventListener('click', () => {
+        this.showSlide(slideNum);
+        this.toggleOverview();
+      });
+
+      this.overviewGrid.appendChild(thumb);
+    });
+  }
+
   showSlide(slideNum, playAudio = true) {
     if (slideNum < 1) slideNum = 1;
     if (slideNum > this.totalSlides) slideNum = this.totalSlides;
@@ -98,11 +152,11 @@ class OverviewDeckEngine {
 
     // Update controls
     if (this.counterEl) {
-      this.counterEl.innerHTML = `<strong>${String(slideNum).padStart(2, '0')}</strong> / ${String(this.totalSlides).padStart(2, '0')}`;
+      this.counterEl.textContent = `Слайд ${slideNum} / ${this.totalSlides}`;
     }
 
     if (this.progressFillEl) {
-      const pct = ((slideNum - 1) / (this.totalSlides - 1)) * 100;
+      const pct = ((slideNum - 1) / (this.totalSlides - 1 || 1)) * 100;
       this.progressFillEl.style.width = `${pct}%`;
     }
 
@@ -146,9 +200,9 @@ class OverviewDeckEngine {
 
   toggleSound() {
     this.audioEnabled = !this.audioEnabled;
-    if (this.btnSound) {
-      this.btnSound.classList.toggle('active', this.audioEnabled);
-      this.btnSound.innerHTML = this.audioEnabled ? '🔊' : '🔇';
+    if (this.btnVoice) {
+      this.btnVoice.classList.toggle('active', this.audioEnabled);
+      this.btnVoice.innerHTML = this.audioEnabled ? '<span class="btn-icon">🔊</span> Озвучка' : '<span class="btn-icon">🔇</span> Без звука';
     }
     if (!this.audioEnabled) {
       this.audioPlayer.pause();
@@ -161,15 +215,39 @@ class OverviewDeckEngine {
     this.overviewModalOpen = !this.overviewModalOpen;
     if (this.overviewModal) {
       this.overviewModal.classList.toggle('open', this.overviewModalOpen);
+      if (this.overviewModalOpen) {
+        // Highlight active thumbnail
+        const thumbs = this.overviewModal.querySelectorAll('.grid-slide-thumb');
+        thumbs.forEach(t => {
+          const num = parseInt(t.getAttribute('data-target-slide'), 10);
+          t.classList.toggle('current', num === this.currentSlide);
+        });
+      }
+    }
+  }
+
+  toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      document.exitFullscreen().catch(() => {});
     }
   }
 
   updateNotes(slideNum) {
     if (!this.notesBody) return;
     const activeCard = this.slideCards[slideNum - 1];
-    const notesData = activeCard ? activeCard.getAttribute('data-notes') : '';
-    if (notesData) {
-      this.notesBody.innerHTML = notesData;
+    if (!activeCard) return;
+
+    const notesElem = activeCard.querySelector('.speaker-notes-content');
+    const notesAttr = activeCard.getAttribute('data-notes');
+
+    if (notesElem) {
+      this.notesBody.innerHTML = notesElem.innerHTML;
+    } else if (notesAttr) {
+      this.notesBody.innerHTML = notesAttr;
+    } else {
+      this.notesBody.innerHTML = '<p style="color:var(--text-muted);">Заметки диктора для этого слайда отсутствуют.</p>';
     }
   }
 }

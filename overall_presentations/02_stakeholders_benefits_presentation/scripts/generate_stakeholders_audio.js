@@ -10,7 +10,7 @@ const path = require('path');
 const { generateAudioForPresentation } = require('../../../scripts/core/tts_generator');
 
 const presentationDir = path.join(__dirname, '..');
-const narrationFile = path.join(presentationDir, 'docs', 'turbase_stakeholders_presentation_narration.md');
+const narrationFile = path.join(presentationDir, 'docs', 'presentation_deck.md');
 const outputDir = path.join(presentationDir, 'audio');
 const tempDir = path.join(presentationDir, 'temp_audio_segments');
 

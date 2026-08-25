@@ -26,13 +26,15 @@ if (!fs.existsSync(docsDir)) {
   process.exit(1);
 }
 
-const mdFiles = fs.readdirSync(docsDir).filter(f => f.endsWith('narration.md'));
-if (mdFiles.length === 0) {
-  console.error(`Error: No *narration.md file found in ${docsDir}`);
-  process.exit(1);
+let narrationFile = path.join(docsDir, 'presentation_deck.md');
+if (!fs.existsSync(narrationFile)) {
+  const mdFiles = fs.readdirSync(docsDir).filter(f => f.endsWith('narration.md') || f.endsWith('deck.md'));
+  if (mdFiles.length === 0) {
+    console.error(`Error: No presentation_deck.md or *narration.md file found in ${docsDir}`);
+    process.exit(1);
+  }
+  narrationFile = path.join(docsDir, mdFiles[0]);
 }
-
-const narrationFile = path.join(docsDir, mdFiles[0]);
 const outputDir = path.join(targetDir, 'audio');
 const tempDir = path.join(targetDir, 'temp_audio_segments');
 

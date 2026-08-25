@@ -30,29 +30,36 @@ const globalNodePath = process.env.NODE_PATH || execSync('npm root -g', { encodi
 const env = { ...process.env, NODE_PATH: globalNodePath };
 
 try {
-  // 1. Audio Generation
-  console.log(`[Step 1/4] Generating TTS Audio...`);
+  // 1. Web Deck HTML Compilation from Markdown
+  console.log(`[Step 1/5] Compiling Web Deck (index.html) from Markdown...`);
+  execSync(`node "${path.join(scriptsDir, 'build_deck_html.js')}" "${targetDir}"`, {
+    stdio: 'inherit',
+    env
+  });
+
+  // 2. Audio Generation
+  console.log(`\n[Step 2/5] Generating TTS Audio...`);
   execSync(`node "${path.join(scriptsDir, 'generate_audio.js')}" "${targetDir}" all ${forceAudio ? '--force' : ''}`, {
     stdio: 'inherit',
     env
   });
 
-  // 2. Slide Screenshots Capture
-  console.log(`\n[Step 2/4] Capturing 1920x1080 Slide Screenshots...`);
+  // 3. Slide Screenshots Capture
+  console.log(`\n[Step 3/5] Capturing 1920x1080 Slide Screenshots...`);
   execSync(`node "${path.join(scriptsDir, 'capture_slides.js')}" "${targetDir}"`, {
     stdio: 'inherit',
     env
   });
 
-  // 3. Handout Notes PDF Generation
-  console.log(`\n[Step 3/4] Compiling Executive Notes PDF Handout...`);
+  // 4. Handout Notes PDF Generation
+  console.log(`\n[Step 4/5] Compiling Executive Notes PDF Handout...`);
   execSync(`node "${path.join(scriptsDir, 'build_handout_pdf.js')}" "${targetDir}"`, {
     stdio: 'inherit',
     env
   });
 
-  // 4. Video Rendering (Multi-profile: 10mb, email, master)
-  console.log(`\n[Step 4/4] Rendering Multi-Profile MP4 Videos...`);
+  // 5. Video Rendering (Multi-profile: 10mb, email, master)
+  console.log(`\n[Step 5/5] Rendering Multi-Profile MP4 Videos...`);
   execSync(`node "${path.join(scriptsDir, 'build_video.js')}" "${targetDir}" all`, {
     stdio: 'inherit',
     env
