@@ -47,7 +47,7 @@ function buildSegment(slideNum, profile, config) {
 
   const leadMs = Math.round(leadSilence * 1000);
 
-  let vcodec = 'libx264 -pix_fmt yuv420p';
+  let vcodec = 'libx264 -preset veryfast -pix_fmt yuv420p';
   let scale = profile === '10mb' ? '-vf "scale=1280:720"' : '-vf "scale=1920:1080"';
   let fps = profile === '10mb' ? '-r 20' : '-r 30';
   let crf = profile === '10mb' ? '-crf 28' : (profile === 'email' ? '-crf 24' : '-crf 18');
@@ -58,6 +58,10 @@ function buildSegment(slideNum, profile, config) {
   const cmd = `ffmpeg -y -loop 1 -i "${imgPath}" -i "${audioPath}" -filter_complex "${filterComplex}" -map 0:v -map "[a]" -c:v ${vcodec} ${scale} ${fps} ${crf} -c:a aac ${audioBitrate} -t ${totalDur.toFixed(3)} "${outSegment}"`;
   execSync(cmd, { stdio: 'ignore' });
 
+  if (!fs.existsSync(outSegment)) {
+    throw new Error(`FFmpeg failed to create segment: ${outSegment}`);
+  }
+
   console.log(`  [✓] Slide ${padded}/${slideCount} encoded (Speech: ${rawAudioDur.toFixed(1)}s, Total: ${totalDur.toFixed(1)}s | Lead: ${leadSilence}s, Trail: ${trailSilence}s)`);
   return `file 'segment_${padded}.mp4'`;
 }
@@ -65,7 +69,8 @@ function buildSegment(slideNum, profile, config) {
 function buildVideo(profile = 'email', config = {}) {
   const slidesDir = config.slidesDir;
   const audioDir = config.audioDir;
-  const tempDir = config.tempDir || path.join(path.dirname(slidesDir), 'temp_video');
+  const rootTempDir = config.tempDir || path.join(path.dirname(slidesDir), 'temp_video');
+  const tempDir = path.join(rootTempDir, `temp_${profile}_${Date.now()}_${Math.floor(Math.random() * 10000)}`);
   const videoExportsDir = config.videoExportsDir || path.join(path.dirname(slidesDir), 'video_exports');
   const slideCount = config.slideCount || 10;
   const baseName = config.baseName || 'presentation';
@@ -99,12 +104,10 @@ function buildVideo(profile = 'email', config = {}) {
   const concatCmd = `ffmpeg -y -f concat -safe 0 -i "${concatListPath}" -c copy "${finalVideoPath}"`;
   execSync(concatCmd, { stdio: 'ignore' });
 
-  // Clean up temporary segments
+  // Clean up temporary isolated segment directory
   try {
-    fs.unlinkSync(concatListPath);
-    for (let i = 1; i <= slideCount; i++) {
-      const seg = path.join(tempDir, `segment_${String(i).padStart(2, '0')}.mp4`);
-      if (fs.existsSync(seg)) fs.unlinkSync(seg);
+    if (fs.existsSync(tempDir)) {
+      fs.rmSync(tempDir, { recursive: true, force: true });
     }
   } catch (e) {}
 

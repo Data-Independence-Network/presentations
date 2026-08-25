@@ -145,24 +145,28 @@ function markdownToHtml(content) {
 async function buildWhitepaperPdf(config = {}) {
   const markdownPath = config.markdownPath;
   const outputPdfPath = config.outputPdfPath;
-  const tag = config.tag || 'Аналитический отчет &middot; Матрица выгод экосистемы';
-  const bannerTitle = config.bannerTitle || 'Платформа «Турбаза» — Аналитический отчет';
-  const bannerSubtitle = config.bannerSubtitle || 'Комплексный анализ выгод, рисков и компенсационных механизмов для участников экосистемы';
-  const headerTitle = config.headerTitle || 'ТУРБАЗА';
-  const headerSubtitle = config.headerSubtitle || 'Аналитический отчет для участников экосистемы';
-  const footerText = config.footerText || 'Платформа «Турбаза» — Суверенная трехуровневая архитектура и аналитическая матрица выгод';
-  const accentColor = config.accentColor || '#0284c7';
 
   if (!fs.existsSync(markdownPath)) {
     throw new Error(`Markdown file not found at ${markdownPath}`);
   }
 
+  const { parseFrontmatter } = require('./deck_builder');
+  const rawContent = fs.readFileSync(markdownPath, 'utf8');
+  const { meta, body } = parseFrontmatter(rawContent);
+
+  const tag = config.tag || meta.whitepaper_tag || meta.tag || 'Аналитический отчет &middot; Спецификация';
+  const bannerTitle = config.bannerTitle || meta.whitepaper_title || (meta.title && meta.subtitle ? `${meta.title} — ${meta.subtitle}` : (meta.title || 'Платформа «Турбаза»'));
+  const bannerSubtitle = config.bannerSubtitle || meta.whitepaper_subtitle || meta.subtitle || 'Суверенная трехуровневая архитектура данных';
+  const headerTitle = config.headerTitle || meta.header_title || 'ТУРБАЗА';
+  const headerSubtitle = config.headerSubtitle || meta.whitepaper_header_subtitle || meta.header_subtitle || meta.subtitle || 'Суверенная архитектура';
+  const footerText = config.footerText || meta.whitepaper_footer || (meta.title && meta.subtitle ? `${meta.title} — ${meta.subtitle}` : 'Платформа «Турбаза» — Суверенная трехуровневая архитектура данных');
+  const accentColor = config.accentColor || meta.accent_color || '#0284c7';
+
   const outputDir = path.dirname(outputPdfPath);
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
   const previewHtmlFile = path.join(outputDir, `${path.basename(outputPdfPath, '.pdf')}_preview.html`);
-  const mdContent = fs.readFileSync(markdownPath, 'utf8');
-  const bodyContent = markdownToHtml(mdContent);
+  const bodyContent = markdownToHtml(body || rawContent);
 
   const fullHtml = `<!DOCTYPE html>
 <html lang="ru">

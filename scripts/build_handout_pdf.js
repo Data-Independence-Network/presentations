@@ -35,37 +35,16 @@ if (!fs.existsSync(narrationMdPath)) {
   narrationMdPath = path.join(docsDir, mdFiles[0]);
 }
 
-// Check for existing notes PDF or generate canonical filename
-const existingPdf = fs.readdirSync(docsDir).find(f => f.endsWith('notes.pdf'));
-let outputPdfPath;
-if (existingPdf) {
-  outputPdfPath = path.join(docsDir, existingPdf);
-} else {
-  const baseName = path.basename(targetDir).replace(/^0\d+_/, '').replace(/_presentation$/, '');
-  outputPdfPath = path.join(docsDir, `turbase_${baseName}_presentation_notes.pdf`);
-}
+const baseName = path.basename(targetDir).replace(/_presentation$/, '');
+const outputPdfPath = path.join(docsDir, `${baseName}_notes.pdf`);
 
 const outputDir = path.dirname(outputPdfPath);
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-// Detect slide count from slides_png/ or default
-let slideCount = parseInt(args[2], 10);
-if (!slideCount || isNaN(slideCount)) {
-  if (fs.existsSync(slidesDir)) {
-    const pngs = fs.readdirSync(slidesDir).filter(f => f.startsWith('slide_') && f.endsWith('.png'));
-    if (pngs.length > 0) slideCount = pngs.length;
-  }
-}
-if (!slideCount) slideCount = 10;
-
-const headerSubtitle = args[1] || 'Суверенная трехуровневая архитектура данных';
-
 buildHandoutPdf({
   narrationMdPath,
   slidesDir,
-  outputPdfPath,
-  slideCount,
-  headerSubtitle
+  outputPdfPath
 }).catch(err => {
   console.error('[❌] PDF build error:', err);
   process.exit(1);

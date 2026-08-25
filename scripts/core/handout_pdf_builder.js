@@ -19,56 +19,46 @@ try {
 }
 
 function extractNarrationsAndTitles(mdContent) {
-  const slides = {};
-  const sections = mdContent.split(/#{1,3}\s*Слайд\s*(\d+):?/i);
-  
-  for (let i = 1; i < sections.length; i += 2) {
-    const slideNum = parseInt(sections[i], 10);
-    const content = sections[i + 1];
+  const { parseSlides, parseFrontmatter } = require('./deck_builder');
+  const { meta, body } = parseFrontmatter(mdContent);
+  const slides = parseSlides(body || mdContent);
 
-    // Extract title line
-    const titleLine = content.trim().split('\n')[0].replace(/^\*?\*?Заголовок:\*?\*?\s*/i, '').trim();
-    
-    // Extract narration text
-    const marker = 'Текст для диктора';
-    const idx = content.indexOf(marker);
-    if (idx === -1) continue;
-
-    const after = content.slice(idx);
-    const lineEnd = after.indexOf('\n');
-    let rawText = after.slice(lineEnd + 1).split(/\n---/)[0].trim();
-
-    // Clean blockquotes and split into distinct paragraphs
-    const paragraphs = rawText
+  const slideData = {};
+  slides.forEach(slide => {
+    const rawParagraphs = (slide.narration || '')
       .split(/\n\s*>*\s*\n/)
-      .map(p => p.split('\n').map(l => l.replace(/^>\s*/, '').trim()).filter(Boolean).join(' '))
+      .map(p => p.split('\n').map(l => l.replace(/^>\s*/, '').replace(/^\(Narration\):?/i, '').trim()).filter(Boolean).join(' '))
       .map(p => p.replace(/[«»"]/g, '"').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\*(.*?)\*/g, '<em>$1</em>'))
       .filter(Boolean);
 
-    slides[slideNum] = {
-      title: titleLine,
-      paragraphs: paragraphs
+    slideData[slide.slideNum] = {
+      title: slide.title || `Слайд ${slide.slideNum}`,
+      paragraphs: rawParagraphs
     };
-  }
-  return slides;
+  });
+  return { meta, slideData };
 }
 
 async function buildHandoutPdf(config = {}) {
   const narrationMdPath = config.narrationMdPath;
   const slidesDir = config.slidesDir;
   const outputPdfPath = config.outputPdfPath;
-  const slideCount = config.slideCount || 10;
-  const headerSubtitle = config.headerSubtitle || 'Выгоды платформы для стейкхолдеров';
-  const footerTitle = config.footerTitle || 'Платформа «Турбаза» — Суверенная трехуровневая архитектура';
+
+  const mdContent = fs.readFileSync(narrationMdPath, 'utf8');
+  const { meta, slideData } = extractNarrationsAndTitles(mdContent);
+
+  const slideCount = config.slideCount || Object.keys(slideData).length || meta.total_slides || 15;
+  const headerLogo = config.headerLogo || meta.header_title || 'ТУРБАЗА';
+  const headerSubtitle = config.headerSubtitle || meta.handout_header_subtitle || meta.header_subtitle || meta.subtitle || 'Суверенная инфраструктура данных';
+  const footerTitle = config.footerTitle || meta.handout_footer_title || (meta.title && meta.subtitle ? `${meta.title} — ${meta.subtitle}` : 'Платформа «Турбаза»');
+  const baseFontSize = config.baseFontSize || meta.handout_font_size || '12.5pt';
+
   const outputDir = path.dirname(outputPdfPath);
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
   }
 
   const previewHtmlFile = path.join(outputDir, 'notes_preview.html');
-
-  const mdContent = fs.readFileSync(narrationMdPath, 'utf8');
-  const slideData = extractNarrationsAndTitles(mdContent);
 
   let pagesHtml = '';
 
@@ -87,7 +77,7 @@ async function buildHandoutPdf(config = {}) {
     pagesHtml += `
       <div class="handout-page">
         <div class="page-header">
-          <div class="header-logo">🌲 <strong>ТУРБАЗА</strong> <span class="header-sep">|</span> ${headerSubtitle}</div>
+          <div class="header-logo">🌲 <strong>${headerLogo}</strong> <span class="header-sep">|</span> ${headerSubtitle}</div>
           <div class="header-slide-num">Слайд ${i} из ${slideCount}</div>
         </div>
 

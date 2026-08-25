@@ -39,7 +39,8 @@ text_to_speech_mcp_Open_API_key.txt
 !**/docs/AGENTS.md
 !**/video_exports/AGENTS.md
 
-# --- Temporary & Build Directories ---
+# --- Temporary & Build Directories & Build Caches ---
+**/.build_cache.json
 **/temp_audio_segments/
 **/temp_video/
 **/individual_slide_pdfs/

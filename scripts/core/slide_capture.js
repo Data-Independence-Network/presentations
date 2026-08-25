@@ -78,13 +78,33 @@ async function captureSlides(config = {}) {
         padding: 48px 72px !important;
         box-shadow: none !important;
         border-radius: 0 !important;
+        display: none !important;
+        opacity: 0 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .slide-card.active {
+        display: flex !important;
+        opacity: 1 !important;
       }
     `;
     document.head.appendChild(style);
   });
 
-  for (let i = 1; i <= slideCount; i++) {
+  const slideList = Array.isArray(config.targetSlides) && config.targetSlides.length > 0
+    ? config.targetSlides
+    : Array.from({ length: slideCount }, (_, idx) => idx + 1);
+
+  for (const i of slideList) {
     await page.evaluate((slideNum) => {
+      const cards = document.querySelectorAll('.slide-card');
+      cards.forEach((card, idx) => {
+        if (idx + 1 === slideNum) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
       if (typeof window.showSlide === 'function') {
         window.showSlide(slideNum);
       }
@@ -100,7 +120,7 @@ async function captureSlides(config = {}) {
   }
 
   await browser.close();
-  console.log(`[🎉] All ${slideCount} slides successfully captured in ${outputDir}!`);
+  console.log(`[🎉] Captured ${slideList.length} slide screenshot(s) in ${outputDir}!`);
 }
 
 module.exports = {

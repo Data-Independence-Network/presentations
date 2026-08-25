@@ -1,0 +1,14 @@
+{
+  "name": "turbase-presentations",
+  "version": "1.0.0",
+  "description": "Turbase Sovereign Presentation Suite, Interactive Decks & Media Generation Engine",
+  "private": true,
+  "scripts": {
+    "gen-overall-architecture": "node scripts/regenerate.js overall_presentations/01_sovereign_architecture_presentation",
+    "gen-overall-stakeholder": "node scripts/regenerate.js overall_presentations/02_stakeholders_benefits_presentation",
+    "gen-overall-stakeholder-doc": "node overall_presentations/02_stakeholders_benefits_presentation/scripts/generate_stakeholders_matrix_pdf.js",
+    "gen-overall-architecture-doc": "node overall_presentations/01_sovereign_architecture_presentation/scripts/generate_architecture_doc_pdf.js",
+    "regenerate-all": "node scripts/regenerate.js all",
+    "regenerate-all:force": "node scripts/regenerate.js all --full-regeneration"
+  }
+}

@@ -122,14 +122,31 @@ function parseSlides(body) {
 
     // Extract Speaker Narration
     let narration = '';
-    const narrationSection = chunk.match(/(?:###\s*Текст для диктора|###\s*\[SPEAKER_NOTES\])([\s\S]*?)(?=---|$)/i);
+    const narrationSection = chunk.match(/(?:###\s*Текст для диктора[^\n]*|###\s*\[SPEAKER_NOTES\][^\n]*)([\s\S]*?)(?=---|$)/i);
     if (narrationSection) {
       narration = narrationSection[1]
         .split('\n')
-        .map(l => l.replace(/^>\s*/, '').trim())
+        .map(l => l.replace(/^>\s*/, '').replace(/^\(Narration\):?/i, '').trim())
         .filter(Boolean)
         .join('\n\n')
         .replace(/[«»"]/g, '"');
+    }
+
+    // Check if chunk has direct rich HTML slide content before narration
+    let rawHtmlBody = '';
+    const beforeNarration = chunk.split(/(?:###\s*Текст для диктора|###\s*\[SPEAKER_NOTES\])/i)[0].trim();
+    if (beforeNarration.includes('<div') || beforeNarration.includes('<table') || beforeNarration.includes('<section')) {
+      rawHtmlBody = beforeNarration;
+      
+      const titleTagMatch = rawHtmlBody.match(/<h[12][^>]*class="[^"]*slide-title[^"]*"[^>]*>([\s\S]*?)<\/h[12]>/i) ||
+                            rawHtmlBody.match(/<h[12][^>]*>([\s\S]*?)<\/h[12]>/i);
+      if (titleTagMatch) title = titleTagMatch[1].replace(/<[^>]+>/g, '').trim();
+
+      const tagTagMatch = rawHtmlBody.match(/<(?:div|span)[^>]*class="[^"]*(?:slide-tag|slide-category-tag)[^"]*"[^>]*>([\s\S]*?)<\/(?:div|span)>/i);
+      if (tagTagMatch) tag = tagTagMatch[1].replace(/<[^>]+>/g, '').trim();
+
+      const subTagMatch = rawHtmlBody.match(/<p[^>]*class="[^"]*slide-subtitle[^"]*"[^>]*>([\s\S]*?)<\/p>/i);
+      if (subTagMatch) subtitle = subTagMatch[1].replace(/<[^>]+>/g, '').trim();
     }
 
     slides.push({
@@ -138,6 +155,7 @@ function parseSlides(body) {
       title: title || `Слайд ${slideNum}`,
       subtitle: subtitle || '',
       badge: badge || '',
+      rawHtmlBody: rawHtmlBody || '',
       visualHtml: visualHtml || '<div class="visual-empty"></div>',
       contentHtml: contentHtml || '<div class="content-empty"></div>',
       narration: narration || ''
@@ -180,9 +198,7 @@ function compileDeckHtml(presentationDir, options = {}) {
     const activeClass = sIdx === 0 ? 'active' : '';
     const badgeHtml = slide.badge ? `<div class="kpi-badge">${escapeHtml(slide.badge)}</div>` : '';
 
-    slidesHtml += `
-      <!-- ==================== СЛАЙД ${slide.slideNum} ==================== -->
-      <section class="slide-card ${activeClass}" data-slide="${slide.slideNum}">
+    const slideBody = slide.rawHtmlBody ? slide.rawHtmlBody : `
         <div class="slide-top-bar">
           <div class="slide-header-content">
             <span class="slide-category-tag">${escapeHtml(slide.tag)}</span>
@@ -200,6 +216,12 @@ function compileDeckHtml(presentationDir, options = {}) {
             ${slide.contentHtml}
           </div>
         </div>
+    `;
+
+    slidesHtml += `
+      <!-- ==================== СЛАЙД ${slide.slideNum} ==================== -->
+      <section class="slide-card ${activeClass}" data-slide="${slide.slideNum}">
+        ${slideBody}
 
         <div class="speaker-notes-content" data-slide="${slide.slideNum}" style="display:none;">
           ${escapeHtml(slide.narration).replace(/\n\n/g, '<br/><br/>')}

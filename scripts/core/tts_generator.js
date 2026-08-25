@@ -20,7 +20,7 @@ const { cleanSubstitutions, ensureSilenceClip } = require('./utils');
 function parseSlideSegments(rawText, extraSubstitutions = []) {
   const rawParagraphs = rawText
     .split(/\n\s*>*\s*\n/)
-    .map(p => p.split('\n').map(l => l.replace(/^>\s*/, '').trim()).filter(Boolean).join(' '))
+    .map(p => p.split('\n').map(l => l.replace(/^>\s*/, '').replace(/^\(Narration\):?/i, '').trim()).filter(Boolean).join(' '))
     .filter(Boolean);
 
   const segments = [];
@@ -52,24 +52,57 @@ function parseSlideSegments(rawText, extraSubstitutions = []) {
 }
 
 function extractNarrationsFromMarkdown(mdContent, extraSubstitutions = []) {
+  const { parseSlides, parseFrontmatter } = require('./deck_builder');
+  const { body } = parseFrontmatter(mdContent);
+  const slides = parseSlides(body || mdContent);
+
   const narrations = {};
-  const slideSections = mdContent.split(/#{1,3}\s*Слайд\s*(\d+)/i);
-  
-  for (let i = 1; i < slideSections.length; i += 2) {
-    const slideNum = parseInt(slideSections[i], 10);
-    const content = slideSections[i + 1];
-
-    const marker = 'Текст для диктора';
-    const idx = content.indexOf(marker);
-    if (idx === -1) continue;
-
-    const after = content.slice(idx);
-    const lineEnd = after.indexOf('\n');
-    let rawText = after.slice(lineEnd + 1).split(/\n---/)[0].trim();
-
-    narrations[slideNum] = parseSlideSegments(rawText, extraSubstitutions);
-  }
+  slides.forEach(slide => {
+    if (slide.narration) {
+      narrations[slide.slideNum] = parseSlideSegments(slide.narration, extraSubstitutions);
+    }
+  });
   return narrations;
+}
+
+function findApiKeyFile(startDir) {
+  let cur = path.resolve(startDir || process.cwd());
+  while (cur !== path.dirname(cur)) {
+    const candidate = path.join(cur, 'text_to_speech_mcp_Open_API_key.txt');
+    if (fs.existsSync(candidate)) {
+      return candidate;
+    }
+    cur = path.dirname(cur);
+  }
+  return null;
+}
+
+function getApiKey(options = {}) {
+  const keyFile = options.keyFile || findApiKeyFile(options.startDir || process.cwd());
+  if (!keyFile || !fs.existsSync(keyFile)) {
+    const expectedPath = path.resolve(process.cwd(), 'text_to_speech_mcp_Open_API_key.txt');
+    const err = new Error(
+      `\n[❌] FATAL ERROR: TTS API Key file is missing!\n` +
+      `    Expected location: ${expectedPath}\n` +
+      `    Audio generation cannot proceed without 'text_to_speech_mcp_Open_API_key.txt'.\n` +
+      `    Please create this file with a valid API key in the repository root.\n`
+    );
+    err.code = 'ERR_TTS_KEY_MISSING';
+    throw err;
+  }
+
+  const rawKey = fs.readFileSync(keyFile, 'utf8').trim();
+  if (!rawKey) {
+    const err = new Error(
+      `\n[❌] FATAL ERROR: TTS API Key file '${keyFile}' is empty!\n` +
+      `    Audio generation cannot proceed with an empty key file.\n` +
+      `    Please provide a valid API key inside 'text_to_speech_mcp_Open_API_key.txt'.\n`
+    );
+    err.code = 'ERR_TTS_KEY_EMPTY';
+    throw err;
+  }
+
+  return { key: rawKey, keyFile };
 }
 
 async function synthesizeSegment(text, filePath, options = {}) {
@@ -91,19 +124,37 @@ async function synthesizeSegment(text, filePath, options = {}) {
       await tts.ttsPromise(text, filePath);
       return true;
     } catch (err) {
-      if (attempt === 3) throw err;
+      if (attempt === 3) {
+        const fatalErr = new Error(
+          `\n[❌] FATAL ERROR: Audio synthesis failed for text: "${text.slice(0, 60)}..."\n` +
+          `    Reason: ${err.message}\n` +
+          `    Key file verified: ${options.keyFile || 'text_to_speech_mcp_Open_API_key.txt'}\n` +
+          `    Stopping all audio synthesis and halting parent build pipelines immediately.\n`
+        );
+        fatalErr.code = 'ERR_TTS_SYNTHESIS_FAILED';
+        fatalErr.originalError = err;
+        throw fatalErr;
+      }
       await new Promise(r => setTimeout(r, 1500));
     }
   }
 }
 
-async function generateSlideAudio(slideNum, segments, options = {}) {
+async function generateSlideAudio(slideNum, segmentsOrText, options = {}) {
+  // 1. Verify TTS API Key before performing any synthesis
+  const { key, keyFile } = getApiKey(options);
+  options = { ...options, apiKey: key, keyFile };
+
   const outputDir = options.outputDir;
   const tempDir = options.tempDir;
   const force = options.force || false;
 
   if (outputDir && !fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
   if (tempDir && !fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
+
+  const segments = typeof segmentsOrText === 'string'
+    ? parseSlideSegments(segmentsOrText, options.extraSubstitutions || [])
+    : segmentsOrText;
 
   const finalFilename = `slide_${String(slideNum).padStart(2, '0')}.mp3`;
   const finalFilePath = path.join(outputDir, finalFilename);
@@ -150,6 +201,10 @@ async function generateSlideAudio(slideNum, segments, options = {}) {
 }
 
 async function generateAudioForPresentation(config = {}) {
+  // Verify TTS API Key before processing
+  const { key, keyFile } = getApiKey(config);
+  config = { ...config, apiKey: key, keyFile };
+
   const narrationFile = config.narrationFile;
   const outputDir = config.outputDir;
   const tempDir = config.tempDir || path.join(path.dirname(outputDir), 'temp_audio_segments');
@@ -184,6 +239,8 @@ async function generateAudioForPresentation(config = {}) {
 }
 
 module.exports = {
+  getApiKey,
+  findApiKeyFile,
   parseSlideSegments,
   extractNarrationsFromMarkdown,
   synthesizeSegment,
