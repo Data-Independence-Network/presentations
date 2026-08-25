@@ -11,13 +11,12 @@ text_to_speech_mcp_Open_API_key.txt
 !.env.example
 
 # --- Generated Binary Artifacts (Deterministic Pipeline Outputs) ---
-# Audio
-*.mp3
+# Audio (Tracked in Git as pre-synthesized master assets)
 *.wav
 *.aac
 *.ogg
 
-# Video
+# Video (Deterministic FFmpeg render targets — excluded from git)
 *.mp4
 *.webm
 *.mov
@@ -36,7 +35,6 @@ text_to_speech_mcp_Open_API_key.txt
 **/slides_png/*.jpeg
 **/slides_png/*.webp
 **/generated/artifacts/slides_png/*.png
-**/generated/artifacts/audio/*.mp3
 
 # Preserve documentation inside artifact directories
 !**/slides_png/AGENTS.md
