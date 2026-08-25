@@ -10,29 +10,30 @@ The Russian Federation is currently rebuilding its information infrastructure, d
 
 ```
 turbase_benefits_presentation/
-├── 01_sovereign_architecture_presentation/     # Презентация 1: Архитектура Цифрового Суверенитета
-│   ├── docs/                                    # Тексты диктора, визуальные планы, тезисы, PDF
-│   ├── web_deck/                                # Интерактивная веб-презентация (HTML5/CSS3/JS)
-│   ├── audio/                                   # Дикторская озвучка всех слайдов (MP3, нейросеть)
-│   ├── slides_png/                              # Высокочеткие слайды 1920x1080 (PNG)
-│   ├── scripts/                                 # Скрипты генерации аудио, захвата слайдов, PDF и видео
-│   ├── temp_video/                              # Временные сегменты сборки (в .gitignore)
-│   └── video_exports/                           # Финальные скомпилированные видео (в .gitignore)
+├── overall_presentations/
+│   ├── 01_sovereign_architecture_presentation/     # Презентация 1: Архитектура Цифрового Суверенитета
+│   │   ├── docs/                                    # Исходный Markdown (presentation_deck.md)
+│   │   ├── scripts/                                 # Скрипты генерации PDF и слайдов
+│   │   ├── regenerate.js                            # Локальный инкрементальный сборщик
+│   │   └── generated/                               # Все генерируемые файлы
+│   │       ├── artifacts/                           # Промежуточные материалы (audio/*.mp3, slides_png/*.png)
+│   │       └── outputs/                             # Финальные результаты (web_deck/, pdf/, video/)
+│   │
+│   └── 02_stakeholders_benefits_presentation/      # Презентация 2: Выгоды для 6 групп стейкхолдеров
+│       ├── docs/                                    # Исходный Markdown (presentation_deck.md, value_matrix.md)
+│       ├── scripts/                                 # Скрипты генерации PDF и слайдов
+│       ├── regenerate.js                            # Локальный инкрементальный сборщик
+│       └── generated/                               # Все генерируемые файлы
+│           ├── artifacts/                           # Промежуточные материалы (audio/*.mp3, slides_png/*.png)
+│           └── outputs/                             # Финальные результаты (web_deck/, pdf/, video/)
 │
-├── 02_stakeholders_benefits_presentation/      # Презентация 2: Выгоды для 6 групп стейкхолдеров
-│   ├── docs/                                    # Аналитический Whitepaper, Value Matrix, PDF
-│   ├── web_deck/                                # Интерактивная веб-презентация с крупными шрифтами
-│   ├── audio/                                   # Дикторская озвучка 15 слайдов (MP3)
-│   ├── slides_png/                              # 15 мобильно-оптимизированных слайдов 1920x1080 (PNG)
-│   ├── scripts/                                 # Скрипты захвата слайдов, генерации PDF и видео
-│   ├── temp_video/                              # Временные сегменты сборки (в .gitignore)
-│   └── video_exports/                           # Финальные видео MP4 (email, master, 10mb) (в .gitignore)
-│
-├── shared_docs/                                 # Общая техническая документация и спецификации
-│   └── Технический документ платформы Турбаза.md
-├── voice_samples/                               # Примеры нейросетевых голосов
-├── start_presentation.sh                        # Локальный веб-сервер для просмотра презентаций
-└── .gitignore                                   # Исключение временных и сгенерированных видеофайлов
+├── detailed_overall_impact_presentations/          # 10 детальных презентаций по участникам экосистемы
+├── shared_templates/                               # Общие дизайн-системы и движки веб-плеера
+├── scripts/                                        # Глобальные скрипты сборки и автоматизации
+│   └── core/                                       # Модули сборки (incremental_engine, tts, video, pdf)
+├── package.json                                    # NPM-скрипты инкрементальной сборки
+├── start_presentation.sh                           # Локальный веб-сервер для просмотра презентаций
+└── .gitignore                                      # Исключение временных и видеофайлов
 ```
 
 ---
@@ -44,8 +45,8 @@ turbase_benefits_presentation/
 ./start_presentation.sh
 ```
 Затем откройте в браузере:
-* **Презентация 1 (Архитектура):** `http://localhost:8080/01_sovereign_architecture_presentation/web_deck/`
-* **Презентация 2 (Стейкхолдеры):** `http://localhost:8080/02_stakeholders_benefits_presentation/web_deck/`
+* **Презентация 1 (Архитектура):** `http://localhost:8080/overall_presentations/01_sovereign_architecture_presentation/generated/outputs/web_deck/`
+* **Презентация 2 (Стейкхолдеры):** `http://localhost:8080/overall_presentations/02_stakeholders_benefits_presentation/generated/outputs/web_deck/`
 
 ---
 
