@@ -21,3 +21,13 @@ overall_presentations/
   `shared_templates/overview_presentation_deck/js/overview_deck_engine.js`
 - Ultra-large billboard typography scale ($\ge 50$px slide titles, $\ge 24$px body copy, $\ge 56$px KPI metrics).
 - High contrast, full-bleed 16:9 native canvas (1920x1080).
+
+---
+
+## 🚀 NPM Regeneration Commands
+```bash
+npm run gen-overall-architecture       # Rebuild 01 Architecture presentation
+npm run gen-overall-stakeholder        # Rebuild 02 Stakeholders presentation
+npm run gen-overall-stakeholder-doc    # Rebuild 02 Stakeholders Value Matrix PDF
+npm run gen-overall-architecture-doc   # Rebuild 01 Architecture Visuals PDF
+```

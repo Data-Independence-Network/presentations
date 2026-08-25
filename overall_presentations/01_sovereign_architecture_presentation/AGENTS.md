@@ -6,24 +6,28 @@ This directory contains all materials, assets, web presentation code, scripts, a
 ---
 
 ## 📁 Subdirectory Layout
-- **`docs/`**: Markdown scripts, visual layouts, speaker notes, and generated handout PDFs.
-- **`web_deck/`**: Interactive HTML5/CSS3/JavaScript slide player (`index.html`, `architecture.css`, `architecture.js`).
+- **`docs/`**: Single Source of Truth (`presentation_deck.md`), speaker notes, `01_sovereign_architecture_notes.pdf`, and `turbase_presentation_visuals.pdf`.
+- **`web_deck/`**: Interactive HTML5/CSS3/JavaScript slide player (`index.html`, compiled from `presentation_deck.md`).
 - **`audio/`**: Pre-synthesized MP3 audio tracks (`slide_01.mp3` .. `slide_15.mp3`).
 - **`slides_png/`**: 1920x1080 PNG slide images rendered from the web deck.
 - **`scripts/`**: Automated CLI tools for audio generation, slide capture, PDF handout compilation, and multi-profile video builds.
+- **`regenerate.js`**: Per-presentation smart incremental regenerator.
 - **`temp_video/`**: Intermediate FFmpeg segment renders (gitignored).
 - **`video_exports/`**: Final compiled MP4 video outputs (gitignored).
 
 ---
 
-## 🚀 Quick Execution Commands (from `scripts/`)
+## 🚀 Quick Execution Commands
 ```bash
-# Capture 1920x1080 slide screenshots
-node scripts/capture_slides.js
+# Incremental regeneration via NPM:
+npm run gen-overall-architecture
 
-# Generate speaker notes Handout PDF (A4)
-node scripts/generate_handout_pdf.js
+# Build Architecture Visuals Whitepaper PDF:
+npm run gen-overall-architecture-doc
 
-# Build video profiles (10mb, email, master, all)
-node scripts/build_presentation_video.js all
+# Generate speaker notes Handout PDF (A4):
+NODE_PATH=$(npm root -g) node scripts/generate_handout_pdf.js
+
+# Direct local incremental regeneration:
+node regenerate.js
 ```

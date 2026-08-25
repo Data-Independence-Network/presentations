@@ -26,12 +26,14 @@ turbase_benefits_presentation/
 │   └── 01_citizens_presentation/ ... 10_migration_roadmap_presentation/
 ├── shared_templates/                           # Reusable UI / Deck Design Systems & Engines
 │   └── overview_presentation_deck/             # Dark Sovereign billboard presentation engine
+├── package.json                                # NPM scripts for presentation & doc regeneration
 ├── scripts/                                    # Global build automation CLI & core engines
-│   ├── core/                                   # TTS, Playwright, PDF, FFmpeg builders
-│   └── build_all.js, build_video.js, etc.      # Unified CLI runners
+│   ├── core/                                   # Incremental engine, TTS, Playwright, PDF, FFmpeg builders
+│   └── regenerate.js, build_all.js, etc.       # Unified CLI runners
 ├── shared_docs/                                # Master technical whitepapers & specifications
+├── text_to_speech_mcp_Open_API_key.txt         # Required TTS API key file (gitignored)
 ├── start_presentation.sh                       # HTTP server launcher on port 8080
-└── .gitignore                                  # Video exports (*.mp4) & temp dirs excluded
+└── .gitignore                                  # Video exports (*.mp4), cache, & temp dirs excluded
 ```
 
 ---
@@ -41,11 +43,14 @@ turbase_benefits_presentation/
 - **Headless Browser:** Chrome Headless (`google-chrome --headless=new`), Playwright
 - **Media Processing:** FFmpeg & FFprobe (must be installed in PATH)
 - **TTS Engine:** Microsoft Edge Neural TTS (`node-edge-tts`) with voice `ru-RU-DmitryNeural` (-9% rate, -5Hz pitch)
+- **Incremental Engine:** SHA-256 content hashing + Git checkpoint caching (`.build_cache.json`) via `npm run regenerate-all` or `npm run gen-*`
 
 ---
 
 ## 📋 Agent Guidelines & Rules
-1. **Never commit binary videos (`*.mp4`) or temporary segment folders (`temp_video/`)**: All video builds are 100% deterministic and generated via scripts into `video_exports/`.
-2. **Preserve Relative Path Conventions**: All scripts within presentation subdirectories use relative traversal (`path.join(__dirname, '..', ...)`).
-3. **Typography & Mobile Readability Priority**: Presentation slides must adhere to the high-contrast billboard typography scale (Slide titles $\ge 50$px, body copy $\ge 24$px, cards $\ge 28$px) for readability on small mobile screens.
-4. **Git Hygiene**: When adding or moving files, ensure related assets and documentation are committed with clean, categorized messages.
+1. **NPM Task Execution**: Always prefer `npm run gen-*` or `npm run regenerate-all` for rebuilding presentations and documents.
+2. **TTS API Key Validation**: Audio synthesis strictly requires `text_to_speech_mcp_Open_API_key.txt` in repository root. If missing or empty, scripts immediately halt execution with a fatal error.
+3. **Never commit binary videos (`*.mp4`), cache files (`.build_cache.json`), or temporary segment folders (`temp_video/`)**: All video builds are 100% deterministic and generated via scripts into `video_exports/`.
+4. **Preserve Relative Path Conventions**: All scripts within presentation subdirectories use relative traversal (`path.join(__dirname, '..', ...)`).
+5. **Typography & Mobile Readability Priority**: Presentation slides must adhere to the high-contrast billboard typography scale (Slide titles $\ge 50$px, body copy $\ge 24$px, cards $\ge 28$px) for readability on small mobile screens.
+6. **Git Hygiene**: When adding or moving files, ensure related assets and documentation are committed with clean, categorized messages.

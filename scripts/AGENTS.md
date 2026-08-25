@@ -9,14 +9,17 @@ This directory hosts the shared core engine and top-level automation CLI scripts
 ```
 scripts/
 ├── core/
+│   ├── incremental_engine.js     # Smart SHA-256 + Git commit checkpoint diffing engine
+│   ├── deck_builder.js           # Markdown parser & Web Deck HTML compiler (SSoT)
 │   ├── utils.js                  # Phonetic substitutions, duration probing, silence clips
-│   ├── tts_generator.js          # Edge Neural TTS synthesis & slide audio concatenation
+│   ├── tts_generator.js          # Edge Neural TTS synthesis & slide audio concatenation (with key validation)
 │   ├── slide_capture.js          # Playwright 1920x1080 slide screenshot capturer
 │   ├── handout_pdf_builder.js    # Executive A4 Notes PDF Handout builder (Slide top + Narration bottom)
 │   ├── slides_pdf_builder.js     # Pure 16:9 Landscape Slide Deck PDF builder
 │   ├── whitepaper_pdf_builder.js # Executive Analytical Whitepaper / Value Matrix PDF builder (Mermaid, tables)
 │   └── video_builder.js          # Multi-profile MP4 builder (10mb, email, master)
 │
+├── regenerate.js                 # Universal CLI runner for incremental presentation regeneration
 ├── generate_audio.js             # CLI: Synthesize audio for any presentation directory
 ├── capture_slides.js             # CLI: Capture slides for any presentation directory
 ├── build_handout_pdf.js          # CLI: Build notes PDF for any presentation directory
@@ -30,24 +33,22 @@ scripts/
 
 ## 🛠️ Usage Examples
 ```bash
-# Generate audio for a presentation
-NODE_PATH=$(npm root -g) node scripts/generate_audio.js 02_stakeholders_benefits_presentation
+# Incremental smart rebuild via NPM:
+npm run gen-overall-architecture
+npm run gen-overall-stakeholder
+npm run gen-overall-stakeholder-doc
+npm run regenerate-all
 
-# Capture slides as 1920x1080 PNGs
-NODE_PATH=$(npm root -g) node scripts/capture_slides.js detailed_overall_impact_presentations/01_citizens_presentation
+# Direct CLI incremental regeneration:
+node scripts/regenerate.js overall_presentations/01_sovereign_architecture_presentation
+node scripts/regenerate.js all --full-regeneration
 
-# Build PDF notes handout (A4 with speaker notes)
-NODE_PATH=$(npm root -g) node scripts/build_handout_pdf.js detailed_overall_impact_presentations/01_citizens_presentation
+# Generate audio for a presentation (requires text_to_speech_mcp_Open_API_key.txt):
+NODE_PATH=$(npm root -g) node scripts/generate_audio.js overall_presentations/02_stakeholders_benefits_presentation
 
-# Build 16:9 pure slide deck PDF
-NODE_PATH=$(npm root -g) node scripts/build_slides_pdf.js detailed_overall_impact_presentations/01_citizens_presentation
+# Build PDF notes handout (A4 with speaker notes reading directly from deck.md):
+NODE_PATH=$(npm root -g) node scripts/build_handout_pdf.js overall_presentations/01_sovereign_architecture_presentation
 
-# Build executive whitepaper / value matrix PDF (with Mermaid diagrams)
-NODE_PATH=$(npm root -g) node scripts/build_whitepaper_pdf.js detailed_overall_impact_presentations/01_citizens_presentation/docs/turbase_citizens_value_matrix.md
-
-# Build all video profiles (10mb, email, master)
-node scripts/build_video.js detailed_overall_impact_presentations/01_citizens_presentation all
-
-# Run full end-to-end pipeline
-NODE_PATH=$(npm root -g) node scripts/build_all.js detailed_overall_impact_presentations/01_citizens_presentation
+# Build executive whitepaper / value matrix PDF (with Mermaid diagrams):
+NODE_PATH=$(npm root -g) node scripts/build_whitepaper_pdf.js overall_presentations/02_stakeholders_benefits_presentation/docs/turbase_stakeholders_value_matrix.md
 ```

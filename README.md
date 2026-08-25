@@ -49,28 +49,44 @@ turbase_benefits_presentation/
 
 ---
 
-## 🎬 Воспроизводимая сборка видео (Deterministic Video Build)
+## ⚡ Умная инкрементальная регенерация (NPM Scripts)
 
-Все видеофайлы генерируются на 100% детерминированно из PNG-слайдов и MP3-аудио.
+В репозитории реализован интеллектуальный движок инкрементальной сборки на основе SHA-256 хэшей контента (`presentation_deck.md`) и Git-чекпоинтов (`scripts/core/incremental_engine.js`):
 
-### Сборка видео Презентации 2 (Stakeholder Benefits):
 ```bash
-cd 02_stakeholders_benefits_presentation/scripts
-node build_stakeholders_video.js all
-```
-* **Выходные файлы (в `02_stakeholders_benefits_presentation/video_exports/`):**
-  * `turbase_stakeholders_email.mp4` (1080p, ~19 МБ)
-  * `turbase_stakeholders_master.mp4` (1080p, ~24 МБ)
-  * `turbase_stakeholders_10mb.mp4` (720p, ~7 МБ)
+# Регенерация презентации по Архитектуре (только изменившиеся слайды/аудио/видео)
+npm run gen-overall-architecture
 
-### Пересборка слайдов и PDF:
+# Регенерация презентации по Стейкхолдерам
+npm run gen-overall-stakeholder
+
+# Сборка аналитического отчета / Матрицы выгод стейкхолдеров (A4 Whitepaper PDF)
+npm run gen-overall-stakeholder-doc
+
+# Сборка архитектурного отчета / Спецификации визуальных схем (A4 Visuals PDF)
+npm run gen-overall-architecture-doc
+
+# Полная инкрементальная проверка всех презентаций репозитория
+npm run regenerate-all
+
+# Принудительная полная пересборка всех презентаций (с флагом --full-regeneration)
+npm run regenerate-all:force
+```
+
+---
+
+## 🎬 Воспроизводимая сборка медиа и документов
+
+Все артефакты генерируются на 100% детерминированно из единого источника истины (`docs/presentation_deck.md`):
+
+### Генерация раздаточного материала с речью диктора (Notes Handout PDF):
 ```bash
-# Захват слайдов 1920x1080
-node 02_stakeholders_benefits_presentation/scripts/capture_stakeholders_slides.js
-
-# Сборка представительского PDF Whitepaper (A4)
-node 02_stakeholders_benefits_presentation/scripts/generate_stakeholders_matrix_pdf.js
-
-# Сборка раздаточного материала с речью диктора (Notes Handout PDF)
-node 02_stakeholders_benefits_presentation/scripts/generate_stakeholders_handout_pdf.js
+NODE_PATH=$(npm root -g) node scripts/build_handout_pdf.js overall_presentations/01_sovereign_architecture_presentation
+NODE_PATH=$(npm root -g) node scripts/build_handout_pdf.js overall_presentations/02_stakeholders_benefits_presentation
 ```
+
+### Генерация дикторской озвучки (Neural TTS):
+```bash
+NODE_PATH=$(npm root -g) node scripts/generate_audio.js overall_presentations/01_sovereign_architecture_presentation all
+```
+> **Примечание:** Для синтеза аудио требуется наличие валидного ключа в `text_to_speech_mcp_Open_API_key.txt` в корне репозитория. При его отсутствии скрипт прерывает выполнение с фатальной ошибкой.
