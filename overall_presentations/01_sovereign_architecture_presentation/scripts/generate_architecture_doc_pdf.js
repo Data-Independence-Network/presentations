@@ -18,14 +18,7 @@ if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
 buildWhitepaperPdf({
   markdownPath,
-  outputPdfPath,
-  tag: 'Архитектурный отчет &middot; Спецификация визуальных схем',
-  bannerTitle: 'Платформа «Турбаза» — Архитектурные визуальные материалы',
-  bannerSubtitle: 'Спецификация 15 слайдов, векторные схемы Mermaid, топология дерева и ключевые опоры',
-  headerTitle: 'ТУРБАЗА',
-  headerSubtitle: 'Суверенная архитектура — Визуальные материалы',
-  footerText: 'Платформа «Турбаза» — Суверенная трехуровневая архитектура данных',
-  accentColor: '#0284c7'
+  outputPdfPath
 }).catch(err => {
   console.error('[❌] Error:', err);
   process.exit(1);

@@ -18,14 +18,7 @@ if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
 buildWhitepaperPdf({
   markdownPath,
-  outputPdfPath,
-  tag: 'Аналитический отчет &middot; Матрица выгод экосистемы',
-  bannerTitle: 'Платформа «Турбаза» — Аналитический отчет для участников экосистемы',
-  bannerSubtitle: 'Комплексный анализ выгод, рисков и компенсационных механизмов для стейкхолдеров',
-  headerTitle: 'ТУРБАЗА',
-  headerSubtitle: 'Выгоды платформы для участников экосистемы',
-  footerText: 'Платформа «Турбаза» — Суверенная трехуровневая архитектура и аналитическая матрица выгод',
-  accentColor: '#0284c7'
+  outputPdfPath
 }).catch(err => {
   console.error('[❌] Error:', err);
   process.exit(1);

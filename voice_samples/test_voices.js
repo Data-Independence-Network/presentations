@@ -2,7 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const OpenAI = require('/home/anastasiya/.gemini/mcp-servers/openai-tts/node_modules/openai');
 
-const apiKey = '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';
+const { getApiKey } = require('../scripts/core/tts_generator');
+
+const { key: apiKey, keyFile } = getApiKey();
+console.log(`[i] Loaded TTS API key from: ${keyFile}`);
+
 const openai = new OpenAI({ apiKey });
 
 const sampleText = "Архитектура «Турбаза» — это национальная суверенная инфраструктура данных, снижающая расходы на государственные дата-центры более чем в восемь раз.";
@@ -25,7 +29,8 @@ async function testVoice(voice) {
     fs.writeFileSync(filePath, buffer);
     console.log(`[✓] Generated ${voice}: ${(fs.statSync(filePath).size / 1024).toFixed(1)} KB`);
   } catch (err) {
-    console.log(`[✗] Failed ${voice}: ${err.message}`);
+    console.error(`\n[❌] FATAL ERROR: Audio generation failed for voice '${voice}' with key from ${keyFile}!\n    Reason: ${err.message}\n`);
+    throw err;
   }
 }
 
@@ -34,4 +39,7 @@ async function run() {
     await testVoice(v);
   }
 }
-run();
+run().catch(err => {
+  console.error('[❌] Halting voice testing execution.');
+  process.exit(1);
+});
