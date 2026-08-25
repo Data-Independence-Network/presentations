@@ -50,6 +50,28 @@ turbase_benefits_presentation/
 
 ---
 
+## 🛠️ Установка зависимостей (Debian / Ubuntu Linux)
+
+Для развертывания полного окружения сборки на Debian-подобных системах доступны два bash-скрипта:
+
+### 1. Установка базового окружения сборки (Offline Rebuild):
+Устанавливает `ffmpeg`, `python3`, шрифты, `Node.js`, `npm`, `playwright` и браузер Chromium:
+```bash
+./install_build_dependencies.sh
+# или через npm:
+npm run install:build
+```
+
+### 2. Установка окружения с синтезом речи (Neural TTS):
+Вызывает базовый установщик и дополнительно настраивает `node-edge-tts` и проверяет файл API-ключа `text_to_speech_mcp_Open_API_key.txt`:
+```bash
+./install_regen_dependencies.sh
+# или через npm:
+npm run install:regen
+```
+
+---
+
 ## ⚡ Автоматизация и сборка (NPM Scripts)
 
 В репозитории реализованы два уровня сборки:

@@ -29,7 +29,9 @@ turbase_benefits_presentation/
 ├── package.json                                # NPM scripts for presentation & doc regeneration
 ├── scripts/                                    # Global build automation CLI & core engines
 │   ├── core/                                   # Incremental engine, TTS, Playwright, PDF, FFmpeg builders
-│   └── regenerate.js, build_all.js, etc.       # Unified CLI runners
+│   └── rebuild.js, regenerate.js, etc.         # Unified CLI runners
+├── install_build_dependencies.sh               # Debian/Ubuntu bash installer for base build software
+├── install_regen_dependencies.sh               # Debian/Ubuntu bash installer for Neural TTS regeneration
 ├── shared_docs/                                # Master technical whitepapers & specifications
 ├── text_to_speech_mcp_Open_API_key.txt         # Required TTS API key file (gitignored)
 ├── start_presentation.sh                       # HTTP server launcher on port 8080

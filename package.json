@@ -17,6 +17,12 @@
     "regen-overall-stakeholder-doc": "node overall_presentations/02_stakeholders_benefits_presentation/scripts/generate_stakeholders_matrix_pdf.js",
     "regen-overall-architecture-doc": "node overall_presentations/01_sovereign_architecture_presentation/scripts/generate_architecture_doc_pdf.js",
     "regenerate-all": "node scripts/regenerate.js all",
-    "regenerate-all:force": "node scripts/regenerate.js all --full-regeneration"
+    "regenerate-all:force": "node scripts/regenerate.js all --full-regeneration",
+    "install:build": "./install_build_dependencies.sh",
+    "install:regen": "./install_regen_dependencies.sh"
+  },
+  "dependencies": {
+    "node-edge-tts": "^1.2.10",
+    "playwright": "^1.42.0"
   }
 }
