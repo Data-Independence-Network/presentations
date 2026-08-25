@@ -11,8 +11,8 @@ const { buildHandoutPdf } = require('../../../scripts/core/handout_pdf_builder')
 
 const presentationDir = path.join(__dirname, '..');
 const narrationMdPath = path.join(presentationDir, 'docs', 'presentation_deck.md');
-const slidesDir = path.join(presentationDir, 'slides_png');
-const outputPdfPath = path.join(presentationDir, 'docs', '01_sovereign_architecture_notes.pdf');
+const slidesDir = path.join(presentationDir, 'generated', 'artifacts', 'slides_png');
+const outputPdfPath = path.join(presentationDir, 'generated', 'outputs', 'pdf', '01_sovereign_architecture_notes.pdf');
 
 const outputDir = path.dirname(outputPdfPath);
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });

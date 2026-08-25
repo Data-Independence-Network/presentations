@@ -6,14 +6,17 @@ This directory contains all materials, assets, web presentation code, and automa
 ---
 
 ## 📁 Subdirectory Layout
-- **`docs/`**: Master analytical Whitepaper (`turbase_stakeholders_value_matrix.md`), Single Source of Truth (`presentation_deck.md`), executive PDF Whitepaper (`turbase_stakeholders_value_matrix.pdf`), and Notes Handout PDF (`02_stakeholders_benefits_notes.pdf`).
-- **`web_deck/`**: High-contrast, mobile-first billboard typography web presentation (`index.html`, compiled from `presentation_deck.md`).
-- **`audio/`**: Pre-synthesized MP3 audio narration files (`slide_01.mp3` .. `slide_15.mp3`).
-- **`slides_png/`**: 1920x1080 PNG slide images rendered with billboard-scale text for small-screen readability.
-- **`scripts/`**: CLI build scripts for audio generation, slide capture, PDF Whitepaper rendering, Notes Handout creation, and video builds.
+- **`docs/`**: Master analytical Whitepaper (`turbase_stakeholders_value_matrix.md`) and Single Source of Truth (`presentation_deck.md`).
+- **`scripts/`**: CLI build scripts for PDF rendering, slide capture, and video builds.
 - **`regenerate.js`**: Per-presentation smart incremental regenerator.
-- **`temp_video/`**: Intermediate FFmpeg segment renders (gitignored).
-- **`video_exports/`**: Final compiled MP4 video outputs (gitignored).
+- **`generated/`**:
+  - **`artifacts/`**:
+    - `audio/`: Pre-synthesized MP3 audio narration files (`slide_01.mp3` .. `slide_15.mp3`).
+    - `slides_png/`: 1920x1080 PNG slide images rendered with billboard-scale text.
+  - **`outputs/`**:
+    - `web_deck/`: High-contrast web presentation player (`index.html`, compiled from `presentation_deck.md`).
+    - `pdf/`: `turbase_stakeholders_value_matrix.pdf` and `02_stakeholders_benefits_notes.pdf`.
+    - `video/`: Final compiled MP4 video outputs (`email`, `10mb`, `master`).
 
 ---
 

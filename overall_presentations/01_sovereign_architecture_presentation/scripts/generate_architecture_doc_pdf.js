@@ -11,7 +11,7 @@ const { buildWhitepaperPdf } = require('../../../scripts/core/whitepaper_pdf_bui
 
 const presentationDir = path.join(__dirname, '..');
 const markdownPath = path.join(presentationDir, 'docs', 'presentation_deck.md');
-const outputPdfPath = path.join(presentationDir, 'docs', 'turbase_presentation_visuals.pdf');
+const outputPdfPath = path.join(presentationDir, 'generated', 'outputs', 'pdf', 'turbase_presentation_visuals.pdf');
 
 const outputDir = path.dirname(outputPdfPath);
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });

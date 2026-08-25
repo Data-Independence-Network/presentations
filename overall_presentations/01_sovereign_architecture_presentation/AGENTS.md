@@ -6,14 +6,17 @@ This directory contains all materials, assets, web presentation code, scripts, a
 ---
 
 ## 📁 Subdirectory Layout
-- **`docs/`**: Single Source of Truth (`presentation_deck.md`), speaker notes, `01_sovereign_architecture_notes.pdf`, and `turbase_presentation_visuals.pdf`.
-- **`web_deck/`**: Interactive HTML5/CSS3/JavaScript slide player (`index.html`, compiled from `presentation_deck.md`).
-- **`audio/`**: Pre-synthesized MP3 audio tracks (`slide_01.mp3` .. `slide_15.mp3`).
-- **`slides_png/`**: 1920x1080 PNG slide images rendered from the web deck.
-- **`scripts/`**: Automated CLI tools for audio generation, slide capture, PDF handout compilation, and multi-profile video builds.
+- **`docs/`**: Single Source of Truth (`presentation_deck.md`).
+- **`scripts/`**: Automated CLI tools for PDF generation, slide capture, and video builds.
 - **`regenerate.js`**: Per-presentation smart incremental regenerator.
-- **`temp_video/`**: Intermediate FFmpeg segment renders (gitignored).
-- **`video_exports/`**: Final compiled MP4 video outputs (gitignored).
+- **`generated/`**:
+  - **`artifacts/`**:
+    - `audio/`: Pre-synthesized MP3 audio tracks (`slide_01.mp3` .. `slide_15.mp3`).
+    - `slides_png/`: 1920x1080 PNG slide images rendered from the web deck.
+  - **`outputs/`**:
+    - `web_deck/`: Interactive HTML5 slide player (`index.html`, compiled from `presentation_deck.md`).
+    - `pdf/`: `01_sovereign_architecture_notes.pdf` and `turbase_presentation_visuals.pdf`.
+    - `video/`: Final compiled MP4 video outputs (`email`, `10mb`, `master`).
 
 ---
 
