@@ -43,17 +43,18 @@ turbase_benefits_presentation/
 - **Headless Browser:** Chrome Headless (`google-chrome --headless=new`), Playwright
 - **Media Processing:** FFmpeg & FFprobe (must be installed in PATH)
 - **TTS Engine:** Microsoft Edge Neural TTS (`node-edge-tts`) with voice `ru-RU-DmitryNeural` (-9% rate, -5Hz pitch)
-- **Incremental Engine:** SHA-256 content hashing + Git checkpoint caching (`generated/.build_cache.json`) via `npm run regenerate-all` or `npm run regen-*`
+- **Incremental Engine:** SHA-256 content hashing + Git checkpoint caching (`generated/.build_cache.json`) via `npm run rebuild-*` (offline) or `npm run regen-*` (with TTS synthesis).
 
 ---
 
 ## 📋 Agent Guidelines & Rules
-1. **NPM Task Execution**: Always prefer `npm run regen-overall` or `npm run regen-*` for rebuilding presentations and documents.
-2. **Standard Generated Layout**: All generated assets must reside strictly under `<presentation_dir>/generated/`:
+1. **NPM Task Execution**: Prefer `npm run rebuild-overall` or `npm run rebuild-*` for routine builds using committed `.mp3` audio (no API key needed). Use `npm run regen-*` only when narration text changes and new audio synthesis is required.
+2. **Master Audio in Git**: Pre-synthesized `.mp3` master audio tracks in `generated/artifacts/audio/` are tracked in Git so the entire suite can be built offline.
+3. **Standard Generated Layout**: All generated assets must reside strictly under `<presentation_dir>/generated/`:
    - `generated/artifacts/`: intermediate build assets (`audio/`, `slides_png/`, temporary segment renders).
    - `generated/outputs/`: final distributable deliverables (`web_deck/`, `pdf/`, `video/`).
-3. **TTS API Key Validation**: Audio synthesis strictly requires `text_to_speech_mcp_Open_API_key.txt` in repository root. If missing or empty, scripts immediately halt execution with a fatal error.
-4. **Never commit binary videos (`*.mp4`), cache files (`.build_cache.json`), or temporary segment folders**: All video builds are 100% deterministic and generated via scripts into `generated/outputs/video/`.
-5. **Preserve Relative Path Conventions**: All scripts within presentation subdirectories use relative traversal (`path.join(__dirname, '..', ...)`).
-6. **Typography & Mobile Readability Priority**: Presentation slides must adhere to the high-contrast billboard typography scale (Slide titles $\ge 50$px, body copy $\ge 24$px, cards $\ge 28$px) for readability on small mobile screens.
-7. **Git Hygiene**: When adding or moving files, ensure related assets and documentation are committed with clean, categorized messages.
+4. **TTS API Key Validation**: Audio synthesis strictly requires `text_to_speech_mcp_Open_API_key.txt` in repository root. If missing or empty during `regen-*`, scripts immediately halt execution with a fatal error.
+5. **Never commit binary videos (`*.mp4`), cache files (`.build_cache.json`), or temporary segment folders**: All video builds are 100% deterministic and generated via scripts into `generated/outputs/video/`.
+6. **Preserve Relative Path Conventions**: All scripts within presentation subdirectories use relative traversal (`path.join(__dirname, '..', ...)`).
+7. **Typography & Mobile Readability Priority**: Presentation slides must adhere to the high-contrast billboard typography scale (Slide titles $\ge 50$px, body copy $\ge 24$px, cards $\ge 28$px) for readability on small mobile screens.
+8. **Git Hygiene**: When adding or moving files, ensure related assets and documentation are committed with clean, categorized messages.

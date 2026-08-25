@@ -8,7 +8,8 @@ This directory contains all materials, assets, web presentation code, scripts, a
 ## 📁 Subdirectory Layout
 - **`docs/`**: Single Source of Truth (`presentation_deck.md`).
 - **`scripts/`**: Automated CLI tools for PDF generation, slide capture, and video builds.
-- **`regenerate.js`**: Per-presentation smart incremental regenerator.
+- **`rebuild.js`**: Offline asset rebuilder using committed audio tracks.
+- **`regenerate.js`**: Per-presentation smart incremental regenerator (with TTS).
 - **`generated/`**:
   - **`artifacts/`**:
     - `audio/`: Pre-synthesized MP3 audio tracks (`slide_01.mp3` .. `slide_15.mp3`).
@@ -22,15 +23,14 @@ This directory contains all materials, assets, web presentation code, scripts, a
 
 ## 🚀 Quick Execution Commands
 ```bash
-# Incremental regeneration via NPM:
-npm run regen-overall-architecture
+# Offline Rebuild (no API key needed):
+npm run rebuild-overall-architecture
+node rebuild.js
 
 # Build Architecture Visuals Whitepaper PDF:
-npm run regen-overall-architecture-doc
+npm run rebuild-overall-architecture-doc
 
-# Generate speaker notes Handout PDF (A4):
-NODE_PATH=$(npm root -g) node scripts/generate_handout_pdf.js
-
-# Direct local incremental regeneration:
+# Incremental regeneration with Neural TTS:
+npm run regen-overall-architecture
 node regenerate.js
 ```

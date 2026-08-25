@@ -19,7 +19,8 @@ scripts/
 │   ├── whitepaper_pdf_builder.js # Executive Analytical Whitepaper / Value Matrix PDF builder (Mermaid, tables)
 │   └── video_builder.js          # Multi-profile MP4 builder (10mb, email, master)
 │
-├── regenerate.js                 # Universal CLI runner for incremental presentation regeneration
+├── rebuild.js                    # Universal CLI runner for offline presentation rebuilding (uses committed audio)
+├── regenerate.js                 # Universal CLI runner for incremental presentation regeneration (with TTS)
 ├── generate_audio.js             # CLI: Synthesize audio for any presentation directory
 ├── capture_slides.js             # CLI: Capture slides for any presentation directory
 ├── build_handout_pdf.js          # CLI: Build notes PDF for any presentation directory
@@ -33,7 +34,15 @@ scripts/
 
 ## 🛠️ Usage Examples
 ```bash
-# Incremental smart rebuild via NPM:
+# Offline Rebuild (uses committed audio, no API key needed):
+npm run rebuild-overall
+npm run rebuild-overall-architecture
+npm run rebuild-overall-stakeholder
+npm run rebuild-overall-stakeholder-doc
+npm run rebuild-overall-architecture-doc
+npm run rebuild-all
+
+# Incremental regeneration with Neural TTS (requires API key):
 npm run regen-overall
 npm run regen-overall-architecture
 npm run regen-overall-stakeholder

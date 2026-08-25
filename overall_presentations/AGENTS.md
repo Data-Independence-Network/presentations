@@ -24,11 +24,17 @@ overall_presentations/
 
 ---
 
-## 🚀 NPM Regeneration Commands
+## 🚀 NPM Build & Regeneration Commands
 ```bash
-npm run regen-overall                  # Rebuild both master presentations and analytical PDFs
-npm run regen-overall-architecture     # Rebuild 01 Architecture presentation
-npm run regen-overall-stakeholder      # Rebuild 02 Stakeholders presentation
-npm run regen-overall-stakeholder-doc  # Rebuild 02 Stakeholders Value Matrix PDF
-npm run regen-overall-architecture-doc # Rebuild 01 Architecture Visuals PDF
+# Offline Rebuild (uses committed audio, no API key needed):
+npm run rebuild-overall                  # Rebuild both master presentations and analytical PDFs
+npm run rebuild-overall-architecture     # Rebuild 01 Architecture presentation
+npm run rebuild-overall-stakeholder      # Rebuild 02 Stakeholders presentation
+npm run rebuild-overall-stakeholder-doc  # Rebuild 02 Stakeholders Value Matrix PDF
+npm run rebuild-overall-architecture-doc # Rebuild 01 Architecture Visuals PDF
+
+# Full Regeneration with TTS Audio Synthesis:
+npm run regen-overall                  # Rebuild with fresh audio synthesis
+npm run regen-overall-architecture     # Rebuild 01 with fresh audio synthesis
+npm run regen-overall-stakeholder      # Rebuild 02 with fresh audio synthesis
 ```

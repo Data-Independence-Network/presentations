@@ -50,30 +50,48 @@ turbase_benefits_presentation/
 
 ---
 
-## ⚡ Умная инкрементальная регенерация (NPM Scripts)
+## ⚡ Автоматизация и сборка (NPM Scripts)
 
-В репозитории реализован интеллектуальный движок инкрементальной сборки на основе SHA-256 хэшей контента (`presentation_deck.md`) и Git-чекпоинтов (`scripts/core/incremental_engine.js`):
+В репозитории реализованы два уровня сборки:
+1. **`rebuild-*` (100% Offline сборка):** пересобирает веб-слайды, скриншоты 1920x1080, Handout PDF и MP4-видео, используя мастер-аудиофайлы `.mp3`, сохраненные в Git (не требует ключа TTS API).
+2. **`regen-*` (Регенерация с синтезом речи):** выполняет генерацию аудио через Neural TTS (требует `text_to_speech_mcp_Open_API_key.txt`) и затем вызывает цепочку `rebuild`.
 
+### 🔨 Offline Rebuild (без API ключа):
 ```bash
-# Комплексная регенерация всех мастер-презентаций и отчетов
-npm run regen-overall
+# Комплексная пересборка всех мастер-презентаций и отчетов
+npm run rebuild-overall
 
-# Регенерация презентации по Архитектуре (только изменившиеся слайды/аудио/видео)
-npm run regen-overall-architecture
+# Пересборка презентации по Архитектуре (HTML, PNG, Handout PDF, MP4 видео)
+npm run rebuild-overall-architecture
 
-# Регенерация презентации по Стейкхолдерам
-npm run regen-overall-stakeholder
+# Пересборка презентации по Стейкхолдерам
+npm run rebuild-overall-stakeholder
 
 # Сборка аналитического отчета / Матрицы выгод стейкхолдеров (A4 Whitepaper PDF)
-npm run regen-overall-stakeholder-doc
+npm run rebuild-overall-stakeholder-doc
 
 # Сборка архитектурного отчета / Спецификации визуальных схем (A4 Visuals PDF)
-npm run regen-overall-architecture-doc
+npm run rebuild-overall-architecture-doc
+
+# Пересборка всех презентаций репозитория
+npm run rebuild-all
+```
+
+### 🎙️ Полная регенерация с синтезом новой речи (требует ключ TTS):
+```bash
+# Комплексная регенерация всех мастер-презентаций и отчетов с проверкой аудио
+npm run regen-overall
+
+# Регенерация презентации по Архитектуре (с синтезом аудио)
+npm run regen-overall-architecture
+
+# Регенерация презентации по Стейкхолдерам (с синтезом аудио)
+npm run regen-overall-stakeholder
 
 # Полная инкрементальная проверка всех презентаций репозитория
 npm run regenerate-all
 
-# Принудительная полная пересборка всех презентаций (с флагом --full-regeneration)
+# Принудительный полный пересинтез всех презентаций
 npm run regenerate-all:force
 ```
 
