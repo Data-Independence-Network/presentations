@@ -18,7 +18,7 @@ if (args.length === 0) {
 
 const targetDir = path.resolve(args[0]);
 const docsDir = path.join(targetDir, 'docs');
-const webDeckDir = path.join(targetDir, 'web_deck');
+const webDeckDir = path.join(targetDir, 'generated', 'outputs', 'web_deck');
 
 if (!fs.existsSync(docsDir)) {
   console.error(`Error: docs directory not found at ${docsDir}`);
@@ -30,7 +30,7 @@ if (!fs.existsSync(webDeckDir)) {
 }
 
 try {
-  compileDeckHtml(targetDir);
+  compileDeckHtml(targetDir, { outputDir: webDeckDir });
 } catch (err) {
   console.error('[❌] Deck compilation error:', err.message);
   process.exit(1);

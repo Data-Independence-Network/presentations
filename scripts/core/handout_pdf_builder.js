@@ -40,9 +40,12 @@ function extractNarrationsAndTitles(mdContent) {
 }
 
 async function buildHandoutPdf(config = {}) {
-  const narrationMdPath = config.narrationMdPath;
-  const slidesDir = config.slidesDir;
-  const outputPdfPath = config.outputPdfPath;
+  const narrationMdPath = path.resolve(config.narrationMdPath);
+  const presentationDir = path.dirname(path.dirname(narrationMdPath));
+  const baseName = path.basename(presentationDir).replace(/_presentation$/, '');
+
+  const slidesDir = config.slidesDir || path.join(presentationDir, 'generated', 'artifacts', 'slides_png');
+  const outputPdfPath = config.outputPdfPath || path.join(presentationDir, 'generated', 'outputs', 'pdf', `${baseName}_notes.pdf`);
 
   const mdContent = fs.readFileSync(narrationMdPath, 'utf8');
   const { meta, slideData } = extractNarrationsAndTitles(mdContent);

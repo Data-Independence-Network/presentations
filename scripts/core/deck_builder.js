@@ -165,9 +165,21 @@ function parseSlides(body) {
   return slides.sort((a, b) => a.slideNum - b.slideNum);
 }
 
+function findRepoRoot(startDir) {
+  let cur = path.resolve(startDir || process.cwd());
+  while (cur !== path.dirname(cur)) {
+    if (fs.existsSync(path.join(cur, 'package.json')) || fs.existsSync(path.join(cur, 'shared_templates'))) {
+      return cur;
+    }
+    cur = path.dirname(cur);
+  }
+  return path.resolve(process.cwd());
+}
+
 function compileDeckHtml(presentationDir, options = {}) {
   const docsDir = path.join(presentationDir, 'docs');
-  const webDeckDir = path.join(presentationDir, 'web_deck');
+  const webDeckDir = options.outputDir || path.join(presentationDir, 'generated', 'outputs', 'web_deck');
+  const rootDir = findRepoRoot(presentationDir);
   
   if (!fs.existsSync(webDeckDir)) {
     fs.mkdirSync(webDeckDir, { recursive: true });
@@ -176,7 +188,7 @@ function compileDeckHtml(presentationDir, options = {}) {
   // Locate markdown file: presentation_deck.md or *deck.md or *narration.md
   let mdPath = path.join(docsDir, 'presentation_deck.md');
   if (!fs.existsSync(mdPath)) {
-    const mdFiles = fs.readdirSync(docsDir).filter(f => f.endsWith('.md'));
+    const mdFiles = fs.existsSync(docsDir) ? fs.readdirSync(docsDir).filter(f => f.endsWith('.md')) : [];
     const candidate = mdFiles.find(f => f.includes('deck') || f.includes('narration') || f.includes('outline'));
     if (candidate) mdPath = path.join(docsDir, candidate);
     else throw new Error(`No presentation markdown source found in ${docsDir}`);
@@ -187,7 +199,9 @@ function compileDeckHtml(presentationDir, options = {}) {
   const slides = parseSlides(body);
 
   const totalSlides = slides.length || meta.total_slides || 15;
-  const presentationBaseName = path.basename(presentationDir);
+
+  const sharedTemplatesRel = path.relative(webDeckDir, path.join(rootDir, 'shared_templates', 'overview_presentation_deck')).replace(/\\/g, '/');
+  const audioRel = path.relative(webDeckDir, path.join(presentationDir, 'generated', 'artifacts', 'audio')).replace(/\\/g, '/');
 
   // Check for local custom stylesheet or fallback to shared design system
   const localCss = fs.existsSync(path.join(webDeckDir, 'architecture.css')) ? 'architecture.css' :
@@ -241,8 +255,8 @@ function compileDeckHtml(presentationDir, options = {}) {
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- Shared Design System Tokens & Components -->
-  <link rel="stylesheet" href="../../shared_templates/overview_presentation_deck/css/overview_deck_base.css">
-  <link rel="stylesheet" href="../../shared_templates/overview_presentation_deck/css/overview_deck_components.css">
+  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_base.css">
+  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_components.css">
   ${localCss ? `<link rel="stylesheet" href="${localCss}">` : ''}
 
   <!-- Mermaid.js Vector Renderer -->
@@ -325,10 +339,13 @@ function compileDeckHtml(presentationDir, options = {}) {
   </div>
 
   <!-- Universal Presentation Engine (Single Shared Source) -->
-  <script src="../../shared_templates/overview_presentation_deck/js/overview_deck_engine.js"></script>
+  <script src="${sharedTemplatesRel}/js/overview_deck_engine.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      window.deckEngine = new OverviewDeckEngine({ totalSlides: ${totalSlides} });
+      window.deckEngine = new OverviewDeckEngine({
+        totalSlides: ${totalSlides},
+        audioPathPrefix: '${audioRel}/slide_'
+      });
     });
   </script>
 </body>
@@ -341,6 +358,7 @@ function compileDeckHtml(presentationDir, options = {}) {
 }
 
 module.exports = {
+  findRepoRoot,
   parseFrontmatter,
   parseSlides,
   compileDeckHtml

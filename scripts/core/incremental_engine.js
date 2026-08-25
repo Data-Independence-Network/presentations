@@ -29,12 +29,16 @@ function getGitCommitHash() {
 }
 
 function getCachePath(presentationDir) {
-  return path.join(presentationDir, '.build_cache.json');
+  const genDir = path.join(presentationDir, 'generated');
+  if (!fs.existsSync(genDir)) fs.mkdirSync(genDir, { recursive: true });
+  return path.join(genDir, '.build_cache.json');
 }
 
 function loadBuildCache(presentationDir) {
-  const cachePath = getCachePath(presentationDir);
-  if (!fs.existsSync(cachePath)) return null;
+  const primaryCache = path.join(presentationDir, 'generated', '.build_cache.json');
+  const legacyCache = path.join(presentationDir, '.build_cache.json');
+  const cachePath = fs.existsSync(primaryCache) ? primaryCache : (fs.existsSync(legacyCache) ? legacyCache : null);
+  if (!cachePath) return null;
   try {
     return JSON.parse(fs.readFileSync(cachePath, 'utf8'));
   } catch (e) {
@@ -100,10 +104,13 @@ function analyzePresentationChanges(presentationDir, options = {}) {
   const cache = loadBuildCache(presentationDir);
   const currentCommit = getGitCommitHash();
 
-  const audioDir = path.join(presentationDir, 'audio');
-  const slidesDir = path.join(presentationDir, 'slides_png');
-  const webDeckHtml = path.join(presentationDir, 'web_deck', 'index.html');
-  const videoExportsDir = path.join(presentationDir, 'video_exports');
+  const artifactsDir = path.join(presentationDir, 'generated', 'artifacts');
+  const outputsDir = path.join(presentationDir, 'generated', 'outputs');
+
+  const audioDir = path.join(artifactsDir, 'audio');
+  const slidesDir = path.join(artifactsDir, 'slides_png');
+  const webDeckHtml = path.join(outputsDir, 'web_deck', 'index.html');
+  const videoExportsDir = path.join(outputsDir, 'video');
 
   const dirtyVisuals = [];
   const dirtyAudio = [];
@@ -168,18 +175,28 @@ async function regeneratePresentation(presentationDir, options = {}) {
   console.log(`    - Web deck index.html:            ${analysis.dirtyDeck ? 'Dirty' : 'Clean'}`);
   console.log(`    - Handout PDF & Video exports:    ${analysis.dirtyHandout || analysis.dirtyVideo ? 'Dirty' : 'Clean'}\n`);
 
+  const artifactsDir = path.join(targetDir, 'generated', 'artifacts');
+  const outputsDir = path.join(targetDir, 'generated', 'outputs');
+  const audioDir = path.join(artifactsDir, 'audio');
+  const slidesDir = path.join(artifactsDir, 'slides_png');
+  const webDeckDir = path.join(outputsDir, 'web_deck');
+  const pdfDir = path.join(outputsDir, 'pdf');
+  const videoExportsDir = path.join(outputsDir, 'video');
+
+  [artifactsDir, outputsDir, audioDir, slidesDir, webDeckDir, pdfDir, videoExportsDir].forEach(d => {
+    if (!fs.existsSync(d)) fs.mkdirSync(d, { recursive: true });
+  });
+
   // Step 1: Compile Web Deck
   if (analysis.dirtyDeck) {
     console.log(`[1/5] Compiling Web Deck HTML...`);
-    compileDeckHtml(targetDir);
+    compileDeckHtml(targetDir, { outputDir: webDeckDir });
   }
 
   // Step 2: Targeted TTS Synthesis
   if (analysis.dirtyAudio.length > 0) {
     console.log(`\n[2/5] Synthesizing Neural TTS Audio for ${analysis.dirtyAudio.length} dirty slide(s)...`);
-    const audioDir = path.join(targetDir, 'audio');
-    const tempDir = path.join(targetDir, 'temp_audio_segments');
-    if (!fs.existsSync(audioDir)) fs.mkdirSync(audioDir, { recursive: true });
+    const tempDir = path.join(artifactsDir, 'temp_audio_segments');
     if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
 
     for (const slideNum of analysis.dirtyAudio) {
@@ -202,9 +219,7 @@ async function regeneratePresentation(presentationDir, options = {}) {
   // Step 3: Targeted Screenshot Capture
   if (analysis.dirtyVisuals.length > 0) {
     console.log(`\n[3/5] Capturing 1920x1080 screenshots for ${analysis.dirtyVisuals.length} dirty slide(s)...`);
-    const slidesDir = path.join(targetDir, 'slides_png');
-    const htmlPath = path.join(targetDir, 'web_deck', 'index.html');
-    if (!fs.existsSync(slidesDir)) fs.mkdirSync(slidesDir, { recursive: true });
+    const htmlPath = path.join(webDeckDir, 'index.html');
 
     await captureSlides({
       htmlPath,
@@ -219,9 +234,7 @@ async function regeneratePresentation(presentationDir, options = {}) {
   // Step 4: Handout Notes PDF
   if (analysis.dirtyHandout) {
     console.log(`\n[4/5] Updating Executive Notes Handout PDF...`);
-    const docsDir = path.join(targetDir, 'docs');
-    const outputPdfPath = path.join(docsDir, `${baseName.replace('_presentation', '')}_notes.pdf`);
-    const slidesDir = path.join(targetDir, 'slides_png');
+    const outputPdfPath = path.join(pdfDir, `${baseName.replace('_presentation', '')}_notes.pdf`);
 
     await buildHandoutPdf({
       narrationMdPath: analysis.fingerprints.mdPath,
@@ -232,19 +245,13 @@ async function regeneratePresentation(presentationDir, options = {}) {
 
   // Step 5: Multi-Profile Video Encoding
   if (analysis.dirtyVideo) {
-    const slidesDir = path.join(targetDir, 'slides_png');
-    const audioDir = path.join(targetDir, 'audio');
-    const tempDir = path.join(targetDir, 'temp_video');
-    const videoExportsDir = path.join(targetDir, 'video_exports');
-
     // Ensure audio exists for all slides before building video
     const hasAllAudio = Array.from({ length: analysis.totalSlides }, (_, i) => i + 1)
       .every(num => fs.existsSync(path.join(audioDir, `slide_${String(num).padStart(2, '0')}.mp3`)));
 
     if (hasAllAudio) {
       console.log(`\n[5/5] Re-encoding Multi-Profile MP4 Videos...`);
-      if (!fs.existsSync(videoExportsDir)) fs.mkdirSync(videoExportsDir, { recursive: true });
-      if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
+      const tempDir = path.join(artifactsDir, 'temp_video');
 
       buildMultiProfileVideo({
         slidesDir,

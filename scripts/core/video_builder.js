@@ -67,13 +67,15 @@ function buildSegment(slideNum, profile, config) {
 }
 
 function buildVideo(profile = 'email', config = {}) {
-  const slidesDir = config.slidesDir;
-  const audioDir = config.audioDir;
-  const rootTempDir = config.tempDir || path.join(path.dirname(slidesDir), 'temp_video');
+  const slidesDir = path.resolve(config.slidesDir);
+  const audioDir = path.resolve(config.audioDir);
+  const presentationDir = path.dirname(path.dirname(slidesDir));
+
+  const rootTempDir = config.tempDir || path.join(presentationDir, 'generated', 'artifacts', 'temp_video');
   const tempDir = path.join(rootTempDir, `temp_${profile}_${Date.now()}_${Math.floor(Math.random() * 10000)}`);
-  const videoExportsDir = config.videoExportsDir || path.join(path.dirname(slidesDir), 'video_exports');
+  const videoExportsDir = config.videoExportsDir || path.join(presentationDir, 'generated', 'outputs', 'video');
   const slideCount = config.slideCount || 10;
-  const baseName = config.baseName || 'presentation';
+  const baseName = config.baseName || path.basename(presentationDir).replace(/_presentation$/, '');
 
   if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
   if (!fs.existsSync(videoExportsDir)) fs.mkdirSync(videoExportsDir, { recursive: true });

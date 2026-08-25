@@ -19,13 +19,13 @@ if (args.length === 0) {
 const targetDir = path.resolve(args[0]);
 const profileArg = args[1] || 'all';
 
-const slidesDir = path.join(targetDir, 'slides_png');
-const audioDir = path.join(targetDir, 'audio');
-const tempDir = path.join(targetDir, 'temp_video');
-const videoExportsDir = path.join(targetDir, 'video_exports');
+const slidesDir = path.join(targetDir, 'generated', 'artifacts', 'slides_png');
+const audioDir = path.join(targetDir, 'generated', 'artifacts', 'audio');
+const tempDir = path.join(targetDir, 'generated', 'artifacts', 'temp_video');
+const videoExportsDir = path.join(targetDir, 'generated', 'outputs', 'video');
 
 if (!fs.existsSync(slidesDir) || !fs.existsSync(audioDir)) {
-  console.error(`Error: slides_png or audio directory not found in ${targetDir}`);
+  console.error(`Error: slides_png or audio directory not found in ${targetDir}/generated/artifacts/`);
   process.exit(1);
 }
 

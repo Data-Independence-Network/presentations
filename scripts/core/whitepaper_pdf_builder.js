@@ -144,11 +144,14 @@ function markdownToHtml(content) {
 
 async function buildWhitepaperPdf(config = {}) {
   const markdownPath = config.markdownPath;
-  const outputPdfPath = config.outputPdfPath;
-
-  if (!fs.existsSync(markdownPath)) {
+  if (!markdownPath || !fs.existsSync(markdownPath)) {
     throw new Error(`Markdown file not found at ${markdownPath}`);
   }
+
+  const absMdPath = path.resolve(markdownPath);
+  const docBaseName = path.basename(absMdPath, '.md');
+  const presentationDir = path.dirname(path.dirname(absMdPath));
+  const outputPdfPath = config.outputPdfPath || path.join(presentationDir, 'generated', 'outputs', 'pdf', `${docBaseName}.pdf`);
 
   const { parseFrontmatter } = require('./deck_builder');
   const rawContent = fs.readFileSync(markdownPath, 'utf8');

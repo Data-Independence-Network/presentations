@@ -17,8 +17,8 @@ if (args.length === 0) {
 }
 
 const targetDir = path.resolve(args[0]);
-const htmlPath = path.join(targetDir, 'web_deck', 'index.html');
-const outputDir = path.join(targetDir, 'slides_png');
+const htmlPath = path.join(targetDir, 'generated', 'outputs', 'web_deck', 'index.html');
+const outputDir = path.join(targetDir, 'generated', 'artifacts', 'slides_png');
 
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
@@ -30,7 +30,7 @@ if (!fs.existsSync(htmlPath)) {
 // Determine slide count from arg, or auto-detect from audio/ or web_deck
 let slideCount = parseInt(args[1], 10);
 if (!slideCount || isNaN(slideCount)) {
-  const audioDir = path.join(targetDir, 'audio');
+  const audioDir = path.join(targetDir, 'generated', 'artifacts', 'audio');
   if (fs.existsSync(audioDir)) {
     const audioFiles = fs.readdirSync(audioDir).filter(f => f.startsWith('slide_') && f.endsWith('.mp3'));
     if (audioFiles.length > 0) slideCount = audioFiles.length;

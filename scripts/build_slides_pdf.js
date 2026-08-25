@@ -17,15 +17,15 @@ if (args.length === 0) {
 }
 
 const targetDir = path.resolve(args[0]);
-const docsDir = path.join(targetDir, 'docs');
-const slidesDir = path.join(targetDir, 'slides_png');
+const slidesDir = path.join(targetDir, 'generated', 'artifacts', 'slides_png');
+const pdfDir = path.join(targetDir, 'generated', 'outputs', 'pdf');
 
-if (!fs.existsSync(docsDir)) {
-  fs.mkdirSync(docsDir, { recursive: true });
+if (!fs.existsSync(pdfDir)) {
+  fs.mkdirSync(pdfDir, { recursive: true });
 }
 
 const baseName = path.basename(targetDir).replace(/^0\d+_/, '').replace(/_presentation$/, '');
-const outputPdfPath = path.join(docsDir, `turbase_${baseName}_slides.pdf`);
+const outputPdfPath = path.join(pdfDir, `turbase_${baseName}_slides.pdf`);
 
 // Detect slide count from slides_png/ or default
 let slideCount = parseInt(args[1], 10);

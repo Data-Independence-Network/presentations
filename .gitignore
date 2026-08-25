@@ -26,23 +26,31 @@ text_to_speech_mcp_Open_API_key.txt
 # Documents & PDFs & Generated Web Decks
 *.pdf
 **/web_deck/index.html
+**/generated/outputs/web_deck/index.html
+**/generated/outputs/pdf/*.pdf
+**/generated/outputs/video/*.mp4
 
 # Captured Slide Screenshots (generated from HTML web decks)
 **/slides_png/*.png
 **/slides_png/*.jpg
 **/slides_png/*.jpeg
 **/slides_png/*.webp
+**/generated/artifacts/slides_png/*.png
+**/generated/artifacts/audio/*.mp3
 
 # Preserve documentation inside artifact directories
 !**/slides_png/AGENTS.md
 !**/audio/AGENTS.md
 !**/docs/AGENTS.md
 !**/video_exports/AGENTS.md
+!**/generated/**/AGENTS.md
 
 # --- Temporary & Build Directories & Build Caches ---
 **/.build_cache.json
+**/generated/.build_cache.json
 **/temp_audio_segments/
 **/temp_video/
+**/generated/artifacts/temp*/
 **/individual_slide_pdfs/
 **/video_exports/
 **/*_preview.html

@@ -35,8 +35,8 @@ if (!fs.existsSync(narrationFile)) {
   }
   narrationFile = path.join(docsDir, mdFiles[0]);
 }
-const outputDir = path.join(targetDir, 'audio');
-const tempDir = path.join(targetDir, 'temp_audio_segments');
+const outputDir = path.join(targetDir, 'generated', 'artifacts', 'audio');
+const tempDir = path.join(targetDir, 'generated', 'artifacts', 'temp_audio_segments');
 
 if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });

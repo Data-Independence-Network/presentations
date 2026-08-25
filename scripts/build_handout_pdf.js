@@ -18,7 +18,8 @@ if (args.length === 0) {
 
 const targetDir = path.resolve(args[0]);
 const docsDir = path.join(targetDir, 'docs');
-const slidesDir = path.join(targetDir, 'slides_png');
+const slidesDir = path.join(targetDir, 'generated', 'artifacts', 'slides_png');
+const pdfDir = path.join(targetDir, 'generated', 'outputs', 'pdf');
 
 if (!fs.existsSync(docsDir)) {
   console.error(`Error: Docs directory not found at ${docsDir}`);
@@ -36,10 +37,9 @@ if (!fs.existsSync(narrationMdPath)) {
 }
 
 const baseName = path.basename(targetDir).replace(/_presentation$/, '');
-const outputPdfPath = path.join(docsDir, `${baseName}_notes.pdf`);
+const outputPdfPath = path.join(pdfDir, `${baseName}_notes.pdf`);
 
-const outputDir = path.dirname(outputPdfPath);
-if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
+if (!fs.existsSync(pdfDir)) fs.mkdirSync(pdfDir, { recursive: true });
 
 buildHandoutPdf({
   narrationMdPath,
