@@ -10,7 +10,7 @@ The workspace is structured into high-level overview presentations, specialized 
 - **`detailed_overall_impact_presentations/`**: Complete suite of 10 specialized deep-dive presentations for individual ecosystem participants, cross-sector synergies, and phased legacy migration roadmap.
 - **`shared_templates/`**: Shared slide deck templates and design systems (`overview_presentation_deck/` for dark sovereign overview decks, and upcoming specialized styling for deep-dive decks).
 - **`scripts/`**: Global automation and media pipelines (`core/` engines for TTS, slide capture, handout PDF, slide deck PDF, whitepaper PDF, and video generation).
-- **`shared_docs/`**: Master technical documentation, whitepapers, and architectural specifications.
+- **`shared_docs/`**: Master technical documentation, whitepapers, architectural specifications, and **`comments/`** (human-written developer notes, historical rationale, and semantic labels dictionary [`LABELS.md`](file:///home/anastasiya/Documents/presentations/shared_docs/comments/LABELS.md)).
 - **`voice_samples/`**: Audio samples and evaluation scripts for neural voice synthesis.
 
 ---
@@ -33,6 +33,8 @@ turbase_benefits_presentation/
 ├── install_build_dependencies.sh               # Debian/Ubuntu bash installer for base build software
 ├── install_regen_dependencies.sh               # Debian/Ubuntu bash installer for Neural TTS regeneration
 ├── shared_docs/                                # Master technical whitepapers & specifications
+│   ├── comments/                               # Human-written developer notes & semantic label index (LABELS.md)
+│   └── Технический документ платформы Турбаза.md # Sovereign architecture whitepaper
 ├── text_to_speech_mcp_Open_API_key.txt         # Required TTS API key file (gitignored)
 ├── start_presentation.sh                       # HTTP server launcher on port 8080
 └── .gitignore                                  # Video exports (*.mp4), cache, & temp dirs excluded
@@ -60,3 +62,4 @@ turbase_benefits_presentation/
 6. **Preserve Relative Path Conventions**: All scripts within presentation subdirectories use relative traversal (`path.join(__dirname, '..', ...)`).
 7. **Typography & Mobile Readability Priority**: Presentation slides must adhere to the high-contrast billboard typography scale (Slide titles $\ge 50$px, body copy $\ge 24$px, cards $\ge 28$px) for readability on small mobile screens.
 8. **Git Hygiene**: When adding or moving files, ensure related assets and documentation are committed with clean, categorized messages.
+9. **Developer Notes & Semantic Labels (`shared_docs/comments/`)**: Notes in `shared_docs/comments/` are human-written records representing the developer's original vision, rationale, and conceptual evolution without AI. Agents must treat them as authoritative context, navigate them using the `%Label` semantic tag system (e.g. `%Repository`, `%Tree`, `%ForeignKey`, `%API`), and keep `shared_docs/comments/` strictly Read-Only.
