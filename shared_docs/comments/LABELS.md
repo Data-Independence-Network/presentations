@@ -10,21 +10,21 @@
 
 ## Метки
 
-%Repository - Хранилище
-%ForeignKey - Внешние ключи
-%RepositoryId - Ключ Хранилища
 %ActorId - Ключ Субъекта 
-%RecordId - Ключ Записи
-%UI - Интерфейс 
-%Screen - Экран
+%API - Общественная Оболочка
 %App - Приложение
+%Branch - Ветка
 %Cooperation - Взаимодействие
 %Database - База Данных
-%Join - SQL-соединение
-%API - Общественная Оболочка
-%Tree - Дерево
-%Queue - Очередь
+%ForeignKey - Внешние ключи
 %Internet - Интернет
-%User - Пользователь
-%Branch - Ветка
+%Join - SQL-соединение
 %Leaf - Лист
+%Queue - Очередь
+%RecordId - Ключ Записи
+%Repository - Хранилище
+%RepositoryId - Ключ Хранилища
+%Screen - Экран
+%Tree - Дерево
+%UI - Интерфейс 
+%User - Пользователь
