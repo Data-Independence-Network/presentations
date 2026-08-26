@@ -1306,7 +1306,7 @@ rate: "-9%"
           <div class="slide-header">
             <div class="slide-tag ref-tag">Академический реестр (3/3)</div>
             <h2 class="slide-title">Реестр первоисточников: Идентичность, Криптография и Стек</h2>
-            <p class="slide-subtitle">Фундаментальные стандарты сквозного шифрования, защиты идентичности и открытый репозиторий <span class="cite-tag">[15] — [20]</span></p>
+            <p class="slide-subtitle">Фундаментальные стандарты сквозного шифрования, защиты идентичности и открытое хранилище <span class="cite-tag">[15] — [20]</span></p>
           </div>
 
           <div class="slide-body">

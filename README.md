@@ -6,7 +6,7 @@ The Russian Federation is currently rebuilding its information infrastructure, d
 
 ---
 
-## 📁 Структура репозитория
+## 📁 Структура хранилища
 
 ```
 turbase_benefits_presentation/
@@ -74,7 +74,7 @@ npm run install:regen
 
 ## ⚡ Автоматизация и сборка (NPM Scripts)
 
-В репозитории реализованы два уровня сборки:
+В хранилищаи реализованы два уровня сборки:
 1. **`rebuild-*` (100% Offline сборка):** пересобирает веб-слайды, скриншоты 1920x1080, Handout PDF и MP4-видео, используя мастер-аудиофайлы `.mp3`, сохраненные в Git (не требует ключа TTS API).
 2. **`regen-*` (Регенерация с синтезом речи):** выполняет генерацию аудио через Neural TTS (требует `text_to_speech_mcp_Open_API_key.txt`) и затем вызывает цепочку `rebuild`.
 
@@ -95,7 +95,7 @@ npm run rebuild-overall-stakeholder-doc
 # Сборка архитектурного отчета / Спецификации визуальных схем (A4 Visuals PDF)
 npm run rebuild-overall-architecture-doc
 
-# Пересборка всех презентаций репозитория
+# Пересборка всех презентаций хранилища
 npm run rebuild-all
 ```
 
@@ -110,7 +110,7 @@ npm run regen-overall-architecture
 # Регенерация презентации по Стейкхолдерам (с синтезом аудио)
 npm run regen-overall-stakeholder
 
-# Полная инкрементальная проверка всех презентаций репозитория
+# Полная инкрементальная проверка всех презентаций хранилища
 npm run regenerate-all
 
 # Принудительный полный пересинтез всех презентаций
@@ -133,4 +133,4 @@ NODE_PATH=$(npm root -g) node scripts/build_handout_pdf.js overall_presentations
 ```bash
 NODE_PATH=$(npm root -g) node scripts/generate_audio.js overall_presentations/01_sovereign_architecture_presentation all
 ```
-> **Примечание:** Для синтеза аудио требуется наличие валидного ключа в `text_to_speech_mcp_Open_API_key.txt` в корне репозитория. При его отсутствии скрипт прерывает выполнение с фатальной ошибкой.
+> **Примечание:** Для синтеза аудио требуется наличие валидного ключа в `text_to_speech_mcp_Open_API_key.txt` в корне хранилища. При его отсутствии скрипт прерывает выполнение с фатальной ошибкой.
