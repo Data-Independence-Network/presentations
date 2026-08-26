@@ -57,14 +57,35 @@ function computePresentationFingerprints(presentationDir) {
   
   if (!fs.existsSync(mdPath)) {
     const mdFiles = fs.existsSync(docsDir) ? fs.readdirSync(docsDir).filter(f => f.endsWith('.md')) : [];
-    const candidate = mdFiles.find(f => f.includes('deck') || f.includes('narration') || f.includes('outline'));
-    if (candidate) mdPath = path.join(docsDir, candidate);
-    else throw new Error(`No presentation source Markdown found in ${docsDir}`);
+    const candidate = mdFiles.find(f => f === 'presentation_deck.md' || f.includes('deck'));
+    if (candidate) {
+      mdPath = path.join(docsDir, candidate);
+    } else {
+      return {
+        isValid: false,
+        reason: `Missing canonical 'docs/presentation_deck.md' (only draft/outline found in ${path.basename(presentationDir)}/docs)`,
+        mdPath: null,
+        meta: {},
+        slides: [],
+        slideHashes: {}
+      };
+    }
   }
 
   const rawContent = fs.readFileSync(mdPath, 'utf8');
   const { meta, body } = parseFrontmatter(rawContent);
   const slides = parseSlides(body);
+
+  if (!slides || slides.length === 0) {
+    return {
+      isValid: false,
+      reason: `No slides could be parsed from ${path.basename(mdPath)}`,
+      mdPath,
+      meta,
+      slides: [],
+      slideHashes: {}
+    };
+  }
 
   const slideHashes = {};
   slides.forEach(slide => {
@@ -91,6 +112,7 @@ function computePresentationFingerprints(presentationDir) {
   });
 
   return {
+    isValid: true,
     mdPath,
     meta,
     slides,
@@ -101,6 +123,23 @@ function computePresentationFingerprints(presentationDir) {
 function analyzePresentationChanges(presentationDir, options = {}) {
   const force = options.fullRegeneration || options.force || false;
   const fingerprints = computePresentationFingerprints(presentationDir);
+
+  if (!fingerprints.isValid) {
+    return {
+      presentationDir,
+      isValid: false,
+      isClean: true,
+      reason: fingerprints.reason,
+      dirtyDeck: false,
+      dirtyVisuals: [],
+      dirtyAudio: [],
+      dirtyHandout: false,
+      dirtyVideo: false,
+      totalSlides: 0,
+      fingerprints
+    };
+  }
+
   const cache = loadBuildCache(presentationDir);
   const currentCommit = getGitCommitHash();
 
@@ -141,6 +180,7 @@ function analyzePresentationChanges(presentationDir, options = {}) {
 
   return {
     presentationDir,
+    isValid: true,
     isClean,
     dirtyDeck,
     dirtyVisuals,
@@ -164,6 +204,11 @@ async function rebuildPresentation(presentationDir, options = {}) {
   console.log(`======================================================================`);
 
   const fingerprints = computePresentationFingerprints(targetDir);
+  if (!fingerprints.isValid) {
+    console.warn(`[⚠️] Warning: Skipping '${baseName}' — ${fingerprints.reason}`);
+    return { skipped: true, targetDir, reason: fingerprints.reason };
+  }
+
   const cache = loadBuildCache(targetDir);
   const currentCommit = getGitCommitHash();
 
@@ -200,9 +245,9 @@ async function rebuildPresentation(presentationDir, options = {}) {
   });
 
   if (missingAudio.length > 0) {
-    throw new Error(`[❌] Missing pre-synthesized audio for slide(s): ${missingAudio.join(', ')} in ${audioDir}.\n` +
-      `The 'rebuild' command assumes audio is already generated.\n` +
-      `To synthesize audio using Neural TTS, run: npm run regen-overall or node scripts/regenerate.js ${targetDir}`);
+    console.warn(`[⚠️] Warning: Skipping '${baseName}' — missing pre-synthesized audio for slide(s): ${missingAudio.join(', ')} in ${audioDir}`);
+    console.warn(`    To synthesize audio using Neural TTS, run: npm run regen-overall or node scripts/regenerate.js ${targetDir}`);
+    return { skipped: true, targetDir, reason: `Missing audio for slide(s): ${missingAudio.join(', ')}` };
   }
 
   const dirtyDeck = force || !fs.existsSync(webDeckHtml) || dirtyVisuals.length > 0;
@@ -212,7 +257,7 @@ async function rebuildPresentation(presentationDir, options = {}) {
 
   if (!force && !dirtyDeck && dirtyVisuals.length === 0 && !dirtyHandout && !dirtyVideo) {
     console.log(`[✓] No changes detected. All assets (.png, .pdf, .mp4) are up-to-date! (0s)`);
-    return { skipped: true, targetDir };
+    return { success: true, skipped: false, upToDate: true, targetDir };
   }
 
   console.log(`[!] Build tasks:`);
@@ -280,7 +325,7 @@ async function rebuildPresentation(presentationDir, options = {}) {
   console.log(` [🎉] REBUILD COMPLETED SUCCESSFULLY FOR: ${baseName}`);
   console.log(`======================================================================\n`);
 
-  return { success: true, targetDir };
+  return { success: true, skipped: false, targetDir };
 }
 
 async function regeneratePresentation(presentationDir, options = {}) {
@@ -293,6 +338,11 @@ async function regeneratePresentation(presentationDir, options = {}) {
 
   const analysis = analyzePresentationChanges(targetDir, options);
 
+  if (!analysis.isValid) {
+    console.warn(`[⚠️] Warning: Skipping '${baseName}' — ${analysis.reason}`);
+    return { skipped: true, targetDir, reason: analysis.reason };
+  }
+
   // Step 1: Synthesize Neural TTS Audio for dirty narration slides
   if (analysis.dirtyAudio.length > 0) {
     console.log(`\n[🎙️] Synthesizing Neural TTS Audio for ${analysis.dirtyAudio.length} dirty slide(s)...`);
@@ -302,18 +352,23 @@ async function regeneratePresentation(presentationDir, options = {}) {
     if (!fs.existsSync(audioDir)) fs.mkdirSync(audioDir, { recursive: true });
     if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
 
-    for (const slideNum of analysis.dirtyAudio) {
-      const slideObj = analysis.fingerprints.slides.find(s => s.slideNum === slideNum);
-      if (slideObj && slideObj.narration) {
-        await generateSlideAudio(slideNum, slideObj.narration, {
-          outputDir: audioDir,
-          tempDir,
-          force: true,
-          voice: analysis.fingerprints.meta.voice || 'ru-RU-DmitryNeural',
-          pitch: analysis.fingerprints.meta.pitch || '-5Hz',
-          rate: analysis.fingerprints.meta.rate || '-9%'
-        });
+    try {
+      for (const slideNum of analysis.dirtyAudio) {
+        const slideObj = analysis.fingerprints.slides.find(s => s.slideNum === slideNum);
+        if (slideObj && slideObj.narration) {
+          await generateSlideAudio(slideNum, slideObj.narration, {
+            outputDir: audioDir,
+            tempDir,
+            force: true,
+            voice: analysis.fingerprints.meta.voice || 'ru-RU-DmitryNeural',
+            pitch: analysis.fingerprints.meta.pitch || '-5Hz',
+            rate: analysis.fingerprints.meta.rate || '-9%'
+          });
+        }
       }
+    } catch (err) {
+      console.warn(`\n[⚠️] Warning: TTS Audio synthesis failed for '${baseName}': ${err.message}`);
+      return { skipped: true, targetDir, reason: `TTS failed: ${err.message}` };
     }
   } else {
     console.log(`[✓] Audio is up-to-date (TTS skipped)`);
@@ -338,15 +393,7 @@ function discoverAllPresentations(rootDir) {
 
       const docsDir = path.join(fullPath, 'docs');
       if (fs.existsSync(docsDir)) {
-        const mdFiles = fs.readdirSync(docsDir).filter(f => f.endsWith('.md'));
-        const hasDeck = mdFiles.some(f => {
-          if (f === 'presentation_deck.md') return true;
-          const content = fs.readFileSync(path.join(docsDir, f), 'utf8');
-          return content.includes('<!-- slide:') || /#{1,2}\s*Слайд\s*1/i.test(content);
-        });
-        if (hasDeck) {
-          presentations.push(fullPath);
-        }
+        presentations.push(fullPath);
       }
     });
   });
@@ -360,18 +407,47 @@ async function regenerateAllPresentations(rootDir, options = {}) {
   console.log(` 🚀 STARTING GLOBAL INCREMENTAL REGENERATION (${list.length} PRESENTATIONS)`);
   console.log(`======================================================================\n`);
 
+  const built = [];
+  const upToDate = [];
+  const skipped = [];
+  const failed = [];
+
   for (const presDir of list) {
+    const name = path.basename(presDir);
     try {
-      await regeneratePresentation(presDir, options);
+      const res = await regeneratePresentation(presDir, options);
+      if (res.skipped) {
+        skipped.push({ name, reason: res.reason });
+      } else if (res.upToDate) {
+        upToDate.push(name);
+      } else {
+        built.push(name);
+      }
     } catch (err) {
-      console.error(`\n[❌] Fatal error in presentation '${path.basename(presDir)}':`, err.message);
-      console.error(`[❌] Halting global regeneration pipeline immediately.\n`);
-      throw err;
+      console.error(`\n[⚠️] Error in presentation '${name}':`, err.message);
+      failed.push({ name, error: err.message });
     }
   }
 
   console.log(`\n======================================================================`);
-  console.log(` [🎉] ALL PRESENTATIONS CHECKED & REGENERATED!`);
+  console.log(` 📊 GLOBAL REGENERATION SUMMARY`);
+  console.log(`======================================================================`);
+  if (built.length > 0) {
+    console.log(` [✓] Successfully Built / Updated (${built.length}):`);
+    built.forEach(p => console.log(`     - ${p}`));
+  }
+  if (upToDate.length > 0) {
+    console.log(` [✓] Up-to-Date (Skipped Rebuild) (${upToDate.length}):`);
+    upToDate.forEach(p => console.log(`     - ${p}`));
+  }
+  if (skipped.length > 0) {
+    console.log(` [⚠️] Skipped (Missing Artifacts / Drafts) (${skipped.length}):`);
+    skipped.forEach(s => console.log(`     - ${s.name}: ${s.reason}`));
+  }
+  if (failed.length > 0) {
+    console.log(` [❌] Failed with Errors (${failed.length}):`);
+    failed.forEach(f => console.log(`     - ${f.name}: ${f.error}`));
+  }
   console.log(`======================================================================\n`);
 }
 
@@ -381,18 +457,47 @@ async function rebuildAllPresentations(rootDir, options = {}) {
   console.log(` 🔨 STARTING GLOBAL OFFLINE REBUILD (${list.length} PRESENTATIONS)`);
   console.log(`======================================================================\n`);
 
+  const built = [];
+  const upToDate = [];
+  const skipped = [];
+  const failed = [];
+
   for (const presDir of list) {
+    const name = path.basename(presDir);
     try {
-      await rebuildPresentation(presDir, options);
+      const res = await rebuildPresentation(presDir, options);
+      if (res.skipped) {
+        skipped.push({ name, reason: res.reason });
+      } else if (res.upToDate) {
+        upToDate.push(name);
+      } else {
+        built.push(name);
+      }
     } catch (err) {
-      console.error(`\n[❌] Fatal error in presentation '${path.basename(presDir)}':`, err.message);
-      console.error(`[❌] Halting global rebuild pipeline immediately.\n`);
-      throw err;
+      console.error(`\n[⚠️] Error in presentation '${name}':`, err.message);
+      failed.push({ name, error: err.message });
     }
   }
 
   console.log(`\n======================================================================`);
-  console.log(` [🎉] ALL PRESENTATIONS REBUILT SUCCESSFULLY!`);
+  console.log(` 📊 GLOBAL OFFLINE REBUILD SUMMARY`);
+  console.log(`======================================================================`);
+  if (built.length > 0) {
+    console.log(` [✓] Successfully Built / Updated (${built.length}):`);
+    built.forEach(p => console.log(`     - ${p}`));
+  }
+  if (upToDate.length > 0) {
+    console.log(` [✓] Up-to-Date (Skipped Rebuild) (${upToDate.length}):`);
+    upToDate.forEach(p => console.log(`     - ${p}`));
+  }
+  if (skipped.length > 0) {
+    console.log(` [⚠️] Skipped (Missing Artifacts / Drafts) (${skipped.length}):`);
+    skipped.forEach(s => console.log(`     - ${s.name}: ${s.reason}`));
+  }
+  if (failed.length > 0) {
+    console.log(` [❌] Failed with Errors (${failed.length}):`);
+    failed.forEach(f => console.log(`     - ${f.name}: ${f.error}`));
+  }
   console.log(`======================================================================\n`);
 }
 
