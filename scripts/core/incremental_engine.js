@@ -34,16 +34,88 @@ function getCachePath(presentationDir) {
   return path.join(genDir, '.build_cache.json');
 }
 
-function loadBuildCache(presentationDir) {
-  const primaryCache = path.join(presentationDir, 'generated', '.build_cache.json');
-  const legacyCache = path.join(presentationDir, '.build_cache.json');
-  const cachePath = fs.existsSync(primaryCache) ? primaryCache : (fs.existsSync(legacyCache) ? legacyCache : null);
-  if (!cachePath) return null;
+function computeSlideHashes(slides, meta = {}) {
+  const slideHashes = {};
+  slides.forEach(slide => {
+    const visualContent = [
+      slide.tag,
+      slide.title,
+      slide.subtitle,
+      slide.badge,
+      slide.visualHtml,
+      slide.contentHtml
+    ].join('||');
+
+    const narrationContent = [
+      slide.narration,
+      meta.voice || 'ru-RU-DmitryNeural',
+      meta.pitch || '-5Hz',
+      meta.rate || '-9%'
+    ].join('||');
+
+    slideHashes[slide.slideNum] = {
+      visualHash: sha256(visualContent),
+      narrationHash: sha256(narrationContent)
+    };
+  });
+  return slideHashes;
+}
+
+function getGitBaselineCache(presentationDir, mdPath) {
   try {
-    return JSON.parse(fs.readFileSync(cachePath, 'utf8'));
+    const rootDir = execSync('git rev-parse --show-toplevel', { encoding: 'utf8', stdio: ['pipe', 'pipe', 'ignore'] }).trim();
+    const relAudioDir = path.relative(rootDir, path.join(presentationDir, 'generated', 'artifacts', 'audio'));
+    const relMdPath = path.relative(rootDir, mdPath);
+
+    let baselineCommit = '';
+    try {
+      baselineCommit = execSync(`git log -1 --format="%H" -- "${relAudioDir}"`, { cwd: rootDir, encoding: 'utf8', stdio: ['pipe', 'pipe', 'ignore'] }).trim();
+    } catch (e) {}
+
+    if (!baselineCommit) {
+      try {
+        baselineCommit = execSync(`git log -1 --format="%H" -- "${relMdPath}"`, { cwd: rootDir, encoding: 'utf8', stdio: ['pipe', 'pipe', 'ignore'] }).trim();
+      } catch (e) {}
+    }
+
+    if (!baselineCommit) return null;
+
+    const baselineMdContent = execSync(`git show "${baselineCommit}:${relMdPath}"`, { cwd: rootDir, encoding: 'utf8', stdio: ['pipe', 'pipe', 'ignore'] });
+    const { meta, body } = parseFrontmatter(baselineMdContent);
+    const slides = parseSlides(body || baselineMdContent);
+    if (!slides || slides.length === 0) return null;
+
+    const baselineSlideHashes = computeSlideHashes(slides, meta || {});
+
+    return {
+      last_build_timestamp: new Date().toISOString(),
+      git_commit: baselineCommit,
+      total_slides: Object.keys(baselineSlideHashes).length,
+      slides: baselineSlideHashes,
+      isBaselineFromGit: true
+    };
   } catch (e) {
     return null;
   }
+}
+
+function loadBuildCache(presentationDir, mdPath = null) {
+  const primaryCache = path.join(presentationDir, 'generated', '.build_cache.json');
+  const legacyCache = path.join(presentationDir, '.build_cache.json');
+  const cachePath = fs.existsSync(primaryCache) ? primaryCache : (fs.existsSync(legacyCache) ? legacyCache : null);
+  if (cachePath) {
+    try {
+      return JSON.parse(fs.readFileSync(cachePath, 'utf8'));
+    } catch (e) {}
+  }
+
+  // If local .build_cache.json is not found, reconstruct baseline from Git history
+  if (mdPath && fs.existsSync(mdPath)) {
+    const gitBaseline = getGitBaselineCache(presentationDir, mdPath);
+    if (gitBaseline) return gitBaseline;
+  }
+
+  return null;
 }
 
 function saveBuildCache(presentationDir, cacheData) {
@@ -87,29 +159,7 @@ function computePresentationFingerprints(presentationDir) {
     };
   }
 
-  const slideHashes = {};
-  slides.forEach(slide => {
-    const visualContent = [
-      slide.tag,
-      slide.title,
-      slide.subtitle,
-      slide.badge,
-      slide.visualHtml,
-      slide.contentHtml
-    ].join('||');
-
-    const narrationContent = [
-      slide.narration,
-      meta.voice || 'ru-RU-DmitryNeural',
-      meta.pitch || '-5Hz',
-      meta.rate || '-9%'
-    ].join('||');
-
-    slideHashes[slide.slideNum] = {
-      visualHash: sha256(visualContent),
-      narrationHash: sha256(narrationContent)
-    };
-  });
+  const slideHashes = computeSlideHashes(slides, meta || {});
 
   return {
     isValid: true,
@@ -140,7 +190,7 @@ function analyzePresentationChanges(presentationDir, options = {}) {
     };
   }
 
-  const cache = loadBuildCache(presentationDir);
+  const cache = loadBuildCache(presentationDir, fingerprints.mdPath);
   const currentCommit = getGitCommitHash();
 
   const artifactsDir = path.join(presentationDir, 'generated', 'artifacts');
@@ -209,7 +259,7 @@ async function rebuildPresentation(presentationDir, options = {}) {
     return { skipped: true, targetDir, reason: fingerprints.reason };
   }
 
-  const cache = loadBuildCache(targetDir);
+  const cache = loadBuildCache(targetDir, fingerprints.mdPath);
   const currentCommit = getGitCommitHash();
 
   const artifactsDir = path.join(targetDir, 'generated', 'artifacts');
