@@ -201,9 +201,11 @@ function compileDeckHtml(presentationDir, options = {}) {
   const totalSlides = slides.length || meta.total_slides || 15;
 
   const sharedTemplatesRel = path.relative(webDeckDir, path.join(rootDir, 'shared_templates', 'overview_presentation_deck')).replace(/\\/g, '/');
+  const platformOverviewRel = path.relative(webDeckDir, path.join(rootDir, 'shared_templates', 'platform_overview_deck')).replace(/\\/g, '/');
   const audioRel = path.relative(webDeckDir, path.join(presentationDir, 'generated', 'artifacts', 'audio')).replace(/\\/g, '/');
 
   // Check for local custom stylesheet or fallback to shared design system
+  const isPlatformOverview = meta.theme === 'platform_overview' || presentationDir.includes('platform_overview');
   const localCss = fs.existsSync(path.join(webDeckDir, 'architecture.css')) ? 'architecture.css' :
                    (fs.existsSync(path.join(webDeckDir, 'stakeholders.css')) ? 'stakeholders.css' : '');
 
@@ -257,6 +259,10 @@ function compileDeckHtml(presentationDir, options = {}) {
   <!-- Shared Design System Tokens & Components -->
   <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_base.css">
   <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_components.css">
+  ${isPlatformOverview ? `
+  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_theme.css">
+  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_components.css">
+  ` : ''}
   ${localCss ? `<link rel="stylesheet" href="${localCss}">` : ''}
 
   <!-- Mermaid.js Vector Renderer -->
