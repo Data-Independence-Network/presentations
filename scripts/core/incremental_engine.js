@@ -42,8 +42,9 @@ function computeSlideHashes(slides, meta = {}) {
       slide.title,
       slide.subtitle,
       slide.badge,
-      slide.visualHtml,
-      slide.contentHtml
+      slide.rawHtmlBody || '',
+      slide.visualHtml || '',
+      slide.contentHtml || ''
     ].join('||');
 
     const narrationContent = [

@@ -53,7 +53,9 @@ async function captureSlides(config = {}) {
       .presentation-header,
       .presentation-footer,
       .notes-drawer,
-      .overview-modal {
+      .overview-modal,
+      .modal-overlay,
+      #overviewModal {
         display: none !important;
       }
       .presentation-viewport {
