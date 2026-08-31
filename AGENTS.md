@@ -3,14 +3,16 @@
 ## 🎯 Overview & Purpose
 This repository hosts the complete presentation suite, video production pipelines, interactive slide decks, and executive whitepaper materials for **«Турбаза»** (Turbase) — a sovereign, three-tier distributed edge computing platform designed for high security, data sovereignty, and massive infrastructure TCO reduction.
 
-The workspace is structured into high-level overview presentations, specialized deep-dive participant presentations, shared templates, and global tooling:
+The workspace is structured into high-level overview presentations, specialized deep-dive participant presentations, explainer trilogies, flagship application suites, shared templates, and global tooling:
+- **`platform_overview/`**: Foundational 3-part Explainer Mini-Series covering the paradigm shift, architectural principles, and sovereign economy of Turbase.
+- **`applications_presentations/`**: 4-presentation Flagship Application Suite covering «Деловой» (Organizer), «КубГолос» (Peer Micro-Polls), «Забота» (Mutual Aid & Open Reputation), and «УраТур» (Sovereign Travel Planner).
 - **`overall_presentations/`**: High-level master overview presentations covering the complete architectural, economic, and stakeholder landscape:
   - `01_sovereign_architecture_presentation/`: Core technical architecture, 3-tier topology (Leaf $\to$ Branch $\to$ Trunk), 152-ФЗ Zero-PII compliance, and game-theoretic API economy.
   - `02_stakeholders_benefits_presentation/`: 6-stakeholder value matrix (Citizens, SME/Business, AdTech, Fintech, Regulators, Municipalities), PROs/CONs/Mitigations, and billboard-scale slides.
 - **`detailed_overall_impact_presentations/`**: Complete suite of 10 specialized deep-dive presentations for individual ecosystem participants, cross-sector synergies, and phased legacy migration roadmap.
-- **`shared_templates/`**: Shared slide deck templates and design systems (`overview_presentation_deck/` for dark sovereign overview decks, and upcoming specialized styling for deep-dive decks).
+- **`shared_templates/`**: Shared slide deck templates and design systems (`overview_presentation_deck/`, `platform_overview_deck/`, and detailed impact styling).
 - **`scripts/`**: Global automation and media pipelines (`core/` engines for TTS, slide capture, handout PDF, slide deck PDF, whitepaper PDF, and video generation).
-- **`shared_docs/`**: Master technical documentation, whitepapers, architectural specifications, and **`comments/`** (human-written developer notes, historical rationale, and semantic labels dictionary [`LABELS.md`](file:///home/anastasiya/Documents/presentations/shared_docs/comments/LABELS.md)).
+- **`shared_docs/`**: Master technical documentation, whitepapers, architectural specifications, and **`comments/`** (human-written developer notes, historical rationale, and semantic labels dictionary [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md)).
 - **`voice_samples/`**: Audio samples and evaluation scripts for neural voice synthesis.
 
 ---
@@ -18,6 +20,8 @@ The workspace is structured into high-level overview presentations, specialized 
 ## 🧭 Repository Structure & Key Conventions
 ```
 turbase_benefits_presentation/
+├── platform_overview/                          # Foundational 3-Part Explainer Mini-Series
+├── applications_presentations/                 # 4 Flagship Core Applications Suite
 ├── overall_presentations/                      # Master Overview Presentations Track
 │   ├── 01_sovereign_architecture_presentation/ # Architecture & Sovereign Edge Compute
 │   └── 02_stakeholders_benefits_presentation/  # 6-Stakeholder Value Matrix & Economics
