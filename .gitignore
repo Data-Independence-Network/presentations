@@ -65,7 +65,10 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# --- Operating System Artifacts ---
+# --- IDE & Operating System Artifacts ---
+.history/
+.vscode/
+.idea/
 .DS_Store
 .DS_Store?
 ._*

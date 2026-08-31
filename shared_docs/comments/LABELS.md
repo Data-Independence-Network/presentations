@@ -16,15 +16,22 @@
 %Branch - Ветка
 %Cooperation - Взаимодействие
 %Database - База Данных
+%Family - Семья
 %ForeignKey - Внешние ключи
+%GenAI - Генеративный ИИ
+%Group - Группа
 %Internet - Интернет
 %Join - SQL-соединение
 %Leaf - Лист
+%LLM - Большая языковая модель
+%Neighbors - Соседи
 %Queue - Очередь
 %RecordId - Ключ Записи
 %Repository - Хранилище
 %RepositoryId - Ключ Хранилища
 %Screen - Экран
+%Service - Услуги
 %Tree - Дерево
+%Training - Тренировка
 %UI - Интерфейс 
 %User - Пользователь
