@@ -10,7 +10,7 @@ const path = require('path');
 const crypto = require('crypto');
 const { execSync } = require('child_process');
 
-const { parseFrontmatter, parseSlides, compileDeckHtml } = require('./deck_builder');
+const { parseFrontmatter, parseSlides, compileDeckHtml, findRepoRoot } = require('./deck_builder');
 const { generateSlideAudio } = require('./tts_generator');
 const { captureSlides } = require('./slide_capture');
 const { buildHandoutPdf } = require('./handout_pdf_builder');
@@ -18,6 +18,36 @@ const { buildMultiProfileVideo } = require('./video_builder');
 
 function sha256(data) {
   return crypto.createHash('sha256').update(String(data || ''), 'utf8').digest('hex');
+}
+
+function computeStylesHash(presentationDir, meta = {}) {
+  const rootDir = typeof findRepoRoot === 'function' ? findRepoRoot(presentationDir) : path.resolve(__dirname, '..', '..');
+  const cssPaths = [
+    path.join(rootDir, 'shared_templates', 'overview_presentation_deck', 'css', 'overview_deck_base.css'),
+    path.join(rootDir, 'shared_templates', 'overview_presentation_deck', 'css', 'overview_deck_components.css')
+  ];
+
+  if (meta.theme === 'platform_overview' || (presentationDir && presentationDir.includes('platform_overview'))) {
+    cssPaths.push(
+      path.join(rootDir, 'shared_templates', 'platform_overview_deck', 'css', 'platform_overview_theme.css'),
+      path.join(rootDir, 'shared_templates', 'platform_overview_deck', 'css', 'platform_overview_components.css')
+    );
+  }
+
+  const webDeckDir = path.join(presentationDir, 'generated', 'outputs', 'web_deck');
+  if (fs.existsSync(webDeckDir)) {
+    const localFiles = fs.readdirSync(webDeckDir).filter(f => f.endsWith('.css'));
+    localFiles.forEach(f => cssPaths.push(path.join(webDeckDir, f)));
+  }
+
+  let combinedCss = '';
+  cssPaths.forEach(cp => {
+    if (fs.existsSync(cp)) {
+      combinedCss += fs.readFileSync(cp, 'utf8');
+    }
+  });
+
+  return sha256(combinedCss);
 }
 
 function getGitCommitHash() {
@@ -34,7 +64,7 @@ function getCachePath(presentationDir) {
   return path.join(genDir, '.build_cache.json');
 }
 
-function computeSlideHashes(slides, meta = {}) {
+function computeSlideHashes(slides, meta = {}, stylesHash = '') {
   const slideHashes = {};
   slides.forEach(slide => {
     const visualContent = [
@@ -44,7 +74,8 @@ function computeSlideHashes(slides, meta = {}) {
       slide.badge,
       slide.rawHtmlBody || '',
       slide.visualHtml || '',
-      slide.contentHtml || ''
+      slide.contentHtml || '',
+      stylesHash || ''
     ].join('||');
 
     const narrationContent = [
@@ -86,7 +117,8 @@ function getGitBaselineCache(presentationDir, mdPath) {
     const slides = parseSlides(body || baselineMdContent);
     if (!slides || slides.length === 0) return null;
 
-    const baselineSlideHashes = computeSlideHashes(slides, meta || {});
+    const stylesHash = computeStylesHash(presentationDir, meta || {});
+    const baselineSlideHashes = computeSlideHashes(slides, meta || {}, stylesHash);
 
     return {
       last_build_timestamp: new Date().toISOString(),
@@ -160,14 +192,16 @@ function computePresentationFingerprints(presentationDir) {
     };
   }
 
-  const slideHashes = computeSlideHashes(slides, meta || {});
+  const stylesHash = computeStylesHash(presentationDir, meta || {});
+  const slideHashes = computeSlideHashes(slides, meta || {}, stylesHash);
 
   return {
     isValid: true,
     mdPath,
     meta,
     slides,
-    slideHashes
+    slideHashes,
+    stylesHash
   };
 }
 

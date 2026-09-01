@@ -123,6 +123,48 @@
   min-height: 0;
 }
 
+/* 8-card matrix layout (Slide 11) */
+.grid-4cards:has(> :nth-child(5)) {
+  grid-template-rows: repeat(2, 1fr);
+  gap: 18px;
+  align-items: stretch;
+  height: 100%;
+}
+
+.grid-4cards:has(> :nth-child(5)) .glass-card {
+  padding: 24px 24px;
+  gap: 8px;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.grid-4cards:has(> :nth-child(5)) .card-pill-tag {
+  font-size: 16px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  padding: 5px 12px;
+}
+
+.grid-4cards:has(> :nth-child(5)) .card-title {
+  font-size: 34px;
+  margin-bottom: 4px;
+  font-weight: 900;
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+.grid-4cards:has(> :nth-child(5)) .card-desc {
+  font-size: 24px;
+  line-height: 1.38;
+  margin-bottom: 0;
+  color: #f8fafc;
+}
+
+.grid-4cards:has(> :nth-child(5)) .card-desc strong {
+  color: #ffffff;
+  font-weight: 900;
+}
+
 .grid-5steps {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
