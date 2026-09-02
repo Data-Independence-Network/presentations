@@ -22,3 +22,4 @@ shared_templates/overview_presentation_deck/
 - **Typography Scale:** Billboard scale (Titles $\ge 50$px, Body copy $\ge 24$px, Metrics $\ge 56$px).
 - **Aspect Ratio:** Strict 16:9 native canvas (1920x1080).
 - **Accent Scheme:** Gold (`#facc15`), Emerald (`#10b981`), Cyber Blue (`#0284c7`), Crimson (`#ef4444`).
+- **Decoupled Architecture:** Custom master decks (`01_sovereign_architecture_presentation`, `02_stakeholders_benefits_presentation`) maintain their own isolated stylesheets in `docs/` (`architecture.css` and `stakeholders.css`) to prevent cross-contamination.

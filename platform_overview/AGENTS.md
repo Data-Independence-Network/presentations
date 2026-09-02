@@ -17,11 +17,12 @@ platform_overview/
 
 ---
 
-## 🎨 Visual Identity Standard
-- Uses the shared template in `shared_templates/platform_overview_deck/`.
+## 🎨 Visual Identity Standard & Track Isolation
+- Uses the specialized template in [`shared_templates/platform_overview_deck/`](file:///Users/parents/Documents/presentations/shared_templates/platform_overview_deck/) (`platform_overview_theme.css` + `platform_overview_components.css`).
 - Theme: **«Суверенный Горизонт» (Sovereign Horizon Explainer)**.
 - Deep Slate background (`#0a0f1d`), series top header `🏔️ ПЛАТФОРМА ТУРБАЗА | ЭКСПЛЕЙНЕР`.
 - Glassmorphism card surfaces, glowing accents, billboard typography ($\ge 50$px titles, $\ge 24$px body).
+- **Strict Decoupling:** Loaded independently of `overview_presentation_deck` or `detailed_impact_deck`. Changes to explainer styling will never affect overall architecture or stakeholder presentations.
 
 ---
 

@@ -14,13 +14,14 @@ overall_presentations/
 
 ---
 
-## 🎨 Visual Identity & Shared Assets
-- Overview presentations follow the **Dark Executive Sovereign** theme defined in:
-  `shared_templates/overview_presentation_deck/css/overview_deck_base.css`
-  `shared_templates/overview_presentation_deck/css/overview_deck_components.css`
-  `shared_templates/overview_presentation_deck/js/overview_deck_engine.js`
+## 🎨 Visual Identity & Isolated Stylesheets
+- Overview presentations use dedicated, track-isolated stylesheets stored with source files:
+  - `01_sovereign_architecture_presentation`: [`docs/architecture.css`](file:///Users/parents/Documents/presentations/overall_presentations/01_sovereign_architecture_presentation/docs/architecture.css) (Base `html { font-size: 22px; }` for 100% 1080p fit across all 15 slides).
+  - `02_stakeholders_benefits_presentation`: [`docs/stakeholders.css`](file:///Users/parents/Documents/presentations/overall_presentations/02_stakeholders_benefits_presentation/docs/stakeholders.css).
+- Shared player navigation engine: `shared_templates/overview_presentation_deck/js/overview_deck_engine.js`.
 - Ultra-large billboard typography scale ($\ge 50$px slide titles, $\ge 24$px body copy, $\ge 56$px KPI metrics).
 - High contrast, full-bleed 16:9 native canvas (1920x1080).
+- **Strict Decoupling:** Styles in `architecture.css` and `stakeholders.css` are completely independent of `platform_overview` or `detailed_overall_impact` templates.
 
 ---
 

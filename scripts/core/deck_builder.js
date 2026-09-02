@@ -200,14 +200,34 @@ function compileDeckHtml(presentationDir, options = {}) {
 
   const totalSlides = slides.length || meta.total_slides || 15;
 
+  const deckCoreRel = path.relative(webDeckDir, path.join(rootDir, 'shared_templates', 'deck_core')).replace(/\\/g, '/');
   const sharedTemplatesRel = path.relative(webDeckDir, path.join(rootDir, 'shared_templates', 'overview_presentation_deck')).replace(/\\/g, '/');
   const platformOverviewRel = path.relative(webDeckDir, path.join(rootDir, 'shared_templates', 'platform_overview_deck')).replace(/\\/g, '/');
+  const detailedImpactRel = path.relative(webDeckDir, path.join(rootDir, 'shared_templates', 'detailed_impact_deck')).replace(/\\/g, '/');
   const audioRel = path.relative(webDeckDir, path.join(presentationDir, 'generated', 'artifacts', 'audio')).replace(/\\/g, '/');
 
-  // Check for local custom stylesheet or fallback to shared design system
-  const isPlatformOverview = meta.theme === 'platform_overview' || presentationDir.includes('platform_overview');
-  const localCss = fs.existsSync(path.join(webDeckDir, 'architecture.css')) ? 'architecture.css' :
-                   (fs.existsSync(path.join(webDeckDir, 'stakeholders.css')) ? 'stakeholders.css' : '');
+  // Copy local presentation CSS from docs/ to web_deck/ if present
+  ['architecture.css', 'stakeholders.css'].forEach(cssFile => {
+    const srcDocCss = path.join(docsDir, cssFile);
+    const destWebCss = path.join(webDeckDir, cssFile);
+    if (fs.existsSync(srcDocCss)) {
+      fs.copyFileSync(srcDocCss, destWebCss);
+    }
+  });
+
+  // Determine decoupled CSS links per presentation track
+  let cssLinkTags = '';
+  if (presentationDir.includes('01_sovereign_architecture_presentation')) {
+    cssLinkTags = `  <!-- Sovereign Architecture Isolated Theme -->\n  <link rel="stylesheet" href="architecture.css">`;
+  } else if (presentationDir.includes('02_stakeholders_benefits_presentation')) {
+    cssLinkTags = `  <!-- Stakeholders Benefits Isolated Theme -->\n  <link rel="stylesheet" href="stakeholders.css">`;
+  } else if (presentationDir.includes('platform_overview') || meta.theme === 'platform_overview') {
+    cssLinkTags = `  <!-- Platform Overview Design System -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_theme.css">\n  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_components.css">`;
+  } else if (presentationDir.includes('detailed_overall_impact') || meta.theme === 'detailed_impact') {
+    cssLinkTags = `  <!-- Detailed Impact Presentations Design System -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <link rel="stylesheet" href="${detailedImpactRel}/css/detailed_deck_theme.css">\n  <link rel="stylesheet" href="${detailedImpactRel}/css/detailed_deck_components.css">`;
+  } else {
+    cssLinkTags = `  <!-- Universal Sovereign Overview Design System -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_base.css">\n  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_components.css">`;
+  }
 
   let slidesHtml = '';
   slides.forEach((slide, sIdx) => {
@@ -256,14 +276,7 @@ function compileDeckHtml(presentationDir, options = {}) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
-  <!-- Shared Design System Tokens & Components -->
-  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_base.css">
-  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_components.css">
-  ${isPlatformOverview ? `
-  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_theme.css">
-  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_components.css">
-  ` : ''}
-  ${localCss ? `<link rel="stylesheet" href="${localCss}">` : ''}
+${cssLinkTags}
 
   <!-- Mermaid.js Vector Renderer -->
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
