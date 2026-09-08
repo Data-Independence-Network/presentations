@@ -1,0 +1,1013 @@
+---
+presentation_id: "04_uratur_app_presentation"
+title: "Платформа «Турбаза»"
+subtitle: "«УраТур»: Суверенный туристический планер и путеводитель по стране и миру"
+header_title: "ТУРБАЗА"
+header_subtitle: "Платформа «УраТур»"
+theme: "platform_overview"
+total_slides: 15
+voice: "ru-RU-DmitryNeural"
+pitch: "-5Hz"
+rate: "-9%"
+---
+
+<!-- slide: 1 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ПРИКЛАДНОЙ СУВЕРЕНИТЕТ</div>
+    <h1 class="slide-title">«УРАТУР»: СУВЕРЕННЫЙ ПУТЕВОДИТЕЛЬ</h1>
+    <p class="slide-subtitle">Планер путешествий нового поколения: синтез задач, народных троп и взаимовыручки 100% офлайн</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout purple">
+        <strong>Свобода странствий без посредников и связи:</strong>
+        <p>«УраТур» объединяет чек-листы «Делового», версионные маршруты «КубГолоса» и проверенных гидов «Заботы». <strong>Все карты и треки работают автономно в горах и тайге</strong> без интернета.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">🗺️</div>
+          <h4>100% Офлайн-карты</h4>
+          <p>Топография и высотные профили в локальном SQLite на Листе.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🌲</div>
+          <h4>Версии маршрутов</h4>
+          <p>Деревья адаптаций треков от семейных до спортивных категорий.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🧭</div>
+          <h4>Местные проводники</h4>
+          <p>Проверенные егеря и базы отдыха без комиссий агрегаторов.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">📡</div>
+          <h4>BLE Mesh SOS</h4>
+          <p>Экстренная P2P-связь от смартфона к смартфону без вышек связи.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="kpi-vertical-stack">
+        <div class="kpi-card-explainer">
+          <div class="kpi-num purple">100%</div>
+          <div class="kpi-label">Автономная работа в глухой тайге и горах</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num teal">-25%</div>
+          <div class="kpi-label">Экономия бюджета за счет отмены комиссий</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num cyan">0 КБ</div>
+          <div class="kpi-label">Утечек паспортных данных при бронировании</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Здравствуйте! В четвертой презентации прикладной серии мы представляем суверенный туристический планер и путеводитель нового поколения — «УраТур».
+>
+> Наша страна обладает колоссальными природными богатствами: от Кавказских вершин и Уральских хребтов до Байкала, Алтая и вулканов Камчатки.
+>
+> Однако современный турист зажат в тиски монопольных агрегаторов с наценками до тридцати процентов, а в диких уголках природы остаётся совершенно без связи и навигации.
+>
+> «УраТур» решает эти проблемы через синергию приложений платформы Турбаза, гарантируя стопроцентную офлайн-автономию и безопасность в любых походах.
+
+---
+
+<!-- slide: 2 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | КРИЗИС ТРЕВЕЛ-СЕРВИСОВ</div>
+    <h2 class="slide-title">БОЛИ И ТУПИКИ СОВРЕМЕННОГО ТУРИЗМА</h2>
+    <p class="slide-subtitle">Почему зависимость от зарубежных облаков и монопольных платформ угрожает туристу</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="problem-box">
+        <h4>🚨 Главные барьеры для путешественников:</h4>
+        <ul class="clean-list-tight">
+          <li><strong>Грабительские комиссии агрегаторов:</strong> Платформы забирают от 20% до 30% стоимости каждого бронирования отеля и тура.</li>
+          <li><strong>Потеря связи и навигации:</strong> В горах и тайге мобильный интернет исчезает, превращая облачные приложения в «кирпич».</li>
+          <li><strong>Фальшивые заказные отзывы:</strong> Платные боты накручивают рейтинги опасных троп и недобросовестных гостевых домов.</li>
+          <li><strong>Утечки персональных данных:</strong> Паспорта туристов хранятся на централизованных серверах и регулярно попадают в сеть.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="comparison-dual-cards">
+        <div class="card-negative">
+          <div class="card-status-badge red">ОБЛАЧНЫЕ АГРЕГАТОРЫ</div>
+          <div class="card-metric-bad">+30% НАЦЕНКИ</div>
+          <p>Слежка, пустые экраны без связи в лесу и риск застрять на перевале.</p>
+        </div>
+        <div class="card-positive">
+          <div class="card-status-badge purple">СУВЕРЕННЫЙ «УРАТУР»</div>
+          <div class="card-metric-good">100% В ОФЛАЙНЕ</div>
+          <p>Прямой расчет с базами, проверенные тропы и P2P-спасение.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Путешествия по России сегодня сопряжены с целым рядом искусственных барьеров.
+>
+> Коммерческие сервисы бронирования превратились в олигополии: отели вынуждены закладывать огромные комиссии, а туристы переплачивают за каждый шаг.
+>
+> Но самое опасное начинается на маршруте. Стоит отойти на пять километров от трассы, как мобильная связь пропадает.
+>
+> Облачные сервисы перестают открывать карты, описания перевалов становятся недоступны, а вызвать помощь в нештатной ситуации невозможно.
+>
+> «УраТур» строится на фундаментальном принципе: приложение должно быть полностью автономным и функциональным даже при полном отсутствии интернета.
+
+---
+
+<!-- slide: 3 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | КОМПОНУЕМЫЙ СИНТЕЗ</div>
+    <h2 class="slide-title">КОМПОНУЕМАЯ АРХИТЕКТУРА «УРАТУРА»</h2>
+    <p class="slide-subtitle">«УраТур» не монолит, а элегантный синтез возможностей трех базовых платформ экосистемы</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout purple">
+        <strong>Максимальное переиспользование сущностей:</strong>
+        <p>Вместо написания сотен тысяч строк изолированного кода «УраТур» объединяет схемы данных органайзера, системы опросов и взаимопомощи.</p>
+      </div>
+
+      <div class="pillar-cards-stack">
+        <div class="pillar-card">
+          <div class="pillar-num golden">01</div>
+          <div class="pillar-info">
+            <h4>От «Делового»: Органайзер сборов</h4>
+            <p>Чек-листы снаряжения, матрица приоритетов подготовки и тайминг переходов.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num cyan">02</div>
+          <div class="pillar-info">
+            <h4>От «КубГолоса»: Версионные тропы</h4>
+            <p>Ветвление маршрутов (%Tree) и оперативные народные 3D-опросы о перевалах.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num emerald">03</div>
+          <div class="pillar-info">
+            <h4>От «Заботы»: Доверенные проводники</h4>
+            <p>Землячество местных гидов, аренда снаряжения и спасательный контур.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="synergy-triangle-box">
+        <div class="tri-node purple">🏔️ УРАТУР<br><span>Супер-планер</span></div>
+        <div class="tri-arrows">⟵ Синтез схем данных ⟶</div>
+        <div class="tri-subnodes">
+          <div class="sub-item golden">📋 Деловой (Чек-листы)</div>
+          <div class="sub-item cyan">🎲 КубГолос (Деревья троп)</div>
+          <div class="sub-item emerald">🤝 Забота (Гиды и SOS)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Уникальность приложения «УраТур» заключается в его компонуемой архитектуре.
+>
+> Вместо разработки тяжелого монолита с нуля, команда использовала открытые реляционные схемы трех флагманских решений экосистемы.
+>
+> От органайзера «Деловой» взята логика распределения задач, командных чек-листов и расписания переходов.
+>
+> От системы «КубГолос» заимствован механизм древовидного версионирования маршрутов и трехмерных опросов о состоянии тропы.
+>
+> А социальная сеть «Забота» предоставила доверенную репутацию местных проводников и контур оперативной взаимопомощи.
+
+---
+
+<!-- slide: 4 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | НАСЛЕДИЕ ДЕЛОВОГО</div>
+    <h2 class="slide-title">УМНЫЙ ПЛАНЕР СБОРОВ И ТАЙМИНГА</h2>
+    <p class="slide-subtitle">Командные чек-листы снаряжения, весовая раскладка и хронометраж каждого ходового дня</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout purple">
+        <strong>Никаких забытых палаток и аптечек:</strong>
+        <p>Модуль планирования распределяет общественное и личное снаряжение между участниками похода с контролем весовых лимитов.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">🎒</div>
+          <h4>Весовая оптимизация</h4>
+          <p>Автоматический расчет веса рюкзаков по силам участников группы.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">⏳</div>
+          <h4>Световой тайминг</h4>
+          <p>Расчет времени выхода и контрольных точек до наступления сумерек.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🍲</div>
+          <h4>Калорийная раскладка</h4>
+          <p>Планирование меню и сухпайков на каждый день автономного трека.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🔄</div>
+          <h4>Локальная синхронизация</h4>
+          <p>Сверка списков между смартфонами группы по Bluetooth без связи.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="ui-mockup-frame">
+        <div class="mockup-header">Чек-лист группы «Перевал Дятлова»</div>
+        <div class="task-row done">
+          <span class="chk">✅</span>
+          <span class="t-title">Штурмовая палатка 4-местная (3.8 кг)</span>
+          <span class="t-assignee">Иван С.</span>
+        </div>
+        <div class="task-row done">
+          <span class="chk">✅</span>
+          <span class="t-title">Групповая аптечка и шины (1.2 кг)</span>
+          <span class="t-assignee">Анна В.</span>
+        </div>
+        <div class="task-row active">
+          <span class="chk">⏳</span>
+          <span class="t-title">Газовые горелки и ветрозащита (0.9 кг)</span>
+          <span class="t-assignee">Дмитрий К.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Качественная подготовка — залог безопасности в любом путешествии.
+>
+> Модуль планирования «УраТура» берет на себя всю рутину сборов. Группа формирует общий список снаряжения, и алгоритм распределяет вес пропорционально физическим возможностям туристов.
+>
+> Никакая критически важная вещь — спички, горелка или спасательное термоодеяло — не останется забытой в городе.
+>
+> Хронометраж ходового дня рассчитывается с учетом высотного профиля и восхода-захода солнца, чтобы группа гарантированно разбила лагерь засветло.
+>
+> Все изменения списков синхронизируются между участниками по локальному радиоканалу прямо на стоянке.
+
+---
+
+<!-- slide: 5 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СЕРЕНДИПНОСТЬ</div>
+    <h2 class="slide-title">ФАКТОР СЛУЧАЙНЫХ ПРИКЛЮЧЕНИЙ</h2>
+    <p class="slide-subtitle">Алгоритм «Случайный шаг»: открытие скрытых троп, водопадов и смотровых площадок без толп</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout purple">
+        <strong>Выход за рамки банальных туристических шаблонов:</strong>
+        <p>Если группа опережает график, алгоритм подсказывает нетривиальные локальные жемчужины, известные только коренным жителям.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">🎲</div>
+          <h4>Случайный выбор</h4>
+          <p>Радиусные вылазки к тайным гротам и каньонам в радиусе 1.5 км.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🌄</div>
+          <h4>Секретные видовые</h4>
+          <p>Точки лучших закатов и восходов без туристических автобусов.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🍄</div>
+          <h4>Эко-маршруты</h4>
+          <p>Ягодные поляны, чистейшие горные ручьи и геологические обнажения.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">⚖️</div>
+          <h4>Контроль безопасности</h4>
+          <p>Алгоритм учитывает категорию сложности и остаток светового дня.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="serendipity-box">
+        <div class="serendipity-header">🎲 НАЖМИТЕ ДЛЯ СЛУЧАЙНОГО ШАГА</div>
+        <div class="serendipity-card">
+          <div class="s-title">Водопад «Девичьи слезы» (+40 мин)</div>
+          <p>Скрытый каскад в 800 метрах вправо от основной тропы. Родниковая питьевая вода и реликтовый папоротник.</p>
+          <div class="s-meta">⭐ Оценка туристов: 4.95 (142 отзыва)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Подавляющее большинство туристов путешествуют по заезженным до дыр маршрутам, где приходится стоять в очередях, чтобы сфотографироваться на смотровой площадке.
+>
+> «УраТур» возвращает в путешествия подлинный дух первооткрывателей с помощью алгоритма «Случайный шаг».
+>
+> Если у вас появилось два свободных часа, приложение предложит свернуть на едва заметную тропу, ведущую к фантастическому лесному водопаду или древнему гроту.
+>
+> При этом математическая модель строго следит за безопасностью: приложение никогда не предложит опасный скальный участок, если надвигается туман или группа идет с детьми.
+
+---
+
+<!-- slide: 6 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ВЕРСИОННЫЕ ТРОПЫ</div>
+    <h2 class="slide-title">ВЕРСИОННЫЕ ДЕРЕВЬЯ МАРШРУТОВ (%TREE)</h2>
+    <p class="slide-subtitle">Ветвление треков под разные силы и сезоны вместо жестких стандартизированных экскурсий</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout purple">
+        <strong>Гибкая адаптация под любые возможности:</strong>
+        <p>Каждый путешественник может взять базовый ствол маршрута и создать дочернюю ветвь: под детей, под плохую погоду или для скоростного бега.</p>
+      </div>
+
+      <div class="tree-branches-stack">
+        <div class="t-branch root">
+          <span class="b-icon">🌲</span>
+          <div class="b-info">
+            <strong>Базовый ствол:</strong> Вокруг Эльбруса (Спортивный, 8 дней, 110 км)
+          </div>
+        </div>
+        <div class="t-branch sub">
+          <span class="b-arrow">↳</span>
+          <div class="b-info">
+            <strong>Ветвь А:</strong> Семейная версия с ночевками в приютах (5 дней, налегке)
+          </div>
+        </div>
+        <div class="t-branch sub">
+          <span class="b-arrow">↳</span>
+          <div class="b-info">
+            <strong>Ветвь Б:</strong> Обход ледника при высокой воде в реке (безопасный брод)
+          </div>
+        </div>
+        <div class="t-branch sub">
+          <span class="b-arrow">↳</span>
+          <div class="b-info">
+            <strong>Ветвь В:</strong> Зимний ски-тур трек на лыжах с контролем лавин
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="metric-glass-card">
+        <div class="metric-header">ПРЕИМУЩЕСТВА %TREE В ТУРИЗМЕ</div>
+        <div class="metric-rows">
+          <div class="metric-row">
+            <span class="m-label">Сохранение опыта предшественников:</span>
+            <span class="m-val purple">100% треков</span>
+          </div>
+          <div class="metric-row">
+            <span class="m-label">Адаптация под погоду и снег:</span>
+            <span class="m-val teal">в 1 клик</span>
+          </div>
+          <div class="metric-row">
+            <span class="m-label">Токсичные споры в отзывах:</span>
+            <span class="m-val cyan">0% (форк трека)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Маршруты в горах не могут быть одинаковыми для мастера спорта и для семьи с шестилетним ребенком.
+>
+> В «УраТуре» применяется технология иерархических деревьев версий, заимствованная из архитектуры «КубГолоса».
+>
+> Опытные гиды создают базовый ствол маршрута. Другие туристы могут ответвить от него альтернативные варианты.
+>
+> Например: версия с ночевками в теплых домиках, версия с обходом опасного брода в период паводка или облегченный трек для пожилых людей.
+>
+> Никаких споров в комментариях: каждый находит именно тот вариант, который идеально соответствует уровню подготовки и погоде.
+
+---
+
+<!-- slide: 7 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | НАРОДНЫЕ МИКРО-ОПРОСЫ</div>
+    <h2 class="slide-title">НАРОДНЫЕ МИКРО-ОПРОСЫ НА ТРОПЕ</h2>
+    <p class="slide-subtitle">Оперативная 3D-оценка состояния перевалов, бродов и стоянок с актуальностью на вчерашний день</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout purple">
+        <strong>Знание реальной обстановки спасает жизни:</strong>
+        <p>Проходя перевал, турист за 5 секунд поворачивает 3D-куб VoteCube, фиксируя три ключевых фактора текущего состояния тропы.</p>
+      </div>
+
+      <div class="factor-cube-preview">
+        <div class="factor-axis">
+          <span class="axis-badge x">Фактор X</span>
+          <div class="axis-desc"><strong>Снег и лед на перевале:</strong> Открытый лед / Снежная каша / Сухая тропа.</div>
+        </div>
+        <div class="factor-axis">
+          <span class="axis-badge y">Фактор Y</span>
+          <div class="axis-desc"><strong>Уровень воды в броде:</strong> По щиколотку / По колено / Опасно, сносит течением.</div>
+        </div>
+        <div class="factor-axis">
+          <span class="axis-badge z">Фактор Z</span>
+          <div class="axis-desc"><strong>Чистота родника на стоянке:</strong> Чистая вода / Мутный поток / Пересох.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="ui-mockup-frame">
+        <div class="mockup-header">🏔️ Сводка тропы в реальном времени</div>
+        <div class="pass-status-card" style="padding: 16px; background: rgba(168, 85, 247, 0.08); border: 1px solid rgba(168, 85, 247, 0.25); border-radius: 12px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-size: 16px; font-weight: 700; color: #ffffff;">Перевал Кара-Тюрек (3060 м)</div>
+          <div style="font-size: 13px; color: #cbd5e1;">Оценка 14 групп за последние 48 часов:</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
+            <span>🧊 Ледник и снег:</span>
+            <span style="font-weight: 700; color: #fbbf24;">78% (нужны кошки)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
+            <span>🥾 Видимость тропы:</span>
+            <span style="font-weight: 700; color: #34d399;">92% (тур-метки видны)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
+            <span>💧 Родник 2800 м:</span>
+            <span style="font-weight: 700; color: #38bdf8;">Чистый (вода есть)</span>
+          </div>
+          <div style="margin-top: 4px; padding: 6px; background: rgba(168, 85, 247, 0.15); border-radius: 6px; font-size: 12px; text-align: center; color: #c084fc; font-weight: 600;">
+            ✓ Крипто-подпись проверена • 0% ботов
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> В горах обстановка меняется за считанные часы: сошел сель, поднялась вода в реке или пересох единственный источник на стоянке.
+>
+> Традиционные путеводители описывают состояние тропы пятилетней давности. «УраТур» дает актуальную картину буквально на вчерашний день.
+>
+> Пройдя перевал, турист тратит несколько секунд на оценку по трем осям: состояние ледника, глубина брода и наличие питьевой воды.
+>
+> Встречные группы, даже находясь без связи, при сближении обмениваются этими свежими данными по радиоканалу между устройствами.
+>
+> Вы точно знаете, какая экипировка понадобится завтра, исключая смертельно опасные сюрпризы.
+
+---
+
+<!-- slide: 8 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | НАСЛЕДИЕ ЗАБОТЫ</div>
+    <h2 class="slide-title">МЕСТНЫЕ ГИДЫ И ПРОВОДНИКИ</h2>
+    <p class="slide-subtitle">Репутационное Землячество: проверенные егеря, аренда коней и гостевые дома без наценок</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout purple">
+        <strong>Опора на опыт коренных жителей:</strong>
+        <p>Через репутационный стандарт «Заботы» туристы связываются напрямую с опытными проводниками, живущими у подножия гор.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">🐎</div>
+          <h4>Лошади и заброска</h4>
+          <p>Прямой контакт с местными жителями для заброски груза в горы.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🏕️</div>
+          <h4>Семейные кемпинги</h4>
+          <p>Уютные гостевые дома и бани по честной цене без комиссий.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">⭐</div>
+          <h4>Честная репутация</h4>
+          <p>Отзывы подтверждены фактом пройденного похода и подписью.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🤝</div>
+          <h4>Безопасная сделка</h4>
+          <p>Оплата разблокируется только по возвращении группы с маршрута.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="master-card-preview">
+        <div class="master-header">
+          <div class="avatar-box">🏔️</div>
+          <div class="master-info">
+            <div class="master-name">Баир Ц. (Поселок Курай, Алтай)</div>
+            <div class="master-spec">Горный гид, инструктор альпинизма</div>
+          </div>
+        </div>
+        <div class="master-badges">
+          <span class="badge green">⭐ Репутация туристов: 5.0</span>
+          <span class="badge blue">48 безаварийных походов</span>
+        </div>
+        <div class="master-quote">«Знает каждый родник в долине Актру. Организовал безопасную переправу через реку».</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Никакой онлайн-робот не заменит мудрости и опыта местного проводника, родившегося в этих горах.
+>
+> Благодаря репутационному контуру «Заботы», «УраТур» связывает путешественников с проверенными местными егерями, проводниками и владельцами лошадей.
+>
+> Здесь нет столичных фирм-прокладок, забирающих половину суммы себе. Ваши деньги напрямую достаются жителям алтайских или кавказских сел.
+>
+> Репутация проводников защищена от накруток: оценку может поставить только турист, чье реальное присутствие на маршруте подтверждено GPS-треком.
+>
+> Вы получаете надежного наставника, а местные сообщества — достойный и уважительный заработок.
+
+---
+
+<!-- slide: 9 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СПАСЕНИЕ БЕЗ СВЯЗИ</div>
+    <h2 class="slide-title">ЭКСТРЕННАЯ P2P-СВЯЗЬ И СПАСЕНИЕ</h2>
+    <p class="slide-subtitle">Технология радиорелейной передачи BLE/Wi-Fi Mesh: сигнал бедствия найдет выход к спасателям</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout purple">
+        <strong>Спасение жизни в зоне радиомолчания:</strong>
+        <p>Если группа попала в беду в глубоком ущелье, смартфон транслирует SOS-пакет по Bluetooth и Wi-Fi. Встречные туристы подхватывают его и передают дальше.</p>
+      </div>
+
+      <div class="relay-steps-stack">
+        <div class="r-step red">
+          <span class="r-num">01</span>
+          <div class="r-info"><strong>Сигнал бедствия:</strong> Передача координат травмы и состава группы в эфир на 150 метров.</div>
+        </div>
+        <div class="r-step amber">
+          <span class="r-num">02</span>
+          <div class="r-info"><strong>Эстафета групп:</strong> Смартфон встречной группы принимает пакет в фоновом режиме.</div>
+        </div>
+        <div class="r-step green">
+          <span class="r-num">03</span>
+          <div class="r-info"><strong>Выход в МЧС:</strong> При первом появлении сотовой сети или Ветки пакет уходит спасателям.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="security-shield-card">
+        <div class="shield-badge">🆘 ЭСТАФЕТА СПАСЕНИЯ</div>
+        <ul class="shield-features">
+          <li><strong>Расход батареи &lt;1%:</strong> Сверхэкономичный протокол BLE маяков.</li>
+          <li><strong>Криптографическая защита:</strong> Подтверждение подлинности сигнала группы.</li>
+          <li><strong>Оповещение соседей по тропе:</strong> Ближайшие туристы могут оказать первую помощь.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Самый страшный сценарий в походе — это травма участника в глубоком каньоне, где нет спутникового телефона и не ловит ни один сотовый оператор.
+>
+> В «УраТуре» реализована спасательная технология ячеистой эстафеты.
+>
+> При включении сигнала бедствия смартфон начинает циклически рассылать зашифрованный пакет с точными координатами и описанием травмы через Bluetooth и Wi-Fi.
+>
+> Любая группа туристов, проходящая в радиусе ста пятидесяти метров, автоматически подхватывает этот сигнал.
+>
+> Продвигаясь к перевалу или выходу в долину, их смартфоны передают пакет дальше, пока он не достигнет МЧС или первой вышки связи.
+>
+> Эта технология уже спасает жизни там, где обычная связь бессильна.
+
+---
+
+<!-- slide: 10 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ОФЛАЙН-АВТОНОМИЯ</div>
+    <h2 class="slide-title">100% АВТОНОМИЯ: ВЕКТОРНЫЕ КАРТЫ</h2>
+    <p class="slide-subtitle">Топографические слои, изолинии высот и база стоянок в локальном хранилище Листа (%Leaf)</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout purple">
+        <strong>Мгновенный отклик в любых условиях:</strong>
+        <p>Векторные карты регионов скачиваются один раз и сохраняются в локальной реляционной базе данных SQLite. Рендеринг занимает менее 1 миллисекунды.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">🏔️</div>
+          <h4>Изолинии высот</h4>
+          <p>Точный шаг рельефа через каждые 10 метров с градиентом уклона.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">💧</div>
+          <h4>Слой гидрографии</h4>
+          <p>Родники, водопады, притоки и сезонные пересыхающие ручьи.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🛰️</div>
+          <h4>ГЛОНАСС / GPS</h4>
+          <p>Точное геопозиционирование по чипу без обращения к серверам.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🔋</div>
+          <h4>Энергосбережение</h4>
+          <p>Оптимизированный темный интерфейс экономит до 60% заряда экрана.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="kpi-vertical-stack">
+        <div class="kpi-card-explainer">
+          <div class="kpi-num purple">&lt; 1 МС</div>
+          <div class="kpi-label">Скорость прорисовки векторной топокарты</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num teal">0 БАЙТ</div>
+          <div class="kpi-label">Сетевого трафика на всем протяжении похода</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num cyan">300 МБ</div>
+          <div class="kpi-label">Весь Алтай или Кавказ в памяти телефона</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> В отличие от коммерческих приложений, которые при попытке приблизить карту требуют стабильного соединения четыре джи, «УраТур» хранит векторные слои прямо в памяти смартфона.
+>
+> Топографические карты региона с изолиниями высот через каждые десять метров, тропами, бродами и стоянками занимают всего несколько сотен мегабайт.
+>
+> Прорисовка карты и пересчет маршрута происходят за доли миллисекунды.
+>
+> Позиционирование осуществляется напрямую по спутниковым группировкам ГЛОНАСС и Джи-Пи-Эс, без единого байта сетевых запросов.
+>
+> А контрастный темный интерфейс сберегает драгоценный заряд аккумулятора в многодневном автономном переходе.
+
+---
+
+<!-- slide: 11 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СЛЕПЫЕ СДЕЛКИ</div>
+    <h2 class="slide-title">СЛЕПОЕ БРОНИРОВАНИЕ И БИЛЕТЫ (ZERO-PII)</h2>
+    <p class="slide-subtitle">Прямое бронирование кемпингов и баз отдыха через Цифровой рубль без раскрытия паспорта</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout purple">
+        <strong>Безопасность персональных данных туриста:</strong>
+        <p>Гостевой дом получает 100% гарантию оплаты через защищенный смарт-контракт, видя лишь криптографический пропуск без паспортных данных.</p>
+      </div>
+
+      <div class="pillar-cards-stack">
+        <div class="pillar-card">
+          <div class="pillar-num purple">01</div>
+          <div class="pillar-info">
+            <h4>Смарт-контракт эскроу</h4>
+            <p>Деньги туриста замораживаются в Цифровом рубле и выплачиваются базе при заселении по QR-коду.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num teal">02</div>
+          <div class="pillar-info">
+            <h4>Крипто-пропуск в заповедник</h4>
+            <p>Оформление разрешения на посещение нацпарка без передачи паспортных данных третьим лицам.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="escrow-preview-box">
+        <div class="escrow-header">🔒 СХЕМА СЛЕПОЙ СДЕЛКИ</div>
+        <div class="escrow-flow">
+          <div class="e-step">Турист (Лист)</div>
+          <div class="e-arrow">⟶ Цифровой рубль эскроу ⟶</div>
+          <div class="e-step">База отдыха</div>
+        </div>
+        <p class="escrow-note">Владелец базы видит статус «Оплачено 100%» и получает деньги при сканировании разового QR-кода гостя. Никаких утечек паспортов!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Каждый, кто бронировал отели в интернете, знает, сколько персональных данных приходится оставлять: паспорт, телефон, данные банковской карты.
+>
+> Позже эти базы данных утекают в открытый доступ, становясь добычей спамеров и мошенников.
+>
+> «УраТур» реализует протокол слепого бронирования на основе криптографии Zero-PII и Цифрового рубля.
+>
+> Средства блокируются в государственном эскроу-контракте. Владелец кемпинга видит железную финансовую гарантию и номер забронированного домика, не получая доступа к паспорту гражданина.
+>
+> При заселении гость показывает одноразовый QR-код, смарт-контракт исполняется мгновенно, и деньги переводятся предпринимателю.
+
+---
+
+<!-- slide: 12 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ЭКОНОМИКА РОЯЛТИ</div>
+    <h2 class="slide-title">РОЯЛТИ 1/N ДЛЯ АВТОРОВ МАРШРУТОВ</h2>
+    <p class="slide-subtitle">Честная экономика контента: картографы, гиды и авторы треков получают роялти за каждый проход</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout purple">
+        <strong>Монетизация опыта без навязчивой рекламы:</strong>
+        <p>Качественный трек требует сотен часов разведки троп. Через API-экономику Турбазы создатели контента получают автоматические микро-вознаграждения $1/N$.</p>
+      </div>
+
+      <div class="pillar-cards-stack">
+        <div class="pillar-card">
+          <div class="pillar-num purple">1/N</div>
+          <div class="pillar-info">
+            <h4>Алгоритмический клиринг</h4>
+            <p>Плата за использование платного премиум-трека делится между автором трека, картографом и экспертом по лавинам.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num teal">0%</div>
+          <div class="pillar-info">
+            <h4>Никаких рекламных баннеров</h4>
+            <p>Приложение свободно от коммерческой шелухи, отвлекающей от природы.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="ui-mockup-frame">
+        <div class="mockup-header">🪙 Справедливый клиринг трека 1/N</div>
+        <div class="clearing-card-preview" style="padding: 16px; background: rgba(168, 85, 247, 0.08); border: 1px solid rgba(168, 85, 247, 0.25); border-radius: 12px; display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 15px; font-weight: 700; color: #ffffff; margin-bottom: 4px;">Плата за авторский трек: 100 ₽</div>
+          <div style="display: flex; justify-content: space-between; font-size: 14px; padding: 6px 10px; background: rgba(255,255,255,0.04); border-radius: 6px;">
+            <span>🧭 Автор GPS-трека:</span>
+            <span style="font-weight: 700; color: #c084fc;">40 ₽ (40%)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 14px; padding: 6px 10px; background: rgba(255,255,255,0.04); border-radius: 6px;">
+            <span>🗺️ Картограф высот:</span>
+            <span style="font-weight: 700; color: #38bdf8;">30 ₽ (30%)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 14px; padding: 6px 10px; background: rgba(255,255,255,0.04); border-radius: 6px;">
+            <span>🎒 Эксперт по раскладке:</span>
+            <span style="font-weight: 700; color: #34d399;">20 ₽ (20%)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 14px; padding: 6px 10px; background: rgba(255,255,255,0.04); border-radius: 6px;">
+            <span>🌲 Фонд расчистки тропы:</span>
+            <span style="font-weight: 700; color: #fbbf24;">10 ₽ (10%)</span>
+          </div>
+          <div style="margin-top: 4px; font-size: 12px; color: #94a3b8; text-align: center;">Мгновенная выплата создателям в Цифровом рубле</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Сегодня создание качественных карт и треков держится на чистом энтузиазме, либо монетизируется через раздражающие рекламные баннеры.
+>
+> Платформа Турбаза предлагает принципиально иную модель — микроэкономику роялти один на эн.
+>
+> Когда путешественник выбирает подробный авторский трек с проверенными стоянками, небольшая плата автоматически и справедливо делится между исследователем, составителем раскладки и картографом.
+>
+> Часть средств направляется в фонд маркировки и расчистки тропы.
+>
+> Это стимулирует профессионалов создавать безупречный контент, формируя лучший в мире банк туристических маршрутов России.
+
+---
+
+<!-- slide: 13 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ИИ НА ТРОПЕ</div>
+    <h2 class="slide-title">ЛОКАЛЬНЫЙ ТУРИСТИЧЕСКИЙ EDGE AI</h2>
+    <p class="slide-subtitle">Персональный краевед, ботаник и геолог в смартфоне: нейросеть работает 100% без интернета</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout purple">
+        <strong>Знания мира прямо на ладони:</strong>
+        <p>Компактная квантованная модель искусственного интеллекта встроена в движок Листа и распознает окружающую природу прямо по ходу движения.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">🌿</div>
+          <h4>Распознавание растений</h4>
+          <p>Сфотографируйте траву или гриб: ИИ скажет, съедобен ли он.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🦅</div>
+          <h4>Определитель птиц</h4>
+          <p>Определение редких видов птиц и животных по голосу или фото.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">💎</div>
+          <h4>Геология и минералы</h4>
+          <p>История происхождения скал, ледников и горных складок края.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🎧</div>
+          <h4>Аудиоэкскурсовод</h4>
+          <p>Живой рассказ об истории древних трактов и стоянок предков.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="ui-mockup-frame">
+        <div class="mockup-header">Edge AI: Находка на высоте 2400м</div>
+        <div class="ai-speech-bubble">
+          <div class="ai-badge">🤖 Локальный ботаник</div>
+          <p><strong>Золотой корень (Родиола розовая):</strong> Редкое лекарственное растение, занесено в Красную книгу. Сбор запрещен. В 100м ниже начинается курумник.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Путешествие становится во много раз интереснее, когда рядом с вами идет эрудированный ученый-краевед.
+>
+> В «УраТур» встроен компактный краеведческий интеллект, работающий локально на процессоре смартфона без выхода в сеть.
+>
+> Наведите камеру на незнакомый цветок, гриб или минерал — и модель за долю секунды определит вид, расскажет о его свойствах и предупредит об опасности, если гриб ядовит.
+>
+> Проходя мимо древнего кургана или ледниковой морены, вы услышите захватывающий рассказ о геологической истории Земли и культуре населявших эти горы народов.
+
+---
+
+<!-- slide: 14 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | РЕГИОНАЛЬНЫЙ ЭФФЕКТ</div>
+    <h2 class="slide-title">ЭКОНОМИЧЕСКИЙ ЭФФЕКТ ДЛЯ РЕГИОНОВ</h2>
+    <p class="slide-subtitle">Туристический суверенитет: 100% средств остается в регионах, развивая малый бизнес и села</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout purple">
+        <strong>Мощный импульс развития для глубинки:</strong>
+        <p>Устранение зарубежных платформ возвращает миллиарды рублей в экономику регионов России, превращая удаленные поселки в центры экотуризма.</p>
+      </div>
+
+      <div class="pillar-cards-stack">
+        <div class="pillar-card">
+          <div class="pillar-num purple">-25%</div>
+          <div class="pillar-info">
+            <h4>Снижение цен для граждан</h4>
+            <p>Ликвидация паразитических комиссий делает путешествия по родной стране доступными для каждой семьи.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num teal">+35%</div>
+          <div class="pillar-info">
+            <h4>Рост доходов местных жителей</h4>
+            <p>Гиды, владельцы баз и водители получают полную стоимость своих трудов без скрытых вычетов.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="kpi-vertical-stack">
+        <div class="kpi-card-explainer">
+          <div class="kpi-num purple">100%</div>
+          <div class="kpi-label">Налогов и доходов остается внутри региона</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num teal">0 РУБ</div>
+          <div class="kpi-label">Вывода капитала в зарубежные офшоры агрегаторов</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num cyan">x3</div>
+          <div class="kpi-label">Рост занятости самозанятых в отдаленных районах</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Переход к суверенной туристической платформе дает колоссальный экономический мультипликатор для регионов России.
+>
+> Ранее миллиарды рублей ежегодно уходили за рубеж в виде комиссий иностранных агрегаторов отелей.
+>
+> С платформой «УраТур» каждый рубль, потраченный путешественником, напрямую поступает в карман местного жителя — гида, пекаря, фермера или владельца гостевого дома.
+>
+> Путешествия становятся на четверть дешевле для семейных бюджетов, стимулируя внутренний туризм и возрождая жизнь в самых живописных, но отдаленных уголках нашей Родины.
+
+---
+
+<!-- slide: 15 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СУВЕРЕННОЕ БУДУЩЕЕ</div>
+    <h2 class="slide-title">СУВЕРЕННЫЙ ТУРИЗМ И СВОБОДА</h2>
+    <p class="slide-subtitle">«УраТур» открывает просторы России: технологическая надежность, безопасность и любовь к Родине</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout purple">
+        <strong>Свобода открывать свою страну:</strong>
+        <p>«УраТур» доказывает силу архитектуры Турбазы: когда технологии служат людям, путешествия становятся безопасными, честными и вдохновляющими.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">🏔️</div>
+          <h4>Вся Россия в кармане</h4>
+          <p>Тысячи проверенных маршрутов от Камчатки до Калининграда.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🛡️</div>
+          <h4>Полная защита</h4>
+          <p>P2P Mesh SOS и точные карты спасают в критических ситуациях.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🤝</div>
+          <h4>Честные отношения</h4>
+          <p>Прямой контакт с местными проводниками и нулевые наценки.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🌐</div>
+          <h4>Независимость</h4>
+          <p>Никаких блокировок и сбоев зарубежных облачных систем.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="kpi-vertical-stack">
+        <div class="kpi-card-explainer">
+          <div class="kpi-num purple">100%</div>
+          <div class="kpi-label">Суверенитет данных и безопасность граждан</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num teal">0%</div>
+          <div class="kpi-label">Зависимости от сотовой связи и зарубежных облаков</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num cyan">РОССИЯ</div>
+          <div class="kpi-label">Страна великих открытий и свободного духа</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> В заключение: «УраТур» — это больше чем цифровой навигатор. Это манифест свободы странствий и технологической независимости.
+>
+> Объединив потенциал платформы Турбаза — локальные базы данных, ячеистые радиосети, открытые реляционные схемы и криптографию нулевого доверия — мы создали решение, которому нет аналогов в мире.
+>
+> Путешествуйте по России смело, открывайте неизведанные красоты родного края и будьте уверены в надежности суверенных технологий!
+>
+> Спасибо за внимание! В финальной презентации серии мы рассмотрим синергию всех пяти приложений в локальном реестре МСП и ЖКХ.

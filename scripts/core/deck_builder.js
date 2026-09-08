@@ -297,7 +297,7 @@ ${cssLinkTags}
     });
   </script>
 </head>
-<body>
+<body class="${meta.sector_theme || meta.theme_class || ''}">
 
   <!-- Top Navigation & Control Bar -->
   <header class="presentation-header">

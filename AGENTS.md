@@ -6,6 +6,7 @@ This repository hosts the complete presentation suite, video production pipeline
 The workspace is structured into high-level overview presentations, specialized deep-dive participant presentations, explainer trilogies, flagship application suites, shared templates, and global tooling:
 - **`platform_overview/`**: Foundational 3-part Explainer Mini-Series covering the paradigm shift, architectural principles, and sovereign economy of Turbase.
 - **`applications_presentations/`**: 4-presentation Flagship Application Suite covering «Деловой» (Organizer), «КубГолос» (Peer Micro-Polls), «Забота» (Mutual Aid & Open Reputation), and «УраТур» (Sovereign Travel Planner).
+- **`architecture_presentations/`**: Complete 7-part deep engineering presentation series on platform architecture (Topology, Leaf storage, Framework/SDK, Branch pipeline, P2P/Routing, TreeSearch, Cryptography/API economy).
 - **`overall_presentations/`**: High-level master overview presentations covering the complete architectural, economic, and stakeholder landscape:
   - `01_sovereign_architecture_presentation/`: Core technical architecture, 3-tier topology (Leaf $\to$ Branch $\to$ Trunk), 152-ФЗ Zero-PII compliance, and game-theoretic API economy.
   - `02_stakeholders_benefits_presentation/`: 6-stakeholder value matrix (Citizens, SME/Business, AdTech, Fintech, Regulators, Municipalities), PROs/CONs/Mitigations, and billboard-scale slides.
@@ -22,6 +23,9 @@ The workspace is structured into high-level overview presentations, specialized 
 turbase_benefits_presentation/
 ├── platform_overview/                          # Foundational 3-Part Explainer Mini-Series
 ├── applications_presentations/                 # 4 Flagship Core Applications Suite
+├── architecture_presentations/                 # 7-Part Deep Engineering Architecture Series
+│   ├── turbase_architecture_presentations_master_plan.md
+│   └── 01_topology_and_sovereignty/ ... 07_cryptography_and_api_economy/
 ├── overall_presentations/                      # Master Overview Presentations Track
 │   ├── 01_sovereign_architecture_presentation/ # Architecture & Sovereign Edge Compute
 │   └── 02_stakeholders_benefits_presentation/  # 6-Stakeholder Value Matrix & Economics
