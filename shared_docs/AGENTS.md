@@ -8,7 +8,7 @@ Stores foundational, platform-wide technical documentation, whitepapers, cryptog
 ## 📁 Directory Structure & Key Documents
 - **`comments/`**: **Личные записи разработчика (Human-written Developer Notes)**
   - Записи автора платформы, написанные вручную без ИИ, отражающие историю концепций, глубинную мотивацию и философию архитектуры.
-  - Содержит [`LABELS.md`](file:///home/anastasiya/Documents/presentations/shared_docs/comments/LABELS.md) — словарь семантических меток (`%Repository`, `%Tree`, `%ForeignKey`, `%API` и др.).
+  - Содержит [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) — словарь семантических меток (`%Repository`, `%Tree`, `%ForeignKey`, `%API` и др.).
   - Структурировано по годам (`2026/` и т.д.).
 - **`Технический документ платформы Турбаза.md`**: Comprehensive 110 KB technical whitepaper detailing:
   - Three-tier topology (Leaf, Branch, Sub-branch, Trunk)
@@ -28,5 +28,5 @@ Stores foundational, platform-wide technical documentation, whitepapers, cryptog
    - Техническая документация (`Технический документ платформы Турбаза.md`) и заметки разработчика (`comments/`) являются главными нормативными источниками для всех презентаций репозитория.
 2. **Использование авторских заметок (`comments/`):**
    - При уточнении концепций, мотивации архитектурных решений и формулировании тезисов обращайтесь к заметкам в папке `comments/`.
-   - Для точного поиска фактов используйте поиск по меткам `%Label` из [`comments/LABELS.md`](file:///home/anastasiya/Documents/presentations/shared_docs/comments/LABELS.md).
+   - Для точного поиска фактов используйте поиск по меткам `%Label` из [`comments/LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md).
    - Заметки разработчика предназначены **строго для чтения** (Read-Only). ИИ-агентам запрещено изменять авторские записи.
