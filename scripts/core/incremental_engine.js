@@ -22,6 +22,24 @@ function sha256(data) {
 
 function computeStylesHash(presentationDir, meta = {}) {
   const rootDir = typeof findRepoRoot === 'function' ? findRepoRoot(presentationDir) : path.resolve(__dirname, '..', '..');
+  const docsDir = path.join(presentationDir, 'docs');
+
+  // If presentation has local CSS in docs/, hash only its isolated styles
+  if (fs.existsSync(docsDir)) {
+    const localDocCss = fs.readdirSync(docsDir).filter(f => f.endsWith('.css'));
+    if (localDocCss.length > 0) {
+      let combinedCss = '';
+      localDocCss.sort().forEach(f => {
+        const fullPath = path.join(docsDir, f);
+        if (fs.existsSync(fullPath)) {
+          combinedCss += fs.readFileSync(fullPath, 'utf8');
+        }
+      });
+      return sha256(combinedCss);
+    }
+  }
+
+  // Fallback to shared templates if no local CSS is present
   const cssPaths = [
     path.join(rootDir, 'shared_templates', 'overview_presentation_deck', 'css', 'overview_deck_base.css'),
     path.join(rootDir, 'shared_templates', 'overview_presentation_deck', 'css', 'overview_deck_components.css')

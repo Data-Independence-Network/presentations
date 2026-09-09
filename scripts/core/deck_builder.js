@@ -213,27 +213,41 @@ function compileDeckHtml(presentationDir, options = {}) {
   const detailedImpactRel = path.relative(webDeckDir, path.join(rootDir, 'shared_templates', 'detailed_impact_deck')).replace(/\\/g, '/');
   const audioRel = path.relative(webDeckDir, path.join(presentationDir, 'generated', 'artifacts', 'audio')).replace(/\\/g, '/');
 
-  // Copy local presentation CSS from docs/ to web_deck/ if present
-  ['architecture.css', 'stakeholders.css'].forEach(cssFile => {
-    const srcDocCss = path.join(docsDir, cssFile);
-    const destWebCss = path.join(webDeckDir, cssFile);
-    if (fs.existsSync(srcDocCss)) {
-      fs.copyFileSync(srcDocCss, destWebCss);
+  // Discover and copy presentation-specific local CSS from docs/ to web_deck/
+  let localCssFiles = [];
+  if (fs.existsSync(docsDir)) {
+    const docFiles = fs.readdirSync(docsDir);
+    if (docFiles.includes('deck.css')) {
+      localCssFiles = ['deck.css'];
+    } else if (docFiles.includes('stakeholders.css')) {
+      localCssFiles = ['stakeholders.css'];
+    } else if (docFiles.includes('architecture.css')) {
+      localCssFiles = ['architecture.css'];
+    } else {
+      localCssFiles = docFiles.filter(f => f.endsWith('.css'));
     }
-  });
+  }
 
-  // Determine decoupled CSS links per presentation track
   let cssLinkTags = '';
-  if (presentationDir.includes('01_sovereign_architecture_presentation')) {
-    cssLinkTags = `  <!-- Sovereign Architecture Isolated Theme -->\n  <link rel="stylesheet" href="architecture.css">`;
-  } else if (presentationDir.includes('02_stakeholders_benefits_presentation')) {
-    cssLinkTags = `  <!-- Stakeholders Benefits Isolated Theme -->\n  <link rel="stylesheet" href="stakeholders.css">`;
-  } else if (presentationDir.includes('platform_overview') || meta.theme === 'platform_overview') {
-    cssLinkTags = `  <!-- Platform Overview Design System -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_theme.css">\n  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_components.css">`;
-  } else if (presentationDir.includes('detailed_overall_impact') || meta.theme === 'detailed_impact') {
-    cssLinkTags = `  <!-- Detailed Impact Presentations Design System -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <link rel="stylesheet" href="${detailedImpactRel}/css/detailed_deck_theme.css">\n  <link rel="stylesheet" href="${detailedImpactRel}/css/detailed_deck_components.css">`;
+  if (localCssFiles.length > 0) {
+    // Copy isolated CSS file(s) directly into web_deck/
+    localCssFiles.forEach(cssFile => {
+      const srcDocCss = path.join(docsDir, cssFile);
+      const destWebCss = path.join(webDeckDir, cssFile);
+      fs.copyFileSync(srcDocCss, destWebCss);
+    });
+    cssLinkTags = localCssFiles
+      .map(cssFile => `  <!-- Isolated Standalone Presentation Theme -->\n  <link rel="stylesheet" href="${cssFile}">`)
+      .join('\n');
   } else {
-    cssLinkTags = `  <!-- Universal Sovereign Overview Design System -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_base.css">\n  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_components.css">`;
+    // Fallback for presentations that have not yet migrated to an isolated local stylesheet
+    if (presentationDir.includes('platform_overview') || meta.theme === 'platform_overview') {
+      cssLinkTags = `  <!-- Platform Overview Design System (Fallback) -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_theme.css">\n  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_components.css">`;
+    } else if (presentationDir.includes('detailed_overall_impact') || meta.theme === 'detailed_impact') {
+      cssLinkTags = `  <!-- Detailed Impact Presentations Design System (Fallback) -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <link rel="stylesheet" href="${detailedImpactRel}/css/detailed_deck_theme.css">\n  <link rel="stylesheet" href="${detailedImpactRel}/css/detailed_deck_components.css">`;
+    } else {
+      cssLinkTags = `  <!-- Universal Sovereign Overview Design System (Fallback) -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_base.css">\n  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_components.css">`;
+    }
   }
 
   let slidesHtml = '';
