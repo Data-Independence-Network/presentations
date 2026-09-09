@@ -3718,4 +3718,1323 @@
   font-weight: 700;
 }
 
+/* ==========================================================================
+   PRESENTATION 02: ARCHITECTURE PRINCIPLES BILLBOARD SCALE CALIBRATION
+   Class scope: .arch-principles-deck
+   ========================================================================== */
+
+/* Universal slide framing & header scale */
+.arch-principles-deck .slide-card {
+  padding: 44px 68px !important;
+}
+
+.arch-principles-deck .slide-header {
+  margin-bottom: 24px;
+}
+
+.arch-principles-deck .explainer-series-marker {
+  font-size: 18px;
+  padding: 6px 20px;
+  margin-bottom: 10px;
+}
+
+.arch-principles-deck .slide-title {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.arch-principles-deck .slide-subtitle {
+  font-size: 26px;
+  line-height: 1.32;
+  color: #cbd5e1;
+}
+
+/* ---------- SLIDE 1: MANIFESTO & 3 ARCH KPIs ---------- */
+.arch-principles-deck .slide-card[data-slide="1"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .key-callout {
+  padding: 22px 28px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .key-callout > strong {
+  font-size: 26px;
+  line-height: 1.25;
+  margin-bottom: 8px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .key-callout p {
+  font-size: 22.5px;
+  line-height: 1.36;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .feature-card {
+  padding: 20px 24px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .feature-card .card-icon {
+  font-size: 40px;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .feature-card h4 {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .feature-card p {
+  font-size: 22.5px;
+  line-height: 1.35;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .arch-blueprint-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 16px;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .arch-kpi-chip {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 26px 32px;
+  border-radius: 16px;
+  gap: 12px;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .arch-kpi-chip .kpi-val {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .arch-kpi-chip .kpi-label {
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #f1f5f9;
+}
+
+/* ---------- SLIDE 2: 4-TIER TOPOLOGY STACK ---------- */
+.arch-principles-deck .slide-card[data-slide="2"] .info-panel {
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .feature-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .feature-card {
+  padding: 22px 24px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 6px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .feature-card .card-icon {
+  font-size: 42px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .feature-card h4 {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .feature-card p {
+  font-size: 22.5px;
+  line-height: 1.36;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .feature-card p strong {
+  font-size: 22.5px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topology-billboard-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-node {
+  padding: 22px 28px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-badge {
+  font-size: 27px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-details {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  gap: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-title {
+  font-size: 26px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-subtitle {
+  font-size: 21px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-connector {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-leaves-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-node.topo-leaf {
+  padding: 16px 20px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-node.topo-leaf .topo-badge {
+  font-size: 23px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-node.topo-leaf .topo-title {
+  font-size: 23px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-node.topo-leaf .topo-subtitle {
+  font-size: 19.5px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-p2p-bridge {
+  font-size: 18px;
+  padding: 11px 16px;
+  font-weight: 800;
+}
+
+/* ---------- SLIDE 3: REPOSITORY ANATOMY & SCHEMA BLUEPRINT ---------- */
+.arch-principles-deck .slide-card[data-slide="3"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .key-callout {
+  padding: 20px 26px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .key-callout > strong {
+  font-size: 26px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .key-callout p {
+  font-size: 22px;
+  line-height: 1.36;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .feature-card {
+  padding: 20px 22px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .feature-card .card-icon {
+  font-size: 38px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .feature-card h4 {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 3px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .feature-card p {
+  font-size: 22px;
+  line-height: 1.35;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .feature-card p strong {
+  font-size: 22px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-anatomy-diagram {
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px 24px;
+  border-radius: 16px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-box-header {
+  font-size: 25px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 6px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-keys-badge {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-keys-badge span {
+  font-size: 18.5px;
+  font-weight: 700;
+  padding: 7px 15px;
+  border-radius: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-schema-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  flex: 1;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-table-card {
+  padding: 12px 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-table-card-head {
+  font-size: 21px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-table-col {
+  font-size: 17px;
+  line-height: 1.42;
+  font-family: var(--font-mono);
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-table-col.index {
+  font-size: 16px;
+  font-weight: 700;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-bottom-specs {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .spec-pill {
+  font-size: 18.5px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+/* ---------- SLIDE 4: FOREIGN KEYS & BRIDGE ENTITIES ---------- */
+.arch-principles-deck .slide-card[data-slide="4"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .key-callout {
+  padding: 18px 24px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .key-callout > strong {
+  font-size: 26px;
+  line-height: 1.25;
+  margin-bottom: 4px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .key-callout p {
+  font-size: 22px;
+  line-height: 1.34;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .feature-card {
+  padding: 20px 24px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .feature-card .card-icon {
+  font-size: 38px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .feature-card h4 {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .feature-card p {
+  font-size: 22px;
+  line-height: 1.34;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .feature-card p strong {
+  font-size: 22px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-connection-diagram {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-node {
+  flex: 1;
+  padding: 16px 22px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-node-title {
+  font-size: 23px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-node-badge,
+.arch-principles-deck .slide-card[data-slide="4"] .fk-status-badge {
+  font-size: 17.5px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-row-card {
+  padding: 11px 18px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-row-title {
+  font-size: 22px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-pointer-badge {
+  font-size: 17.5px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-cache-box,
+.arch-principles-deck .slide-card[data-slide="4"] .fk-sync-box {
+  padding: 11px 18px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-cache-label,
+.arch-principles-deck .slide-card[data-slide="4"] .fk-sync-label {
+  font-size: 18.5px;
+  font-weight: 700;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-cache-val,
+.arch-principles-deck .slide-card[data-slide="4"] .fk-sync-val {
+  font-size: 20px;
+  line-height: 1.32;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-arrow {
+  font-size: 20px;
+  font-weight: 800;
+  padding: 4px 14px;
+  text-align: center;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-footer-banner {
+  font-size: 20.5px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 12px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-footer-banner strong {
+  color: var(--horizon-emerald-light);
+}
+
+/* ---------- SLIDES 5, 7, 11: 2-COLUMN GLASS CARDS WITH STEPPER & BANNER ---------- */
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .glass-card {
+  padding: 26px 32px;
+  border-radius: 16px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .card-pill-tag {
+  font-size: 19.5px;
+  padding: 6px 18px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .card-title {
+  font-size: 39px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .card-desc {
+  font-size: 23.5px;
+  line-height: 1.34;
+  color: #f1f5f9;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .pipeline-stepper-compact {
+  padding: 13px 18px;
+  margin: 4px 0;
+  gap: 12px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .pipe-step-icon {
+  font-size: 30px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .pipe-step-title {
+  font-size: 19px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .pipe-step-sub {
+  font-size: 15.5px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .pipe-arrow {
+  font-size: 23px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .card-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .card-bullets li {
+  font-size: 22.5px;
+  line-height: 1.34;
+  padding-left: 30px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .card-bullets li strong {
+  font-size: 22.5px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) :is(.ui-summary-banner, .tee-summary-banner, .summary-banner) {
+  margin-top: auto;
+  padding: 15px 22px;
+  font-size: 20.5px;
+  font-weight: 700;
+}
+
+/* ---------- SLIDE 6: CROSS-DOMAIN SQL JOIN ---------- */
+.arch-principles-deck .slide-card[data-slide="6"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .key-callout {
+  padding: 18px 24px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .key-callout > strong {
+  font-size: 26px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .key-callout p {
+  font-size: 22px;
+  line-height: 1.36;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .feature-card {
+  padding: 20px 24px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .feature-card .card-icon {
+  font-size: 38px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .feature-card h4 {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .feature-card .feat-points {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .feature-card .feat-point {
+  font-size: 21.5px;
+  line-height: 1.35;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .feature-card .feat-point strong {
+  font-size: 21.5px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .visual-panel .glass-card {
+  height: 100%;
+  padding: 20px 24px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .card-pill-tag {
+  font-size: 19px;
+  padding: 5px 16px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .code-block {
+  font-size: 19px;
+  line-height: 1.4;
+  padding: 12px 18px;
+  border-radius: 12px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .join-schema-diagram {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .schema-table {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .table-name {
+  font-size: 21px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .table-field {
+  font-size: 17.5px;
+  line-height: 1.36;
+  font-family: var(--font-mono);
+}
+.arch-principles-deck .slide-card[data-slide="6"] .join-badge {
+  font-size: 19px;
+  font-weight: 800;
+  padding: 7px 14px;
+  white-space: nowrap;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .join-result-banner {
+  font-size: 20px;
+  line-height: 1.34;
+  padding: 12px 18px;
+  border-radius: 12px;
+}
+
+/* ---------- SLIDE 8: API PUBLIC WRAPPERS ---------- */
+.arch-principles-deck .slide-card[data-slide="8"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .key-callout {
+  padding: 20px 26px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .key-callout > strong {
+  font-size: 26px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .key-callout p {
+  font-size: 22px;
+  line-height: 1.36;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .feature-card {
+  padding: 22px 26px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .feature-card .card-icon {
+  font-size: 40px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .feature-card h4 {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .feature-card .feat-points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .feature-card .feat-point {
+  font-size: 22px;
+  line-height: 1.36;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .feature-card .feat-point strong {
+  font-size: 22px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .api-pipeline-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-step-card {
+  padding: 17px 22px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-step-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-step-num {
+  width: 46px;
+  height: 46px;
+  font-size: 24px;
+  font-weight: 900;
+  border-radius: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-step-name {
+  font-size: 23.5px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-step-action {
+  font-size: 19.5px;
+  line-height: 1.3;
+  color: #cbd5e1;
+  font-family: var(--font-mono);
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-step-badge {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-connector {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-status-ribbon {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 14px 22px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* ---------- SLIDE 9: CONTROL PLANE VS DATA PLANE ---------- */
+.arch-principles-deck .slide-card[data-slide="9"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .feature-card {
+  padding: 22px 26px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .feature-card .card-icon {
+  font-size: 40px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .feature-card h4 {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .feature-card .feat-points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .feature-card .feat-point {
+  font-size: 22px;
+  line-height: 1.36;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .feature-card .feat-point strong {
+  font-size: 22px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .key-callout {
+  padding: 20px 26px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .key-callout > strong {
+  font-size: 25px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .key-callout p {
+  font-size: 22px;
+  line-height: 1.36;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .planes-comparison-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 12px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .plane-box {
+  flex: 1;
+  padding: 24px 28px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .plane-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .plane-title {
+  font-size: 25.5px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .plane-badge {
+  font-size: 18.5px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .plane-desc {
+  font-size: 22.5px;
+  line-height: 1.38;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .plane-bridge-connector {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .plane-bridge-badge {
+  font-size: 19.5px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .p2p-direct-pipe {
+  padding: 14px 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .p2p-node {
+  font-size: 21.5px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .p2p-stream {
+  font-size: 18.5px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+/* ---------- SLIDE 10: HIERARCHICAL TREE & FEDERATED OLAP ---------- */
+.arch-principles-deck .slide-card[data-slide="10"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .key-callout {
+  padding: 20px 26px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .key-callout > strong {
+  font-size: 26px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .key-callout p {
+  font-size: 22px;
+  line-height: 1.36;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .feature-card {
+  padding: 22px 26px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .feature-card .card-icon {
+  font-size: 40px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .feature-card h4 {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .feature-card .feat-points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .feature-card .feat-point {
+  font-size: 22px;
+  line-height: 1.36;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .feature-card .feat-point strong {
+  font-size: 22px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .federated-olap-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .olap-tier {
+  padding: 20px 26px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .olap-tier-name {
+  font-size: 23.5px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .olap-tier-sub {
+  font-size: 19.5px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .olap-metric-badge {
+  font-size: 18.5px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .olap-connector-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 14px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--horizon-cyan);
+}
+
+/* ---------- SLIDE 12: MYCELIUM INTERNET OF DATA & BRICS ---------- */
+.arch-principles-deck .slide-card[data-slide="12"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .key-callout {
+  padding: 22px 28px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .key-callout > strong {
+  font-size: 26px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .key-callout p {
+  font-size: 22px;
+  line-height: 1.36;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .feature-card {
+  padding: 20px 24px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .feature-card .card-icon {
+  font-size: 38px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .feature-card h4 {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .feature-card p {
+  font-size: 21.5px;
+  line-height: 1.34;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .brics-mycorrhiza-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 12px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .mycorrhiza-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  gap: 12px;
+  flex: 1;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .mycorrhiza-col {
+  padding: 18px 16px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .myco-col-title {
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .myco-subcard {
+  padding: 16px 18px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .mycorrhiza-col.bridge {
+  justify-content: center;
+  gap: 16px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .myco-bridge-icon {
+  font-size: 44px;
+  text-align: center;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .myco-bridge-title {
+  font-size: 24px;
+  font-weight: 900;
+  text-align: center;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .myco-bridge-desc {
+  font-size: 20.5px;
+  line-height: 1.34;
+  text-align: center;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .myco-bridge-badge {
+  font-size: 19px;
+  font-weight: 800;
+  padding: 9px 14px;
+  border-radius: 8px;
+  text-align: center;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .myco-summary-ribbon {
+  font-size: 20.5px;
+  font-weight: 700;
+  padding: 13px 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* ---------- SLIDE 13: ZERO-PII & CRYPTO DESTRUCTION ---------- */
+.arch-principles-deck .slide-card[data-slide="13"] .glass-card {
+  padding: 30px 36px;
+  border-radius: 16px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="13"] .card-pill-tag {
+  font-size: 20px;
+  padding: 6px 20px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="13"] .card-title {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="13"] .card-desc {
+  font-size: 24.5px;
+  line-height: 1.36;
+  color: #f1f5f9;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="13"] .card-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 2px;
+  margin-bottom: 6px;
+}
+.arch-principles-deck .slide-card[data-slide="13"] .card-bullets li {
+  font-size: 23px;
+  line-height: 1.36;
+  padding-left: 32px;
+}
+.arch-principles-deck .slide-card[data-slide="13"] .card-bullets li strong {
+  font-size: 23px;
+}
+.arch-principles-deck .slide-card[data-slide="13"] .card-bullets li code {
+  font-size: 21.5px;
+  padding: 2px 6px;
+}
+.arch-principles-deck .slide-card[data-slide="13"] :is(.ui-summary-banner, .tee-summary-banner) {
+  margin-top: auto;
+  padding: 14px 22px;
+  font-size: 20.5px;
+  font-weight: 700;
+}
+
+/* ---------- SLIDE 14: TECHNICAL KPIs & ARCHITECTURE SUMMARY ---------- */
+.arch-principles-deck .slide-card[data-slide="14"] .kpi-row-explainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .kpi-card-explainer {
+  padding: 24px 26px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .kpi-val-explainer {
+  font-size: 66px;
+  line-height: 1;
+  font-weight: 900;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .kpi-title-explainer {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .kpi-desc-explainer {
+  font-size: 22px;
+  line-height: 1.36;
+  color: #cbd5e1;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .kpi-badge-explainer {
+  font-size: 18px;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .glass-card {
+  padding: 32px 38px;
+  border-radius: 16px;
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .card-pill-tag {
+  font-size: 20px;
+  padding: 6px 18px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .card-title {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.18;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .card-desc {
+  font-size: 24px;
+  line-height: 1.36;
+  margin-bottom: 6px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .card-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .card-bullets li {
+  font-size: 22.5px;
+  line-height: 1.36;
+  padding-left: 32px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .card-bullets li strong {
+  font-size: 22.5px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .repo-keys-badge {
+  margin-top: auto;
+  padding: 15px 22px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ---------- SLIDE 15: ARCHITECTURE SUMMARY & BRIDGE TO PART 3 ---------- */
+.arch-principles-deck .slide-card[data-slide="15"] .slide-title {
+  font-size: 48px;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .glass-card {
+  padding: 28px 34px;
+  border-radius: 16px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .card-pill-tag {
+  font-size: 19px;
+  padding: 5px 16px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .card-title {
+  font-size: 39px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .card-desc {
+  font-size: 23.5px;
+  line-height: 1.34;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .card-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .card-bullets li {
+  font-size: 22px;
+  line-height: 1.34;
+  padding-left: 30px;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .card-bullets li strong {
+  font-size: 22px;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .repo-footer {
+  margin-top: auto;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 800;
+  border-radius: 10px;
+  text-align: center;
+}
+
+
 
