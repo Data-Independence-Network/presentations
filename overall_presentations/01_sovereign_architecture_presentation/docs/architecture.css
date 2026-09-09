@@ -202,6 +202,63 @@ body {
   box-shadow: 0 0 12px rgba(16, 185, 129, 0.4);
 }
 
+/* ==================== SPEAKER NOTES DRAWER ==================== */
+.notes-drawer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(7, 13, 26, 0.98);
+  backdrop-filter: blur(20px);
+  border-top: 2px solid var(--gold-primary);
+  padding: 24px 36px;
+  max-height: 40vh;
+  overflow-y: auto;
+  transform: translateY(105%);
+  transition: transform 0.3s ease;
+  z-index: 95;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.notes-drawer.open {
+  transform: translateY(0);
+}
+
+.notes-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.notes-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gold-primary);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.notes-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.notes-close-btn:hover {
+  color: #ffffff;
+}
+
+.notes-body {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #f1f5f9;
+}
+
 /* ==================== VIEWPORT & SLIDES ==================== */
 .presentation-viewport {
   flex: 1;
@@ -2263,6 +2320,56 @@ body {
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--text-primary);
+}
+
+.grid-slide-thumb {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-slide-thumb:hover {
+  border-color: var(--gold-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.grid-slide-thumb.current {
+  border-color: var(--gold-primary);
+  background: rgba(250, 204, 21, 0.12);
+  box-shadow: 0 0 20px rgba(250, 204, 21, 0.3);
+}
+
+.thumb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.thumb-num {
+  font-size: 14px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--gold-primary);
+}
+
+.thumb-tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.thumb-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
 }
 
 /* ==========================================================================
