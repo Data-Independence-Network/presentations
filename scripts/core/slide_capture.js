@@ -80,14 +80,18 @@ async function captureSlides(config = {}) {
         padding: 48px 72px !important;
         box-shadow: none !important;
         border-radius: 0 !important;
-        display: none !important;
+        display: flex !important;
+        visibility: hidden !important;
         opacity: 0 !important;
         transform: none !important;
         transition: none !important;
+        pointer-events: none !important;
       }
       .slide-card.active {
         display: flex !important;
+        visibility: visible !important;
         opacity: 1 !important;
+        pointer-events: auto !important;
       }
     `;
     document.head.appendChild(style);

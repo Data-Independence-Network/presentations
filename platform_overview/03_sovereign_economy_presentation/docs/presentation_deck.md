@@ -166,19 +166,19 @@ rate: "-9%"
       <div class="call-stack-diagram">
         <div class="stack-box-header">СТЕК ВЫЗОВА СЕРВИСА (N = 4 МОДУЛЯ)</div>
         <div class="stack-item item-1">
-          <span class="stack-name">1. Экран заказа пиццы (%UI)</span>
+          <span class="stack-name">1. Экран заказа пиццы (UI)</span>
           <span class="stack-share">Доля: 1/4 (25%)</span>
         </div>
         <div class="stack-item item-2">
-          <span class="stack-name">2. Оболочка расчета скидки (%API)</span>
+          <span class="stack-name">2. Оболочка расчета скидки (API)</span>
           <span class="stack-share">Доля: 1/4 (25%)</span>
         </div>
         <div class="stack-item item-3">
-          <span class="stack-name">3. Оболочка слепой доставки (%API)</span>
+          <span class="stack-name">3. Оболочка слепой доставки (API)</span>
           <span class="stack-share">Доля: 1/4 (25%)</span>
         </div>
         <div class="stack-item item-4">
-          <span class="stack-name">4. Схема номенклатуры (%Database)</span>
+          <span class="stack-name">4. Схема номенклатуры (База данных)</span>
           <span class="stack-share">Доля: 1/4 (25%)</span>
         </div>
         <div class="stack-caption">100% математическая прозрачность: каждый инженер получает заслуженное роялти</div>
@@ -208,7 +208,7 @@ rate: "-9%"
 
   <div class="slide-body grid-3col">
     <div class="glass-card">
-      <div class="card-pill-tag cyan">СЛОЙ 1: ИНТЕРФЕЙСЫ (%UI)</div>
+      <div class="card-pill-tag cyan">СЛОЙ 1: ИНТЕРФЕЙСЫ (UI)</div>
       <h3 class="card-title">Авторы UI и Экранов</h3>
       <p class="card-desc">Разработчики клиентских приложений получают <strong>1/N</strong> за привлечение аудитории и удобный UX.</p>
       <ul class="card-bullets">
@@ -219,7 +219,7 @@ rate: "-9%"
     </div>
 
     <div class="glass-card">
-      <div class="card-pill-tag gold">СЛОЙ 2: ЛОГИКА (%API)</div>
+      <div class="card-pill-tag gold">СЛОЙ 2: ЛОГИКА (API)</div>
       <h3 class="card-title">Авторы Оболочек</h3>
       <p class="card-desc">Создатели бизнес-логики получают <strong>1/N</strong> за полезные вычисления и валидацию правил.</p>
       <ul class="card-bullets">
@@ -230,7 +230,7 @@ rate: "-9%"
     </div>
 
     <div class="glass-card">
-      <div class="card-pill-tag emerald">СЛОЙ 3: СХЕМЫ (%Database)</div>
+      <div class="card-pill-tag emerald">СЛОЙ 3: СХЕМЫ ДАННЫХ</div>
       <h3 class="card-title">Авторы Схем Данных</h3>
       <p class="card-desc">Создатели стандартов данных получают <strong>1/N</strong> с каждого обращения чужих систем к их таблицам.</p>
       <ul class="card-bullets">
@@ -265,7 +265,7 @@ rate: "-9%"
     <div class="glass-card">
       <div class="card-pill-tag emerald">ДЛЯ ГРАЖДАН</div>
       <h3 class="card-title">Доход за собственное внимание</h3>
-      <p class="card-desc">Личный профиль зашифрован на устройстве (%Leaf) и никогда не уходит в сеть.</p>
+      <p class="card-desc">Личный профиль зашифрован на устройстве (Лист) и никогда не уходит в сеть.</p>
       <ul class="card-bullets">
         <li>Локальный нейросетевой On-Device подбор релевантных акций</li>
         <li>Рекламный доход автоматически оплачивает хранилище на Ветке</li>
@@ -439,7 +439,7 @@ rate: "-9%"
   <div class="slide-body grid-2col">
     <div class="info-panel">
       <div class="key-callout emerald">
-        <strong>Структурированные данные и репутация (%GenAI, %LLM):</strong>
+        <strong>Структурированные данные и репутация:</strong>
         <p>Открытые схемы таблиц и репутационные механизмы сети «Забота» переиспользуются всеми приложениями. Древовидные индексы Хранилищ обеспечивают идеальную основу для центрального обучения базовых моделей и контекстной до-настройки на смартфонах.</p>
       </div>
 
@@ -459,9 +459,9 @@ rate: "-9%"
 
     <div class="visual-panel">
       <div class="ai-flow-diagram">
-        <div class="ai-node">📚 Структурированные Хранилища (%Repository)</div>
+        <div class="ai-node">📚 Структурированные Хранилища</div>
         <div class="ai-arrow">⬇ <span>Открытые схемы & репутация «Забота»</span></div>
-        <div class="ai-node">🌲 Древовидные индексные хранилища (%Tree)</div>
+        <div class="ai-node">🌲 Древовидные индексные реестры</div>
         <div class="ai-arrow">⬇ <span>Центральное & добровольное Edge-обучение</span></div>
         <div class="ai-node highlight">📱 До-настройка базовых нейросетей на устройстве</div>
       </div>

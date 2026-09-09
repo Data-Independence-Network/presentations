@@ -30,22 +30,22 @@ rate: "-9%"
         <div class="feature-card">
           <div class="card-icon">🏠</div>
           <h4>Автономные хранилища</h4>
-          <p>Священное право семьи на неприкосновенность личной информации.</p>
+          <p><strong>Священный сейф семьи:</strong> Неприкосновенность личных архивов на локальных устройствах без внешнего контроля.</p>
         </div>
         <div class="feature-card">
           <div class="card-icon">🧩</div>
           <h4>Отделение софта от данных</h4>
-          <p>Приложения меняются, а данные остаются у их истинного владельца.</p>
+          <p><strong>Свобода выбора софта:</strong> Приложения меняются, а единая база SQLite остается в сейфе владельца.</p>
         </div>
         <div class="feature-card">
           <div class="card-icon">🇷🇺</div>
           <h4>Национальный суверенитет</h4>
-          <p>Государственная защита контура без баз-мишеней и внешних санкций.</p>
+          <p><strong>Защита госконтура:</strong> Устранение баз-мишеней и шифрование ГОСТ прямо на клиентском кремнии.</p>
         </div>
         <div class="feature-card">
           <div class="card-icon">💎</div>
           <h4>Справедливая экономика</h4>
-          <p>Прямой рынок без посредников, серверов и 30% поборов платформ.</p>
+          <p><strong>Прямой рынок:</strong> Ликвидация 30% дани монополий и роялти 1/N за реальный труд разработчиков.</p>
         </div>
       </div>
     </div>
@@ -54,15 +54,18 @@ rate: "-9%"
       <div class="arch-blueprint-preview">
         <div class="arch-kpi-chip">
           <div class="kpi-val">140 МЛН</div>
-          <div class="kpi-label">Автономных суверенных хранилищ граждан России</div>
+          <div class="kpi-label">Суверенных хранилищ граждан и бизнеса РФ</div>
+          <div class="kpi-sublabel">Автономные реляционные сейфы с откликом &lt; 1 мс</div>
         </div>
         <div class="arch-kpi-chip">
           <div class="kpi-val">В 8 РАЗ</div>
-          <div class="kpi-label">Снижение затрат государства и бизнеса на серверы и ЦОД</div>
+          <div class="kpi-label">Снижение затрат государства и бизнеса на ЦОД</div>
+          <div class="kpi-sublabel">Перенос вычислений на клиентские процессоры Листов</div>
         </div>
         <div class="arch-kpi-chip">
           <div class="kpi-val">0 БАЙТ</div>
-          <div class="kpi-label">Персональных данных на серверах: утечки невозможны</div>
+          <div class="kpi-label">Персональных данных на серверах: Zero-PII</div>
+          <div class="kpi-sublabel">Математическая невозможность утечек: криптография ГОСТ</div>
         </div>
       </div>
     </div>
@@ -97,28 +100,78 @@ rate: "-9%"
         <div class="feature-card">
           <div class="card-icon">🏛️</div>
           <h4>Публичные услуги</h4>
-          <p>Централизация идеальна для госуслуг и реестров, но губительна для частной жизни.</p>
+          <div class="feat-points">
+            <div class="feat-point"><strong>Роль государства:</strong> Централизация идеальна для госуслуг, реестров и общедоступных данных.</div>
+            <div class="feat-point"><strong>Границы применимости:</strong> Госреестры требуют центрального депозитария, но не личной жизни.</div>
+            <div class="feat-point"><strong>Открытый стандарт:</strong> Общественные ведомственные шлюзы на Стволе платформы.</div>
+          </div>
         </div>
         <div class="feature-card">
           <div class="card-icon">🔒</div>
           <h4>Тайна частной жизни</h4>
-          <p>Администратор облака всегда имеет физический доступ ко всем данным пользователей.</p>
+          <div class="feat-points">
+            <div class="feat-point"><strong>Уязвимость облаков:</strong> Любой администратор облака имеет физический доступ к базам.</div>
+            <div class="feat-point"><strong>Соблазн слежки:</strong> Корпорации сканируют покупки, переписку и привычки людей.</div>
+            <div class="feat-point"><strong>Суверенный рубеж:</strong> Семейные секреты должны храниться строго на Листе владельца.</div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="visual-panel">
-      <div class="mermaid-diagram-card">
-        <div class="mermaid">
-graph TD
-    A["1. Семейный органайзер: Потребность в общем расписании"]
-    B["2. Моральный тупик: Создатель софта видит чужую личную жизнь ⚠️"]
-    C["3. Концептуальный прорыв: Автономные Хранилища на Листьях"]
-    D["4. Платформа «Турбаза»: Суверенная среда для всей страны ✅"]
+      <div class="evolution-billboard-stack">
+        <div class="evolution-step-card step-1">
+          <div class="evolution-step-left">
+            <div class="evolution-step-num">1</div>
+            <div class="evolution-step-info">
+              <div class="evolution-step-title">Семейный органайзер</div>
+              <div class="evolution-step-sub">Потребность семьи в общем расписании, делах и уроках</div>
+            </div>
+          </div>
+          <div class="evolution-step-badge cyan">Исходная задача</div>
+        </div>
 
-    A --> B
-    B --> C
-    C --> D
+        <div class="evolution-connector">▼ Столкновение с архитектурной реальностью</div>
+
+        <div class="evolution-step-card step-2">
+          <div class="evolution-step-left">
+            <div class="evolution-step-num">2</div>
+            <div class="evolution-step-info">
+              <div class="evolution-step-title">Моральный тупик централизации</div>
+              <div class="evolution-step-sub">Создатель софта неизбежно видит чужие семейные тайны на сервере</div>
+            </div>
+          </div>
+          <div class="evolution-step-badge red">Этическая граница</div>
+        </div>
+
+        <div class="evolution-connector">▼ Поиск новой парадигмы владения</div>
+
+        <div class="evolution-step-card step-3">
+          <div class="evolution-step-left">
+            <div class="evolution-step-num">3</div>
+            <div class="evolution-step-info">
+              <div class="evolution-step-title">Концептуальный прорыв</div>
+              <div class="evolution-step-sub">Автономные Хранилища на клиентских Листьях</div>
+            </div>
+          </div>
+          <div class="evolution-step-badge gold">Суверенный сейф</div>
+        </div>
+
+        <div class="evolution-connector">▼ Масштабирование на уровень государства</div>
+
+        <div class="evolution-step-card step-4">
+          <div class="evolution-step-left">
+            <div class="evolution-step-num">4</div>
+            <div class="evolution-step-info">
+              <div class="evolution-step-title">Платформа «Турбаза»</div>
+              <div class="evolution-step-sub">Суверенная среда защищенных вычислений для всей страны и БРИКС</div>
+            </div>
+          </div>
+          <div class="evolution-step-badge emerald">Масштаб РФ &amp; БРИКС</div>
+        </div>
+
+        <div class="evolution-summary-ribbon">
+          🛡️ Моральный инвариант: автор программы физически лишен доступа к чужим тайнам
         </div>
       </div>
     </div>
@@ -142,28 +195,41 @@ graph TD
     <p class="slide-subtitle">Три непреодолимых барьера централизованной архитектуры: монетизация слежки, базы-мишени и дефицит мощностей</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="glass-card">
-        <div class="card-pill-tag gold">1. СОБЛАЗН МОНЕТИЗАЦИИ</div>
-        <h3 class="card-title">Торговля частной жизнью</h3>
-        <p class="card-desc">Попав в корпоративное облако, личные данные неизбежно становятся товаром для продажи рекламным брокерам и поведенческого профилирования.</p>
-      </div>
-
-      <div class="glass-card" style="margin-top: 15px;">
-        <div class="card-pill-tag cyan">2. БАЗЫ-МИШЕНИ (HONEYPOTS)</div>
-        <h3 class="card-title">Эпидемия массовых взломов</h3>
-        <p class="card-desc">Концентрация десятков миллионов записей в одной базе неотвратимо притягивает кибератаки иностранных разведок и корыстных инсайдеров.</p>
-      </div>
+  <div class="slide-body grid-3col">
+    <div class="glass-card">
+      <div class="card-pill-tag gold">1. СОБЛАЗН МОНЕТИЗАЦИИ</div>
+      <h3 class="card-title">Торговля частной жизнью</h3>
+      <p class="card-desc">Попав в корпоративное облако, личные данные становятся товаром для продажи брокерам и манипуляции вниманием.</p>
+      <ul class="card-bullets">
+        <li><strong>Поведенческое досье:</strong> Алгоритмы сканируют частную переписку и геопозицию.</li>
+        <li><strong>Аукционы брокеров:</strong> Персональные досье перепродаются тысячам сетей.</li>
+        <li><strong>Товар вместо клиента:</strong> Внимание гражданина монетизируется без его ведома.</li>
+      </ul>
+      <div class="summary-banner gold">⚠️ Угроза: Личная жизнь продается без ведома гражданина!</div>
     </div>
 
-    <div class="visual-panel">
-      <div class="glass-card">
-        <div class="card-pill-tag emerald">3. ИНФРАСТРУКТУРНЫЙ ТУПИК</div>
-        <h3 class="card-title">Санкционный дефицит серверов</h3>
-        <p class="card-desc">Строительство гигантских дата-центров упирается в дефицит серверных чипов, колоссальное энергопотребление и 30% комиссионный налог монополий.</p>
-        <div class="repo-keys-badge" style="margin-top: 20px;">Вывод: Централизованная модель экономически и физически исчерпала себя</div>
-      </div>
+    <div class="glass-card">
+      <div class="card-pill-tag cyan">2. БАЗЫ-МИШЕНИ (HONEYPOTS)</div>
+      <h3 class="card-title">Эпидемия массовых взломов</h3>
+      <p class="card-desc">Концентрация десятков миллионов записей в одной базе притягивает кибератаки разведок и сговоры инсайдеров.</p>
+      <ul class="card-bullets">
+        <li><strong>Суперконцентрация данных:</strong> Десятки миллионов записей в одной базе-мишени.</li>
+        <li><strong>Атаки иностранных разведок:</strong> Высокая цель для профессиональных хакеров.</li>
+        <li><strong>Сливы инсайдеров:</strong> Недобросовестный персонал продает выгрузки на черном рынке.</li>
+      </ul>
+      <div class="summary-banner cyan">🚨 Итог: Утечка из централизованного облака — вопрос времени!</div>
+    </div>
+
+    <div class="glass-card">
+      <div class="card-pill-tag emerald">3. ИНФРАСТРУКТУРНЫЙ ТУПИК</div>
+      <h3 class="card-title">Санкционный дефицит мощностей</h3>
+      <p class="card-desc">Строительство дата-центров упирается в дефицит чипов, колоссальное энергопотребление и 30% налог монополий.</p>
+      <ul class="card-bullets">
+        <li><strong>Энергетический тупик:</strong> Мега-ЦОД сжигают гигаватты электроэнергии впустую.</li>
+        <li><strong>Дефицит оборудования:</strong> Взрывной рост цен на закупку серверных процессоров.</li>
+        <li><strong>30% налог монополий:</strong> Зарубежные магазины душат разработчиков.</li>
+      </ul>
+      <div class="summary-banner emerald">📉 Вывод: Централизованная модель экономически исчерпана!</div>
     </div>
   </div>
 </div>
@@ -188,33 +254,82 @@ graph TD
   </div>
 
   <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="glass-card">
-        <div class="card-pill-tag gold">СИЛОСНЫЕ БАШНИ СОФТА</div>
-        <h3 class="card-title">Данные заперты в закрытых форматах</h3>
-        <p class="card-desc">Каждый разработчик вынуждает пользователя вводить одну и ту же информацию заново, создавая несовместимые изолированные острова.</p>
-        <ul class="card-bullets">
-          <li>Один и тот же адрес вводится в 10 разных сервисах</li>
-          <li>База контактов не синхронизируется между программами</li>
-          <li>Смена органайзера означает потерю многолетней истории</li>
-        </ul>
+    <div class="glass-card">
+      <div class="card-pill-tag gold">СИЛОСНЫЕ БАШНИ СОФТА</div>
+      <h3 class="card-title">Данные заперты в закрытых форматах</h3>
+      <p class="card-desc">Каждый разработчик вынуждает пользователя вводить информацию заново, создавая изолированные острова.</p>
+      
+      <div class="pipeline-stepper-compact">
+        <div class="pipe-step">
+          <div class="pipe-step-icon">📦</div>
+          <div class="pipe-step-title">Закрытый формат</div>
+          <div class="pipe-step-sub">Своя схема БД</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🚫</div>
+          <div class="pipe-step-title">Барьер экспорта</div>
+          <div class="pipe-step-sub">Запрет переноса</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">⛓️</div>
+          <div class="pipe-step-title">Плен данных</div>
+          <div class="pipe-step-sub">Vendor Lock-in</div>
+        </div>
+      </div>
+
+      <ul class="card-bullets">
+        <li><strong>📦 Изолированные острова:</strong> Каждый сервис заставляет вводить персональные данные заново.</li>
+        <li><strong>🏚️ Утрата истории:</strong> Смена приложения означает безвозвратную потерю многолетней базы.</li>
+        <li><strong>🧩 Фрагментация данных:</strong> Контакты, списки и заметки разорваны между десятками программ.</li>
+        <li><strong>🚫 Нулевая совместимость:</strong> Корпорации умышленно блокируют стандартные форматы баз.</li>
+      </ul>
+
+      <div class="summary-banner gold">
+        ⛓️ <strong>Силосные башни:</strong> Пользователь вынужден быть заложником закрытых форматов!
       </div>
     </div>
 
-    <div class="visual-panel">
-      <div class="glass-card">
-        <div class="card-pill-tag cyan">ЛОГИКА ВЕНДОР-ЛОКИНА</div>
-        <h3 class="card-title">Пользователь в роли цифрового крепостного</h3>
-        <p class="card-desc">Компании намеренно блокируют экспорт данных, чтобы удержать клиента искусственными барьерами.</p>
-        <ul class="card-bullets">
-          <li>Платформенный сбор 30% подавляет отечественных разработчиков</li>
-          <li>Внезапная блокировка аккаунта лишает человека всех наработок</li>
-          <li>Бизнес не может объединить учетные системы без гигантских бюджетов</li>
-        </ul>
+    <div class="glass-card">
+      <div class="card-pill-tag cyan">ЛОГИКА ВЕНДОР-ЛОКИНА</div>
+      <h3 class="card-title">Пользователь в роли цифрового крепостного</h3>
+      <p class="card-desc">Компании намеренно блокируют экспорт данных, чтобы удержать клиента искусственными барьерами.</p>
+      
+      <div class="pipeline-stepper-compact">
+        <div class="pipe-step">
+          <div class="pipe-step-icon">💰</div>
+          <div class="pipe-step-title">30% Поборы</div>
+          <div class="pipe-step-sub">Платформенный налог</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🔒</div>
+          <div class="pipe-step-title">Блокировка</div>
+          <div class="pipe-step-sub">Риск отключения</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🛑</div>
+          <div class="pipe-step-title">Потеря архивов</div>
+          <div class="pipe-step-sub">Обнуление бизнеса</div>
+        </div>
+      </div>
+
+      <ul class="card-bullets">
+        <li><strong>⛓️ Цифровое крепостничество:</strong> Платформы навязывают монопольные правила и диктуют цены.</li>
+        <li><strong>💸 30% налог на инновации:</strong> Зарубежные магазины душат отечественные разработки.</li>
+        <li><strong>🛑 Внезапные блокировки:</strong> Санкционный клик лишает семью или бизнес всех наработок.</li>
+        <li><strong>📉 Колоссальные расходы:</strong> Интеграция корпоративных систем требует миллионов рублей.</li>
+      </ul>
+
+      <div class="summary-banner cyan">
+        🚨 <strong>Тупик феодализма:</strong> Невозможно развивать суверенную экономику на чужих серверах!
       </div>
     </div>
   </div>
 </div>
+
 
 ### Текст для диктора:
 > В классическом IT-мире царит настоящий цифровой феодализм.
@@ -244,35 +359,72 @@ graph TD
         <div class="feature-card">
           <div class="card-icon">⚡</div>
           <h4>Единый оригинал</h4>
-          <p>Одно хранилище используют десятки независимых программ без дублирования.</p>
+          <p>Одно хранилище используют десятки независимых программ без дублирования:</p>
+          <div class="feat-points">
+            <div class="feat-point"><strong>Ноль дублирования:</strong> База хранится в единственном оригинале на Листе.</div>
+            <div class="feat-point"><strong>Сквозная синергия:</strong> Органайзер, чат и карты оперируют общими объектами.</div>
+            <div class="feat-point"><strong>Экономия памяти:</strong> Нет сотен дублирующих копий файлов и списков.</div>
+          </div>
         </div>
         <div class="feature-card">
           <div class="card-icon">🔓</div>
           <h4>No Vendor Lock-in</h4>
-          <p>Меняйте приложения свободно: вся история остается в вашем сейфе.</p>
+          <p>Меняйте приложения свободно: вся история остается в вашем сейфе:</p>
+          <div class="feat-points">
+            <div class="feat-point"><strong>Свобода выбора:</strong> Программы конкурируют за эргономику интерфейса.</div>
+            <div class="feat-point"><strong>Сохранение архивов:</strong> Удаление софта не затрагивает пользовательскую базу.</div>
+            <div class="feat-point"><strong>Открытые стандарты:</strong> Схемы данных валидируются декларативными моделями.</div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="visual-panel">
-      <div class="mermaid-diagram-card">
-        <div class="mermaid">
-graph TB
-    subgraph Old["Старый мир: Данные заперты в софте"]
-        App1["Приложение А (Своя база)"]
-        App2["Приложение Б (Своя база)"]
-    end
+      <div class="data-separation-display">
+        <div class="legacy-silos-card">
+          <div class="legacy-header">
+            <div class="legacy-title">🔴 СТАРЫЙ МИР: VENDOR LOCK-IN</div>
+            <div class="legacy-badge">Данные заперты в софте</div>
+          </div>
+          <div class="legacy-grid">
+            <div class="legacy-box">
+              <span>Приложение А</span>
+              <span style="color: #fca5a5;">→ Своя закрытая база</span>
+            </div>
+            <div class="legacy-box">
+              <span>Приложение Б</span>
+              <span style="color: #fca5a5;">→ Своя закрытая база</span>
+            </div>
+          </div>
+        </div>
 
-    subgraph New["Турбаза: Данные принадлежат человеку"]
-        Vault["🔒 Суверенное Хранилище гражданина (Лист)"]
-        Soft1["Органайзер «Деловой»"]
-        Soft2["Помощь «Забота»"]
-        Soft3["Туризм «УраТур»"]
-    end
+        <div class="sovereign-vault-card">
+          <div class="vault-centerpiece">
+            <div class="vault-badge">🔒 ЕДИНОЕ СУВЕРЕННОЕ ХРАНИЛИЩЕ</div>
+            <div class="vault-sub">Суверенный сейф на устройстве гражданина (Лист)</div>
+          </div>
 
-    Soft1 <--> Vault
-    Soft2 <--> Vault
-    Soft3 <--> Vault
+          <div class="apps-swappable-row">
+            <div class="swappable-app-card">
+              <div style="font-size: 24px;">📱</div>
+              <div class="swappable-app-name">«Деловой»</div>
+              <div class="swappable-app-tag">Органайзер</div>
+            </div>
+            <div class="swappable-app-card">
+              <div style="font-size: 24px;">🤝</div>
+              <div class="swappable-app-name">«Забота»</div>
+              <div class="swappable-app-tag">Взаимопомощь</div>
+            </div>
+            <div class="swappable-app-card">
+              <div style="font-size: 24px;">🏔️</div>
+              <div class="swappable-app-name">«УраТур»</div>
+              <div class="swappable-app-tag">Туризм</div>
+            </div>
+          </div>
+
+          <div class="separation-status-ribbon">
+            ✨ Софт — лишь сменный инструмент: смена программы происходит без потери данных!
+          </div>
         </div>
       </div>
     </div>
@@ -292,34 +444,82 @@ graph TB
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ПЕРВИЧНЫЙ СУБЪЕКТ</div>
-    <h2 class="slide-title">СЕМЬЯ: ЦИФРОВОЕ РОДОВОЕ ПОМЕСТЬЕ (%Family)</h2>
+    <h2 class="slide-title">СЕМЬЯ: ЦИФРОВОЕ РОДОВОЕ ПОМЕСТЬЕ</h2>
     <p class="slide-subtitle">Гармоничное объединение семейных дел: общие списки, школа, здоровье и родственники без корпоративной слежки</p>
   </div>
 
   <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="glass-card">
-        <div class="card-pill-tag gold">СЕМЕЙНОЕ ЯДРО ДАННЫХ</div>
-        <h3 class="card-title">Центр принятия точных решений</h3>
-        <p class="card-desc">Семья переплетена с десятками институтов: детские сады, школы, кружки, больницы, работа и дача.</p>
-        <ul class="card-bullets">
-          <li>У каждого члена семьи — персональное устройство с нужной частью данных</li>
-          <li>Разделение видимости: личные заметки родителей скрыты от детей</li>
-          <li>Расписание уроков доступно бабушкам и дедушкам без лишних чатов</li>
-        </ul>
+    <div class="glass-card">
+      <div class="card-pill-tag gold">СЕМЕЙНОЕ ЯДРО ДАННЫХ</div>
+      <h3 class="card-title">Центр принятия точных решений</h3>
+      <p class="card-desc">Семья переплетена с десятками институтов: детские сады, школы, кружки, больницы, работа и дача.</p>
+      
+      <div class="pipeline-stepper-compact">
+        <div class="pipe-step">
+          <div class="pipe-step-icon">👨‍👩‍👧‍👦</div>
+          <div class="pipe-step-title">Члены семьи</div>
+          <div class="pipe-step-sub">Личные устройства</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🔒</div>
+          <div class="pipe-step-title">Семейный сейф</div>
+          <div class="pipe-step-sub">Родовое поместье</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🎯</div>
+          <div class="pipe-step-title">Синхронизация</div>
+          <div class="pipe-step-sub">Без утечки в облако</div>
+        </div>
+      </div>
+
+      <ul class="card-bullets">
+        <li><strong>👨‍👩‍👧 Персональные терминалы:</strong> У каждого члена семьи — свое устройство с нужной частью данных.</li>
+        <li><strong>🔒 Разделение видимости:</strong> Личные заметки родителей скрыты от детей стойкой криптографией.</li>
+        <li><strong>👵 Связь поколений:</strong> Расписание уроков и кружков доступно бабушкам без лишних созвонов.</li>
+        <li><strong>🛡️ Семейный суверенитет:</strong> Домашний уклад надежно защищен от утечек и профилирования рекламой.</li>
+      </ul>
+
+      <div class="summary-banner gold">
+        👨‍👩‍👧‍👦 <strong>Семейное поместье:</strong> Координация жизни без утечки домашнего уклада в сторонние облака!
       </div>
     </div>
 
-    <div class="visual-panel">
-      <div class="glass-card">
-        <div class="card-pill-tag cyan">КОНЦЕПТ «БЫТЬ ГДЕ НАДО И С КЕМ НАДО»</div>
-        <h3 class="card-title">Синхронизация без белых пятен</h3>
-        <p class="card-desc">Суверенное хранилище семьи объединяет все внешние потоки в целостную ясную картину.</p>
-        <ul class="card-bullets">
-          <li>Общий список покупок обновляется в реальном времени</li>
-          <li>Вакцинации и медицинские справки всегда под рукой в офлайне</li>
-          <li>Архивы семейных фотографий и документов защищены от взлома</li>
-        </ul>
+    <div class="glass-card">
+      <div class="card-pill-tag cyan">КОНЦЕПТ «БЫТЬ ГДЕ НАДО И С КЕМ НАДО»</div>
+      <h3 class="card-title">Синхронизация без белых пятен</h3>
+      <p class="card-desc">Суверенное хранилище семьи объединяет все внешние потоки в целостную ясную картину.</p>
+      
+      <div class="pipeline-stepper-compact">
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🛒</div>
+          <div class="pipe-step-title">Общие списки</div>
+          <div class="pipe-step-sub">Покупки на лету</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🏥</div>
+          <div class="pipe-step-title">Карты здоровья</div>
+          <div class="pipe-step-sub">Офлайн-доступ</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">📸</div>
+          <div class="pipe-step-title">Архив семьи</div>
+          <div class="pipe-step-sub">Защита от сбоев</div>
+        </div>
+      </div>
+
+      <ul class="card-bullets">
+        <li><strong>🛒 Умные списки покупок:</strong> Обновляются на лету в офлайне при входе домочадцев в магазин.</li>
+        <li><strong>🏥 Карты здоровья:</strong> Вакцинации, рецепты и анализы всегда под рукой на смартфонах родителей.</li>
+        <li><strong>📸 Семейный архив:</strong> Документы и памятные фотографии зашифрованы и защищены от стирания.</li>
+        <li><strong>✨ Единая картина дел:</strong> Полная согласованность семейных планов без забытых поручений и стресса.</li>
+      </ul>
+
+      <div class="summary-banner cyan">
+        ✨ <strong>Гармония быта:</strong> Все члены семьи осведомлены и действуют как единая слаженная команда!
       </div>
     </div>
   </div>
@@ -343,29 +543,77 @@ graph TB
   </div>
 
   <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="glass-card">
-        <div class="card-pill-tag cyan">СЕТЬ «ЗАБОТА» И ЗЕМЛЯЧЕСТВО</div>
-        <h3 class="card-title">Взаимопомощь шаговой доступности</h3>
-        <p class="card-desc">Платформа объединяет жителей одного дома и двора для решения насущных задач.</p>
-        <ul class="card-bullets">
-          <li>Просьба захватить хлеб или лекарства по пути из магазина</li>
-          <li>Совместный присмотр за детьми на дворовой площадке</li>
-          <li>Двухуровневое доверие: районная Ветка подтверждает статус жителя, а соседи добавляют друг друга очно по QR-коду</li>
-        </ul>
+    <div class="glass-card">
+      <div class="card-pill-tag cyan">СЕТЬ «ЗАБОТА» И ЗЕМЛЯЧЕСТВО</div>
+      <h3 class="card-title">Взаимопомощь шаговой доступности</h3>
+      <p class="card-desc">Платформа объединяет жителей одного дома и двора для решения насущных задач.</p>
+      
+      <div class="pipeline-stepper-compact">
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🏘️</div>
+          <div class="pipe-step-title">Ветка района</div>
+          <div class="pipe-step-sub">Статус жильца</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🤝</div>
+          <div class="pipe-step-title">Очный QR-код</div>
+          <div class="pipe-step-sub">Личное доверие</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🍞</div>
+          <div class="pipe-step-title">Взаимопомощь</div>
+          <div class="pipe-step-sub">Добрососедство</div>
+        </div>
+      </div>
+
+      <ul class="card-bullets">
+        <li><strong>🍞 Шаговая доступность:</strong> Помощь соседям в покупке лекарств, продуктов и мелком ремонте.</li>
+        <li><strong>🛝 Безопасный двор:</strong> Совместный присмотр за детьми на дворовой площадке без посторонних.</li>
+        <li><strong>🤝 Очное доверие:</strong> Добавление жильцов в домовой чат происходит строго лично по QR-коду.</li>
+        <li><strong>🏛️ Верификация Веткой:</strong> Муниципальный узел подтверждает статус жителя без слива паспорта.</li>
+      </ul>
+
+      <div class="summary-banner cyan">
+        🤝 <strong>Сеть «Забота»:</strong> Возрождение искренней взаимовыручки и безопасности рядом с домом!
       </div>
     </div>
 
-    <div class="visual-panel">
-      <div class="glass-card">
-        <div class="card-pill-tag emerald">ГЕРМЕТИЧНЫЕ ОТСЕКИ СООБЩЕСТВ</div>
-        <h3 class="card-title">Изолированные каналы без цензуры</h3>
-        <p class="card-desc">Каждая группа ведет дела в изолированном защищенном пространстве.</p>
-        <ul class="card-bullets">
-          <li>Школьные родительские комитеты и спортивные секции</li>
-          <li>Дачные товарищества и гаражные кооперативы</li>
-          <li>Религиозные общины: приходы, мечети, синагоги, дацаны</li>
-        </ul>
+    <div class="glass-card">
+      <div class="card-pill-tag emerald">ГЕРМЕТИЧНЫЕ ОТСЕКИ СООБЩЕСТВ</div>
+      <h3 class="card-title">Изолированные каналы без цензуры</h3>
+      <p class="card-desc">Каждая группа ведет дела в изолированном защищенном пространстве.</p>
+      
+      <div class="pipeline-stepper-compact">
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🏫</div>
+          <div class="pipe-step-title">Школы и клубы</div>
+          <div class="pipe-step-sub">Родители и спорт</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🌿</div>
+          <div class="pipe-step-title">СНТ и гаражи</div>
+          <div class="pipe-step-sub">Кооперативы</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🕌</div>
+          <div class="pipe-step-title">Общины веры</div>
+          <div class="pipe-step-sub">Приходы и дацаны</div>
+        </div>
+      </div>
+
+      <ul class="card-bullets">
+        <li><strong>🏫 Родительские комитеты:</strong> Школьные группы и спортивные секции без коммерческого спама.</li>
+        <li><strong>🏡 Дачные кооперативы:</strong> Прозрачное управление взносами, голосованиями и ремонтом дорог.</li>
+        <li><strong>🕌 Религиозные общины:</strong> Приходы, мечети, синагоги и дацаны ведут дела в закрытом контуре.</li>
+        <li><strong>🛡️ Иммунитет к цензуре:</strong> Сообщества надежно защищены от блокировок и утечек внутренних архивов.</li>
+      </ul>
+
+      <div class="summary-banner emerald">
+        🛡️ <strong>Автономные отсеки:</strong> Полная защита внутренней жизни сообществ от посторонних глаз!
       </div>
     </div>
   </div>
@@ -389,29 +637,77 @@ graph TB
   </div>
 
   <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="glass-card">
-        <div class="card-pill-tag cyan">ОТКРЫТЫЕ РАЙОННЫЕ ВЕТКИ</div>
-        <h3 class="card-title">Публичная жизнь микрорайона</h3>
-        <p class="card-desc">Муниципальный узел «Ветка» публикует открытую информацию без рекламы и посредников.</p>
-        <ul class="card-bullets">
-          <li>Графики ярмарок выходного дня и фермерских базаров</li>
-          <li>Локальные новости благоустройства и дорожных работ</li>
-          <li>Предложения малых районных мастерских и пекарен</li>
-        </ul>
+    <div class="glass-card">
+      <div class="card-pill-tag cyan">ОТКРЫТЫЕ РАЙОННЫЕ ВЕТКИ</div>
+      <h3 class="card-title">Публичная жизнь микрорайона</h3>
+      <p class="card-desc">Муниципальный узел «Ветка» публикует открытую информацию без рекламы и посредников.</p>
+      
+      <div class="pipeline-stepper-compact">
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🏛️</div>
+          <div class="pipe-step-title">Ветка района</div>
+          <div class="pipe-step-sub">Муниципальный шлюз</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🥖</div>
+          <div class="pipe-step-title">Местный бизнес</div>
+          <div class="pipe-step-sub">Пекарни и сервис</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">📢</div>
+          <div class="pipe-step-title">Новости ЖКХ</div>
+          <div class="pipe-step-sub">Без посредников</div>
+        </div>
+      </div>
+
+      <ul class="card-bullets">
+        <li><strong>🍎 Жизнь микрорайона:</strong> Графики ярмарок выходного дня, фермерских базаров и праздников.</li>
+        <li><strong>🔧 Коммунальная ясность:</strong> Оповещения о благоустройстве, ремонтах и графиках ЖКХ без посредников.</li>
+        <li><strong>🥖 Поддержка пекарен:</strong> Локальный малый бизнес выходит к жителям напрямую без поборов агрегаторов.</li>
+        <li><strong>📢 Чистый инфоканал:</strong> Отсутствие коммерческого спама, навязчивой рекламы и трекеров слежки.</li>
+      </ul>
+
+      <div class="summary-banner cyan">
+        🏛️ <strong>Районная Ветка:</strong> Прозрачная городская среда прямого взаимодействия жителей и служб!
       </div>
     </div>
 
-    <div class="visual-panel">
-      <div class="glass-card">
-        <div class="card-pill-tag gold">СЛЕПАЯ ДОСТАВКА ТОВАРОВ</div>
-        <h3 class="card-title">Покупки без слежки за адресом</h3>
-        <p class="card-desc">Революционный протокол разделения оплаты и физической логистики.</p>
-        <ul class="card-bullets">
-          <li>Продавец видит только номер чека и артикул купленного товара</li>
-          <li>Домашний адрес передается в зашифрованном виде строго курьеру</li>
-          <li>Исключение сценария утечки базы домашних адресов клиентов</li>
-        </ul>
+    <div class="glass-card">
+      <div class="card-pill-tag gold">СЛЕПАЯ ДОСТАВКА ТОВАРОВ</div>
+      <h3 class="card-title">Покупки без слежки за адресом</h3>
+      <p class="card-desc">Революционный протокол разделения оплаты и физической логистики.</p>
+      
+      <div class="pipeline-stepper-compact">
+        <div class="pipe-step">
+          <div class="pipe-step-icon">💳</div>
+          <div class="pipe-step-title">Оплата чека</div>
+          <div class="pipe-step-sub">Только артикул</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🔐</div>
+          <div class="pipe-step-title">Крипто-конверт</div>
+          <div class="pipe-step-sub">Адрес под ключом</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">📦</div>
+          <div class="pipe-step-title">Доставка</div>
+          <div class="pipe-step-sub">Курьер / Постомат</div>
+        </div>
+      </div>
+
+      <ul class="card-bullets">
+        <li><strong>💳 Разделение контуров:</strong> Продавец видит только подтверждение оплаты и артикул товара.</li>
+        <li><strong>🔐 Шифрованный адрес:</strong> Точный адрес доставки запечатан в крипто-конверт строго для курьера.</li>
+        <li><strong>🛡️ Исключение сливов:</strong> Торговая сеть физически не способна слить базу домашних адресов клиентов.</li>
+        <li><strong>📦 Безопасный постамат:</strong> Доставка в ячейку по одноразовому суверенному крипто-токену доступа.</li>
+      </ul>
+
+      <div class="summary-banner gold">
+        🔒 <strong>Слепая доставка:</strong> Абсолютная тайна домашнего адреса при любых интернет-покупках!
       </div>
     </div>
   </div>
@@ -435,29 +731,77 @@ graph TB
   </div>
 
   <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="glass-card">
-        <div class="card-pill-tag cyan">ОПРОСНИК «КУБГОЛОС»</div>
-        <h3 class="card-title">Истинная повестка людей</h3>
-        <p class="card-desc">Граждане сами создают многофакторные микро-опросы по насущным вопросам района и города.</p>
-        <ul class="card-bullets">
-          <li>Ветвление формулировок и версионирование вопросов</li>
-          <li>Абсолютный иммунитет к спам-ботам благодаря валидации ЭЦП Листов</li>
-          <li>Реальный срез общественного мнения без заказных искажений</li>
-        </ul>
+    <div class="glass-card">
+      <div class="card-pill-tag cyan">ОПРОСНИК «КУБГОЛОС»</div>
+      <h3 class="card-title">Истинная повестка людей</h3>
+      <p class="card-desc">Граждане сами создают многофакторные микро-опросы по насущным вопросам района и города.</p>
+      
+      <div class="pipeline-stepper-compact">
+        <div class="pipe-step">
+          <div class="pipe-step-icon">📝</div>
+          <div class="pipe-step-title">Народный вопрос</div>
+          <div class="pipe-step-sub">Инициатива двора</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🌿</div>
+          <div class="pipe-step-title">Ветвление</div>
+          <div class="pipe-step-sub">Поиск согласия</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🛡️</div>
+          <div class="pipe-step-title">Подпись Листа</div>
+          <div class="pipe-step-sub">0% ботов и спама</div>
+        </div>
+      </div>
+
+      <ul class="card-bullets">
+        <li><strong>📝 Народная инициатива:</strong> Жители сами запускают микро-опросы по благоустройству своего двора.</li>
+        <li><strong>🌿 Ветвление формулировок:</strong> Нахождение компромиссов через уточняющие подпункты и сценарии.</li>
+        <li><strong>🛡️ Иммунитет к ботам:</strong> Каждый голос заверяется аппаратной ЭЦП суверенного терминала Лист.</li>
+        <li><strong>📊 Истинный срез мнений:</strong> Точная картина потребностей жителей без заказных искажений социологов.</li>
+      </ul>
+
+      <div class="summary-banner cyan">
+        🗳️ <strong>«КубГолос»:</strong> Подлинная прямая демократия и учет реального мнения каждого жителя!
       </div>
     </div>
 
-    <div class="visual-panel">
-      <div class="glass-card">
-        <div class="card-pill-tag emerald">ОТКРЫТЫЕ СХЕМЫ РЕПУТАЦИИ</div>
-        <h3 class="card-title">Единый стандарт доверия</h3>
-        <p class="card-desc">Репутационные механизмы сети «Забота» оформлены как открытые библиотеки (Open Source).</p>
-        <ul class="card-bullets">
-          <li>Любой разработчик может встроить честный рейтинг в свой софт</li>
-          <li>Честная репутация мастера накапливается реальными делами</li>
-          <li>Устранение монополий агрегаторов с заказными накрутками</li>
-        </ul>
+    <div class="glass-card">
+      <div class="card-pill-tag emerald">ОТКРЫТЫЕ СХЕМЫ РЕПУТАЦИИ</div>
+      <h3 class="card-title">Единый стандарт доверия</h3>
+      <p class="card-desc">Репутационные механизмы сети «Забота» оформлены как открытые библиотеки (Open Source).</p>
+      
+      <div class="pipeline-stepper-compact">
+        <div class="pipe-step">
+          <div class="pipe-step-icon">⭐</div>
+          <div class="pipe-step-title">Реальное дело</div>
+          <div class="pipe-step-sub">Выполненный заказ</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">📜</div>
+          <div class="pipe-step-title">Open Standard</div>
+          <div class="pipe-step-sub">Библиотеки кода</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🤝</div>
+          <div class="pipe-step-title">Общее доверие</div>
+          <div class="pipe-step-sub">Без монополий</div>
+        </div>
+      </div>
+
+      <ul class="card-bullets">
+        <li><strong>📜 Открытая архитектура:</strong> Библиотеки репутации «Заботы» доступны для интеграции в любой софт.</li>
+        <li><strong>⭐ Доверие через дела:</strong> Честный рейтинг мастера накапливается реальными подтвержденными делами.</li>
+        <li><strong>🚫 Конец монополиям:</strong> Ликвидация диктата коммерческих агрегаторов с заказными накрутками.</li>
+        <li><strong>💼 Переносимый авторитет:</strong> Наработанная репутация принадлежит человеку, а не сторонней платформе.</li>
+      </ul>
+
+      <div class="summary-banner emerald">
+        ⭐ <strong>Честная репутация:</strong> Доверие формируется реальными делами, а не коммерческими накрутками!
       </div>
     </div>
   </div>
@@ -485,22 +829,74 @@ graph TB
       <div class="card-pill-tag cyan">ЛЕГКОВЕСНОЕ ЯДРО (&lt;35 МБ)</div>
       <h3 class="card-title">Доступно каждому гражданину</h3>
       <p class="card-desc">Система оптимизирована для работы на самых доступных мобильных устройствах.</p>
+      
+      <div class="pipeline-stepper-compact">
+        <div class="pipe-step">
+          <div class="pipe-step-icon">📱</div>
+          <div class="pipe-step-title">2 ГБ ОЗУ</div>
+          <div class="pipe-step-sub">Android Go / Аврора</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">⚡</div>
+          <div class="pipe-step-title">&lt;35 МБ ОЗУ</div>
+          <div class="pipe-step-sub">Сверхлегкое ядро</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">📦</div>
+          <div class="pipe-step-title">Zstandard</div>
+          <div class="pipe-step-sub">Сжатие памяти</div>
+        </div>
+      </div>
+
       <ul class="card-bullets">
-        <li>Стабильная работа на телефонах с 2 ГБ ОЗУ (Android Go)</li>
-        <li>Алгоритмы Zstandard сжатия экономят память устройства</li>
-        <li>Никаких тяжелых фоновых демонов и жора батареи</li>
+        <li><strong>📱 Ультрабюджетные устройства:</strong> Стабильная работа на смартфонах за 5 000 руб. с 2 ГБ ОЗУ.</li>
+        <li><strong>⚡ Минимальное потребление:</strong> Ядро потребляет менее 35 МБ памяти и не разряжает батарею.</li>
+        <li><strong>📦 Алгоритмы Zstandard:</strong> Высокоэффективная компрессия экономит дисковую флеш-память.</li>
+        <li><strong>🍃 Без фонового жора:</strong> Устройство не перегревается и мгновенно откликается на действия пользователя.</li>
       </ul>
+
+      <div class="summary-banner cyan">
+        📱 <strong>Инклюзивность:</strong> Передовые суверенные технологии доступны на самых простых смартфонах!
+      </div>
     </div>
 
     <div class="glass-card">
       <div class="card-pill-tag gold">SOCIAL RECOVERY (ШАМИР)</div>
       <h3 class="card-title">Восстановление без службы поддержки</h3>
       <p class="card-desc">При утере телефона доступ возвращается через доверенный круг семьи.</p>
+      
+      <div class="pipeline-stepper-compact">
+        <div class="pipe-step">
+          <div class="pipe-step-icon">📲</div>
+          <div class="pipe-step-title">Утеря смартфона</div>
+          <div class="pipe-step-sub">Поломка аппарата</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">👨‍👩‍👧</div>
+          <div class="pipe-step-title">3 Родственника</div>
+          <div class="pipe-step-sub">Схема Шамира</div>
+        </div>
+        <div class="pipe-arrow">➔</div>
+        <div class="pipe-step">
+          <div class="pipe-step-icon">🔓</div>
+          <div class="pipe-step-title">Доступ за 2 мин</div>
+          <div class="pipe-step-sub">Полный архив</div>
+        </div>
+      </div>
+
       <ul class="card-bullets">
-        <li>Криптографическое разделение секрета между 3 родственниками</li>
-        <li>Восстановление полного архива за 2 минуты на новом телефоне</li>
-        <li>Zero-Friction UX: сложная математика полностью скрыта от пользователя</li>
+        <li><strong>🔑 Схема разделения Шамира:</strong> Мастер-ключ разбивается на части между доверенными родственниками.</li>
+        <li><strong>⏱️ Мгновенный возврат:</strong> При утере телефона архив восстанавливается за 2 минуты без операторов.</li>
+        <li><strong>🛡️ Защита от сговора:</strong> Ни один хранитель по отдельности не может расшифровать архив владельца.</li>
+        <li><strong>✨ Zero-Friction UX:</strong> Высшая математика криптографии скрыта за удобным и понятным интерфейсом.</li>
       </ul>
+
+      <div class="summary-banner gold">
+        🔑 <strong>Семейное восстановление:</strong> Ваши данные невозможно потерять или заблокировать извне!
+      </div>
     </div>
   </div>
 </div>
@@ -533,31 +929,87 @@ graph TB
         <div class="feature-card">
           <div class="card-icon">📡</div>
           <h4>Связь без сотовых вышек</h4>
-          <p>Прямой радиообмен между телефонами по Bluetooth Low Energy и Wi-Fi Direct.</p>
+          <p>Прямой радиообмен между телефонами по Bluetooth Low Energy и Wi-Fi Direct:</p>
+          <div class="feat-points">
+            <div class="feat-point"><strong>Прямой радиоканал:</strong> Обмен пакетами по BLE и Wi-Fi Direct без базовых станций.</div>
+            <div class="feat-point"><strong>Эстафетные прыжки:</strong> Соседние телефоны ретранслируют пакеты по цепочке.</div>
+            <div class="feat-point"><strong>Автономный поиск:</strong> Устройства находят узлы сети локально без интернета.</div>
+          </div>
         </div>
         <div class="feature-card">
           <div class="card-icon">🚑</div>
           <h4>Координация помощи</h4>
-          <p>Медики, МЧС и волонтеры сети «Забота» продолжают работать автономно.</p>
+          <p>Медики, МЧС и волонтеры сети «Забота» продолжают работать автономно:</p>
+          <div class="feat-points">
+            <div class="feat-point"><strong>Офлайн-рецепты:</strong> Врачи скорой помощи заверяют назначения локальной ЭЦП.</div>
+            <div class="feat-point"><strong>Службы спасения:</strong> Координация волонтеров и жильцов в обесточенном районе.</div>
+            <div class="feat-point"><strong>Аптечный отпуск:</strong> Моментальная выдача медикаментов по подписанным заявкам.</div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="visual-panel">
-      <div class="mermaid-diagram-card">
-        <div class="mermaid">
-graph TB
-    subgraph DistrictBlackout["Район города при аварии магистральной связи"]
-        T1["📱 Лист 1: Семья (Заявка на инсулин)"]
-        T2["📱 Лист 2: Сосед-волонтер"]
-        T3["💻 Лист 3: Дежурный врач поликлиники"]
-        T4["📱 Лист 4: Аптечный пункт"]
-    end
+      <div class="mesh-contour-display">
+        <div class="mesh-scenario-card">
+          <div class="mesh-scenario-title">🚨 АВАРИЯ МАГИСТРАЛИ / БЛЭКАУТ</div>
+          <div class="mesh-scenario-badge">Внешний интернет: 0% &middot; Mesh-контур: 100%</div>
+        </div>
 
-    T1 <==>|BLE / Wi-Fi Direct Mesh| T2
-    T2 <==>|BLE / Wi-Fi Direct Mesh| T3
-    T3 <==>|BLE / Wi-Fi Direct Mesh| T4
-    T1 -.->|Внешний интернет отключен, связь работает на 100%!| T4
+        <div class="mesh-nodes-stack">
+          <div class="mesh-node-box cyan">
+            <div class="mesh-node-left">
+              <span class="mesh-node-icon">📱</span>
+              <div>
+                <div class="mesh-node-name">Лист 1: Семья</div>
+                <div class="mesh-node-action">Срочная заявка на жизненно важный инсулин</div>
+              </div>
+            </div>
+            <div class="mesh-node-tag cyan">Инициатор</div>
+          </div>
+
+          <div class="mesh-radio-hop">◄═══ Прямой BLE / Wi-Fi Direct радиоканал ═══►</div>
+
+          <div class="mesh-node-box gold">
+            <div class="mesh-node-left">
+              <span class="mesh-node-icon">🤝</span>
+              <div>
+                <div class="mesh-node-name">Лист 2: Сосед-волонтер</div>
+                <div class="mesh-node-action">Автономная эстафетная ретрансляция пакета</div>
+              </div>
+            </div>
+            <div class="mesh-node-tag gold">Mesh-мост</div>
+          </div>
+
+          <div class="mesh-radio-hop">◄═══ Радиопередача без сотовых вышек ═══►</div>
+
+          <div class="mesh-node-box purple">
+            <div class="mesh-node-left">
+              <span class="mesh-node-icon">💻</span>
+              <div>
+                <div class="mesh-node-name">Лист 3: Дежурный врач</div>
+                <div class="mesh-node-action">Локальная ЭЦП-подпись рецепта в офлайне</div>
+              </div>
+            </div>
+            <div class="mesh-node-tag purple">Верификация</div>
+          </div>
+
+          <div class="mesh-radio-hop">◄═══ Доставка подписанного назначения ═══►</div>
+
+          <div class="mesh-node-box emerald">
+            <div class="mesh-node-left">
+              <span class="mesh-node-icon">🏥</span>
+              <div>
+                <div class="mesh-node-name">Лист 4: Аптечный пункт</div>
+                <div class="mesh-node-action">Моментальная выдача лекарства по заявке ✅</div>
+              </div>
+            </div>
+            <div class="mesh-node-tag emerald">Исполнение</div>
+          </div>
+        </div>
+
+        <div class="mesh-summary-ribbon">
+          🛡️ Жизненные сервисы работают автономно даже при отключении всех сотовых вышек и ЦОД
         </div>
       </div>
     </div>
@@ -675,7 +1127,7 @@ graph TB
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СИСТЕМНЫЙ ЭФФЕКТ</div>
     <h2 class="slide-title">ИЗМЕРИМЫЙ МАКРОЭКОНОМИЧЕСКИЙ ЭФФЕКТ (KPIs)</h2>
-    <p class="slide-subtitle">Три ключевых индикатора экономической эффективности, локализации трафика и безопасности</p>
+    <p class="slide-subtitle">Четыре ключевых индикатора экономической эффективности, локализации трафика и безопасности</p>
   </div>
 
   <div class="slide-body grid-2col">
@@ -684,16 +1136,25 @@ graph TB
         <div class="kpi-val-explainer text-gold">&gt; В 8 РАЗ</div>
         <div class="kpi-title-explainer">Снижение затрат на ЦОД</div>
         <div class="kpi-desc-explainer">Снижение совокупных расходов государства и бизнеса на серверы: падение нагрузки на CPU до 8%, RAM до 12%</div>
+        <div class="kpi-badge-explainer gold">💰 Колоссальная экономия CAPEX/OPEX</div>
       </div>
       <div class="kpi-card-explainer">
         <div class="kpi-val-explainer text-cyan">85%</div>
         <div class="kpi-title-explainer">Локализация трафика</div>
         <div class="kpi-desc-explainer">Замыкание большинства запросов внутри районов и освобождение национальных магистралей</div>
+        <div class="kpi-badge-explainer">⚡ Разгрузка опорных каналов связи</div>
       </div>
       <div class="kpi-card-explainer">
         <div class="kpi-val-explainer text-gold">0 БАЙТ</div>
         <div class="kpi-title-explainer">ПДн на серверах</div>
         <div class="kpi-desc-explainer">Устранение самой первопричины утечек: персональные данные физически не хранятся на серверах</div>
+        <div class="kpi-badge-explainer emerald">🛡️ 100% защита от сливов баз данных</div>
+      </div>
+      <div class="kpi-card-explainer">
+        <div class="kpi-val-explainer text-emerald">до 8%</div>
+        <div class="kpi-title-explainer">Нагрузка на CPU серверов</div>
+        <div class="kpi-desc-explainer">Перенос вычислений на клиентские Листья высвобождает мощности государственных серверов</div>
+        <div class="kpi-badge-explainer emerald">🍃 Периферийный Green Computing</div>
       </div>
     </div>
 
@@ -702,7 +1163,15 @@ graph TB
         <div class="card-pill-tag cyan">МАКРОЭКОНОМИЧЕСКИЙ ИТОГ</div>
         <h3 class="card-title">Сотни миллиардов рублей экономии</h3>
         <p class="card-desc">Отказ от закупки импортных серверов и зарубежного софта оставляет сотни миллиардов рублей внутри отечественной экономики ежегодно, работая на благо граждан.</p>
-        <div class="repo-keys-badge" style="margin-top: 20px;">Экономический эффект подтвержден архитектурными расчетами</div>
+        <ul class="card-bullets">
+          <li><strong>💰 Экономия бюджета:</strong> Прямое сокращение CAPEX/OPEX на закупку серверов более чем в 8 раз.</li>
+          <li><strong>📡 Разгрузка сетей:</strong> 85% трафика замыкается локально, снижая нагрузку на национальные магистрали.</li>
+          <li><strong>🔒 Абсолютная безопасность:</strong> Физический ноль байт ПДн на серверах исключает риск массовых утечек.</li>
+          <li><strong>🚀 Импульс отечественному IT:</strong> Высвобожденные миллиарды направляются на создание прикладных продуктов.</li>
+        </ul>
+        <div class="summary-banner emerald" style="margin-top: 14px;">
+          📈 <strong>Экономический суверенитет:</strong> Независимость от иностранного «железа» и облачных монополий!
+        </div>
       </div>
     </div>
   </div>
