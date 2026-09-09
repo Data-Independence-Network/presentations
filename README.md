@@ -18,25 +18,19 @@ The Russian Federation is currently rebuilding its information infrastructure, d
 
 ---
 
-## 🧭 Структура хранилища и основные направления
+## 🧭 Пять основных направлений экосистемы
 
-```
-presentations/
-├── platform_overview/                          # 3 концептуальных эксплейнера (Базовый обзор и смена парадигмы)
-├── applications_presentations/                 # 5 флагманских сервисов («Деловой», «КубГолос», «Забота», «УраТур», МСП)
-├── architecture_presentations/                 # 7 выпусков глубокой инженерной архитектуры (Топология, Лист, СУБД, Ветка, P2P)
-├── overall_presentations/                      # 2 мастер-презентации верхнего уровня + Whitepaper Blueprints
-├── detailed_overall_impact_presentations/      # 10 специализированных отраслевых презентаций по стейкхолдерам
-├── shared_docs/                                # Технический документ платформы, Белые Книги и комментарии разработчика
-├── shared_templates/                           # Эталонные дизайн-системы и шаблоны слайдов
-├── scripts/                                    # Глобальный движок сборки (Playwright, TTS, FFmpeg, PDF, HTML)
-├── package.json                                # Корневой диспетчер сборки (NPM Workspaces)
-└── start_presentation.sh                       # Локальный веб-сервер для интерактивного просмотра
-```
+| Направление экосистемы | Директория | Презентаций | Слайдов | Ключевой концептуальный фокус | Документация |
+| :--- | :--- | :---: | :---: | :--- | :---: |
+| **Platform Overview (Базовый обзор)** | `platform_overview/` | **3** | **45** | Кризис централизованных облаков, смена парадигмы, 4 ранга узлов, справедливость 1/N | [`Обзор серии ➔`](file:///Users/parents/Documents/presentations/platform_overview/README.md) |
+| **Applications Suite (Флагманские сервисы)** | `applications_presentations/` | **5** | **75** | «Деловой», «КубГолос», «Забота», «УраТур», реестр МСП/ЖКХ, связность %ForeignKey | [`Обзор серии ➔`](file:///Users/parents/Documents/presentations/applications_presentations/README.md) |
+| **Architecture Deep-Dive (Инженерная архитектура)** | `architecture_presentations/` | **7** | **105** | СУБД Листа, конвейер Ветки, P2P-сигналинг, TreeSearch, криптоконтур ГОСТ/PQC, Zero-PII | [`Обзор серии ➔`](file:///Users/parents/Documents/presentations/architecture_presentations/README.md) |
+| **Master Overview Track (Мастер-презентации)** | `overall_presentations/` | **2** | **30** | Суверенная архитектура прямого владения данными и матрица ценности 6 стейкхолдеров | [`Обзор серии ➔`](file:///Users/parents/Documents/presentations/overall_presentations/README.md) |
+| **Detailed Ecosystem Impact (Отраслевой анализ)** | `detailed_overall_impact_presentations/` | **10** | **150** | Индивидуальный разбор выгод (PROs), рисков (CONs), компенсаций и KPI для 10 участников | [`Обзор серии ➔`](file:///Users/parents/Documents/presentations/detailed_overall_impact_presentations/README.md) |
 
----
 
-## 🗺️ Полный реестр всех 27 презентаций платформы
+<details>
+<summary><b>🗺️ Развернуть полный реестр всех 27 презентаций платформы (405 слайдов)</b></summary>
 
 | № | Направление | Презентация | Слайдов | Интерактивный плеер | Документация |
 | :---: | :--- | :--- | :---: | :---: | :---: |
@@ -67,6 +61,26 @@ presentations/
 | **25** | Detailed Overall Impact | [**08. Банки, Финтех и Цифровой Рубль**](file:///Users/parents/Documents/presentations/detailed_overall_impact_presentations/08_fintech_banking_presentation/README.md) | 15 | [`▶ Открыть web_deck`](file:///Users/parents/Documents/presentations/detailed_overall_impact_presentations/08_fintech_banking_presentation/generated/outputs/web_deck/index.html) | [README.md](file:///Users/parents/Documents/presentations/detailed_overall_impact_presentations/08_fintech_banking_presentation/README.md) |
 | **26** | Detailed Overall Impact | [**09. Межотраслевая Синергия**](file:///Users/parents/Documents/presentations/detailed_overall_impact_presentations/09_cross_synergies_presentation/README.md) | 15 | [`▶ Открыть web_deck`](file:///Users/parents/Documents/presentations/detailed_overall_impact_presentations/09_cross_synergies_presentation/generated/outputs/web_deck/index.html) | [README.md](file:///Users/parents/Documents/presentations/detailed_overall_impact_presentations/09_cross_synergies_presentation/README.md) |
 | **27** | Detailed Overall Impact | [**10. Дорожная Карта Миграции**](file:///Users/parents/Documents/presentations/detailed_overall_impact_presentations/10_migration_roadmap_presentation/README.md) | 15 | [`▶ Открыть web_deck`](file:///Users/parents/Documents/presentations/detailed_overall_impact_presentations/10_migration_roadmap_presentation/generated/outputs/web_deck/index.html) | [README.md](file:///Users/parents/Documents/presentations/detailed_overall_impact_presentations/10_migration_roadmap_presentation/README.md) |
+
+</details>
+
+---
+
+## 📁 Структура хранилища
+
+```
+presentations/
+├── platform_overview/                          # 3 концептуальных эксплейнера (Базовый обзор и смена парадигмы)
+├── applications_presentations/                 # 5 флагманских сервисов («Деловой», «КубГолос», «Забота», «УраТур», МСП)
+├── architecture_presentations/                 # 7 выпусков глубокой инженерной архитектуры (Топология, Лист, СУБД, Ветка, P2P)
+├── overall_presentations/                      # 2 мастер-презентации верхнего уровня + Whitepaper Blueprints
+├── detailed_overall_impact_presentations/      # 10 специализированных отраслевых презентаций по стейкхолдерам
+├── shared_docs/                                # Технический документ платформы, Белые Книги и комментарии разработчика
+├── shared_templates/                           # Эталонные дизайн-системы и шаблоны слайдов
+├── scripts/                                    # Глобальный движок сборки (Playwright, TTS, FFmpeg, PDF, HTML)
+├── package.json                                # Корневой диспетчер сборки (NPM Workspaces)
+└── start_presentation.sh                       # Локальный веб-сервер для интерактивного просмотра
+```
 
 ---
 
