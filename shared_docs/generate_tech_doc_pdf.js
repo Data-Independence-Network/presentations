@@ -19,12 +19,12 @@ if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 buildWhitepaperPdf({
   markdownPath,
   outputPdfPath,
-  tag: 'Суверенная архитектура &middot; Техническая спецификация',
+  tag: 'Архитектура прямого владения данными &middot; Техническая спецификация',
   bannerTitle: 'Платформа «Турбаза» — Полный технический документ',
   bannerSubtitle: 'Архитектурные принципы, трехуровневая топология, криптографический контур и экономика API',
   headerTitle: 'ТУРБАЗА',
   headerSubtitle: 'Технический документ платформы',
-  footerText: 'Суверенная трехуровневая архитектура данных и распределенных вычислений',
+  footerText: 'Трехуровневая архитектура прямого владения данными и распределенных вычислений',
   accentColor: '#0284c7'
 }).catch(err => {
   console.error('[❌] Error:', err);

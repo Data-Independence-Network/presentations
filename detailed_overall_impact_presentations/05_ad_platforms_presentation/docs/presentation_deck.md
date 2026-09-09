@@ -116,7 +116,7 @@ rate: "-9%"
           <p>Петабайты логов, дорогой трафик, постоянные утечки профилей и низкая маржа из-за расходов на серверы.</p>
         </div>
         <div class="card-positive">
-          <div class="card-status-badge amber">СУВЕРЕННЫЙ ADTECH</div>
+          <div class="card-status-badge amber">ЭТИЧНЫЙ ADTECH</div>
           <div class="card-metric-good">ВЫСОКОДОХОДНЫЙ ХАБ</div>
           <p>Пакетная раздача каталогов, нулевое хранение личных логов и высокая маржа с гарантированно доказанных сделок.</p>
         </div>
@@ -1030,7 +1030,7 @@ rate: "-9%"
   <div class="corner-ribbon">🌿 ЭКОСИСТЕМА</div>
   <div class="slide-header">
     <div class="hero-stakeholder-badge">[ ⚡ УЧАСТНИК 05: ADTECH И ПЛАТФОРМЫ ]</div>
-    <h2 class="slide-title">БУДУЩЕЕ СУВЕРЕННОЙ ЦИФРОВОЙ ДИСТРИБУЦИИ</h2>
+    <h2 class="slide-title">БУДУЩЕЕ ДОВЕРЕННОЙ ЦИФРОВОЙ ДИСТРИБУЦИИ</h2>
     <p class="slide-subtitle">Респектабельный статус, технологическое лидерство и надежное партнерство с национальной экономикой</p>
   </div>
 
@@ -1059,7 +1059,7 @@ rate: "-9%"
         <div class="pillar-card">
           <div class="pillar-num orange">03</div>
           <div class="pillar-info">
-            <h4>Суверенный стандарт</h4>
+            <h4>Отраслевой стандарт</h4>
             <p>Независимость от иностранных программных библиотек и глобальных монополий обеспечивает стабильность на десятилетия.</p>
           </div>
         </div>
@@ -1078,7 +1078,7 @@ rate: "-9%"
         </div>
         <div class="kpi-card-explainer">
           <div class="kpi-num orange">ТУРБАЗА</div>
-          <div class="kpi-label">Будущее суверенного и прибыльного AdTech в России</div>
+          <div class="kpi-label">Будущее отечественного и прибыльного AdTech в России</div>
         </div>
       </div>
     </div>

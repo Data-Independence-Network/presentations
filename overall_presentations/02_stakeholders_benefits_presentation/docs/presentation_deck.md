@@ -14,11 +14,11 @@ rate: "-9%"
 <!-- slide: 1 -->
 <div class="slide-top-bar">
           <div class="slide-header-content">
-            <span class="slide-category-tag">Суверенная архитектура</span>
+            <span class="slide-category-tag">Архитектура прямого владения данными</span>
             <h1 class="slide-title">ПЛАТФОРМА «ТУРБАЗА»</h1>
-            <p class="slide-subtitle">Суверенная архитектура данных и справедливая цифровая экономика</p>
+            <p class="slide-subtitle">Архитектура прямого владения данными и справедливая цифровая экономика</p>
           </div>
-          <div class="kpi-badge">СУВЕРЕННЫЙ ЦИФРОВОЙ КОНТУР</div>
+          <div class="kpi-badge">ДОВЕРЕННЫЙ ЦИФРОВОЙ КОНТУР</div>
         </div>
 
         <div class="slide-body-grid">
@@ -26,7 +26,7 @@ rate: "-9%"
             <div class="diagram-tree">
               <div class="diagram-node root">
                 <div class="node-title" style="color: var(--gold-light);">🌲 СТВОЛ: Федеральный контур БРИКС</div>
-                <div class="node-desc">Суверенная маршрутизация и макроаналитика</div>
+                <div class="node-desc">Доверенная маршрутизация и макроаналитика</div>
               </div>
               <div class="diagram-connector">▼</div>
               <div class="two-nodes-row">
@@ -71,7 +71,7 @@ rate: "-9%"
             <div class="narrative-card">
               <div class="narrative-card-header">
                 <span class="narrative-num">02</span>
-                <span class="narrative-title">Суверенное владение</span>
+                <span class="narrative-title">Владение информацией</span>
               </div>
               <div class="narrative-text">Персональные данные, чаты и документы <strong>никогда не покидают телефон</strong> гражданина в открытом виде.</div>
               <div class="narrative-sub">• 0 байт ПДн на серверах исключает риск сливов.</div>
@@ -93,7 +93,7 @@ rate: "-9%"
               </div>
               <div class="metric-chip">
                 <div class="metric-chip-value">100%</div>
-                <div class="metric-chip-label">Суверенитет</div>
+                <div class="metric-chip-label">Владение данными</div>
               </div>
               <div class="metric-chip">
                 <div class="metric-chip-value blue">P2P</div>
@@ -327,7 +327,7 @@ rate: "-9%"
 <div class="slide-top-bar">
           <div class="slide-header-content">
             <span class="slide-category-tag">Стейкхолдер: Граждане & Семьи</span>
-            <h1 class="slide-title">ГРАЖДАНЕ И СЕМЬИ: СУВЕРЕННОЕ ВЛАДЕНИЕ</h1>
+            <h1 class="slide-title">ГРАЖДАНЕ И СЕМЬИ: ВЛАДЕНИЕ ИНФОРМАЦИЕЙ</h1>
             <p class="slide-subtitle">100% защита личных данных, чистые районные сообщества без спамеров и монетизация внимания</p>
           </div>
           <div class="kpi-badge emerald">100% ЗАЩИТА ДАННЫХ И 0 СПАМА</div>
@@ -459,7 +459,7 @@ rate: "-9%"
               </div>
 
               <div class="comp-panel new">
-                <div class="comp-title">🟢 НА ТУРБАЗЕ (СУВЕРЕННО)</div>
+                <div class="comp-title">🟢 НА ТУРБАЗЕ (ВЛАДЕНИЕ ДАННЫМИ)</div>
                 <ul class="comp-list">
                   <li>
                     <span class="comp-item-header">✔ 0 руб. затрат на сервера</span>
@@ -532,7 +532,7 @@ rate: "-9%"
 > 
 > Затраты на серверную инфраструктуру снижаются до нуля — все вычисления выполняются на процессорах клиентов. 
 > 
-> Предприниматели освобождаются от кабальных комиссий маркетплейсов в двадцать-тридцать процентов и получают мгновенный доступ к жителям своего района через локальный каталог. 
+> Предприниматели освобождаются от завышенных комиссий маркетплейсов в двадцать-тридцать процентов и получают мгновенный доступ к жителям своего района через локальный каталог. 
 > 
 > А так как бизнес больше не хранит чужие персональные данные, риски штрафов по закону о защите персональных данных полностью исчезают».
 
@@ -787,7 +787,7 @@ rate: "-9%"
                 <span class="card-rich-badge" style="background: rgba(16, 185, 129, 0.35); color: var(--emerald-light);">-90% Антифрод</span>
               </div>
               <div class="card-rich-desc">
-                Все финансовые операции верифицируются через суверенный контур Ветки.
+                Все финансовые операции верифицируются через защищенный контур Ветки.
               </div>
             </div>
           </div>
@@ -948,7 +948,7 @@ rate: "-9%"
 > 
 > В системе отсутствует централизованная база данных — украсть все данные разом невозможно. 
 > 
-> Ведомственные контуры МВД, ФСБ и ФНС изолированы в суверенных блокчейн-хранилищах по принципу «герметичных отсеков», а неизменяемый журнал транзакций формирует безупречную доказательную базу».
+> Ведомственные контуры МВД, ФСБ и ФНС изолированы в защищенных ведомственных блокчейн-хранилищах по принципу «герметичных отсеков», а неизменяемый журнал транзакций формирует безупречную доказательную базу».
 
 ---
 
@@ -1298,7 +1298,7 @@ rate: "-9%"
               </div>
               <div class="card-rich-desc">
                 Стабильная работа СУБД на бюджетных телефонах благодаря сжатию Zstandard.<br>
-                <span style="color: var(--gold-light); font-weight: 750;">• Равный доступ к суверенным технологиям для всех слоев населения.</span>
+                <span style="color: var(--gold-light); font-weight: 750;">• Равный доступ к технологиям владения данными для всех слоев населения.</span>
               </div>
             </div>
           </div>
@@ -1410,7 +1410,7 @@ rate: "-9%"
                 <span class="narrative-num">01</span>
                 <span class="narrative-title">Квантовый иммунитет</span>
               </div>
-              <div class="narrative-text">Криптография на решетках защитит суверенные данные от ретроспективного взлома через десятилетия.</div>
+              <div class="narrative-text">Криптография на решетках защитит государственные и личные данные от ретроспективного взлома через десятилетия.</div>
               <div class="narrative-sub">• Надежная защита тайн и записей до 2050+ года.</div>
             </div>
 
@@ -1538,7 +1538,7 @@ rate: "-9%"
               </div>
               <div class="metric-chip">
                 <div class="metric-chip-value blue">РФ</div>
-                <div class="metric-chip-label">Суверенный стандарт</div>
+                <div class="metric-chip-label">Доверенный стандарт</div>
               </div>
             </div>
           </div>

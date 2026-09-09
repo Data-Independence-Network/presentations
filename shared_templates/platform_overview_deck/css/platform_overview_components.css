@@ -3107,3 +3107,615 @@
   line-height: 1.3;
 }
 
+/* ==========================================================================
+   PARADIGM SHIFT (DECK 01) BILLBOARD TYPOGRAPHY & EXPANDED FILL RATIOS
+   High-contrast billboard scale: eliminates empty space, sets body/bullets >= 20-24px
+   ========================================================================== */
+
+/* ---------- SLIDE 1: MANIFESTO & 3 KPI CHIPS ---------- */
+.paradigm-shift-deck .slide-card[data-slide="1"] .info-panel:has(.key-callout) {
+  gap: 16px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .key-callout {
+  padding: 22px 28px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .key-callout > strong {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .key-callout p {
+  font-size: 23px;
+  line-height: 1.38;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .feature-cards-grid {
+  gap: 16px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .feature-card {
+  padding: 22px 24px;
+  gap: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .feature-card .card-icon {
+  font-size: 38px;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .feature-card h4 {
+  font-size: 26px;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .feature-card p {
+  font-size: 22px;
+  line-height: 1.36;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .arch-blueprint-preview {
+  gap: 16px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .arch-kpi-chip {
+  padding: 24px 28px;
+  gap: 10px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .arch-kpi-chip .kpi-val {
+  font-size: 68px;
+  line-height: 1;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .arch-kpi-chip .kpi-label {
+  font-size: 28px;
+  line-height: 1.25;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .arch-kpi-chip .kpi-sublabel {
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+/* ---------- SLIDE 2: CALIBRATED FOR 2-LINE HEADER (Available body: 716px) ---------- */
+.paradigm-shift-deck .slide-card[data-slide="2"] .info-panel:has(.key-callout) {
+  gap: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .key-callout {
+  padding: 16px 24px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .key-callout > strong {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .key-callout p {
+  font-size: 22.5px;
+  line-height: 1.35;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-cards-grid {
+  gap: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-card {
+  padding: 18px 22px;
+  gap: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-card .card-icon {
+  font-size: 36px;
+  margin-bottom: 2px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-card h4 {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-card > p {
+  font-size: 22px;
+  line-height: 1.34;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-card .feat-points {
+  gap: 8px;
+  margin-top: 6px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-card .feat-point {
+  font-size: 22px;
+  line-height: 1.34;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-card .feat-point strong {
+  font-size: 22px;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+/* Slide 2 Visual Panel: Evolution Stack */
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-billboard-stack {
+  gap: 5px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-step-card {
+  padding: 13px 20px;
+  border-radius: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-step-num {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-step-title {
+  font-size: 24px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-step-sub {
+  font-size: 19.5px;
+  line-height: 1.26;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-step-badge {
+  font-size: 17px;
+  padding: 5px 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-connector {
+  font-size: 16px;
+  padding: 1px 0;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-summary-ribbon {
+  font-size: 20.5px;
+  font-weight: 700;
+  padding: 10px 18px;
+  margin-top: 2px;
+}
+
+/* ---------- SLIDES 5 & 11: INFO-PANEL WITH 2 FEATURE CARDS WITH FEAT-POINTS ---------- */
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .info-panel:has(.key-callout) {
+  gap: 16px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .key-callout {
+  padding: 22px 28px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .key-callout > strong {
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .key-callout p {
+  font-size: 24px;
+  line-height: 1.38;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-cards-grid {
+  gap: 16px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-card {
+  padding: 24px 26px;
+  gap: 6px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-card .card-icon {
+  font-size: 42px;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-card h4 {
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-card > p {
+  font-size: 23px;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-card .feat-points {
+  gap: 12px;
+  margin-top: 8px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-card .feat-point {
+  font-size: 23px;
+  line-height: 1.38;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-card .feat-point strong {
+  font-size: 23px;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+/* Slide 5 Visual Panel: Data Separation Display */
+.paradigm-shift-deck .slide-card[data-slide="5"] .data-separation-display {
+  gap: 16px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .legacy-silos-card {
+  padding: 20px 24px;
+  border-radius: 14px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .legacy-title {
+  font-size: 25px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .legacy-badge {
+  font-size: 19px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .legacy-box {
+  font-size: 23px;
+  padding: 14px 20px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .sovereign-vault-card {
+  padding: 24px 28px;
+  border-radius: 16px;
+  gap: 14px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .vault-badge {
+  font-size: 32px;
+  font-weight: 900;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .vault-sub {
+  font-size: 23px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .apps-swappable-row {
+  gap: 16px;
+  margin: 8px 0;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .swappable-app-card {
+  padding: 18px 16px;
+  border-radius: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .swappable-app-name {
+  font-size: 26px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .swappable-app-tag {
+  font-size: 19px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .separation-status-ribbon {
+  font-size: 22px;
+  font-weight: 700;
+  padding: 14px 20px;
+}
+
+/* Slide 11 Visual Panel: Mesh Contour Display */
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-contour-display {
+  gap: 8px;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-scenario-card {
+  padding: 16px 22px;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-scenario-title {
+  font-size: 25px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-scenario-badge {
+  font-size: 19px;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-node-box {
+  padding: 14px 20px;
+  border-radius: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-node-icon {
+  font-size: 30px;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-node-name {
+  font-size: 24px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-node-action {
+  font-size: 21px;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-node-tag {
+  font-size: 18px;
+  padding: 6px 14px;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-radio-hop {
+  font-size: 18px;
+  padding: 3px 0;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-summary-ribbon {
+  font-size: 22px;
+  font-weight: 700;
+  padding: 14px 20px;
+}
+
+/* ---------- SLIDE 3: 3-COLUMN GLASS CARDS ---------- */
+.paradigm-shift-deck .slide-card[data-slide="3"] .grid-3col:has(.summary-banner) .glass-card {
+  padding: 32px 28px;
+  gap: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="3"] .card-pill-tag {
+  font-size: 18px;
+  padding: 6px 16px;
+  margin-bottom: 2px;
+}
+.paradigm-shift-deck .slide-card[data-slide="3"] .card-title {
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.paradigm-shift-deck .slide-card[data-slide="3"] .card-desc {
+  font-size: 23px;
+  line-height: 1.38;
+  color: #f1f5f9;
+  margin-bottom: 8px;
+}
+.paradigm-shift-deck .slide-card[data-slide="3"] .card-bullets {
+  gap: 14px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="3"] .card-bullets li {
+  font-size: 22px;
+  line-height: 1.38;
+  padding-left: 28px;
+}
+.paradigm-shift-deck .slide-card[data-slide="3"] .card-bullets li strong {
+  font-size: 22px;
+}
+.paradigm-shift-deck .slide-card[data-slide="3"] .summary-banner {
+  padding: 14px 18px;
+  font-size: 19px;
+  font-weight: 700;
+  margin-top: auto;
+}
+
+/* ---------- SLIDES 7, 8, 9: 2-COLUMN GLASS CARDS WITH STEPPER ---------- */
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .glass-card {
+  padding: 32px 36px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .card-pill-tag {
+  font-size: 20px;
+  font-weight: 800;
+  padding: 6px 18px;
+  border-radius: 8px;
+  margin-bottom: 2px;
+  align-self: flex-start;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .card-title {
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1.18;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .card-desc {
+  font-size: 24px;
+  line-height: 1.38;
+  color: #f1f5f9;
+  margin-bottom: 6px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .pipeline-stepper-compact {
+  padding: 12px 18px;
+  margin: 6px 0;
+  gap: 12px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .pipe-step-icon {
+  font-size: 28px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .pipe-step-title {
+  font-size: 19px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .pipe-step-sub {
+  font-size: 15px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .pipe-arrow {
+  font-size: 22px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .card-bullets {
+  gap: 12px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .card-bullets li {
+  font-size: 23px;
+  line-height: 1.36;
+  padding-left: 32px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .card-bullets li strong {
+  font-size: 23px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .summary-banner {
+  margin-top: auto;
+  padding: 14px 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ---------- SLIDES 4 & 6: CALIBRATED 2-COLUMN GLASS CARDS (Zero-Overflow) ---------- */
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .glass-card {
+  padding: 24px 32px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .card-pill-tag {
+  font-size: 18px;
+  font-weight: 800;
+  padding: 5px 16px;
+  border-radius: 8px;
+  margin-bottom: 2px;
+  align-self: flex-start;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .card-title {
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 2px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .card-desc {
+  font-size: 22.5px;
+  line-height: 1.32;
+  color: #f1f5f9;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .pipeline-stepper-compact {
+  padding: 10px 16px;
+  margin: 4px 0;
+  gap: 10px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .pipe-step-icon {
+  font-size: 26px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .pipe-step-title {
+  font-size: 18px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .pipe-step-sub {
+  font-size: 14.5px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .pipe-arrow {
+  font-size: 20px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .card-bullets {
+  gap: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .card-bullets li {
+  font-size: 21.5px;
+  line-height: 1.32;
+  padding-left: 28px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .card-bullets li strong {
+  font-size: 21.5px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .summary-banner {
+  margin-top: auto;
+  padding: 11px 18px;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+/* ---------- SLIDE 10: BILLBOARD TYPOGRAPHY & ZERO EMPTY SPACE ---------- */
+.paradigm-shift-deck .slide-card[data-slide="10"] .slide-title {
+  font-size: 52px;
+  white-space: nowrap;
+  margin-bottom: 6px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .slide-header {
+  margin-bottom: 20px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .glass-card {
+  padding: 28px 34px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .card-pill-tag {
+  font-size: 19px;
+  font-weight: 800;
+  padding: 6px 18px;
+  border-radius: 8px;
+  margin-bottom: 2px;
+  align-self: flex-start;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .card-title {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.18;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .card-desc {
+  font-size: 23px;
+  line-height: 1.34;
+  color: #f1f5f9;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .pipeline-stepper-compact {
+  padding: 12px 18px;
+  margin: 6px 0;
+  gap: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .pipe-step-icon {
+  font-size: 28px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .pipe-step-title {
+  font-size: 18.5px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .pipe-step-sub {
+  font-size: 15px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .pipe-arrow {
+  font-size: 22px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .card-bullets {
+  gap: 10px;
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .card-bullets li {
+  font-size: 22px;
+  line-height: 1.34;
+  padding-left: 30px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .card-bullets li strong {
+  font-size: 22px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .summary-banner {
+  margin-top: auto;
+  padding: 13px 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ---------- SLIDE 14: 2x2 KPI MATRIX + SUMMARY CARD ---------- */
+.paradigm-shift-deck .slide-card[data-slide="14"] .kpi-row-explainer {
+  gap: 16px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .kpi-card-explainer {
+  padding: 22px 24px;
+  border-radius: 14px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .kpi-val-explainer {
+  font-size: 60px;
+  line-height: 1;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .kpi-title-explainer {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .kpi-desc-explainer {
+  font-size: 21px;
+  line-height: 1.36;
+  color: #cbd5e1;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .kpi-badge-explainer {
+  font-size: 17px;
+  padding: 6px 14px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .glass-card {
+  padding: 34px 38px;
+  gap: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .card-pill-tag {
+  font-size: 20px;
+  padding: 6px 18px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .card-title {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.18;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .card-desc {
+  font-size: 25px;
+  line-height: 1.38;
+  margin-bottom: 8px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .card-bullets {
+  gap: 14px;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .card-bullets li {
+  font-size: 23px;
+  line-height: 1.38;
+  padding-left: 32px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .card-bullets li strong {
+  font-size: 23px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .summary-banner {
+  margin-top: auto;
+  padding: 16px 20px;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+

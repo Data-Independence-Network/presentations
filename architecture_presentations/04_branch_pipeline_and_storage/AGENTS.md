@@ -6,7 +6,7 @@ Contains the presentation deck, interactive slide player, handout PDF, and build
 ---
 
 ## 🧭 Architectural Focus & Key Concepts
-- **Focus:** Многоуровневый конвейер: PersistentQueue (WAL) -> ConcurrentMap -> FileSystem. Hot/Cold Sync, Time-Traveling, Pruning логов и БД публичных данных (PublicData).
+- **Focus:** Многоуровневый конвейер: PersistentQueue (WAL) -> ConcurrentMap -> FileSystem. Hot/Cold Sync, Time-Traveling, Pruning логов и БД общественных данных (PublicData).
 - **Source of Intent:** Author notes (`shared_docs/comments/2026/09-07_01_Architecture_overview.html`), `Технический документ платформы Турбаза.md`, and `turbase_architecture_presentations_master_plan.md`.
 - **Target Audience:** CTOs, Chief Architects, Staff Systems Engineers.
 - **Narrative Style:** Academic, authoritative system architect tone without marketing hyperbole (`ru-RU-DmitryNeural`, rate -9%, pitch -5Hz).

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Платформа «Турбаза» — Суверенная презентация (CSS Design System)
+   Платформа «Турбаза» — Архитектурная презентация (CSS Design System)
    Презентационная типографика высокой четкости (+25% Base Scale & High Contrast)
    ========================================================================== */
 
@@ -2269,7 +2269,7 @@ body {
    PER-SLIDE CUSTOM TYPOGRAPHY & LAYOUT OPTIMIZATIONS (SLIDES 1 TO 15)
    ========================================================================== */
 
-/* ---------- SLIDE 1: Титульный / Суверенная архитектура «Турбаза» ---------- */
+/* ---------- SLIDE 1: Титульный / Архитектура прямого владения данными «Турбаза» ---------- */
 .slide-card[data-slide="1"] .slide-title { font-size: 1.85rem; }
 .slide-card[data-slide="1"] .slide-subtitle { font-size: 1.08rem; }
 .slide-card[data-slide="1"] .hero-diagram-panel { padding: 12px 16px; }
@@ -2392,7 +2392,7 @@ body {
 .slide-card[data-slide="4"] .benefit-head h4 { font-size: 1.24rem; font-weight: 800; }
 .slide-card[data-slide="4"] .benefit-box p { font-size: 1.04rem; line-height: 1.5; }
 
-/* ---------- SLIDE 5: Аналитический суверенитет: Private & Federated OLAP ---------- */
+/* ---------- SLIDE 5: Аналитическая автономия: Private & Federated OLAP ---------- */
 .slide-card[data-slide="5"] .slide-title { font-size: 1.82rem; }
 .slide-card[data-slide="5"] .slide-subtitle { font-size: 1.06rem; }
 .slide-card[data-slide="5"] .olap-card {

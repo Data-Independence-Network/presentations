@@ -6,7 +6,7 @@ This directory hosts the specialized template and design system for the **3-Part
 ---
 
 ## 🎨 Visual Identity Standard
-- **Theme:** «Суверенный Горизонт» (Sovereign Horizon Explainer).
+- **Theme:** «Индустриальный Горизонт» (Industrial Horizon Explainer).
 - **Background:** Deep Slate `#0a0f1d` with subtle radial horizon glows.
 - **Series Marker:** Top glowing badge `🏔️ ПЛАТФОРМА ТУРБАЗА | ЭКСПЛЕЙНЕР`.
 - **Card Surfaces:** Glassmorphism (`rgba(20, 31, 60, 0.65)` with backdrop blur and neon contours).

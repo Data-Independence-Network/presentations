@@ -2,7 +2,7 @@
 
 The Russian Federation is currently rebuilding its information infrastructure, driven by the need for cultural and civilizational survival in the age of AI.  The technology stack presented here proposes building a sovereign "data internet" that can help achieve digital sovereignty goals.  I'm very glad and proud to present these  informational materials in Russian first:
 
-Суверенная трехуровневая распределенная цифровая платформа нового поколения (Edge Computing, Zero-Knowledge Proofs, Single Source of Truth).
+Отечественная трехуровневая распределенная цифровая платформа прямого владения данными нового поколения (Edge Computing, Zero-Knowledge Proofs, Single Source of Truth).
 
 ---
 
@@ -11,7 +11,7 @@ The Russian Federation is currently rebuilding its information infrastructure, d
 ```
 turbase_benefits_presentation/
 ├── overall_presentations/
-│   ├── 01_sovereign_architecture_presentation/     # Презентация 1: Архитектура Цифрового Суверенитета
+│   ├── 01_sovereign_architecture_presentation/     # Презентация 1: Архитектура прямого владения данными и технологического суверенитета государства
 │   │   ├── docs/                                    # Исходный Markdown (presentation_deck.md)
 │   │   ├── scripts/                                 # Скрипты генерации PDF и слайдов
 │   │   ├── regenerate.js                            # Локальный инкрементальный сборщик

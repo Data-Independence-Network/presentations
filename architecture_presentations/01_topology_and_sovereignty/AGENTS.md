@@ -1,7 +1,7 @@
 # AGENTS.md — 01_topology_and_sovereignty
 
 ## 🎯 Purpose & Scope
-Contains the presentation deck, interactive slide player, handout PDF, and build pipeline for **Presentation 01: Суверенная трехуровневая топология и парадигма Edge Computing** (13 high-density engineering slides).
+Contains the presentation deck, interactive slide player, handout PDF, and build pipeline for **Presentation 01: Трехуровневая распределенная топология и парадигма Edge Computing** (13 high-density engineering slides).
 
 ---
 

@@ -20,9 +20,9 @@ function escapeHtml(str) {
 function parseFrontmatter(content) {
   const meta = {
     title: 'Платформа «Турбаза»',
-    subtitle: 'Суверенная инфраструктура данных',
+    subtitle: 'Распределенная инфраструктура данных',
     header_title: 'ТУРБАЗА',
-    header_subtitle: 'Суверенная архитектура и экономика данных',
+    header_subtitle: 'Распределенная архитектура и экономика данных',
     theme: 'dark_sovereign',
     total_slides: 15,
     voice: 'ru-RU-DmitryNeural',

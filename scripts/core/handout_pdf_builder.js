@@ -52,7 +52,7 @@ async function buildHandoutPdf(config = {}) {
 
   const slideCount = config.slideCount || Object.keys(slideData).length || meta.total_slides || 15;
   const headerLogo = config.headerLogo || meta.header_title || 'ТУРБАЗА';
-  const headerSubtitle = config.headerSubtitle || meta.handout_header_subtitle || meta.header_subtitle || meta.subtitle || 'Суверенная инфраструктура данных';
+  const headerSubtitle = config.headerSubtitle || meta.handout_header_subtitle || meta.header_subtitle || meta.subtitle || 'Распределенная инфраструктура данных';
   const footerTitle = config.footerTitle || meta.handout_footer_title || (meta.title && meta.subtitle ? `${meta.title} — ${meta.subtitle}` : 'Платформа «Турбаза»');
   const baseFontSize = config.baseFontSize || meta.handout_font_size || '12.5pt';
 

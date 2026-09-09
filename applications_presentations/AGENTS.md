@@ -32,8 +32,8 @@ applications_presentations/
 ---
 
 ## 🎨 Visual Identity Standard
-- Theme: **«Суверенный Горизонт» (Sovereign Horizon Explainer)**.
-- Deep Slate background (`#0a0f1d`), series top header `🏔️ ПЛАТФОРМА ТУРБАЗА | ПРИКЛАДНОЙ СУВЕРЕНИТЕТ`.
+- Theme: **«Индустриальный Горизонт» (Industrial Horizon Explainer)**.
+- Deep Slate background (`#0a0f1d`), series top header `🏔️ ПЛАТФОРМА ТУРБАЗА | ПРИКЛАДНЫЕ СЕРВИСЫ`.
 - Glassmorphism card surfaces, glowing accents, billboard typography ($\ge 50$px titles, $\ge 24$px body).
 
 ---

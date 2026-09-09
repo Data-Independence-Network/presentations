@@ -159,10 +159,10 @@ async function buildWhitepaperPdf(config = {}) {
 
   const tag = config.tag || meta.whitepaper_tag || meta.tag || 'Аналитический отчет &middot; Спецификация';
   const bannerTitle = config.bannerTitle || meta.whitepaper_title || (meta.title && meta.subtitle ? `${meta.title} — ${meta.subtitle}` : (meta.title || 'Платформа «Турбаза»'));
-  const bannerSubtitle = config.bannerSubtitle || meta.whitepaper_subtitle || meta.subtitle || 'Суверенная трехуровневая архитектура данных';
+  const bannerSubtitle = config.bannerSubtitle || meta.whitepaper_subtitle || meta.subtitle || 'Трехуровневая архитектура прямого владения данными';
   const headerTitle = config.headerTitle || meta.header_title || 'ТУРБАЗА';
-  const headerSubtitle = config.headerSubtitle || meta.whitepaper_header_subtitle || meta.header_subtitle || meta.subtitle || 'Суверенная архитектура';
-  const footerText = config.footerText || meta.whitepaper_footer || (meta.title && meta.subtitle ? `${meta.title} — ${meta.subtitle}` : 'Платформа «Турбаза» — Суверенная трехуровневая архитектура данных');
+  const headerSubtitle = config.headerSubtitle || meta.whitepaper_header_subtitle || meta.header_subtitle || meta.subtitle || 'Архитектура прямого владения данными';
+  const footerText = config.footerText || meta.whitepaper_footer || (meta.title && meta.subtitle ? `${meta.title} — ${meta.subtitle}` : 'Платформа «Турбаза» — Трехуровневая архитектура прямого владения данными');
   const accentColor = config.accentColor || meta.accent_color || '#0284c7';
 
   const outputDir = path.dirname(outputPdfPath);

@@ -9,7 +9,7 @@ console.log(`[i] Loaded TTS API key from: ${keyFile}`);
 
 const openai = new OpenAI({ apiKey });
 
-const sampleText = "Архитектура «Турбаза» — это национальная суверенная инфраструктура данных, снижающая расходы на государственные дата-центры более чем в восемь раз.";
+const sampleText = "Архитектура «Турбаза» — это национальная инфраструктура прямого владения данными, снижающая расходы на государственные дата-центры более чем в восемь раз.";
 
 const voices = ['onyx', 'nova', 'echo', 'alloy', 'shimmer', 'fable', 'sage', 'ash', 'coral'];
 
