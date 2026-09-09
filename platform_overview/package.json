@@ -1,0 +1,30 @@
+{
+  "name": "turbase-platform-overview",
+  "version": "1.0.0",
+  "description": "Turbase Foundational 3-Part Explainer Mini-Series",
+  "private": true,
+  "scripts": {
+    "rebuild": "npm run rebuild-01 && npm run rebuild-02 && npm run rebuild-03",
+    "rebuild-all": "npm run rebuild",
+    "rebuild-01": "node ../scripts/rebuild.js 01_paradigm_shift_presentation",
+    "rebuild-platform-01": "npm run rebuild-01",
+    "rebuild-paradigm-shift": "npm run rebuild-01",
+    "rebuild-02": "node ../scripts/rebuild.js 02_architecture_principles_presentation",
+    "rebuild-platform-02": "npm run rebuild-02",
+    "rebuild-architecture-principles": "npm run rebuild-02",
+    "rebuild-03": "node ../scripts/rebuild.js 03_sovereign_economy_presentation",
+    "rebuild-platform-03": "npm run rebuild-03",
+    "rebuild-sovereign-economy": "npm run rebuild-03",
+    "regen": "npm run regen-01 && npm run regen-02 && npm run regen-03",
+    "regen-all": "npm run regen",
+    "regen-01": "node ../scripts/regenerate.js 01_paradigm_shift_presentation",
+    "regen-platform-01": "npm run regen-01",
+    "regen-paradigm-shift": "npm run regen-01",
+    "regen-02": "node ../scripts/regenerate.js 02_architecture_principles_presentation",
+    "regen-platform-02": "npm run regen-02",
+    "regen-architecture-principles": "npm run regen-02",
+    "regen-03": "node ../scripts/regenerate.js 03_sovereign_economy_presentation",
+    "regen-platform-03": "npm run regen-03",
+    "regen-sovereign-economy": "npm run regen-03"
+  }
+}

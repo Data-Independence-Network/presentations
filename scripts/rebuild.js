@@ -54,7 +54,14 @@ const rootDir = path.resolve(__dirname, '..');
     if (targetArg === 'all') {
       await rebuildAllPresentations(rootDir, { force });
     } else {
-      const targetPath = path.isAbsolute(targetArg) ? targetArg : path.resolve(rootDir, targetArg);
+      let targetPath;
+      if (path.isAbsolute(targetArg)) {
+        targetPath = targetArg;
+      } else {
+        const cwdCandidate = path.resolve(process.cwd(), targetArg);
+        const rootCandidate = path.resolve(rootDir, targetArg);
+        targetPath = fs.existsSync(cwdCandidate) ? cwdCandidate : rootCandidate;
+      }
       if (!fs.existsSync(targetPath)) {
         console.error(`[❌] Error: Directory not found: ${targetPath}`);
         process.exit(1);

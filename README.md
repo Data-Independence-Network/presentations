@@ -72,49 +72,67 @@ npm run install:regen
 
 ---
 
-## ⚡ Автоматизация и сборка (NPM Scripts)
+## ⚡ Автоматизация и сборка (NPM Workspaces & Scripts)
 
-В хранилищаи реализованы два уровня сборки:
-1. **`rebuild-*` (100% Offline сборка):** пересобирает веб-слайды, скриншоты 1920x1080, Handout PDF и MP4-видео, используя мастер-аудиофайлы `.mp3`, сохраненные в Git (не требует ключа TTS API).
-2. **`regen-*` (Регенерация с синтезом речи):** выполняет генерацию аудио через Neural TTS (требует `text_to_speech_mcp_Open_API_key.txt`) и затем вызывает цепочку `rebuild`.
+Структура сборки разделена на два уровня:
+1. **Главный `package.json` (в корне):** содержит общие команды для сборки целых видов презентаций и глобальных отчетов:
+   - `rebuild-overall` / `regen-overall` (`overall_presentations/`)
+   - `rebuild-platform-overview` / `regen-platform-overview` (`platform_overview/`)
+   - `rebuild-apps` / `regen-apps` (`applications_presentations/`)
+   - `rebuild-arch` / `regen-arch` (`architecture_presentations/`)
+   - `rebuild-impact` / `regen-impact` (`detailed_overall_impact_presentations/`)
+   - `build-whitepapers` (`shared_docs/`)
+   - `rebuild-all` / `regenerate-all` (Глобальная сборка)
+2. **Локальные подфайлы `package.json` (в папке каждого вида презентаций):** содержат точечные скрипты для сборки конкретных презентаций внутри соответствующего направления (`overall_presentations/`, `platform_overview/`, `applications_presentations/`, `architecture_presentations/`, `detailed_overall_impact_presentations/`, `shared_docs/`).
 
-### 🔨 Offline Rebuild (без API ключа):
+### 🔨 Сборка целых видов презентаций из корня (Offline Rebuild, без API-ключа):
 ```bash
-# Комплексная пересборка всех мастер-презентаций и отчетов
+# Мастер-презентации и архитектурные отчеты
 npm run rebuild-overall
 
-# Пересборка презентации по Архитектуре (HTML, PNG, Handout PDF, MP4 видео)
-npm run rebuild-overall-architecture
+# Серия Platform Overview (3 части)
+npm run rebuild-platform-overview
 
-# Пересборка презентации по Стейкхолдерам
-npm run rebuild-overall-stakeholder
+# Флагманские приложения (5 приложений)
+npm run rebuild-apps
 
-# Сборка аналитического отчета / Матрицы выгод стейкхолдеров (A4 Whitepaper PDF)
-npm run rebuild-overall-stakeholder-doc
+# Инженерная архитектура Turbase (7 частей)
+npm run rebuild-arch
 
-# Сборка архитектурного отчета / Спецификации визуальных схем (A4 Visuals PDF)
-npm run rebuild-overall-architecture-doc
+# Анализ экосистемы и стейкхолдеров (10 презентаций)
+npm run rebuild-impact
 
-# Пересборка всех презентаций хранилища
+# Все Whitepapers / аналитические документы
+npm run build-whitepapers
+
+# Полная сборка всех презентаций хранилища
 npm run rebuild-all
 ```
 
-### 🎙️ Полная регенерация с синтезом новой речи (требует ключ TTS):
+### 🎙️ Регенерация с синтезом новой речи через Neural TTS (требует ключ TTS):
 ```bash
-# Комплексная регенерация всех мастер-презентаций и отчетов с проверкой аудио
 npm run regen-overall
-
-# Регенерация презентации по Архитектуре (с синтезом аудио)
-npm run regen-overall-architecture
-
-# Регенерация презентации по Стейкхолдерам (с синтезом аудио)
-npm run regen-overall-stakeholder
-
-# Полная инкрементальная проверка всех презентаций хранилища
+npm run regen-platform-overview
+npm run regen-apps
+npm run regen-arch
+npm run regen-impact
 npm run regenerate-all
-
-# Принудительный полный пересинтез всех презентаций
 npm run regenerate-all:force
+```
+
+### 🎯 Точечная сборка отдельных презентаций (внутри папки нужного направления):
+```bash
+# Например, для мастер-презентаций:
+cd overall_presentations
+npm run rebuild-architecture        # Сборка только архитектурной презентации
+npm run rebuild-stakeholder         # Сборка только презентации по стейкхолдерам
+npm run rebuild-architecture-doc    # Сборка Architectural Visuals PDF
+npm run rebuild-stakeholder-doc     # Сборка Stakeholders Value Matrix PDF
+
+# Либо из корня через --prefix или --workspace:
+npm --prefix overall_presentations run rebuild-architecture
+npm --prefix architecture_presentations run rebuild-01
+npm --prefix applications_presentations run rebuild-01
 ```
 
 ---

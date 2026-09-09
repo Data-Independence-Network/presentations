@@ -168,7 +168,14 @@ function parseSlides(body) {
 function findRepoRoot(startDir) {
   let cur = path.resolve(startDir || process.cwd());
   while (cur !== path.dirname(cur)) {
-    if (fs.existsSync(path.join(cur, 'package.json')) || fs.existsSync(path.join(cur, 'shared_templates'))) {
+    if (fs.existsSync(path.join(cur, 'shared_templates')) && fs.existsSync(path.join(cur, 'scripts'))) {
+      return cur;
+    }
+    cur = path.dirname(cur);
+  }
+  cur = path.resolve(startDir || process.cwd());
+  while (cur !== path.dirname(cur)) {
+    if (fs.existsSync(path.join(cur, 'shared_templates'))) {
       return cur;
     }
     cur = path.dirname(cur);

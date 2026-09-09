@@ -1,0 +1,32 @@
+{
+  "name": "turbase-overall-presentations",
+  "version": "1.0.0",
+  "description": "Turbase Master Overview Presentations Track",
+  "private": true,
+  "scripts": {
+    "rebuild": "npm run rebuild-architecture && npm run rebuild-stakeholder && npm run rebuild-architecture-doc && npm run rebuild-stakeholder-doc",
+    "rebuild-all": "npm run rebuild",
+    "rebuild-architecture": "node ../scripts/rebuild.js 01_sovereign_architecture_presentation",
+    "rebuild-01": "npm run rebuild-architecture",
+    "rebuild-overall-architecture": "npm run rebuild-architecture",
+    "rebuild-stakeholder": "node ../scripts/rebuild.js 02_stakeholders_benefits_presentation",
+    "rebuild-02": "npm run rebuild-stakeholder",
+    "rebuild-overall-stakeholder": "npm run rebuild-stakeholder",
+    "rebuild-architecture-doc": "node 01_sovereign_architecture_presentation/scripts/generate_architecture_doc_pdf.js",
+    "rebuild-overall-architecture-doc": "npm run rebuild-architecture-doc",
+    "rebuild-stakeholder-doc": "node 02_stakeholders_benefits_presentation/scripts/generate_stakeholders_matrix_pdf.js",
+    "rebuild-overall-stakeholder-doc": "npm run rebuild-stakeholder-doc",
+    "regen": "npm run regen-architecture && npm run regen-stakeholder && npm run regen-architecture-doc && npm run regen-stakeholder-doc",
+    "regen-all": "npm run regen",
+    "regen-architecture": "node ../scripts/regenerate.js 01_sovereign_architecture_presentation",
+    "regen-01": "npm run regen-architecture",
+    "regen-overall-architecture": "npm run regen-architecture",
+    "regen-stakeholder": "node ../scripts/regenerate.js 02_stakeholders_benefits_presentation",
+    "regen-02": "npm run regen-stakeholder",
+    "regen-overall-stakeholder": "npm run regen-stakeholder",
+    "regen-architecture-doc": "node 01_sovereign_architecture_presentation/scripts/generate_architecture_doc_pdf.js",
+    "regen-overall-architecture-doc": "npm run regen-architecture-doc",
+    "regen-stakeholder-doc": "node 02_stakeholders_benefits_presentation/scripts/generate_stakeholders_matrix_pdf.js",
+    "regen-overall-stakeholder-doc": "npm run regen-stakeholder-doc"
+  }
+}

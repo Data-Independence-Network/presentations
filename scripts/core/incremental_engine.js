@@ -465,7 +465,13 @@ async function regeneratePresentation(presentationDir, options = {}) {
 
 function discoverAllPresentations(rootDir) {
   const presentations = [];
-  const searchDirs = ['overall_presentations', 'detailed_overall_impact_presentations', 'platform_overview'];
+  const searchDirs = [
+    'overall_presentations',
+    'platform_overview',
+    'applications_presentations',
+    'architecture_presentations',
+    'detailed_overall_impact_presentations'
+  ];
 
   searchDirs.forEach(sub => {
     const parent = path.join(rootDir, sub);
