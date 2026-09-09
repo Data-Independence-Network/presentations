@@ -73,11 +73,14 @@ async function captureSlides(config = {}) {
         border: none !important;
         box-shadow: none !important;
         aspect-ratio: auto !important;
+        position: relative !important;
       }
       .slide-card {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
         width: 1920px !important;
         height: 1080px !important;
-        padding: 48px 72px !important;
         box-shadow: none !important;
         border-radius: 0 !important;
         display: flex !important;
