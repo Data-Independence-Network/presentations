@@ -16,9 +16,11 @@
 %Analytics - Аналитика
 %API - Общественная Оболочка
 %App - Приложение
+%MicroBlockchain - Ммикро-цепь
 %Branch - Ветка
 %Cache - Кэш
 %ConcurrentMap - Параллельная карта
+%Condition - Условие
 %Connection - Соединение
 %Cooperation - Взаимодействие
 %Database - База Данных
@@ -33,27 +35,37 @@
 %Framework - Каркас
 %GenAI - Генеративный ИИ
 %Group - Группа
+%Id - Идентификатор
 %International - Международный
 %Internet - Интернет
 %Join - SQL-соединение
 %Leaf - Лист
 %Libraries - Библиотеки
+%Logic - Логика
 %LLM - Большая языковая модель
 %LongTermStorage - Долгосрочного хранение
 %Neighbors - Соседи
+%Optimization - Оптимизация
+%Oracle - Оракул
+%Order - Порядок
 %ORM - Объектно-реляционное отображение
 %ParentBranch - Родительская Ветвь
 %PassThroughСonnection - Сквозное соединение
 %P2P - Одноранговая сеть
 %PersistentQueue - Персистентная очередь
+%Privacy - Конфиденциальность
+%Proof - Доказательство
 %PublicData - Общественные данные
 %Queue - Очередь
 %RecordId - Ключ Записи
 %Repository - Хранилище
 %RepositoryId - Ключ Хранилища
+%RevenueSharing - Деление дохода
 %Screen - Экран
 %Service - Услуги
+%SmartContract - Смарт контракт
 %SQL - SQL
+%StateMachine - Конечный автомат
 %Synchronization - Синхронизация
 %TransactionLog - Журнал изменений
 %Tree - Дерево
@@ -62,5 +74,6 @@
 %Trunk - Ствол
 %UI - Интерфейс 
 %User - Пользователь
+%Wallet - Кошелёк
 
 ведомствo
