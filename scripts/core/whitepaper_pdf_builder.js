@@ -39,10 +39,12 @@ function markdownToHtml(content) {
   // 2. Stash code blocks and ASCII art
   text = text.replace(/```([a-zA-Z0-9_-]*)\s*([\s\S]*?)```/g, (match, lang, code) => {
     const id = `___CODE_BLOCK_${blocks.length}___`;
+    let formatted = escapeHtml(code.trim());
+    formatted = formatted.replace(/(#\s*[^\n\r]*)/g, '<span class="code-comment">$1</span>');
     if (!lang || lang === 'text' || lang === 'ascii') {
-      blocks.push(`<div class="ascii-diagram-card"><pre class="ascii-art">${escapeHtml(code.trim())}</pre></div>`);
+      blocks.push(`<div class="ascii-diagram-card"><pre class="ascii-art">${formatted}</pre></div>`);
     } else {
-      blocks.push(`<div class="code-card"><pre class="code-block"><code>${escapeHtml(code.trim())}</code></pre></div>`);
+      blocks.push(`<div class="code-card"><pre class="code-block"><code>${formatted}</code></pre></div>`);
     }
     return id;
   });
@@ -543,25 +545,31 @@ async function buildWhitepaperPdf(config = {}) {
       background: #f8fafc;
       border: 1.5px solid #94a3b8;
       border-radius: 8px;
-      padding: 10px 12px;
+      padding: 10px 14px;
       margin: 12px 0;
       page-break-inside: avoid;
       break-inside: avoid;
       box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      text-align: center;
     }
 
     .ascii-art {
       font-family: 'JetBrains Mono', 'Courier New', monospace;
-      font-size: 6.8pt;
-      line-height: 1.22;
+      font-size: 7.2pt;
+      line-height: 1.35;
       color: #0f172a;
       background: transparent;
       padding: 0;
       margin: 0;
       white-space: pre;
       overflow: hidden;
-      display: block;
-      text-align: center;
+      display: inline-block;
+      text-align: left;
+    }
+
+    .code-comment {
+      color: #64748b;
+      font-style: italic;
     }
 
     .code-card {
