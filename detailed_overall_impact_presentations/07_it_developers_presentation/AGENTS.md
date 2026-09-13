@@ -6,6 +6,7 @@ Contains presentation materials, slides, web deck, audio tracks, and automated b
 ---
 
 ## 🧭 Architectural Focus & Key Concepts
+- **Semantic Labels Invariant:** Метки в [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) служат внутренней системой индексации базы заметок для связывания начальных знаний платформы агентами. Запрещено использовать метки `%...` в материалах презентации (слайдах, дикторском тексте), так как они затрудняют восприятие.
 - **Focus:** True Serverless Edge (софт без серверов и DevOps), пожизненные микророялти 1/N, детерминированные FSM смарт-контракты, микро-блокчейны виртуальных хранилищ, отсутствие 30% налога App Store.
 - **Source of Intent:** Author notes ([`08-30_01_Who_is_it_for.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/08-30_01_Who_is_it_for.md), [`09-12_01_Smart_Contracts.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-12_01_Smart_Contracts.md)), [`turbase_detailed_impact_presentations_master_plan.md`](file:///Users/parents/Documents/presentations/detailed_overall_impact_presentations/turbase_detailed_impact_presentations_master_plan.md), and [`04_ecosystem_impact_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/04_ecosystem_impact_whitepaper.md).
 - **Target Audience:** Инженеры-программисты, инди-хакеры, создатели open-source библиотек, стартапы.

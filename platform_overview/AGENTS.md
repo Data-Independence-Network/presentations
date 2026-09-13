@@ -36,3 +36,8 @@ platform_overview/
    - 16:9 Landscape Slide Deck PDF (`docs/turbase_platform_XX_slides.pdf`)
    - Explainer Whitepaper PDF (`docs/turbase_platform_XX_whitepaper.pdf`)
    - 10MB Video (`video_exports/turbase_platform_XX_10mb.mp4`)
+---
+
+## 🏷️ Семантические метки и авторская база знаний
+Метки в [`shared_docs/comments/LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) и комментариях являются системой индексации исключительно внутри базы знаний авторских заметок, предназначенной для того, чтобы сессии и ИИ-агенты могли получить связанную картину начальных знаний платформы.
+**Категорически запрещено добавлять метки `%...` вне базы комментариев** (в презентационные слайды, дикторский текст, структуры презентаций, README и программный код), поскольку они загромождают текст и делают чтение и просмотр презентаций труднее.

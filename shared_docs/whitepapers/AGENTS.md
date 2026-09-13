@@ -18,6 +18,7 @@ Houses the analytical and scientific-technical Whitepapers suite for the **«Т�
 - **Author Notes as Source of Intent:** Все концептуальные формулировки и топологические модели строго опираются на авторские заметки разработчика в [`shared_docs/comments/`](file:///Users/parents/Documents/presentations/shared_docs/comments/) и словарь [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md).
 - **Single Source of Truth:** Markdown-файлы являются исходным эталоном для PDF-сборки.
 - **Zero-PII Compliance:** Персональные данные никогда не покидают Лист; внешние шлюзы обрабатывают исключительно математические доказательства.
+- **Изоляция семантических меток:** Метки в [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) — система внутренней индексации авторских заметок для связывания начальных знаний. В вайтпейперах использование меток `%...` запрещено во избежание затруднения чтения.
 
 ---
 

@@ -5,6 +5,10 @@ This directory contains all materials, assets, web presentation code, and automa
 
 ---
 
+- **Semantic Labels Invariant:** Метки в [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) служат внутренней системой индексации базы заметок для связывания начальных знаний платформы агентами. Запрещено использовать метки `%...` в материалах презентации (слайдах, дикторском тексте), так как они затрудняют восприятие.
+
+---
+
 ## 📁 Subdirectory Layout
 - **`docs/`**: Master analytical Whitepaper (`turbase_stakeholders_value_matrix.md`) and Single Source of Truth (`presentation_deck.md`).
 - **`scripts/`**: CLI build scripts for PDF rendering, slide capture, and video builds.

@@ -10,3 +10,4 @@ This directory serves as the archetype design library and scaffolding boilerplat
 2. **Autonomous Presentation Principle:** Every presentation owns its own isolated `docs/deck.css` copied during initialization.
 3. **Zero Cross-Contamination:** Edits to templates must never directly alter, overflow, or regress any compiled presentation.
 4. **Billboard Typography Standard:** Canvas 1920x1080, slide titles $\ge 50, body $\ge 24, cards $\ge 28, and strictly Zero-Overflow (`scrollHeight <= clientHeight`).
+5. **Semantic Labels Invariant:** Метки `%...` из базы заметок запрещено использовать в шаблонах и стилях презентаций.

@@ -6,6 +6,7 @@ Contains presentation materials, slides, web deck, audio tracks, and automated b
 ---
 
 ## 🧭 Architectural Focus & Key Concepts
+- **Semantic Labels Invariant:** Метки в [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) служат внутренней системой индексации базы заметок для связывания начальных знаний платформы агентами. Запрещено использовать метки `%...` в материалах презентации (слайдах, дикторском тексте), так как они затрудняют восприятие.
 - **Focus:** Каталог услуг шаговой доступности, расчеты по смарт-контрактам Цифрового рубля с эскроу-защитой, 0% комиссий посредникам, прямая связь с ТСЖ/УК и локальными мастерами.
 - **Source of Intent:** Author notes ([`08-30_01_Who_is_it_for.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/08-30_01_Who_is_it_for.md), [`09-12_01_Smart_Contracts.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-12_01_Smart_Contracts.md)), [`turbase_applications_master_plan.md`](file:///Users/parents/Documents/presentations/applications_presentations/turbase_applications_master_plan.md), and [`02_applications_suite_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/02_applications_suite_whitepaper.md).
 - **Target Audience:** Самозанятые, малый бизнес, управляющие компании ЖКХ, жители микрорайонов.

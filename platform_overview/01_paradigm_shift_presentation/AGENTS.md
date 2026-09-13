@@ -6,6 +6,7 @@ Contains presentation materials, slides, web deck, audio tracks, and automated b
 ---
 
 ## 🧭 Architectural Focus & Key Concepts
+- **Semantic Labels Invariant:** Метки в [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) служат внутренней системой индексации базы заметок для связывания начальных знаний платформы агентами. Запрещено использовать метки `%...` в материалах презентации (слайдах, дикторском тексте), так как они затрудняют восприятие.
 - **Focus:** Кризис облачных мега-ЦОД и монополий, барьеры 30%-го налога App Store, уязвимость баз-мишеней (Honeypots), переход к суверенному Edge Computing и прямому владению данными.
 - **Source of Intent:** Author notes ([`08-25_01_History_of_technology.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/08-25_01_History_of_technology.md), [`09-07_01_Architecture_overview.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-07_01_Architecture_overview.md)), [`turbase_platform_overview_master_plan.md`](file:///Users/parents/Documents/presentations/platform_overview/turbase_platform_overview_master_plan.md), and [`01_platform_overview_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/01_platform_overview_whitepaper.md).
 - **Target Audience:** Государственные лидеры, ИТ-директора, предприниматели, широкая аудитория.

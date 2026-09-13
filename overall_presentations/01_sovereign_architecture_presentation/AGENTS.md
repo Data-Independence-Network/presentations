@@ -5,6 +5,10 @@ This directory contains all materials, assets, web presentation code, scripts, a
 
 ---
 
+- **Semantic Labels Invariant:** Метки в [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) служат внутренней системой индексации базы заметок для связывания начальных знаний платформы агентами. Запрещено использовать метки `%...` в материалах презентации (слайдах, дикторском тексте), так как они затрудняют восприятие.
+
+---
+
 ## 📁 Subdirectory Layout
 - **`docs/`**: Single Source of Truth (`presentation_deck.md`).
 - **`scripts/`**: Automated CLI tools for PDF generation, slide capture, and video builds.

@@ -6,6 +6,7 @@ Contains presentation materials, slides, web deck, audio tracks, and automated b
 ---
 
 ## 🧭 Architectural Focus & Key Concepts
+- **Semantic Labels Invariant:** Метки в [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) служат внутренней системой индексации базы заметок для связывания начальных знаний платформы агентами. Запрещено использовать метки `%...` в материалах презентации (слайдах, дикторском тексте), так как они затрудняют восприятие.
 - **Focus:** 4-фазная дорожная карта миграции (Фаза 1: Пилоты и SDK $	o$ Фаза 2: Муниципальные Ветки $	o$ Фаза 3: Федеральный контур $	o$ Фаза 4: Международный шлюз БРИКС+), двусторонние шлюзы к Legacy СУБД, нулевой риск даунтайма.
 - **Source of Intent:** Author notes ([`08-30_01_Who_is_it_for.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/08-30_01_Who_is_it_for.md), [`09-07_01_Architecture_overview.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-07_01_Architecture_overview.md)), [`turbase_detailed_impact_presentations_master_plan.md`](file:///Users/parents/Documents/presentations/detailed_overall_impact_presentations/turbase_detailed_impact_presentations_master_plan.md), and [`04_ecosystem_impact_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/04_ecosystem_impact_whitepaper.md).
 - **Target Audience:** Руководители программ цифровой трансформации, проектные офисы ФОИВ, системные интеграторы.

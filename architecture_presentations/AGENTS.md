@@ -32,3 +32,8 @@ architecture_presentations/
    - `generated/outputs/web_deck/` (interactive player)
    - `generated/outputs/pdf/` (handouts)
    - `generated/outputs/video/` (master/email/10mb videos)
+---
+
+## 🏷️ Семантические метки и авторская база знаний
+Метки в [`shared_docs/comments/LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) и комментариях являются системой индексации исключительно внутри базы знаний авторских заметок, предназначенной для того, чтобы сессии и ИИ-агенты могли получить связанную картину начальных знаний платформы.
+**Категорически запрещено добавлять метки `%...` вне базы комментариев** (в презентационные слайды, дикторский текст, структуры презентаций, README и программный код), поскольку они загромождают текст и делают чтение и просмотр презентаций труднее.

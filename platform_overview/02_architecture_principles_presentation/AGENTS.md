@@ -6,6 +6,7 @@ Contains presentation materials, slides, web deck, audio tracks, and automated b
 ---
 
 ## 🧭 Architectural Focus & Key Concepts
+- **Semantic Labels Invariant:** Метки в [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) служат внутренней системой индексации базы заметок для связывания начальных знаний платформы агентами. Запрещено использовать метки `%...` в материалах презентации (слайдах, дикторском тексте), так как они затрудняют восприятие.
 - **Focus:** Четыре ранга узлов (Лист -> Ветка -> Родительская Ветвь -> Ствол), автономные виртуальные хранилища, связи через внешние ключи, Общественные Оболочки API, Zero-PII и децентрализованная синхронизация.
 - **Source of Intent:** Author notes ([`09-07_01_Architecture_overview.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-07_01_Architecture_overview.md)), [`turbase_platform_overview_master_plan.md`](file:///Users/parents/Documents/presentations/platform_overview/turbase_platform_overview_master_plan.md), and [`01_platform_overview_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/01_platform_overview_whitepaper.md).
 - **Target Audience:** Системные архитекторы, технические руководители, инженеры распределенных систем.
