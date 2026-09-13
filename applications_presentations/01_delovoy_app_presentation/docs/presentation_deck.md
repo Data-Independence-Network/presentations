@@ -44,7 +44,7 @@ rate: "-9%"
         </div>
         <div class="feature-card">
           <div class="card-icon">👨‍👩‍👧‍👦</div>
-          <h4>Семейный круг (%Family)</h4>
+          <h4>Семейный круг</h4>
           <p>Поручения и совместные дела без центральных серверов.</p>
         </div>
       </div>
@@ -348,7 +348,7 @@ rate: "-9%"
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СЕМЕЙНЫЙ КРУГ</div>
-    <h2 class="slide-title">СЕМЕЙНЫЙ КРУГ ПОРУЧЕНИЙ (%Family)</h2>
+    <h2 class="slide-title">СЕМЕЙНЫЙ КРУГ ПОРУЧЕНИЙ</h2>
     <p class="slide-subtitle">Координация домашнего хозяйства, школьных дел и ухода за старшими без единого сервера</p>
   </div>
 
@@ -393,7 +393,7 @@ rate: "-9%"
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | РЕЛЯЦИОННЫЕ СВЯЗИ</div>
-    <h2 class="slide-title">ВНЕШНИЕ СВЯЗИ (%ForeignKey): БЕЗ ДУБЛИРОВАНИЯ</h2>
+    <h2 class="slide-title">ВНЕШНИЕ СВЯЗИ: БЕЗ ДУБЛИРОВАНИЯ</h2>
     <p class="slide-subtitle">Задачи как сквозные указатели на чеки, рецепты врачей, билеты и школьные задания</p>
   </div>
 
@@ -441,7 +441,7 @@ rate: "-9%"
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ОБЩЕСТВЕННЫЙ API</div>
-    <h2 class="slide-title">ОБЩЕСТВЕННАЯ ОБОЛОЧКА ПОРУЧЕНИЙ (%API)</h2>
+    <h2 class="slide-title">ОБЩЕСТВЕННАЯ ОБОЛОЧКА ПОРУЧЕНИЙ</h2>
     <p class="slide-subtitle">Единая точка сборки жизненных обязательств: сторонние сервисы ставят задачи в 1 клик</p>
   </div>
 
@@ -486,7 +486,7 @@ rate: "-9%"
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СКОРОСТЬ SQLITE</div>
-    <h2 class="slide-title">100% АВТОНОМНОСТЬ НА ЛИСТЕ (%Leaf)</h2>
+    <h2 class="slide-title">100% АВТОНОМНОСТЬ НА ЛИСТЕ</h2>
     <p class="slide-subtitle">Локальная база данных SQLite прямо на смартфоне: отклик менее 1 миллисекунды</p>
   </div>
 
@@ -745,7 +745,7 @@ rate: "-9%"
       <p class="card-desc">В следующей презентации мы покажем, как общество формулирует и решает общие вопросы:</p>
       <ul class="card-bullets">
         <li>Трехмерный куб принятия решений с взвешиванием критериев</li>
-        <li>Ветвящиеся деревья народных формулировок вопросов (%Tree)</li>
+        <li>Ветвящиеся деревья народных формулировок вопросов</li>
         <li>Абсолютная защита от накруток и бот-ферм на подписях Листьев</li>
       </ul>
     </div>

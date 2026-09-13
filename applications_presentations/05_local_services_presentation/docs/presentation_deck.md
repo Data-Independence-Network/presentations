@@ -136,7 +136,7 @@ rate: "-9%"
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ЛОКАЛЬНЫЙ РЕЕСТР</div>
     <h2 class="slide-title">ПОИСК МАСТЕРА ЗА 2 МИЛЛИСЕКУНДЫ</h2>
-    <p class="slide-subtitle">Районный каталог услуг на узлах Ветки (%Branch): мгновенный поиск в радиусе 500 метров</p>
+    <p class="slide-subtitle">Районный каталог услуг на узлах Ветки: мгновенный поиск в радиусе 500 метров</p>
   </div>
 
   <div class="slide-body grid-2col">
@@ -416,7 +416,7 @@ rate: "-9%"
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | АВТОНОМНАЯ CRM</div>
     <h2 class="slide-title">АВТОНОМНАЯ CRM МАСТЕРА НА ЛИСТЕ</h2>
-    <p class="slide-subtitle">База клиентов и история заказов в личном Хранилище (%Repository): защита от рейдерства и блокировок</p>
+    <p class="slide-subtitle">База клиентов и история заказов в личном Хранилище: защита от рейдерства и блокировок</p>
   </div>
 
   <div class="slide-body grid-2col">

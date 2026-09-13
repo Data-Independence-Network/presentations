@@ -160,14 +160,14 @@ rate: "-9%"
         <div class="pillar-card">
           <div class="pillar-num teal">02</div>
           <div class="pillar-info">
-            <h4>Ведомственные узлы Ветки (%Branch)</h4>
+            <h4>Ведомственные узлы Ветки</h4>
             <p>Государство контролирует опорные узлы маршрутизации трафика и агрегации без риска утечек.</p>
           </div>
         </div>
         <div class="pillar-card">
           <div class="pillar-num emerald">03</div>
           <div class="pillar-info">
-            <h4>Суверенный Ствол (%Trunk)</h4>
+            <h4>Суверенный Ствол</h4>
             <p>Неизменяемый консенсус национального реестра событий на основе защищенного Merkle-дерева.</p>
           </div>
         </div>

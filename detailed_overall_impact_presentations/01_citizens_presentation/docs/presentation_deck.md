@@ -139,7 +139,7 @@ rate: "-9%"
   <div class="corner-ribbon">🌿 ЭКОСИСТЕМА</div>
   <div class="slide-header">
     <div class="hero-stakeholder-badge">[ 👤 УЧАСТНИК 01: ГРАЖДАНЕ И СЕМЬИ ]</div>
-    <h2 class="slide-title">ПРИНЦИП АВТОНОМНОГО ЛИСТА (%LEAF)</h2>
+    <h2 class="slide-title">ПРИНЦИП АВТОНОМНОГО ЛИСТА</h2>
     <p class="slide-subtitle">Логика приложений выполняется на вашем телефоне: безопасность по законам математики</p>
   </div>
 
@@ -772,7 +772,7 @@ rate: "-9%"
           <div class="pillar-num ruby">2 мс</div>
           <div class="pillar-info">
             <h4>Мгновенный локальный поиск</h4>
-            <p>Поиск мастера в радиусе 500 метров прямо через районную Ветку (%Branch).</p>
+            <p>Поиск мастера в радиусе 500 метров прямо через районную Ветку.</p>
           </div>
         </div>
         <div class="pillar-card">

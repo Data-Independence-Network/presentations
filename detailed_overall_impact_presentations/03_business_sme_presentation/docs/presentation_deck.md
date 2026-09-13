@@ -161,7 +161,7 @@ rate: "-9%"
         <div class="pillar-card">
           <div class="pillar-num teal">02</div>
           <div class="pillar-info">
-            <h4>Приватная Ветка компании (%Branch)</h4>
+            <h4>Приватная Ветка компании</h4>
             <p>Объединяет филиалы сети и обеспечивает фоновую синхронизацию без внешних ЦОД.</p>
           </div>
         </div>

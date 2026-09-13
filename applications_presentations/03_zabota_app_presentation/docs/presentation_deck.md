@@ -570,7 +570,7 @@ rate: "-9%"
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ВЕРИФИКАЦИЯ БЕЗ СЛЕЖКИ</div>
     <h2 class="slide-title">ДВУХУРОВНЕВАЯ ВЕРИФИКАЦИЯ СОСЕДЕЙ</h2>
-    <p class="slide-subtitle">Районное Землячество (%Branch) и очные QR-поручительства: 100% защита от спамеров и ботов</p>
+    <p class="slide-subtitle">Районное Землячество и очные QR-поручительства: 100% защита от спамеров и ботов</p>
   </div>
 
   <div class="slide-body grid-2col">
@@ -584,7 +584,7 @@ rate: "-9%"
         <div class="pillar-card">
           <div class="pillar-num emerald">L1</div>
           <div class="pillar-info">
-            <h4>Уровень 1: Районная Ветка (`%Branch`)</h4>
+            <h4>Уровень 1: Районная Ветка</h4>
             <p>Муниципальный узел подтверждает факт проживания в районе города без сбора личных данных (Zero-PII), отсекая внешние DDoS-атаки.</p>
           </div>
         </div>
@@ -628,7 +628,7 @@ rate: "-9%"
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ГЕРМЕТИЧНЫЕ ОТСЕКИ</div>
-    <h2 class="slide-title">ГЕРМЕТИЧНЫЕ ОТСЕКИ СООБЩЕСТВ (%GROUP)</h2>
+    <h2 class="slide-title">ГЕРМЕТИЧНЫЕ ОТСЕКИ СООБЩЕСТВ</h2>
     <p class="slide-subtitle">Изолированные пространства взаимодействия: подъезды, школы, кружки и конфессиональные общины</p>
   </div>
 
@@ -916,7 +916,7 @@ rate: "-9%"
           <div class="pillar-num emerald">2 мс</div>
           <div class="pillar-info">
             <h4>Мгновенный локальный поиск</h4>
-            <p>Поиск свободного мастера в радиусе 500 метров прямо через районную Ветку (%Branch).</p>
+            <p>Поиск свободного мастера в радиусе 500 метров прямо через районную Ветку.</p>
           </div>
         </div>
         <div class="pillar-card">

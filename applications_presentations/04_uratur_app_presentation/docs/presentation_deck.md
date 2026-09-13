@@ -158,7 +158,7 @@ rate: "-9%"
           <div class="pillar-num cyan">02</div>
           <div class="pillar-info">
             <h4>От «КубГолоса»: Версионные тропы</h4>
-            <p>Ветвление маршрутов (%Tree) и оперативные народные 3D-опросы о перевалах.</p>
+            <p>Ветвление маршрутов и оперативные народные 3D-опросы о перевалах.</p>
           </div>
         </div>
         <div class="pillar-card">
@@ -340,7 +340,7 @@ rate: "-9%"
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ВЕРСИОННЫЕ ТРОПЫ</div>
-    <h2 class="slide-title">ВЕРСИОННЫЕ ДЕРЕВЬЯ МАРШРУТОВ (%TREE)</h2>
+    <h2 class="slide-title">ВЕРСИОННЫЕ ДЕРЕВЬЯ МАРШРУТОВ</h2>
     <p class="slide-subtitle">Ветвление треков под разные силы и сезоны вместо жестких стандартизированных экскурсий</p>
   </div>
 
@@ -381,7 +381,7 @@ rate: "-9%"
 
     <div class="visual-panel">
       <div class="metric-glass-card">
-        <div class="metric-header">ПРЕИМУЩЕСТВА %TREE В ТУРИЗМЕ</div>
+        <div class="metric-header">ПРЕИМУЩЕСТВА ДРЕВОВИДНОЙ СТРУКТУРЫ В ТУРИЗМЕ</div>
         <div class="metric-rows">
           <div class="metric-row">
             <span class="m-label">Сохранение опыта предшественников:</span>
@@ -620,7 +620,7 @@ rate: "-9%"
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ОФЛАЙН-АВТОНОМИЯ</div>
     <h2 class="slide-title">100% АВТОНОМИЯ: ВЕКТОРНЫЕ КАРТЫ</h2>
-    <p class="slide-subtitle">Топографические слои, изолинии высот и база стоянок в локальном хранилище Листа (%Leaf)</p>
+    <p class="slide-subtitle">Топографические слои, изолинии высот и база стоянок в локальном хранилище Листа</p>
   </div>
 
   <div class="slide-body grid-2col">

@@ -145,7 +145,7 @@ rate: "-9%"
   <div class="corner-ribbon">🌿 ЭКОСИСТЕМА</div>
   <div class="slide-header">
     <div class="hero-stakeholder-badge">[ ⚡ УЧАСТНИК 05: ADTECH И ПЛАТФОРМЫ ]</div>
-    <h2 class="slide-title">АРХИТЕКТУРА «ADTECH ВЕТКИ» (%BRANCH)</h2>
+    <h2 class="slide-title">АРХИТЕКТУРА «ADTECH ВЕТКИ»</h2>
     <p class="slide-subtitle">Переход от стриминга к пакетной логистике: формирование каталогов и раздача по P2P/CDN каналам</p>
   </div>
 
@@ -153,7 +153,7 @@ rate: "-9%"
     <div class="info-panel">
       <div class="key-callout amber">
         <strong>Децентрализация вычислений в интересах сети:</strong>
-        <p>AdTech-оператор разворачивает узел <strong>«AdTech Ветка» (%Branch)</strong>. Вместо показа каждого баннера по отдельности, Ветка агрегирует рекламные кампании в компактные зашифрованные пакеты и раздает их устройствам.</p>
+        <p>AdTech-оператор разворачивает узел <strong>«AdTech Ветка»</strong>. Вместо показа каждого баннера по отдельности, Ветка агрегирует рекламные кампании в компактные зашифрованные пакеты и раздает их устройствам.</p>
       </div>
 
       <div class="pillar-cards-stack">
@@ -680,7 +680,7 @@ rate: "-9%"
         <div class="pillar-card">
           <div class="pillar-num amber">🌿</div>
           <div class="pillar-info">
-            <h4>Районные Ветки (%Branch)</h4>
+            <h4>Районные Ветки</h4>
             <p>Готовая топологическая инфраструктура доставки офферов прямо в микрорайоны без затрат на собственный CDN.</p>
           </div>
         </div>

@@ -156,21 +156,21 @@ rate: "-9%"
         <div class="pillar-card">
           <div class="pillar-num blue">🏛️</div>
           <div class="pillar-info">
-            <h4>Федеральный Ствол (%Trunk)</h4>
+            <h4>Федеральный Ствол</h4>
             <p>Государственные стандарты, схемы и макро-реестры без сбора персональных данных граждан.</p>
           </div>
         </div>
         <div class="pillar-card">
           <div class="pillar-num cyan">🌿</div>
           <div class="pillar-info">
-            <h4>Ветка субъекта РФ (%Branch)</h4>
+            <h4>Ветка субъекта РФ</h4>
             <p>Автономный региональный узел на отечественных серверах: обслуживание района офлайн.</p>
           </div>
         </div>
         <div class="pillar-card">
           <div class="pillar-num indigo">📱</div>
           <div class="pillar-info">
-            <h4>Лист гражданина (%Leaf)</h4>
+            <h4>Лист гражданина</h4>
             <p>Персональные документы и электронные подписи хранятся на личных смартфонах жителей.</p>
           </div>
         </div>

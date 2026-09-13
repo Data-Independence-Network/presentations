@@ -34,7 +34,7 @@ rate: "-9%"
         </div>
         <div class="feature-card">
           <div class="card-icon">🌲</div>
-          <h4>Деревья версий (%Tree)</h4>
+          <h4>Деревья версий</h4>
           <p>Ветвление формулировок вместо токсичных споров в комментариях.</p>
         </div>
         <div class="feature-card">
@@ -287,7 +287,7 @@ rate: "-9%"
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ДЕРЕВЬЯ ВЕРСИЙ</div>
-    <h2 class="slide-title">ДЕРЕВЬЯ ВЕРСИЙ ОПРОСОВ (%Tree)</h2>
+    <h2 class="slide-title">ДЕРЕВЬЯ ВЕРСИЙ ОПРОСОВ</h2>
     <p class="slide-subtitle">Ветвление формулировок (Forking): созидательный диалог вместо разрушительных споров</p>
   </div>
 
@@ -300,7 +300,7 @@ rate: "-9%"
 
       <div class="glass-card">
         <div class="card-pill-tag gold">ИЕРАРХИЯ ОБЩЕСТВЕННОГО МНЕНИЯ</div>
-        <h3 class="card-title">Дерево позиций (%Tree)</h3>
+        <h3 class="card-title">Дерево позиций</h3>
         <ul class="card-bullets">
           <li>Сохранение всех оттенков мнений социальных групп</li>
           <li>Сопоставление результатов родительской и дочерней веток</li>
@@ -394,7 +394,7 @@ rate: "-9%"
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ИММУНИТЕТ К БОТАМ</div>
-    <h2 class="slide-title">0% БОТОВ: КРИПТОГРАФИЯ ЛИСТЬЕВ (%Leaf)</h2>
+    <h2 class="slide-title">0% БОТОВ: КРИПТОГРАФИЯ ЛИСТЬЕВ</h2>
     <p class="slide-subtitle">Подпись каждого голоса ключом Ed25519 реального устройства делает накрутки невозможными</p>
   </div>
 
@@ -485,7 +485,7 @@ rate: "-9%"
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | АРХИТЕКТУРА ДАННЫХ</div>
-    <h2 class="slide-title">ОТ ЦЕНТРАЛЬНЫХ БАЗ К ДЕРЕВЬЯМ ХРАНИЛИЩ (%Tree)</h2>
+    <h2 class="slide-title">ОТ ЦЕНТРАЛЬНЫХ БАЗ К ДЕРЕВЬЯМ ХРАНИЛИЩ</h2>
     <p class="slide-subtitle">Отказ от уязвимых централизованных СУБД в пользу распределенной топологии «Турбазы»</p>
   </div>
 
@@ -503,11 +503,11 @@ rate: "-9%"
 
     <div class="glass-card sovereign-border">
       <div class="card-pill-tag cyan">ТУРБАЗА (СОВРЕМЕННАЯ АРХИТЕКТУРА)</div>
-      <h3 class="card-title">Деревья Хранилищ (%Tree)</h3>
-      <p class="card-desc">Хранение каждого голоса в локальном хранилище на Листе (%Leaf) и агрегация на Ветках.</p>
+      <h3 class="card-title">Деревья Хранилищ</h3>
+      <p class="card-desc">Хранение каждого голоса в локальном хранилище на Листе и агрегация на Ветках.</p>
       <ul class="card-bullets">
         <li>Нулевые серверные расходы: данные живут на устройствах самих граждан</li>
-        <li>Ветвления вопросов версионируются локально в хранилищах (%Repository)</li>
+        <li>Ветвления вопросов версионируются локально в хранилищах</li>
         <li>100% математическая достоверность благодаря криптографическим подписям</li>
       </ul>
     </div>
@@ -736,7 +736,7 @@ rate: "-9%"
       <ul class="card-bullets">
         <li><strong>Многомерность:</strong> 3 фактора и 6 граней куба вместо плоского «да/нет».</li>
         <li><strong>Снизу вверх:</strong> Жители сами задают повестку дня дома и района.</li>
-        <li><strong>Деревья версий:</strong> Ветвление формулировок (%Tree) для поиска компромисса.</li>
+        <li><strong>Деревья версий:</strong> Ветвление формулировок для поиска компромисса.</li>
         <li><strong>Иммунитет:</strong> 100% защита от ботов на аппаратных ключах Листьев.</li>
         <li><strong>Скорость:</strong> Federated OLAP аналитика за 3 секунды.</li>
       </ul>
