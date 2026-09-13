@@ -16,8 +16,8 @@ detailed_overall_impact_presentations/
 ├── 04_advertisers_presentation/                          # 4. Advertisers & Brands (Theme: Magenta #e040fb)
 ├── 05_ad_platforms_presentation/                         # 5. Ad Platforms & AdTech (Theme: Amber #ffab00)
 ├── 06_government_infra_presentation/                     # 6. State & Municipalities (Theme: Sapphire #2979ff)
-├── 07_it_developers_presentation/                        # 7. Independent IT Developers (Theme: Lime #76ff03)
-├── 08_fintech_banking_presentation/                      # 8. Fintech & Banking (Theme: Teal #1de9b6)
+├── 07_it_developers_presentation/                        # 7. Independent IT Developers (Theme: Lime #76ff03; API economy & Revenue Sharing)
+├── 08_fintech_banking_presentation/                      # 8. Fintech & Banking (Theme: Teal #1de9b6; ZK-Scoring, FSM Smart-Escrow & Wallet Wrappers)
 ├── 09_cross_synergies_presentation/                      # 9. Cross-Participant Synergies (Theme: Gold #ffd600)
 └── 10_migration_roadmap_presentation/                    # 10. Phased Migration Roadmap (Theme: Titanium #90caf9)
 ```
@@ -38,4 +38,5 @@ All 10 presentations in this series must use the shared template system from `sh
 2. **Slide Count:** Exactly **10 slides** per presentation track.
 3. **Typography Standards:** Mobile billboard scale (Slide titles $\ge 50$px, body $\ge 24$px, cards $\ge 28$px).
 4. **TTS Engine:** Microsoft Edge Neural TTS (`node-edge-tts`, voice `ru-RU-DmitryNeural`, speed `-9%`, pauses `0.9s` / `1.2s`).
-5. **No Binary Video Commits:** Never commit binary `.mp4` video files or `temp_video/` folders to git.
+5. **Author Notes as Source of Intent:** Participant value models, Zero-PII compliance, and economic mechanisms strictly reflect the author notes in [`shared_docs/comments/`](file:///Users/parents/Documents/presentations/shared_docs/comments/) (including [`2026/09-12_01_Smart_Contracts.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-12_01_Smart_Contracts.md)) and [`Технический документ платформы Турбаза.md`](file:///Users/parents/Documents/presentations/shared_docs/%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D1%8B%20%D0%A2%D1%83%D1%80%D0%B1%D0%B0%D0%B7%D0%B0.md).
+6. **No Binary Video Commits:** Never commit binary `.mp4` video files or `temp_video/` folders to git.
