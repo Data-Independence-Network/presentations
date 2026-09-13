@@ -1,43 +1,86 @@
 # Комплект Белых Книг платформы «Турбаза» (Whitepapers Suite)
 
-Данная директория содержит полный комплект из пяти фундаментальных аналитических и научно-технических документов (Whitepapers), охватывающих все направления развития платформы «Турбаза».
+Данная директория содержит полный комплект из **шести фундаментальных аналитических и научно-технических документов (Whitepapers)**, охватывающих все направления развития платформы «Турбаза».
 
-Документы разработаны на основе утвержденных 15-слайдовых планов презентаций, комментариев разработчика (`shared_docs/comments/`) и результатов пользовательских интервью.
+Документы разработаны на основе утвержденных планов презентаций, концептуальных заметок разработчика (`shared_docs/comments/`) и результатов экспертного анализа. Документы оформлены по высшему академическому и представительскому полиграфическому стандарту А4 для демонстрации государственным регуляторам, финансовым институтам и научному сообществу.
 
 ---
 
 ## 📚 Состав комплекта
 
-| № | Файл исходного текста | Скомпилированный PDF | Направление (Track) | Ключевая тематика |
-| :---: | :--- | :--- | :--- | :--- |
-| **01** | [`01_platform_overview_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/01_platform_overview_whitepaper.md) | [`01_platform_overview_whitepaper.pdf`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/01_platform_overview_whitepaper.pdf) | **Обзор платформы** (`platform_overview/`) | Смена парадигмы децентрализации, трехуровневая топология Лист-Ветка-Ствол, Zero-PII и снижение TCO на 90%. |
-| **02** | [`02_applications_suite_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/02_applications_suite_whitepaper.md) | [`02_applications_suite_whitepaper.pdf`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/02_applications_suite_whitepaper.pdf) | **Флагманские приложения** (`applications_presentations/`) | Прикладные алгоритмы: «Деловой», «КубГолос», «Забота», «УраТур», МСП + Branch-шлюзы ЕСИА, СБП и ГИС ЖКХ. |
-| **03** | [`03_engineering_architecture_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/03_engineering_architecture_whitepaper.md) | [`03_engineering_architecture_whitepaper.pdf`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/03_engineering_architecture_whitepaper.pdf) | **Инженерная архитектура** (`architecture_presentations/`) | Модель данных AirEntity, встраиваемый SQLite на Листе, Read-Anywhere Write-Self, Branch Pipeline, P2P, TreeSearch, FSM смарт-контракты и микро-блокчейны. |
-| **04** | [`04_ecosystem_impact_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/04_ecosystem_impact_whitepaper.md) | [`04_ecosystem_impact_whitepaper.pdf`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/04_ecosystem_impact_whitepaper.pdf) | **Отраслевой эффект** (`detailed_overall_impact_presentations/`) | Матрица ценности 10 категорий участников, расчет TCO (экономия 390 млн руб./год) и 4-фазная дорожная карта миграции. |
-| **05** | [`05_sovereign_governance_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/05_sovereign_governance_whitepaper.md) | [`05_sovereign_governance_whitepaper.pdf`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/05_sovereign_governance_whitepaper.pdf) | **Мастер-обзор и суверенитет** (`overall_presentations/`) | Правовое обоснование 152-ФЗ, Zero-PII, подписи ГОСТ Р 34.10-2012, государственные шлюзы и доверенный контур БРИКС+. |
-| **06** | [`06_cbr_smart_contracts_fsm_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md) | [`06_cbr_smart_contracts_fsm_whitepaper.pdf`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf) | **Смарт-контракты ЦВЦБ и Банк России** (`shared_docs/whitepapers/`) | Официальный отзыв на Концепцию ПКСК ЦБ РФ: детерминированные FSM-контракты $O(1)$, внешний контур, прямое вознаграждение пользователя, ответы на 7 вопросов ЦБ и референс AIRport. |
+| № | Файл исходного текста | Локальный скомпилированный PDF | Направление (Track) | Ключевая тематика | Бюджет |
+| :---: | :--- | :--- | :--- | :--- | :---: |
+| **01** | [`01_platform_overview_whitepaper.md`](01_platform_overview_whitepaper.md) | `01_platform_overview_whitepaper.pdf` | **Обзор платформы** (`platform_overview/`) | Смена парадигмы децентрализации, трехуровневая топология Лист-Ветка-Ствол, Zero-PII и снижение TCO на 90%. | 15 стр. |
+| **02** | [`02_applications_suite_whitepaper.md`](02_applications_suite_whitepaper.md) | `02_applications_suite_whitepaper.pdf` | **Флагманские приложения** (`applications_presentations/`) | Прикладные алгоритмы: «Деловой», «КубГолос», «Забота», «УраТур», МСП + Branch-шлюзы ЕСИА, СБП и ГИС ЖКХ. | 15 стр. |
+| **03** | [`03_engineering_architecture_whitepaper.md`](03_engineering_architecture_whitepaper.md) | `03_engineering_architecture_whitepaper.pdf` | **Инженерная архитектура** (`architecture_presentations/`) | Модель данных AirEntity, встраиваемый SQLite на Листе, Read-Anywhere Write-Self, Branch Pipeline, P2P, TreeSearch и референс AIRport. | 15 стр. |
+| **04** | [`04_ecosystem_impact_whitepaper.md`](04_ecosystem_impact_whitepaper.md) | `04_ecosystem_impact_whitepaper.pdf` | **Отраслевой эффект** (`detailed_overall_impact_presentations/`) | Матрица ценности 10 категорий участников, расчет TCO (экономия сотен млн руб./год) и 4-фазная дорожная карта миграции. | 15 стр. |
+| **05** | [`05_sovereign_governance_whitepaper.md`](05_sovereign_governance_whitepaper.md) | `05_sovereign_governance_whitepaper.pdf` | **Мастер-обзор и суверенитет** (`overall_presentations/`) | Правовое обоснование 152-ФЗ, Zero-PII, подписи ГОСТ Р 34.10-2012, государственные шлюзы и доверенный контур БРИКС+. | 15 стр. |
+| **06** | [`06_cbr_smart_contracts_fsm_whitepaper.md`](06_cbr_smart_contracts_fsm_whitepaper.md) | `06_cbr_smart_contracts_fsm_whitepaper.pdf` | **Смарт-контракты ЦВЦБ и Банк России** (`shared_docs/whitepapers/`) | Официальный отзыв на Концепцию ПКСК ЦБ РФ: детерминированные автоматы (FSM) $O(1)$, Zero-PII, бестерминальность/IOU, Collaborative Apps, 7 вопросов ЦБ и 3-летний план. | 15 стр. |
 
 ---
 
-## 🚀 Команды сборки PDF
+## 🎨 Стандарты визуального оформления и верстки
+
+При работе с текстом белых книг строго соблюдаются стандарты полиграфической верстки A4:
+
+1. **Строгий инвариант объема (15 страниц) и Оглавления (TOC):**
+   * Каждый документ верстается ровно на 15 страниц;
+   * Номера страниц в таблице Оглавления (Страница 2) обязаны в точности совпадать с фактическими номерами страниц начала глав;
+   * Исключено случайное вертикальное переполнение (`scrollHeight <= clientHeight` на каждом листе).
+2. **Запас высоты (Headroom):**
+   * Внизу каждой страницы сохраняется запас свободного места не менее **80–150px** для предотвращения нежелательных переносов строк.
+   * Разрывы страниц задаются явным тегом `<!-- pagebreak -->`.
+3. **Векторные диаграммы Mermaid:**
+   * Ограничение по ширине: до 680px;
+   * Высота для совмещенных страниц: до 250–300px;
+   * Компактные подписи узлов (2–3 строки с маркерами `<br/>• ...`), горизонтальные схемы `flowchart LR` для таймлайнов.
+4. **Математические выражения:**
+   * Формулы обрамляются в `$ ... $` (внутристрочные) и `$$ ... $$` (выключные) и валидируются через KaTeX / Unicode Math.
+5. **Представительские аналитические карточки:**
+   * Вопросы Банка России выделяются в стилизованные карточки `.question-card` с акцентными плашками;
+   * Цитаты и нормативные ссылки используют тематические сноски `.callout-cbr` и `.callout-risk`.
+
+---
+
+## ✍️ Авторская атрибуция и редакторские правила
+
+* **Единый автор:** **Артём Владимирович Шамсутдинов**, разработчик платформы суверенных данных «Турбаза», автор реляционного ядра AIRport.
+* **Исключение «мы/наш»:** Не используются местоимения множественного числа от первого лица. Повествование ведется в строгом научно-техническом и институциональном стиле.
+* **Правило 9 (`AGENTS.md`):** Семантические токены с префиксом процента (перечисленные в `LABELS.md`) запрещены в тексте Белых Книг — они используются исключительно внутри папки `comments/` для навигации по исходным заметкам.
+* **Правило 5 (`AGENTS.md`) & Git:** Скомпилированные PDF-файлы исключены из Git (`.gitignore`). В репозиторий фиксируются **только исходные файлы Markdown (`.md`)**.
+
+---
+
+## 🚀 Команды сборки и валидации PDF
+
+Все Белые Книги компилируются автоматически через движок `scripts/core/whitepaper_pdf_builder.js` на базе Playwright Chromium.
 
 ```bash
 # Собрать все 6 Белых Книг в формате PDF:
 npm run build-whitepapers
 
-# Собрать конкретный документ по номеру:
+# Собрать конкретный документ по номеру (из корня репозитория):
 npm run build-whitepaper-01
 npm run build-whitepaper-02
 npm run build-whitepaper-03
 npm run build-whitepaper-04
 npm run build-whitepaper-05
 npm run build-whitepaper-06
+
+# Или напрямую через npm в папке shared_docs:
+npm --prefix shared_docs run build-06
+```
+
+### Валидация объема страниц и визуальный контроль:
+```bash
+# Проверка количества страниц в собранном PDF через Ghostscript:
+gs -q -dNODISPLAY -c "(shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf) (r) file runpdfbegin pdfpagecount = quit"
+
+# Рендеринг страниц в PNG для постраничного визуального аудита:
+pdftoppm -png -r 150 shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf scratch/v_page
 ```
 
 ---
 
-## 🔒 Соответствие критическим принципам
-1. **Zero-PII:** Персональные данные никогда не покидают устройство Лист; серверные шлюзы работают только с математическими доказательствами.
-2. **Отсутствие упоминаний устаревшего стека:** Документы не содержат ссылок на устаревшие централизованные СУБД (ScyllaDB полностью исключена).
-3. **Бесшовные государственные адаптеры:** На уровне узлов «Ветка» реализованы четкие шлюзы к ЕСИА, СБП (Цифровой рубль) и ГИС ЖКХ.
-4. **Детерминированные FSM смарт-контракты:** Архитектура исключает Тьюринг-полные виртуальные машины (EVM) и плату за газ; логика контрактов исполняется локально как конечный автомат с верификацией цифровых подписей в журналах транзакций.
+## 📖 Инженерное руководство для агентов
+Полное инженерное руководство по структуре кода, стилизации Mermaid, CSS-классам и процедуре внесения изменений описано в файле [**`AGENTS.md`**](AGENTS.md).
