@@ -4,7 +4,7 @@
   "description": "Turbase Master Whitepapers and Architecture Documentation",
   "private": true,
   "scripts": {
-    "build": "npm run build-01 && npm run build-02 && npm run build-03 && npm run build-04 && npm run build-05",
+    "build": "npm run build-01 && npm run build-02 && npm run build-03 && npm run build-04 && npm run build-05 && npm run build-06",
     "build-whitepapers": "npm run build",
     "build-01": "node ../scripts/build_whitepaper_pdf.js whitepapers/01_platform_overview_whitepaper.md whitepapers/01_platform_overview_whitepaper.pdf",
     "build-whitepaper-01": "npm run build-01",
@@ -16,6 +16,8 @@
     "build-whitepaper-04": "npm run build-04",
     "build-05": "node ../scripts/build_whitepaper_pdf.js whitepapers/05_sovereign_governance_whitepaper.md whitepapers/05_sovereign_governance_whitepaper.pdf",
     "build-whitepaper-05": "npm run build-05",
+    "build-06": "node ../scripts/build_whitepaper_pdf.js whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf",
+    "build-whitepaper-06": "npm run build-06",
     "build-tech-doc": "node generate_tech_doc_pdf.js"
   }
 }
