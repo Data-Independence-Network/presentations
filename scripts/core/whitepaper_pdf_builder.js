@@ -47,6 +47,19 @@ function markdownToHtml(content) {
     return id;
   });
 
+  // 2.5. Stash Math blocks ($$ and $)
+  const mathBlocks = [];
+  text = text.replace(/\$\$([\s\S]*?)\$\$/g, (match, code) => {
+    const id = `@@@MATHDISPLAY${mathBlocks.length}@@@`;
+    mathBlocks.push(`<div class="math-display">$$${code.trim()}$$</div>`);
+    return id;
+  });
+  text = text.replace(/\$([^\$\n]+?)\$/g, (match, code) => {
+    const id = `@@@MATHINLINE${mathBlocks.length}@@@`;
+    mathBlocks.push(`<span class="math-inline">$${code.trim()}$</span>`);
+    return id;
+  });
+
   // 3. Math symbols & Arrows & Page breaks
   text = text.replace(/<!--\s*pagebreak\s*-->/gi, '<div class="pagebreak"></div>');
   text = text.replace(/\\(pagebreak|newpage)/gi, '<div class="pagebreak"></div>');
@@ -106,6 +119,7 @@ function markdownToHtml(content) {
   text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
   text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
   text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
+  text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="doc-link">$1</a>');
 
   // 8. Lists
   text = text.replace(/^\s*[\*\-]\s+(.*$)/gim, '<li>$1</li>');
@@ -124,6 +138,7 @@ function markdownToHtml(content) {
         chunk.startsWith('<table') || 
         chunk.startsWith('___MERMAID') || 
         chunk.startsWith('___CODE') || 
+        chunk.startsWith('@@@MATH') ||
         chunk.startsWith('<blockquote') || 
         chunk.startsWith('<ul') || 
         chunk.startsWith('<hr') ||
@@ -137,6 +152,10 @@ function markdownToHtml(content) {
   for (let i = 0; i < blocks.length; i++) {
     text = text.replace(`___MERMAID_BLOCK_${i}___`, blocks[i]);
     text = text.replace(`___CODE_BLOCK_${i}___`, blocks[i]);
+  }
+  for (let i = 0; i < mathBlocks.length; i++) {
+    text = text.replace(`@@@MATHDISPLAY${i}@@@`, mathBlocks[i]);
+    text = text.replace(`@@@MATHINLINE${i}@@@`, mathBlocks[i]);
   }
 
   return text;
@@ -171,6 +190,41 @@ async function buildWhitepaperPdf(config = {}) {
   const previewHtmlFile = path.join(outputDir, `${path.basename(outputPdfPath, '.pdf')}_preview.html`);
   const bodyContent = markdownToHtml(body || rawContent);
 
+  let coverHeaderHtml = '';
+  if (meta.cover_style === 'memorandum') {
+    const memoOrg = meta.cbr_memo_org || 'ЦЕНТРАЛЬНЫЙ БАНК РОССИЙСКОЙ ФЕДЕРАЦИИ (БАНК РОССИИ)';
+    const memoDept = meta.cbr_memo_dept || 'Департамент финансовых технологий &middot; fintech@cbr.ru';
+    const memoType = meta.cbr_memo_type || 'ОФИЦИАЛЬНЫЙ ЭКСПЕРТНЫЙ ОТЗЫВ';
+    const memoReg = meta.cbr_memo_reg || 'Исх. № 01-ПКСК/2026 &middot; Сентябрь 2026 г.';
+    const memoSubject = meta.cbr_memo_subject || 'Консультативный доклад «Концепция платформы коммерческих смарт-контрактов» (ПКСК)';
+    coverHeaderHtml = `
+      <div class="memo-header">
+        <div class="memo-top-row">
+          <div class="memo-cbr-branding">
+            <div class="memo-cbr-title">${memoOrg}</div>
+            <div class="memo-cbr-dept">${memoDept}</div>
+          </div>
+          <div class="memo-doc-meta">
+            <div class="memo-badge">${memoType}</div>
+            <div class="memo-date">${memoReg}</div>
+          </div>
+        </div>
+        <div class="memo-subject-box">
+          <div class="memo-subject-label">ПРЕДМЕТ ЭКСПЕРТИЗЫ:</div>
+          <div class="memo-subject-text">${memoSubject}</div>
+        </div>
+      </div>
+    `;
+  } else {
+    coverHeaderHtml = `
+      <div class="cover-banner">
+        <div class="cover-tag">${tag}</div>
+        <div class="cover-title">${escapeHtml(bannerTitle)}</div>
+        <div class="cover-subtitle">${escapeHtml(bannerSubtitle)}</div>
+      </div>
+    `;
+  }
+
   const fullHtml = `<!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -179,13 +233,16 @@ async function buildWhitepaperPdf(config = {}) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
   <script>
     mermaid.initialize({
       startOnLoad: true,
       theme: 'default',
       sequence: {
-        actorFontSize: '12px',
+        actorFontSize: '13px',
         messageFontSize: '12px',
         noteFontSize: '11px',
         actorFontFamily: 'Inter, sans-serif',
@@ -205,7 +262,7 @@ async function buildWhitepaperPdf(config = {}) {
         secondaryColor: '#f8fafc',
         tertiaryColor: '#ffffff',
         fontFamily: 'Inter, sans-serif',
-        fontSize: '12px'
+        fontSize: '13px'
       }
     });
   </script>
@@ -512,14 +569,273 @@ async function buildWhitepaperPdf(config = {}) {
     strong {
       color: #0f172a;
     }
+
+    .doc-link {
+      color: #0284c7;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .doc-link:hover {
+      text-decoration: underline;
+      color: #0369a1;
+    }
+
+    .memo-header {
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .memo-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .memo-cbr-branding {
+      flex: 1;
+    }
+
+    .memo-cbr-title {
+      font-size: 10.5pt;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      line-height: 1.25;
+    }
+
+    .memo-cbr-dept {
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: #0284c7;
+      margin-top: 2px;
+    }
+
+    .memo-doc-meta {
+      text-align: right;
+      min-width: 200px;
+    }
+
+    .memo-badge {
+      display: inline-block;
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 7.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 3px;
+    }
+
+    .memo-date {
+      font-size: 8pt;
+      color: #64748b;
+      font-weight: 500;
+    }
+
+    .memo-subject-box {
+      background: #f8fafc;
+      border-left: 4px solid #0284c7;
+      padding: 7px 12px;
+      border-radius: 0 4px 4px 0;
+      font-size: 8.5pt;
+    }
+
+    .memo-subject-label {
+      font-weight: 800;
+      color: #475569;
+      font-size: 7.5pt;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .memo-subject-text {
+      color: #0f172a;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .math-display {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+      overflow-x: auto;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .math-inline {
+      display: inline;
+    }
+
+    .katex {
+      font-size: 1.05em !important;
+    }
+
+    .scorecard-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 12px 0 14px 0;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .scorecard-card {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-top: 3.5px solid #0284c7;
+      border-radius: 6px;
+      padding: 10px 10px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .scorecard-metric {
+      font-size: 13pt;
+      font-weight: 800;
+      color: #0284c7;
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+
+    .scorecard-title {
+      font-size: 8pt;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+
+    .scorecard-desc {
+      font-size: 7.2pt;
+      color: #475569;
+      line-height: 1.4;
+      text-align: left;
+    }
+
+    .cbr-question-block {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-left: 4px solid #0284c7;
+      border-radius: 6px;
+      padding: 7px 11px;
+      margin: 6px 0 8px 0;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+
+    .cbr-question-block p {
+      margin: 3px 0 !important;
+      line-height: 1.35;
+    }
+
+    .cbr-question-block ol,
+    .cbr-question-block ul {
+      margin: 3px 0 !important;
+      padding-left: 18px !important;
+    }
+
+    .cbr-question-block li {
+      margin-bottom: 2px !important;
+      line-height: 1.35;
+    }
+
+    .cbr-question-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .cbr-question-badge {
+      background: #0284c7;
+      color: #ffffff;
+      font-size: 7.2pt;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .cbr-question-source {
+      font-size: 7.2pt;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .cbr-question-quote {
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      padding: 5px 8px;
+      border-radius: 0 4px 4px 0;
+      font-size: 7.8pt;
+      color: #166534;
+      font-style: italic;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .cbr-answer-title {
+      font-size: 7.8pt;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 4px;
+    }
+
+    .toc-container {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin: 8px 0 12px 0;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .toc-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 3px 0;
+      border-bottom: 1px dotted #cbd5e1;
+      font-size: 8.2pt;
+    }
+
+    .toc-row:last-child {
+      border-bottom: none;
+    }
+
+    .toc-title {
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .toc-page {
+      font-weight: 700;
+      color: #0284c7;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 8pt;
+      padding-left: 8px;
+    }
   </style>
 </head>
 <body>
-  <div class="cover-banner">
-    <div class="cover-tag">${tag}</div>
-    <div class="cover-title">${escapeHtml(bannerTitle)}</div>
-    <div class="cover-subtitle">${escapeHtml(bannerSubtitle)}</div>
-  </div>
+  ${coverHeaderHtml}
   ${bodyContent}
 </body>
 </html>`;
@@ -530,7 +846,7 @@ async function buildWhitepaperPdf(config = {}) {
   const browser = await chromium.launch();
   const page = await browser.newPage();
 
-  console.log('[2/3] Rendering HTML with Mermaid diagrams and typography...');
+  console.log('[2/3] Rendering HTML with Mermaid diagrams, KaTeX formulas, and typography...');
   await page.goto(`file://${previewHtmlFile}`, { waitUntil: 'networkidle' });
 
   try {
@@ -539,6 +855,18 @@ async function buildWhitepaperPdf(config = {}) {
   } catch (e) {
     console.warn('  [!] Mermaid selector note:', e.message);
   }
+
+  await page.evaluate(() => {
+    if (window.renderMathInElement) {
+      window.renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    }
+  });
 
   await new Promise(r => setTimeout(r, 1500));
 
