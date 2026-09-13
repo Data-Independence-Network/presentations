@@ -94,33 +94,37 @@
 
 ```mermaid
 graph TB
+    subgraph EdgeTurbase ["Внешний информационный контур: Периферия платформы «Турбаза»"]
+        direction TB
+        LeafNode["Пользовательский узел Лист: Смартфон / ПК"]
+        MicroChains["Множество микро-цепей: Хранилища сделок"]
+        LocalSQL["Локальная реляционная СУБД SQLite"]
+        Logic["Прикладная бизнес-логика и контекст"]
+        BranchGateway["Районный узел Ветка: P2P-роутинг и Zero-PII"]
+        
+        LeafNode -->|Локальные транзакции| MicroChains
+        MicroChains -->|Агрегация дельт| LocalSQL
+        LocalSQL --> Logic
+        LeafNode <-->|P2P синхронизация| BranchGateway
+    end
+
     subgraph CoreCBR ["Внутренний финансовый контур: Платформа Цифрового Рубля и ПКСК"]
-        FSM["Конечный автомат (FSM)"]
-        State["Условия и таблица переходов"]
+        direction TB
+        FSM["Конечный автомат FSM"]
+        Conditions["Условия и таблица переходов"]
         Wallets["Кошельки Цифрового рубля"]
         TemplateRegistry["Реестр проверенных хэшей шаблонов"]
         
-        FSM --- State
+        FSM --- Conditions
         FSM --- Wallets
         FSM --- TemplateRegistry
     end
 
-    subgraph EdgeTurbase ["Внешний информационный контур: Периферия платформы «Турбаза»"]
-        LeafNode["📱 Пользовательский узел «Лист» (Смартфон / ПК)"]
-        LocalSQL["🗄️ Локальная реляционная СУБД SQLite"]
-        MicroChains["🔗 Независимые микро-цепи (Хранилища сделок)"]
-        BranchGateway["⚡ Районный узел «Ветка» (P2P-роутинг и Zero-PII)"]
-        
-        MicroChains -->|Агрегация дельт| LocalSQL
-        LeafNode -->|Локальная бизнес-логика| LocalSQL
-        LeafNode <-->|P2P синхронизация| BranchGateway
-    end
-
-    LeafNode -->|Криптографическое доказательство (ЭЦП ГОСТ) + QR| FSM
+    Logic -->|Криптографическое доказательство ЭЦП ГОСТ + QR| FSM
     FSM -->|Атомарная смена состояния и расчет| Wallets
 
-    style CoreCBR fill:#fff3e0,stroke:#e65100,stroke-width:2px
     style EdgeTurbase fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    style CoreCBR fill:#fff3e0,stroke:#e65100,stroke-width:2px
     style FSM fill:#ffd54f,stroke:#f57f17,stroke-width:2px
     style LocalSQL fill:#81c784,stroke:#1b5e20,stroke-width:2px
 ```
