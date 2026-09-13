@@ -75,8 +75,17 @@ function markdownToHtml(content) {
   text = text.replace(/^# (Часть.*$|Раздел.*$|Заключение.*$)/gim, '<h1 class="part-title">$1</h1>');
   text = text.replace(/^# (.*$)/gim, '<h1 class="doc-main-title">$1</h1>');
 
-  // 5. Blockquotes
-  text = text.replace(/^\> (.*$)/gim, '<blockquote><p>$1</p></blockquote>');
+  // 5. Blockquotes with semantic classification
+  text = text.replace(/^\> (.*$)/gim, (match, content) => {
+    let cls = '';
+    const lower = content.toLowerCase();
+    if (lower.includes('риск') || content.includes('EVM') || content.includes('WASM') || lower.includes('уязвимост')) {
+      cls = ' class="callout-risk"';
+    } else if (content.includes('Банк России') || content.includes('Концепци') || content.includes('161-ФЗ') || content.includes('259-ФЗ')) {
+      cls = ' class="callout-cbr"';
+    }
+    return `<blockquote${cls}><p>${content}</p></blockquote>`;
+  });
 
   // 6. Tables
   const lines = text.split('\n');
@@ -95,7 +104,13 @@ function markdownToHtml(content) {
       } else if (line.includes('---')) {
         // separator row, skip
       } else {
-        const cells = line.split('|').slice(1, -1).map(c => c.trim());
+        const cells = line.split('|').slice(1, -1).map(c => {
+          c = c.trim();
+          if (c === 'O(1)') {
+            return '<span class="badge-o1">O(1)</span>';
+          }
+          return c;
+        });
         tableHtml.push('<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>');
       }
     } else {
@@ -242,13 +257,14 @@ async function buildWhitepaperPdf(config = {}) {
       startOnLoad: true,
       theme: 'default',
       sequence: {
-        actorFontSize: '13px',
-        messageFontSize: '12px',
-        noteFontSize: '11px',
+        actorFontSize: '12px',
+        messageFontSize: '11px',
+        noteFontSize: '10.5px',
         actorFontFamily: 'Inter, sans-serif',
         noteFontFamily: 'Inter, sans-serif',
         messageFontFamily: 'Inter, sans-serif',
-        mirrorActors: false
+        mirrorActors: false,
+        bottomMarginAdj: 1
       },
       flowchart: {
         htmlLabels: true,
@@ -416,11 +432,23 @@ async function buildWhitepaperPdf(config = {}) {
       border-left: 4px solid #16a34a;
       padding: 8px 12px;
       margin-bottom: 12px;
-      font-size: 9pt;
+      font-size: 8.8pt;
       color: #166534;
       border-radius: 0 6px 6px 0;
       page-break-inside: avoid;
       break-inside: avoid;
+    }
+
+    blockquote.callout-risk {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      color: #92400e;
+    }
+
+    blockquote.callout-cbr {
+      background: #eff6ff;
+      border-left: 4px solid #0284c7;
+      color: #1e40af;
     }
 
     blockquote p {
@@ -430,6 +458,19 @@ async function buildWhitepaperPdf(config = {}) {
 
     blockquote p:last-child {
       margin-bottom: 0;
+    }
+
+    .badge-o1 {
+      display: inline-block;
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #10b981;
+      font-weight: 700;
+      font-size: 7.2pt;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 1px 6px;
+      border-radius: 9999px;
+      letter-spacing: 0.2px;
     }
 
     .report-table {
@@ -870,31 +911,75 @@ async function buildWhitepaperPdf(config = {}) {
 
   await new Promise(r => setTimeout(r, 1500));
 
+  const hideFirstPageHeader = Boolean(meta.cover_style === 'memorandum' || meta.hide_first_page_header || config.hideFirstPageHeader);
+  const runningHeaderHtml = `
+    <div style="font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #64748b; width: 100%; padding: 0 14mm; display: flex; justify-content: space-between; border-bottom: 0.75px solid #cbd5e1; padding-bottom: 3px;">
+      <span style="font-weight: 700; color: ${accentColor}; letter-spacing: 0.3px;">${headerTitle}</span>
+      <span style="font-weight: 500;">${headerSubtitle}</span>
+    </div>
+  `;
+  const runningFooterHtml = `
+    <div style="font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #64748b; width: 100%; padding: 0 14mm; display: flex; justify-content: space-between; border-top: 0.75px solid #cbd5e1; padding-top: 3px;">
+      <span style="font-weight: 500;">${footerText}</span>
+      <span style="font-weight: 600;">Стр. <span class="pageNumber"></span> из <span class="totalPages"></span></span>
+    </div>
+  `;
+
   console.log('[3/3] Exporting executive Whitepaper PDF...');
-  await page.pdf({
-    path: outputPdfPath,
-    format: 'A4',
-    printBackground: true,
-    margin: {
-      top: '16mm',
-      bottom: '16mm',
-      left: '14mm',
-      right: '14mm'
-    },
-    displayHeaderFooter: true,
-    headerTemplate: `
-      <div style="font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #64748b; width: 100%; padding: 0 14mm; display: flex; justify-content: space-between; border-bottom: 0.5px solid #e2e8f0; padding-bottom: 3px;">
-        <span style="font-weight: 700; color: ${accentColor};">${headerTitle}</span>
-        <span>${headerSubtitle}</span>
-      </div>
-    `,
-    footerTemplate: `
-      <div style="font-family: 'Inter', sans-serif; font-size: 7.5pt; color: #64748b; width: 100%; padding: 0 14mm; display: flex; justify-content: space-between; border-top: 0.5px solid #e2e8f0; padding-top: 3px;">
-        <span>${footerText}</span>
-        <span>Стр. <span class="pageNumber"></span> из <span class="totalPages"></span></span>
-      </div>
-    `
-  });
+  
+  const gsPath = fs.existsSync('/opt/homebrew/bin/gs') ? '/opt/homebrew/bin/gs' : (() => {
+    try {
+      return execSync('which gs', { encoding: 'utf8' }).trim();
+    } catch (e) {
+      return null;
+    }
+  })();
+
+  if (hideFirstPageHeader && gsPath) {
+    const tempP1 = path.join(outputDir, `${path.basename(outputPdfPath, '.pdf')}_p1.pdf`);
+    const tempP2 = path.join(outputDir, `${path.basename(outputPdfPath, '.pdf')}_p2.pdf`);
+
+    await page.pdf({
+      path: tempP1,
+      pageRanges: '1',
+      format: 'A4',
+      printBackground: true,
+      margin: { top: '16mm', bottom: '16mm', left: '14mm', right: '14mm' },
+      displayHeaderFooter: true,
+      headerTemplate: '<span></span>',
+      footerTemplate: runningFooterHtml
+    });
+
+    await page.pdf({
+      path: tempP2,
+      pageRanges: '2-',
+      format: 'A4',
+      printBackground: true,
+      margin: { top: '16mm', bottom: '16mm', left: '14mm', right: '14mm' },
+      displayHeaderFooter: true,
+      headerTemplate: runningHeaderHtml,
+      footerTemplate: runningFooterHtml
+    });
+
+    execSync(`${gsPath} -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile="${outputPdfPath}" "${tempP1}" "${tempP2}"`);
+    if (fs.existsSync(tempP1)) fs.unlinkSync(tempP1);
+    if (fs.existsSync(tempP2)) fs.unlinkSync(tempP2);
+  } else {
+    await page.pdf({
+      path: outputPdfPath,
+      format: 'A4',
+      printBackground: true,
+      margin: {
+        top: '16mm',
+        bottom: '16mm',
+        left: '14mm',
+        right: '14mm'
+      },
+      displayHeaderFooter: true,
+      headerTemplate: runningHeaderHtml,
+      footerTemplate: runningFooterHtml
+    });
+  }
 
   await browser.close();
   if (fs.existsSync(previewHtmlFile)) fs.unlinkSync(previewHtmlFile);
