@@ -66,7 +66,7 @@ turbase_benefits_presentation/
    - `generated/artifacts/`: intermediate build assets (`audio/`, `slides_png/`, temporary segment renders).
    - `generated/outputs/`: final distributable deliverables (`web_deck/`, `pdf/`, `video/`).
 4. **TTS API Key Validation**: Audio synthesis strictly requires `text_to_speech_mcp_Open_API_key.txt` in repository root. If missing or empty during `regen-*`, scripts immediately halt execution with a fatal error.
-5. **Never commit binary videos (`*.mp4`), cache files (`.build_cache.json`), or temporary segment folders**: All video builds are 100% deterministic and generated via scripts into `generated/outputs/video/`.
+5. **Never commit binary videos (`*.mp4`), PDFs (`*.pdf`), cache files (`.build_cache.json`), or temporary segment folders**: All deliverables and video builds are 100% deterministic and generated via build scripts.
 6. **Preserve Relative Path Conventions**: All scripts within presentation subdirectories use relative traversal (`path.join(__dirname, '..', ...)`).
 7. **Typography & Mobile Readability Priority**: Presentation slides must adhere to the high-contrast billboard typography scale (Slide titles $\ge 50$px, body copy $\ge 24$px, cards $\ge 28$px) for readability on small mobile screens.
 8. **Git Hygiene**: When adding or moving files, ensure related assets and documentation are committed with clean, categorized messages.

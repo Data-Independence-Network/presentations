@@ -22,8 +22,11 @@ text_to_speech_mcp_Open_API_key.txt
 *.mov
 *.mkv
 
-# Documents & PDFs & Generated Web Decks
+# Documents & PDFs & Generated Web Decks (Never commit generated PDFs or deliverables)
 *.pdf
+**/*.pdf
+shared_docs/**/*.pdf
+shared_docs/*.pdf
 **/web_deck/index.html
 **/generated/outputs/web_deck/index.html
 **/generated/outputs/pdf/*.pdf
