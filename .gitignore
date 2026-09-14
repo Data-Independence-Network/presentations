@@ -29,6 +29,7 @@ shared_docs/**/*.pdf
 shared_docs/*.pdf
 **/web_deck/index.html
 **/generated/outputs/web_deck/index.html
+**/generated/outputs/web_deck/*.css
 **/generated/outputs/pdf/*.pdf
 **/generated/outputs/video/*.mp4
 
