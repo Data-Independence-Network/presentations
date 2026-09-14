@@ -5132,92 +5132,441 @@ body {
 }
 
 /* ==========================================================================
-   PRESENTATION 03: SOVEREIGN ECONOMY & FSM SMART CONTRACTS ENHANCEMENTS
+   PRESENTATION 03: SOVEREIGN ECONOMY BILLBOARD SCALE & FSM ENHANCEMENTS
+   Strict Billboard scale: min font-size >= 24px, balanced columns, zero overflow
    ========================================================================== */
-.formula-card-box {
-  background: rgba(3, 8, 20, 0.9);
-  border: 1.5px solid var(--core-gold);
-  border-radius: 12px;
-  padding: 12px 18px;
-  font-family: var(--font-mono);
-  font-size: 23px;
-  color: var(--core-gold);
-  text-shadow: 0 0 10px rgba(250, 204, 21, 0.35);
-  margin-bottom: 12px;
-  box-shadow: inset 0 0 20px rgba(250, 204, 21, 0.08);
-  line-height: 1.3;
+
+/* Universal Billboard Typography Overrides */
+.explainer-series-marker {
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  padding: 6px 20px !important;
+  letter-spacing: 1.5px !important;
+  margin-bottom: 8px !important;
 }
-.formula-card-box.teal-accent {
-  border-color: #1de9b6;
-  color: #1de9b6;
-  text-shadow: 0 0 10px rgba(29, 233, 182, 0.35);
-  box-shadow: inset 0 0 20px rgba(29, 233, 182, 0.08);
+
+.slide-header {
+  margin-bottom: 16px !important;
 }
-.formula-card-box.emerald-accent {
-  border-color: #00e676;
-  color: #00e676;
-  text-shadow: 0 0 10px rgba(0, 230, 118, 0.35);
-  box-shadow: inset 0 0 20px rgba(0, 230, 118, 0.08);
+
+.slide-title {
+  font-size: 52px !important;
+  font-weight: 900 !important;
+  line-height: 1.12 !important;
+  margin-bottom: 6px !important;
 }
-.flow-step-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 9px 14px;
-  background: rgba(255, 255, 255, 0.035);
-  border-left: 3.5px solid var(--core-cyan);
-  border-radius: 6px;
-  margin-bottom: 8px;
-  font-size: 21px;
-  line-height: 1.32;
+
+.slide-subtitle {
+  font-size: 26px !important;
+  font-weight: 500 !important;
+  line-height: 1.3 !important;
 }
-.flow-step-row.teal { border-left-color: #1de9b6; }
-.flow-step-row.gold { border-left-color: #ffd600; }
-.flow-step-row.emerald { border-left-color: #00e676; }
-.flow-step-num {
-  font-weight: 800;
-  color: var(--core-cyan);
-  font-size: 22px;
-  min-width: 24px;
-  flex-shrink: 0;
+
+.card-pill-tag {
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  padding: 6px 16px !important;
+  border-radius: 8px !important;
 }
-.flow-step-num.teal { color: #1de9b6; }
-.flow-step-num.gold { color: #ffd600; }
-.flow-step-num.emerald { color: #00e676; }
+
 .circuit-card-header {
-  font-size: 22px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-size: 25px !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.5px !important;
+  margin-bottom: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
 }
+
+.card-title {
+  font-size: 38px !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
+  margin-bottom: 6px !important;
+}
+
+.card-desc {
+  font-size: 24px !important;
+  line-height: 1.34 !important;
+  color: var(--text-secondary) !important;
+  margin-bottom: 10px !important;
+}
+
+.card-bullets li {
+  font-size: 24px !important;
+  line-height: 1.36 !important;
+}
+
+.card-bullets li strong {
+  font-size: 24px !important;
+  color: #ffffff !important;
+}
+
+.grid-2col .glass-card {
+  padding: 24px 28px !important;
+  gap: 10px !important;
+}
+
+.grid-2col .glass-card .card-title {
+  font-size: 36px !important;
+  font-weight: 900 !important;
+  line-height: 1.15 !important;
+  margin-bottom: 6px !important;
+}
+
+.grid-2col .glass-card .card-desc {
+  font-size: 24px !important;
+  line-height: 1.32 !important;
+  margin-bottom: 8px !important;
+}
+
+.grid-2col .glass-card .card-bullets {
+  gap: 8px !important;
+  margin-top: 6px !important;
+}
+
+.grid-2col .glass-card .card-bullets li {
+  font-size: 23px !important;
+  line-height: 1.32 !important;
+  padding-left: 26px !important;
+}
+
+.grid-2col .glass-card .card-bullets li strong {
+  font-size: 23px !important;
+}
+
+.key-callout p {
+  font-size: 24px !important;
+  line-height: 1.36 !important;
+}
+
+.key-callout strong {
+  font-size: 26px !important;
+}
+
+.feature-card h4 {
+  font-size: 27px !important;
+  margin-bottom: 4px !important;
+}
+
+.feature-card p {
+  font-size: 24px !important;
+  line-height: 1.34 !important;
+}
+
+/* Flow Step Rows (Billboard Scale >= 24px) */
+.flow-step-row {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  padding: 9px 14px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border-left: 4px solid var(--horizon-cyan) !important;
+  border-radius: 8px !important;
+  margin-bottom: 8px !important;
+  font-size: 24px !important;
+  line-height: 1.3 !important;
+  color: #f1f5f9 !important;
+}
+
+.flow-step-row.teal { border-left-color: #1de9b6 !important; }
+.flow-step-row.gold { border-left-color: #ffd600 !important; }
+.flow-step-row.emerald { border-left-color: #00e676 !important; }
+
+.flow-step-num {
+  font-weight: 900 !important;
+  font-family: var(--font-mono) !important;
+  font-size: 24px !important;
+  min-width: 30px !important;
+  flex-shrink: 0 !important;
+  color: var(--horizon-cyan) !important;
+}
+
+.flow-step-num.teal { color: #1de9b6 !important; }
+.flow-step-num.gold { color: #ffd600 !important; }
+.flow-step-num.emerald { color: #00e676 !important; }
+
+.flow-step-row strong {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+/* FSM Mathematical Primitives Grid */
 .fsm-primitive-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-top: 6px;
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 10px !important;
+  margin-top: 8px !important;
 }
+
 .fsm-primitive-item {
-  background: rgba(255, 255, 255, 0.035);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 8px !important;
+  padding: 9px 13px !important;
 }
+
 .fsm-primitive-item code {
-  font-family: var(--font-mono);
-  font-size: 20px;
-  color: #1de9b6;
-  font-weight: 700;
-  display: block;
-  margin-bottom: 3px;
+  font-family: var(--font-mono) !important;
+  font-size: 25px !important;
+  color: #1de9b6 !important;
+  font-weight: 800 !important;
+  display: block !important;
+  margin-bottom: 3px !important;
 }
+
 .fsm-primitive-item p {
-  font-size: 19px;
-  color: var(--core-text-muted);
-  line-height: 1.25;
+  font-size: 23px !important;
+  color: var(--text-secondary) !important;
+  line-height: 1.28 !important;
+  margin: 0 !important;
+}
+
+/* Formula Card Box */
+.formula-card-box {
+  background: rgba(3, 8, 20, 0.95) !important;
+  border: 2px solid var(--horizon-gold) !important;
+  border-radius: 12px !important;
+  padding: 12px 18px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 24px !important;
+  color: #fef08a !important;
+  text-shadow: 0 0 12px rgba(250, 204, 21, 0.4) !important;
+  margin-bottom: 10px !important;
+  box-shadow: inset 0 0 24px rgba(250, 204, 21, 0.12), 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+  line-height: 1.3 !important;
+}
+
+.formula-card-box.teal-accent {
+  border-color: #1de9b6 !important;
+  color: #a7f3d0 !important;
+  text-shadow: 0 0 12px rgba(29, 233, 182, 0.4) !important;
+  box-shadow: inset 0 0 24px rgba(29, 233, 182, 0.12), 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+.formula-card-box.emerald-accent {
+  border-color: #00e676 !important;
+  color: #6ee7b7 !important;
+  text-shadow: 0 0 12px rgba(0, 230, 118, 0.4) !important;
+  box-shadow: inset 0 0 24px rgba(0, 230, 118, 0.12), 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Rich FSM Terminal Code Cards */
+.fsm-terminal-card {
+  background: rgba(4, 9, 22, 0.95) !important;
+  border: 1.5px solid rgba(56, 189, 248, 0.4) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.1) !important;
+  margin-bottom: 8px !important;
+  overflow: hidden !important;
+}
+
+.fsm-terminal-card.gold-border {
+  border-color: rgba(250, 204, 21, 0.5) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(250, 204, 21, 0.12) !important;
+}
+
+.fsm-terminal-card.emerald-border {
+  border-color: rgba(16, 185, 129, 0.5) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(16, 185, 129, 0.12) !important;
+}
+
+.fsm-terminal-header {
+  background: rgba(16, 24, 48, 0.9) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 5px 12px !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  font-family: var(--font-mono) !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.5px !important;
+  color: var(--horizon-cyan-light) !important;
+}
+
+.fsm-terminal-header .gold-title { color: #fef08a !important; }
+.fsm-terminal-header .emerald-title { color: #6ee7b7 !important; }
+
+.fsm-terminal-controls {
+  display: flex !important;
+  gap: 5px !important;
+}
+
+.fsm-terminal-dot {
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 50% !important;
+  display: inline-block !important;
+}
+.fsm-terminal-dot.red { background: #f43f5e !important; }
+.fsm-terminal-dot.yellow { background: #facc15 !important; }
+.fsm-terminal-dot.green { background: #10b981 !important; }
+
+.fsm-terminal-body {
+  padding: 8px 14px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 20px !important;
+  line-height: 1.32 !important;
+  color: #f8fafc !important;
+}
+
+.fsm-kw { color: #38bdf8 !important; font-weight: 800 !important; }
+.fsm-fn { color: #facc15 !important; font-weight: 800 !important; }
+.fsm-var { color: #a5f3fc !important; }
+.fsm-val { color: #6ee7b7 !important; font-weight: 700 !important; }
+.fsm-comment { color: #94a3b8 !important; font-style: italic !important; }
+.fsm-meta {
+  font-size: 18px !important;
+  color: #cbd5e1 !important;
+  margin-top: 4px !important;
+  display: block !important;
+}
+
+/* Step-by-Step FSM State Transition Panels */
+.fsm-state-pipeline {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  margin-top: 8px !important;
+}
+
+.fsm-state-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  background: rgba(16, 24, 48, 0.65) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-left: 4px solid var(--horizon-cyan) !important;
+  border-radius: 8px !important;
+  padding: 5px 10px !important;
+}
+
+.fsm-state-row.gold { border-left-color: var(--horizon-gold) !important; }
+.fsm-state-row.emerald { border-left-color: var(--horizon-emerald) !important; }
+
+.fsm-state-badge {
+  font-family: var(--font-mono) !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  color: var(--horizon-gold) !important;
+  background: rgba(250, 204, 21, 0.15) !important;
+  border: 1px solid rgba(250, 204, 21, 0.35) !important;
+  padding: 2px 8px !important;
+  border-radius: 6px !important;
+  min-width: 125px !important;
+  text-align: center !important;
+  flex-shrink: 0 !important;
+}
+
+.fsm-state-desc {
+  font-size: 21px !important;
+  line-height: 1.25 !important;
+  color: #f8fafc !important;
+}
+.fsm-state-desc strong { color: #ffffff !important; font-weight: 800 !important; }
+
+/* Grid 4-Cards Calibration (Slide 14) */
+.grid-4cards {
+  gap: 16px !important;
+}
+
+.grid-4cards .glass-card {
+  padding: 24px 20px !important;
+  gap: 10px !important;
+  justify-content: space-between !important;
+}
+
+.grid-4cards .card-pill-tag {
+  font-size: 18px !important;
+  padding: 5px 12px !important;
+  margin-bottom: 4px !important;
+}
+
+.grid-4cards .card-title {
+  font-size: 32px !important;
+  font-weight: 900 !important;
+  margin-bottom: 6px !important;
+  line-height: 1.15 !important;
+}
+
+.grid-4cards .card-bullets {
+  gap: 8px !important;
+}
+
+.grid-4cards .card-bullets li {
+  font-size: 22px !important;
+  line-height: 1.3 !important;
+  padding-left: 22px !important;
+}
+
+.grid-4cards .card-bullets li strong {
+  font-size: 22px !important;
+}
+
+.grid-4cards .kpi-chip-footer {
+  margin-top: auto !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 6px !important;
+  padding: 8px 10px !important;
+  font-family: var(--font-mono) !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  text-align: center !important;
+  color: var(--horizon-gold) !important;
+}
+
+/* Slide 15 Calibration */
+.slide-card[data-slide="15"] .feature-cards-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-rows: 1fr 1fr !important;
+  gap: 12px !important;
+  flex: 1 !important;
+  margin-top: 10px !important;
+}
+
+.slide-card[data-slide="15"] .feature-card {
+  padding: 16px 18px !important;
+  gap: 4px !important;
+  height: 100% !important;
+  justify-content: flex-start !important;
+}
+
+.slide-card[data-slide="15"] .feature-card h4 {
+  font-size: 24px !important;
+  margin-bottom: 3px !important;
+}
+
+.slide-card[data-slide="15"] .feature-card p {
+  font-size: 21px !important;
+  line-height: 1.3 !important;
+}
+
+.slide-card[data-slide="15"] .sovereign-mission-banner {
+  margin-top: auto !important;
+  background: rgba(250, 204, 21, 0.12) !important;
+  border: 2px solid var(--horizon-gold) !important;
+  border-radius: 12px !important;
+  padding: 16px 20px !important;
+  text-align: center !important;
+}
+
+.slide-card[data-slide="15"] .sovereign-mission-banner .banner-title {
+  font-size: 24px !important;
+  font-weight: 900 !important;
+  color: #ffd600 !important;
+  display: block !important;
+  margin-bottom: 4px !important;
+}
+
+.slide-card[data-slide="15"] .sovereign-mission-banner .banner-desc {
+  font-size: 22px !important;
+  color: #ffffff !important;
+  line-height: 1.35 !important;
+  display: block !important;
 }
 
 

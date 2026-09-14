@@ -144,41 +144,69 @@ rate: "-9%"
   </div>
 
   <div class="slide-body grid-2col">
-    <div class="glass-card accent-golden">
-      <div class="circuit-card-header" style="color: #ffd600;">
-        <span>🏛️ ВНУТРЕННИЙ РАСЧЕТНЫЙ КОНТУР (ПКСК / ЦБ РФ)</span>
+    <div class="glass-card accent-golden" style="height: 100%; justify-content: space-between;">
+      <div>
+        <div class="circuit-card-header" style="color: #ffd600;">
+          <span>🏛️ ВНУТРЕННИЙ РАСЧЕТНЫЙ КОНТУР (ПКСК / ЦБ РФ)</span>
+        </div>
+        <p class="card-desc">Государственный детерминированный конечный автомат (FSM) O(1) над цифровыми кошельками.</p>
+        <div class="flow-step-row gold">
+          <span class="flow-step-num gold">01</span>
+          <span><strong>Только балансы и кошельки:</strong> ядро производит списания по универсальным формулам</span>
+        </div>
+        <div class="flow-step-row gold">
+          <span class="flow-step-num gold">02</span>
+          <span><strong>Zero-PII чистота:</strong> ядро не хранит товарных чеков, составов корзин и личной переписки</span>
+        </div>
+        <div class="flow-step-row gold">
+          <span class="flow-step-num gold">03</span>
+          <span><strong>Гарантированный SLA (161-ФЗ):</strong> мгновенный безотзывный клиринг без риска зависания</span>
+        </div>
       </div>
-      <p class="card-desc">Государственный детерминированный конечный автомат (FSM) O(1) над цифровыми кошельками.</p>
-      <div class="flow-step-row gold">
-        <span class="flow-step-num gold">01</span>
-        <span><strong>Только балансы и кошельки:</strong> ядро производит списания по универсальным формулам</span>
-      </div>
-      <div class="flow-step-row gold">
-        <span class="flow-step-num gold">02</span>
-        <span><strong>Zero-PII чистота:</strong> ядро не хранит товарных чеков, составов корзин и личной переписки</span>
-      </div>
-      <div class="flow-step-row gold">
-        <span class="flow-step-num gold">03</span>
-        <span><strong>Гарантированный SLA (161-ФЗ):</strong> мгновенный безотзывный клиринг без риска зависания</span>
+
+      <div class="fsm-terminal-card gold-border" style="margin-top: auto;">
+        <div class="fsm-terminal-header">
+          <span class="gold-title">⚡ FSM CLEARING SPEC · ПКСК ЦБ РФ</span>
+          <div class="fsm-terminal-controls"><span class="fsm-terminal-dot yellow"></span><span class="fsm-terminal-dot green"></span></div>
+        </div>
+        <div class="fsm-terminal-body">
+          <span class="fsm-kw">MACHINE:</span> M = ⟨Q, Σ, Δ, δ, λ, q₀, F⟩<br/>
+          <span class="fsm-kw">REGISTRY:</span> Q = {Wallet_ID, Balance, Nonce}<br/>
+          <span class="fsm-kw">TRANSITIONS:</span> δ(q, σ) → q' <span class="fsm-comment">/* O(1) Complexity, 0% Gas, Formal Proof */</span>
+        </div>
       </div>
     </div>
 
-    <div class="glass-card accent-teal">
-      <div class="circuit-card-header" style="color: #1de9b6;">
-        <span>📱 ВНЕШНИЙ ИНФОРМАЦИОННЫЙ КОНТУР («ТУРБАЗА»)</span>
+    <div class="glass-card accent-teal" style="height: 100%; justify-content: space-between;">
+      <div>
+        <div class="circuit-card-header" style="color: #1de9b6;">
+          <span>📱 ВНЕШНИЙ ИНФОРМАЦИОННЫЙ КОНТУР («ТУРБАЗА»)</span>
+        </div>
+        <p class="card-desc">Суверенная распределенная среда реляционных хранилищ на аппаратах участников («Лист»).</p>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">01</span>
+          <span><strong>Микро-цепи изменений:</strong> полная история заказов и чеков живет на устройствах сторон</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">02</span>
+          <span><strong>Смысловая логика:</strong> приложения связывают жизненные события и вызывают функции FSM</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">03</span>
+          <span><strong>Вектор ГОСТ-подписей:</strong> в ядро ЦБ передается лишь доказательство выполнения условий</span>
+        </div>
       </div>
-      <p class="card-desc">Суверенная распределенная среда реляционных хранилищ на аппаратах участников («Лист»).</p>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">01</span>
-        <span><strong>Микро-цепи изменений:</strong> полная история заказов и чеков живет на устройствах сторон</span>
-      </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">02</span>
-        <span><strong>Смысловая логика:</strong> приложения связывают жизненные события и вызывают функции FSM</span>
-      </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">03</span>
-        <span><strong>Вектор ГОСТ-подписей:</strong> в ядро ЦБ передается лишь доказательство выполнения условий</span>
+
+      <div class="fsm-terminal-card" style="margin-top: auto;">
+        <div class="fsm-terminal-header">
+          <span>📱 LEAF STORAGE CONTOUR · ТУРБАЗА EDGE</span>
+          <div class="fsm-terminal-controls"><span class="fsm-terminal-dot yellow"></span><span class="fsm-terminal-dot green"></span></div>
+        </div>
+        <div class="fsm-terminal-body">
+          <span class="fsm-kw">STORAGE:</span> Local SQLite Micro-Chain (Zero-PII)<br/>
+          <span class="fsm-kw">CONSENSUS:</span> Vector ГОСТ Р 34.10-2012 Signatures<br/>
+          <span class="fsm-kw">PAYLOAD:</span> Proves State Transition without Revealing Receipt
+        </div>
       </div>
     </div>
   </div>
@@ -273,39 +301,67 @@ rate: "-9%"
   </div>
 
   <div class="slide-body grid-2col">
-    <div class="glass-card danger-accent">
-      <div class="card-pill-tag red">ТРАДИЦИОННЫЙ БЛОКЧЕЙН (EVM)</div>
-      <h3 class="card-title">Дублирование байт-кода</h3>
-      <p class="card-desc">Каждый пользователь развертывает отдельный экземпляр программы в блокчейн.</p>
-      <div class="flow-step-row" style="border-left-color: #ff5252;">
-        <span class="flow-step-num" style="color: #ff5252;">&times;</span>
-        <span>Плата за деплой каждого контракта (сотни рублей газа)</span>
+    <div class="glass-card danger-accent" style="height: 100%; justify-content: space-between;">
+      <div>
+        <div class="card-pill-tag red">ТРАДИЦИОННЫЙ БЛОКЧЕЙН (EVM)</div>
+        <h3 class="card-title">Дублирование байт-кода</h3>
+        <p class="card-desc">Каждый пользователь развертывает отдельный экземпляр программы в блокчейн.</p>
+        <div class="flow-step-row" style="border-left-color: #ff5252;">
+          <span class="flow-step-num" style="color: #ff5252;">&times;</span>
+          <span>Плата за деплой каждого контракта (сотни рублей газа)</span>
+        </div>
+        <div class="flow-step-row" style="border-left-color: #ff5252;">
+          <span class="flow-step-num" style="color: #ff5252;">&times;</span>
+          <span>Колоссальное раздувание состояния базы данных (State Bloat)</span>
+        </div>
+        <div class="flow-step-row" style="border-left-color: #ff5252;">
+          <span class="flow-step-num" style="color: #ff5252;">&times;</span>
+          <span>Уязвимость перед DoS-атаками через запуск тяжелых скриптов</span>
+        </div>
       </div>
-      <div class="flow-step-row" style="border-left-color: #ff5252;">
-        <span class="flow-step-num" style="color: #ff5252;">&times;</span>
-        <span>Колоссальное раздувание состояния базы данных (State Bloat)</span>
-      </div>
-      <div class="flow-step-row" style="border-left-color: #ff5252;">
-        <span class="flow-step-num" style="color: #ff5252;">&times;</span>
-        <span>Уязвимость перед DoS-атаками через запуск тяжелых скриптов</span>
+
+      <div class="fsm-terminal-card" style="border-color: rgba(244, 63, 94, 0.45); margin-top: auto;">
+        <div class="fsm-terminal-header" style="color: #fda4af;">
+          <span>⚠️ EVM STATE BLOAT &amp; GAS TRAP</span>
+          <span class="fsm-terminal-dot red"></span>
+        </div>
+        <div class="fsm-terminal-body">
+          <span class="fsm-kw">DEPLOY_FEE:</span> 32 000 + 200 × Bytecode_Len (Gas)<br/>
+          <span class="fsm-kw">STORAGE_BLOAT:</span> N_users × Copy(EVM_State) → > 1.4 TB<br/>
+          <span class="fsm-kw">OUTCOME:</span> Деградация нод, скачки комиссий, отказ сети
+        </div>
       </div>
     </div>
 
-    <div class="glass-card accent-teal">
-      <div class="card-pill-tag teal">АРХИТЕКТУРА ТУРБАЗЫ: SINGLETON В ОЗУ</div>
-      <h3 class="card-title">Кэширование по хэшу H(Template)</h3>
-      <p class="card-desc">Один экземпляр автомата обслуживает миллионы однотипных контрактов.</p>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">01</span>
-        <span><strong>Нулевая стоимость:</strong> деплой контракта стоит 0 ₽, формула компилируется один раз</span>
+    <div class="glass-card accent-teal" style="height: 100%; justify-content: space-between;">
+      <div>
+        <div class="card-pill-tag teal">АРХИТЕКТУРА ТУРБАЗЫ: SINGLETON В ОЗУ</div>
+        <h3 class="card-title">Кэширование по хэшу H(Template)</h3>
+        <p class="card-desc">Один экземпляр автомата обслуживает миллионы однотипных контрактов.</p>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">01</span>
+          <span><strong>Нулевая стоимость:</strong> деплой контракта стоит 0 ₽, формула компилируется один раз</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">02</span>
+          <span><strong>Чистые переменные:</strong> в памяти хранятся только векторы кошельков и лимитов</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">03</span>
+          <span><strong>Мгновенный отклик:</strong> выполнение в регистрах процессора за наносекунды</span>
+        </div>
       </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">02</span>
-        <span><strong>Чистые переменные:</strong> в памяти хранятся только векторы кошельков и лимитов</span>
-      </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">03</span>
-        <span><strong>Мгновенный отклик:</strong> выполнение в регистрах процессора за наносекунды</span>
+
+      <div class="fsm-terminal-card" style="margin-top: auto;">
+        <div class="fsm-terminal-header">
+          <span>🚀 SINGLETON RAM PIPELINE · 0 ₽ DEPLOY</span>
+          <span class="fsm-terminal-dot green"></span>
+        </div>
+        <div class="fsm-terminal-body">
+          <span class="fsm-kw">HASH:</span> SHA256(onceIn || lte || share) → RAM: 0x7FA0012<br/>
+          <span class="fsm-kw">REGISTRY:</span> 1 экземпляр автомата на 10 000 000 контрактов<br/>
+          <span class="fsm-kw">EXECUTION:</span> L1/L2 кэш CPU ядра расчетов · 0 наносекунд
+        </div>
       </div>
     </div>
   </div>
@@ -332,40 +388,65 @@ rate: "-9%"
 
   <div class="slide-body grid-2col">
     <div class="info-panel">
-      <div class="formula-card-box">
-        onceIn(86400, lte(300, or(А, Б)))
+      <div class="fsm-terminal-card gold-border">
+        <div class="fsm-terminal-header">
+          <span class="gold-title">📜 FSM FORMULA · 0xFA01_SCHOOL_MEALS</span>
+          <div class="fsm-terminal-controls"><span class="fsm-terminal-dot yellow"></span><span class="fsm-terminal-dot green"></span></div>
+        </div>
+        <div class="fsm-terminal-body">
+          <span class="fsm-fn">onceIn</span>(<span class="fsm-val">86400</span>, <span class="fsm-fn">lte</span>(<span class="fsm-val">300</span>, <span class="fsm-fn">or</span>(<span class="fsm-var">MEAL_A</span>, <span class="fsm-var">MEAL_B</span>)))
+          <span class="fsm-meta">Параметры: Суточный лимит 300 ₽ | Категории: Завтрак / Обед | Zero-PII</span>
+        </div>
       </div>
-      <p class="card-desc" style="font-size: 21px; margin-bottom: 12px;">
-        <strong>А</strong> &mdash; Завтрак, <strong>Б</strong> &mdash; Комплексный обед. Не чаще 1 раза в сутки (86 400 сек), лимит &le; 300 ₽.
-      </p>
 
       <div class="flow-step-row teal">
         <span class="flow-step-num teal">1</span>
-        <span>Родитель задает лимит 300 ₽ и делегирует сессионный ключ ребенку</span>
+        <span><strong>Родительский контроль:</strong> родитель задает лимит 300 ₽ и делегирует сессионный ключ</span>
       </div>
       <div class="flow-step-row teal">
         <span class="flow-step-num teal">2</span>
-        <span>Школьник выбирает обед на 280 ₽ и сканирует QR кассы столовой (правило Б)</span>
+        <span><strong>Выбор в столовой:</strong> школьник берет обед на 280 ₽ и сканирует QR кассы (правило Б)</span>
       </div>
       <div class="flow-step-row teal">
         <span class="flow-step-num teal">3</span>
-        <span>Телефон локально проверяет 280 &le; 300 и отправляет переход в ядро ЦБ</span>
+        <span><strong>Валидация предикатов:</strong> телефон проверяет 280 ≤ 300 ₽ и направляет переход в ЦБ</span>
       </div>
       <div class="flow-step-row teal">
         <span class="flow-step-num teal">4</span>
-        <span>ЦБ моментально зачисляет 280 ₽ столовой за O(1) такт</span>
+        <span><strong>Мгновенный клиринг:</strong> Банк России зачисляет 280 ₽ столовой за O(1) такт без комиссии</span>
+      </div>
+
+      <div class="fsm-state-pipeline">
+        <div class="fsm-state-row gold">
+          <span class="fsm-state-badge">[S0_READY]</span>
+          <span class="fsm-state-desc">Суточный лимит активирован; ключ ребенка авторизован</span>
+        </div>
+        <div class="fsm-state-row gold">
+          <span class="fsm-state-badge">[S1_VERIFY]</span>
+          <span class="fsm-state-desc">Локальная проверка: <strong>280 ≤ 300 ₽ ∧ onceIn(86400) ≡ TRUE</strong></span>
+        </div>
+        <div class="fsm-state-row gold">
+          <span class="fsm-state-badge">[S2_SETTLED]</span>
+          <span class="fsm-state-desc">Списание 280 ₽ в ЦБ; остаток 20 ₽ сгорает в 23:59 (Zero-Siphon)</span>
+        </div>
       </div>
     </div>
 
     <div class="visual-panel">
-      <div class="glass-card accent-golden" style="height: 100%;">
-        <div class="card-pill-tag gold">КЛЮЧЕВЫЕ ПРЕИМУЩЕСТВА СХЕМЫ</div>
-        <ul class="card-bullets">
-          <li><strong>Zero-PII конфиденциальность:</strong> банк и регулятор видят только перевод по коду Б. Состав блюд и калории остаются строго в микро-цепи семьи и школы</li>
-          <li><strong>Казначейский надзор:</strong> лимит резервирует право расхода субсидии; в 23:59 неиспользованный остаток обнуляется, исключая нецелевой вывод</li>
-          <li><strong>Бестерминальность кассы:</strong> столовой не нужен терминал эквайринга &mdash; расчет идет через браузерное приложение Турбазы</li>
-          <li><strong>Осознанный IOU-офлайн:</strong> при сбое связи стороны дают согласие на долговую расписку; локальный FSM кассы валидирует лимит по кэшу</li>
-        </ul>
+      <div class="glass-card accent-golden" style="height: 100%; justify-content: space-between;">
+        <div>
+          <div class="card-pill-tag gold">КЛЮЧЕВЫЕ ПРЕИМУЩЕСТВА СХЕМЫ</div>
+          <h3 class="card-title">Гарантии для Семьи и Школы</h3>
+          <ul class="card-bullets">
+            <li><strong>Zero-PII конфиденциальность:</strong> банк и регулятор видят только перевод по коду Б. Состав блюд и калории остаются строго в микро-цепи семьи и школы</li>
+            <li><strong>Казначейский надзор:</strong> лимит резервирует право расхода субсидии; в 23:59 неиспользованный остаток обнуляется, исключая нецелевой вывод</li>
+            <li><strong>Бестерминальность кассы:</strong> столовой не нужен терминал эквайринга &mdash; расчет идет через браузерное приложение Турбазы</li>
+            <li><strong>Осознанный IOU-офлайн:</strong> при сбое связи стороны дают согласие на долговую расписку; локальный FSM кассы валидирует лимит по кэшу</li>
+          </ul>
+        </div>
+        <div class="kpi-chip-footer" style="color: #ffd600; border-color: rgba(250, 204, 21, 0.3); background: rgba(250, 204, 21, 0.08); padding: 10px 16px; border-radius: 8px; font-size: 20px; font-weight: 800; text-align: center; font-family: var(--font-mono);">
+          ⚡ СЛОЖНОСТЬ КЛИРИНГА: O(1) · ЭКВАЙРИНГ: 0% · ПРИВАТНОСТЬ: ZERO-PII
+        </div>
       </div>
     </div>
   </div>
@@ -394,40 +475,65 @@ rate: "-9%"
 
   <div class="slide-body grid-2col">
     <div class="info-panel">
-      <div class="formula-card-box teal-accent">
-        sum = set(400, А); add(100, Б, sum)
+      <div class="fsm-terminal-card emerald-border">
+        <div class="fsm-terminal-header">
+          <span class="emerald-title">📜 FSM ESCROW · 0xFB02_TRIPARTITE_ESCROW</span>
+          <div class="fsm-terminal-controls"><span class="fsm-terminal-dot green"></span></div>
+        </div>
+        <div class="fsm-terminal-body">
+          <span class="fsm-var">sum</span> = <span class="fsm-fn">set</span>(<span class="fsm-val">400</span>, <span class="fsm-var">RESTAURANT</span>); <span class="fsm-fn">add</span>(<span class="fsm-val">100</span>, <span class="fsm-var">COURIER</span>, <span class="fsm-var">sum</span>)
+          <span class="fsm-meta">Эскроу: 500 ₽ | Ресторан 400 ₽ | Курьер 100 ₽ | Таймаут: 90 мин</span>
+        </div>
       </div>
-      <p class="card-desc" style="font-size: 21px; margin-bottom: 12px;">
-        Эскроу 500 ₽: <strong>А</strong> &mdash; Ресторан (400 ₽ за блюда), <strong>Б</strong> &mdash; Курьер (100 ₽ за доставку).
-      </p>
 
       <div class="flow-step-row gold">
         <span class="flow-step-num gold">1</span>
-        <span>Покупатель создает заказ: локальная микро-цепь связывает 3 смартфона</span>
+        <span><strong>Синхронизация P2P:</strong> микро-цепь связывает смартфоны покупателя, повара и курьера</span>
       </div>
       <div class="flow-step-row gold">
         <span class="flow-step-num gold">2</span>
-        <span>Ресторан готовит заказ и ставит подпись [Приготовлено] (400 ₽)</span>
+        <span><strong>Подпись ресторана:</strong> повар маркирует [Приготовлено] ГОСТ-подписью (400 ₽)</span>
       </div>
       <div class="flow-step-row gold">
         <span class="flow-step-num gold">3</span>
-        <span>Курьер принимает пакет по QR-коду и отвозит клиенту [В пути]</span>
+        <span><strong>Приемка курьером:</strong> курьер сканирует QR пакета и начинает доставку [В пути]</span>
       </div>
       <div class="flow-step-row gold">
         <span class="flow-step-num gold">4</span>
-        <span>Покупатель подтверждает получение [Доставлено]: клиринг сплитует 400 + 100 ₽</span>
+        <span><strong>Вручение клиенту:</strong> покупатель жмет [Доставлено]: авто-сплит 400 + 100 ₽</span>
+      </div>
+
+      <div class="fsm-state-pipeline">
+        <div class="fsm-state-row emerald">
+          <span class="fsm-state-badge">[S0_LOCKED]</span>
+          <span class="fsm-state-desc">500 ₽ заблокированы в эскроу ЦБ; P2P-заказ синхронизирован</span>
+        </div>
+        <div class="fsm-state-row emerald">
+          <span class="fsm-state-badge">[S1_TRANSIT]</span>
+          <span class="fsm-state-desc">Подпись готовности ресторана ⊕ скан курьера активируют статус [В пути]</span>
+        </div>
+        <div class="fsm-state-row emerald">
+          <span class="fsm-state-badge">[S2_CLEARED]</span>
+          <span class="fsm-state-desc">Proof-of-Delivery клиента $\to$ мгновенная выплата 400 ₽ ресторану и 100 ₽ курьеру</span>
+        </div>
       </div>
     </div>
 
     <div class="visual-panel">
-      <div class="glass-card accent-emerald" style="height: 100%;">
-        <div class="card-pill-tag emerald">ПРЕИМУЩЕСТВА ДЛЯ МАЛОГО БИЗНЕСА</div>
-        <ul class="card-bullets">
-          <li><strong>Аппаратная бестерминальность:</strong> ресторану, курьеру и клиенту не нужны банковские POS-терминалы &mdash; все работает в защищенном браузере Турбазы</li>
-          <li><strong>0% комиссий маркетплейсов:</strong> ресторатор не отдает 30% агрегатору, сохраняя полную прибыль</li>
-          <li><strong>P2P Proof-of-Delivery:</strong> вектор взаимных подписей сторон служит неопровержимым доказательством выполнения обязательств</li>
-          <li><strong>Защита от дедлоков:</strong> при срыве срока доставки детерминированный таймаут FSM автоматически возвращает 500 ₽ покупателю</li>
-        </ul>
+      <div class="glass-card accent-emerald" style="height: 100%; justify-content: space-between;">
+        <div>
+          <div class="card-pill-tag emerald">ПРЕИМУЩЕСТВА ДЛЯ МАЛОГО БИЗНЕСА</div>
+          <h3 class="card-title">Автономная логистика и эскроу</h3>
+          <ul class="card-bullets">
+            <li><strong>Аппаратная бестерминальность:</strong> ресторану, курьеру и клиенту не нужны банковские POS-терминалы &mdash; все работает в защищенном браузере Турбазы</li>
+            <li><strong>0% комиссий маркетплейсов:</strong> ресторатор не отдает 30% агрегатору, сохраняя полную прибыль</li>
+            <li><strong>P2P Proof-of-Delivery:</strong> вектор взаимных подписей сторон служит неопровержимым доказательством выполнения обязательств</li>
+            <li><strong>Защита от дедлоков:</strong> при срыве срока доставки детерминированный таймаут FSM автоматически возвращает 500 ₽ покупателю</li>
+          </ul>
+        </div>
+        <div class="kpi-chip-footer" style="color: #6ee7b7; border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.08); padding: 10px 16px; border-radius: 8px; font-size: 20px; font-weight: 800; text-align: center; font-family: var(--font-mono);">
+          ⚡ ЭСКРОУ-КЛИРИНГ: O(1) · КОМИССИЯ АГРЕГАТОРА: 0% · POS-ОБОРУДОВАНИЕ: 0 ₽
+        </div>
       </div>
     </div>
   </div>
@@ -456,38 +562,63 @@ rate: "-9%"
 
   <div class="slide-body grid-2col">
     <div class="info-panel">
-      <div class="formula-card-box emerald-accent">
-        В = share(0.5, Б, 0.5, А)<br/>
-        Е = share(0.2, Д, 0.6, В, 0.2, Г)<br/>
-        share(0.1, Я, 0.9, Е)
+      <div class="fsm-terminal-card emerald-border">
+        <div class="fsm-terminal-header">
+          <span class="emerald-title">📜 FSM RECURSIVE SHAPLEY ROYALTIES</span>
+          <div class="fsm-terminal-controls"><span class="fsm-terminal-dot green"></span></div>
+        </div>
+        <div class="fsm-terminal-body">
+          <span class="fsm-var">C</span> = <span class="fsm-fn">share</span>(<span class="fsm-val">0.50</span>, <span class="fsm-var">DEV_B</span>, <span class="fsm-val">0.50</span>, <span class="fsm-var">DEV_A</span>)<br/>
+          <span class="fsm-var">E</span> = <span class="fsm-fn">share</span>(<span class="fsm-val">0.20</span>, <span class="fsm-var">UI_D</span>, <span class="fsm-val">0.60</span>, <span class="fsm-var">C</span>, <span class="fsm-val">0.20</span>, <span class="fsm-var">SCHEMA_G</span>)<br/>
+          <span class="fsm-fn">share</span>(<span class="fsm-val">0.10</span>, <span class="fsm-var">USER_CITIZEN</span>, <span class="fsm-val">0.90</span>, <span class="fsm-var">E</span>)
+          <span class="fsm-meta">Шепли-сплит: Гражданин 10% | UI 18% | Логика по 27% | Схема данных 18%</span>
+        </div>
       </div>
-      <p class="card-desc" style="font-size: 21px; margin-bottom: 10px;">
-        <strong>Я</strong> &mdash; Гражданин (10%), <strong>Е</strong> &mdash; Дерево софта (90%): автор UI Д (18%), авторы логики Б и А (по 27%), автор схемы Г (18%).
-      </p>
 
       <div class="flow-step-row teal">
         <span class="flow-step-num teal">1</span>
-        <span>Приложения в Турбазе сотрудничают и используют модули друг друга</span>
+        <span><strong>Кооперация софта:</strong> программы на Турбазе совместно используют открытые модули</span>
       </div>
       <div class="flow-step-row teal">
         <span class="flow-step-num teal">2</span>
-        <span>Разработчики заранее фиксируют доли вклада в шаблоне share(...)</span>
+        <span><strong>Вклад авторов:</strong> разработчики заранее фиксируют справедливые доли в share(...)</span>
       </div>
       <div class="flow-step-row teal">
         <span class="flow-step-num teal">3</span>
-        <span>При поступлении платежа дерево схлопывается в плоский массив за O(1)</span>
+        <span><strong>Схлопывание дерева:</strong> при поступлении платежа ядро ЦБ сплитует его за O(1) такт</span>
+      </div>
+
+      <div class="fsm-state-pipeline">
+        <div class="fsm-state-row emerald">
+          <span class="fsm-state-badge">[FLATTEN_O1]</span>
+          <span class="fsm-state-desc">Дерево зависимостей схлопывается в плоский вектор расчетов за один шаг</span>
+        </div>
+        <div class="fsm-state-row emerald">
+          <span class="fsm-state-badge">[USER_10%]</span>
+          <span class="fsm-state-desc"><strong>10% бюджета</strong> поступает гражданину за внимание прямо в Цифровых рублях</span>
+        </div>
+        <div class="fsm-state-row emerald">
+          <span class="fsm-state-badge">[AUTO_TAX]</span>
+          <span class="fsm-state-desc">Встроенный клиринг: удержание 13% НДФЛ / 4–6% налога для самозанятых инженеров</span>
+        </div>
       </div>
     </div>
 
     <div class="visual-panel">
-      <div class="glass-card accent-golden" style="height: 100%;">
-        <div class="card-pill-tag gold">СПРАВЕДЛИВОСТЬ И НАЛОГИ</div>
-        <ul class="card-bullets">
-          <li><strong>Вектор Шепли:</strong> распределение математически справедливо, удовлетворяет четырем аксиомам теории кооперативных игр</li>
-          <li><strong>Прямая монетизация Open Source:</strong> автор стандартизированной таблицы базы данных получает микророялти с каждого вызова</li>
-          <li><strong>Вознаграждение гражданина:</strong> 10% рекламного бюджета поступает напрямую пользователю за внимание</li>
-          <li><strong>Встроенное налогообложение:</strong> автоматическое удержание 13% НДФЛ для граждан и 4&ndash;6% налога на профдоход для самозанятых инженеров</li>
-        </ul>
+      <div class="glass-card accent-golden" style="height: 100%; justify-content: space-between;">
+        <div>
+          <div class="card-pill-tag gold">СПРАВЕДЛИВОСТЬ И НАЛОГИ</div>
+          <h3 class="card-title">Кооперативная экономика софта</h3>
+          <ul class="card-bullets">
+            <li><strong>Вектор Шепли:</strong> распределение математически справедливо, удовлетворяет четырем аксиомам теории кооперативных игр</li>
+            <li><strong>Прямая монетизация Open Source:</strong> автор стандартизированной таблицы базы данных получает микророялти с каждого вызова</li>
+            <li><strong>Вознаграждение гражданина:</strong> 10% рекламного бюджета поступает напрямую пользователю за внимание</li>
+            <li><strong>Встроенное налогообложение:</strong> автоматическое удержание 13% НДФЛ для граждан и 4&ndash;6% налога на профдоход для самозанятых инженеров</li>
+          </ul>
+        </div>
+        <div class="kpi-chip-footer" style="color: #ffd600; border-color: rgba(250, 204, 21, 0.3); background: rgba(250, 204, 21, 0.08); padding: 10px 16px; border-radius: 8px; font-size: 20px; font-weight: 800; text-align: center; font-family: var(--font-mono);">
+          ⚡ ВЕКТОР ШЕПЛИ · РАСЧЕТ: O(1) · НАЛОГОВЫЙ АГЕНТ: 100% АВТОМАТИЧЕСКИ
+        </div>
       </div>
     </div>
   </div>
@@ -570,41 +701,69 @@ rate: "-9%"
   </div>
 
   <div class="slide-body grid-2col">
-    <div class="glass-card accent-golden">
-      <div class="circuit-card-header" style="color: #ffd600;">
-        <span>🏛️ НАДЗОРНЫЙ КОНТУР (115-ФЗ / ПОЛОЖЕНИЕ ЦБ № 809-П)</span>
+    <div class="glass-card accent-golden" style="height: 100%; justify-content: space-between;">
+      <div>
+        <div class="circuit-card-header" style="color: #ffd600;">
+          <span>🏛️ НАДЗОРНЫЙ КОНТУР (115-ФЗ / ПОЛОЖЕНИЕ ЦБ № 809-П)</span>
+        </div>
+        <p class="card-desc">Абсолютная прозрачность для Банка России и Росфинмониторинга.</p>
+        <div class="flow-step-row gold">
+          <span class="flow-step-num gold">01</span>
+          <span>Мастер-кошельки Цифрового рубля открываются с полной идентификацией в ЕСИА</span>
+        </div>
+        <div class="flow-step-row gold">
+          <span class="flow-step-num gold">02</span>
+          <span>Смарт-оболочки жестко привязаны к мастер-счетам в государственном реестре</span>
+        </div>
+        <div class="flow-step-row gold">
+          <span class="flow-step-num gold">03</span>
+          <span>Автоматический финмониторинг сумм &ge; 1 млн ₽ через предикат <code>gte(Amount, 1_000_000)</code></span>
+        </div>
       </div>
-      <p class="card-desc">Абсолютная прозрачность для Банка России и Росфинмониторинга.</p>
-      <div class="flow-step-row gold">
-        <span class="flow-step-num gold">01</span>
-        <span>Мастер-кошельки Цифрового рубля открываются с полной идентификацией в ЕСИА</span>
-      </div>
-      <div class="flow-step-row gold">
-        <span class="flow-step-num gold">02</span>
-        <span>Смарт-оболочки жестко привязаны к мастер-счетам в государственном реестре</span>
-      </div>
-      <div class="flow-step-row gold">
-        <span class="flow-step-num gold">03</span>
-        <span>Автоматический финмониторинг сумм &ge; 1 млн ₽ через предикат <code>gte(Amount, 1_000_000)</code></span>
+
+      <div class="fsm-terminal-card gold-border" style="margin-top: auto;">
+        <div class="fsm-terminal-header">
+          <span class="gold-title">🏛️ REGULATOR AUDIT FEED · 115-ФЗ / 809-П</span>
+          <span class="fsm-terminal-dot yellow"></span>
+        </div>
+        <div class="fsm-terminal-body">
+          <span class="fsm-kw">MASTER_ACCOUNT:</span> Идентификация ЕСИА + СНИЛС<br/>
+          <span class="fsm-kw">RULE:</span> gte(Amount, 1_000_000 RUB) → Авто-мониторинг<br/>
+          <span class="fsm-kw">COMPLIANCE:</span> Полная прозрачность для ЦБ и Росфинмониторинга
+        </div>
       </div>
     </div>
 
-    <div class="glass-card accent-teal">
-      <div class="circuit-card-header" style="color: #1de9b6;">
-        <span>🛡️ ГРАЖДАНСКИЙ КОНТУР (152-ФЗ ZERO-PII / СТ. 26 395-1)</span>
+    <div class="glass-card accent-teal" style="height: 100%; justify-content: space-between;">
+      <div>
+        <div class="circuit-card-header" style="color: #1de9b6;">
+          <span>🛡️ ГРАЖДАНСКИЙ КОНТУР (152-ФЗ ZERO-PII / СТ. 26 395-1)</span>
+        </div>
+        <p class="card-desc">Полная защита номеров счетов и остатков от чужих глаз и приложений.</p>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">01</span>
+          <span>Контрагенты видят только обезличенный публичный идентификатор смарт-оболочки</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">02</span>
+          <span>Реальный номер счета и совокупный баланс кошелька в ЦБ скрыты от внешних систем</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">03</span>
+          <span>Исключение рисков коммерческого шпионажа и социальной инженерии</span>
+        </div>
       </div>
-      <p class="card-desc">Полная защита номеров счетов и остатков от чужих глаз и приложений.</p>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">01</span>
-        <span>Контрагенты видят только обезличенный публичный идентификатор смарт-оболочки</span>
-      </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">02</span>
-        <span>Реальный номер счета и совокупный баланс кошелька в ЦБ скрыты от внешних систем</span>
-      </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">03</span>
-        <span>Исключение рисков коммерческого шпионажа и социальной инженерии</span>
+
+      <div class="fsm-terminal-card" style="margin-top: auto;">
+        <div class="fsm-terminal-header">
+          <span>🛡️ ZERO-PII PROXY WRAPPER · 152-ФЗ</span>
+          <span class="fsm-terminal-dot green"></span>
+        </div>
+        <div class="fsm-terminal-body">
+          <span class="fsm-kw">PUBLIC_HANDLE:</span> 0xWRAPPER_7C2B... (Обезличенный ID)<br/>
+          <span class="fsm-kw">BALANCE_MASK:</span> Реальный баланс в ЦБ скрыт от приложений<br/>
+          <span class="fsm-kw">SECURITY:</span> Исключение коммерческого шпионажа и фишинга
+        </div>
       </div>
     </div>
   </div>
@@ -631,37 +790,58 @@ rate: "-9%"
 
   <div class="slide-body grid-2col">
     <div class="info-panel">
-      <div class="key-callout teal">
-        <strong>Принцип ненадежного клиента:</strong>
-        <p>Смартфон &mdash; это носимое устройство с высоким риском кражи. <strong>Мастер-ключ Цифрового рубля никогда не хранится на телефоне</strong>. К аппарату привязывается лишь временная прокси-оболочка с жестким лимитом.</p>
+      <div class="key-callout teal" style="padding: 10px 16px; margin-bottom: 8px;">
+        <strong style="font-size: 22px;">Принцип ненадежного клиента:</strong>
+        <p style="font-size: 21px; line-height: 1.28; margin: 2px 0 0 0;">Мастер-ключ Цифрового рубля никогда не хранится на смартфоне. Телефон оперирует лишь сессионным прокси с суточным лимитом.</p>
       </div>
 
       <div class="flow-step-row teal">
         <span class="flow-step-num teal">1</span>
-        <span>К телефону привязывается сессионный прокси с суточным лимитом (напр. 3 000 ₽)</span>
+        <span><strong>Сессионный прокси:</strong> к аппарату привязывается ключ с суточным лимитом (напр. 3 000 ₽)</span>
       </div>
       <div class="flow-step-row teal">
         <span class="flow-step-num teal">2</span>
-        <span>Код платформы запускается в браузере и верифицируется районным шлюзом Веткой</span>
+        <span><strong>Векторная изоляция:</strong> код исполняется в браузере и заверяется районным шлюзом «Ветка»</span>
       </div>
       <div class="flow-step-row teal">
         <span class="flow-step-num teal">3</span>
-        <span>При краже телефона пользователь отзывает прокси с домашнего ПК или через банк</span>
+        <span><strong>Экстренный отзыв:</strong> при утрате аппарата прокси отзывается с домашнего ПК в 1 клик</span>
       </div>
       <div class="flow-step-row teal">
         <span class="flow-step-num teal">4</span>
-        <span>Мастер-кошелек в ЦБ в полной безопасности; на новом аппарате создается новый прокси</span>
+        <span><strong>Сохранность капитала:</strong> мастер-кошелек ЦБ неприкосновенен; выдается новый прокси</span>
+      </div>
+
+      <div class="fsm-state-pipeline">
+        <div class="fsm-state-row">
+          <span class="fsm-state-badge">[ACTIVE]</span>
+          <span class="fsm-state-desc">Смартфон оперирует сессионным прокси с жестким суточным лимитом (3 000 ₽)</span>
+        </div>
+        <div class="fsm-state-row">
+          <span class="fsm-state-badge">[REVOKE]</span>
+          <span class="fsm-state-desc">При краже владелец отзывает прокси с ПК; доступ мгновенно обнуляется в ЦБ</span>
+        </div>
+        <div class="fsm-state-row">
+          <span class="fsm-state-badge">[REBIND]</span>
+          <span class="fsm-state-desc">Новый телефон генерирует свежий прокси без перевыпуска государственных счетов</span>
+        </div>
       </div>
     </div>
 
     <div class="visual-panel">
-      <div class="glass-card accent-emerald" style="height: 100%;">
-        <div class="card-pill-tag emerald">СРАВНЕНИЕ С КРИПТОВАЛЮТАМИ</div>
-        <ul class="card-bullets">
-          <li><strong>Классический блокчейн (Web3):</strong> потеря смартфона с мнемонической фразой (Seed-фразой) означает безвозвратную потерю всех накоплений</li>
-          <li><strong>Банковские приложения:</strong> кража разблокированного телефона открывает доступ ко всем счетам и кредитным лимитам</li>
-          <li><strong>Архитектура Турбазы:</strong> злоумышленник ограничен суточным лимитом оболочки. Мастер-счет не может быть скомпрометирован, а отзыв происходит мгновенно без перевыпуска счетов</li>
-        </ul>
+      <div class="glass-card accent-emerald" style="height: 100%; justify-content: space-between;">
+        <div>
+          <div class="card-pill-tag emerald">СРАВНЕНИЕ С КРИПТОВАЛЮТАМИ</div>
+          <h3 class="card-title">Защита при краже аппарата</h3>
+          <ul class="card-bullets">
+            <li><strong>Классический блокчейн (Web3):</strong> потеря смартфона с мнемонической фразой (Seed-фразой) означает безвозвратную потерю всех накоплений</li>
+            <li><strong>Банковские приложения:</strong> кража разблокированного телефона открывает доступ ко всем счетам и кредитным лимитам</li>
+            <li><strong>Архитектура Турбазы:</strong> злоумышленник ограничен суточным лимитом оболочки. Мастер-счет не может быть скомпрометирован, а отзыв происходит мгновенно без перевыпуска счетов</li>
+          </ul>
+        </div>
+        <div class="kpi-chip-footer" style="color: #6ee7b7; border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.08); padding: 10px 16px; border-radius: 8px; font-size: 20px; font-weight: 800; text-align: center; font-family: var(--font-mono);">
+          ⚡ МАСТЕР-СЧЕТ: 100% В БЕЗОПАСНОСТИ · ОТЗЫВ: 1 КЛИК · СМЕНА СЧЕТА: НЕ ТРЕБУЕТСЯ
+        </div>
       </div>
     </div>
   </div>
@@ -687,32 +867,60 @@ rate: "-9%"
   </div>
 
   <div class="slide-body grid-2col">
-    <div class="glass-card danger-accent">
-      <div class="card-pill-tag red">ЕДИНЫЙ СОЦРЕЙТИНГ (АНТИУТОПИЯ)</div>
-      <h3 class="card-title">Токсичный глобальный балл</h3>
-      <p class="card-desc">Попытки ввести единую оценку благонадежности ведут к цифровому рабству.</p>
-      <ul class="card-bullets">
-        <li>Произвол агрегаторов и риск внезапной блокировки рейтинга</li>
-        <li>Невозможность учесть разные контексты жизни человека</li>
-        <li>Процветание черного рынка заказных отзывов и бот-накруток</li>
-      </ul>
+    <div class="glass-card danger-accent" style="height: 100%; justify-content: space-between;">
+      <div>
+        <div class="card-pill-tag red">ЕДИНЫЙ СОЦРЕЙТИНГ (АНТИУТОПИЯ)</div>
+        <h3 class="card-title">Токсичный глобальный балл</h3>
+        <p class="card-desc">Попытки ввести единую оценку благонадежности ведут к цифровому рабству.</p>
+        <ul class="card-bullets">
+          <li><strong>Произвол монополий:</strong> риск внезапной блокировки или обнуления единого рейтинга</li>
+          <li><strong>Смешение контекстов:</strong> невозможно оценить разные роли человека единой цифрой</li>
+          <li><strong>Индустрия фрода:</strong> процветание черного рынка заказных отзывов и бот-ферм</li>
+        </ul>
+      </div>
+
+      <div class="fsm-terminal-card" style="border-color: rgba(244, 63, 94, 0.45); margin-top: auto;">
+        <div class="fsm-terminal-header" style="color: #fda4af;">
+          <span>⚠️ РИСКИ ЦЕНТРАЛИЗОВАННОГО РЕЙТИНГА</span>
+          <span class="fsm-terminal-dot red"></span>
+        </div>
+        <div class="fsm-terminal-body">
+          <span class="fsm-kw">МОНОПОЛИЯ:</span> Черный ящик закрытых алгоритмов платформы<br/>
+          <span class="fsm-kw">БОТ-ФЕРМЫ:</span> Скупка фальшивых отзывов за фиатные деньги<br/>
+          <span class="fsm-kw">ДИСКРИМИНАЦИЯ:</span> Единый балл уничтожает репутацию человека
+        </div>
+      </div>
     </div>
 
-    <div class="glass-card accent-teal">
-      <div class="card-pill-tag teal">СЕТЬ «ЗАБОТА»: МНОГОМЕРНЫЙ ГРАФ</div>
-      <h3 class="card-title">Контекстуальное поручительство</h3>
-      <p class="card-desc">Репутация децентрализована и строится на очных связях людей.</p>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">01</span>
-        <span><strong>Локальные контексты:</strong> мастер ЖКХ, соседская помощь, попутчик &mdash; независимые ветви</span>
+    <div class="glass-card accent-teal" style="height: 100%; justify-content: space-between;">
+      <div>
+        <div class="card-pill-tag teal">СЕТЬ «ЗАБОТА»: МНОГОМЕРНЫЙ ГРАФ</div>
+        <h3 class="card-title">Контекстуальное поручительство</h3>
+        <p class="card-desc">Репутация децентрализована и строится на очных связях людей.</p>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">01</span>
+          <span><strong>Локальные контексты:</strong> мастер ЖКХ, соседская помощь, попутчик &mdash; независимые ветви</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">02</span>
+          <span><strong>0% спама и накруток:</strong> добавление жильцов происходит лично или по поручительству</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">03</span>
+          <span><strong>Внешняя логика арбитража:</strong> доказательства и разбор спора &mdash; в приложениях Турбазы; в FSM &mdash; лишь универсальный шаблон функции</span>
+        </div>
       </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">02</span>
-        <span><strong>0% спама и накруток:</strong> добавление жильцов происходит лично или по поручительству</span>
-      </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">03</span>
-        <span><strong>Внешняя логика арбитража:</strong> доказательства и разбор спора &mdash; в приложениях Турбазы; в FSM &mdash; лишь универсальный шаблон функции</span>
+
+      <div class="fsm-terminal-card" style="margin-top: auto;">
+        <div class="fsm-terminal-header">
+          <span>🌐 TRUST GRAPH · ДОВЕРИЕ В «ЗАБОТЕ»</span>
+          <span class="fsm-terminal-dot green"></span>
+        </div>
+        <div class="fsm-terminal-body">
+          <span class="fsm-kw">VECTORS:</span> T_repair(0.94) ⊕ T_neighbor(0.98) ⊕ T_carpool(0.89)<br/>
+          <span class="fsm-kw">ARBITRAGE:</span> Доказательства и переписка — в Турбазе (Zero-PII)<br/>
+          <span class="fsm-kw">FSM_ROLE:</span> Универсальный шаблон or/and с подписью медиатора
+        </div>
       </div>
     </div>
   </div>
@@ -787,43 +995,55 @@ rate: "-9%"
 
   <div class="slide-body grid-4cards">
     <div class="glass-card accent-golden">
-      <div class="card-pill-tag gold">РЕГУЛЯТОР И ГОСУДАРСТВО</div>
-      <h3 class="card-title">Банк России</h3>
-      <ul class="card-bullets">
-        <li><strong>Сложность O(1):</strong> пиковая масштабируемость без риска перегрузки ЦОД</li>
-        <li><strong>-90% затрат на сервера:</strong> вся сложность и хранение вынесены на Листья</li>
-        <li><strong>161-ФЗ и 152-ФЗ:</strong> безотзывность клиринга и Zero-PII соответствие</li>
-      </ul>
+      <div>
+        <div class="card-pill-tag gold">РЕГУЛЯТОР И ГОСУДАРСТВО</div>
+        <h3 class="card-title">Банк России</h3>
+        <ul class="card-bullets">
+          <li><strong>Сложность O(1):</strong> пиковая масштабируемость без риска перегрузки ЦОД</li>
+          <li><strong>-90% затрат на сервера:</strong> вся сложность и хранение вынесены на Листья</li>
+          <li><strong>161-ФЗ и 152-ФЗ:</strong> безотзывность клиринга и Zero-PII соответствие</li>
+        </ul>
+      </div>
+      <div class="kpi-chip-footer" style="color: #ffd600; border-color: rgba(250, 204, 21, 0.3);">⚡ O(1) КЛИРИНГ · -90% ЦОД</div>
     </div>
 
     <div class="glass-card accent-teal">
-      <div class="card-pill-tag teal">ПРЕДПРИНИМАТЕЛИ И МСП</div>
-      <h3 class="card-title">Реальный бизнес</h3>
-      <ul class="card-bullets">
-        <li><strong>0% налога монополий:</strong> экономия 30% комиссий маркетплейсов</li>
-        <li><strong>0 ₽ за терминалы:</strong> расчеты через браузер без покупки POS-оборудования</li>
-        <li><strong>Мгновенный эскроу:</strong> исключение неплатежей и кассовых разрывов</li>
-      </ul>
+      <div>
+        <div class="card-pill-tag teal">ПРЕДПРИНИМАТЕЛИ И МСП</div>
+        <h3 class="card-title">Реальный бизнес</h3>
+        <ul class="card-bullets">
+          <li><strong>0% налога монополий:</strong> экономия 30% комиссий маркетплейсов</li>
+          <li><strong>0 ₽ за терминалы:</strong> расчеты через браузер без покупки POS-оборудования</li>
+          <li><strong>Мгновенный эскроу:</strong> исключение неплатежей и кассовых разрывов</li>
+        </ul>
+      </div>
+      <div class="kpi-chip-footer" style="color: #1de9b6; border-color: rgba(29, 233, 182, 0.3);">⚡ +30% МАРЖА · 0 ₽ POS</div>
     </div>
 
     <div class="glass-card accent-emerald">
-      <div class="card-pill-tag emerald">ИТ-СООБЩЕСТВО</div>
-      <h3 class="card-title">Разработчики ПО</h3>
-      <ul class="card-bullets">
-        <li><strong>Микророялти share(...):</strong> автоматический доход авторам библиотек и схем</li>
-        <li><strong>Сотрудничество вместо войн:</strong> приложения усиливают функционал друг друга</li>
-        <li><strong>Встроенные налоги:</strong> авто-уплата 4&ndash;6% налога на профдоход</li>
-      </ul>
+      <div>
+        <div class="card-pill-tag emerald">ИТ-СООБЩЕСТВО</div>
+        <h3 class="card-title">Разработчики ПО</h3>
+        <ul class="card-bullets">
+          <li><strong>Микророялти share(...):</strong> автоматический доход авторам библиотек и схем</li>
+          <li><strong>Сотрудничество вместо войн:</strong> приложения усиливают функционал друг друга</li>
+          <li><strong>Встроенные налоги:</strong> авто-уплата 4&ndash;6% налога на профдоход</li>
+        </ul>
+      </div>
+      <div class="kpi-chip-footer" style="color: #6ee7b7; border-color: rgba(16, 185, 129, 0.3);">⚡ SHARE(...) · АВТО-НАЛОГ</div>
     </div>
 
     <div class="glass-card">
-      <div class="card-pill-tag cyan">ОБЩЕСТВО</div>
-      <h3 class="card-title">Гражданин и Семья</h3>
-      <ul class="card-bullets">
-        <li><strong>Zero-PII защита:</strong> тайна покупок защищена от агрессивной слежки</li>
-        <li><strong>Безопасность кошелька:</strong> защита сбережений при утере смартфона</li>
-        <li><strong>Доход за внимание:</strong> реклама окупает личное хранилище данных</li>
-      </ul>
+      <div>
+        <div class="card-pill-tag cyan">ОБЩЕСТВО</div>
+        <h3 class="card-title">Гражданин и Семья</h3>
+        <ul class="card-bullets">
+          <li><strong>Zero-PII защита:</strong> тайна покупок защищена от агрессивной слежки</li>
+          <li><strong>Безопасность кошелька:</strong> защита сбережений при утере смартфона</li>
+          <li><strong>Доход за внимание:</strong> реклама окупает личное хранилище данных</li>
+        </ul>
+      </div>
+      <div class="kpi-chip-footer" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">⚡ ZERO-PII · ЗАЩИТА СЧЕТОВ</div>
     </div>
   </div>
 </div>
@@ -865,29 +1085,43 @@ rate: "-9%"
         <div class="feature-card">
           <div class="card-icon">👥</div>
           <h4>Команда и инвестиции</h4>
-          <p>Для реализации требуется целевое финансирование и формирование инженерной команды.</p>
+          <p>Для реализации требуется целевое финансирование и набор системной команды.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🏛️</div>
+          <h4>Партнерство с ЦБ РФ</h4>
+          <p>Интеграция со стандартами ПКСК Цифрового рубля и регуляторной песочницей.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🎯</div>
+          <h4>Пилотные внедрения</h4>
+          <p>Школьное питание, региональный МСП, городские расчеты и сеть «Забота».</p>
         </div>
       </div>
     </div>
 
     <div class="visual-panel">
-      <div class="glass-card accent-golden" style="height: 100%;">
-        <div class="card-pill-tag gold">ОПТИМАЛЬНЫЙ ПЛАН РАЗВИТИЯ (3 ГОДА)</div>
-        <div class="flow-step-row gold">
-          <span class="flow-step-num gold">Год 1</span>
-          <span><strong>Доработка и стабилизация ядра:</strong> распределенный расчетный движок и шлюзы</span>
+      <div class="glass-card accent-golden" style="height: 100%; justify-content: space-between;">
+        <div>
+          <div class="card-pill-tag gold">ОПТИМАЛЬНЫЙ ПЛАН РАЗВИТИЯ (3 ГОДА)</div>
+          <h3 class="card-title">Поэтапный вывод платформы</h3>
+          <div class="flow-step-row gold">
+            <span class="flow-step-num gold">Год 1</span>
+            <span><strong>Доработка и стабилизация ядра:</strong> распределенный расчетный движок и шлюзы</span>
+          </div>
+          <div class="flow-step-row gold">
+            <span class="flow-step-num gold">Год 2</span>
+            <span><strong>Внешние модули и приложения:</strong> API-оболочки, реляционные схемы и сервисы</span>
+          </div>
+          <div class="flow-step-row gold">
+            <span class="flow-step-num gold">Год 3</span>
+            <span><strong>Запуск и бета-версия:</strong> обкатка открытой бета-версии и пилотные внедрения</span>
+          </div>
         </div>
-        <div class="flow-step-row gold">
-          <span class="flow-step-num gold">Год 2</span>
-          <span><strong>Внешние модули и приложения:</strong> API-оболочки, реляционные схемы и сервисы</span>
+        <div class="sovereign-mission-banner">
+          <span class="banner-title">ЧЕТКИЙ ИНЖЕНЕРНЫЙ ПЛАН</span>
+          <span class="banner-desc">От открытого репозитория и детерминированного ядра FSM — к национальной платформе суверенитета данных и смарт-контрактов.</span>
         </div>
-        <div class="flow-step-row gold">
-          <span class="flow-step-num gold">Год 3</span>
-          <span><strong>Запуск и бета-версия:</strong> обкатка открытой бета-версии и пилотные внедрения</span>
-        </div>
-        <p style="font-size: 19.5px; color: #ffd600; margin-top: 12px; font-weight: 700; text-align: center;">
-          Четкий инженерный план: от открытой архитектуры к работающей национальной платформе.
-        </p>
       </div>
     </div>
   </div>
