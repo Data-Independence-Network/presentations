@@ -27,8 +27,8 @@ platform_overview/
 ---
 
 ## ⏱️ Strict Timing & Format Guidelines
-1. **Slide Count:** Exactly **12 slides** per presentation.
-2. **Time Limit:** **9:00 – 10:00 minutes** (target speech pace ~40–45s/slide + pauses).
+1. **Slide Count:** Exactly **15 billboard slides** per presentation (matching canonical workspace standard).
+2. **Time Limit:** **11:00 – 12:30 minutes** (target speech pace ~40–45s/slide + pauses).
 3. **TTS Engine:** Microsoft Edge Neural TTS (`node-edge-tts`, voice `ru-RU-DmitryNeural`, speed `-9%`, pauses `0.9s` / `1.2s`).
 4. **Deliverables per Track:**
    - Interactive Web Deck (`web_deck/index.html`)
@@ -36,6 +36,15 @@ platform_overview/
    - 16:9 Landscape Slide Deck PDF (`docs/turbase_platform_XX_slides.pdf`)
    - Explainer Whitepaper PDF (`docs/turbase_platform_XX_whitepaper.pdf`)
    - 10MB Video (`video_exports/turbase_platform_XX_10mb.mp4`)
+
+---
+
+## 🎯 Принцип объяснения платформы в будущей переработке презентаций
+Для презентаций эксплейнер-серии, еще не имеющих зафиксированного аудио (в частности, презентации 03), и будущих итераций переработки устанавливается безусловный приоритет **наглядного объяснения сути и механики работы Турбазы**:
+1. **От абстракций к физической механике:** Вместо общих лозунгов показывать, как конкретно циркулируют данные: устройство пользователя («Лист»), районный шлюз («Ветка»), национальный контур («Ствол»).
+2. **Реальные жизненные сценарии:** Опираться на сквозные прикладные примеры (оплата школьного питания, доставка еды без терминалов, сплитование роялти за рекламу и софт через `share(...)`, защитные прокси-оболочки кошельков).
+3. **Синтез и сокращение вторичного:** Второстепенные или оторванные концепции органично интегрируются в сценарии либо сокращаются в пользу ясного понимания двухконтурной модели (внешний информационный контур Турбазы на микро-цепях + внутренний расчетный детерминированный FSM Цифрового рубля).
+
 ---
 
 ## 🏷️ Семантические метки и авторская база знаний
