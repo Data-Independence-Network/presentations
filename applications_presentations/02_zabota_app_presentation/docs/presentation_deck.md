@@ -1,0 +1,1036 @@
+---
+presentation_id: "02_zabota_app_presentation"
+title: "Платформа «Турбаза»"
+subtitle: "«Забота»: Социальная сеть взаимной поддержки граждан и открытый репутационный стандарт"
+header_title: "ТУРБАЗА"
+header_subtitle: "Платформа «Забота»"
+theme: "platform_overview"
+total_slides: 15
+voice: "ru-RU-DmitryNeural"
+pitch: "-5Hz"
+rate: "-9%"
+---
+
+<!-- slide: 1 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ПРИКЛАДНЫЕ СЕРВИСЫ</div>
+    <h1 class="slide-title">«ЗАБОТА»: СЕТЬ ВЗАИМНОЙ ПОДДЕРЖКИ</h1>
+    <p class="slide-subtitle">Платформа добрососедства с владением информацией, взаимная выручка и открытый репутационный стандарт доверия</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout emerald">
+        <strong>Тепло настоящего добрососедства:</strong>
+        <p>«Забота» возрождает культуру соседской выручки без коммерческого спама и посредников. <strong>Локальные хранилища и репутация на устройствах жильцов</strong> создают безопасную среду для семей и пожилых людей.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">🤝</div>
+          <h4>Взаимная выручка</h4>
+          <p>Помощь пожилым, присмотр за детьми и шеринг бытового инструмента.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">📐</div>
+          <h4>Модель «Ситуация»</h4>
+          <p>Структурированные карточки проблем вместо хаоса в чатах.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🛡️</div>
+          <h4>Двухуровневый доступ</h4>
+          <p>Районная Ветка и очные QR-поручительства соседей по подъезду.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🌟</div>
+          <h4>Открытый стандарт</h4>
+          <p>Репутация реальной помощи экспортируется через открытые общественные API.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="kpi-vertical-stack">
+        <div class="kpi-card-explainer">
+          <div class="kpi-num emerald">0%</div>
+          <div class="kpi-label">Коммерческого спама и рекламы в ленте</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num teal">100%</div>
+          <div class="kpi-label">Реальные верифицированные соседи дома</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num cyan">0 РУБ</div>
+          <div class="kpi-label">Комиссий платформам-посредникам</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Здравствуйте! В третьей презентации прикладной серии представлена платформа «Забота» — автономная система взаимной поддержки граждан с прямым владением информацией и открытый репутационный стандарт доверия.
+>
+> Жизнь в современных мегаполисах парадоксальна: находясь в окружении сотен людей, семьи и пожилые граждане часто остаются один на один со своими трудностями.
+>
+> Общедомовые чаты превратились в источник шума и коммерческого спама. «Забота» предлагает принципиально иную культуру: структурированное соседское взаимодействие, безопасный шеринг и проверенную репутацию реальных дел.
+>
+> Давайте рассмотрим, как архитектура Турбазы превращает разрозненные квартиры в сплоченное и надежное сообщество.
+
+---
+
+<!-- slide: 2 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | КРИЗИС МУРАВЕЙНИКОВ</div>
+    <h2 class="slide-title">ОДИНОЧЕСТВО В ЦИФРОВОМ МУРАВЕЙНИКЕ</h2>
+    <p class="slide-subtitle">Почему традиционные мессенджеры разрушают добрососедство и вызывают эмоциональное выгорание</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="problem-box">
+        <h4>🚨 Пороки современных домовых чатов:</h4>
+        <ul class="clean-list-tight">
+          <li><strong>Бесконечный шум и флуд:</strong> Важные просьбы о помощи тонут в сотнях эмоциональных сообщений и споров ни о чем.</li>
+          <li><strong>Анонимный рекламный спам:</strong> Номера телефонов жильцов парсятся спамерами; чаты заполняются навязчивой рекламой.</li>
+          <li><strong>Токсичность и недоверие:</strong> Отсутствие культуры и структуры превращает обсуждения парковок и капремонта в ругань.</li>
+          <li><strong>Изоляция уязвимых групп:</strong> Пожилым людям трудно печатать текст в общем хаосе, а семьи не доверяют незнакомцам.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="comparison-dual-cards">
+        <div class="card-negative">
+          <div class="card-status-badge red">ЧАТЫ В МЕССЕНДЖЕРАХ</div>
+          <div class="card-metric-bad">500+ СООБЩЕНИЙ/ДЕНЬ</div>
+          <p>Хаос, оскорбления, сливы личных телефонов наружу и нулевая реальная взаимопомощь.</p>
+        </div>
+        <div class="card-positive">
+          <div class="card-status-badge green">СЕТЬ «ЗАБОТА»</div>
+          <div class="card-metric-good">ТИХО И ПО ДЕЛУ</div>
+          <p>Типизированные карточки проблем, локальная видимость подъезда и фильтрация флуда.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Каждый житель многоквартирного дома знает, во что сегодня превратились общедомовые чаты в популярных мессенджерах.
+>
+> Сотни неструктурированных сообщений в день, бесконечные споры из-за парковочных мест, агрессия и постоянный рекламный спам от сомнительных коммерсантов.
+>
+> В этом хаосе крик о помощи одинокой бабушки, которой срочно требуется купить лекарства, просто теряется за пару минут.
+>
+> Кроме того, централизованные мессенджеры требуют привязки к номерам телефонов, открывая персональные данные жильцов для мошенников и недобросовестных риелторов.
+>
+> Людям нужен инструмент, возвращающий тепло человеческого общения и гарантирующий стопроцентную тишину и безопасность.
+
+---
+
+<!-- slide: 3 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ФИЛОСОФИЯ ВЗАИМОВЫРУЧКИ</div>
+    <h2 class="slide-title">ФИЛОСОФИЯ ВЗАИМНОЙ ПОДДЕРЖКИ ГРАЖДАН</h2>
+    <p class="slide-subtitle">Не коммерческая биржа с комиссиями, а среда естественной добрососедской солидарности</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout emerald">
+        <strong>Опора на естественные человеческие ценности:</strong>
+        <p>«Забота» не пытается монетизировать каждый шаг соседа. Это среда, где бескорыстная взаимовыручка формирует социальный капитал и безопасность двора.</p>
+      </div>
+
+      <div class="pillar-cards-stack">
+        <div class="pillar-card">
+          <div class="pillar-num emerald">01</div>
+          <div class="pillar-info">
+            <h4>Помощь старшему поколению</h4>
+            <p>Донести сумку из магазина, помочь с бытовой техникой, привезти рецептурные лекарства.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num teal">02</div>
+          <div class="pillar-info">
+            <h4>Детская безопасность и дворовые кружки</h4>
+            <p>Совместный присмотр за детьми на площадке, обмен детскими книгами и спортинвентарем.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num cyan">03</div>
+          <div class="pillar-info">
+            <h4>Бытовой шеринг инструмента</h4>
+            <p>Одолжить дрель, стремянку или шуруповерт на 20 минут вместо покупки ради одного отверстия.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="metric-glass-card">
+        <div class="metric-header">ЭКОНОМИЧЕСКИЙ И СОЦИАЛЬНЫЙ ЭФФЕКТ</div>
+        <div class="metric-rows">
+          <div class="metric-row">
+            <span class="m-label">Экономия бюджета семьи:</span>
+            <span class="m-val emerald">до 15 000 ₽ / мес</span>
+          </div>
+          <div class="metric-row">
+            <span class="m-label">Скорость реакции на экстренную помощь:</span>
+            <span class="m-val teal">&lt; 5 минут</span>
+          </div>
+          <div class="metric-row">
+            <span class="m-label">Уровень доверия в подъезде:</span>
+            <span class="m-val cyan">рост в 4.5 раза</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Принципиальное отличие «Заботы» от коммерческих сервисов бытовых услуг заключается в её философии.
+>
+> Коммерческие платформы стремятся обложить налогом и комиссией в двадцать процентов каждое простое человеческое действие.
+>
+> «Забота» создана для естественной бескорыстной выручки. Если сосед идет в магазин, ему ничего не стоит захватить свежий хлеб или молоко для пожилой соседки.
+>
+> Если кому-то нужно повесить картину, не обязательно покупать перфоратор за десять тысяч рублей — его можно одолжить на полчаса у соседа по лестничной клетке.
+>
+> Это экономит семейные бюджеты, формирует атмосферу теплоты и делает двор по-настоящему безопасным для наших детей.
+
+---
+
+<!-- slide: 4 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СТРУКТУРА ДАННЫХ</div>
+    <h2 class="slide-title">МОДЕЛЬ ДАННЫХ «СИТУАЦИЯ» (`SITUATION`)</h2>
+    <p class="slide-subtitle">Структурированные сущности вместо неструктурированного текста и потерянных сообщений</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout emerald">
+        <strong>Архитектурная чистота прототипа `sapoto.net`:</strong>
+        <p>Каждое обращение оформляется как объект <code>Situation</code>, привязанный к рубрикаторам <code>Theme</code> и <code>Topic</code>, с четко очерченным контекстом.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">👶</div>
+          <h4>Тема: Дети (`Children`)</h4>
+          <p>Присмотр, дворовые игры, кружки и совместные прогулки.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">👵</div>
+          <h4>Тема: Старшие (`Inlaws`)</h4>
+          <p>Забота о пожилых родителях, лекарства, сопровождение.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🎒</div>
+          <h4>Тема: Школа (`School`)</h4>
+          <p>Родительский комитет, домашние задания, безопасность дороги.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🛠️</div>
+          <h4>Тема: Быт и Двор</h4>
+          <p>Шеринг инструментов, субботники, благоустройство подъезда.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="ui-mockup-frame">
+        <div class="mockup-header">📱 Карточка ситуации в приложении</div>
+        <div class="situation-card-preview" style="padding: 18px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 12px;">
+          <div style="font-size: 14px; font-weight: 700; color: #34d399; margin-bottom: 8px;">👵 Старшие: Рецептурные лекарства</div>
+          <h4 style="font-size: 20px; font-weight: 700; color: #ffffff; margin: 0 0 8px 0;">«Забрать рецепт в поликлинике №4»</h4>
+          <p style="font-size: 15px; color: #94a3b8; margin: 0 0 14px 0;">Дом 16, подъезд 2 • Бабушка Вера (кв. 34)</p>
+          <div style="display: flex; gap: 8px; margin-bottom: 14px;">
+            <span style="font-size: 13px; padding: 4px 10px; background: rgba(239, 68, 68, 0.2); color: #f87171; border-radius: 6px; font-weight: 600;">🔥 Срочность: Высокая (4/5)</span>
+            <span style="font-size: 13px; padding: 4px 10px; background: rgba(52, 211, 153, 0.2); color: #34d399; border-radius: 6px; font-weight: 600;">🤝 2 соседа рядом</span>
+          </div>
+          <div style="font-size: 14px; font-weight: 600; color: #38bdf8; text-align: center; padding: 10px; background: rgba(56, 189, 248, 0.12); border-radius: 8px;">
+            Действия: [Откликнуться] • [Взять в Деловой]
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> В основе платформы лежит строгая архитектурная модель данных, унаследованная от прототипа сапото точка нет.
+>
+> Вместо бесконечной ленты неструктурированного текста обращение гражданина моделируется как объект «Ситуация».
+>
+> Каждая ситуация обязательно классифицируется по тематическим разделам: дети, старшие родственники, школьные вопросы или совместное благоустройство двора.
+>
+> Сущность наследует свойства базового класса AirEntity, что обеспечивает автономное хранение на устройстве гражданина и криптографическую защиту от подделки.
+>
+> Благодаря этому проблемы не теряются в чатах, а имеют свой жизненный цикл, ответственных и понятный статус разрешения.
+
+---
+
+<!-- slide: 5 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | МАТРИЦА ПРИОРИТЕТОВ</div>
+    <h2 class="slide-title">МАТРИЦА ЭЙЗЕНХАУЭРА ДЛЯ ПРОБЛЕМ</h2>
+    <p class="slide-subtitle">Коллективная оценка критичности ситуаций по шкалам срочности и важности (1..5)</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout emerald">
+        <strong>Объективное всплытие насущных задач:</strong>
+        <p>Каждый участник оценивает ситуацию через <code>SituationRating</code>: шкалы <strong>Urgency (Срочность)</strong> и <strong>Importance (Важность)</strong> от 1 до 5.</p>
+      </div>
+
+      <div class="priority-levels-grid">
+        <div class="p-card red">
+          <span class="p-badge">Very High (5)</span>
+          <p><strong>Экстренная помощь:</strong> Авария отопления, внезапная болезнь соседа, потерявшийся ребенок.</p>
+        </div>
+        <div class="p-card amber">
+          <span class="p-badge">High (4)</span>
+          <p><strong>Срочные дела:</strong> Покупка лекарств к вечеру, перекрытие стояка водоснабжения.</p>
+        </div>
+        <div class="p-card blue">
+          <span class="p-badge">Average (3)</span>
+          <p><strong>Плановые задачи:</strong> Шеринг инструмента на выходные, организация субботника.</p>
+        </div>
+        <div class="p-card green">
+          <span class="p-badge">Low / Info (1-2)</span>
+          <p><strong>Информационные темы:</strong> Обмен книгами, предложения по озеленению клумбы.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="matrix-2x2-box">
+        <div class="matrix-header">МАТРИЦА ОЦЕНКИ СИТУАЦИЙ (5x5)</div>
+        <div class="matrix-cells">
+          <div class="m-quadrant q1">🔥 Экстренно (Всплывает в топ района за 2 мс)</div>
+          <div class="m-quadrant q2">⭐ Важно (Планирование соседями)</div>
+          <div class="m-quadrant q3">⚡ Быстро (Мелкие бытовые поручения)</div>
+          <div class="m-quadrant q4">💬 Фоново (Обмен опытом и вещами)</div>
+        </div>
+        <div class="matrix-footer">Децентрализованная сортировка без модераторов</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Как отделить действительно критическую ситуацию от повседневных бытовых тем без цензуры и администраторов?
+>
+> Для этого в «Заботе» реализована матрица оценки ситуаций. Соседи и автор оценивают обращение по двум независимым осям: важности и срочности от единицы до пяти.
+>
+> Экстренные события — например, запах гари на площадке или внезапный гипертонический криз у одинокой пенсионерки — мгновенно получают наивысший приоритет.
+>
+> Такая ситуация за две миллисекунды поднимается в приоритетные очереди Ветки и доставляется соседям, находящимся в радиусе пятидесяти метров.
+>
+> Плановые же и фоновые задачи не тревожат жителей навязчивыми уведомлениями, сохраняя душевный покой в доме.
+
+---
+
+<!-- slide: 6 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | АНАТОМИЯ ОТКЛИКОВ</div>
+    <h2 class="slide-title">АНАТОМИЯ ПОМОЩИ: 4 ТИПА ОТВЕТОВ</h2>
+    <p class="slide-subtitle">Строгая типизация откликов в `SituationThread` исключает флуд и направляет энергию в действие</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout emerald">
+        <strong>Культура конструктивного диалога:</strong>
+        <p>В потоке обсуждения <code>SituationThread</code> каждый отклик <code>Reply</code> имеет четкий тип, направленный на решение задачи:</p>
+      </div>
+
+      <div class="pillar-cards-stack">
+        <div class="pillar-card">
+          <div class="pillar-num emerald">💡</div>
+          <div class="pillar-info">
+            <h4>Идея / Предложение помощи (`Idea`)</h4>
+            <p>Конкретное предложение действия. Имеет прямую кнопку <strong>«Добавить как задачу»</strong> в органайзер.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num teal">📖</div>
+          <div class="pillar-info">
+            <h4>Практический опыт (`Experience`)</h4>
+            <p>Как аналогичная бытовая проблема уже успешно решалась жильцами дома ранее.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num cyan">❓</div>
+          <div class="pillar-info">
+            <h4>Уточняющий вопрос (`Question`)</h4>
+            <p>Сбор деталей по матрице 8 вопросов: <em>Что, Где, Кто, Когда, Почему, Как, Чей, Какой</em>.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num amber">💬</div>
+          <div class="pillar-info">
+            <h4>Комментарий (`Comment`)</h4>
+            <p>Нейтральное уточнение или слова соседской поддержки без шума.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="rule-box">
+        <h4>⚡ Встроенная фильтрация ленты</h4>
+        <p>Инструментальное меню позволяет жильцу в один клик отфильтровать ветку:</p>
+        <div class="tag-cloud">
+          <span class="tag green">Показать только Идеи помощи</span>
+          <span class="tag teal">Показать только Опыт соседей</span>
+          <span class="tag cyan">Показать Вопросы (5W1H)</span>
+        </div>
+        <p class="rule-footnote">99% бесполезного шума отсекается на уровне интерфейса.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> В традиционном чате на любой вопрос сыплются десятки бессмысленных реплик, шуток и смайликов.
+>
+> В кодовой базе «Заботы» каждый ответ внутри потока обсуждения строго типизирован.
+>
+> Житель может предложить конкретную идею помощи, поделиться проверенным опытом решения аналогичной проблемы, задать точный уточняющий вопрос или оставить короткий комментарий.
+>
+> Предложение помощи снабжено кнопкой прямого экспорта в органайзер дел.
+>
+> Любой сосед может в один клик переключить фильтр ленты, оставив только конструктивные предложения и скрыв весь второстепенный контекст.
+
+---
+
+<!-- slide: 7 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | КОНСЕНСУС И АРГУМЕНТЫ</div>
+    <h2 class="slide-title">КОНСЕНСУС VOTECUBE ASSENT ВМЕСТО ЛАЙКОВ</h2>
+    <p class="slide-subtitle">Интеграция протокола VoteCube: взвешенное согласие (1..5) и грамматические доводы</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout emerald">
+        <strong>Осознанная аргументация предложений:</strong>
+        <p>Вместо поверхностных «лайков» одобрение идеи формируется через индекс согласия <strong>Assent (1..5)</strong> с добавлением грамматических доводов.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">📝</div>
+          <h4>Языковые шаблоны</h4>
+          <p>«Это помогает [бабушке] [безопасно подняться на этаж]».</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">⚖️</div>
+          <h4>Весовая формула</h4>
+          <p>Топ-3 доводов взвешиваются коэффициентами [2.5, 1.0, 0.5].</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🎯</div>
+          <h4>Объективный скоринг</h4>
+          <p>Максимальный балл 5 формируется только вескими доводами.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🛡️</div>
+          <h4>Защита от накруток</h4>
+          <p>Один житель — один аргументированный голос в хранилище.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="ui-mockup-frame">
+        <div class="mockup-header">🗳️ Взвешенное согласие соседей (Assent 4.8 / 5.0)</div>
+        <div class="assent-reasons-list" style="display: flex; flex-direction: column; gap: 10px; padding: 14px; background: rgba(16, 185, 129, 0.08); border-radius: 12px; border: 1px solid rgba(16, 185, 129, 0.2);">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="background: #10b981; color: #ffffff; font-size: 13px; font-weight: 700; padding: 3px 8px; border-radius: 6px;">+2.5</span>
+            <div style="font-size: 14px; color: #e2e8f0;">«Это помогает [бабушке] [безопасно спуститься по ступенькам]»</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="background: #14b8a6; color: #ffffff; font-size: 13px; font-weight: 700; padding: 3px 8px; border-radius: 6px;">+1.0</span>
+            <div style="font-size: 14px; color: #e2e8f0;">«Это позволяет [мамам с колясками] [не нести ребенка на руках]»</div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <span style="background: #06b6d4; color: #ffffff; font-size: 13px; font-weight: 700; padding: 3px 8px; border-radius: 6px;">+0.5</span>
+            <div style="font-size: 14px; color: #e2e8f0;">«Это делает [наш подъезд] [образцовым и чистым в доме]»</div>
+          </div>
+          <div style="margin-top: 6px; padding: 8px; background: rgba(16, 185, 129, 0.15); border-radius: 6px; font-size: 13px; font-weight: 600; color: #34d399; text-align: center;">
+            Итог: 96% поддержки без оскорблений и споров
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Как сообщество выбирает лучший способ решения проблемы? В обычных сетях побеждает тот, у кого больше ботов или громче голос.
+>
+> В «Заботе» интегрирован протокол VoteCube Assent. Вместо эмоциональных «лайков» оценка идеи требует аргументации.
+>
+> Пользователи выбирают грамматические шаблоны: например, «это решение позволяет пожилым людям не скользить на ступеньках».
+>
+> Алгоритм взвешивает доводы по строгой математической формуле с затухающими коэффициентами.
+>
+> В результате наверх выходит не популистский лозунг, а наиболее обоснованное и полезное для дома инженерное или организационное решение.
+
+---
+
+<!-- slide: 8 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ИНКЛЮЗИВНЫЙ ИНТЕРФЕЙС</div>
+    <h2 class="slide-title">ИНКЛЮЗИВНЫЙ ВВОД: ГОЛОС И ВИДЕО</h2>
+    <p class="slide-subtitle">Компонент `MediaRecorder`: максимальная доступность для старшего поколения и экстренных ситуаций</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout emerald">
+        <strong>Доступность для каждого жителя:</strong>
+        <p>Старшему поколению часто трудно набирать текст на маленьком экране смартфона. Модуль <code>app-media-recorder</code> сводит создание ситуации к двум крупным кнопкам.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">🎙️</div>
+          <h4>Режим «Голос» (`Speak`)</h4>
+          <p>Нажал и сказал: мгновенная запись голосовой просьбы без клавиатуры.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">📸</div>
+          <h4>Режим «Показать» (`Show`)</h4>
+          <p>Фото или видеофиксация: яма во дворе, течь в трубе, состояние пандуса.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🔒</div>
+          <h4>Локальное сжатие</h4>
+          <p>Аудио сжимается прямо в браузере и шифруется на Листе.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">⚡</div>
+          <h4>Мгновенная доставка</h4>
+          <p>P2P-передача по локальной сети подъезда даже без внешнего интернета.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="ui-mockup-frame">
+        <div class="mockup-header">Интерфейс помощи в один тап</div>
+        <div class="action-buttons-large">
+          <div class="big-btn voice">
+            <span class="btn-emoji">🎙️</span>
+            <span class="btn-text">СКАЗАТЬ ГОЛОСОМ</span>
+            <span class="btn-hint">«Мне нужно купить хлеб»</span>
+          </div>
+          <div class="big-btn camera">
+            <span class="btn-emoji">📷</span>
+            <span class="btn-text">ПОКАЗАТЬ НА ВИДЕО</span>
+            <span class="btn-hint">Снять поломку во дворе</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Одной из главных проблем цифровизации является цифровое неравенство. Пожилым гражданам трудно разбираться в сложных меню и печатать длинные тексты.
+>
+> В коде интерфейса «Заботы» заложен специальный инклюзивный модуль медиазаписи.
+>
+> Пожилой человек просто нажимает одну крупную кнопку и голосом просит о помощи: например, донести покупки с первого этажа.
+>
+> Если во дворе разбита ступенька или сломан замок на входной двери, достаточно нажать кнопку «Показать» и снять короткое видео.
+>
+> Аудио и видеозаписи сжимаются прямо на телефоне и безопасно передаются соседям по локальной сети подъезда.
+
+---
+
+<!-- slide: 9 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ВЕРИФИКАЦИЯ БЕЗ СЛЕЖКИ</div>
+    <h2 class="slide-title">ДВУХУРОВНЕВАЯ ВЕРИФИКАЦИЯ СОСЕДЕЙ</h2>
+    <p class="slide-subtitle">Районное Землячество и очные QR-поручительства: 100% защита от спамеров и ботов</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout emerald">
+        <strong>Как защитить подъезд от посторонних:</strong>
+        <p>Никаких сливов паспортов и телефонных баз. Доверие строится на криптографическом сочетании района и живого соседского контакта.</p>
+      </div>
+
+      <div class="pillar-cards-stack">
+        <div class="pillar-card">
+          <div class="pillar-num emerald">L1</div>
+          <div class="pillar-info">
+            <h4>Уровень 1: Районная Ветка</h4>
+            <p>Муниципальный узел подтверждает факт проживания в районе города без сбора личных данных (Zero-PII), отсекая внешние DDoS-атаки.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num teal">L2</div>
+          <div class="pillar-info">
+            <h4>Уровень 2: Очный QR-онбординг подъезда</h4>
+            <p>Добавление в закрытый чат подъезда происходит при личной встрече: сканирование одноразового QR-кода на лестничной клетке или поручительство 2-х соседей.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="security-shield-card">
+        <div class="shield-badge">🔒 100% БАРЬЕР ДЛЯ СПАМА</div>
+        <ul class="shield-features">
+          <li><strong>Чужой человек с улицы</strong> не сможет отправить спам в подъездную ленту.</li>
+          <li><strong>Бот-фермы</strong> бессильны: невозможно подделать очное QR-рукопожатие.</li>
+          <li><strong>При смене квартиры</strong> доступ легко отзывается советом подъезда.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Как гарантировать, что в закрытом сообществе подъезда или двора находятся исключительно настоящие жильцы, а не риелторы, рекламщики и спам-боты?
+>
+> Платформа использует элегантную двухуровневую модель.
+>
+> Первый уровень — это районная Ветка. Она проверяет принадлежность криптографического ключа к территории района, защищая от сетевых атак извне без раскрытия паспортных данных.
+>
+> Второй уровень — это очное добавление жильцов. Чтобы войти в группу подъезда, достаточно при встрече на лестничной клетке отсканировать QR-код на телефоне старосты или получить поручительство двух соседей.
+>
+> Это полностью исключает попадание посторонних лиц и гарантирует абсолютное доверие внутри дома.
+
+---
+
+<!-- slide: 10 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ГЕРМЕТИЧНЫЕ ОТСЕКИ</div>
+    <h2 class="slide-title">ГЕРМЕТИЧНЫЕ ОТСЕКИ СООБЩЕСТВ</h2>
+    <p class="slide-subtitle">Изолированные пространства взаимодействия: подъезды, школы, кружки и конфессиональные общины</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout emerald">
+        <strong>Строгая изоляция локальных контекстов:</strong>
+        <p>Данные сообщества не смешиваются и никогда не выходят за пределы криптографического периметра его действительных участников.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">🚪</div>
+          <h4>Подъездное хранилище</h4>
+          <p>Шеринг ключей от колясочной, взаимовыручка на площадке.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🎓</div>
+          <h4>Школьные комитеты</h4>
+          <p>Безопасное общение родителей без слежки коммерческих сетей.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">⚽</div>
+          <h4>Спортивные секции</h4>
+          <p>Координация тренировок дворовых команд и соревнований.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🕊️</div>
+          <h4>Религиозные общины</h4>
+          <p>Приходы церквей, мечети, синагоги и дацаны: благотворительность.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="kpi-vertical-stack">
+        <div class="kpi-card-explainer">
+          <div class="kpi-num emerald">100%</div>
+          <div class="kpi-label">Изоляция закрытых групп от внешнего интернета</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num teal">E2E</div>
+          <div class="kpi-label">Шифрование данных ключами участников</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num cyan">0</div>
+          <div class="kpi-label">Утечек списков членов общин и родителей</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Принцип «герметичных отсеков» Турбазы позволяет создавать изолированные пространства доверия для любых гражданских сообществ.
+>
+> Это может быть закрытое хранилище конкретного подъезда, родительский комитет школьного класса, дачный кооператив или религиозная община — приход храма, мечеть, синагога или дацан.
+>
+> Информация, циркулирующая внутри такого отсека, зашифрована общими групповыми ключами участников.
+>
+> Ни одна сторонняя организация, рекламодатель или внешний администратор не имеют технической возможности заглянуть внутрь этого периметра.
+>
+> Люди получают пространство подлинной свободы, взаимной поддержки и спокойного доверительного диалога.
+
+---
+
+<!-- slide: 11 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | OPEN SOURCE СТАНДАРТ</div>
+    <h2 class="slide-title">ОТКРЫТЫЕ РЕЛЯЦИОННЫЕ СХЕМЫ ДАННЫХ</h2>
+    <p class="slide-subtitle">Схемы «Заботы» как общественный стандарт: любой разработчик подключается без лицензий</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout emerald">
+        <strong>Устранение дублирования в индустрии:</strong>
+        <p>Схемы сущностей взаимопомощи, отзывов и форумов открыты под свободной лицензией. Сторонним приложениям выгоднее использовать их, чем изобретать свои.</p>
+      </div>
+
+      <div class="schema-list-box">
+        <div class="schema-item">
+          <span class="badge-schema">@sapoto/core</span>
+          <code>Situation, SituationRating, Theme, Topic, UserTopicFavorite</code>
+        </div>
+        <div class="schema-item">
+          <span class="badge-schema">@sapoto/main</span>
+          <code>SituationThread, Reply, QuestionType, UserRating, ReplyRating</code>
+        </div>
+        <div class="schema-item">
+          <span class="badge-schema">@votecube/core</span>
+          <code>Idea, Reason, Assent, FactorPosition</code>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="benefit-cards-stack">
+        <div class="benefit-card">
+          <div class="b-icon">🧩</div>
+          <div class="b-text">
+            <h4>Мгновенная интероперабельность</h4>
+            <p>Любое внешнее приложение может читать и дополнять ленту помощи через SQL JOIN.</p>
+          </div>
+        </div>
+        <div class="benefit-card">
+          <div class="b-icon">🚀</div>
+          <div class="b-text">
+            <h4>Экономия месяцев разработки</h4>
+            <p>Готовая протестированная модель данных для ЖКХ, волонтеров и муниципалитетов.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Важнейший вклад проекта «Забота» в отечественную ИТ-инфраструктуру — это создание открытого реляционного стандарта данных для взаимопомощи и социального взаимодействия.
+>
+> Схемы таблиц ситуаций, потоков обсуждения, рейтингов доверия и типов вопросов опубликованы как свободные пакеты.
+>
+> Любой российский стартап, региональный портал или управляющая компания могут бесплатно встроить эти схемы в свои приложения.
+>
+> Вместо зоопарка несовместимых баз данных страна получает единый стандарт описания бытовых запросов и добрососедской взаимовыручки.
+>
+> Это исключает дублирование затрат и объединяет программные решения разных команд в гармоничную экосистему.
+
+---
+
+<!-- slide: 12 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | РЕПУТАЦИЯ БЕЗ СЛЕЖКИ</div>
+    <h2 class="slide-title">РЕПУТАЦИЯ БЕЗ ТОКСИЧНОГО РЕЙТИНГА</h2>
+    <p class="slide-subtitle">Отказ от антиутопического социального скоринга: доверие привязано к реальным подтвержденным делам</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout emerald">
+        <strong>Человеческое доверие против цифрового надзора:</strong>
+        <p>«Забота» принципиально отвергает китайскую модель всеобщего «социального рейтинга». Репутация формируется децентрализованно и строго в конкретном контексте.</p>
+      </div>
+
+      <div class="pillar-cards-stack">
+        <div class="pillar-card">
+          <div class="pillar-num emerald">01</div>
+          <div class="pillar-info">
+            <h4>Только подтвержденные факты</h4>
+            <p>Отзыв невозможно оставить просто так: оценка фиксируется только после обоюдного закрытия выполненной ситуации.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num teal">02</div>
+          <div class="pillar-info">
+            <h4>Контекстность компетенций</h4>
+            <p>Мастер сантехники имеет авторитет в ремонте труб, но его мнение не получает автоматического перевеса в вопросах школьного образования.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num cyan">03</div>
+          <div class="pillar-info">
+            <h4>Хранение на устройстве гражданина</h4>
+            <p>Репутационный след принадлежит самому человеку и подписывается его локальным ключом.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="kpi-vertical-stack">
+        <div class="kpi-card-explainer">
+          <div class="kpi-num emerald">0%</div>
+          <div class="kpi-label">Слежки, наказаний и поражения в правах</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num teal">100%</div>
+          <div class="kpi-label">Контекстная валидация профессиональных навыков</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num cyan">P2P</div>
+          <div class="kpi-label">Прямое взаимное признание без участия чиновников</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Говоря о репутации в цифровой среде, многие опасаются появления антиутопического «социального рейтинга», ограничивающего свободу человека.
+>
+> Платформа «Забота» категорически отвергает подобные подходы.
+>
+> Репутационная модель платформы строго контекстна и защищена криптографией. Если мастер великолепно чинит электропроводку в домах района, он зарабатывает авторитет проверенного электрика.
+>
+> Но этот профессиональный вес никоим образом не дает ему автоматических привилегий в педагогических спорах или политических дебатах.
+>
+> Репутация складывается исключительно из подтвержденных соседями реальных добрых дел и хранится на устройствах самих граждан.
+
+---
+
+<!-- slide: 13 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СИНЕРГИЯ ТРИАДЫ</div>
+    <h2 class="slide-title">СИНЕРГЕТИЧЕСКАЯ ТРИАДА ФЛАГМАНОВ</h2>
+    <p class="slide-subtitle">Бесшовный мост взаимодействия: «Забота» $\longleftrightarrow$ «Деловой» $\longleftrightarrow$ «КубГолос»</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout emerald">
+        <strong>Три флагмана — единый оркестр:</strong>
+        <p>Каждое приложение решает свою прикладную задачу, но объединение данных через локальный SQLite творит настоящую магию продуктивности.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">⚡</div>
+          <h4>Кнопка `Add as Task`</h4>
+          <p>Отклик соседа из «Заботы» в один тап становится задачей в органайзере «Деловой».</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🎲</div>
+          <h4>Вынос в «КубГолос»</h4>
+          <p>Сложная ситуация по двору передается на 3D-голосование в «КубГолос».</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">👨‍👩‍👧‍👦</div>
+          <h4>Семейная делегация</h4>
+          <p>Поручение бабушке распределяется между членами семьи в «Деловом».</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🔄</div>
+          <h4>Нулевые задержки</h4>
+          <p>Все три приложения работают с одной локальной базой данных Листа.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="synergy-triangle-box">
+        <div class="tri-node emerald">🤝 ЗАБОТА<br><span>Взаимовыручка</span></div>
+        <div class="tri-arrows">⟵ Add as Task ⟶</div>
+        <div class="tri-node golden">📋 ДЕЛОВОЙ<br><span>Исполнение</span></div>
+        <div class="tri-arrows">⟵ Консенсус ⟶</div>
+        <div class="tri-node cyan">🎲 КУБГОЛОС<br><span>Голосование</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Подлинная мощь отечественной платформы проявляется в бесшовной синергии её флагманских приложений.
+>
+> Обратите внимание на связку трех сервисов: «Забота», «Деловой» и «КубГолос».
+>
+> Когда житель видит в «Заботе» просьбу пожилого соседа купить молоко, он нажимает встроенную кнопку «Добавить как задачу».
+>
+> Это поручение мгновенно появляется на физической орбите его органайзера «Деловой», напоминая зайти в магазин по пути с работы.
+>
+> А если во дворе разгорается спор о месте установки спортивной площадки, ситуация в один клик превращается в трехмерный микро-опрос в «КубГолосе».
+
+---
+
+<!-- slide: 14 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ЛОКАЛЬНАЯ ЭКОНОМИКА</div>
+    <h2 class="slide-title">РЕЕСТР ПРОВЕРЕННЫХ МАСТЕРОВ</h2>
+    <p class="slide-subtitle">Локальный каталог самозанятых и специалистов ЖКХ без грабительских комиссий агрегаторов</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout emerald">
+        <strong>Экономика шаговой доступности:</strong>
+        <p>Каталог услуг объединяет проверенных сантехников, электриков, репетиторов и швей, живущих в соседних домах, с прозрачным расчетом.</p>
+      </div>
+
+      <div class="pillar-cards-stack">
+        <div class="pillar-card">
+          <div class="pillar-num emerald">2 мс</div>
+          <div class="pillar-info">
+            <h4>Мгновенный локальный поиск</h4>
+            <p>Поиск свободного мастера в радиусе 500 метров прямо через районную Ветку.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num teal">0%</div>
+          <div class="pillar-info">
+            <h4>Без комиссий посредников</h4>
+            <p>Коммерческие агрегаторы берут до 30% с заказа. В Турбазе расчет прямой: мастер получает 100%.</p>
+          </div>
+        </div>
+        <div class="pillar-card">
+          <div class="pillar-num cyan">₽</div>
+          <div class="pillar-info">
+            <h4>Цифровой рубль и эскроу</h4>
+            <p>Безопасная сделка: средства блокируются в смарт-контракте и выплачиваются после приемки работ.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="master-card-preview">
+        <div class="master-header">
+          <div class="avatar-box">👨‍🔧</div>
+          <div class="master-info">
+            <div class="master-name">Алексей М. (Дом 14, под. 2)</div>
+            <div class="master-spec">Мастер-сантехник, электрик 5 разряда</div>
+          </div>
+        </div>
+        <div class="master-badges">
+          <span class="badge green">⭐ Репутация соседей: 4.98</span>
+          <span class="badge blue">24 выполненных заказа</span>
+        </div>
+        <div class="master-quote">«Отремонтировал стояк в 3-м подъезде за 40 минут. Рекомендую!» — Совет дома</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> На базе доверенной репутации «Заботы» естественным образом вырастает локальная экономика района.
+>
+> Сегодня агрегаторы услуг забирают до тридцати процентов стоимости каждого заказа, навязывая случайных мастеров без гарантий качества.
+>
+> В каталоге мастеров Турбазы жители находят проверенных специалистов прямо из своего дома или соседнего двора.
+>
+> Поиск мастера занимает две миллисекунды, а оплата через смарт-контракт в Цифровых рублях поступает специалисту в полном объеме без грабительских комиссий.
+>
+> Жители получают надежный сервис по справедливой цене, а местные самозанятые мастера — постоянную уважительную работу рядом с домом.
+
+---
+
+<!-- slide: 15 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ДОБРОСОСЕДСТВО</div>
+    <h2 class="slide-title">ВОЗРОЖДЕНИЕ ДОБРОСОСЕДСТВА</h2>
+    <p class="slide-subtitle">«Забота» возвращает людям тепло общения, безопасность двора и владение собственной информацией</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout emerald">
+        <strong>Фундамент крепкого общества:</strong>
+        <p>Социальная сила страны начинается с доверия в подъезде. «Забота» соединяет передовые математические алгоритмы и тепло человеческого участия.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">🏠</div>
+          <h4>Сплоченный дом</h4>
+          <p>Знакомство с соседями и совместная забота о территории.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">👵</div>
+          <h4>Защита старших</h4>
+          <p>Ни один пожилой человек не останется без внимания и помощи.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🛡️</div>
+          <h4>Безопасность</h4>
+          <p>Чистый двор, проверенные жильцы и отсутствие спама.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🌐</div>
+          <h4>Владение информацией</h4>
+          <p>100% данных на устройствах жильцов под защитой 152-ФЗ.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="kpi-vertical-stack">
+        <div class="kpi-card-explainer">
+          <div class="kpi-num emerald">100%</div>
+          <div class="kpi-label">Автономия от зарубежных облаков и серверов</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num teal">0%</div>
+          <div class="kpi-label">Скрытых платежей, подписок и комиссий</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num cyan">РОССИЯ</div>
+          <div class="kpi-label">Доверенная цифровая среда для каждого двора</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+### Текст для диктора:
+> Подводя итог, платформа «Забота» — это не просто мобильное приложение.
+>
+> Это цифровая основа для возрождения подлинного добрососедства, взаимного уважения и солидарности граждан России.
+>
+> Опираясь на архитектуру прямого владения данными Турбазы, «Забота» доказывает, что технологии могут служить не слежке и рекламе, а объединению людей, защите старшего поколения и поддержке семей.
+>
+> Спасибо за внимание! В следующей презентации показано, как эти принципы открывают новые горизонты в путеводителе путешествий «УраТур».

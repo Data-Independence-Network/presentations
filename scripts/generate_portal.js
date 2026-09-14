@@ -33,10 +33,10 @@ const CATEGORIES = {
   },
   applications_presentations: {
     id: 'applications_presentations',
-    title: 'Флагманские прикладные решения',
-    icon: '📱',
-    badge: '5 приложений',
-    desc: 'Экосистема суверенного пользовательского ПО: «Деловой», «КубГолос», «Забота», «УраТур» и локальные районные сервисы МСП'
+    title: 'Скоро: Флагманские прикладные решения',
+    icon: '🚀',
+    badge: '5 приложений · В фокусе: «КубГолос»',
+    desc: 'Пакет прикладных суверенных сервисов экосистемы. «КубГолос» находится в фокусе первоочередной доработки и подготовки к нейроозвучке первым по списку, далее «Забота» и «Деловой»'
   },
   architecture_presentations: {
     id: 'architecture_presentations',
@@ -90,29 +90,30 @@ const PRESENTATION_METADATA = {
     tags: ['6 Стейкхолдеров', 'TCO -85%', 'Игра с + суммой', 'Локальный таргетинг']
   },
 
-  // --- APPLICATIONS (DRAFT) ---
-  'applications_presentations/01_delovoy_app_presentation': {
-    customTitle: 'Органайзер «Деловой»',
-    customSubtitle: 'Суверенное планирование, локальные календари и P2P-координация задач без внешних облаков и слежки.',
-    marker: 'ПРИЛОЖЕНИЕ · ФЛАГМАН',
-    tags: ['Органайзер', 'Локальный Leaf', 'P2P-синхронизация', 'Оффлайн-режим']
-  },
-  'applications_presentations/02_kubgolos_app_presentation': {
+  // --- APPLICATIONS (COMING SOON / СКОРО) ---
+  'applications_presentations/01_kubgolos_app_presentation': {
     customTitle: 'Платформа «КубГолос»',
     customSubtitle: 'Одноранговые микро-опросы, легитимное голосование и защита мнений в локальных сообществах и коллективах.',
-    marker: 'ПРИЛОЖЕНИЕ · ФЛАГМАН',
-    tags: ['Микро-опросы', 'Криптография', 'Локальное волеизъявление']
+    marker: 'ПРИЛОЖЕНИЕ · ВЫПУСК 1',
+    tags: ['Микро-опросы', 'Криптография', 'Локальное волеизъявление', 'В фокусе'],
+    isNextInLine: true
   },
-  'applications_presentations/03_zabota_app_presentation': {
+  'applications_presentations/02_zabota_app_presentation': {
     customTitle: 'Платформа «Забота»',
     customSubtitle: 'Взаимопомощь, открытая децентрализованная репутация и доверенные круги взаимоподдержки жителей.',
-    marker: 'ПРИЛОЖЕНИЕ · ФЛАГМАН',
+    marker: 'ПРИЛОЖЕНИЕ · ВЫПУСК 2',
     tags: ['Взаимопомощь', 'Открытая репутация', 'Доверенные круги']
+  },
+  'applications_presentations/03_delovoy_app_presentation': {
+    customTitle: 'Органайзер «Деловой»',
+    customSubtitle: 'Суверенное планирование, локальные календари и P2P-координация задач без внешних облаков и слежки.',
+    marker: 'ПРИЛОЖЕНИЕ · ВЫПУСК 3',
+    tags: ['Органайзер', 'Локальный Leaf', 'P2P-синхронизация', 'Оффлайн-режим']
   },
   'applications_presentations/04_uratur_app_presentation': {
     customTitle: 'Платформа «УраТур»',
     customSubtitle: 'Суверенный туристический агрегатор и локальные маршруты без грабительских комиссий платформам-монополиям.',
-    marker: 'ПРИЛОЖЕНИЕ · ФЛАГМАН',
+    marker: 'ПРИЛОЖЕНИЕ · ВЫПУСК 4',
     tags: ['Туризм', '0% комиссии платформ', 'Прямые расчеты', 'P2P']
   },
   'applications_presentations/05_local_services_presentation': {
@@ -239,7 +240,7 @@ const WHITEPAPERS = [
   {
     num: '02',
     title: 'Белая книга 02: Пакет флагманских прикладных решений',
-    desc: 'Архитектура сервисов «Деловой», «КубГолос», «Забота», «УраТур» и локального реестра',
+    desc: 'Архитектура сервисов «КубГолос», «Забота», «Деловой», «УраТур» и локального реестра',
     path: 'shared_docs/whitepapers/02_applications_suite_whitepaper.pdf'
   },
   {
@@ -335,6 +336,8 @@ function scanAllPresentations() {
       audioCount,
       hasWebDeck,
       webDeckUrl: hasWebDeck ? `${rel}/generated/outputs/web_deck/index.html` : null,
+      isNextInLine: Boolean(curated.isNextInLine),
+      isComingSoon: catKey === 'applications_presentations',
       pdfs
     });
   }
@@ -536,6 +539,10 @@ function buildPortalHtml(items) {
       border-color: rgba(16, 185, 129, 0.35);
       background: linear-gradient(145deg, rgba(16, 185, 129, 0.08) 0%, var(--bg-surface) 100%);
     }
+    .stat-card.coming-soon-stat {
+      border-color: rgba(250, 204, 21, 0.35);
+      background: linear-gradient(145deg, rgba(250, 204, 21, 0.08) 0%, var(--bg-surface) 100%);
+    }
 
     .stat-number {
       font-size: 36px;
@@ -622,6 +629,11 @@ function buildPortalHtml(items) {
       color: #34d399;
       border: 1px solid rgba(16, 185, 129, 0.45);
     }
+    .mode-tab.active.featured-mode {
+      background: rgba(250, 204, 21, 0.16);
+      color: #fde047;
+      border: 1px solid rgba(250, 204, 21, 0.45);
+    }
 
     .tab-badge {
       background: rgba(255, 255, 255, 0.12);
@@ -633,6 +645,10 @@ function buildPortalHtml(items) {
     }
     .mode-tab.active.ready-mode .tab-badge {
       background: var(--emerald);
+      color: #070b14;
+    }
+    .mode-tab.active.featured-mode .tab-badge {
+      background: var(--gold);
       color: #070b14;
     }
 
@@ -787,6 +803,28 @@ function buildPortalHtml(items) {
       box-shadow: 0 18px 36px -12px rgba(16, 185, 129, 0.35);
     }
 
+    /* Highlighted Next-In-Line Card («КубГолос») */
+    .pres-card.is-next {
+      border: 2px solid rgba(250, 204, 21, 0.75);
+      background: linear-gradient(165deg, rgba(250, 204, 21, 0.1) 0%, rgba(56, 189, 248, 0.05) 45%, var(--bg-card) 90%);
+      box-shadow: 0 12px 32px -10px rgba(250, 204, 21, 0.3), 0 0 22px rgba(250, 204, 21, 0.15);
+    }
+    .pres-card.is-next:hover {
+      border-color: rgba(250, 204, 21, 1);
+      transform: translateY(-3px);
+      box-shadow: 0 18px 42px -10px rgba(250, 204, 21, 0.5), 0 0 32px rgba(250, 204, 21, 0.25);
+    }
+
+    /* General Coming Soon Cards */
+    .pres-card.is-coming-soon {
+      border-color: rgba(56, 189, 248, 0.28);
+      background: linear-gradient(165deg, rgba(56, 189, 248, 0.05) 0%, var(--bg-card) 75%);
+    }
+    .pres-card.is-coming-soon:hover {
+      border-color: rgba(56, 189, 248, 0.55);
+      transform: translateY(-2px);
+    }
+
     /* Draft / Locked Card */
     .pres-card.is-draft {
       opacity: 0.65;
@@ -821,6 +859,11 @@ function buildPortalHtml(items) {
       color: #38bdf8;
       border: 1px solid rgba(56, 189, 248, 0.3);
     }
+    .card-marker.is-next-marker {
+      background: rgba(250, 204, 21, 0.2) !important;
+      color: #fde047 !important;
+      border: 1px solid rgba(250, 204, 21, 0.55) !important;
+    }
 
     .card-status-pill {
       display: inline-flex;
@@ -847,6 +890,31 @@ function buildPortalHtml(items) {
     @keyframes pulse-dot {
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.3); opacity: 0.6; }
+    }
+
+    .status-next {
+      background: rgba(250, 204, 21, 0.2);
+      color: #fef08a;
+      border: 1px solid rgba(250, 204, 21, 0.6);
+      font-weight: 800;
+    }
+    .status-next .status-dot-next {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #facc15;
+      box-shadow: 0 0 10px #facc15;
+      animation: pulse-next 1.5s infinite ease-in-out;
+    }
+    @keyframes pulse-next {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.65; }
+    }
+
+    .status-soon {
+      background: rgba(56, 189, 248, 0.16);
+      color: #7dd3fc;
+      border: 1px solid rgba(56, 189, 248, 0.4);
     }
 
     .status-draft {
@@ -924,6 +992,54 @@ function buildPortalHtml(items) {
       background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
       transform: translateY(-1px);
       box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+    }
+
+    .btn-next-launch {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #facc15 0%, #ca8a04 100%);
+      color: #070b14;
+      font-weight: 900;
+      font-size: 14px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(250, 204, 21, 0.4);
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-next-launch:hover {
+      background: linear-gradient(135deg, #fef08a 0%, #eab308 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(250, 204, 21, 0.6);
+      color: #000;
+    }
+
+    .btn-preview {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.12);
+      color: #7dd3fc;
+      font-weight: 700;
+      font-size: 13px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      transition: var(--transition);
+    }
+    .btn-preview:hover {
+      background: rgba(56, 189, 248, 0.22);
+      color: #ffffff;
+      border-color: rgba(56, 189, 248, 0.65);
+      transform: translateY(-1px);
     }
 
     .btn-locked {
@@ -1114,16 +1230,16 @@ function buildPortalHtml(items) {
           <div class="stat-desc">Завершённые презентации с дикторским звуком</div>
         </div>
 
+        <div class="stat-card coming-soon-stat">
+          <div class="stat-number" style="color: var(--gold);">${grouped.applications_presentations ? grouped.applications_presentations.length : 5} <span style="font-size: 14px; font-weight: 800; color: #fde047;">(След: «КубГолос»)</span></div>
+          <div class="stat-label">Раздел «Скоро»</div>
+          <div class="stat-desc">5 флагманских приложений · КубГолос в фокусе</div>
+        </div>
+
         <div class="stat-card audio-stat">
           <div class="stat-number">${totalAudios}</div>
           <div class="stat-label">Слайдов с аудио</div>
           <div class="stat-desc">Синхронная нейроозвучка (Edge DmitryNeural)</div>
-        </div>
-
-        <div class="stat-card total-stat">
-          <div class="stat-number">${totalCount}</div>
-          <div class="stat-label">Всего в экосистеме</div>
-          <div class="stat-desc">5 прикладных, 7 архитектурных, 10 стейкхолдеров</div>
         </div>
 
         <div class="stat-card zero-pii">
@@ -1139,8 +1255,12 @@ function buildPortalHtml(items) {
       <div class="controls-top">
         <!-- Mode Switcher Tabs -->
         <div class="mode-switch-group">
-          <button class="mode-tab active ready-mode" id="btnModeReady" data-mode="ready">
-            <span>🌟 Только готовые с озвучкой</span>
+          <button class="mode-tab active featured-mode" id="btnModeFeatured" data-mode="featured">
+            <span>🌟 Главная: Релизы и «Скоро»</span>
+            <span class="tab-badge">${readyCount + (grouped.applications_presentations ? grouped.applications_presentations.length : 5)}</span>
+          </button>
+          <button class="mode-tab" id="btnModeReady" data-mode="ready">
+            <span>🎙️ Только с озвучкой</span>
             <span class="tab-badge">${readyCount}</span>
           </button>
           <button class="mode-tab" id="btnModeAll" data-mode="all">
@@ -1159,11 +1279,11 @@ function buildPortalHtml(items) {
       <!-- Category Filter Pills -->
       <div class="category-pills" id="categoryPills">
         <button class="cat-pill active" data-cat="all">Все разделы (${totalCount})</button>
-        <button class="cat-pill" data-cat="platform_overview">🏔️ Эксплейнеры (${grouped.platform_overview.filter(i => i.hasAudio).length}/${grouped.platform_overview.length})</button>
-        <button class="cat-pill" data-cat="overall_presentations">🏛️ Мастер-обзор (${grouped.overall_presentations.filter(i => i.hasAudio).length}/${grouped.overall_presentations.length})</button>
-        <button class="cat-pill" data-cat="applications_presentations">📱 Приложения (${grouped.applications_presentations.filter(i => i.hasAudio).length}/${grouped.applications_presentations.length})</button>
-        <button class="cat-pill" data-cat="architecture_presentations">⚙️ Архитектура (${grouped.architecture_presentations.filter(i => i.hasAudio).length}/${grouped.architecture_presentations.length})</button>
-        <button class="cat-pill" data-cat="detailed_overall_impact_presentations">👥 Стейкхолдеры (${grouped.detailed_overall_impact_presentations.filter(i => i.hasAudio).length}/${grouped.detailed_overall_impact_presentations.length})</button>
+        <button class="cat-pill" data-cat="platform_overview">🏔️ Эксплейнеры (${grouped.platform_overview ? grouped.platform_overview.filter(i => i.hasAudio).length : 0}/${grouped.platform_overview ? grouped.platform_overview.length : 0})</button>
+        <button class="cat-pill" data-cat="overall_presentations">🏛️ Мастер-обзор (${grouped.overall_presentations ? grouped.overall_presentations.filter(i => i.hasAudio).length : 0}/${grouped.overall_presentations ? grouped.overall_presentations.length : 0})</button>
+        <button class="cat-pill" data-cat="applications_presentations">⏳ Скоро: Приложения (${grouped.applications_presentations ? grouped.applications_presentations.length : 0})</button>
+        <button class="cat-pill" data-cat="architecture_presentations">⚙️ Архитектура (${grouped.architecture_presentations ? grouped.architecture_presentations.filter(i => i.hasAudio).length : 0}/${grouped.architecture_presentations ? grouped.architecture_presentations.length : 0})</button>
+        <button class="cat-pill" data-cat="detailed_overall_impact_presentations">👥 Стейкхолдеры (${grouped.detailed_overall_impact_presentations ? grouped.detailed_overall_impact_presentations.filter(i => i.hasAudio).length : 0}/${grouped.detailed_overall_impact_presentations ? grouped.detailed_overall_impact_presentations.length : 0})</button>
       </div>
     </nav>
 
@@ -1194,22 +1314,36 @@ ${Object.entries(CATEGORIES).map(([catKey, catMeta]) => {
         <div class="cards-grid">
 ${catItems.map(item => {
   const isReady = item.hasAudio;
+  const isNext = Boolean(item.isNextInLine);
+  const isComingSoon = Boolean(item.isComingSoon);
   const pdfLink = item.pdfs && item.pdfs.length > 0 ? item.pdfs[0].path : null;
+
+  let cardClasses = 'pres-card';
+  if (isReady) cardClasses += ' is-ready';
+  else if (isNext) cardClasses += ' is-coming-soon is-next';
+  else if (isComingSoon) cardClasses += ' is-coming-soon';
+  else cardClasses += ' is-draft';
 
   return `
           <!-- Card: ${escapeHtml(item.dir)} -->
-          <article class="pres-card ${isReady ? 'is-ready' : 'is-draft'}"
+          <article class="${cardClasses}"
                    data-card
                    data-ready="${isReady ? 'true' : 'false'}"
+                   data-coming-soon="${isComingSoon ? 'true' : 'false'}"
+                   data-next="${isNext ? 'true' : 'false'}"
                    data-category="${catKey}"
                    data-search="${escapeHtml((item.title + ' ' + item.subtitle + ' ' + item.tags.join(' ') + ' ' + item.dirName).toLowerCase())}">
             
             <div>
               <div class="card-top">
-                <span class="card-marker">${escapeHtml(item.marker)}</span>
+                <span class="card-marker${isNext ? ' is-next-marker' : ''}">${escapeHtml(item.marker)}</span>
                 ${isReady 
                   ? `<span class="card-status-pill status-ready"><span class="status-dot"></span> Готово (${item.audioCount} аудио)</span>`
-                  : `<span class="card-status-pill status-draft">⏳ В разработке</span>`
+                  : isNext
+                    ? `<span class="card-status-pill status-next"><span class="status-dot-next"></span> 🔥 Следующий релиз</span>`
+                    : isComingSoon
+                      ? `<span class="card-status-pill status-soon">⏳ Скоро</span>`
+                      : `<span class="card-status-pill status-draft">📐 В разработке</span>`
                 }
               </div>
 
@@ -1230,11 +1364,25 @@ ${catItems.map(item => {
               </a>
               ${pdfLink ? `<a href="${pdfLink}" target="_blank" class="btn-pdf" title="Скачать PDF с текстом диктора">📄 PDF</a>` : ''}
                 `
-                : `
-              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
-                🔒 Не озвучено (в разработке)
+                : isNext
+                  ? `
+              <a href="${item.webDeckUrl}" class="btn-next-launch" title="Предпросмотр слайдов «КубГолос» (в фокусе следующей доработки)">
+                🚀 Предпросмотр слайдов (${item.slidesCount} сл.)
+              </a>
+              ${pdfLink ? `<a href="${pdfLink}" target="_blank" class="btn-pdf" title="Скачать PDF">📄 PDF</a>` : ''}
+                  `
+                  : isComingSoon
+                    ? `
+              <a href="${item.webDeckUrl}" class="btn-preview" title="Предпросмотр слайд-дека">
+                👁️ Предпросмотр (${item.slidesCount} сл.)
+              </a>
+              ${pdfLink ? `<a href="${pdfLink}" target="_blank" class="btn-pdf" title="Скачать PDF">📄 PDF</a>` : ''}
+                    `
+                    : `
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента">
+                🔒 В разработке
               </button>
-                `
+                    `
               }
             </div>
           </article>`;
@@ -1289,6 +1437,7 @@ ${WHITEPAPERS.map(wp => `
   <!-- INTERACTIVE FILTER LOGIC (VANILLA JS, ZERO DEPENDENCIES) -->
   <script>
     (function() {
+      const btnModeFeatured = document.getElementById('btnModeFeatured');
       const btnModeReady = document.getElementById('btnModeReady');
       const btnModeAll = document.getElementById('btnModeAll');
       const searchInput = document.getElementById('searchInput');
@@ -1298,7 +1447,7 @@ ${WHITEPAPERS.map(wp => `
       const filterNotice = document.getElementById('filterNotice');
       const matchingCount = document.getElementById('matchingCount');
 
-      let currentMode = 'ready'; // 'ready' (default: strictly only with audio) or 'all'
+      let currentMode = 'featured'; // 'featured' (default: ready + coming soon applications), 'ready' (strictly only with audio), 'all' (entire roadmap)
       let currentCategory = 'all';
       let searchQuery = '';
 
@@ -1307,14 +1456,25 @@ ${WHITEPAPERS.map(wp => `
 
         cards.forEach(card => {
           const isReady = card.getAttribute('data-ready') === 'true';
+          const isComingSoon = card.getAttribute('data-coming-soon') === 'true';
           const cardCat = card.getAttribute('data-category');
           const searchData = card.getAttribute('data-search') || '';
 
-          // 1. Mode check: If 'ready', STRICTLY HIDE drafts without audio
-          if (currentMode === 'ready' && !isReady) {
-            card.style.display = 'none';
-            return;
+          // 1. Mode check:
+          if (currentMode === 'ready') {
+            // Strictly audio-ready only
+            if (!isReady) {
+              card.style.display = 'none';
+              return;
+            }
+          } else if (currentMode === 'featured') {
+            // Featured: show ready presentations OR coming soon applications
+            if (!isReady && !isComingSoon) {
+              card.style.display = 'none';
+              return;
+            }
           }
+          // If 'all', show everything subject to category/search
 
           // 2. Category filter
           if (currentCategory !== 'all' && cardCat !== currentCategory) {
@@ -1343,7 +1503,7 @@ ${WHITEPAPERS.map(wp => `
         });
 
         // Update notice if search is active or filtered
-        if (searchQuery.trim() !== '' || currentCategory !== 'all' || currentMode === 'ready') {
+        if (searchQuery.trim() !== '' || currentCategory !== 'all' || currentMode !== 'all') {
           filterNotice.style.display = 'block';
           matchingCount.textContent = visibleCount;
         } else {
@@ -1352,9 +1512,18 @@ ${WHITEPAPERS.map(wp => `
       }
 
       // Mode Switcher Listeners
+      btnModeFeatured.addEventListener('click', () => {
+        currentMode = 'featured';
+        btnModeFeatured.classList.add('active', 'featured-mode');
+        btnModeReady.classList.remove('active', 'ready-mode');
+        btnModeAll.classList.remove('active');
+        updateView();
+      });
+
       btnModeReady.addEventListener('click', () => {
         currentMode = 'ready';
         btnModeReady.classList.add('active', 'ready-mode');
+        btnModeFeatured.classList.remove('active', 'featured-mode');
         btnModeAll.classList.remove('active');
         updateView();
       });
@@ -1362,6 +1531,7 @@ ${WHITEPAPERS.map(wp => `
       btnModeAll.addEventListener('click', () => {
         currentMode = 'all';
         btnModeAll.classList.add('active');
+        btnModeFeatured.classList.remove('active', 'featured-mode');
         btnModeReady.classList.remove('active', 'ready-mode');
         updateView();
       });
@@ -1382,7 +1552,7 @@ ${WHITEPAPERS.map(wp => `
         updateView();
       });
 
-      // Initial execution: strictly show ready presentations by default!
+      // Initial execution: show featured by default!
       updateView();
     })();
   </script>

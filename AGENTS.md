@@ -5,7 +5,7 @@ This repository hosts the complete presentation suite, video production pipeline
 
 The workspace is structured into high-level overview presentations, specialized deep-dive participant presentations, explainer trilogies, flagship application suites, shared templates, and global tooling:
 - **`platform_overview/`**: Foundational 3-part Explainer Mini-Series covering the paradigm shift, architectural principles, and sovereign economy of Turbase.
-- **`applications_presentations/`**: 4-presentation Flagship Application Suite covering «Деловой» (Organizer), «КубГолос» (Peer Micro-Polls), «Забота» (Mutual Aid & Open Reputation), and «УраТур» (Sovereign Travel Planner).
+- **`applications_presentations/`**: 5-presentation Flagship Application Suite covering «КубГолос» (Peer Micro-Polls), «Забота» (Mutual Aid & Open Reputation), «Деловой» (Organizer), «УраТур» (Sovereign Travel Planner), and «Локальный реестр МСП и ЖКХ» (Local Services).
 - **`architecture_presentations/`**: Complete 7-part deep engineering presentation series on platform architecture (Topology, Leaf storage, Framework/SDK, Branch pipeline, P2P/Routing, TreeSearch, Cryptography/API economy & minimal FSM smart contracts).
 - **`overall_presentations/`**: High-level master overview presentations covering the complete architectural, economic, and stakeholder landscape:
   - `01_sovereign_architecture_presentation/`: Core technical architecture, 3-tier topology (Leaf $\to$ Branch $\to$ Trunk), 152-ФЗ Zero-PII compliance, and game-theoretic API economy.
