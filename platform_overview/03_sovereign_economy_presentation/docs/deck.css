@@ -5554,6 +5554,53 @@ body {
   color: var(--horizon-gold) !important;
 }
 
+/* Metric Highlight Box for Slide 14 Cards */
+.metric-highlight-box {
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 10px !important;
+  padding: 12px 14px !important;
+  margin: auto 0 !important;
+  text-align: center !important;
+}
+
+.metric-highlight-box.gold-border {
+  border-color: rgba(250, 204, 21, 0.45) !important;
+  background: rgba(250, 204, 21, 0.08) !important;
+}
+
+.metric-highlight-box.cyan-border {
+  border-color: rgba(56, 189, 248, 0.45) !important;
+  background: rgba(56, 189, 248, 0.08) !important;
+}
+
+.metric-highlight-box.emerald-border {
+  border-color: rgba(16, 185, 129, 0.45) !important;
+  background: rgba(16, 185, 129, 0.08) !important;
+}
+
+.metric-highlight-box.teal-border {
+  border-color: rgba(29, 233, 182, 0.45) !important;
+  background: rgba(29, 233, 182, 0.08) !important;
+}
+
+.metric-highlight-val {
+  font-size: 32px !important;
+  font-weight: 900 !important;
+  font-family: var(--font-mono) !important;
+  display: block !important;
+  line-height: 1.15 !important;
+  margin-bottom: 2px !important;
+}
+
+.metric-highlight-lbl {
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: #94a3b8 !important;
+  display: block !important;
+  line-height: 1.25 !important;
+}
+
 /* Slide 15 Calibration */
 .slide-card[data-slide="15"] .feature-cards-grid {
   display: grid !important;

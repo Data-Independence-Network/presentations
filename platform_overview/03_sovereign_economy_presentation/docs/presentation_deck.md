@@ -189,6 +189,10 @@ rate: "-9%"
           <span class="flow-step-num gold">03</span>
           <span><strong>Гарантированный SLA (161-ФЗ):</strong> мгновенный безотзывный клиринг без риска зависания</span>
         </div>
+        <div class="flow-step-row gold">
+          <span class="flow-step-num gold">04</span>
+          <span><strong>Детерминизм переходов:</strong> состояние меняется за 1 такт в ОЗУ без очередей транзакций</span>
+        </div>
       </div>
 
       <div class="fsm-terminal-card gold-border" style="margin-top: auto;">
@@ -199,7 +203,8 @@ rate: "-9%"
         <div class="fsm-terminal-body">
           <span class="fsm-kw">MACHINE:</span> M = ⟨Q, Σ, Δ, δ, λ, q₀, F⟩<br/>
           <span class="fsm-kw">REGISTRY:</span> Q = {Wallet_ID, Balance, Nonce}<br/>
-          <span class="fsm-kw">TRANSITIONS:</span> δ(q, σ) → q' <span class="fsm-comment">/* O(1) Complexity, 0% Gas, Formal Proof */</span>
+          <span class="fsm-kw">TRANSITIONS:</span> δ(q, σ) → q' <span class="fsm-comment">/* O(1) Complexity, 0% Gas, Formal Proof */</span><br/>
+          <span class="fsm-kw">DETERMINISM:</span> Guaranteed Halting · Pure Transition Table · 0 VM Overhead
         </div>
       </div>
     </div>
@@ -222,6 +227,10 @@ rate: "-9%"
           <span class="flow-step-num teal">03</span>
           <span><strong>Вектор ГОСТ-подписей:</strong> в ядро ЦБ передается лишь доказательство выполнения условий</span>
         </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">04</span>
+          <span><strong>Крипто-доказательство:</strong> смарт-контракт получает пруф без раскрытия коммерческой тайны</span>
+        </div>
       </div>
 
       <div class="fsm-terminal-card" style="margin-top: auto;">
@@ -232,7 +241,8 @@ rate: "-9%"
         <div class="fsm-terminal-body">
           <span class="fsm-kw">STORAGE:</span> Local SQLite Micro-Chain (Zero-PII)<br/>
           <span class="fsm-kw">CONSENSUS:</span> Vector ГОСТ Р 34.10-2012 Signatures<br/>
-          <span class="fsm-kw">PAYLOAD:</span> Proves State Transition without Revealing Receipt
+          <span class="fsm-kw">PAYLOAD:</span> Proves State Transition without Revealing Receipt<br/>
+          <span class="fsm-kw">ENCRYPTION:</span> On-Device Data Vault · ГОСТ Р 34.12-2018 (Кузнечик)
         </div>
       </div>
     </div>
@@ -379,6 +389,10 @@ rate: "-9%"
           <span class="flow-step-num" style="color: #ff5252;">&times;</span>
           <span>Уязвимость перед DoS-атаками через запуск тяжелых скриптов</span>
         </div>
+        <div class="flow-step-row" style="border-left-color: #ff5252;">
+          <span class="flow-step-num" style="color: #ff5252;">&times;</span>
+          <span>Газовый аукцион: непредсказуемый рост комиссий при нагрузке</span>
+        </div>
       </div>
 
       <div class="fsm-terminal-card" style="border-color: rgba(244, 63, 94, 0.45); margin-top: auto;">
@@ -389,7 +403,8 @@ rate: "-9%"
         <div class="fsm-terminal-body">
           <span class="fsm-kw">DEPLOY_FEE:</span> 32 000 + 200 × Bytecode_Len (Gas)<br/>
           <span class="fsm-kw">STORAGE_BLOAT:</span> N_users × Copy(EVM_State) → > 1.4 TB<br/>
-          <span class="fsm-kw">OUTCOME:</span> Деградация нод, скачки комиссий, отказ сети
+          <span class="fsm-kw">OUTCOME:</span> Деградация нод, скачки комиссий, отказ сети<br/>
+          <span class="fsm-kw">FAILURE_RISK:</span> Невозможность гарантировать SLA 161-ФЗ при пиках
         </div>
       </div>
     </div>
@@ -411,6 +426,10 @@ rate: "-9%"
           <span class="flow-step-num teal">03</span>
           <span><strong>Мгновенный отклик:</strong> выполнение в регистрах процессора за наносекунды</span>
         </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">04</span>
+          <span><strong>Масштабируемость:</strong> миллионы граждан вызывают один проверенный шаблон</span>
+        </div>
       </div>
 
       <div class="fsm-terminal-card" style="margin-top: auto;">
@@ -421,7 +440,8 @@ rate: "-9%"
         <div class="fsm-terminal-body">
           <span class="fsm-kw">HASH:</span> SHA256(onceIn || lte || share) → RAM: 0x7FA0012<br/>
           <span class="fsm-kw">REGISTRY:</span> 1 экземпляр автомата на 10 000 000 контрактов<br/>
-          <span class="fsm-kw">EXECUTION:</span> L1/L2 кэш CPU ядра расчетов · 0 наносекунд
+          <span class="fsm-kw">EXECUTION:</span> L1/L2 кэш CPU ядра расчетов · 0 наносекунд<br/>
+          <span class="fsm-kw">EFFICIENCY:</span> 99.8% экономия памяти ЦОД · Защита от DoS на уровне ядра
         </div>
       </div>
     </div>
@@ -505,6 +525,19 @@ rate: "-9%"
             <li><strong>Осознанный IOU-офлайн:</strong> при сбое связи стороны дают согласие на долговую расписку; локальный FSM кассы валидирует лимит по кэшу</li>
           </ul>
         </div>
+
+        <div class="fsm-terminal-card gold-border" style="margin-top: 10px; margin-bottom: 10px;">
+          <div class="fsm-terminal-header">
+            <span class="gold-title">🛡️ LEAF EDGE PROTOCOL · АНАТОМИЯ ЛИСТА</span>
+            <div class="fsm-terminal-controls"><span class="fsm-terminal-dot green"></span></div>
+          </div>
+          <div class="fsm-terminal-body">
+            <span class="fsm-kw">VAULT_CIPHER:</span> ГОСТ Р 34.12-2018 («Кузнечик» / локально)<br/>
+            <span class="fsm-kw">ZERO_PII:</span> Маскирование ФИО, меню и аллергических профилей<br/>
+            <span class="fsm-kw">CLEARING:</span> Атомарное закрытие чека в реестре комбината питания
+          </div>
+        </div>
+
         <div class="kpi-chip-footer" style="color: #ffd600; border-color: rgba(250, 204, 21, 0.3); background: rgba(250, 204, 21, 0.08); padding: 10px 16px; border-radius: 8px; font-size: 20px; font-weight: 800; text-align: center; font-family: var(--font-mono);">
           ⚡ СЛОЖНОСТЬ КЛИРИНГА: O(1) · ЭКВАЙРИНГ: 0% · ПРИВАТНОСТЬ: ZERO-PII
         </div>
@@ -592,6 +625,19 @@ rate: "-9%"
             <li><strong>Защита от дедлоков:</strong> при срыве срока доставки детерминированный таймаут FSM автоматически возвращает 500 ₽ покупателю</li>
           </ul>
         </div>
+
+        <div class="fsm-terminal-card emerald-border" style="margin-top: 10px; margin-bottom: 10px;">
+          <div class="fsm-terminal-header">
+            <span class="emerald-title">🔐 TRIPARTITE ESCROW PROTOCOL</span>
+            <div class="fsm-terminal-controls"><span class="fsm-terminal-dot green"></span></div>
+          </div>
+          <div class="fsm-terminal-body">
+            <span class="fsm-kw">BUYER_ESCROW:</span> Блокировка суммы в Цифровых рублях ЦБ РФ<br/>
+            <span class="fsm-kw">NFC_HANDOVER:</span> P2P обмен подписанными хэшами «Курьер ↔ Клиент»<br/>
+            <span class="fsm-kw">SETTLEMENT:</span> Мгновенное разблокирование средств ресторану за 1 такт
+          </div>
+        </div>
+
         <div class="kpi-chip-footer" style="color: #6ee7b7; border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.08); padding: 10px 16px; border-radius: 8px; font-size: 20px; font-weight: 800; text-align: center; font-family: var(--font-mono);">
           ⚡ ЭСКРОУ-КЛИРИНГ: O(1) · КОМИССИЯ АГРЕГАТОРА: 0% · POS-ОБОРУДОВАНИЕ: 0 ₽
         </div>
@@ -677,6 +723,19 @@ rate: "-9%"
             <li><strong>Встроенное налогообложение:</strong> автоматическое удержание 13% НДФЛ для граждан и 4&ndash;6% налога на профдоход для самозанятых инженеров</li>
           </ul>
         </div>
+
+        <div class="fsm-terminal-card gold-border" style="margin-top: 10px; margin-bottom: 10px;">
+          <div class="fsm-terminal-header">
+            <span class="gold-title">📐 SHAPLEY VALUE & DAG DECOMPOSITION</span>
+            <div class="fsm-terminal-controls"><span class="fsm-terminal-dot yellow"></span></div>
+          </div>
+          <div class="fsm-terminal-body">
+            <span class="fsm-kw">AXIOMS:</span> 1. Эффективность · 2. Симметрия · 3. Фиктивный игрок<br/>
+            <span class="fsm-kw">COMPRESSION:</span> Алгоритмическое сжатие дерева софта в плоский вектор O(1)<br/>
+            <span class="fsm-kw">ROYALTY_TAX:</span> Параллельное удержание НДФЛ / НПД при каждом сплите
+          </div>
+        </div>
+
         <div class="kpi-chip-footer" style="color: #ffd600; border-color: rgba(250, 204, 21, 0.3); background: rgba(250, 204, 21, 0.08); padding: 10px 16px; border-radius: 8px; font-size: 20px; font-weight: 800; text-align: center; font-family: var(--font-mono);">
           ⚡ ВЕКТОР ШЕПЛИ · РАСЧЕТ: O(1) · НАЛОГОВЫЙ АГЕНТ: 100% АВТОМАТИЧЕСКИ
         </div>
@@ -819,6 +878,10 @@ rate: "-9%"
           <span class="flow-step-num gold">03</span>
           <span>Автоматический финмониторинг сумм &ge; 1 млн ₽ через предикат <code>gte(Amount, 1_000_000)</code></span>
         </div>
+        <div class="flow-step-row gold">
+          <span class="flow-step-num gold">04</span>
+          <span><strong>Сквозной аудит:</strong> регулятор видит легитимное движение средств по всей цепочке</span>
+        </div>
       </div>
 
       <div class="fsm-terminal-card gold-border" style="margin-top: auto;">
@@ -829,7 +892,8 @@ rate: "-9%"
         <div class="fsm-terminal-body">
           <span class="fsm-kw">MASTER_ACCOUNT:</span> Идентификация ЕСИА + СНИЛС<br/>
           <span class="fsm-kw">RULE:</span> gte(Amount, 1_000_000 RUB) → Авто-мониторинг<br/>
-          <span class="fsm-kw">COMPLIANCE:</span> Полная прозрачность для ЦБ и Росфинмониторинга
+          <span class="fsm-kw">COMPLIANCE:</span> Полная прозрачность для ЦБ и Росфинмониторинга<br/>
+          <span class="fsm-kw">AUDIT_TRAIL:</span> Детерминированная проверка законности операций 24/7
         </div>
       </div>
     </div>
@@ -852,6 +916,10 @@ rate: "-9%"
           <span class="flow-step-num teal">03</span>
           <span>Исключение рисков коммерческого шпионажа и социальной инженерии</span>
         </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">04</span>
+          <span><strong>Защита от слежки:</strong> контрагенты не могут профилировать благосостояние гражданина</span>
+        </div>
       </div>
 
       <div class="fsm-terminal-card" style="margin-top: auto;">
@@ -862,7 +930,8 @@ rate: "-9%"
         <div class="fsm-terminal-body">
           <span class="fsm-kw">PUBLIC_HANDLE:</span> 0xWRAPPER_7C2B... (Обезличенный ID)<br/>
           <span class="fsm-kw">BALANCE_MASK:</span> Реальный баланс в ЦБ скрыт от приложений<br/>
-          <span class="fsm-kw">SECURITY:</span> Исключение коммерческого шпионажа и фишинга
+          <span class="fsm-kw">SECURITY:</span> Исключение коммерческого шпионажа и фишинга<br/>
+          <span class="fsm-kw">DATA_MINIMIZATION:</span> 0 бит избыточных данных передается внешним сторонам
         </div>
       </div>
     </div>
@@ -939,6 +1008,19 @@ rate: "-9%"
             <li><strong>Архитектура Турбазы:</strong> злоумышленник ограничен суточным лимитом оболочки. Мастер-счет не может быть скомпрометирован, а отзыв происходит мгновенно без перевыпуска счетов</li>
           </ul>
         </div>
+
+        <div class="fsm-terminal-card emerald-border" style="margin-top: 10px; margin-bottom: 10px;">
+          <div class="fsm-terminal-header">
+            <span class="emerald-title">🔑 TRUST QUORUM &amp; KEY REBINDING</span>
+            <div class="fsm-terminal-controls"><span class="fsm-terminal-dot green"></span></div>
+          </div>
+          <div class="fsm-terminal-body">
+            <span class="fsm-kw">QUORUM:</span> 3 из 5 поручителей сети «Забота» подтверждают личность<br/>
+            <span class="fsm-kw">BLACKHOLE:</span> Мгновенный отзыв скомпрометированного сессионного прокси<br/>
+            <span class="fsm-kw">SYNC:</span> Восстановление зашифрованной базы SQLite на новом аппарате
+          </div>
+        </div>
+
         <div class="kpi-chip-footer" style="color: #6ee7b7; border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.08); padding: 10px 16px; border-radius: 8px; font-size: 20px; font-weight: 800; text-align: center; font-family: var(--font-mono);">
           ⚡ МАСТЕР-СЧЕТ: 100% В БЕЗОПАСНОСТИ · ОТЗЫВ: 1 КЛИК · СМЕНА СЧЕТА: НЕ ТРЕБУЕТСЯ
         </div>
@@ -976,6 +1058,7 @@ rate: "-9%"
           <li><strong>Произвол монополий:</strong> риск внезапной блокировки или обнуления единого рейтинга</li>
           <li><strong>Смешение контекстов:</strong> невозможно оценить разные роли человека единой цифрой</li>
           <li><strong>Индустрия фрода:</strong> процветание черного рынка заказных отзывов и бот-ферм</li>
+          <li><strong>Бесправие гражданина:</strong> невозможность оспорить вердикт непрозрачного алгоритма</li>
         </ul>
       </div>
 
@@ -987,7 +1070,8 @@ rate: "-9%"
         <div class="fsm-terminal-body">
           <span class="fsm-kw">МОНОПОЛИЯ:</span> Черный ящик закрытых алгоритмов платформы<br/>
           <span class="fsm-kw">БОТ-ФЕРМЫ:</span> Скупка фальшивых отзывов за фиатные деньги<br/>
-          <span class="fsm-kw">ДИСКРИМИНАЦИЯ:</span> Единый балл уничтожает репутацию человека
+          <span class="fsm-kw">ДИСКРИМИНАЦИЯ:</span> Единый балл уничтожает репутацию человека<br/>
+          <span class="fsm-kw">VULNERABILITY:</span> 0% защиты от предвзятости центрального оператора
         </div>
       </div>
     </div>
@@ -1009,6 +1093,10 @@ rate: "-9%"
           <span class="flow-step-num teal">03</span>
           <span><strong>Внешняя логика арбитража:</strong> доказательства и разбор спора &mdash; в приложениях Турбазы; в FSM &mdash; лишь универсальный шаблон функции</span>
         </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">04</span>
+          <span><strong>P2P-медиация:</strong> споры разрешаются коллегиально выбранным медиатором</span>
+        </div>
       </div>
 
       <div class="fsm-terminal-card" style="margin-top: auto;">
@@ -1019,7 +1107,8 @@ rate: "-9%"
         <div class="fsm-terminal-body">
           <span class="fsm-kw">VECTORS:</span> T_repair(0.94) ⊕ T_neighbor(0.98) ⊕ T_carpool(0.89)<br/>
           <span class="fsm-kw">ARBITRAGE:</span> Доказательства и переписка — в Турбазе (Zero-PII)<br/>
-          <span class="fsm-kw">FSM_ROLE:</span> Универсальный шаблон or/and с подписью медиатора
+          <span class="fsm-kw">FSM_ROLE:</span> Универсальный шаблон or/and с подписью медиатора<br/>
+          <span class="fsm-kw">QUORUM:</span> Доказательное решение с мультиподписью сторон спора
         </div>
       </div>
     </div>
@@ -1057,6 +1146,7 @@ rate: "-9%"
           <li><strong>Теорема Райса:</strong> семантические свойства произвольного кода алгоритмически неразрешимы</li>
           <li>Бесконечное пространство состояний делает невозможным полный перебор</li>
           <li>Контракты взламываются даже после десятков престижных аудитов</li>
+          <li><strong>Комбинаторный взрыв:</strong> миллионы ветвей исполнения исключают полную верификацию</li>
         </ul>
       </div>
 
@@ -1087,6 +1177,7 @@ rate: "-9%"
           <li><strong>Доказательство инвариантов:</strong> математически доказано &sum; Assets_In &equiv; &sum; Assets_Out</li>
           <li><strong>Deadlock-freedom:</strong> автоматическое подтверждение отсутствия тупиков в Z3 и TLA+</li>
           <li><strong>Истинная роль Bug Bounty:</strong> привлечение хакеров только для проверки чипов и ГОСТ-шифров</li>
+          <li><strong>Государственный реестр:</strong> математический допуск безопасных шаблонов в ядро ЦБ</li>
         </ul>
       </div>
 
@@ -1140,7 +1231,12 @@ rate: "-9%"
           <li><strong>Сложность O(1):</strong> пиковая масштабируемость без риска перегрузки ЦОД</li>
           <li><strong>-90% затрат на сервера:</strong> вся сложность и хранение вынесены на Листья</li>
           <li><strong>161-ФЗ и 152-ФЗ:</strong> безотзывность клиринга и Zero-PII соответствие</li>
+          <li><strong>161-ФЗ SLA:</strong> отклик ядра &lt; 100 мс при миллионах транзакций</li>
         </ul>
+      </div>
+      <div class="metric-highlight-box gold-border">
+        <span class="metric-highlight-val" style="color: #ffd600;">-90% ЦОД</span>
+        <span class="metric-highlight-lbl">Экономия серверных мощностей ядра</span>
       </div>
       <div class="kpi-chip-footer" style="color: #ffd600; border-color: rgba(250, 204, 21, 0.3);">⚡ O(1) КЛИРИНГ · -90% ЦОД</div>
     </div>
@@ -1153,7 +1249,12 @@ rate: "-9%"
           <li><strong>0% налога монополий:</strong> экономия 30% комиссий маркетплейсов</li>
           <li><strong>0 ₽ за терминалы:</strong> расчеты через браузер без покупки POS-оборудования</li>
           <li><strong>Мгновенный эскроу:</strong> исключение неплатежей и кассовых разрывов</li>
+          <li><strong>Мгновенный оборот:</strong> средства зачисляются сразу после выдачи заказа</li>
         </ul>
+      </div>
+      <div class="metric-highlight-box cyan-border">
+        <span class="metric-highlight-val" style="color: #38bdf8;">+30% МАРЖА</span>
+        <span class="metric-highlight-lbl">Сохранение прибыли без комиссий маркетплейсов</span>
       </div>
       <div class="kpi-chip-footer" style="color: #1de9b6; border-color: rgba(29, 233, 182, 0.3);">⚡ +30% МАРЖА · 0 ₽ POS</div>
     </div>
@@ -1166,7 +1267,12 @@ rate: "-9%"
           <li><strong>Микророялти share(...):</strong> автоматический доход авторам библиотек и схем</li>
           <li><strong>Сотрудничество вместо войн:</strong> приложения усиливают функционал друг друга</li>
           <li><strong>Встроенные налоги:</strong> авто-уплата 4&ndash;6% налога на профдоход</li>
+          <li><strong>Открытый рынок схем:</strong> монетизация без создания своих платежек</li>
         </ul>
+      </div>
+      <div class="metric-highlight-box emerald-border">
+        <span class="metric-highlight-val" style="color: #10b981;">100% РОЯЛТИ</span>
+        <span class="metric-highlight-lbl">Прямой доход авторам софта и SQL-схем</span>
       </div>
       <div class="kpi-chip-footer" style="color: #6ee7b7; border-color: rgba(16, 185, 129, 0.3);">⚡ SHARE(...) · АВТО-НАЛОГ</div>
     </div>
@@ -1179,7 +1285,12 @@ rate: "-9%"
           <li><strong>Zero-PII защита:</strong> тайна покупок защищена от агрессивной слежки</li>
           <li><strong>Безопасность кошелька:</strong> защита сбережений при утере смартфона</li>
           <li><strong>Доход за внимание:</strong> реклама окупает личное хранилище данных</li>
+          <li><strong>Справедливый доход:</strong> прямое вознаграждение в Цифровых рублях</li>
         </ul>
+      </div>
+      <div class="metric-highlight-box teal-border">
+        <span class="metric-highlight-val" style="color: #1de9b6;">ZERO-PII</span>
+        <span class="metric-highlight-lbl">Абсолютная защита личной тайны и чеков</span>
       </div>
       <div class="kpi-chip-footer" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">⚡ ZERO-PII · ЗАЩИТА СЧЕТОВ</div>
     </div>
@@ -1259,7 +1370,24 @@ rate: "-9%"
             <span class="flow-step-num gold">Год 3</span>
             <span><strong>Запуск и бета-версия:</strong> обкатка открытой бета-версии и пилотные внедрения</span>
           </div>
+          <div class="flow-step-row gold">
+            <span class="flow-step-num gold">3+</span>
+            <span><strong>Суверенная среда:</strong> тиражирование в субъектах РФ и масштабирование</span>
+          </div>
         </div>
+
+        <div class="fsm-terminal-card gold-border" style="margin: 10px 0;">
+          <div class="fsm-terminal-header">
+            <span class="gold-title">🧭 NATIONAL SOVEREIGN STACK METRICS</span>
+            <div class="fsm-terminal-controls"><span class="fsm-terminal-dot green"></span></div>
+          </div>
+          <div class="fsm-terminal-body">
+            <span class="fsm-kw">CORE:</span> 100% Отечественный стек · Без зарубежных вендоров<br/>
+            <span class="fsm-kw">REGULATION:</span> Полное соответствие 152-ФЗ, 161-ФЗ и 115-ФЗ<br/>
+            <span class="fsm-kw">SCALE:</span> От смартфона гражданина до федерального клиринга
+          </div>
+        </div>
+
         <div class="sovereign-mission-banner">
           <span class="banner-title">ЧЕТКИЙ ИНЖЕНЕРНЫЙ ПЛАН</span>
           <span class="banner-desc">От открытого репозитория и детерминированного ядра FSM — к национальной платформе суверенитета данных и смарт-контрактов.</span>
