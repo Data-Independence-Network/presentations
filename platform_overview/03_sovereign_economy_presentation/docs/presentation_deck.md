@@ -367,7 +367,7 @@ rate: "-9%"
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СИСТЕМНАЯ ОПТИМИЗАЦИЯ</div>
-    <h2 class="slide-title">ЕДИНЫЙ ЭКЗЕМПЛЯР (SINGLETON): 0 ₽ ЗА ДЕПЛОЙ</h2>
+    <h2 class="slide-title">ЕДИНЫЙ ЭКЗЕМПЛЯР (SINGLETON): 0 ₽ ЗА РАЗВЕРТЫВАНИЕ</h2>
     <p class="slide-subtitle">Исполнение единого экземпляра автомата в ОЗУ ядра по криптографическому хэшу формулы</p>
   </div>
 
@@ -379,7 +379,7 @@ rate: "-9%"
         <p class="card-desc">Каждый пользователь развертывает отдельный экземпляр программы в блокчейн.</p>
         <div class="flow-step-row" style="border-left-color: #ff5252;">
           <span class="flow-step-num" style="color: #ff5252;">&times;</span>
-          <span>Плата за деплой каждого контракта (сотни рублей газа)</span>
+          <span>Плата за запись каждого контракта в сеть (сотни рублей газа)</span>
         </div>
         <div class="flow-step-row" style="border-left-color: #ff5252;">
           <span class="flow-step-num" style="color: #ff5252;">&times;</span>
@@ -416,7 +416,7 @@ rate: "-9%"
         <p class="card-desc">Один экземпляр автомата обслуживает миллионы однотипных контрактов.</p>
         <div class="flow-step-row teal">
           <span class="flow-step-num teal">01</span>
-          <span><strong>Нулевая стоимость:</strong> деплой контракта стоит 0 ₽, формула компилируется один раз</span>
+          <span><strong>Нулевая стоимость:</strong> запуск контракта стоит 0 ₽, формула компилируется один раз</span>
         </div>
         <div class="flow-step-row teal">
           <span class="flow-step-num teal">02</span>
@@ -434,7 +434,7 @@ rate: "-9%"
 
       <div class="fsm-terminal-card" style="margin-top: auto;">
         <div class="fsm-terminal-header">
-          <span>🚀 ЕДИНЫЙ ЭКЗЕМПЛЯР В ОЗУ · 0 ₽ DEPLOY</span>
+          <span>🚀 ЕДИНЫЙ ЭКЗЕМПЛЯР В ОЗУ · 0 ₽ РАЗВЕРТЫВАНИЕ</span>
           <span class="fsm-terminal-dot green"></span>
         </div>
         <div class="fsm-terminal-body">
@@ -449,7 +449,7 @@ rate: "-9%"
 </div>
 
 ### Текст для диктора:
-> Колоссальная проблема существующих блокчейнов — так называемое раздувание состояния. Каждый раз, когда создается смарт-контракт, сеть вынуждена компилировать и хранить отдельную копию байт-кода, требуя за это плату за деплой.
+> Колоссальная проблема существующих блокчейнов — так называемое раздувание базы данных. Каждый раз, когда создается смарт-контракт, сеть сохраняет отдельную копию программного кода, взимая с пользователя немалую комиссию просто за запись и публикацию каждой программы.
 >
 > В «Турбазе» применён принцип единого экземпляра — в программировании его называют «синглтон». Это значит, что ядро никогда не дублирует программы, а вычисляет криптографический хэш математической формулы контракта.
 >
@@ -1194,7 +1194,7 @@ rate: "-9%"
           </div>
         </div>
         <div class="kpi-chip-footer" style="color: #00e676; border-color: rgba(0, 230, 118, 0.3); background: rgba(0, 230, 118, 0.08); padding: 8px 14px; border-radius: 8px; font-size: 18px; font-weight: 800; text-align: center; font-family: var(--font-mono); margin-top: 8px;">
-          ✓ 100% ВЕРИФИКАЦИЯ ДО ДЕПЛОЯ · 0 УЯЗВИМОСТЕЙ В ЯДРЕ
+          ✓ 100% ВЕРИФИКАЦИЯ ДО ЗАПУСКА · 0 УЯЗВИМОСТЕЙ В ЯДРЕ
         </div>
       </div>
     </div>
