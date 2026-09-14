@@ -50,6 +50,8 @@ shared_docs/*.pdf
 # --- Temporary & Build Directories & Build Caches ---
 **/.build_cache.json
 **/generated/.build_cache.json
+**/.audio_hashes.json
+**/generated/artifacts/audio/.audio_hashes.json
 **/temp_audio_segments/
 **/temp_video/
 **/generated/artifacts/temp*/

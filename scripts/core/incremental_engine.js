@@ -11,7 +11,13 @@ const crypto = require('crypto');
 const { execSync } = require('child_process');
 
 const { parseFrontmatter, parseSlides, compileDeckHtml, findRepoRoot } = require('./deck_builder');
-const { generateSlideAudio } = require('./tts_generator');
+const {
+  generateSlideAudio,
+  computeSlideNarrationHash,
+  loadAudioHashes,
+  saveSlideAudioHash,
+  updateSlideCacheImmediately
+} = require('./tts_generator');
 const { captureSlides } = require('./slide_capture');
 const { buildHandoutPdf } = require('./handout_pdf_builder');
 const { buildMultiProfileVideo } = require('./video_builder');
@@ -96,16 +102,9 @@ function computeSlideHashes(slides, meta = {}, stylesHash = '') {
       stylesHash || ''
     ].join('||');
 
-    const narrationContent = [
-      slide.narration,
-      meta.voice || 'ru-RU-DmitryNeural',
-      meta.pitch || '-5Hz',
-      meta.rate || '-9%'
-    ].join('||');
-
     slideHashes[slide.slideNum] = {
       visualHash: sha256(visualContent),
-      narrationHash: sha256(narrationContent)
+      narrationHash: computeSlideNarrationHash(slide.narration, meta)
     };
   });
   return slideHashes;
@@ -137,6 +136,23 @@ function getGitBaselineCache(presentationDir, mdPath) {
 
     const stylesHash = computeStylesHash(presentationDir, meta || {});
     const baselineSlideHashes = computeSlideHashes(slides, meta || {}, stylesHash);
+
+    // If audio artifacts already exist on disk, sync their baseline hashes to .audio_hashes.json
+    const audioDir = path.join(presentationDir, 'generated', 'artifacts', 'audio');
+    if (fs.existsSync(audioDir)) {
+      Object.keys(baselineSlideHashes).forEach(num => {
+        const aFile = path.join(audioDir, `slide_${String(num).padStart(2, '0')}.mp3`);
+        if (fs.existsSync(aFile) && fs.statSync(aFile).size > 1000) {
+          saveSlideAudioHash(audioDir, num, {
+            narrationHash: baselineSlideHashes[num].narrationHash,
+            size: fs.statSync(aFile).size,
+            voice: (meta && meta.voice) || 'ru-RU-DmitryNeural',
+            pitch: (meta && meta.pitch) || '-5Hz',
+            rate: (meta && meta.rate) || '-9%'
+          });
+        }
+      });
+    }
 
     return {
       last_build_timestamp: new Date().toISOString(),
@@ -254,6 +270,7 @@ function analyzePresentationChanges(presentationDir, options = {}) {
   const webDeckHtml = path.join(outputsDir, 'web_deck', 'index.html');
   const videoExportsDir = path.join(outputsDir, 'video');
 
+  const audioHashes = loadAudioHashes(audioDir);
   const dirtyVisuals = [];
   const dirtyAudio = [];
 
@@ -262,12 +279,17 @@ function analyzePresentationChanges(presentationDir, options = {}) {
   slideNumbers.forEach(slideNum => {
     const current = fingerprints.slideHashes[slideNum];
     const cached = cache && cache.slides && cache.slides[slideNum];
+    const audioHashRecord = audioHashes && audioHashes[slideNum];
 
     const audioFile = path.join(audioDir, `slide_${String(slideNum).padStart(2, '0')}.mp3`);
     const slideImg = path.join(slidesDir, `slide_${String(slideNum).padStart(2, '0')}.png`);
 
+    const hasValidAudio = fs.existsSync(audioFile) && fs.statSync(audioFile).size > 1000;
+    const knownNarrationHash = (audioHashRecord && audioHashRecord.narrationHash) ||
+                               (cached && cached.narrationHash);
+
     const visualDirty = force || !cached || current.visualHash !== cached.visualHash || !fs.existsSync(slideImg);
-    const audioDirty = force || !cached || current.narrationHash !== cached.narrationHash || !fs.existsSync(audioFile);
+    const audioDirty = force || !hasValidAudio || knownNarrationHash !== current.narrationHash;
 
     if (visualDirty) dirtyVisuals.push(slideNum);
     if (audioDirty) dirtyAudio.push(slideNum);
@@ -424,6 +446,20 @@ async function rebuildPresentation(presentationDir, options = {}) {
   };
   saveBuildCache(targetDir, newCache);
 
+  // Synchronize audio hashes manifest
+  slideNumbers.forEach(slideNum => {
+    const audioFile = path.join(audioDir, `slide_${String(slideNum).padStart(2, '0')}.mp3`);
+    if (fs.existsSync(audioFile) && fs.statSync(audioFile).size > 1000) {
+      saveSlideAudioHash(audioDir, slideNum, {
+        narrationHash: fingerprints.slideHashes[slideNum].narrationHash,
+        size: fs.statSync(audioFile).size,
+        voice: fingerprints.meta.voice || 'ru-RU-DmitryNeural',
+        pitch: fingerprints.meta.pitch || '-5Hz',
+        rate: fingerprints.meta.rate || '-9%'
+      });
+    }
+  });
+
   console.log(`\n======================================================================`);
   console.log(` [🎉] REBUILD COMPLETED SUCCESSFULLY FOR: ${baseName}`);
   console.log(`======================================================================\n`);
@@ -456,13 +492,18 @@ async function regeneratePresentation(presentationDir, options = {}) {
     if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
 
     try {
+      const forceFlag = options.fullRegeneration || options.force || false;
       for (const slideNum of analysis.dirtyAudio) {
         const slideObj = analysis.fingerprints.slides.find(s => s.slideNum === slideNum);
+        const slideHashObj = analysis.fingerprints.slideHashes[slideNum];
         if (slideObj && slideObj.narration) {
           await generateSlideAudio(slideNum, slideObj.narration, {
             outputDir: audioDir,
             tempDir,
-            force: true,
+            presentationDir: targetDir,
+            rawNarration: slideObj.narration,
+            narrationHash: slideHashObj ? slideHashObj.narrationHash : null,
+            force: forceFlag,
             voice: analysis.fingerprints.meta.voice || 'ru-RU-DmitryNeural',
             pitch: analysis.fingerprints.meta.pitch || '-5Hz',
             rate: analysis.fingerprints.meta.rate || '-9%'
@@ -614,6 +655,9 @@ module.exports = {
   sha256,
   getGitCommitHash,
   computePresentationFingerprints,
+  computeSlideHashes,
+  loadBuildCache,
+  saveBuildCache,
   analyzePresentationChanges,
   rebuildPresentation,
   rebuildAllPresentations,

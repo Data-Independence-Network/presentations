@@ -23,7 +23,7 @@ if (!module.paths.includes(globalNodePath)) {
   module.paths.push(globalNodePath);
 }
 
-const { rebuildPresentation, rebuildAllPresentations } = require('./core/incremental_engine');
+const { rebuildPresentation, rebuildAllPresentations, discoverAllPresentations } = require('./core/incremental_engine');
 
 const args = process.argv.slice(2);
 if (args.length === 0) {
@@ -60,10 +60,15 @@ const rootDir = path.resolve(__dirname, '..');
       } else {
         const cwdCandidate = path.resolve(process.cwd(), targetArg);
         const rootCandidate = path.resolve(rootDir, targetArg);
-        targetPath = fs.existsSync(cwdCandidate) ? cwdCandidate : rootCandidate;
+        targetPath = fs.existsSync(cwdCandidate) ? cwdCandidate : (fs.existsSync(rootCandidate) ? rootCandidate : null);
+        if (!targetPath) {
+          const all = discoverAllPresentations(rootDir);
+          const match = all.find(p => path.basename(p) === targetArg || path.basename(p).startsWith(targetArg));
+          if (match) targetPath = match;
+        }
       }
-      if (!fs.existsSync(targetPath)) {
-        console.error(`[❌] Error: Directory not found: ${targetPath}`);
+      if (!targetPath || !fs.existsSync(targetPath)) {
+        console.error(`[❌] Error: Directory not found: ${targetArg}`);
         process.exit(1);
       }
       await rebuildPresentation(targetPath, { force });

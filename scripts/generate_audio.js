@@ -16,8 +16,29 @@ if (args.length === 0) {
   process.exit(1);
 }
 
-const targetDir = path.resolve(args[0]);
+let targetDir = path.resolve(args[0]);
 const remainingArgs = args.slice(1);
+
+if (!fs.existsSync(targetDir)) {
+  const rootDir = path.resolve(__dirname, '..');
+  const searchDirs = [
+    'overall_presentations',
+    'platform_overview',
+    'applications_presentations',
+    'architecture_presentations',
+    'detailed_overall_impact_presentations'
+  ];
+  for (const sub of searchDirs) {
+    const parent = path.join(rootDir, sub);
+    if (!fs.existsSync(parent)) continue;
+    const entries = fs.readdirSync(parent);
+    const match = entries.find(e => e === args[0] || e.startsWith(args[0]));
+    if (match) {
+      targetDir = path.join(parent, match);
+      break;
+    }
+  }
+}
 
 // Locate narration markdown file in docs/
 const docsDir = path.join(targetDir, 'docs');
@@ -45,6 +66,7 @@ generateAudioForPresentation({
   narrationFile,
   outputDir,
   tempDir,
+  presentationDir: targetDir,
   args: remainingArgs
 }).catch(err => {
   console.error('[❌] Audio generation error:', err);

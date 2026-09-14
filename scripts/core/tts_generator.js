@@ -15,7 +15,121 @@ try {
   EdgeTTS = require('node-edge-tts').EdgeTTS;
 }
 
+const crypto = require('crypto');
 const { cleanSubstitutions, ensureSilenceClip } = require('./utils');
+
+function computeSlideNarrationHash(narration, optionsOrMeta = {}) {
+  const narrationContent = [
+    narration || '',
+    optionsOrMeta.voice || 'ru-RU-DmitryNeural',
+    optionsOrMeta.pitch || '-5Hz',
+    optionsOrMeta.rate || '-9%'
+  ].join('||');
+  return crypto.createHash('sha256').update(narrationContent, 'utf8').digest('hex');
+}
+
+function getAudioHashesPath(outputDir) {
+  return path.join(outputDir, '.audio_hashes.json');
+}
+
+function loadAudioHashes(outputDir) {
+  if (!outputDir) return {};
+  const hashFile = getAudioHashesPath(outputDir);
+  if (fs.existsSync(hashFile)) {
+    try {
+      return JSON.parse(fs.readFileSync(hashFile, 'utf8'));
+    } catch (e) {
+      return {};
+    }
+  }
+  return {};
+}
+
+function saveSlideAudioHash(outputDir, slideNum, data) {
+  if (!outputDir) return {};
+  try {
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
+    }
+    const hashFile = getAudioHashesPath(outputDir);
+    const hashes = loadAudioHashes(outputDir);
+    hashes[slideNum] = {
+      ...(hashes[slideNum] || {}),
+      ...data,
+      updatedAt: new Date().toISOString()
+    };
+    fs.writeFileSync(hashFile, JSON.stringify(hashes, null, 2), 'utf8');
+    return hashes;
+  } catch (e) {
+    console.warn(`[⚠️] Warning: Could not write audio hash file in ${outputDir}:`, e.message);
+    return {};
+  }
+}
+
+function findPresentationDirFromAudioDir(outputDir) {
+  if (!outputDir) return null;
+  let cur = path.resolve(outputDir);
+  while (cur !== path.dirname(cur)) {
+    if (fs.existsSync(path.join(cur, 'docs', 'presentation_deck.md')) ||
+        fs.existsSync(path.join(cur, 'generated', '.build_cache.json')) ||
+        fs.existsSync(path.join(cur, '.build_cache.json'))) {
+      return cur;
+    }
+    cur = path.dirname(cur);
+  }
+  return null;
+}
+
+function getCachedSlideNarrationHash(presentationDir, slideNum) {
+  if (!presentationDir) return null;
+  try {
+    const primaryCache = path.join(presentationDir, 'generated', '.build_cache.json');
+    const legacyCache = path.join(presentationDir, '.build_cache.json');
+    const cachePath = fs.existsSync(primaryCache) ? primaryCache : (fs.existsSync(legacyCache) ? legacyCache : null);
+    if (cachePath) {
+      const cache = JSON.parse(fs.readFileSync(cachePath, 'utf8'));
+      if (cache && cache.slides && cache.slides[slideNum] && cache.slides[slideNum].narrationHash) {
+        return cache.slides[slideNum].narrationHash;
+      }
+    }
+  } catch (e) {}
+  return null;
+}
+
+function updateSlideCacheImmediately(presentationDir, slideNum, narrationHash) {
+  if (!presentationDir) return;
+  try {
+    const genDir = path.join(presentationDir, 'generated');
+    const primaryCachePath = path.join(genDir, '.build_cache.json');
+    const legacyCachePath = path.join(presentationDir, '.build_cache.json');
+    const targetPath = fs.existsSync(primaryCachePath)
+      ? primaryCachePath
+      : (fs.existsSync(legacyCachePath) ? legacyCachePath : primaryCachePath);
+
+    if (!fs.existsSync(genDir) && targetPath === primaryCachePath) {
+      fs.mkdirSync(genDir, { recursive: true });
+    }
+
+    let cache = {};
+    if (fs.existsSync(targetPath)) {
+      try {
+        cache = JSON.parse(fs.readFileSync(targetPath, 'utf8'));
+      } catch (e) {
+        cache = {};
+      }
+    }
+
+    if (!cache.slides) cache.slides = {};
+    if (!cache.slides[slideNum]) cache.slides[slideNum] = {};
+
+    cache.slides[slideNum].narrationHash = narrationHash;
+    cache.last_build_timestamp = new Date().toISOString();
+
+    fs.writeFileSync(targetPath, JSON.stringify(cache, null, 2), 'utf8');
+  } catch (e) {
+    // Non-fatal cache write
+  }
+}
 
 function parseSlideSegments(rawText, extraSubstitutions = []) {
   const rawParagraphs = rawText
@@ -57,9 +171,11 @@ function extractNarrationsFromMarkdown(mdContent, extraSubstitutions = []) {
   const slides = parseSlides(body || mdContent);
 
   const narrations = {};
+  narrations._rawNarrations = {};
   slides.forEach(slide => {
     if (slide.narration) {
       narrations[slide.slideNum] = parseSlideSegments(slide.narration, extraSubstitutions);
+      narrations._rawNarrations[slide.slideNum] = slide.narration;
     }
   });
   return narrations;
@@ -156,11 +272,40 @@ async function generateSlideAudio(slideNum, segmentsOrText, options = {}) {
     ? parseSlideSegments(segmentsOrText, options.extraSubstitutions || [])
     : segmentsOrText;
 
+  const rawNarration = options.rawNarration || (
+    typeof segmentsOrText === 'string'
+      ? segmentsOrText
+      : (Array.isArray(segmentsOrText) ? segmentsOrText.map(s => s.text).join(' ') : '')
+  );
+
+  const narrationHash = options.narrationHash || computeSlideNarrationHash(rawNarration, options);
+  const presentationDir = options.presentationDir || findPresentationDirFromAudioDir(outputDir);
+
   const finalFilename = `slide_${String(slideNum).padStart(2, '0')}.mp3`;
   const finalFilePath = path.join(outputDir, finalFilename);
 
-  if (!force && fs.existsSync(finalFilePath) && fs.statSync(finalFilePath).size > 50000) {
-    console.log(`[✓] Slide ${slideNum} audio already exists (${(fs.statSync(finalFilePath).size / 1024).toFixed(1)} KB), skipping.`);
+  const audioHashes = loadAudioHashes(outputDir);
+  const recordedHash = audioHashes[slideNum] && audioHashes[slideNum].narrationHash;
+  const cachedHash = getCachedSlideNarrationHash(presentationDir, slideNum);
+  const knownHash = recordedHash || cachedHash;
+
+  const hasValidFile = fs.existsSync(finalFilePath) && fs.statSync(finalFilePath).size > 1000;
+
+  // Skip if audio file already exists and hash matches exactly
+  if (!force && hasValidFile && knownHash === narrationHash) {
+    console.log(`[✓] Slide ${slideNum} audio is up-to-date (${(fs.statSync(finalFilePath).size / 1024).toFixed(1)} KB), skipping.`);
+    if (!recordedHash) {
+      saveSlideAudioHash(outputDir, slideNum, {
+        narrationHash,
+        size: fs.statSync(finalFilePath).size,
+        voice: options.voice || 'ru-RU-DmitryNeural',
+        pitch: options.pitch || '-5Hz',
+        rate: options.rate || '-9%'
+      });
+    }
+    if (!cachedHash && presentationDir) {
+      updateSlideCacheImmediately(presentationDir, slideNum, narrationHash);
+    }
     return;
   }
 
@@ -196,7 +341,25 @@ async function generateSlideAudio(slideNum, segmentsOrText, options = {}) {
   } catch (e) {}
 
   const stats = fs.statSync(finalFilePath);
-  const dur = execSync(`ffprobe -i "${finalFilePath}" -show_entries format=duration -v quiet -of csv="p=0"`).toString().trim();
+  let dur = '0.0';
+  try {
+    dur = execSync(`ffprobe -i "${finalFilePath}" -show_entries format=duration -v quiet -of csv="p=0"`).toString().trim();
+  } catch (e) {}
+
+  // IMMEDIATELY RECORD HASH IN BOTH CACHES UPON SUCCESSFUL SYNTHESIS
+  saveSlideAudioHash(outputDir, slideNum, {
+    narrationHash,
+    size: stats.size,
+    durationSeconds: parseFloat(dur) || 0,
+    voice: options.voice || 'ru-RU-DmitryNeural',
+    pitch: options.pitch || '-5Hz',
+    rate: options.rate || '-9%'
+  });
+
+  if (presentationDir) {
+    updateSlideCacheImmediately(presentationDir, slideNum, narrationHash);
+  }
+
   console.log(`    [✓] Slide ${slideNum} compiled: ${finalFilename} (${(stats.size / 1024).toFixed(1)} KB, ${parseFloat(dur).toFixed(1)}s)`);
 }
 
@@ -210,29 +373,45 @@ async function generateAudioForPresentation(config = {}) {
   const tempDir = config.tempDir || path.join(path.dirname(outputDir), 'temp_audio_segments');
   const extraSubstitutions = config.extraSubstitutions || [];
   const args = config.args || process.argv.slice(2);
+  const presentationDir = config.presentationDir || findPresentationDirFromAudioDir(outputDir) || path.resolve(path.dirname(narrationFile), '..');
 
   if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
   if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
 
   const mdContent = fs.readFileSync(narrationFile, 'utf8');
+  const { parseFrontmatter } = require('./deck_builder');
+  const { meta } = parseFrontmatter(mdContent);
+
+  const voice = config.voice || (meta && meta.voice) || 'ru-RU-DmitryNeural';
+  const pitch = config.pitch || (meta && meta.pitch) || '-5Hz';
+  const rate = config.rate || (meta && meta.rate) || '-9%';
+
   const slideNarrations = extractNarrationsFromMarkdown(mdContent, extraSubstitutions);
-  console.log(`[i] Extracted narrations for ${Object.keys(slideNarrations).length} slides from ${path.basename(narrationFile)}.`);
+  const rawNarrations = slideNarrations._rawNarrations || {};
 
   const forceFlag = args.includes('--force');
   const targetArg = args.find(a => a !== '--force') || 'all';
 
-  const keys = Object.keys(slideNarrations).map(Number).sort((a, b) => a - b);
+  const keys = Object.keys(slideNarrations).filter(k => !k.startsWith('_')).map(Number).sort((a, b) => a - b);
+  console.log(`[i] Extracted narrations for ${keys.length} slides from ${path.basename(narrationFile)}.`);
+
   for (const slideNum of keys) {
     if (targetArg && targetArg !== 'all' && Number(targetArg) !== slideNum) {
       continue;
     }
+    const rawText = rawNarrations[slideNum] || '';
+    const narrationHash = computeSlideNarrationHash(rawText, { voice, pitch, rate });
+
     await generateSlideAudio(slideNum, slideNarrations[slideNum], {
       outputDir,
       tempDir,
+      presentationDir,
+      rawNarration: rawText,
+      narrationHash,
       force: forceFlag,
-      voice: config.voice || 'ru-RU-DmitryNeural',
-      pitch: config.pitch || '-5Hz',
-      rate: config.rate || '-9%'
+      voice,
+      pitch,
+      rate
     });
   }
   console.log(`\n[🎉] All requested slide audio files processed in ${outputDir}`);
@@ -245,5 +424,11 @@ module.exports = {
   extractNarrationsFromMarkdown,
   synthesizeSegment,
   generateSlideAudio,
-  generateAudioForPresentation
+  generateAudioForPresentation,
+  computeSlideNarrationHash,
+  loadAudioHashes,
+  saveSlideAudioHash,
+  findPresentationDirFromAudioDir,
+  getCachedSlideNarrationHash,
+  updateSlideCacheImmediately
 };
