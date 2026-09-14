@@ -73,6 +73,13 @@ const rootDir = path.resolve(__dirname, '..');
       }
       await rebuildPresentation(targetPath, { force });
     }
+
+    try {
+      const { generatePortal } = require('./generate_portal');
+      generatePortal();
+    } catch (e) {
+      // Non-critical if portal compilation fails
+    }
   } catch (err) {
     console.error(`[❌] Rebuild failed:`, err.message);
     process.exit(1);

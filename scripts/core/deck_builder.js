@@ -325,10 +325,10 @@ ${cssLinkTags}
   <!-- Top Navigation & Control Bar -->
   <header class="presentation-header">
     <div class="header-left">
-      <div class="logo-badge">
+      <a href="/" class="logo-badge" title="Вернуться к каталогу всех презентаций (Главная)">
         <span class="logo-icon">🌲</span>
         <span class="logo-text">${escapeHtml(meta.header_title)}</span>
-      </div>
+      </a>
       <span class="header-title">${escapeHtml(meta.header_subtitle)}</span>
     </div>
     <div class="header-center">

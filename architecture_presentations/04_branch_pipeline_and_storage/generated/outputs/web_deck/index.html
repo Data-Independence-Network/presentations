@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Архитектура платформы «Турбаза» — Выпуск 4: Архитектура узла «Ветка»: конвейер данных и надежность хранения</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Universal Presentation Engine Chrome (Shared Viewport, Header & Controls) -->
+  <link rel="stylesheet" href="../../../../../shared_templates/deck_core/css/deck_core.css">
+  <!-- Isolated Standalone Presentation Theme & Content -->
+  <link rel="stylesheet" href="deck.css">
+
+  <!-- Mermaid.js Vector Renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      flowchart: { htmlLabels: true, curve: 'basis' },
+      themeVariables: {
+        darkMode: true,
+        background: '#070b14',
+        primaryColor: '#0e1626',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#38bdf8',
+        lineColor: '#facc15',
+        fontFamily: 'Inter, sans-serif'
+      }
+    });
+  </script>
+</head>
+<body class="">
+
+  <!-- Top Navigation & Control Bar -->
+  <header class="presentation-header">
+    <div class="header-left">
+      <div class="logo-badge">
+        <span class="logo-icon">🌲</span>
+        <span class="logo-text">ТУРБАЗА // ИНЖЕНЕРИЯ</span>
+      </div>
+      <span class="header-title">Выпуск 04: Конвейер данных и периферийное хранилище Ветки</span>
+    </div>
+    <div class="header-center">
+      <button id="btnPrev" class="nav-btn nav-btn-arrow" title="Предыдущий слайд (←)"><span class="btn-icon">◀</span></button>
+      <span id="slideIndicator" class="slide-indicator">Слайд 1 / 15</span>
+      <button id="btnNext" class="nav-btn nav-btn-arrow" title="Следующий слайд (→)"><span class="btn-icon">▶</span></button>
+    </div>
+    <div class="header-right">
+      <button id="btnOverview" class="nav-btn" title="Сетка слайдов (O)"><span class="btn-icon">▦</span> Сетка</button>
+      <button id="btnVoice" class="nav-btn voice-btn" title="Голосовое сопровождение (V)"><span class="btn-icon">🔊</span> Озвучка</button>
+      <button id="btnNotes" class="nav-btn" title="Текст диктора (N)"><span class="btn-icon">🎙️</span> Текст спикера</button>
+      <button id="btnFullscreen" class="nav-btn" title="Полноэкранный режим (F)"><span class="btn-icon">⛶</span> Экран</button>
+      <button id="btnPrint" class="nav-btn" title="Печать в PDF (Ctrl+P)"><span class="btn-icon">🖨️</span> PDF</button>
+    </div>
+  </header>
+
+  <!-- Presentation Viewport -->
+  <main class="presentation-viewport">
+    <div id="deckContainer" class="deck-container">
+      
+      <!-- ==================== СЛАЙД 1 ==================== -->
+      <section class="slide-card active" data-slide="1">
+        <!-- slide: 1 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">АРХИТЕКТУРНЫЙ ВЫПУСК 04 &middot; ПЕРИФЕРИЙНЫЙ ХАБ</div>
+    <h1 class="slide-title">АРХИТЕКТУРА УЗЛА «ВЕТКА» (BRANCH NODE)</h1>
+    <p class="slide-subtitle">Периферийный координатор гарантированной надежности, буферизация очередей и автономное хранение данных</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph TD
+    Leaves["📱 Листья (Leaf Nodes: Граждане & Офисы)"]
+    Queue["⚡ Фаза 1: PersistentQueue (Дисковый WAL Ingestion)"]
+    RAM["🧠 Фаза 2: ConcurrentMap (Горячее окно в ОЗУ)"]
+    Archive["🗄️ Фаза 3: FileSystem (Сегментный Append-Only архив)"]
+    Parent["🌲 Родительская Ветвь / Ствол (Федеральный уровень)"]
+
+    Leaves <-->|Прием блоков & Hot-Sync| Queue
+    Queue --> RAM
+    RAM --> Archive
+    RAM <-->|Агрегированная синхронизация| Parent
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-amber">
+          <h4>Периферийный координатор района или предприятия</h4>
+          <p>Узел «Ветка» развертывается в муниципалитете, районном узле связи или в локальном контуре компании. Он обеспечивает локализацию трафика и надежную буферизацию данных.</p>
+        </div>
+        <div class="content-card">
+          <h4>Принцип нулевого знания (Zero-Knowledge Relay)</h4>
+          <p>Ветка оперирует зашифрованными бинарными пакетами пользователей. Оператор Ветки физически не может прочитать персональные данные жителей.</p>
+        </div>
+        <div class="content-card">
+          <h4>Темы архитектурного разбора</h4>
+          <p>В этом выпуске: трехфазный конвейер данных, Hot/Cold синхронизация, воспроизведение истории Time-Traveling, снапшоты, очистка логов Pruning и обслуживание PublicData.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="1" style="display:none;">
+          Приветствую коллег. В четвертом выпуске архитектурной серии &quot;Турбазы&quot; мы поднимаемся на уровень выше и исследуем архитектуру узла &quot;Ветка&quot; — периферийного координатора платформы.<br/><br/>Если узел &quot;Лист&quot; — это персональное хранилище гражданина с полным владением информацией, то &quot;Ветка&quot; выступает локальным гравитационным центром района, муниципалитета или предприятия.<br/><br/>Главный вызов при проектировании Ветки заключался в создании высокопроизводительного буфера, способного надежно удерживать миллионы очередей сообщений на типовом оборудовании без риска утечки информации. Мы решили эту задачу через трехфазный конвейер данных и принцип нулевого знания. Давайте разберем его инженерию.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 2 ==================== -->
+      <section class="slide-card " data-slide="2">
+        <!-- slide: 2 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">ТОПОЛОГИЧЕСКАЯ РОЛЬ &middot; ГРАВИТАЦИОННЫЙ ЦЕНТР</div>
+    <h2 class="slide-title">РОЛЬ УЗЛА «ВЕТКА» В РАСПРЕДЕЛЕННОЙ ТОПОЛОГИИ</h2>
+    <p class="slide-subtitle">Локализация 80% сетевого трафика, почтовые ящики для офлайн-клиентов и сигнальный релей</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph TB
+    subgraph District["Муниципальный район / Предприятие"]
+        L1["Лист 1 (Домохозяйство)"]
+        L2["Лист 2 (Магазин у дома)"]
+        L3["Лист 3 (Поликлиника)"]
+        Branch["⚡ Узел ВЕТКА (Branch Node)<br/>- 80% трафика локализовано внутри района<br/>- Почтовые ящики для временно отключенных узлов<br/>- Релей для сигналов WebRTC P2P"]
+    end
+
+    subgraph Backbone["Внешняя магистраль"]
+        ParentBranch["🏛️ Областная Ветвь / Федеральный Ствол"]
+    end
+
+    L1 <-->|Прямой P2P Data Plane| L2
+    L1 <--> Branch
+    L2 <--> Branch
+    L3 <--> Branch
+    Branch <-->|Только 20% транзитного трафика| ParentBranch
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-amber">
+          <h4>Разгрузка магистральных каналов связи</h4>
+          <p>В централизованных облаках любой пакет летит через Москву или центральный ЦОД. В «Турбазе» узел «Ветка» замыкает до 80% всех транзакций внутри локальной подсети района.</p>
+        </div>
+        <div class="content-card">
+          <h4>Почтовый буфер для спящих клиентов (Mailbox)</h4>
+          <p>Если смартфон пользователя отключен или находится вне зоны действия сети, Ветка надежно сохраняет адресованные ему блоки изменений в энергонезависимой очереди.</p>
+        </div>
+        <div class="content-card">
+          <h4>Релей сетевых рукопожатий</h4>
+          <p>Ветка выступает легковесным координатором для установления прямых P2P-соединений между клиентскими терминалами, находящимися за сложными корпоративными NAT.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="2" style="display:none;">
+          Какую роль играет узел &quot;Ветка&quot; в общей топологии?<br/><br/>Прежде всего, это шлюз локализации трафика. В традиционной облачной модели даже сообщение соседу по подъезду отправляется в центральный ЦОД за тысячи километров. Ветка замыкает до восьмидесяти процентов районного трафика внутри локальной сети муниципалитета.<br/><br/>Вторая ключевая функция — асинхронный почтовый ящик. Пользователи смартфонов регулярно уходят в офлайн. Ветка аккумулирует зашифрованные пакеты изменений в надежной очереди и моментально отдает их устройству в момент появления в сети.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 3 ==================== -->
+      <section class="slide-card " data-slide="3">
+        <!-- slide: 3 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">АРХИТЕКТУРА ХРАНЕНИЯ &middot; 3-ФАЗНЫЙ ПАЙПЛАЙН</div>
+    <h2 class="slide-title">ТРЕХФАЗНЫЙ КОНВЕЙЕР ОБРАБОТКИ ДАННЫХ</h2>
+    <p class="slide-subtitle">Развязка фаз приема (Ingestion), горячей раздачи (Serving) и долговременного архива (Retention)</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph LR
+    P1["1. PersistentQueue<br/>(Дисковый WAL)<br/>- fsync на NVMe<br/>- ACK за &lt;2 мс"]
+    P2["2. ConcurrentMap<br/>(Lock-Free ОЗУ)<br/>- Горячее окно<br/>- Раздача пирам 0 мс"]
+    P3["3. FileSystem<br/>(Append-Only Logs)<br/>- Сегменты архива<br/>- Сжатие ZSTD"]
+
+    P1 -->|Асинхронный перенос| P2
+    P2 -->|Фоновый сброс батчами| P3
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-amber">
+          <h4>Проблема классических очередей (Kafka / RabbitMQ)</h4>
+          <p>Традиционные брокеры сообщений требуют гигабайты памяти на JVM-сборщики мусора и страдают от блокировок при одновременной записи и чтении сотен тысяч топиков.</p>
+        </div>
+        <div class="content-card">
+          <h4>Архитектурное разделение обязанностей</h4>
+          <p>Конвейер Ветки разделяет три критических процесса: ультрабыстрый прием на диск, безблокировочную раздачу из памяти и сегментное долгосрочное хранение.</p>
+        </div>
+        <div class="content-card">
+          <h4>Гарантия сохранности при внезапном сбое питания</h4>
+          <p>Ни один пакет не подтверждается клиенту до момента физической фиксации в журнале <code>PersistentQueue</code> с подтверждением от контроллера накопителя.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="3" style="display:none;">
+          Сердцем узла &quot;Ветка&quot; является специализированный трехфазный конвейер данных.<br/><br/>Мы сознательно отказались от использования тяжелых решений вроде Kafka или RabbitMQ, требующих огромных вычислительных мощностей и страдающих от пауз сборщика мусора.<br/><br/>Вместо этого конвейер Ветки четко разделен на три независимых звена: персистентную дисковую очередь PersistentQueue, оперативную карту памяти ConcurrentMap и сегментную файловую систему. Каждое звено решает строго одну задачу: очередь гарантирует надежность при сбоях питания, память обеспечивает мгновенную раздачу подписчикам, а сегментные файлы отвечают за долговременный архив.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 4 ==================== -->
+      <section class="slide-card " data-slide="4">
+        <!-- slide: 4 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">ФАЗА 1 КОНВЕЙЕРА &middot; ГАРАНТИЯ ДОСТАВКИ</div>
+    <h2 class="slide-title">ФАЗА 1: ДИСКОВАЯ ОЧЕРЕДЬ PERSISTENTQUEUE</h2>
+    <p class="slide-subtitle">Атомарная фиксация входящих пакетов с вызовом fsync и отклик клиенту менее чем за 2 мс</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+sequenceDiagram
+    participant Leaf as Клиентский узел Лист
+    participant Net as Сетевой стек Ветки (epoll/kqueue)
+    participant PQ as PersistentQueue (WAL на диске)
+    participant Disk as Аппаратный NVMe SSD
+
+    Leaf->>Net: Отправка RepositoryBlock (TCP / QUIC)
+    Net->>PQ: Запись в циклический буфер журнала
+    PQ->>Disk: Пакетный fsync (Групповой коммит)
+    Disk-->>PQ: Подтверждение записи на флеш-чипы
+    PQ-->>Leaf: Моментальный ACK: Block Accepted (&lt;2 мс)
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-amber">
+          <h4>Технология группового коммита (Group Commit)</h4>
+          <p>Для минимизации задержек диск не дергается на каждый микро-пакет: запросы, поступившие в окне 500 микросекунд, сбрасываются на NVMe единым блоком ввода-вывода.</p>
+        </div>
+        <div class="content-card">
+          <h4>Кольцевой персистентный журнал</h4>
+          <p>Очередь организована как циклический кольцевой буфер фиксированного размера, что полностью предотвращает фрагментацию дискового пространства.</p>
+        </div>
+        <div class="content-card">
+          <h4>Сверхбыстрый ACK клиенту</h4>
+          <p>Клиентский терминал получает подтверждение фиксации через 1.5–2 миллисекунды и может спокойно выключать экран мобильного телефона или отключаться от Wi-Fi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="4" style="display:none;">
+          Разберем первую фазу конвейера — PersistentQueue.<br/><br/>Когда клиентский узел отправляет пакет RepositoryBlock, сетевой стек Ветки принимает его через асинхронные сокеты и помещает в кольцевой журнал упреждающей записи на диске.<br/><br/>С помощью механизма группового коммита сотни входящих пакетов сбрасываются на скоростной NVMe-накопитель за одну операцию записи. Время отклика клиенту составляет менее двух миллисекунд. Как только контроллер диска подтвердил запись, клиент получает подтверждение и может переходить в спящий режим — данные уже никогда не потеряются.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 5 ==================== -->
+      <section class="slide-card " data-slide="5">
+        <!-- slide: 5 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">ФАЗА 2 КОНВЕЙЕРА &middot; ОПЕРАТИВНАЯ ПАМЯТЬ</div>
+    <h2 class="slide-title">ФАЗА 2: БЕЗБЛОКИРОВОЧНАЯ ПАМЯТЬ CONCURRENTMAP</h2>
+    <p class="slide-subtitle">Удержание «горячего» окна последних транзакций в ОЗУ для моментальной отдачи без I/O</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph TD
+    PQ["PersistentQueue (Сброс на диск завершен)"] --> Pop["Фоновый поток переноса в память"]
+    Pop --> CM["⚡ ConcurrentMap в ОЗУ<br/>Индекс: RepositoryGUID &rarr; SortedSkipList(Seq#)"]
+
+    subgraph MemoryWindow["Горячее окно (Hot Window: последние 10 000 блоков)"]
+        CM --> Repo1["Хранилище A: [Блок 101, Блок 102, Блок 103]"]
+        CM --> Repo2["Хранилище B: [Блок 45, Блок 46]"]
+    end
+
+    Repo1 --> PeerA["Раздача активным пирам: 0 дисковых обращений!"]
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-amber">
+          <h4>Архитектура без глобальных блокировок (Lock-Free)</h4>
+          <p>Использование параллельных списков с пропусками (Concurrent SkipList) позволяет десяткам рабочих потоков одновременно читать и добавлять блоки без блокировки мьютексов.</p>
+        </div>
+        <div class="content-card">
+          <h4>Индексация по GUID и номеру блока</h4>
+          <p>В оперативной памяти поддерживается двухуровневый индекс: по глобальному идентификатору хранилища и монотонно возрастающему номеру пакета <code>sequenceNumber</code>.</p>
+        </div>
+        <div class="content-card">
+          <h4>Мгновенная отдача (Serving Latency = 0 мс)</h4>
+          <p>Все запросы от активных участников хранилища обслуживаются прямо из ОЗУ. Дисковые считыватели не задействуются, оставляя 100% ресурса накопителя для записи.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="5" style="display:none;">
+          Вторая фаза конвейера — ConcurrentMap в оперативной памяти.<br/><br/>Сразу после фиксации на диске блоки перемещаются в оперативную память. Мы используем специализированную безблокировочную структуру данных SkipList, оптимизированную под многопоточное чтение.<br/><br/>В памяти поддерживается скользящее &quot;горячее окно&quot; последних транзакций каждого активного хранилища. Когда другие участники проекта запрашивают свежие обновления, Ветка отдает их прямо из оперативной памяти без единого обращения к диску. Задержка отдачи стремится к нулю.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 6 ==================== -->
+      <section class="slide-card " data-slide="6">
+        <!-- slide: 6 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">ФАЗА 3 КОНВЕЙЕРА &middot; ДОЛГОВРЕМЕННЫЙ АРХИВ</div>
+    <h2 class="slide-title">ФАЗА 3: СЕГМЕНТНЫЙ АРХИВ FILESYSTEM</h2>
+    <p class="slide-subtitle">Линейная блочная запись журналов транзакций на накопители с фоновым сжатием Zstandard</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph LR
+    CM["ConcurrentMap (Память переполнена)"] --> Flush["Периодический Flush батчами (раз в 10 сек)"]
+
+    subgraph Segments["Сегменты файловой системы (Append-Only)"]
+        Seg1["Сегмент 001.wal (Зафиксирован, Read-Only)"]
+        Seg2["Сегмент 002.wal (Зафиксирован, Read-Only)"]
+        SegActive["Сегмент 003.wal (Активная линейная дозапись)"]
+    end
+
+    Flush --> SegActive
+    Seg1 --> ZSTD["Фоновое сжатие Zstandard (-60% диска)"]
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-amber">
+          <h4>Линейный сброс без фрагментации (Append-Only)</h4>
+          <p>Данные сбрасываются на диск исключительно последовательной дозаписью крупными блоками по 64 МБ, что гарантирует максимальный ресурс работы корпоративных SSD-дисков.</p>
+        </div>
+        <div class="content-card">
+          <h4>Фоновая компрессия алгоритмом Zstandard</h4>
+          <p>Заполненные исторические сегменты закрываются для записи и архивируются сжатием Zstandard в фоновом режиме, сокращая занимаемое место на диске более чем на 60%.</p>
+        </div>
+        <div class="content-card">
+          <h4>Надежность архива при авариях</h4>
+          <p>Каждый сегмент снабжен контрольными суммами CRC32C. Повреждение отдельного блока физического носителя локализуется и не разрушает весь исторический архив.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="6" style="display:none;">
+          Третья фаза конвейера отвечает за долговременное хранение архива в файловой системе.<br/><br/>По мере вытеснения блоков из оперативной памяти фоновый процесс собирает их в крупные сегменты и выполняет последовательную дозапись в файлы журнала. Линейный сброс исключает случайные перезаписи секторов диска и в разы продлевает ресурс флеш-накопителей.<br/><br/>Закрытые сегменты журнала автоматически сжимаются скоростным алгоритмом Zstandard, сокращая объем хранилища более чем вдвое. Каждый сегмент содержит контрольные суммы блоков, что исключает незаметное повреждение архива на уровне носителя.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 7 ==================== -->
+      <section class="slide-card " data-slide="7">
+        <!-- slide: 7 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">РЕПЛИКАЦИЯ В РЕАЛЬНОМ ВРЕМЕНИ &middot; РАСПИСКА ДЕЛЬТ</div>
+    <h2 class="slide-title">ГОРЯЧАЯ СИНХРОНИЗАЦИЯ: РЕЖИМ HOT-SYNC</h2>
+    <p class="slide-subtitle">Потоковая рассылка свежих дельт изменений подключенным активным узлам со скоростью шины памяти</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+sequenceDiagram
+    participant Writer as Пишущий узел (Лист 1)
+    participant Branch as Ветка (Hot-Sync Engine)
+    participant Sub1 as Подписчик А (Лист 2: Онлайн)
+    participant Sub2 as Подписчик Б (Лист 3: Онлайн)
+
+    Writer->>Branch: RepositoryBlock #501 (Коммит задачи)
+    Branch->>Branch: Сохранение в PersistentQueue + ConcurrentMap
+    par Параллельный Push подписчикам
+        Branch-->>Sub1: WebSocket / TCP Push: Block #501 (&lt;5 мс)
+        Branch-->>Sub2: WebSocket / TCP Push: Block #501 (&lt;5 мс)
+    end
+    Sub1->>Sub1: Локальное применение дельты в SQLite
+    Sub2->>Sub2: Локальное применение дельты в SQLite
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-amber">
+          <h4>Мгновенная доставка изменений активным пирам</h4>
+          <p>Если участники хранилища находятся в сети, Ветка пересылает входящие блоки изменений подписчикам в ту же миллисекунду через постоянные сетевые сокеты.</p>
+        </div>
+        <div class="content-card">
+          <h4>Ультранизкая сетевая задержка (&lt;5 мс)</h4>
+          <p>Поскольку репликация происходит внутри одного района или корпоративной сети, задержка синхронизации неотличима от работы в локальной сети.</p>
+        </div>
+        <div class="content-card">
+          <h4>Гарантия строгой последовательности</h4>
+          <p>Блоки транслируются со строгим сохранением монотонного номера последовательности. Клиент получает изменения именно в том порядке, в котором они зафиксированы конвейером.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="7" style="display:none;">
+          Режим &quot;Горячей синхронизации&quot; Hot-Sync обеспечивает совместную работу участников в реальном времени.<br/><br/>Когда один сотрудник вносит правку в общее хранилище, Ветка фиксирует блок и моментально рассылает его всем подключенным участникам по активным сокетам прямо из оперативной памяти.<br/><br/>Задержка распространения изменений внутри района не превышает пяти миллисекунд. Коллеги видят обновление данных практически синхронно, а строгий порядок номеров блоков исключает возникновение гонок и рассинхронизаций на клиентских устройствах.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 8 ==================== -->
+      <section class="slide-card " data-slide="8">
+        <!-- slide: 8 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">ДОГОНЯЮЩАЯ СИНХРОНИЗАЦИЯ &middot; ВЫХОД ИЗ ОФЛАЙНА</div>
+    <h2 class="slide-title">ХОЛОДНАЯ СИНХРОНИЗАЦИЯ: CATCH-UP SYNC</h2>
+    <p class="slide-subtitle">Быстрое восстановление состояния узла каскадным объединением срезов оперативной памяти и диска</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+sequenceDiagram
+    participant Returning as Вернувшийся узел (Был офлайн 3 дня)
+    participant Branch as Ветка (Catch-up Manager)
+    participant RAM as ConcurrentMap (ОЗУ)
+    participant Disk as Сегменты FileSystem (Диск)
+
+    Returning->>Branch: Запрос Catch-Up: Repo X, начиная с блока #120
+    Branch->>RAM: Проверка наличия в памяти
+    RAM-->>Branch: Есть блоки #450..#500 (старые блоки сброшены на диск)
+    Branch->>Disk: Чтение сегментов для блоков #120..#449
+    Disk-->>Branch: Потоковый срез архивных дельт
+    Branch-->>Returning: Пакетная отдача дельт #120..#500
+    Returning->>Returning: Атомарный накат на локальную базу SQLite
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-amber">
+          <h4>Умное каскадное считывание</h4>
+          <p>Менеджер догоняющей синхронизации прозрачно комбинирует исторические данные: старые блоки читаются с диска, а самые свежие подтягиваются из оперативной памяти.</p>
+        </div>
+        <div class="content-card">
+          <h4>Стриминг сжатых пакетов</h4>
+          <p>Вместо передачи миллионов отдельных сетевых сообщений накопленные дельты упаковываются в непрерывный бинарный поток, восстанавливающий базу за секунды.</p>
+        </div>
+        <div class="content-card">
+          <h4>Нулевое влияние на пишущий поток</h4>
+          <p>Чтение архивных сегментов выполняется независимым пулом дисковых считывателей с пониженным приоритетом I/O, не замедляя горячий поток записи.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="8" style="display:none;">
+          Что происходит, когда пользователь включает ноутбук после трех дней командировки без связи? Включается режим догоняющей синхронизации — Catch-up Sync.<br/><br/>Устройство сообщает Ветке номер последнего зафиксированного блока. Диспетчер синхронизации определяет диапазон пропущенных изменений.<br/><br/>Система автоматически поднимает нужные архивные сегменты с диска, объединяет их с самыми свежими блоками из оперативной памяти и передает клиенту единым компактным потоком. Локальная база SQLite на ноутбуке восстанавливает актуальное состояние за считанные секунды без блокировки других операций.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 9 ==================== -->
+      <section class="slide-card " data-slide="9">
+        <!-- slide: 9 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">АУДИТ И НЕИЗМЕНЯЕМОСТЬ &middot; ВРЕМЕННЫЕ СРЕЗЫ</div>
+    <h2 class="slide-title">МЕХАНИЗМ TIME-TRAVELING: ВОЗВРАТ ВО ВРЕМЕНИ</h2>
+    <p class="slide-subtitle">Детерминированное воспроизведение состояния хранилища на любой исторический момент t</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph LR
+    S0["S₀: Начальное состояние (Снапшот хранилища)"]
+    D1["Δ₁: Создание задачи"]
+    D2["Δ₂: Назначение исполнителя"]
+    D3["Δ₃: Изменение статуса"]
+    D4["Δ₄: Ошибочное удаление ❌"]
+
+    S0 --> D1 --> D2 --> D3 --> D4
+
+    subgraph TimeTravel["Реконструкция на момент времени t = Δ₃"]
+        TargetState["🎯 Состояние на момент t: S(t) = S₀ + Δ₁ + Δ₂ + Δ₃<br/>(Ошибочное действие Δ₄ полностью нейтрализовано)"]
+    end
+
+    D3 -.-> TargetState
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-amber">
+          <h4>Детерминированный граф состояний</h4>
+          <p>Поскольку журнал WAL фиксирует точные значения колонок (OldValue / NewValue) и монотонные таймстемпы, состояние базы в любой момент $t$ выражается строгой формулой: $S_t = S_0 + \sum \Delta_i$.</p>
+        </div>
+        <div class="content-card">
+          <h4>Абсолютная защита от программных ошибок и порчи</h4>
+          <p>При случайном удалении критических таблиц или сбое скрипта администратор может «отмотать» состояние хранилища на 1 секунду до инцидента с точностью до одной транзакции.</p>
+        </div>
+        <div class="content-card">
+          <h4>Юридическая верифицируемость (Audit Trail)</h4>
+          <p>Математически невозможно подделать или скрыть историческое действие: каждая дельта подписана автором и зафиксирована в цепочке хэшей.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="9" style="display:none;">
+          Благодаря иммутабельной природе журнала изменений &quot;Турбаза&quot; нативно поддерживает механизм Time-Traveling — воспроизведение состояния на любой исторический момент.<br/><br/>Состояние базы данных в любой точке времени математически детерминировано суммой начального состояния и цепочки зафиксированных дельт.<br/><br/>Если сотрудник случайно удалил важный проект или сторонний скрипт повредил данные, системе не требуются суточные бэкапы. Хранилище можно мгновенно пересобрать на состояние за одну секунду до сбоя. При этом сохраняется полная цепочка электронных подписей, гарантирующая строгий юридический аудит действий.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 10 ==================== -->
+      <section class="slide-card " data-slide="10">
+        <!-- slide: 10 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">ОПТИМИЗАЦИЯ ХРАНИЛИЩА &middot; ПРУНИНГ ЛОГОВ</div>
+    <h2 class="slide-title">УПРАВЛЕНИЕ ЖИЗНЕННЫМ ЦИКЛОМ И PRUNING</h2>
+    <p class="slide-subtitle">Безопасная компактификация и очистка устаревших логов без нарушения целостности истории</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph TD
+    OldLog["📜 Старые дельты WAL: Блоки 1..10 000 (Занимают 50 ГБ)"]
+    Snap["📸 Согласованный кворумный Снапшот (Блок 10 000)"]
+    Prune["✂️ Процесс безопасного Pruning (Очистка)"]
+    NewLog["📜 Активные дельты WAL: Блоки 10 001..10 500 (Занимают 200 МБ)"]
+
+    OldLog --> Snap
+    Snap --> Prune
+    Prune -->|Удаление старых файлов с диска| Storage["💾 Освобождение 95% дискового пространства"]
+    Snap --> NewLog
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-amber">
+          <h4>Дилемма неограниченного роста логов</h4>
+          <p>Если хранить абсолютно все дельты изменений бесконечно, объем базы через несколько лет превысит емкость любых накопителей, а старт новых узлов станет мучительно долгим.</p>
+        </div>
+        <div class="content-card">
+          <h4>Механизм безопасной очистки (Pruning)</h4>
+          <p>После того как все участники зафиксировали проверенный снапшот состояния, сегменты журнала до этой точки могут быть безопасно удалены с узла.</p>
+        </div>
+        <div class="content-card">
+          <h4>Гибкие политики удержания (Retention Policies)</h4>
+          <p>Для финансовых реестров логи хранятся 5 лет в соответствии с законодательством, а для оперативных чатов и временных очередей прунинг выполняется каждые 7 дней.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="10" style="display:none;">
+          Журналы транзакций не могут расти бесконечно. Рано или поздно наступает момент, когда хранение всех микро-дельт за прошлые годы становится экономически нецелесообразным.<br/><br/>Для решения этой проблемы Ветка использует процедуру Pruning — контролируемую очистку устаревших журналов.<br/><br/>Очистка инициируется только после того, как в хранилище сформирован и криптографически подтвержден новый базовый снапшот состояния. Старые сегменты дельт безопасно удаляются, высвобождая до девяноста пяти процентов дискового пространства, при этом непрерывность математического аудита системы остается нетронутой.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 11 ==================== -->
+      <section class="slide-card " data-slide="11">
+        <!-- slide: 11 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">БАЗОВЫЕ СРЕЗЫ &middot; ХОЛОДНЫЙ СТАРТ</div>
+    <h2 class="slide-title">СНАПШОТЫ СОСТОЯНИЯ ХРАНИЛИЩ</h2>
+    <p class="slide-subtitle">Периодическая фиксация базового снимка базы данных, скрепленная кворумом электронных подписей</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph TB
+    subgraph Snapshot["Контейнер Snapshot v2.0"]
+        Header["Метаданные: Repository GUID, Baseline Block #10 000"]
+        StateData["Бинарный срез таблиц SQLite (Сжатие LZ4 / ZSTD)"]
+        MerkleRoot["Корневой хэш Merkle дерева записей"]
+        QuorumSign["Кворумная подпись доверенных узлов (ГОСТ Р 34.10)"]
+    end
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-amber">
+          <h4>Ускорение подключения новых устройств в 100 раз</h4>
+          <p>Вместо последовательного накатывания десяти миллионов исторических транзакций новый смартфон пользователя скачивает один компактный снапшот и сразу начинает работу.</p>
+        </div>
+        <div class="content-card">
+          <h4>Кворумное заверение валидности</h4>
+          <p>Снапшот подписывается участниками хранилища или уполномоченными узлами. Подделка снимка невозможна: корневой хэш Merkle сверяется с цепочкой блоков.</p>
+        </div>
+        <div class="content-card">
+          <h4>Инкрементальный накат свежих данных</h4>
+          <p>После развертывания снапшота устройство докачивает только те немногие дельты, которые появились после момента фиксации снимка.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="11" style="display:none;">
+          Снапшот состояния хранилища — это криптографически заверенный снимок базы данных на конкретный номер блока.<br/><br/>Представьте, что новому сотруднику нужно подключиться к корпоративному хранилищу с пятилетней историей. Если накатывать транзакции по одной, процесс займет несколько часов.<br/><br/>С помощью снапшота устройство скачивает с Ветки сжатый актуальный слепок таблиц SQLite, проверяет кворумную цифровую подпись участников и разворачивает базу данных за несколько секунд. После этого скачиваются лишь свежие дельты, созданные после формирования снимка.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 12 ==================== -->
+      <section class="slide-card " data-slide="12">
+        <!-- slide: 12 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">ОТКРЫТЫЕ РЕЕСТРЫ &middot; РАЙОННЫЕ ДАННЫЕ</div>
+    <h2 class="slide-title">БАЗА ОБЩЕСТВЕННЫХ ДАННЫХ (PUBLICDATA)</h2>
+    <p class="slide-subtitle">Обслуживание открытых муниципальных каталогов, досок объявлений и открытых голосований</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph LR
+    subgraph PublicServices["Общественные муниципальные сервисы района"]
+        Vote["🗳️ «КубГолос»: Районные опросы и петиции"]
+        Care["🤝 «Забота»: Каталог взаимопомощи и волонтеров"]
+        Tourism["🗺️ «УраТур»: Открытые маршруты и достопримечательности"]
+    end
+
+    subgraph BranchPublic["Узел Ветка: База PublicData"]
+        Engine["Локальный поисковый движок SQLite FTS5<br/>(Полнотекстовый открытый индекс района)"]
+    end
+
+    Vote --> Engine
+    Care --> Engine
+    Tourism --> Engine
+    Engine --> Residents["Жители района: Мгновенный открытый поиск (0 мс)"]
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-amber">
+          <h4>Открытые данные без шифрования содержимого</h4>
+          <p>В отличие от персональных сейфов, данные в пространстве <code>PublicData</code> предназначены для общественного доступа: расписания транспорта, ярмарки, опросы жителей.</p>
+        </div>
+        <div class="content-card">
+          <h4>Встроенная полнотекстовая индексация (FTS5)</h4>
+          <p>Ветка индексирует открытые записи с помощью реляционного движка SQLite FTS5, предоставляя жителям района мгновенный полнотекстовый поиск.</p>
+        </div>
+        <div class="content-card">
+          <h4>Защита от подделки общественных реестров</h4>
+          <p>Все общественные записи скрепляются цифровыми подписями их авторов или муниципалитета, предотвращая несанкционированные изменения.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="12" style="display:none;">
+          Наряду с приватными сейфами узел &quot;Ветка&quot; обслуживает базу открытых реестров — PublicData.<br/><br/>Это пространство создано для районных сервисов: общественных голосований в &quot;КубГолосе&quot;, каталогов взаимопомощи в &quot;Заботе&quot; и туристических маршрутов в &quot;УраТуре&quot;.<br/><br/>Поскольку эти данные открыты по своей природе, Ветка индексирует их в локальном реляционном движке с поддержкой полнотекстового поиска FTS5. Жители получают быстрый доступ к районным реестрам, а достоверность каждой публикации подтверждается электронной подписью муниципалитета или автора объявления.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 13 ==================== -->
+      <section class="slide-card " data-slide="13">
+        <!-- slide: 13 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">ИЗОЛЯЦИЯ КОНТЕКСТОВ &middot; 152-ФЗ ZERO-PII</div>
+    <h2 class="slide-title">ИЗОЛЯЦИЯ: ПРИВАТНЫЕ СЕЙФЫ VS PUBLICDATA</h2>
+    <p class="slide-subtitle">Физическое разделение открытых реестров и шифрованных пользовательских хранилищ на узле Ветка</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph TB
+    subgraph BranchNode["Узел Ветка: Разделение контуров безопасности"]
+        subgraph PublicZone["Открытая зона: PublicData"]
+            PubDB["Реляционная база SQLite (Открытый текст)<br/>- Доступна для поиска и аналитики Ветки<br/>- Открытые реестры района"]
+        end
+
+        subgraph PrivateZone["Приватная зона: Автономные сейфы (Vaults)"]
+            PrivFS["Файловая система: Непроницаемые BLOB<br/>- Шифрование AES-256-GCM ключами Листа<br/>- У Ветки НЕТ ключей дешифрования!"]
+        end
+    end
+
+    Admin["👨‍💼 Администратор сервера Ветки"] -->|Может читать| PubDB
+    Admin -.->|Видит только случайный бинарный шум ❌| PrivFS
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-amber">
+          <h4>Архитектурное соблюдение 152-ФЗ Zero-PII</h4>
+          <p>Оператор сервера Ветки (муниципалитет или провайдер) не является оператором персональных данных, так как физически не имеет ключей для расшифровки приватных сейфов.</p>
+        </div>
+        <div class="content-card">
+          <h4>Непроницаемость для инсайдеров</h4>
+          <p>Даже получение полного физического доступа к серверу Ветки или дамп оперативной памяти не позволит злоумышленнику прочитать переписку или документы граждан.</p>
+        </div>
+        <div class="content-card">
+          <h4>Строгая граница привилегий в ОС</h4>
+          <p>Процессы обслуживания общественных реестров и конвейер шифрованных очередей исполняются под разными системными пользователями с жестким разграничением прав.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="13" style="display:none;">
+          Присутствие на одном сервере общественных реестров и приватных данных пользователей требует строжайшего разграничения контекстов безопасности.<br/><br/>В архитектуре Ветки эти контуры физически изолированы. База PublicData открыта для индексации и аналитики. Но приватные сейфы хранятся в конвейере в виде непроницаемых бинарных блоков, зашифрованных симметричными ключами пользователей.<br/><br/>У сервера Ветки нет ключей дешифрования. Даже системный администратор сервера видит лишь поток белого шума. Это фундаментальное архитектурное требование: платформа гарантирует полное соблюдение закона 152-ФЗ о персональных данных, исключая саму возможность утечки информации из облака.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 14 ==================== -->
+      <section class="slide-card " data-slide="14">
+        <!-- slide: 14 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">ПРОИЗВОДИТЕЛЬНОСТЬ &middot; БЕНЧМАРКИ</div>
+    <h2 class="slide-title">КАТАСТРОФОУСТОЙЧИВОСТЬ И БЕНЧМАРКИ ВЕТКИ</h2>
+    <p class="slide-subtitle">Сравнение производительности конвейера Ветки с классическим стеком Kafka + Cassandra</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="comparison-table-card">
+        <table class="arch-table">
+          <thead>
+            <tr>
+              <th>Метрика (8 ядер CPU, 16 ГБ ОЗУ)</th>
+              <th>Kafka + Cassandra</th>
+              <th>Ветка Турбазы</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Пропускная способность записи</strong></td>
+              <td>12 000 оп/сек</td>
+              <td><strong>52 000 оп/сек</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Потребление оперативной памяти</strong></td>
+              <td>14.2 ГБ (JVM Heap)</td>
+              <td><strong>1.8 ГБ</strong> (Native)</td>
+            </tr>
+            <tr>
+              <td><strong>Задержка фиксации (p99 Ingestion)</strong></td>
+              <td>45 мс</td>
+              <td><strong>1.8 мс</strong> (fsync Group)</td>
+            </tr>
+            <tr>
+              <td><strong>Восстановление после сбоя питания</strong></td>
+              <td>8–12 минут (Replay)</td>
+              <td><strong>1.2 секунды</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-amber">
+          <h4>Четырехкратное превосходство в скорости</h4>
+          <p>Благодаря отсутствию накладных расходов виртуальной машины Java и прямому блочному вводу-выводу конвейер Ветки опережает традиционные промышленные брокеры в 4 раза.</p>
+        </div>
+        <div class="content-card">
+          <h4>Экономия оперативной памяти в 8 раз</h4>
+          <p>Легковесный нативный код на Rust/C++ потребляет менее 2 ГБ ОЗУ при обработке 50 000 транзакций в секунду, позволяя запускать узел на копеечном периферийном «железе».</p>
+        </div>
+        <div class="content-card">
+          <h4>Мгновенный подъем после аварий (Crash Recovery)</h4>
+          <p>Кольцевая структура PersistentQueue позволяет восстановить рабочее состояние узла после аварийного отключения питания всего за 1.2 секунды.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="14" style="display:none;">
+          Оценим аппаратную эффективность архитектуры Ветки на практике.<br/><br/>Мы провели сравнительные испытания на стандартном восьмиядерном сервере с шестнадцатью гигабайтами оперативной памяти. Сравнивался традиционный корпоративный стек Kafka плюс Cassandra и нативный конвейер узла &quot;Ветка&quot;.<br/><br/>Результаты показательны: конвейер Ветки демонстрирует пропускную способность свыше пятидесяти двух тысяч операций в секунду — более чем в четыре раза быстрее традиционного стека. Потребление памяти снижено в восемь раз, а задержка фиксации транзакций упала с сорока пяти до одной целой восьми десятых миллисекунды. Это делает Ветку идеальным решением для необслуживаемых периферийных шкафов связи.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 15 ==================== -->
+      <section class="slide-card " data-slide="15">
+        <!-- slide: 15 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">РЕЗЮМЕ ВЫПУСКА 04 &middot; АРХИТЕКТУРНЫЙ ИТОГ</div>
+    <h2 class="slide-title">АРХИТЕКТУРНОЕ РЕЗЮМЕ УЗЛА «ВЕТКА»</h2>
+    <p class="slide-subtitle">Отказоустойчивый периферийный координатор, заменяющий дорогостоящие серверные кластеры</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-amber">
+          <h4>Ключевые инженерные решения узла «Ветка»</h4>
+          <ul class="arch-list">
+            <li><strong>Трехфазный конвейер:</strong> Развязка `PersistentQueue` &rarr; `ConcurrentMap` &rarr; `FileSystem` для максимальной надежности и скорости.</li>
+            <li><strong>Zero-Knowledge Relay:</strong> Хранение пользовательских очередей без дешифрования данных.</li>
+            <li><strong>Hot/Cold синхронизация:</strong> Раздача дельт активным пирам за &lt;5 мс и быстрое наложение архива из офлайна.</li>
+            <li><strong>Time-Traveling:</strong> Восстановление состояния базы на любой исторический момент по цепочке дельт WAL.</li>
+            <li><strong>Аппаратная эффективность:</strong> 50 000+ транзакций/сек на типовом микросервере при 1.8 ГБ ОЗУ.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-cyan">
+          <h4>Мост к следующему выпуску: Выпуск 05</h4>
+          <p>В следующем выпуске мы разберем <strong>Сетевую маршрутизацию, P2P и сквозные соединения</strong>: асинхронный сигнальный сервер через хранилища, прямое соединение WebRTC, преодоление NAT, часы TrueTime и сквозные туннели PassThroughConnection к ведомствам.</p>
+        </div>
+        <div class="content-card">
+          <h4>Инфраструктурная независимость</h4>
+          <p>Муниципалитеты и предприятия получают автономную ИТ-инфраструктуру, не зависящую от внешних каналов связи и зарубежных облачных монополий.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="15" style="display:none;">
+          Подведем итог четвертого выпуска.<br/><br/>Узел &quot;Ветка&quot; доказывает, что надежный координатор распределенной платформы не требует дорогостоящих серверных ферм и тяжелых фреймворков.<br/><br/>Трехфазный конвейер данных, сочетающий дисковую персистентность, безблокировочную память и сегментные архивы, обеспечивает феноменальную пропускную способность при минимальном расходе ресурсов. Ветка локализует районный трафик, гарантирует надежность очередей и гарантирует абсолютную защиту и владение персональными данными жителей.<br/><br/>В следующем, пятом выпуске мы перейдем к сетевому стеку &quot;Турбазы&quot;: как узлы связываются напрямую по P2P WebRTC без централизованных сигнальных серверов и как строятся сквозные ведомственные туннели. Спасибо за внимание, увидимся в выпуске номер пять.
+        </div>
+      </section>
+    
+    </div>
+  </main>
+
+  <!-- Speaker Notes Drawer -->
+  <aside id="notesDrawer" class="notes-drawer">
+    <div class="notes-drawer-header">
+      <div class="notes-title-wrap">
+        <span class="notes-icon">🎙️</span>
+        <span class="notes-title">Текст диктора / Заметки к слайду</span>
+      </div>
+      <button id="btnCloseNotes" class="notes-close-btn">&times;</button>
+    </div>
+    <div id="notesBody" class="notes-body">
+      <!-- Injected dynamically by Deck Engine -->
+    </div>
+  </aside>
+
+  <!-- Modal: Grid Overview -->
+  <div id="overviewModal" class="modal-overlay">
+    <div class="modal-card wide">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">▦</span>
+          <h3>Обзор всех 15 слайдов презентации</h3>
+        </div>
+        <button id="btnCloseOverview" class="modal-close-btn">&times;</button>
+      </div>
+      <div id="overviewGrid" class="overview-grid">
+        <!-- Injected dynamically by Deck Engine -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Universal Presentation Engine (Single Shared Source) -->
+  <script src="../../../../../shared_templates/overview_presentation_deck/js/overview_deck_engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.deckEngine = new OverviewDeckEngine({
+        totalSlides: 15,
+        audioPathPrefix: '../../artifacts/audio/slide_'
+      });
+    });
+  </script>
+</body>
+</html>

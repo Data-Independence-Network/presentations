@@ -105,6 +105,16 @@ body {
   border: 1.5px solid var(--core-gold);
   padding: 4px 12px;
   border-radius: 6px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logo-badge:hover {
+  background: rgba(250, 204, 21, 0.35);
+  border-color: #fde047;
+  transform: translateY(-1px);
 }
 
 .logo-icon { font-size: 18px; }

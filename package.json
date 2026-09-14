@@ -27,6 +27,7 @@
     "regenerate-all": "node scripts/regenerate.js all",
     "regenerate-all:force": "node scripts/regenerate.js all --full-regeneration",
     "build-whitepapers": "npm --prefix shared_docs run build",
+    "build-portal": "node scripts/generate_portal.js",
     "install:build": "./install_build_dependencies.sh",
     "install:regen": "./install_regen_dependencies.sh"
   },

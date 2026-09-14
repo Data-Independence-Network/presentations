@@ -71,6 +71,13 @@ const rootDir = path.resolve(__dirname, '..');
       }
       await regeneratePresentation(targetPath, { fullRegeneration });
     }
+
+    try {
+      const { generatePortal } = require('./generate_portal');
+      generatePortal();
+    } catch (e) {
+      // Non-critical if portal compilation fails
+    }
   } catch (err) {
     console.error(`[❌] Regeneration failed:`, err.message);
     process.exit(1);

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Платформа «Турбаза» — «Деловой»: Интеллектуальный персональный органайзер дел, задач и поручений</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Universal Presentation Engine Chrome (Shared Viewport, Header & Controls) -->
+  <link rel="stylesheet" href="../../../../../shared_templates/deck_core/css/deck_core.css">
+  <!-- Isolated Standalone Presentation Theme & Content -->
+  <link rel="stylesheet" href="deck.css">
+
+  <!-- Mermaid.js Vector Renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      flowchart: { htmlLabels: true, curve: 'basis' },
+      themeVariables: {
+        darkMode: true,
+        background: '#070b14',
+        primaryColor: '#0e1626',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#38bdf8',
+        lineColor: '#facc15',
+        fontFamily: 'Inter, sans-serif'
+      }
+    });
+  </script>
+</head>
+<body class="">
+
+  <!-- Top Navigation & Control Bar -->
+  <header class="presentation-header">
+    <div class="header-left">
+      <div class="logo-badge">
+        <span class="logo-icon">🌲</span>
+        <span class="logo-text">ТУРБАЗА</span>
+      </div>
+      <span class="header-title">Органайзер «Деловой»</span>
+    </div>
+    <div class="header-center">
+      <button id="btnPrev" class="nav-btn nav-btn-arrow" title="Предыдущий слайд (←)"><span class="btn-icon">◀</span></button>
+      <span id="slideIndicator" class="slide-indicator">Слайд 1 / 15</span>
+      <button id="btnNext" class="nav-btn nav-btn-arrow" title="Следующий слайд (→)"><span class="btn-icon">▶</span></button>
+    </div>
+    <div class="header-right">
+      <button id="btnOverview" class="nav-btn" title="Сетка слайдов (O)"><span class="btn-icon">▦</span> Сетка</button>
+      <button id="btnVoice" class="nav-btn voice-btn" title="Голосовое сопровождение (V)"><span class="btn-icon">🔊</span> Озвучка</button>
+      <button id="btnNotes" class="nav-btn" title="Текст диктора (N)"><span class="btn-icon">🎙️</span> Текст спикера</button>
+      <button id="btnFullscreen" class="nav-btn" title="Полноэкранный режим (F)"><span class="btn-icon">⛶</span> Экран</button>
+      <button id="btnPrint" class="nav-btn" title="Печать в PDF (Ctrl+P)"><span class="btn-icon">🖨️</span> PDF</button>
+    </div>
+  </header>
+
+  <!-- Presentation Viewport -->
+  <main class="presentation-viewport">
+    <div id="deckContainer" class="deck-container">
+      
+      <!-- ==================== СЛАЙД 1 ==================== -->
+      <section class="slide-card active" data-slide="1">
+        <!-- slide: 1 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ПРИКЛАДНЫЕ СЕРВИСЫ</div>
+    <h1 class="slide-title">«ДЕЛОВОЙ»: ПЕРСОНАЛЬНЫЙ ОРГАНАЙЗЕР ПРИОРИТЕТОВ</h1>
+    <p class="slide-subtitle">Разумное управление делами, семейными поручениями и временем без облачных серверов и слежки</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout golden">
+        <strong>Органайзер нового поколения:</strong>
+        <p>«Деловой» сочетает матрицу приоритетов, гравитационные сферы и фактор случайности: <strong>данные хранятся в SQLite на устройстве</strong> с мгновенным откликом.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">⚖️</div>
+          <h4>Матрица Эйзенхауэра 2.0</h4>
+          <p>Динамическая сортировка дел по важности и срочности.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🪐</div>
+          <h4>Гравитационные сферы</h4>
+          <p>Физический визуальный интерфейс концентрации на главном.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🎲</div>
+          <h4>Фактор случайности</h4>
+          <p>Алгоритм «Случайный шаг» для выхода из когнитивного ступора.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">👨‍👩‍👧‍👦</div>
+          <h4>Семейный круг</h4>
+          <p>Поручения и совместные дела без центральных серверов.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="kpi-vertical-stack">
+        <div class="kpi-card-explainer">
+          <div class="kpi-num golden">&lt; 1 МС</div>
+          <div class="kpi-label">Мгновенный локальный отклик в SQLite</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num teal">100%</div>
+          <div class="kpi-label">Автономная работа в офлайне без интернета</div>
+        </div>
+        <div class="kpi-card-explainer">
+          <div class="kpi-num emerald">0 БАЙТ</div>
+          <div class="kpi-label">Персональных данных и планов на серверах</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="1" style="display:none;">
+          Здравствуйте! Мы открываем серию презентаций, посвященных флагманским прикладным сервисам платформы &quot;Турбаза&quot;.<br/><br/>Первое приложение в нашей экосистеме — интеллектуальный органайзер &quot;Деловой&quot;.<br/><br/>Как победить прокрастинацию и стресс от сотен незавершенных дел? Как безопасно распределять поручения внутри семьи без утечки личных планов в руки рекламных корпораций?<br/><br/>&quot;Деловой&quot; сочетает классическую матрицу приоритетов, инновационные гравитационные сферы концентрации внимания и механизм случайного выбора дела, сохраняя все данные в вашем личном сейфе.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 2 ==================== -->
+      <section class="slide-card " data-slide="2">
+        <!-- slide: 2 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ЦИФРОВОЙ ТУПИК</div>
+    <h2 class="slide-title">ТУПИК ТРАДИЦИОННЫХ ТАСК-МЕНЕДЖЕРОВ</h2>
+    <p class="slide-subtitle">Почему коммерческие облачные планировщики вызывают стресс и продают тайну вашей жизни</p>
+  </div>
+
+  <div class="slide-body grid-3col">
+    <div class="glass-card danger-accent">
+      <div class="card-pill-tag">ПОРОК 01</div>
+      <h3 class="card-title">«Кладбища тудушек»</h3>
+      <p class="card-desc">Линейные списки задач бесконечно растут, порождая чувство вины и ступор.</p>
+      <ul class="card-bullets">
+        <li>Сотни дел свалены в одну кучу без связи</li>
+        <li>Паралич выбора: непонятно, за что браться</li>
+        <li>Человек бросает приложение через две недели</li>
+      </ul>
+    </div>
+
+    <div class="glass-card danger-accent">
+      <div class="card-pill-tag">ПОРОК 02</div>
+      <h3 class="card-title">Коммерческая слежка</h3>
+      <p class="card-desc">Облачные сервисы анализируют персональный ритм жизни для продажи рекламы.</p>
+      <ul class="card-bullets">
+        <li>Сбор информации о привычках, семье и встречах</li>
+        <li>Утечки списков дел и коммерческих заметок</li>
+        <li>Продажа профилей поведения брокерам данных</li>
+      </ul>
+    </div>
+
+    <div class="glass-card danger-accent">
+      <div class="card-pill-tag">ПОРОК 03</div>
+      <h3 class="card-title">Уязвимость облака</h3>
+      <p class="card-desc">Зависимость от серверов, санкционных блокировок и постоянного интернета.</p>
+      <ul class="card-bullets">
+        <li>Блокировка аккаунта лишает доступа к графику</li>
+        <li>Бесконечные спиннеры при слабой связи в метро</li>
+        <li>Невозможность работать при сетевых блэкаутах</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="2" style="display:none;">
+          Большинство современных приложений для управления задачами стали источником хронического стресса.<br/><br/>Они превращаются в &quot;кладбища тудушек&quot;: списки из сотен пунктов давят на психику и вызывают паралич воли.<br/><br/>При этом облачные сервисы тщательно сканируют ваши распорядки дня, визиты к врачам и семейные планы, используя эту интимную информацию для таргетированной рекламы.<br/><br/>А при отсутствии связи в метро, подвале или в результате санкционной блокировки пользователь мгновенно теряет контроль над собственным расписанием.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 3 ==================== -->
+      <section class="slide-card " data-slide="3">
+        <!-- slide: 3 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | МАТРИЦА 2.0</div>
+    <h2 class="slide-title">МАТРИЦА ЭЙЗЕНХАУЭРА 2.0: ЯСНОСТЬ И СПОКОЙСТВИЕ</h2>
+    <p class="slide-subtitle">Динамическое распределение задач по квадрантам и защита человека от «тирании срочности»</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout golden">
+        <strong>Научный подход к фокусу внимания:</strong>
+        <p>«Деловой» автоматически пересчитывает координаты задач. Дела классифицируются по шкалам срочности и важности (от 0 до 4), защищая человека от суеты.</p>
+      </div>
+
+      <div class="feature-cards-grid">
+        <div class="feature-card">
+          <div class="card-icon">🔥</div>
+          <h4>Срочно и Важно (Q1)</h4>
+          <p>Критические дедлайны и неотложные семейные дела.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">💎</div>
+          <h4>Важно, но не срочно (Q2)</h4>
+          <p>Стратегическое будущее: здоровье, развитие, близкие.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">⚡</div>
+          <h4>Срочно, но не важно (Q3)</h4>
+          <p>Бытовые хлопоты, подлежащие делегированию.</p>
+        </div>
+        <div class="feature-card">
+          <div class="card-icon">🍃</div>
+          <h4>Не срочно и не важно (Q4)</h4>
+          <p>Информационный шум, который можно отложить.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="glass-card">
+        <div class="card-pill-tag gold">ДИНАМИЧЕСКИЙ СДВИГ СРОЧНОСТИ</div>
+        <h3 class="card-title">Автоматическая эволюция задач</h3>
+        <p class="card-desc">По мере приближения даты исполнения задача из квадранта развития (Q2) плавно перемещается в фокусную зону (Q1), напоминая о себе без навязчивого спама.</p>
+        <div class="repo-keys-badge" style="margin-top: 24px;">Защита от авралов: заблаговременная подготовка к важным вехам</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="3" style="display:none;">
+          В основе &quot;Делового&quot; лежит усовершенствованная матрица Эйзенхауэра.<br/><br/>Все дела оцениваются по пятибалльной шкале важности и срочности, распределяясь по четырем классическим квадрантам.<br/><br/>Главный фокус приложения направлен на защиту второго квадранта — важных, но несрочных дел. Именно здесь рождается будущее: профилактика здоровья, спорт, образование детей и крупные семейные цели.<br/><br/>Приближаясь к дедлайну, задача плавно сдвигается в зону внимания, предотвращая авралы и эмоциональное выгорание.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 4 ==================== -->
+      <section class="slide-card " data-slide="4">
+        <!-- slide: 4 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ГРАВИТАЦИОННЫЙ ФОКУС</div>
+    <h2 class="slide-title">ГРАВИТАЦИОННЫЕ СФЕРЫ («GRAVITY BALLS»)</h2>
+    <p class="slide-subtitle">Инновационный кинетический интерфейс: визуальное притяжение внимания к главным целям</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="glass-card">
+      <div class="card-pill-tag gold">ФИЗИЧЕСКАЯ МОДЕЛЬ ВНИМАНИЯ</div>
+      <h3 class="card-title">Парящие сферы задач</h3>
+      <p class="card-desc">Задачи представлены в виде разноцветных интерактивных сфер, подчиняющихся законам гравитации.</p>
+      <ul class="card-bullets">
+        <li><strong>Размер сферы:</strong> пропорционален стратегической важности задачи</li>
+        <li><strong>Цвет сферы:</strong> соответствует квадранту матрицы приоритетов</li>
+        <li><strong>Гравитационный центр:</strong> самые важные и крупные дела собираются в центре экрана</li>
+        <li>Интуитивное кинетическое смахивание и объединение дел в одно касание</li>
+      </ul>
+    </div>
+
+    <div class="glass-card">
+      <div class="card-pill-tag cyan">КОГНИТИВНЫЙ КОМФОРТ</div>
+      <h3 class="card-title">Разгрузка оперативной памяти мозга</h3>
+      <p class="card-desc">Вместо монотонного чтения списков мозг мгновенно оценивает общую картину дня.</p>
+      <ul class="card-bullets">
+        <li>Устранение «эффекта белого листа» и страха перед перечнем задач</li>
+        <li>Автоматическая пересборка гравитационного поля при изменении приоритетов</li>
+        <li>Поддержка интерактивных жестов и мобильного режима одной рукой</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="4" style="display:none;">
+          Вместо унылых текстовых таблиц &quot;Деловой&quot; предлагает принципиально новый физический интерфейс — гравитационные сферы.<br/><br/>Каждая задача отображается в виде парящего шара. Его размер определяется важностью, а цвет — квадрантом матрицы.<br/><br/>Под действием виртуальной гравитации самые значимые задачи естественным образом притягиваются к центру дисплея.<br/><br/>Пользователю не нужно вчитываться в длинные списки: одного беглого взгляда достаточно, чтобы оценить баланс дня и мгновенно выбрать главное направление действий.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 5 ==================== -->
+      <section class="slide-card " data-slide="5">
+        <!-- slide: 5 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СЛУЧАЙНЫЙ ШАГ</div>
+    <h2 class="slide-title">ФАКТОР СЛУЧАЙНОСТИ (SERENDIPITY TASK)</h2>
+    <p class="slide-subtitle">Психологический инструмент мгновенного преодоления когнитивного паралича и ступора</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout golden">
+        <strong>Когда опускаются руки:</strong>
+        <p>Каждый человек сталкивался с ситуацией, когда дел слишком много и невозможно решить, с чего начать. «Деловой» предлагает <strong>алгоритм управляемого случайного выбора</strong>.</p>
+      </div>
+
+      <div class="glass-card">
+        <div class="card-pill-tag gold">МЕХАНИКА «СЛУЧАЙНОГО ШАГА»</div>
+        <h3 class="card-title">Импульс к первому действию</h3>
+        <ul class="card-bullets">
+          <li>Приложение берет случайную задачу из пула важных дел (Q1/Q2)</li>
+          <li>Устанавливается мягкий стартовый фокус: «Сделай первые 15 минут»</li>
+          <li>Снятие стресса выбора запускает цепную реакцию продуктивности</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="glass-card sovereign-border">
+        <div class="card-pill-tag emerald">ПСИХОЛОГИЧЕСКИЙ РЕЗУЛЬТАТ</div>
+        <h3 class="card-title">Выход из замкнутого круга прокрастинации</h3>
+        <p class="card-desc">Мозг тратит колоссальную энергию на сомнения. Случайный выбор берет груз решения на себя.</p>
+        <div class="repo-keys-badge" style="margin-top: 24px;">9 из 10 пользователей продолжают работу после первого случайного шага</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="5" style="display:none;">
+          Уникальная особенность &quot;Делового&quot; — фактор управляемой случайности.<br/><br/>Бывают моменты, когда груз накопившихся дел парализует волю, и человек часами прокрастинирует, не зная, за что взяться.<br/><br/>Нажатие кнопки &quot;Случайный шаг&quot; выбирает одно актуальное дело из важного пула и предлагает посвятить ему всего пятнадцать минут.<br/><br/>Этот простой психологический прием снимает бремя мучительного выбора. Как только сделан первый шаг, ступор отступает, и человек легко входит в рабочий ритм.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 6 ==================== -->
+      <section class="slide-card " data-slide="6">
+        <!-- slide: 6 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ЦЕПОЧКИ ДЕЛ</div>
+    <h2 class="slide-title">ЦЕПОЧКИ ЗАВИСИМОСТЕЙ (BEFORE / AFTER ACTIONS)</h2>
+    <p class="slide-subtitle">Причинно-следственные связи задач без необходимости строить сложные диаграммы Ганта</p>
+  </div>
+
+  <div class="slide-body grid-3col">
+    <div class="glass-card">
+      <div class="card-pill-tag cyan">ВХОДНЫЕ УСЛОВИЯ (BeforeActions)</div>
+      <h3 class="card-title">Предшествующие шаги</h3>
+      <p class="card-desc">Дела, без выполнения которых целевая задача физически не может быть начата.</p>
+      <ul class="card-bullets">
+        <li>Купить стройматериалы до вызова мастера</li>
+        <li>Собрать анализы перед визитом к врачу</li>
+        <li>Задача ожидает в спящем режиме</li>
+      </ul>
+    </div>
+
+    <div class="glass-card gold-accent">
+      <div class="card-pill-tag gold">АКТИВНЫЙ ФОКУС (Active Task)</div>
+      <h3 class="card-title">Текущий рубеж</h3>
+      <p class="card-desc">Задача активируется автоматически в момент завершения всех предшественников.</p>
+      <ul class="card-bullets">
+        <li>Мгновенный переход в статус «Готово к работе»</li>
+        <li>Включение в гравитационную матрицу дня</li>
+        <li>0 рутинного ручного отслеживания условий</li>
+      </ul>
+    </div>
+
+    <div class="glass-card">
+      <div class="card-pill-tag emerald">СЛЕДСТВИЯ (AfterActions)</div>
+      <h3 class="card-title">Последующие вехи</h3>
+      <p class="card-desc">Шаги, открывающиеся по завершении текущего действия.</p>
+      <ul class="card-bullets">
+        <li>Оплата услуг после приемки ремонта</li>
+        <li>Отправка отчета после утверждения сметы</li>
+        <li>Естественный поток без бюрократии</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="6" style="display:none;">
+          Жизненные задачи редко существуют изолированно — они связаны в цепочки причин и следствий.<br/><br/>&quot;Деловой&quot; реализует простую и естественную механику зависимостей без перегруженных диаграмм Ганта.<br/><br/>Вы можете указать, какие дела должны предшествовать задаче, а какие последуют за ней.<br/><br/>Например, визит к врачу автоматически активируется только тогда, когда готовы результаты анализов. Приложение само следит за готовностью условий и вовремя выводит нужный шаг на экран.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 7 ==================== -->
+      <section class="slide-card " data-slide="7">
+        <!-- slide: 7 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СЕМЕЙНЫЙ КРУГ</div>
+    <h2 class="slide-title">СЕМЕЙНЫЙ КРУГ ПОРУЧЕНИЙ</h2>
+    <p class="slide-subtitle">Координация домашнего хозяйства, школьных дел и ухода за старшими без единого сервера</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="glass-card">
+      <div class="card-pill-tag gold">СОВМЕСТНОЕ ХРАНИЛИЩЕ СЕМЬИ</div>
+      <h3 class="card-title">Прозрачные поручения без ссор</h3>
+      <p class="card-desc">Общие списки дел синхронизируются напрямую между смартфонами домочадцев.</p>
+      <ul class="card-bullets">
+        <li>Статусы в реальном времени: «Взял на себя», «Купил», «Сделано»</li>
+        <li>Больше никаких забытых покупок и взаимных упреков в быту</li>
+        <li>Школьные кружки детей и забота о пожилых родителях на одной ладони</li>
+        <li>Автоматическая синхронизация по домашнему Wi-Fi или Bluetooth</li>
+      </ul>
+    </div>
+
+    <div class="glass-card">
+      <div class="card-pill-tag cyan">ГЕРМЕТИЧНЫЕ ЛИЧНЫЕ ЗОНЫ</div>
+      <h3 class="card-title">Абсолютная личная тайна</h3>
+      <p class="card-desc">Члены семьи делят только общие дела, сохраняя неприкосновенность личного пространства.</p>
+      <ul class="card-bullets">
+        <li>Рабочие задачи, сюрпризы и личные заметки изолированы</li>
+        <li>Каждое поручение подписывается криптографическим ключом создателя</li>
+        <li>Никакой центральный администратор не может подсмотреть ваши планы</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="7" style="display:none;">
+          Вторым важнейшим измерением &quot;Делового&quot; является семья.<br/><br/>Приложение позволяет создать защищенное семейное Хранилище для координации общего быта.<br/><br/>Супруги видят актуальный список покупок, распределяют домашние хлопоты и координируют расписание детей. Статусы &quot;Взял на себя&quot; или &quot;Купил&quot; обновляются мгновенно, избавляя от бесконечных звонков и переписок.<br/><br/>При этом личные рабочие задачи и заметки каждого члена семьи остаются строго конфиденциальными и недоступны другим.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 8 ==================== -->
+      <section class="slide-card " data-slide="8">
+        <!-- slide: 8 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | РЕЛЯЦИОННЫЕ СВЯЗИ</div>
+    <h2 class="slide-title">ВНЕШНИЕ СВЯЗИ: БЕЗ ДУБЛИРОВАНИЯ</h2>
+    <p class="slide-subtitle">Задачи как сквозные указатели на чеки, рецепты врачей, билеты и школьные задания</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout teal">
+        <strong>Композитные внешние ключи:</strong>
+        <p>Вместо копирования текста задача в «Деловом» хранит трехколоночный внешний ключ <code>TargetRepositoryId, TargetActorId, TargetRecordId</code> на оригинальную запись в сторонней программе.</p>
+      </div>
+
+      <div class="glass-card">
+        <div class="card-pill-tag gold">АВТОНОМНЫЙ СНИМОК ДАННЫХ</div>
+        <h3 class="card-title">Контекст всегда под рукой</h3>
+        <p class="card-desc">Задача сохраняет локальную копию заголовка и статуса. Даже если медицинская база или сайт РЖД временно недоступны, вы точно знаете суть задачи.</p>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="glass-card sovereign-border">
+        <div class="card-pill-tag cyan">ЕДИНЫЙ ОРИГИНАЛ ДАННЫХ</div>
+        <h3 class="card-title">Сквозная экосистемная интеграция</h3>
+        <ul class="card-bullets">
+          <li><strong>Поликлиника:</strong> задача «Принять лекарство» ссылается на рецепт врача</li>
+          <li><strong>Торговля:</strong> задача «Забрать заказ» привязана к чеку магазина</li>
+          <li><strong>Школа:</strong> задача «Подготовить доклад» указывает на учебный план</li>
+          <li><strong>Туризм:</strong> сборы в поход привязаны к маршруту в «УраТур»</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="8" style="display:none;">
+          В традиционных системах пользователю приходится вручную копировать номер билета, рецепт врача или домашнее задание в свой органайзер.<br/><br/>В &quot;Деловом&quot; задачи связываются с данными других приложений через реляционные внешние ключи.<br/><br/>Задача на прием лекарств напрямую указывает на выписанный врачом рецепт, а задача забрать посылку — на электронный чек.<br/><br/>При этом сохраняется локальный снимок контекста: даже при отсутствии интернета или недоступности внешнего сервиса вся ключевая информация остается перед глазами.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 9 ==================== -->
+      <section class="slide-card " data-slide="9">
+        <!-- slide: 9 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ОБЩЕСТВЕННЫЙ API</div>
+    <h2 class="slide-title">ОБЩЕСТВЕННАЯ ОБОЛОЧКА ПОРУЧЕНИЙ</h2>
+    <p class="slide-subtitle">Единая точка сборки жизненных обязательств: сторонние сервисы ставят задачи в 1 клик</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="glass-card">
+      <div class="card-pill-tag gold">ОТКРЫТЫЙ СТАНДАРТ ПОСТАНОВКИ ЗАДАЧ</div>
+      <h3 class="card-title">Внешние сервисы подключаются сами</h3>
+      <p class="card-desc">Любая внешняя программа взаимодействует с «Деловым» через стандартизированный API.</p>
+      <ul class="card-bullets">
+        <li>Курьерская служба передает задачу о времени прибытия посылки</li>
+        <li>Управляющая компания ЖКХ ставит напоминание о поверке счетчиков</li>
+        <li>Автомастерская передает статус готовности автомобиля</li>
+        <li>Человек видит единый календарь обязательств в одном окне</li>
+      </ul>
+    </div>
+
+    <div class="glass-card">
+      <div class="card-pill-tag emerald">ПОЛНЫЙ КОНТРОЛЬ ПОЛЬЗОВАТЕЛЯ</div>
+      <h3 class="card-title">0% нежелательного спама</h3>
+      <p class="card-desc">Никакая внешняя система не может навязать задачу без явного согласия человека.</p>
+      <ul class="card-bullets">
+        <li>Одноразовые цифровые разрешения на подключение сервиса</li>
+        <li>Возможность принять, перенести или отклонить входящее поручение</li>
+        <li>Полная ликвидация рекламных рассылок и навязчивых пуш-уведомлений</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="9" style="display:none;">
+          Общественная Оболочка поручений превращает &quot;Деловой&quot; в единый центр сборки всех жизненных обязательств.<br/><br/>Сторонние городские сервисы — курьерские службы, управляющие компании ЖКХ или поликлиники — могут передать задачу в органайзер гражданина в один клик.<br/><br/>При этом сохраняется жесткий пользовательский контроль: ни один сервис не может вторгнуться в ваше расписание без явного подтверждения.<br/><br/>Вы получаете чистый, упорядоченный график жизни без спама и необходимости переключаться между десятками разрозненных приложений.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 10 ==================== -->
+      <section class="slide-card " data-slide="10">
+        <!-- slide: 10 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СКОРОСТЬ SQLITE</div>
+    <h2 class="slide-title">100% АВТОНОМНОСТЬ НА ЛИСТЕ</h2>
+    <p class="slide-subtitle">Локальная база данных SQLite прямо на смартфоне: отклик менее 1 миллисекунды</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout golden">
+        <strong>Скорость света без сетевых задержек:</strong>
+        <p>Каждая операция в «Деловом» выполняется над локальной базой данных SQLite на Листе. Никаких сетевых спиннеров, задержек и ошибок 500.</p>
+      </div>
+
+      <div class="glass-card">
+        <div class="card-pill-tag emerald">НЕУЯЗВИМОСТЬ В ОФЛАЙНЕ</div>
+        <h3 class="card-title">Работает всегда и везде</h3>
+        <ul class="card-bullets">
+          <li>В вагоне метро и в авиаперелете на высоте 10 000 метров</li>
+          <li>В подвальных помещениях и удаленных горных поселках</li>
+          <li>Мгновенная фоновая синхронизация при появлении связи</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="glass-card sovereign-border">
+        <div class="card-pill-tag cyan">СРАВНЕНИЕ СКОРОСТИ ОТКЛИКА</div>
+        <h3 class="card-title">В 1000 раз быстрее облака</h3>
+        <ul class="card-bullets">
+          <li><strong>Облачный таск-менеджер:</strong> 600–1200 мс (запрос $\to$ ЦОД $\to$ ответ)</li>
+          <li><strong>Органайзер «Деловой»:</strong> 0.4–0.8 мс (локальный SQL-запрос)</li>
+          <li>Открытие списков задач происходит быстрее, чем глаз успевает моргнуть</li>
+          <li>Сверхнизкое потребление батареи смартфона</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="10" style="display:none;">
+          Колоссальное преимущество &quot;Делового&quot; — работа на встроенном локальном движке SQLite прямо на вашем смартфоне.<br/><br/>В то время как обычные приложения тратят до полутора секунд на обращение к серверу через сотовую сеть, &quot;Деловой&quot; открывает и фильтрует списки дел менее чем за одну миллисекунду.<br/><br/>Интерфейс реагирует мгновенно. Приложение надежно функционирует в метро, на борту самолета или в глухом лесу, а при появлении связи незаметно синхронизирует изменения.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 11 ==================== -->
+      <section class="slide-card " data-slide="11">
+        <!-- slide: 11 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ЛОКАЛЬНЫЙ ИИ</div>
+    <h2 class="slide-title">ГОЛОСОВОЙ ВВОД И ON-DEVICE EDGE AI</h2>
+    <p class="slide-subtitle">Умный помощник на процессоре смартфона: захват мыслей на ходу без передачи звука в облако</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="glass-card">
+      <div class="card-pill-tag gold">ЛОКАЛЬНОЕ РАСПОЗНАВАНИЕ РЕЧИ</div>
+      <h3 class="card-title">Голосовой захват за 2 секунды</h3>
+      <p class="card-desc">Специализированный модуль распознавания преобразует голос в текст прямо на устройстве.</p>
+      <ul class="card-bullets">
+        <li>Быстрое добавление задач за рулем или во время ходьбы</li>
+        <li>Звуковая дорожка не покидает чип смартфона: 100% тайна бесед</li>
+        <li>Автоматическое выделение даты, времени и ключевых действующих лиц</li>
+      </ul>
+    </div>
+
+    <div class="glass-card">
+      <div class="card-pill-tag cyan">КОНТЕКСТНЫЙ ПОМОЩНИК EDGE AI</div>
+      <h3 class="card-title">Оптимизация маршрутов и дня</h3>
+      <p class="card-desc">Компактная нейросеть анализирует персональный контекст без сетевых следов.</p>
+      <ul class="card-bullets">
+        <li><strong>Пространственная группировка:</strong> «Сделайте эти 3 дела вместе — они в одном квартале»</li>
+        <li><strong>Учет биоритмов:</strong> сложные дела предлагаются в часы пиковой продуктивности</li>
+        <li>Индивидуальная адаптация к привычкам пользователя</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="11" style="display:none;">
+          &quot;Деловой&quot; оснащен встроенным голосовым движком и локальным искусственным интеллектом.<br/><br/>Вы можете надиктовать мысль за рулем или на пробежке: голос распознается прямо на процессоре смартфона без отправки аудиозаписи на серверы корпораций.<br/><br/>Локальный нейросетевой помощник анализирует контекст задач и предлагает умные подсказки — например, объединяет в один маршрут поручения, находящиеся в соседних домах, экономя часы вашего времени.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 12 ==================== -->
+      <section class="slide-card " data-slide="12">
+        <!-- slide: 12 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | МСП И САМОЗАНЯТЫЕ</div>
+    <h2 class="slide-title">МОБИЛЬНЫЙ ОФИС ДЛЯ МСП И САМОЗАНЯТЫХ</h2>
+    <p class="slide-subtitle">Ведение клиентских заказов, этапов работ и расписаний без тяжелых и дорогих CRM-систем</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="info-panel">
+      <div class="key-callout golden">
+        <strong>Бизнес в кармане без абонентской платы:</strong>
+        <p>Для частных мастеров, репетиторов, юристов и автомехаников «Деловой» становится полноценным рабочим местом с нулевыми затратами на лицензии.</p>
+      </div>
+
+      <div class="glass-card">
+        <div class="card-pill-tag gold">УЧЕТ ЭТАПОВ И СРОКОВ</div>
+        <h3 class="card-title">Профессиональный контроль</h3>
+        <ul class="card-bullets">
+          <li>Фиксация этапов выполнения работ и согласований</li>
+          <li>Контроль оплат и напоминания клиентам в 1 клик</li>
+          <li>Защита базы контактов от хищения и рейдерства</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="visual-panel">
+      <div class="glass-card sovereign-border">
+        <div class="card-pill-tag emerald">СВЯЗЬ С ЛОКАЛЬНЫМ РЕЕСТРОМ</div>
+        <h3 class="card-title">Прямой поток заказов района</h3>
+        <p class="card-desc">Мастер подключает свой график к районной Ветке: соседи видят свободные слоты мастера без посредников и наценок агрегаторов.</p>
+        <div class="repo-keys-badge" style="margin-top: 24px;">Экономия до 30% маржинальности на комиссиях платформ</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="12" style="display:none;">
+          Для предпринимателей, самозанятых мастеров и репетиторов &quot;Деловой&quot; заменяет громоздкие и дорогие коммерческие CRM-системы.<br/><br/>Вы ведете учет заказов, этапов ремонта и оплат прямо в смартфоне, не отдавая ни рубля за ежемесячные подписки.<br/><br/>Коммерческая тайна и база клиентов надежно защищены от взлома и утечек.<br/><br/>А интеграция с районной Веткой позволяет жителям микрорайона бронировать услуги мастера в один клик без посредников.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 13 ==================== -->
+      <section class="slide-card " data-slide="13">
+        <!-- slide: 13 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СЕМЕЙНЫЙ АРХИВ</div>
+    <h2 class="slide-title">ДОЛГОСРОЧНЫЙ АРХИВ И P2P-СИНХРОНИЗАЦИЯ</h2>
+    <p class="slide-subtitle">Сохранение летописи семейных проектов и криптографическая защита данных на годы вперед</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="glass-card">
+      <div class="card-pill-tag cyan">P2P-СИНХРОНИЗАЦИЯ В СЕМЬЕ</div>
+      <h3 class="card-title">Обмен данными без облака</h3>
+      <p class="card-desc">Устройства домочадцев синхронизируются напрямую при нахождении в одной домашней сети.</p>
+      <ul class="card-bullets">
+        <li>Локальный обмен изменениями по Wi-Fi и Bluetooth Mesh</li>
+        <li>Ни один байт семейных дел не уходит во внешний интернет</li>
+        <li>Полная работоспособность даже при отключении внешних провайдеров</li>
+      </ul>
+    </div>
+
+    <div class="glass-card">
+      <div class="card-pill-tag gold">ЦИФРОВАЯ ЛЕТОПИСЬ СЕМЬИ</div>
+      <h3 class="card-title">Память семейных достижений</h3>
+      <p class="card-desc">Выполненные дела не исчезают бесследно, а формируют архив достижений семьи.</p>
+      <ul class="card-bullets">
+        <li>Хроника ремонта, строительства дачи и школьных вех детей</li>
+        <li>Зашифрованная резервная копия на муниципальной Ветке</li>
+        <li>Гарантия сохранности и преемственности архивов на десятилетия</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="13" style="display:none;">
+          Семейные дела и совместные проекты — это живая летопись поколений.<br/><br/>&quot;Деловой&quot; обеспечивает прямую одноранговую синхронизацию между планшетами и телефонами семьи по домашней сети Wi-Fi или Bluetooth.<br/><br/>Все завершенные задачи бережно сохраняются в семейном архиве: история ремонта, вехи учебы детей и путешествия формируют памятную хронику.<br/><br/>А резервная копия на районной Ветке шифруется ключами семьи, гарантируя сохранность архива на десятилетия вперед.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 14 ==================== -->
+      <section class="slide-card " data-slide="14">
+        <!-- slide: 14 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ИЗМЕРИМЫЙ ЭФФЕКТ</div>
+    <h2 class="slide-title">ИЗМЕРИМЫЕ РЕЗУЛЬТАТЫ ЭФФЕКТИВНОСТИ</h2>
+    <p class="slide-subtitle">Ключевые показатели роста личной продуктивности, быстродействия и информационной безопасности</p>
+  </div>
+
+  <div class="slide-body grid-4cards">
+    <div class="kpi-card-large">
+      <div class="kpi-tag-large">ПРОДУКТИВНОСТЬ</div>
+      <div class="kpi-num-large golden">+40%</div>
+      <div class="kpi-title-large">Выполненных дел</div>
+      <p class="kpi-desc-large">Рост числа завершенных задач благодаря матрице фокуса и фактору случайности.</p>
+    </div>
+
+    <div class="kpi-card-large">
+      <div class="kpi-tag-large">БЫСТРОДЕЙСТВИЕ</div>
+      <div class="kpi-num-large teal">&lt; 1 МС</div>
+      <div class="kpi-title-large">Отклик интерфейса</div>
+      <p class="kpi-desc-large">Мгновенный локальный поиск и фильтрация в SQLite без сетевых спиннеров.</p>
+    </div>
+
+    <div class="kpi-card-large">
+      <div class="kpi-tag-large">ПРИВАТНОСТЬ</div>
+      <div class="kpi-num-large emerald">0 БАЙТ</div>
+      <div class="kpi-title-large">Следов в облаке</div>
+      <p class="kpi-desc-large">Личные и семейные планы физически не покидают доверенный периметр устройств.</p>
+    </div>
+
+    <div class="kpi-card-large">
+      <div class="kpi-tag-large">ЭКОНОМИЯ МСП</div>
+      <div class="kpi-num-large golden">0 РУБ</div>
+      <div class="kpi-title-large">Расходов на CRM</div>
+      <p class="kpi-desc-large">Полная замена платных подписок коммерческих систем планирования для самозанятых.</p>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="14" style="display:none;">
+          Результаты внедрения &quot;Делового&quot; измеримы и наглядны.<br/><br/>Продуктивность человека возрастает более чем на сорок процентов за счет устранения когнитивного стресса и механизма случайного шага.<br/><br/>Локальный отклик менее одной миллисекунды дарит несравнимый комфорт использования.<br/><br/>Показатель утечек личной информации равен строго нулю байт.<br/><br/>А малый бизнес и семьи экономят десятки тысяч рублей ежегодно на отказе от дорогостоящих облачных подписок.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 15 ==================== -->
+      <section class="slide-card " data-slide="15">
+        <!-- slide: 15 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СИНЕРГИЯ ЭКОСИСТЕМЫ</div>
+    <h2 class="slide-title">РЕЗЮМЕ И ЭКОСИСТЕМНЫЙ МОСТ К «КУБГОЛОСУ»</h2>
+    <p class="slide-subtitle">«Деловой» как прикладной фундамент для опросов «КубГолоса» и путешествий «УраТур»</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="glass-card">
+      <div class="card-pill-tag gold">ИТОГИ ПРИЛОЖЕНИЯ «ДЕЛОВОЙ»</div>
+      <h3 class="card-title">Фундамент личной продуктивности</h3>
+      <ul class="card-bullets">
+        <li><strong>Ясность:</strong> Матрица 2.0 и гравитационные сферы концентрации.</li>
+        <li><strong>Действие:</strong> Алгоритм случайного выбора побеждает ступор.</li>
+        <li><strong>Семья:</strong> Совместные списки поручений с сохранением личной тайны.</li>
+        <li><strong>Связность:</strong> Внешние ключи связывают задачи с чеками и рецептами.</li>
+        <li><strong>Скорость:</strong> Локальный SQLite на Листе работает всегда и везде.</li>
+      </ul>
+    </div>
+
+    <div class="glass-card">
+      <div class="card-pill-tag cyan">АНОНС: ПРИЛОЖЕНИЕ 02 ИЗ 5</div>
+      <h3 class="card-title">Платформа микро-опросов «КубГолос»</h3>
+      <p class="card-desc">В следующей презентации мы покажем, как общество формулирует и решает общие вопросы:</p>
+      <ul class="card-bullets">
+        <li>Трехмерный куб принятия решений с взвешиванием критериев</li>
+        <li>Ветвящиеся деревья народных формулировок вопросов</li>
+        <li>Абсолютная защита от накруток и бот-ферм на подписях Листьев</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="15" style="display:none;">
+          Органайзер &quot;Деловой&quot; доказывает на практике: приложение с прямым владением информацией превосходит закрытые облачные сервисы по скорости, психологическому комфорту и надежности.<br/><br/>Структуры задач &quot;Делового&quot; служат универсальным кирпичиком для всей экосистемы — они станут чек-листами сборов в туристском планере &quot;УраТур&quot; и поручениями в сети &quot;Забота&quot;.<br/><br/>А в следующей презентации мы представим народную платформу микро-опросов &quot;КубГолос&quot;, позволяющую людям выявлять реальную повестку общества без манипуляций и цензуры. До встречи во второй части!
+        </div>
+      </section>
+    
+    </div>
+  </main>
+
+  <!-- Speaker Notes Drawer -->
+  <aside id="notesDrawer" class="notes-drawer">
+    <div class="notes-drawer-header">
+      <div class="notes-title-wrap">
+        <span class="notes-icon">🎙️</span>
+        <span class="notes-title">Текст диктора / Заметки к слайду</span>
+      </div>
+      <button id="btnCloseNotes" class="notes-close-btn">&times;</button>
+    </div>
+    <div id="notesBody" class="notes-body">
+      <!-- Injected dynamically by Deck Engine -->
+    </div>
+  </aside>
+
+  <!-- Modal: Grid Overview -->
+  <div id="overviewModal" class="modal-overlay">
+    <div class="modal-card wide">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">▦</span>
+          <h3>Обзор всех 15 слайдов презентации</h3>
+        </div>
+        <button id="btnCloseOverview" class="modal-close-btn">&times;</button>
+      </div>
+      <div id="overviewGrid" class="overview-grid">
+        <!-- Injected dynamically by Deck Engine -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Universal Presentation Engine (Single Shared Source) -->
+  <script src="../../../../../shared_templates/overview_presentation_deck/js/overview_deck_engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.deckEngine = new OverviewDeckEngine({
+        totalSlides: 15,
+        audioPathPrefix: '../../artifacts/audio/slide_'
+      });
+    });
+  </script>
+</body>
+</html>

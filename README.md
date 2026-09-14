@@ -7,12 +7,52 @@ The Russian Federation is currently rebuilding its information infrastructure, d
 
 ---
 
+## ⚡ БЫСТРЫЙ СТАРТ: ПРОСМОТР ПРЕЗЕНТАЦИЙ БЕЗ ГЕНЕРАЦИИ (1 КЛИК)
+
+> [!TIP]
+> **Для просмотра презентаций ничего генерировать НЕ нужно!**  
+> Все завершённые веб-презентации (`web_deck/index.html`) и студийные аудиодорожки нейроозвучки (`.mp3`) **уже скомпилированы и зафиксированы в репозитории**. Никаких внешних API-ключей, Node.js или фоновых компиляций не требуется.
+
+### 📋 Системные требования для просмотра:
+- **Только Python 3** (уже предустановлен в macOS и большинстве дистрибутивов Linux) для запуска встроенного локального веб-сервера.
+- **Любой современный веб-браузер** (Safari, Chrome, Firefox, Edge).
+
+### 🚀 Запуск за 1 секунду:
+В корне репозитория выполните команду:
+```bash
+./start_presentation.sh
+```
+- Скрипт проверит порт (по умолчанию `8080`), при необходимости мягко освободит зависший процесс и автоматически откроет в браузере:  
+  👉 **`http://localhost:8080/`** — **Единый портал презентационного комплекса «Турбаза»**.
+- **В портале по умолчанию активен режим «🌟 Только готовые с озвучкой»**: отображаются 5 завершённых треков (75 слайдов с полной синхронной нейроозвучкой):
+  1. **Эксплейнер 1**: *Парадигмальный сдвиг и суверенитет данных* (15 слайдов)
+  2. **Эксплейнер 2**: *Анатомия и Архитектура платформы* (15 слайдов)
+  3. **Эксплейнер 3**: *Суверенная экономика и смарт-контракты* (15 слайдов)
+  4. **Мастер-обзор 1**: *Архитектура Цифрового Суверенитета (Leaf-Branch-Trunk)* (15 слайдов)
+  5. **Мастер-обзор 2**: *Матрица Ценности для Стейкхолдеров* (15 слайдов)
+- На карточке любой презентации нажмите **«▶ Смотреть (15 сл.)»** для запуска интерактивного плеера с озвучкой или **«📄 PDF»** для конспекта.
+- Чтобы вернуться из любой презентации обратно в портал, нажмите на логотип **`🌲 ТУРБАЗА`** в левом верхнем углу плеера.
+
+---
+
+### 🛠️ Когда нужны установочные скрипты зависимостей?
+Скрипты установки требуются **ТОЛЬКО** в случае, если вы хотите модифицировать слайды, экспортировать MP4-видео или перезаписать нейроозвучку:
+
+1. **[`./install_build_dependencies.sh`](file:///Users/parents/Documents/presentations/install_build_dependencies.sh) — Базовое окружение офлайн-сборки (Offline Rebuild):**
+   - **Что устанавливает:** `Node.js`, `npm`, `Playwright` + Chromium, `FFmpeg` и системные шрифты (PT Astra Sans/Mono).
+   - **Зачем нужно:** Для запуска команды `npm run rebuild-all` (автономный экспорт слайдов в PNG, генерация раздаточных PDF и сборка MP4-видео с использованием уже закоммиченного мастер-аудио **без обращения к внешним API**).
+2. **[`./install_regen_dependencies.sh`](file:///Users/parents/Documents/presentations/install_regen_dependencies.sh) — Синтез новой речи через Neural TTS:**
+   - **Что устанавливает:** Библиотеку `node-edge-tts` для нейросинтеза русской речи (`ru-RU-DmitryNeural`).
+   - **Зачем нужно:** Только при редактировании текста диктора в слайдах для синтеза нового звука через `npm run regen-overall`. Требует рабочий API-ключ в файле `text_to_speech_mcp_Open_API_key.txt`.
+
+---
+
 ## 📊 Масштаб презентационного комплекса
 
 - **27 полноформатных презентаций** с глубокой инженерной и экономической проработкой.
 - **405 широкоформатных слайдов (16:9, 1920x1080)** с мобильной билборд-типографикой и нулевым скроллом (Zero-Overflow).
 - **~5.5 часов профессиональной дикторской озвучки** на базе Microsoft Edge Neural TTS (`ru-RU-DmitryNeural`).
-- **5 аналитических Белых Книг (Whitepapers)**, охватывающих концепцию, приложения, архитектуру, влияние на стейкхолдеров и суверенитет.
+- **6 аналитических Белых Книг (Whitepapers)** и генеральный технический документ.
 - **База авторских заметок разработчика (`shared_docs/comments/`)** и семантический словарь меток ([`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md)).
 - **100% автономная офлайн-сборка (Offline Rebuild):** все мастер-аудиодорожки зафиксированы в Git, сборка возможна без интернета и внешних API-ключей.
 
@@ -86,7 +126,7 @@ presentations/
 
 ## 📚 Аналитические Белые Книги (Whitepapers Suite)
 
-В директории [`shared_docs/whitepapers/`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/README.md) доступен комплект из 5 фундаментальных документов:
+В директории [`shared_docs/whitepapers/`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/README.md) доступен полный комплект из 6 публикационных документов и генерального архитектурного документа:
 
 | № | Документ | Тематика Белой Книги | Формат |
 | :---: | :--- | :--- | :---: |
@@ -95,27 +135,32 @@ presentations/
 | **03** | [**03_engineering_architecture_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/03_engineering_architecture_whitepaper.md) | Инженерная архитектура: SQLite на Листе, Read-Anywhere Write-Self, P2P, TreeSearch, FSM смарт-контракты | [PDF](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/03_engineering_architecture_whitepaper.pdf) |
 | **04** | [**04_ecosystem_impact_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/04_ecosystem_impact_whitepaper.md) | Отраслевой эффект для 10 категорий участников, расчет TCO и 4 фазы миграции | [PDF](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/04_ecosystem_impact_whitepaper.pdf) |
 | **05** | [**05_sovereign_governance_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/05_sovereign_governance_whitepaper.md) | Правовое обоснование 152-ФЗ Zero-PII, ГОСТ Р 34.10, госинфраструктура и БРИКС+ | [PDF](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/05_sovereign_governance_whitepaper.pdf) |
+| **06** | [**06_cbr_smart_contracts_fsm_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md) | Смарт-контракты Банка России, детерминированные автоматы FSM O(1) и Цифровой рубль | [PDF](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf) |
+| **DOC** | **Технический документ платформы «Турбаза»** | Сводный фундаментальный документ архитектуры распределенных вычислений и суверенных данных | [PDF](file:///Users/parents/Documents/presentations/shared_docs/Технический%20документ%20платформы%20Турбаза.pdf) |
 
 ---
 
-## 🚀 Быстрый запуск презентаций
+## 🚀 Запуск единого портала презентаций
 
-Запустите единый локальный веб-сервер в корне хранилища:
+Запустите локальный сервер в корне хранилища:
 ```bash
 ./start_presentation.sh
 ```
 
-После запуска откройте в браузере стартовые ссылки:
-- **Мастер-презентация по архитектуре:**  
-  `http://localhost:8080/overall_presentations/01_sovereign_architecture_presentation/generated/outputs/web_deck/`
-- **Мастер-презентация по стейкхолдерам:**  
-  `http://localhost:8080/overall_presentations/02_stakeholders_benefits_presentation/generated/outputs/web_deck/`
-- **Эксплейнер — Смена парадигмы:**  
+Сервер автоматически откроет главную страницу каталога:
+👉 **`http://localhost:8080/`**
+
+Прямые ссылки на готовые треки со звуком:
+- **1. Эксплейнер 1 (Смена парадигмы):**  
   `http://localhost:8080/platform_overview/01_paradigm_shift_presentation/generated/outputs/web_deck/`
-- **Флагманское приложение «Деловой»:**  
-  `http://localhost:8080/applications_presentations/01_delovoy_app_presentation/generated/outputs/web_deck/`
-- **Инженерная архитектура — Топология:**  
-  `http://localhost:8080/architecture_presentations/01_topology_and_sovereignty/generated/outputs/web_deck/`
+- **2. Эксплейнер 2 (Анатомия и Архитектура):**  
+  `http://localhost:8080/platform_overview/02_architecture_principles_presentation/generated/outputs/web_deck/`
+- **3. Эксплейнер 3 (Суверенная экономика и смарт-контракты):**  
+  `http://localhost:8080/platform_overview/03_sovereign_economy_presentation/generated/outputs/web_deck/`
+- **4. Мастер-обзор 1 (Архитектура Цифрового Суверенитета):**  
+  `http://localhost:8080/overall_presentations/01_sovereign_architecture_presentation/generated/outputs/web_deck/`
+- **5. Мастер-обзор 2 (Матрица Выгод Стейкхолдеров):**  
+  `http://localhost:8080/overall_presentations/02_stakeholders_benefits_presentation/generated/outputs/web_deck/`
 
 ---
 

@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Платформа «Турбаза» — Портал Презентационного Комплекса</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070b14;
+      --bg-surface: #0e1626;
+      --bg-card: #121c32;
+      --bg-card-hover: #17243f;
+      --border-subtle: rgba(255, 255, 255, 0.12);
+      --border-focus: rgba(56, 189, 248, 0.45);
+      --gold: #facc15;
+      --gold-dim: rgba(250, 204, 21, 0.15);
+      --cyan: #38bdf8;
+      --cyan-dim: rgba(56, 189, 248, 0.14);
+      --emerald: #10b981;
+      --emerald-dim: rgba(16, 185, 129, 0.15);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.5;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Ambient Background Gradients */
+    .ambient-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .ambient-glow-1 {
+      position: absolute;
+      top: -150px;
+      left: 20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(7, 11, 20, 0) 70%);
+      filter: blur(80px);
+    }
+    .ambient-glow-2 {
+      position: absolute;
+      top: 300px;
+      right: 10%;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(250, 204, 21, 0.08) 0%, rgba(7, 11, 20, 0) 70%);
+      filter: blur(90px);
+    }
+
+    .container {
+      max-width: 1540px;
+      margin: 0 auto;
+      padding: 32px 28px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ==================== HERO HEADER ==================== */
+    .hero-header {
+      padding: 36px 0 28px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 32px;
+    }
+
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-logo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(250, 204, 21, 0.15);
+      border: 1.5px solid var(--gold);
+      padding: 6px 14px;
+      border-radius: 8px;
+      color: var(--gold);
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: var(--cyan);
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 40%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 19px;
+      color: var(--text-muted);
+      max-width: 980px;
+      font-weight: 400;
+      line-height: 1.55;
+    }
+
+    /* ==================== STATS METRICS ROW ==================== */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .stat-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 18px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .stat-card:hover {
+      border-color: rgba(255, 255, 255, 0.22);
+      transform: translateY(-2px);
+    }
+    .stat-card.ready-stat {
+      border-color: rgba(16, 185, 129, 0.35);
+      background: linear-gradient(145deg, rgba(16, 185, 129, 0.08) 0%, var(--bg-surface) 100%);
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 1;
+      font-family: var(--font-mono);
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .stat-card.ready-stat .stat-number { color: var(--emerald); }
+    .stat-card.audio-stat .stat-number { color: var(--cyan); }
+    .stat-card.total-stat .stat-number { color: var(--gold); }
+    .stat-card.zero-pii .stat-number { color: #a78bfa; }
+
+    .stat-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    .stat-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ==================== CONTROLS / FILTER BAR ==================== */
+    .controls-bar {
+      background: rgba(14, 22, 38, 0.85);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: sticky;
+      top: 16px;
+      z-index: 50;
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6);
+    }
+
+    .controls-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* Mode Switcher Tabs */
+    .mode-switch-group {
+      display: inline-flex;
+      background: rgba(7, 11, 20, 0.8);
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .mode-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+    .mode-tab:hover {
+      color: var(--text-main);
+    }
+    .mode-tab.active {
+      background: var(--bg-card);
+      color: var(--text-main);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+    .mode-tab.active.ready-mode {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+    }
+
+    .tab-badge {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+    }
+    .mode-tab.active.ready-mode .tab-badge {
+      background: var(--emerald);
+      color: #070b14;
+    }
+
+    /* Search Input */
+    .search-wrapper {
+      position: relative;
+      flex: 1;
+      max-width: 440px;
+      min-width: 260px;
+    }
+    .search-input {
+      width: 100%;
+      background: rgba(7, 11, 20, 0.85);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 10px 14px 10px 38px;
+      font-size: 14px;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      outline: none;
+      transition: var(--transition);
+    }
+    .search-input:focus {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.18);
+    }
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: var(--text-dim);
+      pointer-events: none;
+    }
+
+    /* Category Filter Pills */
+    .category-pills {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 12px;
+    }
+
+    .cat-pill {
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cat-pill:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .cat-pill.active {
+      background: rgba(56, 189, 248, 0.16);
+      border-color: var(--cyan);
+      color: #7dd3fc;
+    }
+
+    /* ==================== CONTENT SECTIONS ==================== */
+    .section-block {
+      margin-bottom: 48px;
+    }
+
+    .section-header {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 12px;
+    }
+
+    .section-title-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-icon {
+      font-size: 24px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+    }
+
+    .section-badge {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .section-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      width: 100%;
+      margin-top: 4px;
+    }
+
+    /* Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 20px;
+    }
+
+    /* ==================== CARD STYLES ==================== */
+    .pres-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
+    }
+
+    /* Glow border effect on ready cards */
+    .pres-card.is-ready {
+      border-color: rgba(16, 185, 129, 0.38);
+      background: linear-gradient(165deg, rgba(16, 185, 129, 0.06) 0%, var(--bg-card) 60%);
+      box-shadow: 0 10px 28px -12px rgba(16, 185, 129, 0.2);
+    }
+    .pres-card.is-ready:hover {
+      border-color: rgba(16, 185, 129, 0.7);
+      transform: translateY(-3px);
+      box-shadow: 0 18px 36px -12px rgba(16, 185, 129, 0.35);
+    }
+
+    /* Draft / Locked Card */
+    .pres-card.is-draft {
+      opacity: 0.65;
+      background: rgba(18, 28, 50, 0.45);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+    .pres-card.is-draft:hover {
+      opacity: 0.85;
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      gap: 10px;
+    }
+
+    .card-marker {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+    }
+    .pres-card.is-ready .card-marker {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .card-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .status-ready {
+      background: rgba(16, 185, 129, 0.18);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+    }
+    .status-ready .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulse-dot 2s infinite ease-in-out;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.6; }
+    }
+
+    .status-draft {
+      background: rgba(250, 204, 21, 0.1);
+      color: #facc15;
+      border: 1px solid rgba(250, 204, 21, 0.25);
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .card-subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .tag-pill {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-dim);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .pres-card.is-ready .tag-pill {
+      background: rgba(56, 189, 248, 0.08);
+      color: #93c5fd;
+      border-color: rgba(56, 189, 248, 0.15);
+    }
+
+    /* Card Action Footer */
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .btn-launch {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-launch:hover {
+      background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+    }
+
+    .btn-locked {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-dim);
+      font-weight: 700;
+      font-size: 13px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: 1px dashed rgba(255, 255, 255, 0.14);
+      cursor: not-allowed;
+      user-select: none;
+    }
+
+    .btn-pdf {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      padding: 11px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .btn-pdf:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: var(--text-main);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    /* ==================== WHITEPAPERS SECTION ==================== */
+    .whitepapers-section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 32px;
+      margin-top: 56px;
+    }
+
+    .whitepaper-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .whitepaper-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+    .whitepaper-card:hover {
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .wp-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .wp-num {
+      background: var(--cyan-dim);
+      color: var(--cyan);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .wp-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .wp-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+    .wp-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--cyan);
+      font-weight: 700;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* ==================== FOOTER ==================== */
+    .portal-footer {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--text-dim);
+      font-size: 13px;
+    }
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .footer-commands {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-title { font-size: 32px; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .whitepaper-grid { grid-template-columns: 1fr; }
+      .controls-bar { position: static; }
+      .search-wrapper { max-width: 100%; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-bg">
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+  </div>
+
+  <div class="container">
+
+    <!-- HERO HEADER -->
+    <header class="hero-header">
+      <div class="hero-top">
+        <div class="brand-group">
+          <div class="brand-logo-pill">
+            <span>🌲</span> ТУРБАЗА
+          </div>
+          <span class="brand-badge">Sovereign Edge Computing</span>
+        </div>
+        <div class="header-status">
+          <span class="card-status-pill status-ready">
+            <span class="status-dot"></span>
+            5 готовых презентаций с нейроозвучкой (75 слайдов)
+          </span>
+        </div>
+      </div>
+
+      <h1 class="hero-title">Портал Презентационного Комплекса</h1>
+      <p class="hero-subtitle">
+        Единый суверенный каталог интерактивных слайд-деков, архитектурных спецификаций и белых книг платформы «Турбаза».
+        Переход от платформенного монополизма к прямому владению собственной информацией на периферийных устройствах.
+      </p>
+
+      <!-- KEY METRICS ROW -->
+      <div class="stats-row">
+        <div class="stat-card ready-stat">
+          <div class="stat-number">5 <span style="font-size: 16px; font-weight: 600;">/ 27</span></div>
+          <div class="stat-label">Озвучено и готово</div>
+          <div class="stat-desc">Завершённые презентации с дикторским звуком</div>
+        </div>
+
+        <div class="stat-card audio-stat">
+          <div class="stat-number">75</div>
+          <div class="stat-label">Слайдов с аудио</div>
+          <div class="stat-desc">Синхронная нейроозвучка (Edge DmitryNeural)</div>
+        </div>
+
+        <div class="stat-card total-stat">
+          <div class="stat-number">27</div>
+          <div class="stat-label">Всего в экосистеме</div>
+          <div class="stat-desc">5 прикладных, 7 архитектурных, 10 стейкхолдеров</div>
+        </div>
+
+        <div class="stat-card zero-pii">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Автономность и Zero-PII</div>
+          <div class="stat-desc">Локальная работа без облачных утечек данных</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- INTERACTIVE CONTROLS & FILTER BAR -->
+    <nav class="controls-bar" id="controlsBar">
+      <div class="controls-top">
+        <!-- Mode Switcher Tabs -->
+        <div class="mode-switch-group">
+          <button class="mode-tab active ready-mode" id="btnModeReady" data-mode="ready">
+            <span>🌟 Только готовые с озвучкой</span>
+            <span class="tab-badge">5</span>
+          </button>
+          <button class="mode-tab" id="btnModeAll" data-mode="all">
+            <span>📋 Вся дорожная карта</span>
+            <span class="tab-badge">27</span>
+          </button>
+        </div>
+
+        <!-- Search Input -->
+        <div class="search-wrapper">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" class="search-input" placeholder="Поиск по темам, слайдам, технологиям..." autocomplete="off">
+        </div>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="category-pills" id="categoryPills">
+        <button class="cat-pill active" data-cat="all">Все разделы (27)</button>
+        <button class="cat-pill" data-cat="platform_overview">🏔️ Эксплейнеры (3/3)</button>
+        <button class="cat-pill" data-cat="overall_presentations">🏛️ Мастер-обзор (2/2)</button>
+        <button class="cat-pill" data-cat="applications_presentations">📱 Приложения (0/5)</button>
+        <button class="cat-pill" data-cat="architecture_presentations">⚙️ Архитектура (0/7)</button>
+        <button class="cat-pill" data-cat="detailed_overall_impact_presentations">👥 Стейкхолдеры (0/10)</button>
+      </div>
+    </nav>
+
+    <!-- DYNAMIC STATUS NOTICE -->
+    <div id="filterNotice" style="margin-bottom: 24px; font-size: 14px; color: var(--text-muted); display: none;">
+      Отображается: <strong id="matchingCount" style="color: var(--text-main);">0</strong> презентаций.
+    </div>
+
+    <!-- PRESENTATIONS SECTIONS -->
+    <main id="presentationsCatalog">
+
+      <!-- CATEGORY: Эксплейнер-трилогия платформы -->
+      <section class="section-block" data-category="platform_overview">
+        <div class="section-header">
+          <div class="section-title-group">
+            <span class="section-icon">🏔️</span>
+            <h2 class="section-title">Эксплейнер-трилогия платформы</h2>
+            <span class="section-badge">3/3 готово</span>
+          </div>
+          <p class="section-desc">Основополагающий концептуальный 3-серийный цикл: смена парадигмы, архитектура данных и суверенная экономика</p>
+        </div>
+
+        <div class="cards-grid">
+
+          <!-- Card: platform_overview/01_paradigm_shift_presentation -->
+          <article class="pres-card is-ready"
+                   data-card
+                   data-ready="true"
+                   data-category="platform_overview"
+                   data-search="парадигмальный сдвиг от платформенного монополизма к владению собственной информацией. личные автономные хранилища и защита семейных архивов. суверенитет данных личные хранилища ликвидация утечек zero-pii 01_paradigm_shift_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">ЭКСПЛЕЙНЕР · ЧАСТЬ 1</span>
+                <span class="card-status-pill status-ready"><span class="status-dot"></span> Готово (15 аудио)</span>
+              </div>
+
+              <h3 class="card-title">Парадигмальный сдвиг</h3>
+              <p class="card-subtitle">От платформенного монополизма к владению собственной информацией. Личные автономные хранилища и защита семейных архивов.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Суверенитет данных</span>
+                <span class="tag-pill">Личные хранилища</span>
+                <span class="tag-pill">Ликвидация утечек</span>
+                <span class="tag-pill">Zero-PII</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <a href="platform_overview/01_paradigm_shift_presentation/generated/outputs/web_deck/index.html" class="btn-launch" title="Запустить интерактивную презентацию с аудио">
+                ▶ Смотреть (15 сл.)
+              </a>
+              <a href="platform_overview/01_paradigm_shift_presentation/generated/outputs/pdf/01_paradigm_shift_manifesto.pdf" target="_blank" class="btn-pdf" title="Скачать PDF с текстом диктора">📄 PDF</a>
+                
+            </div>
+          </article>
+
+          <!-- Card: platform_overview/02_architecture_principles_presentation -->
+          <article class="pres-card is-ready"
+                   data-card
+                   data-ready="true"
+                   data-category="platform_overview"
+                   data-search="анатомия и архитектура платформы неделимые хранилища, внешние реляционные связи, общественные оболочки api и микоризный интернет данных. хранилища leaf оболочки api микоризная сеть p2p-клиринг 02_architecture_principles_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">ЭКСПЛЕЙНЕР · ЧАСТЬ 2</span>
+                <span class="card-status-pill status-ready"><span class="status-dot"></span> Готово (15 аудио)</span>
+              </div>
+
+              <h3 class="card-title">Анатомия и Архитектура платформы</h3>
+              <p class="card-subtitle">Неделимые Хранилища, внешние реляционные связи, Общественные Оболочки API и микоризный Интернет данных.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Хранилища Leaf</span>
+                <span class="tag-pill">Оболочки API</span>
+                <span class="tag-pill">Микоризная сеть</span>
+                <span class="tag-pill">P2P-клиринг</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <a href="platform_overview/02_architecture_principles_presentation/generated/outputs/web_deck/index.html" class="btn-launch" title="Запустить интерактивную презентацию с аудио">
+                ▶ Смотреть (15 сл.)
+              </a>
+              <a href="platform_overview/02_architecture_principles_presentation/generated/outputs/pdf/02_architecture_principles_notes.pdf" target="_blank" class="btn-pdf" title="Скачать PDF с текстом диктора">📄 PDF</a>
+                
+            </div>
+          </article>
+
+          <!-- Card: platform_overview/03_sovereign_economy_presentation -->
+          <article class="pres-card is-ready"
+                   data-card
+                   data-ready="true"
+                   data-category="platform_overview"
+                   data-search="суверенная экономика и смарт-контракты двухконтурная модель турбазы, детерминированные автоматы fsm o(1), цифровой рубль цб рф и p2p-клиринг. цифровой рубль fsm o(1) экономика api 1/n zero-pii 03_sovereign_economy_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">ЭКСПЛЕЙНЕР · ЧАСТЬ 3</span>
+                <span class="card-status-pill status-ready"><span class="status-dot"></span> Готово (15 аудио)</span>
+              </div>
+
+              <h3 class="card-title">Суверенная экономика и смарт-контракты</h3>
+              <p class="card-subtitle">Двухконтурная модель Турбазы, детерминированные автоматы FSM O(1), Цифровой рубль ЦБ РФ и P2P-клиринг.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Цифровой рубль</span>
+                <span class="tag-pill">FSM O(1)</span>
+                <span class="tag-pill">Экономика API 1/N</span>
+                <span class="tag-pill">Zero-PII</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <a href="platform_overview/03_sovereign_economy_presentation/generated/outputs/web_deck/index.html" class="btn-launch" title="Запустить интерактивную презентацию с аудио">
+                ▶ Смотреть (15 сл.)
+              </a>
+              <a href="platform_overview/03_sovereign_economy_presentation/generated/outputs/pdf/03_sovereign_economy_notes.pdf" target="_blank" class="btn-pdf" title="Скачать PDF с текстом диктора">📄 PDF</a>
+                
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CATEGORY: Мастер-обзор экосистемы -->
+      <section class="section-block" data-category="overall_presentations">
+        <div class="section-header">
+          <div class="section-title-group">
+            <span class="section-icon">🏛️</span>
+            <h2 class="section-title">Мастер-обзор экосистемы</h2>
+            <span class="section-badge">2/2 готово</span>
+          </div>
+          <p class="section-desc">Стратегические обзоры: 3-уровневая суверенная топология Leaf-Branch-Trunk и экономическая матрица ценности для 6 групп стейкхолдеров</p>
+        </div>
+
+        <div class="cards-grid">
+
+          <!-- Card: overall_presentations/01_sovereign_architecture_presentation -->
+          <article class="pres-card is-ready"
+                   data-card
+                   data-ready="true"
+                   data-category="overall_presentations"
+                   data-search="архитектура цифрового суверенитета трёхуровневая распределённая топология leaf-branch-trunk, прямое владение данными и защищённые вычисления. leaf-branch-trunk 152-фз zero-pii криптоконтур федеративный поиск 01_sovereign_architecture_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">МАСТЕР-ОБЗОР · СИСТЕМА</span>
+                <span class="card-status-pill status-ready"><span class="status-dot"></span> Готово (15 аудио)</span>
+              </div>
+
+              <h3 class="card-title">Архитектура Цифрового Суверенитета</h3>
+              <p class="card-subtitle">Трёхуровневая распределённая топология Leaf-Branch-Trunk, прямое владение данными и защищённые вычисления.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Leaf-Branch-Trunk</span>
+                <span class="tag-pill">152-ФЗ Zero-PII</span>
+                <span class="tag-pill">Криптоконтур</span>
+                <span class="tag-pill">Федеративный поиск</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <a href="overall_presentations/01_sovereign_architecture_presentation/generated/outputs/web_deck/index.html" class="btn-launch" title="Запустить интерактивную презентацию с аудио">
+                ▶ Смотреть (15 сл.)
+              </a>
+              <a href="overall_presentations/01_sovereign_architecture_presentation/generated/outputs/pdf/01_sovereign_architecture_notes.pdf" target="_blank" class="btn-pdf" title="Скачать PDF с текстом диктора">📄 PDF</a>
+                
+            </div>
+          </article>
+
+          <!-- Card: overall_presentations/02_stakeholders_benefits_presentation -->
+          <article class="pres-card is-ready"
+                   data-card
+                   data-ready="true"
+                   data-category="overall_presentations"
+                   data-search="матрица ценности для стейкхолдеров комплексный анализ выгод и экономических сценариев запуска для граждан, мсп, adtech, финтеха и государства. 6 стейкхолдеров tco -85% игра с + суммой локальный таргетинг 02_stakeholders_benefits_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">МАСТЕР-ОБЗОР · ЭКОНОМИКА</span>
+                <span class="card-status-pill status-ready"><span class="status-dot"></span> Готово (15 аудио)</span>
+              </div>
+
+              <h3 class="card-title">Матрица Ценности для Стейкхолдеров</h3>
+              <p class="card-subtitle">Комплексный анализ выгод и экономических сценариев запуска для граждан, МСП, AdTech, финтеха и государства.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">6 Стейкхолдеров</span>
+                <span class="tag-pill">TCO -85%</span>
+                <span class="tag-pill">Игра с + суммой</span>
+                <span class="tag-pill">Локальный таргетинг</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <a href="overall_presentations/02_stakeholders_benefits_presentation/generated/outputs/web_deck/index.html" class="btn-launch" title="Запустить интерактивную презентацию с аудио">
+                ▶ Смотреть (15 сл.)
+              </a>
+              <a href="overall_presentations/02_stakeholders_benefits_presentation/generated/outputs/pdf/02_stakeholders_benefits_notes.pdf" target="_blank" class="btn-pdf" title="Скачать PDF с текстом диктора">📄 PDF</a>
+                
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CATEGORY: Флагманские прикладные решения -->
+      <section class="section-block" data-category="applications_presentations">
+        <div class="section-header">
+          <div class="section-title-group">
+            <span class="section-icon">📱</span>
+            <h2 class="section-title">Флагманские прикладные решения</h2>
+            <span class="section-badge">0/5 готово</span>
+          </div>
+          <p class="section-desc">Экосистема суверенного пользовательского ПО: «Деловой», «КубГолос», «Забота», «УраТур» и локальные районные сервисы МСП</p>
+        </div>
+
+        <div class="cards-grid">
+
+          <!-- Card: applications_presentations/01_delovoy_app_presentation -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="applications_presentations"
+                   data-search="органайзер «деловой» суверенное планирование, локальные календари и p2p-координация задач без внешних облаков и слежки. органайзер локальный leaf p2p-синхронизация оффлайн-режим 01_delovoy_app_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">ПРИЛОЖЕНИЕ · ФЛАГМАН</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Органайзер «Деловой»</h3>
+              <p class="card-subtitle">Суверенное планирование, локальные календари и P2P-координация задач без внешних облаков и слежки.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Органайзер</span>
+                <span class="tag-pill">Локальный Leaf</span>
+                <span class="tag-pill">P2P-синхронизация</span>
+                <span class="tag-pill">Оффлайн-режим</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: applications_presentations/02_kubgolos_app_presentation -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="applications_presentations"
+                   data-search="платформа «кубголос» одноранговые микро-опросы, легитимное голосование и защита мнений в локальных сообществах и коллективах. микро-опросы криптография локальное волеизъявление 02_kubgolos_app_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">ПРИЛОЖЕНИЕ · ФЛАГМАН</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Платформа «КубГолос»</h3>
+              <p class="card-subtitle">Одноранговые микро-опросы, легитимное голосование и защита мнений в локальных сообществах и коллективах.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Микро-опросы</span>
+                <span class="tag-pill">Криптография</span>
+                <span class="tag-pill">Локальное волеизъявление</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: applications_presentations/03_zabota_app_presentation -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="applications_presentations"
+                   data-search="платформа «забота» взаимопомощь, открытая децентрализованная репутация и доверенные круги взаимоподдержки жителей. взаимопомощь открытая репутация доверенные круги 03_zabota_app_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">ПРИЛОЖЕНИЕ · ФЛАГМАН</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Платформа «Забота»</h3>
+              <p class="card-subtitle">Взаимопомощь, открытая децентрализованная репутация и доверенные круги взаимоподдержки жителей.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Взаимопомощь</span>
+                <span class="tag-pill">Открытая репутация</span>
+                <span class="tag-pill">Доверенные круги</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: applications_presentations/04_uratur_app_presentation -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="applications_presentations"
+                   data-search="платформа «уратур» суверенный туристический агрегатор и локальные маршруты без грабительских комиссий платформам-монополиям. туризм 0% комиссии платформ прямые расчеты p2p 04_uratur_app_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">ПРИЛОЖЕНИЕ · ФЛАГМАН</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Платформа «УраТур»</h3>
+              <p class="card-subtitle">Суверенный туристический агрегатор и локальные маршруты без грабительских комиссий платформам-монополиям.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Туризм</span>
+                <span class="tag-pill">0% комиссии платформ</span>
+                <span class="tag-pill">Прямые расчеты</span>
+                <span class="tag-pill">P2P</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: applications_presentations/05_local_services_presentation -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="applications_presentations"
+                   data-search="локальные сервисы и реестр мсп районная экономика, локальные каталоги услуг и независимая кооперация малого бизнеса. реестр мсп районная экономика прямая кооперация 05_local_services_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">ПРИЛОЖЕНИЕ · ЭКОСИСТЕМА</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Локальные Сервисы и Реестр МСП</h3>
+              <p class="card-subtitle">Районная экономика, локальные каталоги услуг и независимая кооперация малого бизнеса.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Реестр МСП</span>
+                <span class="tag-pill">Районная экономика</span>
+                <span class="tag-pill">Прямая кооперация</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CATEGORY: Инженерная архитектура (7 выпусков) -->
+      <section class="section-block" data-category="architecture_presentations">
+        <div class="section-header">
+          <div class="section-title-group">
+            <span class="section-icon">⚙️</span>
+            <h2 class="section-title">Инженерная архитектура (7 выпусков)</h2>
+            <span class="section-badge">0/7 готово</span>
+          </div>
+          <p class="section-desc">Глубокая инженерная спецификация: топология Leaf, конвейер Branch, протоколы P2P/WebRTC, TreeSearch и криптоконтур</p>
+        </div>
+
+        <div class="cards-grid">
+
+          <!-- Card: architecture_presentations/01_topology_and_sovereignty -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="architecture_presentations"
+                   data-search="топология и суверенитет трёхуровневая топология прямого владения данными (leaf-branch-trunk) и парадигма edge computing. leaf-branch-trunk edge computing zero-pii децентрализация 01_topology_and_sovereignty">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">АРХИТЕКТУРА · ВЫПУСК 1</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Топология и Суверенитет</h3>
+              <p class="card-subtitle">Трёхуровневая топология прямого владения данными (Leaf-Branch-Trunk) и парадигма Edge Computing.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Leaf-Branch-Trunk</span>
+                <span class="tag-pill">Edge Computing</span>
+                <span class="tag-pill">Zero-PII</span>
+                <span class="tag-pill">Децентрализация</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: architecture_presentations/02_leaf_storage_engine -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="architecture_presentations"
+                   data-search="локальное хранилище leaf архитектура узла «лист»: встроенная субд sqlite, трехколоночная модель и реляционный микро-чейн. sqlite микро-чейн составные ключи локальный leaf 02_leaf_storage_engine">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">АРХИТЕКТУРА · ВЫПУСК 2</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Локальное хранилище Leaf</h3>
+              <p class="card-subtitle">Архитектура узла «Лист»: встроенная СУБД SQLite, трехколоночная модель и реляционный микро-чейн.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">SQLite</span>
+                <span class="tag-pill">Микро-чейн</span>
+                <span class="tag-pill">Составные ключи</span>
+                <span class="tag-pill">Локальный Leaf</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: architecture_presentations/03_app_framework_and_sdk -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="architecture_presentations"
+                   data-search="фреймворк приложений и sdk прикладной каркас (framework), инструментарий разработчика и реактивная среда исполнения on-device. sdk разработчика каркас приложений реактивный ui on-device 03_app_framework_and_sdk">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">АРХИТЕКТУРА · ВЫПУСК 3</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Фреймворк приложений и SDK</h3>
+              <p class="card-subtitle">Прикладной каркас (Framework), инструментарий разработчика и реактивная среда исполнения On-Device.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">SDK разработчика</span>
+                <span class="tag-pill">Каркас приложений</span>
+                <span class="tag-pill">Реактивный UI</span>
+                <span class="tag-pill">On-Device</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: architecture_presentations/04_branch_pipeline_and_storage -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="architecture_presentations"
+                   data-search="конвейер ветки и хранилище архитектура узла «ветка»: конвейер обработки данных, надёжность хранения и кэширующий буфер. узел ветка конвейер данных локальный кэш p2p-буфер 04_branch_pipeline_and_storage">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">АРХИТЕКТУРА · ВЫПУСК 4</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Конвейер Ветки и хранилище</h3>
+              <p class="card-subtitle">Архитектура узла «Ветка»: конвейер обработки данных, надёжность хранения и кэширующий буфер.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Узел Ветка</span>
+                <span class="tag-pill">Конвейер данных</span>
+                <span class="tag-pill">Локальный кэш</span>
+                <span class="tag-pill">P2P-буфер</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: architecture_presentations/05_routing_p2p_and_passthrough -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="architecture_presentations"
+                   data-search="сетевая маршрутизация и p2p сетевой стек, одноранговые p2p webrtc-соединения, nat traversal и ведомственные сквозные туннели. webrtc p2p-туннели nat traversal защищенные каналы 05_routing_p2p_and_passthrough">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">АРХИТЕКТУРА · ВЫПУСК 5</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Сетевая маршрутизация и P2P</h3>
+              <p class="card-subtitle">Сетевой стек, одноранговые P2P WebRTC-соединения, NAT Traversal и ведомственные сквозные туннели.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">WebRTC</span>
+                <span class="tag-pill">P2P-туннели</span>
+                <span class="tag-pill">NAT Traversal</span>
+                <span class="tag-pill">Защищенные каналы</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: architecture_presentations/06_tree_search_and_analytics -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="architecture_presentations"
+                   data-search="поиск treesearch и аналитика древовидный глобальный поиск treesearch, хэш-индексы и федеративная конфиденциальная аналитика. treesearch федеративная аналитика хэш-индексы privacy 06_tree_search_and_analytics">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">АРХИТЕКТУРА · ВЫПУСК 6</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Поиск TreeSearch и аналитика</h3>
+              <p class="card-subtitle">Древовидный глобальный поиск TreeSearch, хэш-индексы и федеративная конфиденциальная аналитика.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">TreeSearch</span>
+                <span class="tag-pill">Федеративная аналитика</span>
+                <span class="tag-pill">Хэш-индексы</span>
+                <span class="tag-pill">Privacy</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: architecture_presentations/07_cryptography_and_api_economy -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="architecture_presentations"
+                   data-search="криптография и экономика api криптографический стек гост/pqc, экономика совместного использования api (1/n) и микроплатежи. гост / pqc экономика api 1/n микроплатежи смарт-контракты 07_cryptography_and_api_economy">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">АРХИТЕКТУРА · ВЫПУСК 7</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Криптография и экономика API</h3>
+              <p class="card-subtitle">Криптографический стек ГОСТ/PQC, экономика совместного использования API (1/N) и микроплатежи.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">ГОСТ / PQC</span>
+                <span class="tag-pill">Экономика API 1/N</span>
+                <span class="tag-pill">Микроплатежи</span>
+                <span class="tag-pill">Смарт-контракты</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CATEGORY: Детальный анализ стейкхолдеров (10 выпусков) -->
+      <section class="section-block" data-category="detailed_overall_impact_presentations">
+        <div class="section-header">
+          <div class="section-title-group">
+            <span class="section-icon">👥</span>
+            <h2 class="section-title">Детальный анализ стейкхолдеров (10 выпусков)</h2>
+            <span class="section-badge">0/10 готово</span>
+          </div>
+          <p class="section-desc">Отраслевые глубокие срезы: граждане, безопасность, бизнес/МСП, рекламодатели, AdTech, госсектор, разработчики, финтех и миграция</p>
+        </div>
+
+        <div class="cards-grid">
+
+          <!-- Card: detailed_overall_impact_presentations/01_citizens_presentation -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="detailed_overall_impact_presentations"
+                   data-search="граждане и домохозяйства владение собственной информацией, священный семейный архив и абсолютная защита личной тайны. личная тайна семейный архив 0% утечек автономия 01_citizens_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">СТЕЙКХОЛДЕРЫ · ВЫПУСК 1</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Граждане и Домохозяйства</h3>
+              <p class="card-subtitle">Владение собственной информацией, священный семейный архив и абсолютная защита личной тайны.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Личная тайна</span>
+                <span class="tag-pill">Семейный архив</span>
+                <span class="tag-pill">0% утечек</span>
+                <span class="tag-pill">Автономия</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: detailed_overall_impact_presentations/02_security_organs_presentation -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="detailed_overall_impact_presentations"
+                   data-search="органы безопасности и правопорядка неуязвимый суверенный криптоконтур, ликвидация баз-мишеней и математический аудит доступа. суверенный контур ликвидация баз-мишеней гост аудит 02_security_organs_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">СТЕЙКХОЛДЕРЫ · ВЫПУСК 2</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Органы Безопасности и Правопорядка</h3>
+              <p class="card-subtitle">Неуязвимый суверенный криптоконтур, ликвидация баз-мишеней и математический аудит доступа.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Суверенный контур</span>
+                <span class="tag-pill">Ликвидация баз-мишеней</span>
+                <span class="tag-pill">ГОСТ</span>
+                <span class="tag-pill">Аудит</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: detailed_overall_impact_presentations/03_business_sme_presentation -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="detailed_overall_impact_presentations"
+                   data-search="малый, средний и крупный бизнес снижение it tco на 85%, локальный учет, независимость от подписок и прямая торговля без посредников. tco -85% прямая торговля локальный pos без комиссий 03_business_sme_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">СТЕЙКХОЛДЕРЫ · ВЫПУСК 3</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Малый, Средний и Крупный Бизнес</h3>
+              <p class="card-subtitle">Снижение IT TCO на 85%, локальный учет, независимость от подписок и прямая торговля без посредников.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">TCO -85%</span>
+                <span class="tag-pill">Прямая торговля</span>
+                <span class="tag-pill">Локальный POS</span>
+                <span class="tag-pill">Без комиссий</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: detailed_overall_impact_presentations/04_advertisers_presentation -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="detailed_overall_impact_presentations"
+                   data-search="рекламодатели и бренды 100% релевантный on-device таргетинг, рост конверсий в 3–4 раза и криптографическая атрибуция. on-device таргетинг конверсии х3 честная атрибуция без фрода 04_advertisers_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">СТЕЙКХОЛДЕРЫ · ВЫПУСК 4</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Рекламодатели и Бренды</h3>
+              <p class="card-subtitle">100% релевантный On-Device таргетинг, рост конверсий в 3–4 раза и криптографическая атрибуция.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">On-Device таргетинг</span>
+                <span class="tag-pill">Конверсии х3</span>
+                <span class="tag-pill">Честная атрибуция</span>
+                <span class="tag-pill">Без фрода</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: detailed_overall_impact_presentations/05_ad_platforms_presentation -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="detailed_overall_impact_presentations"
+                   data-search="рекламные платформы и adtech федеративная дистрибуция, ликвидация клик-фрода и сокращение серверных затрат на 80%. федеративная сеть серверы -80% 0% клик-фрода приватность 05_ad_platforms_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">СТЕЙКХОЛДЕРЫ · ВЫПУСК 5</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Рекламные Платформы и AdTech</h3>
+              <p class="card-subtitle">Федеративная дистрибуция, ликвидация клик-фрода и сокращение серверных затрат на 80%.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Федеративная сеть</span>
+                <span class="tag-pill">Серверы -80%</span>
+                <span class="tag-pill">0% клик-фрода</span>
+                <span class="tag-pill">Приватность</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: detailed_overall_impact_presentations/06_government_infra_presentation -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="detailed_overall_impact_presentations"
+                   data-search="государство и муниципалитеты устойчивые госуслуги, разгрузка цод на 80%, 152-фз zero-pii и непрерывность при любых чс. разгрузка цод 80% непрерывность при чс 152-фз устойчивость 06_government_infra_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">СТЕЙКХОЛДЕРЫ · ВЫПУСК 6</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Государство и Муниципалитеты</h3>
+              <p class="card-subtitle">Устойчивые госуслуги, разгрузка ЦОД на 80%, 152-ФЗ Zero-PII и непрерывность при любых ЧС.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Разгрузка ЦОД 80%</span>
+                <span class="tag-pill">Непрерывность при ЧС</span>
+                <span class="tag-pill">152-ФЗ</span>
+                <span class="tag-pill">Устойчивость</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: detailed_overall_impact_presentations/07_it_developers_presentation -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="detailed_overall_impact_presentations"
+                   data-search="ит-разработчики и инженеры serverless edge, экономика совместного вызова api (1/n) и софт без абонентской платы за серверы. serverless edge экономика 1/n 0 серверных расходов sdk 07_it_developers_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">СТЕЙКХОЛДЕРЫ · ВЫПУСК 7</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">ИТ-Разработчики и Инженеры</h3>
+              <p class="card-subtitle">Serverless Edge, экономика совместного вызова API (1/N) и софт без абонентской платы за серверы.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Serverless Edge</span>
+                <span class="tag-pill">Экономика 1/N</span>
+                <span class="tag-pill">0 серверных расходов</span>
+                <span class="tag-pill">SDK</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: detailed_overall_impact_presentations/08_fintech_banking_presentation -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="detailed_overall_impact_presentations"
+                   data-search="банки, финтех и цифровой рубль on-device скоринг, эскроу смарт-контракты и 0% риска утечки банковской тайны. цифровой рубль on-device скоринг эскроу fsm банковская тайна 08_fintech_banking_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">СТЕЙКХОЛДЕРЫ · ВЫПУСК 8</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Банки, Финтех и Цифровой Рубль</h3>
+              <p class="card-subtitle">On-Device скоринг, эскроу смарт-контракты и 0% риска утечки банковской тайны.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Цифровой рубль</span>
+                <span class="tag-pill">On-Device скоринг</span>
+                <span class="tag-pill">Эскроу FSM</span>
+                <span class="tag-pill">Банковская тайна</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: detailed_overall_impact_presentations/09_cross_synergies_presentation -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="detailed_overall_impact_presentations"
+                   data-search="межотраслевая синергия и сетевые эффекты игра с положительной суммой и маховик национальной распределенной цифровой экономики. сетевые эффекты маховик экономики игра с + суммой p2p-рынки 09_cross_synergies_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">СТЕЙКХОЛДЕРЫ · ВЫПУСК 9</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Межотраслевая Синергия и Сетевые Эффекты</h3>
+              <p class="card-subtitle">Игра с положительной суммой и маховик национальной распределенной цифровой экономики.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Сетевые эффекты</span>
+                <span class="tag-pill">Маховик экономики</span>
+                <span class="tag-pill">Игра с + суммой</span>
+                <span class="tag-pill">P2P-рынки</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+
+          <!-- Card: detailed_overall_impact_presentations/10_migration_roadmap_presentation -->
+          <article class="pres-card is-draft"
+                   data-card
+                   data-ready="false"
+                   data-category="detailed_overall_impact_presentations"
+                   data-search="дорожная карта и legacy-мосты бесшовный поэтапный переход к распределенному edge без остановки текущих процессов. legacy-мосты поэтапный переход гибридный контур план 2026-2028 10_migration_roadmap_presentation">
+            
+            <div>
+              <div class="card-top">
+                <span class="card-marker">СТЕЙКХОЛДЕРЫ · ВЫПУСК 10</span>
+                <span class="card-status-pill status-draft">⏳ В разработке</span>
+              </div>
+
+              <h3 class="card-title">Дорожная Карта и Legacy-мосты</h3>
+              <p class="card-subtitle">Бесшовный поэтапный переход к распределенному Edge без остановки текущих процессов.</p>
+
+              <div class="card-tags">
+                <span class="tag-pill">📊 15 слайдов</span>
+                <span class="tag-pill">Legacy-мосты</span>
+                <span class="tag-pill">Поэтапный переход</span>
+                <span class="tag-pill">Гибридный контур</span>
+                <span class="tag-pill">План 2026-2028</span>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              
+              <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента и еще не озвучена нейросетью. Доступны только доработанные презентации с аудио.">
+                🔒 Не озвучено (в разработке)
+              </button>
+                
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- SOVEREIGN WHITEPAPERS SECTION -->
+    <section class="whitepapers-section" id="whitepapersSection">
+      <div class="section-title-group" style="margin-bottom: 8px;">
+        <span class="section-icon">📑</span>
+        <h2 class="section-title">Пакет Суверенных Белых Книг (A4 Whitepapers)</h2>
+      </div>
+      <p class="section-desc">
+        Официальный пакет 6 публикационных белых книг и генерального технического документа платформы «Турбаза» для регуляторов, инвесторов и архитекторов.
+      </p>
+
+      <div class="whitepaper-grid">
+
+        <a href="shared_docs/whitepapers/01_platform_overview_whitepaper.pdf" target="_blank" class="whitepaper-card">
+          <div>
+            <div class="wp-header">
+              <span class="wp-num">01</span>
+              <div class="wp-title">Белая книга 01: Концептуальный обзор платформы</div>
+            </div>
+            <p class="wp-desc" style="margin-top: 8px;">Парадигмальный сдвиг, суверенитет данных, 3-уровневая модель и экономические предпосылки</p>
+          </div>
+          <div class="wp-footer">
+            <span>Открыть PDF документ</span>
+            <span>↗</span>
+          </div>
+        </a>
+
+        <a href="shared_docs/whitepapers/02_applications_suite_whitepaper.pdf" target="_blank" class="whitepaper-card">
+          <div>
+            <div class="wp-header">
+              <span class="wp-num">02</span>
+              <div class="wp-title">Белая книга 02: Пакет флагманских прикладных решений</div>
+            </div>
+            <p class="wp-desc" style="margin-top: 8px;">Архитектура сервисов «Деловой», «КубГолос», «Забота», «УраТур» и локального реестра</p>
+          </div>
+          <div class="wp-footer">
+            <span>Открыть PDF документ</span>
+            <span>↗</span>
+          </div>
+        </a>
+
+        <a href="shared_docs/whitepapers/03_engineering_architecture_whitepaper.pdf" target="_blank" class="whitepaper-card">
+          <div>
+            <div class="wp-header">
+              <span class="wp-num">03</span>
+              <div class="wp-title">Белая книга 03: Инженерная спецификация архитектуры</div>
+            </div>
+            <p class="wp-desc" style="margin-top: 8px;">Leaf Storage SQLite/Micro-chain, конвейер Branch, маршрутизация P2P, TreeSearch и криптоконтур</p>
+          </div>
+          <div class="wp-footer">
+            <span>Открыть PDF документ</span>
+            <span>↗</span>
+          </div>
+        </a>
+
+        <a href="shared_docs/whitepapers/04_ecosystem_impact_whitepaper.pdf" target="_blank" class="whitepaper-card">
+          <div>
+            <div class="wp-header">
+              <span class="wp-num">04</span>
+              <div class="wp-title">Белая книга 04: Экосистемный анализ стейкхолдеров</div>
+            </div>
+            <p class="wp-desc" style="margin-top: 8px;">Модели выигрыша для граждан, силовых структур, МСП, рекламодателей, AdTech, государства и финтеха</p>
+          </div>
+          <div class="wp-footer">
+            <span>Открыть PDF документ</span>
+            <span>↗</span>
+          </div>
+        </a>
+
+        <a href="shared_docs/whitepapers/05_sovereign_governance_whitepaper.pdf" target="_blank" class="whitepaper-card">
+          <div>
+            <div class="wp-header">
+              <span class="wp-num">05</span>
+              <div class="wp-title">Белая книга 05: Суверенное управление и регуляторный контур</div>
+            </div>
+            <p class="wp-desc" style="margin-top: 8px;">152-ФЗ Zero-PII, ведомственная юрисдикция данных, аудит, неизменяемые журналы и правовые гарантии</p>
+          </div>
+          <div class="wp-footer">
+            <span>Открыть PDF документ</span>
+            <span>↗</span>
+          </div>
+        </a>
+
+        <a href="shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf" target="_blank" class="whitepaper-card">
+          <div>
+            <div class="wp-header">
+              <span class="wp-num">06</span>
+              <div class="wp-title">Белая книга 06: Смарт-контракты Банка России и FSM O(1)</div>
+            </div>
+            <p class="wp-desc" style="margin-top: 8px;">Детерминированные автоматы конечных состояний, микроклиринг и интеграция с Цифровым рублем</p>
+          </div>
+          <div class="wp-footer">
+            <span>Открыть PDF документ</span>
+            <span>↗</span>
+          </div>
+        </a>
+
+        <a href="shared_docs/Технический документ платформы Турбаза.pdf" target="_blank" class="whitepaper-card">
+          <div>
+            <div class="wp-header">
+              <span class="wp-num">DOC</span>
+              <div class="wp-title">Технический документ платформы «Турбаза»</div>
+            </div>
+            <p class="wp-desc" style="margin-top: 8px;">Сводный фундаментальный документ архитектуры распределенных вычислений и суверенных данных</p>
+          </div>
+          <div class="wp-footer">
+            <span>Открыть PDF документ</span>
+            <span>↗</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="portal-footer">
+      <div class="footer-left">
+        <span>🏔️ Платформа «Турбаза»</span>
+        <span>•</span>
+        <span>Распределённая инфраструктура данных Leaf-Branch-Trunk</span>
+      </div>
+      <div class="footer-commands">
+        npm run rebuild-overall • npm run regen-overall • ./start_presentation.sh
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- INTERACTIVE FILTER LOGIC (VANILLA JS, ZERO DEPENDENCIES) -->
+  <script>
+    (function() {
+      const btnModeReady = document.getElementById('btnModeReady');
+      const btnModeAll = document.getElementById('btnModeAll');
+      const searchInput = document.getElementById('searchInput');
+      const categoryPills = document.querySelectorAll('.cat-pill');
+      const cards = document.querySelectorAll('[data-card]');
+      const sections = document.querySelectorAll('.section-block');
+      const filterNotice = document.getElementById('filterNotice');
+      const matchingCount = document.getElementById('matchingCount');
+
+      let currentMode = 'ready'; // 'ready' (default: strictly only with audio) or 'all'
+      let currentCategory = 'all';
+      let searchQuery = '';
+
+      function updateView() {
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const isReady = card.getAttribute('data-ready') === 'true';
+          const cardCat = card.getAttribute('data-category');
+          const searchData = card.getAttribute('data-search') || '';
+
+          // 1. Mode check: If 'ready', STRICTLY HIDE drafts without audio
+          if (currentMode === 'ready' && !isReady) {
+            card.style.display = 'none';
+            return;
+          }
+
+          // 2. Category filter
+          if (currentCategory !== 'all' && cardCat !== currentCategory) {
+            card.style.display = 'none';
+            return;
+          }
+
+          // 3. Search query filter
+          if (searchQuery.trim() !== '' && !searchData.includes(searchQuery.trim().toLowerCase())) {
+            card.style.display = 'none';
+            return;
+          }
+
+          card.style.display = 'flex';
+          visibleCount++;
+        });
+
+        // Hide empty category sections
+        sections.forEach(sec => {
+          const secCards = sec.querySelectorAll('[data-card]');
+          let hasVisible = false;
+          secCards.forEach(c => {
+            if (c.style.display !== 'none') hasVisible = true;
+          });
+          sec.style.display = hasVisible ? 'block' : 'none';
+        });
+
+        // Update notice if search is active or filtered
+        if (searchQuery.trim() !== '' || currentCategory !== 'all' || currentMode === 'ready') {
+          filterNotice.style.display = 'block';
+          matchingCount.textContent = visibleCount;
+        } else {
+          filterNotice.style.display = 'none';
+        }
+      }
+
+      // Mode Switcher Listeners
+      btnModeReady.addEventListener('click', () => {
+        currentMode = 'ready';
+        btnModeReady.classList.add('active', 'ready-mode');
+        btnModeAll.classList.remove('active');
+        updateView();
+      });
+
+      btnModeAll.addEventListener('click', () => {
+        currentMode = 'all';
+        btnModeAll.classList.add('active');
+        btnModeReady.classList.remove('active', 'ready-mode');
+        updateView();
+      });
+
+      // Category Pill Listeners
+      categoryPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          categoryPills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+          currentCategory = pill.getAttribute('data-cat');
+          updateView();
+        });
+      });
+
+      // Search Listener
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        updateView();
+      });
+
+      // Initial execution: strictly show ready presentations by default!
+      updateView();
+    })();
+  </script>
+</body>
+</html>

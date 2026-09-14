@@ -1,0 +1,5140 @@
+/* ==========================================================================
+   PLATFORM TURBASE — INDEPENDENT PRESENTATION STYLES
+   Presentation: platform_overview/02_architecture_principles_presentation
+   Group: platform_overview
+   Architecture: 100% Isolated Standalone Presentation Stylesheet
+   ========================================================================== */
+
+/* Note: Presentation chrome (viewport, header, modal, drawer) is loaded universally via deck_core.css */
+
+/* ==========================================================================
+   THEME PALETTE & VARIABLES
+   ========================================================================== */
+
+/* ==========================================================================
+   TURBASE PLATFORM — PLATFORM OVERVIEW DESIGN SYSTEM (SOVEREIGN HORIZON)
+   Explainer Series: Deep Slate Canvas, Glassmorphism, Neon Horizon Glow
+   ========================================================================== */
+
+:root {
+  /* Surface & Base Canvas */
+  --bg-slate: #0a0f1d;
+  --bg-surface-glass: rgba(16, 24, 48, 0.75);
+  --bg-card-glass: rgba(20, 31, 60, 0.65);
+  --bg-card-glass-hover: rgba(28, 44, 82, 0.85);
+  
+  /* Borders */
+  --border-glass: rgba(255, 255, 255, 0.18);
+  --border-neon-gold: rgba(250, 204, 21, 0.85);
+  --border-neon-cyan: rgba(56, 189, 248, 0.85);
+  --border-neon-emerald: rgba(16, 185, 129, 0.85);
+  
+  /* Accent Colors */
+  --horizon-gold: #facc15;
+  --horizon-gold-light: #fef08a;
+  --horizon-cyan: #38bdf8;
+  --horizon-cyan-light: #bae6fd;
+  --horizon-emerald: #10b981;
+  --horizon-emerald-light: #6ee7b7;
+  --horizon-danger: #f43f5e;
+  
+  /* Typography */
+  --text-primary: #ffffff;
+  --text-secondary: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  
+  /* Fonts */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  /* Shadows & Glow */
+  --shadow-glass: 0 20px 50px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  --glow-horizon: 0 0 30px rgba(56, 189, 248, 0.25);
+}
+
+body {
+  background-color: var(--bg-slate);
+  background-image: 
+    radial-gradient(ellipse at 50% -10%, rgba(56, 189, 248, 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse at 90% 90%, rgba(250, 204, 21, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 10% 80%, rgba(16, 185, 129, 0.15) 0%, transparent 50%);
+  background-attachment: fixed;
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+}
+
+/* ==================== SERIES TOP MARKER HEADER ==================== */
+.explainer-series-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1.5px solid var(--horizon-cyan);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--horizon-cyan-light);
+  margin-bottom: 12px;
+}
+
+.deck-container {
+  border: 1.5px solid var(--border-glass);
+  background: var(--bg-surface-glass);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-glass);
+}
+
+
+/* ==========================================================================
+   COMPONENTS & BILLBOARD TYPOGRAPHY
+   ========================================================================== */
+
+/* ==========================================================================
+   TURBASE PLATFORM — PLATFORM OVERVIEW COMPONENTS (BILLBOARD & GLASSMORPHISM)
+   Explainer Series 3-Part Trilogy: Sovereign Horizon Billboard Design System
+   ========================================================================== */
+
+/* ==================== BILLBOARD TYPOGRAPHY ==================== */
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.slide-header {
+  margin-bottom: 30px;
+  flex-shrink: 0;
+}
+
+.explainer-series-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 19px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--horizon-cyan-light);
+  background: rgba(56, 189, 248, 0.15);
+  border: 1.5px solid var(--horizon-cyan);
+  padding: 8px 24px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+
+.slide-title {
+  font-size: 60px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+
+.slide-subtitle {
+  font-size: 30px;
+  font-weight: 500;
+  color: #cbd5e1;
+  line-height: 1.35;
+}
+
+.slide-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  min-height: 0;
+}
+
+/* ==================== GRID SYSTEMS ==================== */
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+  flex: 1;
+  align-items: stretch;
+  min-height: 0;
+}
+
+.grid-2col:has(> .info-panel) {
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+.grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  flex: 1;
+  align-items: stretch;
+  min-height: 0;
+}
+
+/* 6-card matrix layout (Slide 10) */
+.grid-3col:has(> :nth-child(4)) {
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+  align-items: stretch;
+  height: 100%;
+}
+
+.grid-3col:has(> :nth-child(4)) .glass-card {
+  padding: 32px 36px;
+  gap: 12px;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.grid-3col:has(> :nth-child(4)) .card-pill-tag {
+  font-size: 21px;
+  padding: 7px 20px;
+}
+
+.grid-3col:has(> :nth-child(4)) .card-title {
+  font-size: 42px;
+  margin-bottom: 8px;
+  font-weight: 900;
+}
+
+.grid-3col:has(> :nth-child(4)) .card-desc {
+  font-size: 30px;
+  line-height: 1.4;
+  margin-bottom: 0;
+  color: #f1f5f9;
+}
+
+.grid-4cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  flex: 1;
+  align-items: stretch;
+  min-height: 0;
+}
+
+/* 8-card matrix layout (Slide 11) */
+.grid-4cards:has(> :nth-child(5)) {
+  grid-template-rows: repeat(2, 1fr);
+  gap: 18px;
+  align-items: stretch;
+  height: 100%;
+}
+
+.grid-4cards:has(> :nth-child(5)) .glass-card {
+  padding: 24px 24px;
+  gap: 8px;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.grid-4cards:has(> :nth-child(5)) .card-pill-tag {
+  font-size: 16px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  padding: 5px 12px;
+}
+
+.grid-4cards:has(> :nth-child(5)) .card-title {
+  font-size: 34px;
+  margin-bottom: 4px;
+  font-weight: 900;
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+.grid-4cards:has(> :nth-child(5)) .card-desc {
+  font-size: 24px;
+  line-height: 1.38;
+  margin-bottom: 0;
+  color: #f8fafc;
+}
+
+.grid-4cards:has(> :nth-child(5)) .card-desc strong {
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.grid-5steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  flex: 1;
+  align-items: stretch;
+  min-height: 0;
+}
+
+/* ==================== PANELS ==================== */
+.info-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.visual-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  height: 100%;
+}
+
+/* ==================== KEY CALLOUTS ==================== */
+.key-callout {
+  background: rgba(20, 31, 60, 0.85);
+  border: 1.5px solid var(--border-glass);
+  border-left: 8px solid var(--horizon-cyan);
+  border-radius: 14px;
+  padding: 26px 32px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.key-callout.golden {
+  border-left-color: var(--horizon-gold);
+  background: rgba(250, 204, 21, 0.12);
+  border-color: rgba(250, 204, 21, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 25px rgba(250, 204, 21, 0.15);
+}
+
+.key-callout.cyan {
+  border-left-color: var(--horizon-cyan);
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 25px rgba(56, 189, 248, 0.15);
+}
+
+.key-callout > strong,
+.key-callout .callout-title {
+  font-size: 32px;
+  font-weight: 900;
+  color: #ffffff;
+  display: block;
+  margin-bottom: 8px;
+  line-height: 1.25;
+}
+
+.key-callout p {
+  font-size: 28px;
+  color: #f8fafc;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.key-callout p strong {
+  display: inline;
+  color: #ffffff;
+  font-weight: 900;
+}
+
+/* ==================== FEATURE CARDS ==================== */
+.feature-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  flex: 1;
+}
+
+.feature-card {
+  background: var(--bg-card-glass);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 4px;
+  backdrop-filter: blur(14px);
+  transition: all 0.2s ease;
+  height: 100%;
+}
+
+.feature-card:hover {
+  border-color: var(--horizon-cyan);
+  transform: translateY(-2px);
+}
+
+.feature-card .card-icon {
+  font-size: 40px;
+  margin-bottom: 4px;
+  line-height: 1;
+}
+
+.feature-card h4 {
+  font-size: 30px;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.feature-card p {
+  font-size: 26px;
+  color: #f8fafc;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.feature-card p strong {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+/* Compact sizing for 4-card grid (Slide 1) */
+.feature-cards-grid:has(> :nth-child(3)) {
+  gap: 12px;
+}
+
+.feature-cards-grid:has(> :nth-child(3)) .feature-card {
+  padding: 16px 20px;
+  gap: 3px;
+}
+
+.feature-cards-grid:has(> :nth-child(3)) .feature-card .card-icon {
+  font-size: 32px;
+  margin-bottom: 2px;
+}
+
+.feature-cards-grid:has(> :nth-child(3)) .feature-card h4 {
+  font-size: 26px;
+  margin-bottom: 2px;
+}
+
+.feature-cards-grid:has(> :nth-child(3)) .feature-card p {
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+/* ==================== KPI CARDS & VERTICAL STACKS ==================== */
+.kpi-vertical-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.kpi-card-explainer {
+  background: rgba(16, 24, 48, 0.85);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 28px 30px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  transition: all 0.25s ease;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.kpi-card-explainer:hover {
+  border-color: var(--horizon-gold);
+  transform: translateY(-2px);
+}
+
+.kpi-num {
+  font-size: 78px;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+
+.kpi-num.golden, .golden {
+  color: var(--horizon-gold);
+  text-shadow: 0 0 30px rgba(250, 204, 21, 0.45);
+}
+
+.kpi-num.cyan, .cyan {
+  color: var(--horizon-cyan);
+  text-shadow: 0 0 30px rgba(56, 189, 248, 0.45);
+}
+
+.kpi-num.emerald, .emerald {
+  color: var(--horizon-emerald);
+  text-shadow: 0 0 30px rgba(16, 185, 129, 0.45);
+}
+
+.kpi-label {
+  font-size: 27px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.35;
+}
+
+/* ==================== TIMELINE STEPPERS (SLIDE 2) ==================== */
+.timeline-stepper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.timeline-step {
+  background: rgba(16, 24, 48, 0.65);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 18px 24px;
+  backdrop-filter: blur(12px);
+  transition: all 0.2s ease;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.timeline-step.active {
+  border-color: var(--horizon-cyan);
+  background: rgba(56, 189, 248, 0.12);
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+}
+
+.timeline-step .step-badge {
+  font-size: 18px;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  color: var(--horizon-cyan);
+  margin-bottom: 2px;
+}
+
+.timeline-step.active .step-badge {
+  color: var(--horizon-gold);
+}
+
+.timeline-step .step-title {
+  font-size: 28px;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 2px;
+  line-height: 1.2;
+}
+
+.timeline-step .step-desc {
+  font-size: 23px;
+  color: #f8fafc;
+  line-height: 1.35;
+}
+
+.timeline-step .step-desc strong {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+/* ==================== COMPARISON BLOCKS (SLIDE 4) ==================== */
+.comparison-block {
+  border-radius: 16px;
+  padding: 42px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  height: 100%;
+}
+
+.comparison-block.legacy {
+  background: rgba(244, 63, 94, 0.08);
+  border: 1.5px solid rgba(244, 63, 94, 0.45);
+}
+
+.comparison-block.sovereign {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1.5px solid rgba(16, 185, 129, 0.45);
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.18);
+}
+
+.block-tag {
+  font-size: 18px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  padding: 7px 18px;
+  border-radius: 6px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.block-tag.red {
+  color: #fda4af;
+  background: rgba(244, 63, 94, 0.2);
+  border: 1px solid rgba(244, 63, 94, 0.5);
+}
+
+.block-tag.green {
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.5);
+}
+
+.block-title {
+  font-size: 42px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.block-desc {
+  font-size: 28px;
+  color: #f8fafc;
+  line-height: 1.48;
+}
+
+.block-desc strong {
+  color: #ffffff;
+  font-weight: 900;
+}
+
+.mini-diagram-legacy,
+.mini-diagram-sovereign {
+  background: rgba(7, 11, 20, 0.95);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 28px 32px;
+  font-family: var(--font-mono);
+  font-size: 26px;
+  color: #f8fafc;
+  line-height: 1.65;
+  margin-top: auto;
+}
+
+.mini-diagram-legacy strong {
+  color: #fda4af;
+  font-weight: 800;
+}
+
+.mini-diagram-legacy em {
+  font-style: normal;
+  color: #cbd5e1;
+  display: block;
+  margin-top: 8px;
+  font-size: 23px;
+}
+
+.mini-diagram-sovereign strong {
+  color: var(--horizon-gold);
+  text-shadow: 0 0 15px rgba(250, 204, 21, 0.35);
+  font-weight: 800;
+}
+
+.diagram-flow-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.diagram-flow-center {
+  text-align: center;
+  margin: 12px 0;
+  font-size: 26px;
+}
+
+/* ==================== FAMILY HUB DIAGRAM (SLIDE 5) ==================== */
+.family-hub-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  background: rgba(16, 24, 48, 0.6);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 16px;
+  padding: 44px 32px;
+  backdrop-filter: blur(14px);
+}
+
+.hub-center {
+  background: rgba(250, 204, 21, 0.18);
+  border: 2.5px solid var(--horizon-gold);
+  border-radius: 16px;
+  padding: 36px 44px;
+  font-size: 40px;
+  font-weight: 900;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 0 35px rgba(250, 204, 21, 0.35);
+  width: 95%;
+}
+
+.hub-center span {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--horizon-gold-light);
+  display: block;
+  margin-top: 8px;
+}
+
+.hub-satellites {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.satellite {
+  background: rgba(20, 31, 60, 0.95);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 24px 18px;
+  font-size: 27px;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.satellite:hover {
+  border-color: var(--horizon-cyan);
+  transform: translateY(-2px);
+}
+
+/* ==================== GLASS CONCEPT CARDS (SLIDES 3, 6, 7, 8, 9) ==================== */
+.glass-card {
+  background: var(--bg-card-glass);
+  border: 1.5px solid var(--border-glass);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  height: 100%;
+  transition: all 0.25s ease;
+}
+
+.grid-2col .glass-card {
+  padding: 38px 42px;
+  gap: 16px;
+  justify-content: flex-start;
+}
+
+.grid-2col .glass-card .card-pill-tag {
+  font-size: 19px;
+  padding: 7px 20px;
+  margin-bottom: 2px;
+}
+
+.grid-2col .glass-card .card-title {
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+
+.grid-2col .glass-card .card-desc {
+  font-size: 28px;
+  color: #f8fafc;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.grid-2col .glass-card .card-desc strong {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.grid-2col .glass-card .card-bullets {
+  gap: 16px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-2col .glass-card .card-bullets li {
+  font-size: 26px;
+  color: #f8fafc;
+  line-height: 1.4;
+  padding-left: 36px;
+}
+
+.grid-2col .glass-card .card-bullets li strong {
+  font-size: 26px;
+  color: #38bdf8;
+  font-weight: 900;
+  margin-right: 8px;
+}
+
+.grid-2col .glass-card.sovereign-border .card-bullets li strong {
+  color: #facc15;
+}
+
+/* Slide 3: Two stacked cards on left column */
+.info-panel.stacked-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.info-panel.stacked-cards .glass-card {
+  flex: 1;
+  height: auto;
+  padding: 22px 28px;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.info-panel.stacked-cards .glass-card .card-pill-tag {
+  font-size: 16px;
+  padding: 5px 14px;
+  margin-bottom: 0;
+}
+
+.info-panel.stacked-cards .glass-card .card-title {
+  font-size: 32px;
+  line-height: 1.15;
+  margin-bottom: 2px;
+}
+
+.info-panel.stacked-cards .glass-card .card-desc {
+  font-size: 23px;
+  line-height: 1.36;
+  margin-bottom: 0;
+}
+
+.grid-2col:has(.info-panel.stacked-cards) .visual-panel .glass-card {
+  padding: 28px 34px;
+  gap: 14px;
+  justify-content: flex-start;
+}
+
+.grid-2col:has(.info-panel.stacked-cards) .visual-panel .glass-card .card-title {
+  font-size: 38px;
+  margin-bottom: 2px;
+}
+
+.grid-2col:has(.info-panel.stacked-cards) .visual-panel .glass-card .card-desc {
+  font-size: 25px;
+  line-height: 1.36;
+  margin-bottom: 2px;
+}
+
+.grid-2col:has(.info-panel.stacked-cards) .visual-panel .glass-card .card-bullets {
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.grid-2col:has(.info-panel.stacked-cards) .visual-panel .glass-card .card-bullets li {
+  font-size: 23px;
+  line-height: 1.36;
+  padding-left: 32px;
+}
+
+.grid-2col:has(.info-panel.stacked-cards) .visual-panel .glass-card .card-bullets li strong {
+  font-size: 23px;
+}
+
+/* Slide 14: 2x2 KPI Row + Summary Card */
+.grid-2col:has(.kpi-row-explainer) .visual-panel .glass-card {
+  padding: 26px 32px;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.grid-2col:has(.kpi-row-explainer) .visual-panel .glass-card .card-title {
+  font-size: 38px;
+  line-height: 1.15;
+  margin-bottom: 2px;
+}
+
+.grid-2col:has(.kpi-row-explainer) .visual-panel .glass-card .card-desc {
+  font-size: 24px;
+  line-height: 1.36;
+  margin-bottom: 2px;
+}
+
+.grid-2col:has(.kpi-row-explainer) .visual-panel .glass-card .card-bullets {
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.grid-2col:has(.kpi-row-explainer) .visual-panel .glass-card .card-bullets li {
+  font-size: 23px;
+  line-height: 1.36;
+  padding-left: 30px;
+}
+
+.grid-2col:has(.kpi-row-explainer) .visual-panel .glass-card .card-bullets li strong {
+  font-size: 23px;
+}
+
+.grid-2col:has(.kpi-row-explainer) .kpi-card-explainer {
+  padding: 16px 18px;
+  gap: 4px;
+}
+
+.grid-2col:has(.kpi-row-explainer) .kpi-val-explainer {
+  font-size: 54px;
+  margin-bottom: 2px;
+}
+
+.grid-2col:has(.kpi-row-explainer) .kpi-title-explainer {
+  font-size: 24px;
+  margin-bottom: 2px;
+}
+
+.grid-2col:has(.kpi-row-explainer) .kpi-desc-explainer {
+  font-size: 17px;
+  line-height: 1.32;
+}
+
+.grid-3col .glass-card {
+  padding: 34px 30px;
+  gap: 16px;
+  justify-content: flex-start;
+}
+
+.grid-3col .glass-card .card-title {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 2px;
+}
+
+.grid-3col .glass-card .card-desc {
+  font-size: 27px;
+  color: #f8fafc;
+  line-height: 1.4;
+}
+
+.grid-3col .glass-card .card-desc strong {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.grid-3col .glass-card .card-bullets {
+  gap: 18px;
+  margin-top: 10px;
+}
+
+.grid-3col .glass-card .card-bullets li {
+  font-size: 25px;
+  color: #f8fafc;
+  line-height: 1.4;
+  padding-left: 32px;
+}
+
+.grid-3col .glass-card .card-bullets li strong {
+  font-size: 25px;
+  color: #38bdf8;
+  font-weight: 900;
+  margin-right: 6px;
+}
+
+/* ==================== 3-PILLAR GRID-3COL PROPORTIONS ==================== */
+.grid-3col:has(.summary-banner) .glass-card {
+  padding: 22px 20px;
+  gap: 8px;
+}
+
+.grid-3col:has(.summary-banner) .glass-card .card-title {
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
+.grid-3col:has(.summary-banner) .glass-card .card-desc {
+  font-size: 21px;
+  line-height: 1.35;
+}
+
+.grid-3col:has(.summary-banner) .glass-card .card-bullets {
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.grid-3col:has(.summary-banner) .glass-card .card-bullets li {
+  font-size: 20px;
+  line-height: 1.35;
+  padding-left: 24px;
+}
+
+.grid-3col:has(.summary-banner) .glass-card .card-bullets li strong {
+  font-size: 20px;
+}
+
+.grid-3col:has(.summary-banner) .summary-banner {
+  padding: 8px 12px;
+  font-size: 16px;
+  margin-top: auto;
+}
+
+
+.glass-card:hover {
+  background: var(--bg-card-glass-hover);
+  border-color: var(--horizon-cyan);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(56, 189, 248, 0.2);
+}
+
+.glass-card.danger-accent {
+  border-color: rgba(244, 63, 94, 0.45);
+  background: rgba(244, 63, 94, 0.06);
+}
+
+.glass-card.danger-accent .card-pill-tag {
+  color: #fda4af;
+  border-color: rgba(244, 63, 94, 0.5);
+  background: rgba(244, 63, 94, 0.15);
+}
+
+.glass-card.danger-accent .card-bullets li strong {
+  color: #fda4af;
+}
+
+.glass-card.danger-accent .card-bullets li::before {
+  color: #f43f5e;
+}
+
+.glass-card.sovereign-border {
+  border-color: var(--horizon-cyan);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+}
+
+.card-pill-tag {
+  font-size: 18px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--horizon-gold);
+  background: rgba(250, 204, 21, 0.15);
+  border: 1px solid var(--horizon-gold);
+  padding: 7px 18px;
+  border-radius: 8px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.card-pill-tag.gold {
+  color: var(--horizon-gold);
+  border-color: var(--horizon-gold);
+  background: rgba(250, 204, 21, 0.15);
+}
+
+.card-pill-tag.emerald {
+  color: var(--horizon-emerald);
+  border-color: var(--horizon-emerald);
+  background: rgba(16, 185, 129, 0.15);
+}
+
+.card-pill-tag.cyan {
+  color: var(--horizon-cyan);
+  border-color: var(--horizon-cyan);
+  background: rgba(56, 189, 248, 0.15);
+}
+
+.card-title {
+  font-size: 42px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.card-desc {
+  font-size: 28px;
+  color: #f8fafc;
+  line-height: 1.48;
+}
+
+.card-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: 14px;
+}
+
+.card-bullets li {
+  font-size: 25px;
+  color: #f8fafc;
+  position: relative;
+  padding-left: 32px;
+  line-height: 1.42;
+  display: block;
+}
+
+.card-bullets li strong {
+  color: #38bdf8;
+  font-weight: 900;
+  margin-right: 6px;
+}
+
+.card-bullets li::before {
+  content: '✦';
+  color: var(--horizon-cyan);
+  font-size: 24px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  line-height: 1.42;
+}
+
+/* ==================== MACROECONOMIC KPI CARDS (SLIDE 11) ==================== */
+.kpi-card-large {
+  background: var(--bg-card-glass);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 16px;
+  padding: 54px 38px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 18px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  height: 100%;
+}
+
+.kpi-tag-large {
+  font-size: 24px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--horizon-cyan);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.kpi-num-large {
+  font-size: 114px;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+
+.kpi-num-large.golden {
+  color: var(--horizon-gold);
+  text-shadow: 0 0 35px rgba(250, 204, 21, 0.45);
+}
+
+.kpi-num-large.cyan {
+  color: var(--horizon-cyan);
+  text-shadow: 0 0 35px rgba(56, 189, 248, 0.45);
+}
+
+.kpi-num-large.emerald {
+  color: var(--horizon-emerald);
+  text-shadow: 0 0 35px rgba(16, 185, 129, 0.45);
+}
+
+.kpi-title-large {
+  font-size: 42px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.18;
+}
+
+.kpi-desc-large {
+  font-size: 28px;
+  color: #f8fafc;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.kpi-desc-large strong {
+  color: #ffffff;
+  font-weight: 900;
+}
+
+/* ==================== NEXT TRACK & TRILOGY (SLIDE 12) ==================== */
+.next-track-card {
+  background: rgba(56, 189, 248, 0.08);
+  border: 1.5px solid var(--horizon-cyan);
+  border-radius: 16px;
+  padding: 38px 40px;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  justify-content: center;
+}
+
+.track-badge {
+  font-size: 18px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--horizon-cyan);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.next-track-card h3 {
+  font-size: 40px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.18;
+}
+
+.next-track-card p {
+  font-size: 28px;
+  color: #f8fafc;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.next-track-card p strong {
+  color: var(--horizon-cyan-light);
+  font-weight: 800;
+}
+
+.trilogy-map-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.trilogy-step {
+  background: rgba(16, 24, 48, 0.65);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 16px;
+  padding: 30px 34px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  backdrop-filter: blur(12px);
+  flex: 1;
+}
+
+.trilogy-step.done {
+  border-color: rgba(16, 185, 129, 0.5);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.trilogy-step.done .step-num {
+  color: var(--horizon-emerald);
+}
+
+.trilogy-step.current {
+  border-color: var(--horizon-gold);
+  background: rgba(250, 204, 21, 0.12);
+  box-shadow: 0 0 25px rgba(250, 204, 21, 0.25);
+}
+
+.trilogy-step.current .step-num {
+  color: var(--horizon-gold);
+}
+
+.trilogy-step.next {
+  opacity: 0.6;
+}
+
+.trilogy-step .step-num {
+  font-size: 56px;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+
+.trilogy-step .step-label {
+  font-size: 30px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.25;
+}
+
+.trilogy-step .step-label span {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--horizon-cyan-light);
+  display: block;
+  margin-top: 5px;
+}
+
+.trilogy-step.current .step-label span {
+  color: var(--horizon-gold);
+}
+
+.trilogy-step.done .step-label span {
+  color: var(--horizon-emerald);
+}
+
+/* ==================== SPECIALIZED DIAGRAMS (PARTS 2 & 3) ==================== */
+.repo-anatomy-diagram,
+.fk-connection-diagram,
+.olap-tree-diagram,
+.mycorrhiza-art-box,
+.call-stack-diagram,
+.ai-flow-diagram,
+.final-manifesto-box {
+  background: rgba(16, 24, 48, 0.7);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 24px;
+  backdrop-filter: blur(14px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.repo-box-header,
+.code-header,
+.stack-box-header {
+  font-size: 16px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--horizon-gold);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.repo-tables-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 14px 0;
+}
+
+.table-chip,
+.tree-leaf-chip {
+  background: rgba(20, 31, 60, 0.85);
+  border: 1px solid var(--border-glass);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-align: center;
+  font-family: var(--font-mono);
+}
+
+.repo-footer,
+.code-caption,
+.stack-caption {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.35;
+  margin-top: 10px;
+}
+
+.code-block {
+  background: rgba(7, 11, 20, 0.95);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-family: var(--font-mono);
+  font-size: 17px;
+  color: #e2e8f0;
+  line-height: 1.5;
+}
+
+.code-block .kw {
+  color: var(--horizon-gold);
+  font-weight: 700;
+}
+
+.step-card {
+  background: var(--bg-card-glass);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 18px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.step-card .step-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.step-card .step-num {
+  font-size: 13px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--horizon-cyan);
+  margin-bottom: 6px;
+}
+
+/* ==================== ARCHITECTURE BLUEPRINT & KPI CHIPS ==================== */
+.arch-blueprint-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.arch-kpi-chip {
+  background: rgba(16, 24, 48, 0.85);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 16px 20px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+}
+
+.arch-kpi-chip:hover {
+  border-color: var(--horizon-cyan);
+  transform: translateY(-2px);
+}
+
+.arch-kpi-chip .kpi-val {
+  font-size: 56px;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  color: var(--horizon-cyan);
+  text-shadow: 0 0 30px rgba(56, 189, 248, 0.45);
+  line-height: 1;
+}
+
+.arch-kpi-chip .kpi-label {
+  font-size: 24px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+}
+
+.arch-kpi-chip .kpi-sublabel {
+  font-size: 18px;
+  color: #cbd5e1;
+  line-height: 1.35;
+}
+
+/* ==================== MERMAID DIAGRAM CARDS ==================== */
+.mermaid-diagram-card {
+  background: rgba(16, 24, 48, 0.7);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 24px;
+  backdrop-filter: blur(14px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-glass);
+}
+
+.mermaid-diagram-card .mermaid {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mermaid-diagram-card .mermaid svg {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+}
+
+/* ==================== REPO ANATOMY & KEYS ==================== */
+.repo-box {
+  background: rgba(20, 31, 60, 0.7);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 8px;
+}
+
+.repo-box-header {
+  font-size: 20px;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  color: var(--horizon-gold);
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.repo-keys-badge {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--horizon-cyan-light);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 8px;
+  padding: 8px 14px;
+}
+
+.repo-schema-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  flex: 1;
+}
+
+.repo-table-card {
+  background: rgba(10, 15, 29, 0.85);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.repo-table-card-head {
+  font-family: var(--font-mono);
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--horizon-cyan);
+  margin-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding-bottom: 4px;
+}
+
+.repo-table-col {
+  font-family: var(--font-mono);
+  font-size: 14.5px;
+  color: #cbd5e1;
+  line-height: 1.35;
+}
+
+.repo-table-col.index {
+  color: var(--horizon-gold-light);
+  font-weight: 700;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  padding-top: 4px;
+  margin-top: 2px;
+}
+
+.repo-bottom-specs {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+}
+
+.spec-pill {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid var(--horizon-cyan);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+/* ==================== FOREIGN KEY CONNECTION DIAGRAM ==================== */
+.fk-connection-diagram {
+  background: rgba(16, 24, 48, 0.7);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 16px 20px;
+  backdrop-filter: blur(14px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  box-shadow: var(--shadow-glass);
+}
+
+.fk-node {
+  background: rgba(20, 31, 60, 0.85);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fk-node.left {
+  border-left: 4px solid var(--horizon-cyan);
+}
+
+.fk-node.right {
+  border-left: 4px solid var(--horizon-emerald);
+}
+
+.fk-node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fk-node-title {
+  font-size: 19px;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  color: var(--horizon-gold);
+  letter-spacing: 0.5px;
+}
+
+.fk-node-badge {
+  font-size: 13.5px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid var(--horizon-cyan);
+  color: var(--horizon-cyan);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.fk-node-badge.emerald {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: var(--horizon-emerald);
+  color: var(--horizon-emerald-light);
+}
+
+.fk-row-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.fk-row-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.fk-pointer-badge {
+  font-size: 14px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--horizon-cyan-light);
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.fk-status-badge {
+  font-size: 14px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--horizon-emerald-light);
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  padding: 3px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.fk-cache-box,
+.fk-sync-box {
+  background: rgba(10, 15, 29, 0.6);
+  border-radius: 6px;
+  padding: 6px 10px;
+  border-left: 3px solid var(--horizon-emerald);
+}
+
+.fk-cache-label,
+.fk-sync-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--horizon-emerald-light);
+  margin-bottom: 2px;
+}
+
+.fk-cache-val,
+.fk-sync-val {
+  font-size: 15.5px;
+  color: #f1f5f9;
+  line-height: 1.3;
+}
+
+.fk-arrow {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--horizon-cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.fk-arrow span {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1.5px solid var(--horizon-cyan);
+  border-radius: 8px;
+  padding: 4px 14px;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.fk-footer-banner {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1.5px solid var(--horizon-emerald);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14.5px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.fk-table-badge {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--horizon-gold);
+  background: rgba(250, 204, 21, 0.1);
+  border: 1px solid rgba(250, 204, 21, 0.3);
+  padding: 3px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 2px;
+}
+
+.fk-table-badge.emerald {
+  color: var(--horizon-emerald-light);
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.fk-tech-note {
+  font-size: 13px;
+  color: #94a3b8;
+  font-family: var(--font-mono);
+  margin-top: 3px;
+}
+
+/* Slide 3: Feature cards in left column */
+.grid-2col:has(.repo-anatomy-diagram) .feature-cards-grid {
+  gap: 14px;
+}
+
+.grid-2col:has(.repo-anatomy-diagram) .feature-card {
+  padding: 22px 24px;
+  gap: 6px;
+}
+
+.grid-2col:has(.repo-anatomy-diagram) .feature-card h4 {
+  font-size: 26px;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.grid-2col:has(.repo-anatomy-diagram) .feature-card p {
+  font-size: 21px;
+  line-height: 1.4;
+  color: #f1f5f9;
+}
+
+/* Slide 4: Foreign Key Diagram and Feature Cards */
+.grid-2col:has(.fk-connection-diagram) .feature-cards-grid {
+  gap: 14px;
+}
+
+.grid-2col:has(.fk-connection-diagram) .feature-card {
+  padding: 18px 20px;
+  gap: 6px;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-2col:has(.fk-connection-diagram) .feature-card h4 {
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 4px;
+}
+
+.grid-2col:has(.fk-connection-diagram) .feature-card p {
+  font-size: 19px;
+  line-height: 1.35;
+  color: #f1f5f9;
+  margin-bottom: 4px;
+}
+
+.grid-2col:has(.fk-connection-diagram) .feature-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==================== SLIDE 5: COMPACT PIPELINE & GLASS CARDS ==================== */
+.grid-2col:has(.pipeline-stepper-compact) .glass-card {
+  padding: 24px 30px;
+  gap: 8px;
+}
+
+.grid-2col:has(.pipeline-stepper-compact) .card-title {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.grid-2col:has(.pipeline-stepper-compact) .card-desc {
+  font-size: 21.5px;
+  line-height: 1.35;
+  color: #f1f5f9;
+}
+
+.grid-2col:has(.pipeline-stepper-compact) .card-bullets {
+  gap: 8px;
+}
+
+.grid-2col:has(.pipeline-stepper-compact) .card-bullets li {
+  font-size: 20px;
+  line-height: 1.32;
+  color: #ffffff;
+}
+
+.pipeline-stepper-compact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(10, 15, 29, 0.75);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 8px 14px;
+  gap: 10px;
+  margin: 2px 0;
+}
+
+.pipe-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2px;
+  flex: 1;
+}
+
+.pipe-step-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.pipe-step-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.pipe-step-sub {
+  font-size: 12.5px;
+  color: var(--horizon-cyan);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.pipe-step-sub.emerald {
+  color: var(--horizon-emerald-light);
+}
+
+.pipe-arrow {
+  color: var(--horizon-cyan);
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.ui-summary-banner {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1.5px solid var(--horizon-cyan);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.tee-summary-banner {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1.5px solid var(--horizon-emerald);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.35;
+}
+
+/* ==================== JOIN SCHEMA DIAGRAM ==================== */
+.join-schema-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 14px 0;
+  width: 100%;
+}
+
+.schema-table {
+  background: rgba(10, 15, 29, 0.85);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 10px;
+  padding: 14px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.schema-table.left {
+  border-top: 3px solid var(--horizon-cyan);
+}
+
+.schema-table.right {
+  border-top: 3px solid var(--horizon-gold);
+}
+
+.schema-table .table-name {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--horizon-cyan);
+  margin-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 4px;
+}
+
+.schema-table.right .table-name {
+  color: var(--horizon-gold);
+}
+
+.schema-table .table-field {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: #e2e8f0;
+}
+
+.join-badge {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--horizon-emerald-light);
+  background: rgba(16, 185, 129, 0.15);
+  border: 1.5px solid var(--horizon-emerald);
+  border-radius: 8px;
+  padding: 6px 12px;
+  white-space: nowrap;
+}
+
+.join-result-banner {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1.5px solid var(--horizon-cyan);
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 17px;
+  color: #ffffff;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* ==================== 2x2 KPI ROW EXPLAINER ==================== */
+.kpi-row-explainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+  height: 100%;
+}
+
+.kpi-row-explainer .kpi-card-explainer {
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.kpi-val-explainer {
+  font-size: 62px;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.kpi-val-explainer.text-cyan {
+  color: var(--horizon-cyan);
+  text-shadow: 0 0 25px rgba(56, 189, 248, 0.45);
+}
+
+.kpi-val-explainer.text-emerald {
+  color: var(--horizon-emerald);
+  text-shadow: 0 0 25px rgba(16, 185, 129, 0.45);
+}
+
+.kpi-val-explainer.text-gold {
+  color: var(--horizon-gold);
+  text-shadow: 0 0 25px rgba(250, 204, 21, 0.45);
+}
+
+.kpi-title-explainer {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.kpi-desc-explainer {
+  font-size: 19px;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+/* ==================== SLIDE 2: TOPOLOGY BILLBOARD STACK ==================== */
+.topology-billboard-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 8px;
+}
+
+.topo-node {
+  background: var(--bg-card-glass);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.topo-node.topo-trunk {
+  border-color: rgba(250, 204, 21, 0.5);
+  background: rgba(250, 204, 21, 0.08);
+}
+
+.topo-node.topo-parent-branch {
+  border-color: rgba(168, 85, 247, 0.5);
+  background: rgba(168, 85, 247, 0.08);
+}
+
+.topo-node.topo-branch {
+  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.topo-node.topo-leaf {
+  border-color: rgba(16, 185, 129, 0.5);
+  background: rgba(16, 185, 129, 0.08);
+  flex: 1;
+  padding: 12px 16px;
+  gap: 10px;
+}
+
+.topo-badge {
+  font-size: 24px;
+  font-weight: 900;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.topo-node.topo-leaf .topo-badge {
+  font-size: 21px;
+}
+
+.topo-details {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  gap: 3px;
+}
+
+.topo-title {
+  font-size: 23px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.topo-node.topo-leaf .topo-title {
+  font-size: 20px;
+}
+
+.topo-subtitle {
+  font-size: 18.5px;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.topo-connector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--horizon-cyan);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.topo-leaves-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.topo-p2p-bridge {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1.5px dashed var(--horizon-emerald);
+  border-radius: 10px;
+  padding: 8px 14px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--horizon-emerald-light);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+/* Slide 2: Feature cards in left column */
+.grid-2col:has(.topology-billboard-stack) .feature-cards-grid {
+  gap: 12px;
+}
+
+.grid-2col:has(.topology-billboard-stack) .feature-card {
+  padding: 18px 22px;
+  gap: 4px;
+}
+
+.grid-2col:has(.topology-billboard-stack) .feature-card .card-icon {
+  font-size: 38px;
+  margin-bottom: 2px;
+}
+
+.grid-2col:has(.topology-billboard-stack) .feature-card h4 {
+  font-size: 27px;
+  font-weight: 900;
+  margin-bottom: 3px;
+  line-height: 1.22;
+}
+
+.grid-2col:has(.topology-billboard-stack) .feature-card p {
+  font-size: 24px;
+  line-height: 1.38;
+  color: #f8fafc;
+}
+
+/* ==================== SLIDE 8: API PIPELINE STACK ==================== */
+.api-pipeline-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 8px;
+}
+
+.pipeline-step-card {
+  background: var(--bg-card-glass);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.pipeline-step-card.step-1 {
+  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.pipeline-step-card.step-2 {
+  border-color: rgba(250, 204, 21, 0.6);
+  background: rgba(250, 204, 21, 0.1);
+}
+
+.pipeline-step-card.step-3 {
+  border-color: rgba(168, 85, 247, 0.5);
+  background: rgba(168, 85, 247, 0.08);
+}
+
+.pipeline-step-card.step-4 {
+  border-color: rgba(16, 185, 129, 0.6);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.pipeline-step-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.pipeline-step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 18px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-family: var(--font-mono);
+}
+
+.pipeline-step-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pipeline-step-name {
+  font-size: 21px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.pipeline-step-action {
+  font-size: 15px;
+  font-family: var(--font-mono);
+  color: var(--horizon-cyan);
+}
+
+.pipeline-step-badge {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.pipeline-step-badge.cyan {
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid var(--horizon-cyan);
+  color: var(--horizon-cyan);
+}
+
+.pipeline-step-badge.gold {
+  background: rgba(250, 204, 21, 0.2);
+  border: 1px solid var(--horizon-gold);
+  color: var(--horizon-gold);
+}
+
+.pipeline-step-badge.purple {
+  background: rgba(168, 85, 247, 0.2);
+  border: 1px solid var(--horizon-purple);
+  color: #d8b4fe;
+}
+
+.pipeline-step-badge.emerald {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid var(--horizon-emerald);
+  color: var(--horizon-emerald-light);
+}
+
+.pipeline-connector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--horizon-gold);
+  font-size: 14px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  gap: 8px;
+}
+
+.pipeline-status-ribbon {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1.5px solid var(--horizon-emerald);
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ==================== SLIDE 9: PLANES COMPARISON CARD ==================== */
+.planes-comparison-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 14px;
+}
+
+.plane-box {
+  background: var(--bg-card-glass);
+  border-radius: 16px;
+  padding: 20px 24px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.plane-box.control-plane {
+  border: 1.5px solid rgba(56, 189, 248, 0.45);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.plane-box.data-plane {
+  border: 1.5px solid rgba(16, 185, 129, 0.45);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.plane-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plane-title {
+  font-size: 23px;
+  font-weight: 900;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.plane-tags {
+  display: flex;
+  gap: 8px;
+}
+
+.plane-badge {
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+}
+
+.plane-badge.cyan {
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid var(--horizon-cyan);
+  color: var(--horizon-cyan);
+}
+
+.plane-badge.gold {
+  background: rgba(250, 204, 21, 0.2);
+  border: 1px solid var(--horizon-gold);
+  color: var(--horizon-gold);
+}
+
+.plane-badge.emerald {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid var(--horizon-emerald);
+  color: var(--horizon-emerald-light);
+}
+
+.plane-desc {
+  font-size: 18px;
+  color: #e2e8f0;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.plane-bridge-connector {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 2px 20px;
+}
+
+.plane-bridge-badge {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--horizon-cyan);
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 8px;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+}
+
+.p2p-direct-pipe {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1.5px dashed var(--horizon-emerald);
+  border-radius: 12px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.p2p-node {
+  font-size: 17px;
+  font-weight: 900;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.p2p-stream {
+  flex: 1;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--horizon-emerald-light);
+  background: rgba(16, 185, 129, 0.18);
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--horizon-emerald);
+}
+
+/* ==================== SLIDE 10: FEDERATED OLAP DISPLAY ==================== */
+.federated-olap-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 6px;
+}
+
+.olap-tier {
+  background: var(--bg-card-glass);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.olap-tier.tier-trunk {
+  border-color: rgba(250, 204, 21, 0.6);
+  background: rgba(250, 204, 21, 0.1);
+}
+
+.olap-tier.tier-region {
+  border-color: rgba(168, 85, 247, 0.6);
+  background: rgba(168, 85, 247, 0.1);
+}
+
+.olap-tier.tier-branch {
+  border-color: rgba(56, 189, 248, 0.6);
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.olap-tier.tier-leaf {
+  border-color: rgba(16, 185, 129, 0.6);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.olap-title-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.olap-tier-name {
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.olap-tier-sub {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.olap-metric-badge {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 900;
+  padding: 6px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+
+.olap-metric-badge.gold {
+  background: rgba(250, 204, 21, 0.2);
+  border: 1px solid var(--horizon-gold);
+  color: var(--horizon-gold);
+}
+
+.olap-metric-badge.purple {
+  background: rgba(168, 85, 247, 0.2);
+  border: 1px solid var(--horizon-purple);
+  color: #d8b4fe;
+}
+
+.olap-metric-badge.cyan {
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid var(--horizon-cyan);
+  color: var(--horizon-cyan);
+}
+
+.olap-metric-badge.emerald {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid var(--horizon-emerald);
+  color: var(--horizon-emerald-light);
+}
+
+.olap-connector-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  font-size: 14px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--horizon-gold);
+}
+
+/* ==================== SLIDE 12: BRICS MYCORRHIZA DISPLAY ==================== */
+.brics-mycorrhiza-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 10px;
+}
+
+.mycorrhiza-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  gap: 12px;
+  flex: 1;
+  align-items: stretch;
+}
+
+.mycorrhiza-col {
+  background: var(--bg-card-glass);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.mycorrhiza-col.russia {
+  border: 1.5px solid rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.mycorrhiza-col.bridge {
+  border: 1.5px solid rgba(250, 204, 21, 0.6);
+  background: rgba(250, 204, 21, 0.1);
+  text-align: center;
+  justify-content: center;
+}
+
+.mycorrhiza-col.brics {
+  border: 1.5px solid rgba(16, 185, 129, 0.5);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.myco-col-title {
+  font-size: 21px;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.myco-subcard {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-glass);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #f8fafc;
+}
+
+.myco-bridge-icon {
+  font-size: 36px;
+  margin-bottom: 4px;
+}
+
+.myco-bridge-title {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--horizon-gold);
+}
+
+.myco-bridge-desc {
+  font-size: 16px;
+  color: #f8fafc;
+  line-height: 1.4;
+  margin: 8px 0;
+}
+
+.myco-bridge-badge {
+  display: inline-block;
+  background: rgba(250, 204, 21, 0.2);
+  border: 1px solid var(--horizon-gold);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 15px;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  color: #ffffff;
+}
+
+.myco-summary-ribbon {
+  background: rgba(168, 85, 247, 0.12);
+  border: 1.5px solid var(--horizon-purple);
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* ==================== 01 SLIDE 2: EVOLUTION BILLBOARD STACK ==================== */
+.evolution-billboard-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 8px;
+}
+
+.evolution-step-card {
+  background: var(--bg-card-glass);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 14px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.evolution-step-card.step-1 {
+  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.evolution-step-card.step-2 {
+  border-color: rgba(239, 68, 68, 0.55);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.evolution-step-card.step-3 {
+  border-color: rgba(250, 204, 21, 0.55);
+  background: rgba(250, 204, 21, 0.08);
+}
+
+.evolution-step-card.step-4 {
+  border-color: rgba(16, 185, 129, 0.55);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.evolution-step-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.evolution-step-num {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  font-size: 19px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-family: var(--font-mono);
+}
+
+.evolution-step-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.evolution-step-title {
+  font-size: 23px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.evolution-step-sub {
+  font-size: 17px;
+  color: #cbd5e1;
+}
+
+.evolution-step-badge {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.evolution-step-badge.cyan {
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid var(--horizon-cyan);
+  color: var(--horizon-cyan);
+}
+
+.evolution-step-badge.red {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid #ef4444;
+  color: #fca5a5;
+}
+
+.evolution-step-badge.gold {
+  background: rgba(250, 204, 21, 0.2);
+  border: 1px solid var(--horizon-gold);
+  color: var(--horizon-gold);
+}
+
+.evolution-step-badge.emerald {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid var(--horizon-emerald);
+  color: var(--horizon-emerald-light);
+}
+
+.evolution-connector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--horizon-gold);
+  font-size: 15px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  gap: 6px;
+}
+
+.evolution-summary-ribbon {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1.5px solid var(--horizon-emerald);
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ==================== 01 SLIDE 5: DATA SEPARATION DISPLAY ==================== */
+.data-separation-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 12px;
+}
+
+.legacy-silos-card {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1.5px solid rgba(239, 68, 68, 0.4);
+  border-radius: 14px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.legacy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.legacy-title {
+  font-size: 19px;
+  font-weight: 900;
+  color: #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legacy-badge {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #fca5a5;
+  font-family: var(--font-mono);
+}
+
+.legacy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.legacy-box {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sovereign-vault-card {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1.5px solid rgba(16, 185, 129, 0.5);
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.vault-centerpiece {
+  background: rgba(15, 23, 42, 0.85);
+  border: 2px solid var(--horizon-emerald);
+  border-radius: 12px;
+  padding: 14px 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+}
+
+.vault-badge {
+  font-size: 24px;
+  font-weight: 900;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vault-sub {
+  font-size: 16.5px;
+  color: var(--horizon-emerald-light);
+  font-weight: 700;
+}
+
+.apps-swappable-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.swappable-app-card {
+  background: rgba(20, 31, 60, 0.8);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 10px;
+  padding: 10px 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.swappable-app-name {
+  font-size: 19px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.swappable-app-tag {
+  font-size: 14.5px;
+  font-family: var(--font-mono);
+  color: var(--horizon-cyan);
+}
+
+.separation-status-ribbon {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1.5px solid var(--horizon-cyan);
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* ==================== 01 SLIDE 11: MESH CONTOUR DISPLAY ==================== */
+.mesh-contour-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 8px;
+}
+
+.mesh-scenario-card {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1.5px solid rgba(239, 68, 68, 0.5);
+  border-radius: 14px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.mesh-scenario-title {
+  font-size: 18px;
+  font-weight: 900;
+  color: #fca5a5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mesh-scenario-badge {
+  background: rgba(239, 68, 68, 0.25);
+  border: 1px solid #ef4444;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 13px;
+  font-weight: 800;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.mesh-nodes-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 6px;
+  flex: 1;
+}
+
+.mesh-node-box {
+  background: var(--bg-card-glass);
+  border: 1.5px solid var(--border-glass);
+  border-radius: 12px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  backdrop-filter: blur(12px);
+}
+
+.mesh-node-box.cyan {
+  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.mesh-node-box.gold {
+  border-color: rgba(250, 204, 21, 0.5);
+  background: rgba(250, 204, 21, 0.08);
+}
+
+.mesh-node-box.purple {
+  border-color: rgba(168, 85, 247, 0.5);
+  background: rgba(168, 85, 247, 0.08);
+}
+
+.mesh-node-box.emerald {
+  border-color: rgba(16, 185, 129, 0.5);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.mesh-node-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mesh-node-icon {
+  font-size: 22px;
+}
+
+.mesh-node-name {
+  font-size: 20px;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.mesh-node-action {
+  font-size: 16px;
+  color: #e2e8f0;
+}
+
+.mesh-node-tag {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.mesh-node-tag.cyan {
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid var(--horizon-cyan);
+  color: var(--horizon-cyan);
+}
+
+.mesh-node-tag.gold {
+  background: rgba(250, 204, 21, 0.2);
+  border: 1px solid var(--horizon-gold);
+  color: var(--horizon-gold);
+}
+
+.mesh-node-tag.purple {
+  background: rgba(168, 85, 247, 0.2);
+  border: 1px solid var(--horizon-purple);
+  color: #d8b4fe;
+}
+
+.mesh-node-tag.emerald {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid var(--horizon-emerald);
+  color: var(--horizon-emerald-light);
+}
+
+.mesh-radio-hop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--horizon-cyan);
+  font-size: 14px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  gap: 6px;
+  background: rgba(56, 189, 248, 0.08);
+  border-radius: 6px;
+  padding: 3px 10px;
+  border: 1px dashed rgba(56, 189, 248, 0.3);
+}
+
+.mesh-summary-ribbon {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1.5px solid var(--horizon-emerald);
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* ==================== MULTI-POINT ENHANCEMENTS & SUMMARY BANNERS ==================== */
+.feature-card .feat-points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+  flex: 1;
+}
+
+.feature-card .feat-point {
+  font-size: 21px;
+  line-height: 1.35;
+  color: #f1f5f9;
+}
+
+.feature-card .feat-point strong {
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.summary-banner {
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 17px;
+  font-weight: 800;
+  color: #ffffff;
+  text-align: center;
+  line-height: 1.35;
+  margin-top: auto;
+}
+
+.summary-banner.cyan {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1.5px solid var(--horizon-cyan);
+}
+
+.summary-banner.emerald {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1.5px solid var(--horizon-emerald);
+}
+
+.summary-banner.gold {
+  background: rgba(250, 204, 21, 0.12);
+  border: 1.5px solid var(--horizon-gold);
+}
+
+.summary-banner.purple {
+  background: rgba(168, 85, 247, 0.12);
+  border: 1.5px solid var(--horizon-purple, #a855f7);
+}
+
+.kpi-badge-explainer {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--horizon-cyan-light);
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid var(--horizon-cyan);
+  padding: 4px 12px;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+
+.kpi-badge-explainer.emerald {
+  color: var(--horizon-emerald-light);
+  background: rgba(16, 185, 129, 0.15);
+  border-color: var(--horizon-emerald);
+}
+
+.kpi-badge-explainer.gold {
+  color: #fef08a;
+  background: rgba(250, 204, 21, 0.15);
+  border-color: var(--horizon-gold);
+}
+
+/* ==================== INFO-PANEL WITH KEY-CALLOUT PROPORTIONS ==================== */
+.info-panel:has(.key-callout) {
+  gap: 12px;
+}
+
+.info-panel:has(.key-callout) .key-callout {
+  padding: 16px 22px;
+}
+
+.info-panel:has(.key-callout) .key-callout > strong {
+  font-size: 26px;
+  margin-bottom: 4px;
+}
+
+.info-panel:has(.key-callout) .key-callout p {
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.info-panel:has(.key-callout) .feature-cards-grid {
+  gap: 12px;
+}
+
+.info-panel:has(.key-callout) .feature-card {
+  padding: 14px 18px;
+  gap: 2px;
+}
+
+.info-panel:has(.key-callout) .feature-card .card-icon {
+  font-size: 32px;
+  margin-bottom: 2px;
+}
+
+.info-panel:has(.key-callout) .feature-card h4 {
+  font-size: 24px;
+  margin-bottom: 2px;
+}
+
+.info-panel:has(.key-callout) .feature-card p {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.info-panel:has(.key-callout) .feature-card .feat-points {
+  gap: 5px;
+  margin-top: 4px;
+}
+
+.info-panel:has(.key-callout) .feature-card .feat-point {
+  font-size: 19px;
+  line-height: 1.3;
+}
+
+/* ==========================================================================
+   PARADIGM SHIFT (DECK 01) BILLBOARD TYPOGRAPHY & EXPANDED FILL RATIOS
+   High-contrast billboard scale: eliminates empty space, sets body/bullets >= 20-24px
+   ========================================================================== */
+
+/* ---------- SLIDE 1: MANIFESTO & 3 KPI CHIPS ---------- */
+.paradigm-shift-deck .slide-card[data-slide="1"] .info-panel:has(.key-callout) {
+  gap: 16px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .key-callout {
+  padding: 22px 28px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .key-callout > strong {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .key-callout p {
+  font-size: 23px;
+  line-height: 1.38;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .feature-cards-grid {
+  gap: 16px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .feature-card {
+  padding: 22px 24px;
+  gap: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .feature-card .card-icon {
+  font-size: 38px;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .feature-card h4 {
+  font-size: 26px;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .feature-card p {
+  font-size: 22px;
+  line-height: 1.36;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .arch-blueprint-preview {
+  gap: 16px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .arch-kpi-chip {
+  padding: 24px 28px;
+  gap: 10px;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .arch-kpi-chip .kpi-val {
+  font-size: 68px;
+  line-height: 1;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .arch-kpi-chip .kpi-label {
+  font-size: 28px;
+  line-height: 1.25;
+}
+.paradigm-shift-deck .slide-card[data-slide="1"] .arch-kpi-chip .kpi-sublabel {
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+/* ---------- SLIDE 2: CALIBRATED FOR 2-LINE HEADER (Available body: 716px) ---------- */
+.paradigm-shift-deck .slide-card[data-slide="2"] .info-panel:has(.key-callout) {
+  gap: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .key-callout {
+  padding: 16px 24px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .key-callout > strong {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .key-callout p {
+  font-size: 22.5px;
+  line-height: 1.35;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-cards-grid {
+  gap: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-card {
+  padding: 18px 22px;
+  gap: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-card .card-icon {
+  font-size: 36px;
+  margin-bottom: 2px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-card h4 {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-card > p {
+  font-size: 22px;
+  line-height: 1.34;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-card .feat-points {
+  gap: 8px;
+  margin-top: 6px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-card .feat-point {
+  font-size: 22px;
+  line-height: 1.34;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .feature-card .feat-point strong {
+  font-size: 22px;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+/* Slide 2 Visual Panel: Evolution Stack */
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-billboard-stack {
+  gap: 5px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-step-card {
+  padding: 13px 20px;
+  border-radius: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-step-num {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-step-title {
+  font-size: 24px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-step-sub {
+  font-size: 19.5px;
+  line-height: 1.26;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-step-badge {
+  font-size: 17px;
+  padding: 5px 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-connector {
+  font-size: 16px;
+  padding: 1px 0;
+}
+.paradigm-shift-deck .slide-card[data-slide="2"] .evolution-summary-ribbon {
+  font-size: 20.5px;
+  font-weight: 700;
+  padding: 10px 18px;
+  margin-top: 2px;
+}
+
+/* ---------- SLIDES 5 & 11: INFO-PANEL WITH 2 FEATURE CARDS WITH FEAT-POINTS ---------- */
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .info-panel:has(.key-callout) {
+  gap: 16px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .key-callout {
+  padding: 22px 28px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .key-callout > strong {
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .key-callout p {
+  font-size: 24px;
+  line-height: 1.38;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-cards-grid {
+  gap: 16px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-card {
+  padding: 24px 26px;
+  gap: 6px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-card .card-icon {
+  font-size: 42px;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-card h4 {
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-card > p {
+  font-size: 23px;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-card .feat-points {
+  gap: 12px;
+  margin-top: 8px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-card .feat-point {
+  font-size: 23px;
+  line-height: 1.38;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="5"], [data-slide="11"]) .feature-card .feat-point strong {
+  font-size: 23px;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+/* Slide 5 Visual Panel: Data Separation Display */
+.paradigm-shift-deck .slide-card[data-slide="5"] .data-separation-display {
+  gap: 16px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .legacy-silos-card {
+  padding: 20px 24px;
+  border-radius: 14px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .legacy-title {
+  font-size: 25px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .legacy-badge {
+  font-size: 19px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .legacy-box {
+  font-size: 23px;
+  padding: 14px 20px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .sovereign-vault-card {
+  padding: 24px 28px;
+  border-radius: 16px;
+  gap: 14px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .vault-badge {
+  font-size: 32px;
+  font-weight: 900;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .vault-sub {
+  font-size: 23px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .apps-swappable-row {
+  gap: 16px;
+  margin: 8px 0;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .swappable-app-card {
+  padding: 18px 16px;
+  border-radius: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .swappable-app-name {
+  font-size: 26px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .swappable-app-tag {
+  font-size: 19px;
+}
+.paradigm-shift-deck .slide-card[data-slide="5"] .separation-status-ribbon {
+  font-size: 22px;
+  font-weight: 700;
+  padding: 14px 20px;
+}
+
+/* Slide 11 Visual Panel: Mesh Contour Display */
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-contour-display {
+  gap: 8px;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-scenario-card {
+  padding: 16px 22px;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-scenario-title {
+  font-size: 25px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-scenario-badge {
+  font-size: 19px;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-node-box {
+  padding: 14px 20px;
+  border-radius: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-node-icon {
+  font-size: 30px;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-node-name {
+  font-size: 24px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-node-action {
+  font-size: 21px;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-node-tag {
+  font-size: 18px;
+  padding: 6px 14px;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-radio-hop {
+  font-size: 18px;
+  padding: 3px 0;
+}
+.paradigm-shift-deck .slide-card[data-slide="11"] .mesh-summary-ribbon {
+  font-size: 22px;
+  font-weight: 700;
+  padding: 14px 20px;
+}
+
+/* ---------- SLIDE 3: 3-COLUMN GLASS CARDS ---------- */
+.paradigm-shift-deck .slide-card[data-slide="3"] .grid-3col:has(.summary-banner) .glass-card {
+  padding: 32px 28px;
+  gap: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="3"] .card-pill-tag {
+  font-size: 18px;
+  padding: 6px 16px;
+  margin-bottom: 2px;
+}
+.paradigm-shift-deck .slide-card[data-slide="3"] .card-title {
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.paradigm-shift-deck .slide-card[data-slide="3"] .card-desc {
+  font-size: 23px;
+  line-height: 1.38;
+  color: #f1f5f9;
+  margin-bottom: 8px;
+}
+.paradigm-shift-deck .slide-card[data-slide="3"] .card-bullets {
+  gap: 14px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="3"] .card-bullets li {
+  font-size: 22px;
+  line-height: 1.38;
+  padding-left: 28px;
+}
+.paradigm-shift-deck .slide-card[data-slide="3"] .card-bullets li strong {
+  font-size: 22px;
+}
+.paradigm-shift-deck .slide-card[data-slide="3"] .summary-banner {
+  padding: 14px 18px;
+  font-size: 19px;
+  font-weight: 700;
+  margin-top: auto;
+}
+
+/* ---------- SLIDES 7, 8, 9: 2-COLUMN GLASS CARDS WITH STEPPER ---------- */
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .glass-card {
+  padding: 32px 36px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .card-pill-tag {
+  font-size: 20px;
+  font-weight: 800;
+  padding: 6px 18px;
+  border-radius: 8px;
+  margin-bottom: 2px;
+  align-self: flex-start;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .card-title {
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1.18;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .card-desc {
+  font-size: 24px;
+  line-height: 1.38;
+  color: #f1f5f9;
+  margin-bottom: 6px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .pipeline-stepper-compact {
+  padding: 12px 18px;
+  margin: 6px 0;
+  gap: 12px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .pipe-step-icon {
+  font-size: 28px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .pipe-step-title {
+  font-size: 19px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .pipe-step-sub {
+  font-size: 15px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .pipe-arrow {
+  font-size: 22px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .card-bullets {
+  gap: 12px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .card-bullets li {
+  font-size: 23px;
+  line-height: 1.36;
+  padding-left: 32px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .card-bullets li strong {
+  font-size: 23px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="7"], [data-slide="8"], [data-slide="9"]) .summary-banner {
+  margin-top: auto;
+  padding: 14px 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ---------- SLIDES 4 & 6: CALIBRATED 2-COLUMN GLASS CARDS (Zero-Overflow) ---------- */
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .glass-card {
+  padding: 24px 32px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .card-pill-tag {
+  font-size: 18px;
+  font-weight: 800;
+  padding: 5px 16px;
+  border-radius: 8px;
+  margin-bottom: 2px;
+  align-self: flex-start;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .card-title {
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 2px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .card-desc {
+  font-size: 22.5px;
+  line-height: 1.32;
+  color: #f1f5f9;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .pipeline-stepper-compact {
+  padding: 10px 16px;
+  margin: 4px 0;
+  gap: 10px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .pipe-step-icon {
+  font-size: 26px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .pipe-step-title {
+  font-size: 18px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .pipe-step-sub {
+  font-size: 14.5px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .pipe-arrow {
+  font-size: 20px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .card-bullets {
+  gap: 8px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .card-bullets li {
+  font-size: 21.5px;
+  line-height: 1.32;
+  padding-left: 28px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .card-bullets li strong {
+  font-size: 21.5px;
+}
+.paradigm-shift-deck .slide-card:is([data-slide="4"], [data-slide="6"]) .summary-banner {
+  margin-top: auto;
+  padding: 11px 18px;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+/* ---------- SLIDE 10: BILLBOARD TYPOGRAPHY & ZERO EMPTY SPACE ---------- */
+.paradigm-shift-deck .slide-card[data-slide="10"] .slide-title {
+  font-size: 52px;
+  white-space: nowrap;
+  margin-bottom: 6px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .slide-header {
+  margin-bottom: 20px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .glass-card {
+  padding: 28px 34px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .card-pill-tag {
+  font-size: 19px;
+  font-weight: 800;
+  padding: 6px 18px;
+  border-radius: 8px;
+  margin-bottom: 2px;
+  align-self: flex-start;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .card-title {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.18;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .card-desc {
+  font-size: 23px;
+  line-height: 1.34;
+  color: #f1f5f9;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .pipeline-stepper-compact {
+  padding: 12px 18px;
+  margin: 6px 0;
+  gap: 12px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .pipe-step-icon {
+  font-size: 28px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .pipe-step-title {
+  font-size: 18.5px;
+  font-weight: 800;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .pipe-step-sub {
+  font-size: 15px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .pipe-arrow {
+  font-size: 22px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .card-bullets {
+  gap: 10px;
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .card-bullets li {
+  font-size: 22px;
+  line-height: 1.34;
+  padding-left: 30px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .card-bullets li strong {
+  font-size: 22px;
+}
+.paradigm-shift-deck .slide-card[data-slide="10"] .summary-banner {
+  margin-top: auto;
+  padding: 13px 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ---------- SLIDE 14: 2x2 KPI MATRIX + SUMMARY CARD ---------- */
+.paradigm-shift-deck .slide-card[data-slide="14"] .kpi-row-explainer {
+  gap: 16px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .kpi-card-explainer {
+  padding: 22px 24px;
+  border-radius: 14px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .kpi-val-explainer {
+  font-size: 60px;
+  line-height: 1;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .kpi-title-explainer {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .kpi-desc-explainer {
+  font-size: 21px;
+  line-height: 1.36;
+  color: #cbd5e1;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .kpi-badge-explainer {
+  font-size: 17px;
+  padding: 6px 14px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .glass-card {
+  padding: 34px 38px;
+  gap: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .card-pill-tag {
+  font-size: 20px;
+  padding: 6px 18px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .card-title {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.18;
+  margin-bottom: 4px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .card-desc {
+  font-size: 25px;
+  line-height: 1.38;
+  margin-bottom: 8px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .card-bullets {
+  gap: 14px;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .card-bullets li {
+  font-size: 23px;
+  line-height: 1.38;
+  padding-left: 32px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .card-bullets li strong {
+  font-size: 23px;
+}
+.paradigm-shift-deck .slide-card[data-slide="14"] .visual-panel .summary-banner {
+  margin-top: auto;
+  padding: 16px 20px;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   PRESENTATION 02: ARCHITECTURE PRINCIPLES BILLBOARD SCALE CALIBRATION
+   Class scope: .arch-principles-deck
+   ========================================================================== */
+
+/* Universal slide framing & header scale */
+.arch-principles-deck .slide-card {
+  padding: 44px 68px !important;
+}
+
+.arch-principles-deck .slide-header {
+  margin-bottom: 24px;
+}
+
+.arch-principles-deck .explainer-series-marker {
+  font-size: 18px;
+  padding: 6px 20px;
+  margin-bottom: 10px;
+}
+
+.arch-principles-deck .slide-title {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.arch-principles-deck .slide-subtitle {
+  font-size: 26px;
+  line-height: 1.32;
+  color: #cbd5e1;
+}
+
+/* ---------- SLIDE 1: MANIFESTO & 3 ARCH KPIs ---------- */
+.arch-principles-deck .slide-card[data-slide="1"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .key-callout {
+  padding: 22px 28px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .key-callout > strong {
+  font-size: 26px;
+  line-height: 1.25;
+  margin-bottom: 8px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .key-callout p {
+  font-size: 22.5px;
+  line-height: 1.36;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .feature-card {
+  padding: 20px 24px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .feature-card .card-icon {
+  font-size: 40px;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .feature-card h4 {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .feature-card p {
+  font-size: 22.5px;
+  line-height: 1.35;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .arch-blueprint-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 16px;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .arch-kpi-chip {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 26px 32px;
+  border-radius: 16px;
+  gap: 12px;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .arch-kpi-chip .kpi-val {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1;
+}
+.arch-principles-deck .slide-card[data-slide="1"] .arch-kpi-chip .kpi-label {
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #f1f5f9;
+}
+
+/* ---------- SLIDE 2: 4-TIER TOPOLOGY STACK ---------- */
+.arch-principles-deck .slide-card[data-slide="2"] .info-panel {
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .feature-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .feature-card {
+  padding: 16px 20px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 6px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .feature-card .card-icon {
+  font-size: 36px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .feature-card h4 {
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 3px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .feature-card p {
+  font-size: 21px;
+  line-height: 1.34;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .feature-card p strong {
+  font-size: 21px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topology-billboard-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 6px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-node {
+  padding: 14px 22px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-badge {
+  font-size: 25px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-details {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  gap: 3px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-title {
+  font-size: 24px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-subtitle {
+  font-size: 19.5px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-connector {
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1;
+  text-align: center;
+  color: var(--horizon-gold);
+  margin: 0;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-leaves-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-node.topo-leaf {
+  padding: 16px 20px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-node.topo-leaf .topo-badge {
+  font-size: 23px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-node.topo-leaf .topo-title {
+  font-size: 23px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-node.topo-leaf .topo-subtitle {
+  font-size: 19.5px;
+}
+.arch-principles-deck .slide-card[data-slide="2"] .topo-p2p-bridge {
+  font-size: 18px;
+  padding: 11px 16px;
+  font-weight: 800;
+}
+
+/* ---------- SLIDE 3: REPOSITORY ANATOMY & SCHEMA BLUEPRINT ---------- */
+.arch-principles-deck .slide-card[data-slide="3"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .key-callout {
+  padding: 20px 26px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .key-callout > strong {
+  font-size: 26px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .key-callout p {
+  font-size: 22px;
+  line-height: 1.36;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .feature-card {
+  padding: 20px 22px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .feature-card .card-icon {
+  font-size: 38px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .feature-card h4 {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 3px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .feature-card p {
+  font-size: 22px;
+  line-height: 1.35;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .feature-card p strong {
+  font-size: 22px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-anatomy-diagram {
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px 24px;
+  border-radius: 16px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-box-header {
+  font-size: 25px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 6px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-keys-badge {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-keys-badge span {
+  font-size: 18.5px;
+  font-weight: 700;
+  padding: 7px 15px;
+  border-radius: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-schema-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  flex: 1;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-table-card {
+  padding: 12px 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-table-card-head {
+  font-size: 21px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-table-col {
+  font-size: 17px;
+  line-height: 1.42;
+  font-family: var(--font-mono);
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-table-col.index {
+  font-size: 16px;
+  font-weight: 700;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .repo-bottom-specs {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="3"] .spec-pill {
+  font-size: 18.5px;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+/* ---------- SLIDE 4: FOREIGN KEYS & BRIDGE ENTITIES ---------- */
+.arch-principles-deck .slide-card[data-slide="4"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .key-callout {
+  padding: 18px 24px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .key-callout > strong {
+  font-size: 26px;
+  line-height: 1.25;
+  margin-bottom: 4px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .key-callout p {
+  font-size: 22px;
+  line-height: 1.34;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .feature-card {
+  padding: 20px 24px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .feature-card .card-icon {
+  font-size: 38px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .feature-card h4 {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .feature-card p {
+  font-size: 22px;
+  line-height: 1.34;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .feature-card p strong {
+  font-size: 22px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-connection-diagram {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-node {
+  flex: 1;
+  padding: 16px 22px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-node-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-node-title {
+  font-size: 23px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-node-badge,
+.arch-principles-deck .slide-card[data-slide="4"] .fk-status-badge {
+  font-size: 17.5px;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-row-card {
+  padding: 11px 18px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-row-title {
+  font-size: 22px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-pointer-badge {
+  font-size: 17.5px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-cache-box,
+.arch-principles-deck .slide-card[data-slide="4"] .fk-sync-box {
+  padding: 11px 18px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-cache-label,
+.arch-principles-deck .slide-card[data-slide="4"] .fk-sync-label {
+  font-size: 18.5px;
+  font-weight: 700;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-cache-val,
+.arch-principles-deck .slide-card[data-slide="4"] .fk-sync-val {
+  font-size: 20px;
+  line-height: 1.32;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-arrow {
+  font-size: 20px;
+  font-weight: 800;
+  padding: 4px 14px;
+  text-align: center;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-footer-banner {
+  font-size: 20.5px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 12px;
+}
+.arch-principles-deck .slide-card[data-slide="4"] .fk-footer-banner strong {
+  color: var(--horizon-emerald-light);
+}
+
+/* ---------- SLIDES 5, 7, 11: 2-COLUMN GLASS CARDS WITH STEPPER & BANNER ---------- */
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .glass-card {
+  padding: 26px 32px;
+  border-radius: 16px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .card-pill-tag {
+  font-size: 19.5px;
+  padding: 6px 18px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .card-title {
+  font-size: 39px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .card-desc {
+  font-size: 23.5px;
+  line-height: 1.34;
+  color: #f1f5f9;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .pipeline-stepper-compact {
+  padding: 13px 18px;
+  margin: 4px 0;
+  gap: 12px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .pipe-step-icon {
+  font-size: 30px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .pipe-step-title {
+  font-size: 19px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .pipe-step-sub {
+  font-size: 15.5px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .pipe-arrow {
+  font-size: 23px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .card-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+  margin-bottom: 6px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .card-bullets li {
+  font-size: 22.5px;
+  line-height: 1.34;
+  padding-left: 30px;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) .card-bullets li strong {
+  font-size: 22.5px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card:is([data-slide="5"], [data-slide="7"], [data-slide="11"]) :is(.ui-summary-banner, .tee-summary-banner, .summary-banner) {
+  margin-top: auto;
+  padding: 15px 22px;
+  font-size: 20.5px;
+  font-weight: 700;
+}
+
+/* ---------- SLIDE 6: CROSS-DOMAIN SQL JOIN ---------- */
+.arch-principles-deck .slide-card[data-slide="6"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .key-callout {
+  padding: 18px 24px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .key-callout > strong {
+  font-size: 26px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .key-callout p {
+  font-size: 22px;
+  line-height: 1.36;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .feature-card {
+  padding: 20px 24px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .feature-card .card-icon {
+  font-size: 38px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .feature-card h4 {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .feature-card .feat-points {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .feature-card .feat-point {
+  font-size: 21.5px;
+  line-height: 1.35;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .feature-card .feat-point strong {
+  font-size: 21.5px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .visual-panel .glass-card {
+  height: 100%;
+  padding: 20px 24px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .card-pill-tag {
+  font-size: 19px;
+  padding: 5px 16px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .code-block {
+  font-size: 19px;
+  line-height: 1.4;
+  padding: 12px 18px;
+  border-radius: 12px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .join-schema-diagram {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .schema-table {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .table-name {
+  font-size: 21px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .table-field {
+  font-size: 17.5px;
+  line-height: 1.36;
+  font-family: var(--font-mono);
+}
+.arch-principles-deck .slide-card[data-slide="6"] .join-badge {
+  font-size: 19px;
+  font-weight: 800;
+  padding: 7px 14px;
+  white-space: nowrap;
+}
+.arch-principles-deck .slide-card[data-slide="6"] .join-result-banner {
+  font-size: 20px;
+  line-height: 1.34;
+  padding: 12px 18px;
+  border-radius: 12px;
+}
+
+/* ---------- SLIDE 8: API PUBLIC WRAPPERS ---------- */
+.arch-principles-deck .slide-card[data-slide="8"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .key-callout {
+  padding: 20px 26px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .key-callout > strong {
+  font-size: 26px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .key-callout p {
+  font-size: 22px;
+  line-height: 1.36;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .feature-card {
+  padding: 22px 26px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .feature-card .card-icon {
+  font-size: 40px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .feature-card h4 {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .feature-card .feat-points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .feature-card .feat-point {
+  font-size: 22px;
+  line-height: 1.36;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .feature-card .feat-point strong {
+  font-size: 22px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .api-pipeline-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-step-card {
+  padding: 17px 22px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-step-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-step-num {
+  width: 46px;
+  height: 46px;
+  font-size: 24px;
+  font-weight: 900;
+  border-radius: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-step-name {
+  font-size: 23.5px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-step-action {
+  font-size: 19.5px;
+  line-height: 1.3;
+  color: #cbd5e1;
+  font-family: var(--font-mono);
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-step-badge {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-connector {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+.arch-principles-deck .slide-card[data-slide="8"] .pipeline-status-ribbon {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 14px 22px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* ---------- SLIDE 9: CONTROL PLANE VS DATA PLANE ---------- */
+.arch-principles-deck .slide-card[data-slide="9"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .feature-card {
+  padding: 22px 26px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .feature-card .card-icon {
+  font-size: 40px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .feature-card h4 {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .feature-card .feat-points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .feature-card .feat-point {
+  font-size: 22px;
+  line-height: 1.36;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .feature-card .feat-point strong {
+  font-size: 22px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .key-callout {
+  padding: 20px 26px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .key-callout > strong {
+  font-size: 25px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .key-callout p {
+  font-size: 22px;
+  line-height: 1.36;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .planes-comparison-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 12px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .plane-box {
+  flex: 1;
+  padding: 24px 28px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .plane-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .plane-title {
+  font-size: 25.5px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .plane-badge {
+  font-size: 18.5px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .plane-desc {
+  font-size: 22.5px;
+  line-height: 1.38;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .plane-bridge-connector {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .plane-bridge-badge {
+  font-size: 19.5px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .p2p-direct-pipe {
+  padding: 14px 20px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .p2p-node {
+  font-size: 21.5px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card[data-slide="9"] .p2p-stream {
+  font-size: 18.5px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+/* ---------- SLIDE 10: HIERARCHICAL TREE & FEDERATED OLAP ---------- */
+.arch-principles-deck .slide-card[data-slide="10"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .key-callout {
+  padding: 20px 26px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .key-callout > strong {
+  font-size: 26px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .key-callout p {
+  font-size: 22px;
+  line-height: 1.36;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .feature-card {
+  padding: 22px 26px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .feature-card .card-icon {
+  font-size: 40px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .feature-card h4 {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .feature-card .feat-points {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .feature-card .feat-point {
+  font-size: 22px;
+  line-height: 1.36;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .feature-card .feat-point strong {
+  font-size: 22px;
+  color: #38bdf8;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .federated-olap-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .olap-tier {
+  padding: 20px 26px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .olap-tier-name {
+  font-size: 23.5px;
+  font-weight: 800;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .olap-tier-sub {
+  font-size: 19.5px;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .olap-metric-badge {
+  font-size: 18.5px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 8px;
+  white-space: nowrap;
+}
+.arch-principles-deck .slide-card[data-slide="10"] .olap-connector-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 14px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--horizon-cyan);
+}
+
+/* ---------- SLIDE 12: MYCELIUM INTERNET OF DATA & BRICS ---------- */
+.arch-principles-deck .slide-card[data-slide="12"] .info-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .key-callout {
+  padding: 22px 28px;
+  border-radius: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .key-callout > strong {
+  font-size: 26px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  display: block;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .key-callout p {
+  font-size: 22px;
+  line-height: 1.36;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .feature-cards-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 14px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .feature-card {
+  padding: 20px 24px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .feature-card .card-icon {
+  font-size: 38px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .feature-card h4 {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.22;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .feature-card p {
+  font-size: 21.5px;
+  line-height: 1.34;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .brics-mycorrhiza-display {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 12px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .mycorrhiza-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr;
+  gap: 12px;
+  flex: 1;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .mycorrhiza-col {
+  padding: 18px 16px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .myco-col-title {
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .myco-subcard {
+  padding: 16px 18px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .mycorrhiza-col.bridge {
+  justify-content: center;
+  gap: 16px;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .myco-bridge-icon {
+  font-size: 44px;
+  text-align: center;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .myco-bridge-title {
+  font-size: 24px;
+  font-weight: 900;
+  text-align: center;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .myco-bridge-desc {
+  font-size: 20.5px;
+  line-height: 1.34;
+  text-align: center;
+  color: #f1f5f9;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .myco-bridge-badge {
+  font-size: 19px;
+  font-weight: 800;
+  padding: 9px 14px;
+  border-radius: 8px;
+  text-align: center;
+}
+.arch-principles-deck .slide-card[data-slide="12"] .myco-summary-ribbon {
+  font-size: 20.5px;
+  font-weight: 700;
+  padding: 13px 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+/* ---------- SLIDE 13: ZERO-PII & CRYPTO DESTRUCTION ---------- */
+.arch-principles-deck .slide-card[data-slide="13"] .glass-card {
+  padding: 30px 36px;
+  border-radius: 16px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="13"] .card-pill-tag {
+  font-size: 20px;
+  padding: 6px 20px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="13"] .card-title {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="13"] .card-desc {
+  font-size: 24.5px;
+  line-height: 1.36;
+  color: #f1f5f9;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="13"] .card-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 2px;
+  margin-bottom: 6px;
+}
+.arch-principles-deck .slide-card[data-slide="13"] .card-bullets li {
+  font-size: 23px;
+  line-height: 1.36;
+  padding-left: 32px;
+}
+.arch-principles-deck .slide-card[data-slide="13"] .card-bullets li strong {
+  font-size: 23px;
+}
+.arch-principles-deck .slide-card[data-slide="13"] .card-bullets li code {
+  font-size: 21.5px;
+  padding: 2px 6px;
+}
+.arch-principles-deck .slide-card[data-slide="13"] :is(.ui-summary-banner, .tee-summary-banner) {
+  margin-top: auto;
+  padding: 14px 22px;
+  font-size: 20.5px;
+  font-weight: 700;
+}
+
+/* ---------- SLIDE 14: TECHNICAL KPIs & ARCHITECTURE SUMMARY ---------- */
+.arch-principles-deck .slide-card[data-slide="14"] .kpi-row-explainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .kpi-card-explainer {
+  padding: 24px 26px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .kpi-val-explainer {
+  font-size: 66px;
+  line-height: 1;
+  font-weight: 900;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .kpi-title-explainer {
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .kpi-desc-explainer {
+  font-size: 22px;
+  line-height: 1.36;
+  color: #cbd5e1;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .kpi-badge-explainer {
+  font-size: 18px;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .glass-card {
+  padding: 32px 38px;
+  border-radius: 16px;
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .card-pill-tag {
+  font-size: 20px;
+  padding: 6px 18px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .card-title {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.18;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .card-desc {
+  font-size: 24px;
+  line-height: 1.36;
+  margin-bottom: 6px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .card-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .card-bullets li {
+  font-size: 22.5px;
+  line-height: 1.36;
+  padding-left: 32px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .card-bullets li strong {
+  font-size: 22.5px;
+}
+.arch-principles-deck .slide-card[data-slide="14"] .visual-panel .repo-keys-badge {
+  margin-top: auto;
+  padding: 15px 22px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ---------- SLIDE 15: ARCHITECTURE SUMMARY & BRIDGE TO PART 3 ---------- */
+.arch-principles-deck .slide-card[data-slide="15"] .slide-title {
+  font-size: 48px;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .glass-card {
+  padding: 28px 34px;
+  border-radius: 16px;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .card-pill-tag {
+  font-size: 19px;
+  padding: 5px 16px;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .card-title {
+  font-size: 39px;
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .card-desc {
+  font-size: 23.5px;
+  line-height: 1.34;
+  margin-bottom: 2px;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .card-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 2px;
+  margin-bottom: 4px;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .card-bullets li {
+  font-size: 22px;
+  line-height: 1.34;
+  padding-left: 30px;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .card-bullets li strong {
+  font-size: 22px;
+}
+.arch-principles-deck .slide-card[data-slide="15"] .repo-footer {
+  margin-top: auto;
+  padding: 12px 20px;
+  font-size: 20px;
+  font-weight: 800;
+  border-radius: 10px;
+  text-align: center;
+}
+
+
+
+

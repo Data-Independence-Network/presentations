@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Архитектура платформы «Турбаза» — Выпуск 3: Каркас приложений (Framework) и инструментарий разработчика</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Universal Presentation Engine Chrome (Shared Viewport, Header & Controls) -->
+  <link rel="stylesheet" href="../../../../../shared_templates/deck_core/css/deck_core.css">
+  <!-- Isolated Standalone Presentation Theme & Content -->
+  <link rel="stylesheet" href="deck.css">
+
+  <!-- Mermaid.js Vector Renderer -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      flowchart: { htmlLabels: true, curve: 'basis' },
+      themeVariables: {
+        darkMode: true,
+        background: '#070b14',
+        primaryColor: '#0e1626',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#38bdf8',
+        lineColor: '#facc15',
+        fontFamily: 'Inter, sans-serif'
+      }
+    });
+  </script>
+</head>
+<body class="">
+
+  <!-- Top Navigation & Control Bar -->
+  <header class="presentation-header">
+    <div class="header-left">
+      <div class="logo-badge">
+        <span class="logo-icon">🌲</span>
+        <span class="logo-text">ТУРБАЗА // ИНЖЕНЕРИЯ</span>
+      </div>
+      <span class="header-title">Выпуск 03: Прикладной каркас, SDK и реактивная среда</span>
+    </div>
+    <div class="header-center">
+      <button id="btnPrev" class="nav-btn nav-btn-arrow" title="Предыдущий слайд (←)"><span class="btn-icon">◀</span></button>
+      <span id="slideIndicator" class="slide-indicator">Слайд 1 / 15</span>
+      <button id="btnNext" class="nav-btn nav-btn-arrow" title="Следующий слайд (→)"><span class="btn-icon">▶</span></button>
+    </div>
+    <div class="header-right">
+      <button id="btnOverview" class="nav-btn" title="Сетка слайдов (O)"><span class="btn-icon">▦</span> Сетка</button>
+      <button id="btnVoice" class="nav-btn voice-btn" title="Голосовое сопровождение (V)"><span class="btn-icon">🔊</span> Озвучка</button>
+      <button id="btnNotes" class="nav-btn" title="Текст диктора (N)"><span class="btn-icon">🎙️</span> Текст спикера</button>
+      <button id="btnFullscreen" class="nav-btn" title="Полноэкранный режим (F)"><span class="btn-icon">⛶</span> Экран</button>
+      <button id="btnPrint" class="nav-btn" title="Печать в PDF (Ctrl+P)"><span class="btn-icon">🖨️</span> PDF</button>
+    </div>
+  </header>
+
+  <!-- Presentation Viewport -->
+  <main class="presentation-viewport">
+    <div id="deckContainer" class="deck-container">
+      
+      <!-- ==================== СЛАЙД 1 ==================== -->
+      <section class="slide-card active" data-slide="1">
+        <!-- slide: 1 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">АРХИТЕКТУРНЫЙ ВЫПУСК 03 &middot; СРЕДА ИСПОЛНЕНИЯ</div>
+    <h1 class="slide-title">КАРКАС ПРИЛОЖЕНИЙ (FRAMEWORK) И SDK ТУРБАЗЫ</h1>
+    <p class="slide-subtitle">Среда исполнения модульного распределенного софта без бэкенда, облачных баз и DevOps-затрат</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph TD
+    UI["💻 Пользовательский интерфейс (Angular / React / Vue)"]
+    SDK["📦 SDK Турбазы (Tarmaq DSL & Реактивные DAO)"]
+    Sand["🛡️ Доменная песочница IFrame (Изоляция контекстов)"]
+    Core["⚙️ Системное ядро Листа (DI & Entity Graph Engine)"]
+    DB["💾 Локальная СУБД SQLite (WITHOUT ROWID)"]
+
+    UI -->|Signals & Bindings| SDK
+    SDK -->|RPC postMessage| Sand
+    Sand -->|Read-Anywhere / Write-Self| Core
+    Core -->|ACID транзакции| DB
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-lime">
+          <h4>Революция в разработке корпоративного ПО</h4>
+          <p>Разработчикам больше не нужно поднимать Kubernetes-кластеры, разворачивать серверные базы данных и писать сложные микросервисные REST API для синхронизации.</p>
+        </div>
+        <div class="content-card">
+          <h4>Единая среда исполнения на клиенте</h4>
+          <p>Прикладной каркас берет на себя компиляцию моделей данных, реактивную привязку к интерфейсу, песочницу безопасности и валидацию прав доступа.</p>
+        </div>
+        <div class="content-card">
+          <h4>Темы архитектурного разбора</h4>
+          <p>В этом выпуске: компилятор Runway, доменная песочница, протокол RPC, принцип «Read-Anywhere, Write-Self», построитель Tarmaq, живые запросы DAO и связь с Angular Signals.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="1" style="display:none;">
+          Приветствую, коллеги. В третьем выпуске архитектурной серии мы детально исследуем прикладной каркас и инструментарий разработчика платформы &quot;Турбаза&quot;.<br/><br/>До сих пор создание распределенных систем требовало колоссального серверного бэкенда: кластеров баз данных, очередей сообщений, балансировщиков нагрузки и сложнейших микросервисных архитектур.<br/><br/>Фреймворк &quot;Турбазы&quot; полностью переворачивает эту модель. В нашей архитектуре приложение пишется как автономный локальный модуль. Разработчик оперирует привычными классами TypeScript, декораторами и SQL-запросами, а фреймворк автоматически гарантирует изоляцию, безопасность и peer-to-peer синхронизацию. Давайте разберем его внутреннее устройство.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 2 ==================== -->
+      <section class="slide-card " data-slide="2">
+        <!-- slide: 2 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">СТАТИЧЕСКИЙ АНАЛИЗ &middot; КОМПИЛЯТОР RUNWAY</div>
+    <h2 class="slide-title">АРХИТЕКТУРА RUNWAY: ДЕКОРАТОРЫ БЕЗ ОВЕРХЕДА</h2>
+    <p class="slide-subtitle">Статическая кодогенерация AST, типизированных Q-сущностей и DAO вместо рантайм-рефлексии</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="content-cards-stack">
+        <div class="code-block-card">
+          <div class="code-header">Декларация модели TypeScript &rarr; Нулевой оверхед в рантайме</div>
+          <pre><code>@Entity()
+@Table({ name: 'TASKS' })
+export class Task extends AirEntity {
+  @Id()
+  @Column({ name: 'TASK_NAME' })
+  name: string;
+
+  @ManyToOne()
+  @JoinColumn({ name: 'TOPIC_RID_', referencedColumnName: 'REPOSITORY_LID' })
+  topic: Topic;
+}
+// В рантайме: decorators = () => {} (0 байт накладных расходов)
+// Компилятор Runway генерирует: QTask.ts, TaskDao.ts, vSchema.ts</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-lime">
+          <h4>Отказ от дорогостоящей рефлексии (Reflect Metadata)</h4>
+          <p>Традиционные ORM (TypeORM, Hibernate) тратят сотни мегабайт ОЗУ на разбор метаданных в рантайме. В мобильных браузерах это приводит к недопустимым задержкам старта.</p>
+        </div>
+        <div class="content-card">
+          <h4>Статическая кодогенерация компилятором Runway</h4>
+          <p>Runway парсит синтаксическое дерево (AST) моделей на этапе сборки проекта и генерирует типобезопасные классы <code>QEntity</code>, таблицы схемы и базовые DAO.</p>
+        </div>
+        <div class="content-card">
+          <h4>Нулевой вес декораторов в браузере</h4>
+          <p>В собранном JavaScript-коде декораторы компилируются в пустые заглушки без выполнения какой-либо логики в браузере пользователя.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="2" style="display:none;">
+          Основой производительности каркаса Турбазы является компилятор Runway.<br/><br/>Классические серверные ORM используют тяжелую динамическую рефлексию метаданных. При запуске на мобильном устройстве это съедает десятки мегабайт оперативной памяти и задерживает старт приложения на секунды.<br/><br/>Runway решает проблему принципиально иначе. Декораторы Entity, Table и ManyToOne служат лишь маркерами для статического анализатора на этапе сборки. Runway генерирует строгие типизированные Q-сущности и базовые DAO во время компиляции. В рантайме в браузер попадает чистый легковесный код с нулевыми накладными расходами на рефлексию.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 3 ==================== -->
+      <section class="slide-card " data-slide="3">
+        <!-- slide: 3 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">БЕЗОПАСНОСТЬ ИЗОЛЯЦИИ &middot; ПЕСОЧНИЦА</div>
+    <h2 class="slide-title">АРХИТЕКТУРА ДОМЕННОЙ ПЕСОЧНИЦЫ (SANDBOX)</h2>
+    <p class="slide-subtitle">Изоляция независимых приложений в доменных IFrame с рандомизацией поддоменов</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph TB
+    subgraph Host["Хостовая страница оболочки Турбазы (turbase.local)"]
+        Hub["Ядро Турбазы: SQLite, Keyring, RPC Hub"]
+    end
+
+    subgraph SandA["IFrame Песочница А (app-a-7f9a.turbase.local)"]
+        AppA["Органайзер «Деловой»<br/>Свой DOM, локальный JS"]
+    end
+
+    subgraph SandB["IFrame Песочница Б (app-b-3d2c.turbase.local)"]
+        AppB["Путешествия «УраТур»<br/>Свой DOM, локальный JS"]
+    end
+
+    AppA -.->|Блокировано политикой Same-Origin| AppB
+    AppA -->|Только типизированный postMessage RPC| Hub
+    AppB -->|Только типизированный postMessage RPC| Hub
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-lime">
+          <h4>Угроза взаимного влияния в браузере</h4>
+          <p>В единой экосистеме работают десятки приложений разных разработчиков. Одно скомпрометированное приложение не должно иметь возможности прочитать чужие токены или украсть сессию.</p>
+        </div>
+        <div class="content-card">
+          <h4>Изоляция на уровне происхождения (Origin Isolation)</h4>
+          <p>Каждое приложение изолируется в собственном контейнере IFrame с уникальным псевдослучайным поддоменом. Политика Same-Origin браузера на аппаратном уровне ядра ОС блокирует прямой доступ к чужому DOM и памяти.</p>
+        </div>
+        <div class="content-card">
+          <h4>Контролируемый канал связи с ядром</h4>
+          <p>Единственный путь взаимодействия приложения с базой данных — строго типизированный канал обмена сообщениями, контролируемый RPC-шлюзом Турбазы.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="3" style="display:none;">
+          Когда на одном клиентском устройстве запускаются приложения разных разработчиков — от органайзера до финансовых сервисов — критически важно гарантировать их полную взаимную изоляцию.<br/><br/>Фреймворк &quot;Турбазы&quot; запускает каждое приложение внутри изолированного IFrame с динамически генерируемым уникальным поддоменом.<br/><br/>Браузер применяет аппаратную изоляцию процессов на базе политики Same-Origin. Ни одно приложение не может прочитать чужую память, перехватить нажатия клавиш или получить доступ к локальным файлам другого модуля. Все операции с базой данных проходят через единый защищенный RPC-мост с обязательной проверкой криптографических сертификатов.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 4 ==================== -->
+      <section class="slide-card " data-slide="4">
+        <!-- slide: 4 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">ПРОТОКОЛ ОБМЕНА &middot; АСИНХРОННЫЙ МОСТ</div>
+    <h2 class="slide-title">МЕЖКОНТЕКСТНЫЙ RPC ЧЕРЕЗ POSTMESSAGE</h2>
+    <p class="slide-subtitle">Высокоскоростная шина вызовов с защитой от спама, пакетным дебаунсингом и токенами вызовов</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+sequenceDiagram
+    participant App as Приложение в IFrame (SDK Client)
+    participant Bridge as RPC Interceptor & Debouncer
+    participant Core as Ядро Турбазы (SQLite Engine)
+
+    App->>Bridge: Запрос: TaskDao._find({ status: 1 }) [ReqId: 1042]
+    Bridge->>Bridge: Проверка квоты частоты вызовов (Debounce)
+    Bridge->>Core: window.postMessage(ReqId, Payload)
+    Core->>Core: Валидация прав доступа к схеме
+    Core->>Core: Исполнение SQL в ядре SQLite
+    Core-->>Bridge: window.postMessage(ReqId, ResultData)
+    Bridge-->>App: Promise.resolve(ResultData)
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-lime">
+          <h4>Асинхронный мост без блокировки интерфейса</h4>
+          <p>Все обращения к базе данных выполняются через асинхронный протокол <code>window.postMessage</code>, что полностью исключает фризы основного потока отрисовки интерфейса (UI Thread).</p>
+        </div>
+        <div class="content-card">
+          <h4>Пакетный дебаунсинг и агрегация</h4>
+          <p>Шина автоматически склеивает множественные запросы, отправленные в рамках одного тика событий (Event Loop), снижая количество межконтекстных переключений в разы.</p>
+        </div>
+        <div class="content-card">
+          <h4>Токены корреляции и тайм-ауты</h4>
+          <p>Каждый запрос несет уникальный <code>RequestCorrelationId</code>. Система защищена от зависаний: при превышении тайм-аута запрос корректно отменяется с освобождением ресурсов.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="4" style="display:none;">
+          Взаимодействие между песочницей приложения и ядром базы данных осуществляется через специализированный протокол межконтекстного RPC.<br/><br/>Протокол использует браузерный механизм postMessage с интеллектуальным перехватчиком запросов. Если пользовательский интерфейс генерирует несколько обращений к базе в рамках одного кадра, система автоматически объединяет их в единый пакет, предотвращая перегрузку браузерной шины.<br/><br/>Каждый запрос маркируется уникальным идентификатором корреляции и защищен жесткими квотами частоты вызовов. Это исключает атаки типа &quot;отказ в обслуживании&quot;, гарантируя стабильную отзывчивость всей платформы в 60 кадров в секунду.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 5 ==================== -->
+      <section class="slide-card " data-slide="5">
+        <!-- slide: 5 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">БАЗОВЫЙ ИНВАРИАНТ &middot; ФИЛОСОФИЯ БЕЗОПАСНОСТИ</div>
+    <h2 class="slide-title">ПРИНЦИП «READ-ANYWHERE, WRITE-SELF»</h2>
+    <p class="slide-subtitle">Фундаментальный закон гарантированной безопасности и владения данными в экосистеме Турбазы</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph LR
+    subgraph ReadOperation["ЧТЕНИЕ: Read-Anywhere (Открыто)"]
+        App1["Приложение «Деловой»"] -->|Прямой SQL SELECT & JOIN| DataBoth["Таблицы Органайзера + Таблицы Путешествий"]
+    end
+
+    subgraph WriteOperation["ЗАПИСЬ: Write-Self (Строго изолировано)"]
+        App1 -->|Прямой SQL INSERT/UPDATE| OwnData["Свои таблицы (Органайзер) ✅"]
+        App1 -.->|Прямая запись заблокирована ❌| ForeignData["Чужие таблицы (Путешествия)"]
+        App1 -->|Вызов открытого метода @Api()| SafeGateway["API Путешествий &rarr; Валидация &rarr; Запись ✅"]
+    end
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-lime">
+          <h4>Полное владение пользователя своими данными</h4>
+          <p>Поскольку все данные на устройстве принадлежат пользователю, приложения должны свободно взаимодействовать и обогащать информацию друг друга без искусственных барьеров.</p>
+        </div>
+        <div class="content-card">
+          <h4>Read-Anywhere (Свободное чтение)</h4>
+          <p>Любое авторизованное приложение может делать прямые SQL SELECT запросы и межсхемные JOIN с таблицами любых других установленных приложений.</p>
+        </div>
+        <div class="content-card">
+          <h4>Write-Self (Запись только своего)</h4>
+          <p>Ни одно приложение не имеет права напрямую модифицировать таблицы другого вендора. Запись чужих данных возможна только через вызовы открытых методов <code>@Api()</code> приложения-владельца.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="5" style="display:none;">
+          Краеугольным камнем архитектуры безопасности Турбазы является принцип &quot;Read-Anywhere, Write-Self&quot; — &quot;Читай отовсюду, пиши только свое&quot;.<br/><br/>В традиционных операционных системах приложения изолированы в &quot;силосных башнях&quot;: чтобы органайзер увидел бронирование из туристического приложения, разработчики должны писать сложные API-интеграции через удаленные серверы.<br/><br/>В &quot;Турбазе&quot; все локальные данные принадлежат гражданину. Любое приложение может мгновенно прочитать данные других приложений через нативный SQL JOIN прямо на устройстве. Однако на запись действует абсолютный запрет: изменить чужие данные напрямую через SQL невозможно. Модификация разрешена исключительно через легитимный API-шлюз владельца структуры данных.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 6 ==================== -->
+      <section class="slide-card " data-slide="6">
+        <!-- slide: 6 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">КРОСС-СХЕМНЫЕ ЗАПРОСЫ &middot; СИНЕРГИЯ ДАННЫХ</div>
+    <h2 class="slide-title">РЕАЛИЗАЦИЯ «READ-ANYWHERE»: ЛОКАЛЬНЫЕ JOIN</h2>
+    <p class="slide-subtitle">Мгновенное объединение данных разных приложений в единой локальной реляционной базе</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="content-cards-stack">
+        <div class="code-block-card">
+          <div class="code-header">Кросс-доменный запрос в Tarmaq DSL (Органайзер + Путешествия)</div>
+          <pre><code>// Выборка задач органайзера с привязкой к билетам «УраТур»:
+await taskDao.find({
+  SELECT: {
+    taskName: qTask.name,
+    flightNumber: qFlight.flightCode,
+    departureTime: qFlight.departsAt
+  },
+  FROM: [
+    qTask,
+    qFlight.LEFT_JOIN(qTask.flightLink)
+  ],
+  WHERE: qTask.status.equals(TaskStatus.ACTIVE)
+});
+// Выполняется на ядре SQLite за 0.4 миллисекунды!</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-lime">
+          <h4>Кросс-схемная синергия без серверных API</h4>
+          <p>Органайзер «Деловой» может встроить в расписание перелеты из «УраТур», платежи из Финтех-модуля и голосования из «КубГолос» в одном SQL-запросе.</p>
+        </div>
+        <div class="content-card">
+          <h4>Отсутствие сетевых задержек</h4>
+          <p>Вместо десятков параллельных HTTP-запросов к внешним REST API запрос исполняется напрямую в локальной разделяемой памяти за доли миллисекунды.</p>
+        </div>
+        <div class="content-card">
+          <h4>Полная автономность в офлайне</h4>
+          <p>Сложные аналитические выборки и сводные дашборды формируются моментально даже при полном отсутствии подключения к интернету.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="6" style="display:none;">
+          Посмотрим, как принцип &quot;Read-Anywhere&quot; раскрывается на практике.<br/><br/>Представьте, что разработчик органайзера &quot;Деловой&quot; хочет показать пользователю задачи, привязанные к расписанию авиаперелетов из приложения &quot;УраТур&quot;. В классическом вебе потребовалось бы согласовывать серверные API, настраивать OAuth и слать тяжелые сетевые запросы.<br/><br/>В &quot;Турбазе&quot; разработчик просто пишет типобезопасный запрос с оператором LEFT_JOIN между таблицей задач и таблицей авиарейсов. Ядро SQLite выполняет этот запрос в единой локальной базе за четыре десятых миллисекунды. Пользователь получает бесшовную интеграцию данных без единого байта трафика и с гарантией работы в авиарежиме.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 7 ==================== -->
+      <section class="slide-card " data-slide="7">
+        <!-- slide: 7 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">ЗАЩИТА ЦЕЛОСТНОСТИ &middot; КОНТРОЛЬ МУТАЦИЙ</div>
+    <h2 class="slide-title">РЕАЛИЗАЦИЯ «WRITE-SELF»: ЗАЩИТА ГРАФА СУЩНОСТЕЙ</h2>
+    <p class="slide-subtitle">Инспекция графа модификаций и перехват чужих сущностей маркером FROM_ANOTHER_APP</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph TD
+    SaveCall["Вызов сохранения графа: taskDao.save(taskWithTopic)"]
+    Inspect["EntityGraphReconstructor: Анализ схемы сущностей"]
+    Check{"Сущность принадлежит текущему приложению?"}
+    Allow["Включение в очередь записи: DependencyGraphResolver &rarr; SQL INSERT/UPDATE ✅"]
+    Block["Присвоение маркера: FROM_ANOTHER_APP 🚫"]
+    Error["Выброс исключения безопасности: Direct write to foreign schema forbidden!"]
+
+    SaveCall --> Inspect
+    Inspect --> Check
+    Check -- "Да (Своя схема)" --> Allow
+    Check -- "Нет (Чужая схема)" --> Block
+    Block --> Error
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-lime">
+          <h4>Угроза несанкционированной перезаписи</h4>
+          <p>Если стороннее приложение попытается напрямую изменить статус билета или баланс в таблице чужого сервиса, это разрушит бизнес-инварианты системы.</p>
+        </div>
+        <div class="content-card">
+          <h4>Анализатор графа: EntityGraphReconstructor</h4>
+          <p>Перед формированием транзакции фреймворк разбирает полный граф переданных объектов и проверяет идентификатор схемы каждого из них.</p>
+        </div>
+        <div class="content-card">
+          <h4>Маркер изоляции: FROM_ANOTHER_APP</h4>
+          <p>Любая сущность, принадлежащая чужой схеме, автоматически маркируется флагом <code>FROM_ANOTHER_APP</code>. Планировщик <code>DependencyGraphResolver</code> исключает ее из транзакции и блокирует запись.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="7" style="display:none;">
+          Как же платформа гарантирует соблюдение второй части принципа — &quot;Write-Self&quot;?<br/><br/>Когда приложение вызывает метод сохранения графа объектов, в работу вступает анализатор EntityGraphReconstructor. Он рекурсивно обходит все связанные сущности и сопоставляет их с реестром зарегистрированных схем.<br/><br/>Если в графе обнаруживается объект, принадлежащий другому приложению, система присваивает ему системный маркер FROM_ANOTHER_APP. Планировщик зависимостей мгновенно исключает чужой объект из очереди дисковой записи и генерирует аппаратную ошибку доступа. Прямая перезапись чужих таблиц заблокирована на уровне ядра фреймворка.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 8 ==================== -->
+      <section class="slide-card " data-slide="8">
+        <!-- slide: 8 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">ИНТЕРФЕЙСЫ МИКРОСЕРВИСОВ &middot; ШЛЮЗЫ МУТАЦИЙ</div>
+    <h2 class="slide-title">ОБЩЕСТВЕННЫЕ ИНТЕРФЕЙСЫ: ДЕКОРАТОР @Api()</h2>
+    <p class="slide-subtitle">Легитимный вызов бизнес-методов приложения-владельца для модификации данных</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="content-cards-stack">
+        <div class="code-block-card">
+          <div class="code-header">Объявление открытого API микросервиса (@airline/topics)</div>
+          <pre><code>@Injected()
+export class TopicApi {
+  @Inject()
+  topicDao: ITopicDao;
+
+  @Api()
+  async createTopic(name: string): Promise<Topic> {
+    // 1. Валидация прав и бизнес-правил
+    if (!name || name.trim().length === 0) {
+      throw new Error('Имя темы не может быть пустым');
+    }
+    // 2. Легитимная запись владельцем схемы
+    return await this.topicDao.save({ name });
+  }
+}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-lime">
+          <h4>Управляемые точки входа (Contract Gateways)</h4>
+          <p>Декоратор <code>@Api()</code> объявляет открытый метод сервиса, доступный для вызова другими приложениями через межпесочный RPC-мост.</p>
+        </div>
+        <div class="content-card">
+          <h4>Полный контроль бизнес-логики владельцем</h4>
+          <p>Приложение-владелец проверяет права вызывающей стороны, проводит валидацию входных параметров и выполняет запись в свои таблицы от своего имени.</p>
+        </div>
+        <div class="content-card">
+          <h4>Автоматическая генерация клиентских SDK</h4>
+          <p>Компилятор Runway генерирует строго типизированные интерфейсы-клиенты, позволяя другим разработчикам вызывать чужие API с автодополнением кода в IDE.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="8" style="display:none;">
+          Единственный легитимный способ изменить данные другого приложения — вызвать его открытый метод, помеченный декоратором @Api.<br/><br/>Декоратор @Api превращает обычный класс TypeScript в защищенный шлюз микросервиса. Когда внешнему приложению требуется создать новую категорию или изменить статус заказа, оно вызывает сгенерированный клиентский метод этого шлюза.<br/><br/>Вся бизнес-логика, проверка прав доступа, валидация полей и фиксация изменений выполняются самим приложением-владельцем. Это обеспечивает абсолютную строгость корпоративных правил при полной открытости децентрализованной экосистемы.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 9 ==================== -->
+      <section class="slide-card " data-slide="9">
+        <!-- slide: 9 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">ВНЕДРЕНИЕ ЗАВИСИМОСТЕЙ &middot; ТРАНЗАКЦИОННЫЙ КОНТЕКСТ</div>
+    <h2 class="slide-title">КОНТЕКСТНЫЙ DEPENDENCY INJECTION</h2>
+    <p class="slide-subtitle">Разрешение зависимостей на лету через direction-indicator без тяжелых DI-контейнеров</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph LR
+    subgraph TransactionContext["Контекст транзакции (Transaction Scope)"]
+        Tx["Активная транзакция SQLite (Savepoint)"]
+        Token["Токен контекста выполнения"]
+    end
+
+    subgraph ServiceLayer["Слой внедрения зависимостей"]
+        Api["@Injected() Сервис"]
+        Dao1["@Inject() TaskDao"]
+        Dao2["@Inject() TopicDao"]
+    end
+
+    Api -->|Ленивая резолюция через Object.defineProperty| Dao1
+    Api -->|Ленивая резолюция через Object.defineProperty| Dao2
+    Dao1 -->|Связывание с единым Tx контекстом| Tx
+    Dao2 -->|Связывание с единым Tx контекстом| Tx
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-lime">
+          <h4>Легковесный DI-движок (direction-indicator)</h4>
+          <p>Вместо тяжелых контейнеров Spring или NestJS платформа использует сверхбыстрый алгоритм разрешения зависимостей на базе дескрипторов <code>Object.defineProperty</code>.</p>
+        </div>
+        <div class="content-card">
+          <h4>Транзакционная изоляция контекстов (Scope)</h4>
+          <p>Все внедряемые DAO в рамках одного запроса автоматически привязываются к текущему контексту транзакции и разделяют единый сэйвпоинт базы данных.</p>
+        </div>
+        <div class="content-card">
+          <h4>Ленивая инициализация сервисов</h4>
+          <p>Экземпляры сервисов создаются только в момент первого фактического обращения к свойству, сохраняя оперативную память мобильного устройства.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="9" style="display:none;">
+          Управление зависимостями в клиентских приложениях критично для чистоты кода и тестируемости. Однако стандартные контейнеры внедрения зависимостей перегружены сложной рефлексией.<br/><br/>Фреймворк &quot;Турбазы&quot; применяет легковесный механизм direction-indicator. Связывание компонентов происходит на базе нативных дескрипторов JavaScript свойств с ленивой инициализацией.<br/><br/>Главное архитектурное достоинство нашего DI — автоматическая контекстная изоляция. Все зависимости, инжектированные в сервис, бесшовно связываются с текущей транзакцией базы данных. Если операция падает с ошибкой, весь контекст транзакции откатывается атомарно.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 10 ==================== -->
+      <section class="slide-card " data-slide="10">
+        <!-- slide: 10 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">ТИПОБЕЗОПАСНЫЙ SQL &middot; DSL ЗАПРОСОВ</div>
+    <h2 class="slide-title">ТИПИЗИРОВАННЫЙ ПОСТРОИТЕЛЬ ЗАПРОСОВ (TARMAQ DSL)</h2>
+    <p class="slide-subtitle">Статически проверяемый DSL на TypeScript: защита от инъекций и мощь реляционного SQL</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="content-cards-stack">
+        <div class="code-block-card">
+          <div class="code-header">Полнофункциональный Tarmaq DSL запрос в Турбазе</div>
+          <pre><code>const qTask = Q_AIRLINE_TASKS.Task;
+const urgentTasks = await this.taskDao.find({
+  SELECT: {
+    id: qTask.actorRecordId,
+    title: qTask.name,
+    priority: qTask.urgency
+  },
+  FROM: [qTask],
+  WHERE: AND(
+    qTask.urgency.greaterThanOrEquals(Urgency.HIGH),
+    qTask.status.notEquals(TaskStatus.COMPLETED)
+  ),
+  ORDER_BY: [qTask.dueDate.ASC()]
+});</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-lime">
+          <h4>100% типобезопасность на этапе компиляции</h4>
+          <p>Любая опечатка в имени колонки, типе данных или операторе сравнения отлавливается компилятором TypeScript до запуска кода на устройстве.</p>
+        </div>
+        <div class="content-card">
+          <h4>Абсолютный иммунитет к SQL-инъекциям</h4>
+          <p>Tarmaq DSL не склеивает строки. Движок компилирует предикаты в параметризованные запросы SQLite с жестким связыванием бинарных параметров.</p>
+        </div>
+        <div class="content-card">
+          <h4>Поддержка всей мощи реляционной алгебры</h4>
+          <p>DSL поддерживает агрегатные функции, подзапросы, оконные операции, многоуровневые JOIN и проекции <code>Y</code> без компромиссов в выразительности.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="10" style="display:none;">
+          Для построения сложных запросов каркас Турбазы предоставляет Tarmaq DSL — строго типизированный язык запросов для TypeScript.<br/><br/>Вместо ненадежного склеивания сырых SQL-строк разработчик оперирует сгенерированными объектами QEntity и логическими предикатами. Любая синтаксическая ошибка или несовпадение типов данных пресекается компилятором на этапе сборки.<br/><br/>При исполнении Tarmaq транслирует граф условий в оптимизированные параметризованные команды SQLite. Это дает стопроцентную защиту от SQL-инъекций и сохраняет доступ ко всей мощи реляционной алгебры.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 11 ==================== -->
+      <section class="slide-card " data-slide="11">
+        <!-- slide: 11 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">РЕАКТИВНОСТЬ &middot; ЖИВЫЕ ЗАПРОСЫ ДАННЫХ</div>
+    <h2 class="slide-title">РЕАКТИВНЫЕ DAO: ЖИВЫЕ ЗАПРОСЫ (LIVE QUERIES)</h2>
+    <p class="slide-subtitle">Метод Dao._search() и автоматическая реактивная трансляция изменений из журнала WAL</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+sequenceDiagram
+    participant UI as Компонент интерфейса
+    participant DAO as Реактивный DAO: _search()
+    participant Core as Ядро Турбазы (WAL Monitor)
+    participant Peer as Входящий P2P пакет синхронизации
+
+    UI->>DAO: taskDao._search({ WHERE: ... })
+    DAO->>Core: Регистрация подписки на таблицы TASKS
+    Core-->>DAO: Первичный снимок данных &rarr; RxJS Observable
+    DAO-->>UI: Отрисовка задач в UI
+
+    Peer->>Core: Применение внешнего блока WAL в SQLite
+    Core->>Core: Детекция мутации в таблице TASKS
+    Core-->>DAO: Push-уведомление о модификации
+    DAO->>DAO: Пересчет запроса из кэша ОЗУ
+    DAO-->>UI: Эмиссия нового состояния Observable (0 мс)
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-lime">
+          <h4>Ликвидация ручного опроса (Polling)</h4>
+          <p>Приложениям больше не нужно запускать периодические таймеры <code>setInterval</code> для обновления списков или писать сложный код WebSockets.</p>
+        </div>
+        <div class="content-card">
+          <h4>Нативная реактивность через _search()</h4>
+          <p>Вызов <code>_search()</code> возвращает RxJS <code>Observable</code>. Любое изменение в базе данных — будь то локальное действие или P2P-синхронизация с коллегой — мгновенно передается подписчикам.</p>
+        </div>
+        <div class="content-card">
+          <h4>Умная гранулярная инвалидация</h4>
+          <p>Движок отслеживает сигнатуры таблиц и колонок, обновляя только те подписки, которых коснулись изменения, предотвращая лишние рендеры.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="11" style="display:none;">
+          Одной из самых трудоемких задач при создании современных приложений является поддержание актуальности пользовательского интерфейса при изменении данных.<br/><br/>Реактивные DAO в &quot;Турбазе&quot; решают эту проблему концепцией живых запросов через метод _search().<br/><br/>Метод _search() возвращает реактивный поток RxJS Observable. Ядро базы данных отслеживает коммиты в журнал транзакций. Как только в таблице меняются строки — будь то локальный клик пользователя или входящий блок синхронизации от коллеги по P2P — поток мгновенно эмитит обновленный массив данных. Никакого ручного поллинга и никаких внешних WebSocket-серверов.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 12 ==================== -->
+      <section class="slide-card " data-slide="12">
+        <!-- slide: 12 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">НЕПРЕРЫВНОСТЬ СЕРВИСА &middot; БЕСШОВНЫЕ ОБНОВЛЕНИЯ</div>
+    <h2 class="slide-title">ЭВОЛЮЦИЯ МОДЕЛЕЙ ДАННЫХ БЕЗ ДАУНТАЙМА</h2>
+    <p class="slide-subtitle">Версионирование DDL, инъекция патчей схем и работа разнородных версий приложений</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph LR
+    subgraph ClientA["Узел А: Приложение v1.0"]
+        SchemaV1["Схема v1: Колонка name"]
+    end
+
+    subgraph ClientB["Узел Б: Приложение v2.0"]
+        SchemaV2["Схема v2: name + urgency + tags"]
+    end
+
+    subgraph SQLite["Единая СУБД узла: Динамическая адаптация"]
+        Patch["Патч схемы: ALTER TABLE ADD COLUMN"]
+        Compat["Обратная совместимость: Дефолтные значения & Виртуальные представления"]
+    end
+
+    ClientB -->|Инъекция новой схемы| Patch
+    Patch --> SQLite
+    SchemaV1 -.->|Чтение через адаптер совместимости| SQLite
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-lime">
+          <h4>Вызов децентрализованной эволюции</h4>
+          <p>В серверной архитектуре администратор останавливает сервис и накатывает миграцию. В сети из миллионов автономных узлов принудительно обновить всех одновременно невозможно.</p>
+        </div>
+        <div class="content-card">
+          <h4>Атомарная инъекция патчей DDL</h4>
+          <p>При установке новой версии модуль приносит упакованный патч схемы. Ядро выполняет инкрементальное расширение колонок без блокировки работы других приложений.</p>
+        </div>
+        <div class="content-card">
+          <h4>Семантическая обратная совместимость</h4>
+          <p>Старые версии приложений продолжают работать с базой через адаптер совместимости, игнорируя новые поля, пока пользователь не решит обновить интерфейс.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="12" style="display:none;">
+          Как обновлять структуры таблиц, когда приложение развернуто на миллионах независимых клиентских устройств?<br/><br/>В облачных монолитах для этого объявляют технические перерывы и запускают миграции. В децентрализованной сети &quot;Турбазы&quot; это недопустимо: разные пользователи могут работать на разных версиях приложения одновременно.<br/><br/>Фреймворк поддерживает непрерывную эволюцию схем. При запуске новой версии ядро атомарно применяет инкрементальные DDL-патчи. Старые версии клиентов продолжают работать с таблицами в режиме обратной совместимости. Платформа гарантирует стабильность хранения данных на протяжении многих лет без потери истории.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 13 ==================== -->
+      <section class="slide-card " data-slide="13">
+        <!-- slide: 13 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">БЕЗОПАСНОСТЬ ДИСТРИБУЦИИ &middot; ЭКОСИСТЕМА</div>
+    <h2 class="slide-title">ЖИЗНЕННЫЙ ЦИКЛ ПРИЛОЖЕНИЯ И ДИСТРИБУЦИЯ</h2>
+    <p class="slide-subtitle">Сборка пакетов, верификация открытого ключа разработчика и децентрализованная публикация</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="mermaid-diagram-card">
+        <div class="mermaid">
+graph TB
+    Dev["👨‍💻 Разработчик софта (Сборка TypeScript)"]
+    Pack["📦 Формирование пакета приложения (.turbase)"]
+    Sign["🛡️ Подпись релизным ключом ГОСТ / Ed25519"]
+    Store["🌐 Реестр хранилищ (Ветка / P2P Сеть)"]
+    User["💻 Клиентский узел: Проверка подписи & Песочница"]
+
+    Dev --> Pack
+    Pack --> Sign
+    Sign --> Store
+    Store --> User
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-lime">
+          <h4>Независимая дистрибуция без ограничений</h4>
+          <p>Приложения не зависят от зарубежных магазинов приложений (App Store / Google Play). Пакеты дистрибутируются через распределенные узлы-ветки и P2P-сеть.</p>
+        </div>
+        <div class="content-card">
+          <h4>Криптографическая верификация целостности</h4>
+          <p>Каждый пакет приложения подписывается цифровой подписью вендора. Клиентский терминал проверяет хэш и подпись перед запуском в изолированной песочнице.</p>
+        </div>
+        <div class="content-card">
+          <h4>Прозрачный аудит безопасности</h4>
+          <p>В кодовой базе отсутствуют скрытые сетевые коннекторы и закрытые трекеры. Все межмодульные связи прозрачно декларируются в манифесте приложения.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="13" style="display:none;">
+          Дистрибуция программного обеспечения в &quot;Турбазе&quot; свободна от монопольного контроля зарубежных магазинов приложений.<br/><br/>Пакет приложения собирается в компактный подписанный архив, включающий скомпилированный код песочницы, манифест схем данных и открытые интерфейсы.<br/><br/>Пакеты распространяются напрямую через пиринговую сеть платформы и муниципальные ветки. При установке клиентское устройство верифицирует криптографическую подпись создателя по отечественным стандартам ГОСТ. Это исключает внедрение вредоносных закладок на этапах передачи и развертывания.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 14 ==================== -->
+      <section class="slide-card " data-slide="14">
+        <!-- slide: 14 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">ПОЛЬЗОВАТЕЛЬСКИЙ ИНТЕРФЕЙС &middot; ИНТЕГРАЦИЯ С UI</div>
+    <h2 class="slide-title">ИНТЕГРАЦИЯ С UI: ПРЯМАЯ СВЯЗЬ СО SIGNALS</h2>
+    <p class="slide-subtitle">Бесшовный мост от RxJS Observable к Angular Signals (toSignal) и React Hooks без задержек</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="content-cards-stack">
+        <div class="code-block-card">
+          <div class="code-header">Привязка данных в компоненте Angular Signals</div>
+          <pre><code>@Component({
+  selector: 'delovoy-task-list',
+  template: `
+    @for (task of tasks(); track task.id) {
+      &lt;div class="task-card"&gt;{{ task.title }}&lt;/div&gt;
+    }
+  `
+})
+export class TaskListComponent {
+  private taskDao = inject(TaskDao);
+  // Моментальная трансформация живого запроса в сигнал:
+  tasks = toSignal(this.taskDao._search({
+    WHERE: qTask.status.equals(TaskStatus.ACTIVE)
+  }), { initialValue: [] });
+}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-lime">
+          <h4>Прямая реактивность без бойлерплейта</h4>
+          <p>Функция <code>toSignal()</code> превращает живой запрос базы данных в нативный сигнал пользовательского интерфейса в одну строчку кода.</p>
+        </div>
+        <div class="content-card">
+          <h4>Отклик интерфейса за 1 кадр дисплея (16 мс)</h4>
+          <p>Поскольку данные лежат в оперативной памяти того же устройства, смена состояния в интерфейсе происходит моментально со скоростью 60 кадров в секунду.</p>
+        </div>
+        <div class="content-card">
+          <h4>Универсальная поддержка UI-фреймворков</h4>
+          <p>SDK предоставляет адаптеры для всех современных стеков: Angular Signals, React Hooks (<code>useLiveQuery</code>), Vue Composition API и Svelte Stores.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="14" style="display:none;">
+          Как живые запросы интегрируются в современный пользовательский интерфейс?<br/><br/>Благодаря открытой архитектуре реактивных потоков, интеграция с новейшими механизмами вроде Angular Signals или React Hooks требует ровно одной строки кода. С помощью функции toSignal живой запрос базы данных напрямую связывается с шаблоном компонента.<br/><br/>Фронтенд-разработчик избавлен от необходимости писать Redux-экшены, саги и контроллеры состояний. База данных сама становится реактивным источником правды для интерфейса, обеспечивая мгновенный отклик в шестнадцать миллисекунд.
+        </div>
+      </section>
+    
+      <!-- ==================== СЛАЙД 15 ==================== -->
+      <section class="slide-card " data-slide="15">
+        <!-- slide: 15 -->
+<div class="slide-content">
+  <div class="slide-header">
+    <div class="slide-tag">РЕЗЮМЕ ВЫПУСКА 03 &middot; АРХИТЕКТУРНЫЙ ИТОГ</div>
+    <h2 class="slide-title">АРХИТЕКТУРНОЕ РЕЗЮМЕ ДЛЯ ИНЖЕНЕРА</h2>
+    <p class="slide-subtitle">Разработка корпоративных распределенных систем без расходов на бэкенд и облачные базы</p>
+  </div>
+
+  <div class="slide-body grid-2col">
+    <div class="visual-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-lime">
+          <h4>Ключевые преимущества Framework и SDK Турбазы</h4>
+          <ul class="arch-list">
+            <li><strong>Компилятор Runway:</strong> Нулевой оверхед рантайма, генерация типизированных сущностей и DAO из AST.</li>
+            <li><strong>Доменная песочница:</strong> Аппаратная изоляция приложений в IFrame с защитой Same-Origin.</li>
+            <li><strong>Read-Anywhere, Write-Self:</strong> Свободные кросс-схемные JOIN при абсолютной защите от чужих мутаций.</li>
+            <li><strong>Tarmaq DSL:</strong> 100% типобезопасный SQL на TypeScript с полной защитой от инъекций.</li>
+            <li><strong>Живые запросы:</strong> Нативная привязка изменений WAL к Angular Signals за 16 миллисекунд.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-panel">
+      <div class="content-cards-stack">
+        <div class="content-card border-cyan">
+          <h4>Мост к следующему выпуску: Выпуск 04</h4>
+          <p>В следующем выпуске мы разберем <strong>Архитектуру узла «Ветка» (Branch Node)</strong>: конвейер данных высокой надежности, трехфазную цепочку PersistentQueue &rarr; ConcurrentMap &rarr; FileSystem, Time-Traveling и обслуживание общественных реестров.</p>
+        </div>
+        <div class="content-card">
+          <h4>Экономический триумф архитектуры</h4>
+          <p>ИТ-компания получает возможность создавать масштабируемые цифровые продукты корпоративного класса с нулевыми затратами на аренду облачных серверов.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div class="speaker-notes-content" data-slide="15" style="display:none;">
+          Подведем итоги третьего выпуска архитектурной серии.<br/><br/>Framework и SDK платформы &quot;Турбаза&quot; предоставляют инженерам законченный инструмент для создания распределенных приложений нового поколения с прямым владением информацией.<br/><br/>Сочетание статического компилятора Runway, доменной изоляции песочницы, незыблемого принципа &quot;Read-Anywhere, Write-Self&quot;, типобезопасного DSL Tarmaq и реактивных живых запросов позволяет программистам создавать сложные корпоративные сервисы в разы быстрее, чем в классическом веб-стеке. И главное — с нулевыми затратами на серверный бэкенд.<br/><br/>В следующем, четвертом выпуске мы поднимемся на уровень выше и исследуем архитектуру узла &quot;Ветка&quot; — периферийного координатора гарантированной надежности. Спасибо за внимание, увидимся в выпуске номер четыре.
+        </div>
+      </section>
+    
+    </div>
+  </main>
+
+  <!-- Speaker Notes Drawer -->
+  <aside id="notesDrawer" class="notes-drawer">
+    <div class="notes-drawer-header">
+      <div class="notes-title-wrap">
+        <span class="notes-icon">🎙️</span>
+        <span class="notes-title">Текст диктора / Заметки к слайду</span>
+      </div>
+      <button id="btnCloseNotes" class="notes-close-btn">&times;</button>
+    </div>
+    <div id="notesBody" class="notes-body">
+      <!-- Injected dynamically by Deck Engine -->
+    </div>
+  </aside>
+
+  <!-- Modal: Grid Overview -->
+  <div id="overviewModal" class="modal-overlay">
+    <div class="modal-card wide">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-icon">▦</span>
+          <h3>Обзор всех 15 слайдов презентации</h3>
+        </div>
+        <button id="btnCloseOverview" class="modal-close-btn">&times;</button>
+      </div>
+      <div id="overviewGrid" class="overview-grid">
+        <!-- Injected dynamically by Deck Engine -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Universal Presentation Engine (Single Shared Source) -->
+  <script src="../../../../../shared_templates/overview_presentation_deck/js/overview_deck_engine.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.deckEngine = new OverviewDeckEngine({
+        totalSlides: 15,
+        audioPathPrefix: '../../artifacts/audio/slide_'
+      });
+    });
+  </script>
+</body>
+</html>
