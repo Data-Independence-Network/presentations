@@ -10,7 +10,7 @@ This directory hosts the foundational **3-part General Explainer Mini-Series** f
 platform_overview/
 ├── turbase_platform_overview_master_plan.md          # Series Master Architecture Plan
 ├── AGENTS.md                                         # Directory Rules & Specs
-├── 01_paradigm_shift_presentation/                   # Part 1: Manifest & Sovereign Repositories (Gold/Cyan)
+├── 01_paradigm_shift_presentation/                   # Part 1: Manifest & Autonomous Repositories (Gold/Cyan)
 ├── 02_architecture_principles_presentation/          # Part 2: Anatomy, Foreign Keys & App Cooperation (Cyan/Emerald)
 └── 03_sovereign_economy_presentation/                # Part 3: Sovereign Economy & Decentralized AI (Teal/Gold)
 ```
