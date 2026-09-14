@@ -449,13 +449,13 @@ rate: "-9%"
 </div>
 
 ### Текст для диктора:
-> Колоссальная проблема существующих блокчейнов — так называемое раздувание базы данных. Каждый раз, когда создается смарт-контракт, сеть сохраняет отдельную копию программного кода, взимая с пользователя немалую комиссию просто за запись и публикацию каждой программы.
+> Колоссальная проблема существующих блокчейнов — так называемое раздувание базы данных. Каждый раз, когда создается смарт-контракт, сеть сохраняет отдельную копию программного кода и требует с пользователя немалую комиссию просто за запись и публикацию каждой программы.
 >
 > В «Турбазе» применён принцип единого экземпляра — в программировании его называют «синглтон». Это значит, что ядро никогда не дублирует программы, а вычисляет криптографический хэш математической формулы контракта.
 >
 > Если миллион родителей создают одинаковый контракт на школьное питание или тысячи магазинов запускают доставку, в оперативной памяти исполняется один-единственный общий экземпляр конечного автомата.
 >
-> Различаются только номера кошельков и суммы лимитов. Затраты на развертывание равны нулю, а скорость исполнения максимальна.
+> Различаются лишь адреса кошельков и суммы лимитов. Затраты на развертывание равны нулю, а скорость исполнения максимальна.
 
 ---
 
@@ -480,21 +480,23 @@ rate: "-9%"
         </div>
       </div>
 
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">1</span>
-        <span><strong>Родительский контроль:</strong> родитель задает лимит 300 ₽ и делегирует сессионный ключ</span>
-      </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">2</span>
-        <span><strong>Выбор в столовой:</strong> школьник берет обед на 280 ₽ и сканирует QR кассы (правило Б)</span>
-      </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">3</span>
-        <span><strong>Валидация предикатов:</strong> телефон проверяет 280 ≤ 300 ₽ и направляет переход в ЦБ</span>
-      </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">4</span>
-        <span><strong>Мгновенный клиринг:</strong> Банк России зачисляет 280 ₽ столовой за O(1) такт без комиссии</span>
+      <div class="scenario-steps-list">
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">1</span>
+          <span><strong>Родительский контроль:</strong> родитель задает лимит 300 ₽ и делегирует сессионный ключ</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">2</span>
+          <span><strong>Выбор в столовой:</strong> школьник берет обед на 280 ₽ и сканирует QR кассы (правило Б)</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">3</span>
+          <span><strong>Валидация предикатов:</strong> телефон проверяет 280 ≤ 300 ₽ и направляет переход в ЦБ</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">4</span>
+          <span><strong>Мгновенный клиринг:</strong> Банк России зачисляет 280 ₽ столовой за O(1) такт без комиссии</span>
+        </div>
       </div>
 
       <div class="fsm-state-pipeline">
@@ -580,21 +582,23 @@ rate: "-9%"
         </div>
       </div>
 
-      <div class="flow-step-row gold">
-        <span class="flow-step-num gold">1</span>
-        <span><strong>Синхронизация P2P:</strong> микро-цепь связывает смартфоны покупателя, повара и курьера</span>
-      </div>
-      <div class="flow-step-row gold">
-        <span class="flow-step-num gold">2</span>
-        <span><strong>Подпись ресторана:</strong> повар маркирует [Приготовлено] ГОСТ-подписью (400 ₽)</span>
-      </div>
-      <div class="flow-step-row gold">
-        <span class="flow-step-num gold">3</span>
-        <span><strong>Приемка курьером:</strong> курьер сканирует QR пакета и начинает доставку [В пути]</span>
-      </div>
-      <div class="flow-step-row gold">
-        <span class="flow-step-num gold">4</span>
-        <span><strong>Вручение клиенту:</strong> покупатель жмет [Доставлено]: авто-сплит 400 + 100 ₽</span>
+      <div class="scenario-steps-list">
+        <div class="flow-step-row gold">
+          <span class="flow-step-num gold">1</span>
+          <span><strong>Синхронизация P2P:</strong> микро-цепь связывает смартфоны покупателя, повара и курьера</span>
+        </div>
+        <div class="flow-step-row gold">
+          <span class="flow-step-num gold">2</span>
+          <span><strong>Подпись ресторана:</strong> повар маркирует [Приготовлено] ГОСТ-подписью (400 ₽)</span>
+        </div>
+        <div class="flow-step-row gold">
+          <span class="flow-step-num gold">3</span>
+          <span><strong>Приемка курьером:</strong> курьер сканирует QR пакета и начинает доставку [В пути]</span>
+        </div>
+        <div class="flow-step-row gold">
+          <span class="flow-step-num gold">4</span>
+          <span><strong>Вручение клиенту:</strong> покупатель жмет [Доставлено]: авто-сплит 400 + 100 ₽</span>
+        </div>
       </div>
 
       <div class="fsm-state-pipeline">
@@ -608,7 +612,7 @@ rate: "-9%"
         </div>
         <div class="fsm-state-row emerald">
           <span class="fsm-state-badge">[S2_CLEARED]</span>
-          <span class="fsm-state-desc">Proof-of-Delivery клиента $\to$ мгновенная выплата 400 ₽ ресторану и 100 ₽ курьеру</span>
+          <span class="fsm-state-desc">Proof-of-Delivery клиента &rarr; мгновенная выплата 400 ₽ ресторану и 100 ₽ курьеру</span>
         </div>
       </div>
     </div>
@@ -682,17 +686,19 @@ rate: "-9%"
         </div>
       </div>
 
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">1</span>
-        <span><strong>Кооперация софта:</strong> программы на Турбазе совместно используют открытые модули</span>
-      </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">2</span>
-        <span><strong>Вклад авторов:</strong> разработчики заранее фиксируют справедливые доли в share(...)</span>
-      </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">3</span>
-        <span><strong>Схлопывание дерева:</strong> при поступлении платежа ядро ЦБ сплитует его за O(1) такт</span>
+      <div class="scenario-steps-list">
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">1</span>
+          <span><strong>Кооперация софта:</strong> программы на Турбазе совместно используют открытые модули</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">2</span>
+          <span><strong>Вклад авторов:</strong> разработчики заранее фиксируют справедливые доли в share(...)</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">3</span>
+          <span><strong>Схлопывание дерева:</strong> при поступлении платежа ядро ЦБ сплитует его за O(1) такт</span>
+        </div>
       </div>
 
       <div class="fsm-state-pipeline">
@@ -964,21 +970,23 @@ rate: "-9%"
         <p style="font-size: 21px; line-height: 1.28; margin: 2px 0 0 0;">Мастер-ключ Цифрового рубля никогда не хранится на смартфоне. Телефон оперирует лишь сессионным прокси с суточным лимитом.</p>
       </div>
 
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">1</span>
-        <span><strong>Сессионный прокси:</strong> к аппарату привязывается ключ с суточным лимитом (напр. 3 000 ₽)</span>
-      </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">2</span>
-        <span><strong>Векторная изоляция:</strong> код исполняется в браузере и заверяется районным шлюзом «Ветка»</span>
-      </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">3</span>
-        <span><strong>Экстренный отзыв:</strong> при утрате аппарата прокси отзывается с домашнего ПК в 1 клик</span>
-      </div>
-      <div class="flow-step-row teal">
-        <span class="flow-step-num teal">4</span>
-        <span><strong>Сохранность капитала:</strong> мастер-кошелек ЦБ неприкосновенен; выдается новый прокси</span>
+      <div class="scenario-steps-list">
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">1</span>
+          <span><strong>Сессионный прокси:</strong> к аппарату привязывается ключ с суточным лимитом (напр. 3 000 ₽)</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">2</span>
+          <span><strong>Векторная изоляция:</strong> код исполняется в браузере и заверяется районным шлюзом «Ветка»</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">3</span>
+          <span><strong>Экстренный отзыв:</strong> при утрате аппарата прокси отзывается с домашнего ПК в 1 клик</span>
+        </div>
+        <div class="flow-step-row teal">
+          <span class="flow-step-num teal">4</span>
+          <span><strong>Сохранность капитала:</strong> мастер-кошелек ЦБ неприкосновенен; выдается новый прокси</span>
+        </div>
       </div>
 
       <div class="fsm-state-pipeline">
