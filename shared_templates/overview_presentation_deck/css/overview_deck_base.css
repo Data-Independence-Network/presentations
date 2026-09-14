@@ -120,6 +120,30 @@ body {
   color: var(--text-secondary);
 }
 
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.slide-indicator {
+  font-family: var(--font-mono, monospace);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gold-primary);
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  padding: 4px 16px;
+  border-radius: 20px;
+}
+
+.nav-btn-arrow {
+  padding: 5px 12px;
+  font-size: 13px;
+  min-width: 36px;
+  justify-content: center;
+}
+
 .header-right {
   display: flex;
   align-items: center;

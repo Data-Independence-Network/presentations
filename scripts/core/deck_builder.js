@@ -236,17 +236,19 @@ function compileDeckHtml(presentationDir, options = {}) {
       const destWebCss = path.join(webDeckDir, cssFile);
       fs.copyFileSync(srcDocCss, destWebCss);
     });
-    cssLinkTags = localCssFiles
-      .map(cssFile => `  <!-- Isolated Standalone Presentation Theme -->\n  <link rel="stylesheet" href="${cssFile}">`)
-      .join('\n');
+    cssLinkTags = [
+      `  <!-- Universal Presentation Engine Chrome (Shared Viewport, Header & Controls) -->`,
+      `  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">`,
+      ...localCssFiles.map(cssFile => `  <!-- Isolated Standalone Presentation Theme & Content -->\n  <link rel="stylesheet" href="${cssFile}">`)
+    ].join('\n');
   } else {
     // Fallback for presentations that have not yet migrated to an isolated local stylesheet
     if (presentationDir.includes('platform_overview') || meta.theme === 'platform_overview') {
-      cssLinkTags = `  <!-- Platform Overview Design System (Fallback) -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_theme.css">\n  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_components.css">`;
+      cssLinkTags = `  <!-- Universal Presentation Engine Chrome -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <!-- Platform Overview Design System (Fallback) -->\n  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_theme.css">\n  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_components.css">`;
     } else if (presentationDir.includes('detailed_overall_impact') || meta.theme === 'detailed_impact') {
-      cssLinkTags = `  <!-- Detailed Impact Presentations Design System (Fallback) -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <link rel="stylesheet" href="${detailedImpactRel}/css/detailed_deck_theme.css">\n  <link rel="stylesheet" href="${detailedImpactRel}/css/detailed_deck_components.css">`;
+      cssLinkTags = `  <!-- Universal Presentation Engine Chrome -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <!-- Detailed Impact Presentations Design System (Fallback) -->\n  <link rel="stylesheet" href="${detailedImpactRel}/css/detailed_deck_theme.css">\n  <link rel="stylesheet" href="${detailedImpactRel}/css/detailed_deck_components.css">`;
     } else {
-      cssLinkTags = `  <!-- Universal Sovereign Overview Design System (Fallback) -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_base.css">\n  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_components.css">`;
+      cssLinkTags = `  <!-- Universal Presentation Engine Chrome -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <!-- Universal Sovereign Overview Design System (Fallback) -->\n  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_base.css">\n  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_components.css">`;
     }
   }
 
@@ -330,7 +332,9 @@ ${cssLinkTags}
       <span class="header-title">${escapeHtml(meta.header_subtitle)}</span>
     </div>
     <div class="header-center">
+      <button id="btnPrev" class="nav-btn nav-btn-arrow" title="Предыдущий слайд (←)"><span class="btn-icon">◀</span></button>
       <span id="slideIndicator" class="slide-indicator">Слайд 1 / ${totalSlides}</span>
+      <button id="btnNext" class="nav-btn nav-btn-arrow" title="Следующий слайд (→)"><span class="btn-icon">▶</span></button>
     </div>
     <div class="header-right">
       <button id="btnOverview" class="nav-btn" title="Сетка слайдов (O)"><span class="btn-icon">▦</span> Сетка</button>
