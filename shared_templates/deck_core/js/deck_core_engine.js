@@ -15,7 +15,7 @@ class DeckCoreEngine {
 
     this.initElements();
     this.bindEvents();
-    this.showSlide(1, false);
+    this.showSlide(1, true);
   }
 
   initElements() {
@@ -30,6 +30,18 @@ class DeckCoreEngine {
     this.notesDrawer = document.getElementById('notesDrawer');
     this.notesBody = document.getElementById('notesBody') || document.getElementById('notesText');
     this.overviewModal = document.getElementById('overviewModal');
+
+    if (this.audioPlayer) {
+      this.audioPlayer.addEventListener('play', () => {
+        if (this.btnSound) this.btnSound.classList.add('playing');
+      });
+      this.audioPlayer.addEventListener('pause', () => {
+        if (this.btnSound) this.btnSound.classList.remove('playing');
+      });
+      this.audioPlayer.addEventListener('ended', () => {
+        if (this.btnSound) this.btnSound.classList.remove('playing');
+      });
+    }
   }
 
   bindEvents() {
@@ -116,11 +128,48 @@ class DeckCoreEngine {
     // Audio Playback
     if (this.audioEnabled && playAudio) {
       const padded = String(slideNum).padStart(2, '0');
-      this.audioPlayer.src = `${this.audioPathPrefix}${padded}.mp3`;
-      this.audioPlayer.play().catch(() => {});
+      const targetSrc = `${this.audioPathPrefix}${padded}.mp3`;
+      if (!this.audioPlayer.src || !this.audioPlayer.src.endsWith(`${padded}.mp3`)) {
+        this.audioPlayer.src = targetSrc;
+      }
+      this.audioPlayer.currentTime = 0;
+      const playPromise = this.audioPlayer.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          if (this.btnSound) this.btnSound.classList.add('playing');
+        }).catch(() => {
+          if (this.btnSound) this.btnSound.classList.remove('playing');
+          this.setupAutoplayFallback();
+        });
+      }
     } else {
       this.audioPlayer.pause();
+      if (this.btnSound) this.btnSound.classList.remove('playing');
     }
+  }
+
+  setupAutoplayFallback() {
+    if (this._autoplayFallbackAttached) return;
+    this._autoplayFallbackAttached = true;
+
+    const unlock = () => {
+      this._autoplayFallbackAttached = false;
+      window.removeEventListener('click', unlock, true);
+      window.removeEventListener('keydown', unlock, true);
+      window.removeEventListener('touchstart', unlock, true);
+      window.removeEventListener('pointerdown', unlock, true);
+
+      if (this.audioEnabled && this.audioPlayer && this.audioPlayer.paused) {
+        this.audioPlayer.play().then(() => {
+          if (this.btnSound) this.btnSound.classList.add('playing');
+        }).catch(() => {});
+      }
+    };
+
+    window.addEventListener('click', unlock, true);
+    window.addEventListener('keydown', unlock, true);
+    window.addEventListener('touchstart', unlock, true);
+    window.addEventListener('pointerdown', unlock, true);
   }
 
   prevSlide() {
