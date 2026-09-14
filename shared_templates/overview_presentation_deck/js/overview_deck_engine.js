@@ -12,6 +12,9 @@ class OverviewDeckEngine {
     this.audioPlayer = new Audio();
     this.notesDrawerOpen = false;
     this.overviewModalOpen = false;
+    this._userHasInteracted = false;
+    this._autoplayFallbackAttached = false;
+    this._autoplayBannerActive = false;
 
     this.initElements();
     this.bindEvents();
@@ -72,17 +75,31 @@ class OverviewDeckEngine {
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      if (e.key === ' ' || e.code === 'Space') {
         e.preventDefault();
+        if (this._autoplayBannerActive || (this.audioEnabled && this.audioPlayer && this.audioPlayer.paused)) {
+          this.dismissAutoplayBanner();
+          if (this.audioEnabled && this.audioPlayer) {
+            this.audioPlayer.play().catch(() => {});
+          }
+        } else {
+          this.nextSlide();
+        }
+      } else if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        e.preventDefault();
+        this.dismissAutoplayBanner();
         this.nextSlide();
       } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
         e.preventDefault();
+        this.dismissAutoplayBanner();
         this.prevSlide();
       } else if (e.key === 'Home') {
         e.preventDefault();
+        this.dismissAutoplayBanner();
         this.showSlide(1);
       } else if (e.key === 'End') {
         e.preventDefault();
+        this.dismissAutoplayBanner();
         this.showSlide(this.totalSlides);
       } else if (e.key.toLowerCase() === 'n') {
         this.toggleNotes();
@@ -175,6 +192,10 @@ class OverviewDeckEngine {
     if (this.btnPrev) this.btnPrev.disabled = (slideNum === 1);
     if (this.btnNext) this.btnNext.disabled = (slideNum === this.totalSlides);
 
+    if (slideNum > 1) {
+      this.dismissAutoplayBanner();
+    }
+
     // Update speaker notes
     this.updateNotes(slideNum);
 
@@ -189,10 +210,14 @@ class OverviewDeckEngine {
       const playPromise = this.audioPlayer.play();
       if (playPromise !== undefined) {
         playPromise.then(() => {
+          this._userHasInteracted = true;
+          this.dismissAutoplayBanner();
           if (this.btnVoice) this.btnVoice.classList.add('playing');
         }).catch(() => {
           if (this.btnVoice) this.btnVoice.classList.remove('playing');
-          this.setupAutoplayFallback();
+          if (!this._userHasInteracted) {
+            this.setupAutoplayFallback();
+          }
         });
       }
     } else {
@@ -202,27 +227,91 @@ class OverviewDeckEngine {
   }
 
   setupAutoplayFallback() {
-    if (this._autoplayFallbackAttached) return;
+    if (this._userHasInteracted || this._autoplayFallbackAttached) return;
     this._autoplayFallbackAttached = true;
 
-    const unlock = () => {
-      this._autoplayFallbackAttached = false;
-      window.removeEventListener('click', unlock, true);
-      window.removeEventListener('keydown', unlock, true);
-      window.removeEventListener('touchstart', unlock, true);
-      window.removeEventListener('pointerdown', unlock, true);
+    this.showAutoplayBanner();
 
-      if (this.audioEnabled && this.audioPlayer && this.audioPlayer.paused) {
+    const unlock = (e) => {
+      const isControl = e && e.target && e.target.closest && (
+        e.target.closest('#btnNext') ||
+        e.target.closest('#btnPrev') ||
+        e.target.closest('#btnVoice') ||
+        e.target.closest('#btnSound') ||
+        e.target.closest('#btnNotes') ||
+        e.target.closest('#btnOverview') ||
+        e.target.closest('.nav-btn') ||
+        e.target.closest('.nav-btn-arrow')
+      );
+
+      this.dismissAutoplayBanner();
+      this.cleanupAutoplayFallback(unlock);
+
+      if (!isControl && this.audioEnabled && this.audioPlayer && this.audioPlayer.paused) {
         this.audioPlayer.play().then(() => {
           if (this.btnVoice) this.btnVoice.classList.add('playing');
         }).catch(() => {});
       }
     };
 
+    this._unlockHandler = unlock;
+
     window.addEventListener('click', unlock, true);
-    window.addEventListener('keydown', unlock, true);
     window.addEventListener('touchstart', unlock, true);
     window.addEventListener('pointerdown', unlock, true);
+  }
+
+  showAutoplayBanner() {
+    if (document.getElementById('autoplayBanner') || this._userHasInteracted) return;
+    this._autoplayBannerActive = true;
+
+    if (this.btnVoice) this.btnVoice.classList.add('needs-activation');
+
+    const viewport = document.querySelector('.presentation-viewport') || document.body;
+    const banner = document.createElement('div');
+    banner.id = 'autoplayBanner';
+    banner.className = 'autoplay-banner';
+    banner.setAttribute('title', 'Нажмите в любом месте или клавишу Пробел');
+    banner.innerHTML = `
+      <div class="autoplay-banner-icon">▶</div>
+      <div class="autoplay-banner-text">
+        <span class="autoplay-banner-title">Нажмите для запуска озвучки</span>
+        <span class="autoplay-banner-sub">или кликните в любом месте экрана (Пробел)</span>
+      </div>
+    `;
+
+    banner.addEventListener('click', (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      this.dismissAutoplayBanner();
+      if (this._unlockHandler) this.cleanupAutoplayFallback(this._unlockHandler);
+      if (this.audioEnabled && this.audioPlayer) {
+        this.audioPlayer.play().then(() => {
+          if (this.btnVoice) this.btnVoice.classList.add('playing');
+        }).catch(() => {});
+      }
+    });
+
+    document.body.appendChild(banner);
+  }
+
+  dismissAutoplayBanner() {
+    this._userHasInteracted = true;
+    this._autoplayBannerActive = false;
+    if (this.btnVoice) this.btnVoice.classList.remove('needs-activation');
+    const banner = document.getElementById('autoplayBanner');
+    if (banner) {
+      banner.classList.add('dismissed');
+      setTimeout(() => { if (banner.parentNode) banner.remove(); }, 250);
+    }
+  }
+
+  cleanupAutoplayFallback(handler) {
+    this._autoplayFallbackAttached = false;
+    window.removeEventListener('click', handler, true);
+    window.removeEventListener('keydown', handler, true);
+    window.removeEventListener('touchstart', handler, true);
+    window.removeEventListener('pointerdown', handler, true);
   }
 
   prevSlide() {
@@ -248,6 +337,31 @@ class OverviewDeckEngine {
   }
 
   toggleSound() {
+    if (this._autoplayBannerActive || this._autoplayFallbackAttached) {
+      this.dismissAutoplayBanner();
+      if (this._unlockHandler) this.cleanupAutoplayFallback(this._unlockHandler);
+      this.audioEnabled = true;
+      this.audioPlayer.play().then(() => {
+        if (this.btnVoice) {
+          this.btnVoice.classList.add('playing');
+          this.btnVoice.classList.add('active');
+          this.btnVoice.innerHTML = '<span class="btn-icon">🔊</span> Озвучка';
+        }
+      }).catch(() => {});
+      return;
+    }
+
+    if (this.audioEnabled && this.audioPlayer && this.audioPlayer.paused) {
+      this.audioPlayer.play().then(() => {
+        if (this.btnVoice) {
+          this.btnVoice.classList.add('playing');
+          this.btnVoice.classList.add('active');
+          this.btnVoice.innerHTML = '<span class="btn-icon">🔊</span> Озвучка';
+        }
+      }).catch(() => {});
+      return;
+    }
+
     this.audioEnabled = !this.audioEnabled;
     if (this.btnVoice) {
       this.btnVoice.classList.toggle('active', this.audioEnabled);
