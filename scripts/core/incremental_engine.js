@@ -239,6 +239,101 @@ function computePresentationFingerprints(presentationDir) {
   };
 }
 
+function checkVideoStatus(presentationDir, options = {}) {
+  const force = options.fullRegeneration || options.force || false;
+  const cleanBaseName = path.basename(presentationDir).replace(/_presentation$/, '');
+  const outputsDir = path.join(presentationDir, 'generated', 'outputs');
+  const videoExportsDir = path.join(outputsDir, 'video');
+  const artifactsDir = path.join(presentationDir, 'generated', 'artifacts');
+  const audioDir = path.join(artifactsDir, 'audio');
+  const slidesDir = path.join(artifactsDir, 'slides_png');
+
+  if (force) {
+    return { isDirty: true, reason: 'Force flag enabled' };
+  }
+
+  if (options.audioSynthesized) {
+    return { isDirty: true, reason: 'Audio was newly synthesized in this run' };
+  }
+
+  const expectedProfiles = ['10mb', 'email', 'master'];
+  const expectedFiles = expectedProfiles.map(p => path.join(videoExportsDir, `${cleanBaseName}_${p}.mp4`));
+
+  // Check if any expected video profile is missing or incomplete (< 10000 bytes)
+  for (const vFile of expectedFiles) {
+    if (!fs.existsSync(vFile) || fs.statSync(vFile).size < 10000) {
+      return { isDirty: true, reason: `Missing or incomplete video export: ${path.basename(vFile)}` };
+    }
+  }
+
+  // Find the earliest mtime among existing video exports
+  const minVideoMtime = Math.min(...expectedFiles.map(f => fs.statSync(f).mtimeMs));
+
+  // Check if any audio file is newer than the video exports
+  if (fs.existsSync(audioDir)) {
+    const audioFiles = fs.readdirSync(audioDir).filter(f => f.startsWith('slide_') && f.endsWith('.mp3'));
+    for (const aFile of audioFiles) {
+      const fullPath = path.join(audioDir, aFile);
+      const stat = fs.statSync(fullPath);
+      if (stat.mtimeMs > minVideoMtime + 100) {
+        return { isDirty: true, reason: `Audio file ${aFile} is newer than video exports` };
+      }
+    }
+  }
+
+  // Check if any slide screenshot is newer than the video exports
+  if (fs.existsSync(slidesDir)) {
+    const imgFiles = fs.readdirSync(slidesDir).filter(f => f.startsWith('slide_') && f.endsWith('.png'));
+    for (const iFile of imgFiles) {
+      const fullPath = path.join(slidesDir, iFile);
+      const stat = fs.statSync(fullPath);
+      if (stat.mtimeMs > minVideoMtime + 100) {
+        return { isDirty: true, reason: `Slide screenshot ${iFile} is newer than video exports` };
+      }
+    }
+  }
+
+  return { isDirty: false, reason: 'Up-to-date' };
+}
+
+function checkHandoutStatus(presentationDir, mdPath, options = {}) {
+  const force = options.fullRegeneration || options.force || false;
+  const cleanBaseName = path.basename(presentationDir).replace(/_presentation$/, '');
+  const outputsDir = path.join(presentationDir, 'generated', 'outputs');
+  const pdfDir = path.join(outputsDir, 'pdf');
+  const artifactsDir = path.join(presentationDir, 'generated', 'artifacts');
+  const slidesDir = path.join(artifactsDir, 'slides_png');
+  const handoutPdf = path.join(pdfDir, `${cleanBaseName}_notes.pdf`);
+
+  if (force) {
+    return { isDirty: true, reason: 'Force flag enabled' };
+  }
+
+  if (!fs.existsSync(handoutPdf) || fs.statSync(handoutPdf).size < 10000) {
+    return { isDirty: true, reason: 'Handout PDF missing or incomplete' };
+  }
+
+  const pdfMtime = fs.statSync(handoutPdf).mtimeMs;
+
+  if (mdPath && fs.existsSync(mdPath)) {
+    if (fs.statSync(mdPath).mtimeMs > pdfMtime + 100) {
+      return { isDirty: true, reason: 'Presentation markdown was updated after handout PDF' };
+    }
+  }
+
+  if (fs.existsSync(slidesDir)) {
+    const imgFiles = fs.readdirSync(slidesDir).filter(f => f.startsWith('slide_') && f.endsWith('.png'));
+    for (const iFile of imgFiles) {
+      const fullPath = path.join(slidesDir, iFile);
+      if (fs.statSync(fullPath).mtimeMs > pdfMtime + 100) {
+        return { isDirty: true, reason: `Slide screenshot ${iFile} is newer than handout PDF` };
+      }
+    }
+  }
+
+  return { isDirty: false, reason: 'Up-to-date' };
+}
+
 function analyzePresentationChanges(presentationDir, options = {}) {
   const force = options.fullRegeneration || options.force || false;
   const fingerprints = computePresentationFingerprints(presentationDir);
@@ -295,13 +390,14 @@ function analyzePresentationChanges(presentationDir, options = {}) {
     if (audioDirty) dirtyAudio.push(slideNum);
   });
 
-  const dirtyDeck = force || !fs.existsSync(webDeckHtml) || dirtyVisuals.length > 0 || dirtyAudio.length > 0;
-  const dirtyHandout = force || dirtyVisuals.length > 0 || dirtyAudio.length > 0;
-  
-  let hasVideoExports = fs.existsSync(videoExportsDir) && fs.readdirSync(videoExportsDir).some(f => f.endsWith('.mp4'));
-  const dirtyVideo = force || dirtyVisuals.length > 0 || dirtyAudio.length > 0 || !hasVideoExports;
+  const videoStatus = checkVideoStatus(presentationDir, options);
+  const handoutStatus = checkHandoutStatus(presentationDir, fingerprints.mdPath, options);
 
-  const isClean = !force && dirtyVisuals.length === 0 && dirtyAudio.length === 0 && !dirtyDeck;
+  const dirtyDeck = force || !fs.existsSync(webDeckHtml) || dirtyVisuals.length > 0 || dirtyAudio.length > 0;
+  const dirtyHandout = force || dirtyVisuals.length > 0 || dirtyAudio.length > 0 || handoutStatus.isDirty;
+  const dirtyVideo = force || dirtyVisuals.length > 0 || dirtyAudio.length > 0 || videoStatus.isDirty;
+
+  const isClean = !force && dirtyVisuals.length === 0 && dirtyAudio.length === 0 && !dirtyDeck && !dirtyHandout && !dirtyVideo;
 
   return {
     presentationDir,
@@ -312,6 +408,8 @@ function analyzePresentationChanges(presentationDir, options = {}) {
     dirtyAudio,
     dirtyHandout,
     dirtyVideo,
+    videoReason: videoStatus.reason,
+    handoutReason: handoutStatus.reason,
     totalSlides: slideNumbers.length,
     currentCommit,
     lastBuildCommit: cache ? cache.git_commit : null,
@@ -375,10 +473,12 @@ async function rebuildPresentation(presentationDir, options = {}) {
     return { skipped: true, targetDir, reason: `Missing audio for slide(s): ${missingAudio.join(', ')}` };
   }
 
+  const videoStatus = checkVideoStatus(targetDir, options);
+  const handoutStatus = checkHandoutStatus(targetDir, fingerprints.mdPath, options);
+
   const dirtyDeck = force || !fs.existsSync(webDeckHtml) || dirtyVisuals.length > 0;
-  const dirtyHandout = force || dirtyVisuals.length > 0;
-  let hasVideoExports = fs.existsSync(videoExportsDir) && fs.readdirSync(videoExportsDir).some(f => f.endsWith('.mp4'));
-  const dirtyVideo = force || dirtyVisuals.length > 0 || !hasVideoExports;
+  const dirtyHandout = force || dirtyVisuals.length > 0 || handoutStatus.isDirty;
+  const dirtyVideo = force || dirtyVisuals.length > 0 || videoStatus.isDirty;
 
   if (!force && !dirtyDeck && dirtyVisuals.length === 0 && !dirtyHandout && !dirtyVideo) {
     console.log(`[✓] No changes detected. All assets (.png, .pdf, .mp4) are up-to-date! (0s)`);
@@ -388,8 +488,8 @@ async function rebuildPresentation(presentationDir, options = {}) {
   console.log(`[!] Build tasks:`);
   console.log(`    - Web deck index.html:         ${dirtyDeck ? 'Dirty' : 'Clean'}`);
   console.log(`    - Visuals (re-screenshot):     ${dirtyVisuals.length > 0 ? dirtyVisuals.join(', ') : 'None (0)'}`);
-  console.log(`    - Handout Notes PDF:           ${dirtyHandout ? 'Dirty' : 'Clean'}`);
-  console.log(`    - Video exports:               ${dirtyVideo ? 'Dirty' : 'Clean'}\n`);
+  console.log(`    - Handout Notes PDF:           ${dirtyHandout ? `Dirty (${handoutStatus.reason})` : 'Clean'}`);
+  console.log(`    - Video exports:               ${dirtyVideo ? `Dirty (${videoStatus.reason})` : 'Clean'}\n`);
 
   // Step 1: Web Deck HTML
   if (dirtyDeck) {
@@ -519,7 +619,10 @@ async function regeneratePresentation(presentationDir, options = {}) {
   }
 
   // Step 2: Delegate all remaining steps to rebuildPresentation
-  return await rebuildPresentation(targetDir, options);
+  return await rebuildPresentation(targetDir, {
+    ...options,
+    audioSynthesized: analysis.dirtyAudio.length > 0
+  });
 }
 
 function discoverAllPresentations(rootDir) {
