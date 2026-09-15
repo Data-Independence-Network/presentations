@@ -229,7 +229,7 @@ function compileDeckHtml(presentationDir, options = {}) {
     }
   }
 
-  const cacheBuster = 'v=20260914_mobile4';
+  const cacheBuster = 'v=20260914_mobile5';
 
   let cssLinkTags = '';
   if (localCssFiles.length > 0) {
@@ -345,7 +345,7 @@ ${cssLinkTags}
     </div>
     <div class="header-right">
       <button id="btnOverview" class="nav-btn btn-desktop-only" title="Сетка слайдов (O)"><span class="btn-icon">▦</span> <span>Сетка</span></button>
-      <button id="btnVoice" class="nav-btn voice-btn" title="Голосовое сопровождение (V)"><span class="btn-icon">🔊</span> <span>Озвучка</span></button>
+      <button id="btnVoice" class="nav-btn voice-btn" title="Голосовое сопровождение (V)"><span class="btn-icon">🔊</span> <span class="btn-label">Озвучка</span></button>
       <button id="btnNotes" class="nav-btn" title="Текст диктора (N)"><span class="btn-icon">🎙️</span> <span>Текст спикера</span></button>
       <button id="btnFullscreen" class="nav-btn btn-desktop-only" title="Полноэкранный режим (F)"><span class="btn-icon">⛶</span> <span>Экран</span></button>
       <button id="btnPrint" class="nav-btn btn-desktop-only" title="Печать в PDF (Ctrl+P)"><span class="btn-icon">🖨️</span> <span>PDF</span></button>

@@ -61,6 +61,7 @@ class OverviewDeckEngine {
       });
     }
 
+    this.updateVoiceButtonUI();
     this.populateOverviewGrid();
   }
 
@@ -403,37 +404,41 @@ class OverviewDeckEngine {
     }
   }
 
+  updateVoiceButtonUI() {
+    if (!this.btnVoice) return;
+    this.btnVoice.classList.toggle('active', this.audioEnabled);
+    if (!this.audioEnabled) {
+      this.btnVoice.classList.remove('playing');
+    }
+    this.btnVoice.innerHTML = `
+      <span class="btn-icon">${this.audioEnabled ? '🔊' : '🔇'}</span>
+      <span class="btn-label">${this.audioEnabled ? 'Озвучка' : 'Без звука'}</span>
+    `;
+    this.btnVoice.title = this.audioEnabled ? 'Отключить озвучку (V)' : 'Включить озвучку (V)';
+  }
+
   toggleSound() {
     if (this._autoplayBannerActive || this._autoplayFallbackAttached) {
       this.dismissAutoplayBanner();
       if (this._unlockHandler) this.cleanupAutoplayFallback(this._unlockHandler);
       this.audioEnabled = true;
       this.audioPlayer.play().then(() => {
-        if (this.btnVoice) {
-          this.btnVoice.classList.add('playing');
-          this.btnVoice.classList.add('active');
-          this.btnVoice.innerHTML = '<span class="btn-icon">🔊</span> Озвучка';
-        }
+        if (this.btnVoice) this.btnVoice.classList.add('playing');
+        this.updateVoiceButtonUI();
       }).catch(() => {});
       return;
     }
 
     if (this.audioEnabled && this.audioPlayer && this.audioPlayer.paused) {
       this.audioPlayer.play().then(() => {
-        if (this.btnVoice) {
-          this.btnVoice.classList.add('playing');
-          this.btnVoice.classList.add('active');
-          this.btnVoice.innerHTML = '<span class="btn-icon">🔊</span> Озвучка';
-        }
+        if (this.btnVoice) this.btnVoice.classList.add('playing');
+        this.updateVoiceButtonUI();
       }).catch(() => {});
       return;
     }
 
     this.audioEnabled = !this.audioEnabled;
-    if (this.btnVoice) {
-      this.btnVoice.classList.toggle('active', this.audioEnabled);
-      this.btnVoice.innerHTML = this.audioEnabled ? '<span class="btn-icon">🔊</span> Озвучка' : '<span class="btn-icon">🔇</span> Без звука';
-    }
+    this.updateVoiceButtonUI();
     if (!this.audioEnabled) {
       this.audioPlayer.pause();
     } else {

@@ -628,6 +628,8 @@ body {
 
   .presentation-header {
     width: 54px !important;
+    min-width: 54px !important;
+    max-width: 54px !important;
     height: 100vh !important;
     min-height: 100vh !important;
     max-height: 100vh !important;
@@ -638,6 +640,7 @@ body {
     padding: 8px 4px !important;
     gap: 8px !important;
     flex-shrink: 0 !important;
+    overflow: hidden !important;
   }
 
   .header-left {
@@ -647,21 +650,33 @@ body {
     align-items: center !important;
   }
   .header-left .logo-badge {
-    padding: 6px;
+    padding: 6px !important;
+    width: 38px !important;
+    max-width: 38px !important;
+    height: 38px !important;
+    overflow: hidden !important;
     border-radius: 6px;
+    justify-content: center;
+    box-sizing: border-box !important;
   }
   .header-left .logo-text,
   .header-left .header-title,
   .header-left .deck-title {
     display: none !important;
   }
-  .header-left .nav-btn-home span:not(.btn-icon) {
+  .header-left .nav-btn-home span:not(.btn-icon),
+  .header-left .nav-btn-home .btn-label {
     display: none !important;
   }
   .header-left .nav-btn-home {
-    padding: 6px;
-    min-width: 38px;
+    padding: 6px !important;
+    width: 38px !important;
+    max-width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+    overflow: hidden !important;
     justify-content: center;
+    box-sizing: border-box !important;
   }
 
   .header-center {
@@ -681,9 +696,13 @@ body {
     overflow: hidden;
   }
   .nav-btn-arrow {
-    padding: 6px;
-    min-width: 38px;
+    padding: 4px !important;
+    width: 38px !important;
+    max-width: 38px !important;
+    min-width: 38px !important;
+    height: 32px !important;
     justify-content: center;
+    box-sizing: border-box !important;
   }
 
   .header-right {
@@ -692,13 +711,20 @@ body {
     width: 100%;
     align-items: center;
   }
-  .header-right .nav-btn span:not(.btn-icon) {
+  .header-right .nav-btn span:not(.btn-icon),
+  .header-right .nav-btn .btn-label {
     display: none !important;
   }
   .header-right .nav-btn {
-    padding: 6px;
-    min-width: 38px;
+    padding: 6px !important;
+    width: 38px !important;
+    max-width: 38px !important;
+    min-width: 38px !important;
+    height: 38px !important;
+    overflow: hidden !important;
+    white-space: nowrap !important;
     justify-content: center;
+    box-sizing: border-box !important;
   }
   .header-right .btn-desktop-only {
     display: none !important;
@@ -792,12 +818,17 @@ body {
     gap: 5px;
     flex-shrink: 0;
   }
-  .header-right .nav-btn span:not(.btn-icon) {
+  .header-right .nav-btn span:not(.btn-icon),
+  .header-right .nav-btn .btn-label {
     display: none !important;
   }
   .header-right .nav-btn {
     padding: 5px 8px;
     min-width: 32px;
+    max-width: 38px;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    justify-content: center;
   }
   .header-right .btn-desktop-only {
     display: none !important;
