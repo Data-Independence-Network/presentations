@@ -822,11 +822,53 @@
     }
 
     /* Responsive Adaptation */
+    /* Controls bar should NEVER be sticky on mobile, tablet, or short-height viewports */
+    @media (max-width: 1024px), (max-height: 620px) {
+      .controls-bar {
+        position: static !important;
+        top: auto !important;
+      }
+    }
+
+    @media (orientation: landscape) and (max-height: 560px) {
+      .container { padding: 14px 20px 50px; }
+      .hero-header { padding: 12px 0 14px; margin-bottom: 16px; }
+      .hero-top { margin-bottom: 8px; gap: 10px; }
+      .hero-title { font-size: 26px !important; line-height: 1.2 !important; margin-bottom: 6px; }
+      .hero-subtitle { font-size: 14px !important; line-height: 1.4 !important; }
+      .stats-row { margin-top: 14px !important; gap: 10px !important; grid-template-columns: repeat(2, 1fr) !important; }
+      .stat-card { padding: 10px 14px !important; }
+      .stat-number { font-size: 24px !important; }
+      .stat-label { font-size: 12px !important; }
+      .stat-desc { font-size: 11px !important; }
+      .controls-bar {
+        position: static !important;
+        padding: 10px 14px !important;
+        gap: 10px !important;
+        margin-bottom: 20px !important;
+      }
+      .controls-top { gap: 10px; }
+      .mode-tab { padding: 7px 12px !important; font-size: 13px !important; }
+      .search-input { padding: 8px 12px 8px 36px !important; font-size: 13.5px !important; }
+      .filter-tags-row { gap: 6px !important; }
+      .filter-tag-pill { padding: 6px 12px !important; font-size: 12px !important; }
+      .category-header { margin-bottom: 14px !important; }
+      .category-title { font-size: 20px !important; }
+      .category-desc { font-size: 12.5px !important; }
+      .cards-grid {
+        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)) !important;
+        gap: 16px !important;
+      }
+      .pres-card { padding: 18px !important; }
+      .card-title { font-size: 17px !important; }
+      .card-desc { font-size: 13px !important; }
+    }
+
     @media (max-width: 900px) {
       .hero-title { font-size: 32px; }
       .cards-grid { grid-template-columns: 1fr; }
       .whitepaper-grid { grid-template-columns: 1fr; }
-      .controls-bar { position: static; }
+      .controls-bar { position: static !important; }
       .search-wrapper { max-width: 100%; width: 100%; }
       .stats-row { grid-template-columns: repeat(2, 1fr); }
     }
