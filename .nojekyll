@@ -1,0 +1,2 @@
+# This file tells GitHub Pages not to run Jekyll.
+# It ensures that all static assets, markdown files, and directories are served directly as-is.

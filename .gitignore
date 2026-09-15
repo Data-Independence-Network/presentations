@@ -22,7 +22,7 @@ text_to_speech_mcp_Open_API_key.txt
 *.mov
 *.mkv
 
-# Documents & PDFs & Videos (Binary deliverables excluded from git)
+# Documents & PDFs & Videos (Binary deliverables excluded from git by default)
 *.pdf
 **/*.pdf
 shared_docs/*.pdf
@@ -36,6 +36,14 @@ shared_docs/whitepapers/02_applications_suite_whitepaper.pdf
 shared_docs/whitepapers/03_engineering_architecture_whitepaper.pdf
 shared_docs/whitepapers/04_ecosystem_impact_whitepaper.pdf
 shared_docs/whitepapers/05_sovereign_governance_whitepaper.pdf
+
+# Finalized Public Deliverables (Tracked in Git for GitHub Pages distribution)
+!shared_docs/Технический документ платформы Турбаза.pdf
+!platform_overview/01_paradigm_shift_presentation/generated/outputs/pdf/01_paradigm_shift_manifesto.pdf
+!platform_overview/02_architecture_principles_presentation/generated/outputs/pdf/02_architecture_principles_notes.pdf
+!platform_overview/03_sovereign_economy_presentation/generated/outputs/pdf/03_sovereign_economy_notes.pdf
+!overall_presentations/01_sovereign_architecture_presentation/generated/outputs/pdf/01_sovereign_architecture_notes.pdf
+!overall_presentations/02_stakeholders_benefits_presentation/generated/outputs/pdf/02_stakeholders_benefits_notes.pdf
 
 # Captured Slide Screenshots (generated from HTML web decks)
 **/slides_png/*.png
