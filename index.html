@@ -925,6 +925,7 @@
         <button class="cat-pill" data-cat="applications_presentations">⏳ Скоро: Приложения (5)</button>
         <button class="cat-pill" data-cat="architecture_presentations">⚙️ Архитектура (0/7)</button>
         <button class="cat-pill" data-cat="detailed_overall_impact_presentations">👥 Стейкхолдеры (0/10)</button>
+        <button class="cat-pill" data-cat="whitepapers">📑 Белые книги (1/7)</button>
       </div>
     </nav>
 
@@ -1993,114 +1994,300 @@
     </main>
 
     <!-- WHITEPAPERS SECTION -->
-    <section class="whitepapers-section" id="whitepapersSection">
-      <div class="section-title-group" style="margin-bottom: 8px;">
-        <span class="section-icon">📑</span>
-        <h2 class="section-title">Пакет Белых Книг (A4 Whitepapers)</h2>
+    <section class="section-block whitepapers-section" id="whitepapersSection">
+      <div class="section-header">
+        <div class="section-title-group">
+          <span class="section-icon">📑</span>
+          <h2 class="section-title">Пакет Белых Книг (A4 Whitepapers)</h2>
+          <span class="section-badge">1 готово · 6 в разработке</span>
+        </div>
+        <p class="section-desc">
+          Официальный пакет 6 публикационных белых книг и генерального технического документа платформы «Турбаза». Белая книга 06 (экспертный отзыв для Банка России) финализирована и доступна в полиграфическом A4 PDF; документы 01–05 находятся в активной подготовке и доступны для чтения во встроенном веб-вьюере и в исходных Markdown-файлах.
+        </p>
       </div>
-      <p class="section-desc">
-        Официальный пакет 6 публикационных белых книг и генерального технического документа платформы «Турбаза» для регуляторов, инвесторов и архитекторов.
-      </p>
 
-      <div class="whitepaper-grid">
+      <div class="cards-grid">
 
-        <a href="shared_docs/whitepapers/01_platform_overview_whitepaper.pdf" target="_blank" class="whitepaper-card">
+        <!-- Card: Whitepaper 01 -->
+        <article class="pres-card is-draft"
+                 data-card
+                 data-ready="false"
+                 data-coming-soon="false"
+                 data-next="false"
+                 data-category="whitepapers"
+                 data-search="белая книга 01: концептуальный обзор платформы парадигмальный сдвиг децентрализации, трехуровневая модель «лист — ветка — ствол», 152-фз zero-pii и снижение tco на 90%. 📊 15 страниц суверенитет zero-pii tco -90% edge computing белая книга · 01">
+          
           <div>
-            <div class="wp-header">
-              <span class="wp-num">01</span>
-              <div class="wp-title">Белая книга 01: Концептуальный обзор платформы</div>
+            <div class="card-top">
+              <span class="card-marker">БЕЛАЯ КНИГА · 01</span>
+              <span class="card-status-pill status-draft">📐 В разработке</span>
             </div>
-            <p class="wp-desc" style="margin-top: 8px;">Парадигмальный сдвиг, суверенитет данных, 3-уровневая модель и экономические предпосылки</p>
-          </div>
-          <div class="wp-footer">
-            <span>Открыть PDF документ</span>
-            <span>↗</span>
-          </div>
-        </a>
 
-        <a href="shared_docs/whitepapers/02_applications_suite_whitepaper.pdf" target="_blank" class="whitepaper-card">
-          <div>
-            <div class="wp-header">
-              <span class="wp-num">02</span>
-              <div class="wp-title">Белая книга 02: Пакет флагманских прикладных решений</div>
-            </div>
-            <p class="wp-desc" style="margin-top: 8px;">Архитектура сервисов «КубГолос», «Забота», «Деловой», «УраТур» и локального реестра</p>
-          </div>
-          <div class="wp-footer">
-            <span>Открыть PDF документ</span>
-            <span>↗</span>
-          </div>
-        </a>
+            <h3 class="card-title">Белая книга 01: Концептуальный обзор платформы</h3>
+            <p class="card-subtitle">Парадигмальный сдвиг децентрализации, трехуровневая модель «Лист — Ветка — Ствол», 152-ФЗ Zero-PII и снижение TCO на 90%.</p>
 
-        <a href="shared_docs/whitepapers/03_engineering_architecture_whitepaper.pdf" target="_blank" class="whitepaper-card">
-          <div>
-            <div class="wp-header">
-              <span class="wp-num">03</span>
-              <div class="wp-title">Белая книга 03: Инженерная спецификация архитектуры</div>
+            <div class="card-tags">
+              <span class="tag-pill">📊 15 страниц</span>
+              <span class="tag-pill">Суверенитет</span>
+              <span class="tag-pill">Zero-PII</span>
+              <span class="tag-pill">TCO -90%</span>
+              <span class="tag-pill">Edge Computing</span>
             </div>
-            <p class="wp-desc" style="margin-top: 8px;">Leaf Storage SQLite/Micro-chain, конвейер Branch, маршрутизация P2P, TreeSearch и криптоконтур</p>
           </div>
-          <div class="wp-footer">
-            <span>Открыть PDF документ</span>
-            <span>↗</span>
-          </div>
-        </a>
 
-        <a href="shared_docs/whitepapers/04_ecosystem_impact_whitepaper.pdf" target="_blank" class="whitepaper-card">
-          <div>
-            <div class="wp-header">
-              <span class="wp-num">04</span>
-              <div class="wp-title">Белая книга 04: Экосистемный анализ стейкхолдеров</div>
-            </div>
-            <p class="wp-desc" style="margin-top: 8px;">Модели выигрыша для граждан, силовых структур, МСП, рекламодателей, AdTech, государства и финтеха</p>
+          <div class="card-actions">
+            
+            <a href="viewer.html?doc=shared_docs%2Fwhitepapers%2F01_platform_overview_whitepaper.md" class="btn-preview" title="Читать черновик документа во встроенном веб-вьюере">
+              📖 Читать во вьюере
+            </a>
+            <a href="shared_docs/whitepapers/01_platform_overview_whitepaper.md" target="_blank" class="btn-pdf" title="Открыть исходный файл Markdown">
+              📝 Исходник .md
+            </a>
+            
+              
           </div>
-          <div class="wp-footer">
-            <span>Открыть PDF документ</span>
-            <span>↗</span>
-          </div>
-        </a>
+        </article>
 
-        <a href="shared_docs/whitepapers/05_sovereign_governance_whitepaper.pdf" target="_blank" class="whitepaper-card">
+        <!-- Card: Whitepaper 02 -->
+        <article class="pres-card is-draft"
+                 data-card
+                 data-ready="false"
+                 data-coming-soon="false"
+                 data-next="false"
+                 data-category="whitepapers"
+                 data-search="белая книга 02: пакет флагманских прикладных решений прикладные алгоритмы прямого владения данными: «кубголос», «забота», «деловой», «уратур», реестр мсп и branch-шлюзы есиа, сбп, гис жкх. 📊 15 страниц кубголос забота деловой шлюзы есиа/сбп белая книга · 02">
+          
           <div>
-            <div class="wp-header">
-              <span class="wp-num">05</span>
-              <div class="wp-title">Белая книга 05: Суверенное управление и регуляторный контур</div>
+            <div class="card-top">
+              <span class="card-marker">БЕЛАЯ КНИГА · 02</span>
+              <span class="card-status-pill status-draft">📐 В разработке</span>
             </div>
-            <p class="wp-desc" style="margin-top: 8px;">152-ФЗ Zero-PII, ведомственная юрисдикция данных, аудит, неизменяемые журналы и правовые гарантии</p>
-          </div>
-          <div class="wp-footer">
-            <span>Открыть PDF документ</span>
-            <span>↗</span>
-          </div>
-        </a>
 
-        <a href="shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf" target="_blank" class="whitepaper-card">
-          <div>
-            <div class="wp-header">
-              <span class="wp-num">06</span>
-              <div class="wp-title">Белая книга 06: Смарт-контракты Банка России и FSM O(1)</div>
-            </div>
-            <p class="wp-desc" style="margin-top: 8px;">Детерминированные автоматы конечных состояний, микроклиринг и интеграция с Цифровым рублем</p>
-          </div>
-          <div class="wp-footer">
-            <span>Открыть PDF документ</span>
-            <span>↗</span>
-          </div>
-        </a>
+            <h3 class="card-title">Белая книга 02: Пакет флагманских прикладных решений</h3>
+            <p class="card-subtitle">Прикладные алгоритмы прямого владения данными: «КубГолос», «Забота», «Деловой», «УраТур», реестр МСП и Branch-шлюзы ЕСИА, СБП, ГИС ЖКХ.</p>
 
-        <a href="shared_docs/Технический документ платформы Турбаза.pdf" target="_blank" class="whitepaper-card">
-          <div>
-            <div class="wp-header">
-              <span class="wp-num">DOC</span>
-              <div class="wp-title">Технический документ платформы «Турбаза»</div>
+            <div class="card-tags">
+              <span class="tag-pill">📊 15 страниц</span>
+              <span class="tag-pill">КубГолос</span>
+              <span class="tag-pill">Забота</span>
+              <span class="tag-pill">Деловой</span>
+              <span class="tag-pill">Шлюзы ЕСИА/СБП</span>
             </div>
-            <p class="wp-desc" style="margin-top: 8px;">Сводный фундаментальный документ архитектуры распределенных вычислений и суверенных данных</p>
           </div>
-          <div class="wp-footer">
-            <span>Открыть PDF документ</span>
-            <span>↗</span>
+
+          <div class="card-actions">
+            
+            <a href="viewer.html?doc=shared_docs%2Fwhitepapers%2F02_applications_suite_whitepaper.md" class="btn-preview" title="Читать черновик документа во встроенном веб-вьюере">
+              📖 Читать во вьюере
+            </a>
+            <a href="shared_docs/whitepapers/02_applications_suite_whitepaper.md" target="_blank" class="btn-pdf" title="Открыть исходный файл Markdown">
+              📝 Исходник .md
+            </a>
+            
+              
           </div>
-        </a>
+        </article>
+
+        <!-- Card: Whitepaper 03 -->
+        <article class="pres-card is-draft"
+                 data-card
+                 data-ready="false"
+                 data-coming-soon="false"
+                 data-next="false"
+                 data-category="whitepapers"
+                 data-search="белая книга 03: инженерная спецификация архитектуры реляционная модель airentity, встраиваемый sqlite на листе, read-anywhere write-self, конвейер branch, p2p/webrtc и treesearch. 📊 15 страниц sqlite branch pipeline p2p/webrtc treesearch белая книга · 03">
+          
+          <div>
+            <div class="card-top">
+              <span class="card-marker">БЕЛАЯ КНИГА · 03</span>
+              <span class="card-status-pill status-draft">📐 В разработке</span>
+            </div>
+
+            <h3 class="card-title">Белая книга 03: Инженерная спецификация архитектуры</h3>
+            <p class="card-subtitle">Реляционная модель AirEntity, встраиваемый SQLite на Листе, Read-Anywhere Write-Self, конвейер Branch, P2P/WebRTC и TreeSearch.</p>
+
+            <div class="card-tags">
+              <span class="tag-pill">📊 15 страниц</span>
+              <span class="tag-pill">SQLite</span>
+              <span class="tag-pill">Branch Pipeline</span>
+              <span class="tag-pill">P2P/WebRTC</span>
+              <span class="tag-pill">TreeSearch</span>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            
+            <a href="viewer.html?doc=shared_docs%2Fwhitepapers%2F03_engineering_architecture_whitepaper.md" class="btn-preview" title="Читать черновик документа во встроенном веб-вьюере">
+              📖 Читать во вьюере
+            </a>
+            <a href="shared_docs/whitepapers/03_engineering_architecture_whitepaper.md" target="_blank" class="btn-pdf" title="Открыть исходный файл Markdown">
+              📝 Исходник .md
+            </a>
+            
+              
+          </div>
+        </article>
+
+        <!-- Card: Whitepaper 04 -->
+        <article class="pres-card is-draft"
+                 data-card
+                 data-ready="false"
+                 data-coming-soon="false"
+                 data-next="false"
+                 data-category="whitepapers"
+                 data-search="белая книга 04: экосистемный анализ стейкхолдеров матрица выигрыша для 10 категорий участников (граждане, бизнес, adtech, финтех, государство), расчет экономии tco и 4-фазная миграция. 📊 15 страниц 10 участников tco анализ экосистема миграция белая книга · 04">
+          
+          <div>
+            <div class="card-top">
+              <span class="card-marker">БЕЛАЯ КНИГА · 04</span>
+              <span class="card-status-pill status-draft">📐 В разработке</span>
+            </div>
+
+            <h3 class="card-title">Белая книга 04: Экосистемный анализ стейкхолдеров</h3>
+            <p class="card-subtitle">Матрица выигрыша для 10 категорий участников (граждане, бизнес, AdTech, финтех, государство), расчет экономии TCO и 4-фазная миграция.</p>
+
+            <div class="card-tags">
+              <span class="tag-pill">📊 15 страниц</span>
+              <span class="tag-pill">10 Участников</span>
+              <span class="tag-pill">TCO анализ</span>
+              <span class="tag-pill">Экосистема</span>
+              <span class="tag-pill">Миграция</span>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            
+            <a href="viewer.html?doc=shared_docs%2Fwhitepapers%2F04_ecosystem_impact_whitepaper.md" class="btn-preview" title="Читать черновик документа во встроенном веб-вьюере">
+              📖 Читать во вьюере
+            </a>
+            <a href="shared_docs/whitepapers/04_ecosystem_impact_whitepaper.md" target="_blank" class="btn-pdf" title="Открыть исходный файл Markdown">
+              📝 Исходник .md
+            </a>
+            
+              
+          </div>
+        </article>
+
+        <!-- Card: Whitepaper 05 -->
+        <article class="pres-card is-draft"
+                 data-card
+                 data-ready="false"
+                 data-coming-soon="false"
+                 data-next="false"
+                 data-category="whitepapers"
+                 data-search="белая книга 05: суверенное управление и регуляторный контур юридический комплаенс 152-фз, ведомственная юрисдикция, подписи гост р 34.10-2012, неизменяемый аудит и доверенный контур брикс+. 📊 15 страниц 152-фз zero-pii гост р 34.10 брикс+ аудит белая книга · 05">
+          
+          <div>
+            <div class="card-top">
+              <span class="card-marker">БЕЛАЯ КНИГА · 05</span>
+              <span class="card-status-pill status-draft">📐 В разработке</span>
+            </div>
+
+            <h3 class="card-title">Белая книга 05: Суверенное управление и регуляторный контур</h3>
+            <p class="card-subtitle">Юридический комплаенс 152-ФЗ, ведомственная юрисдикция, подписи ГОСТ Р 34.10-2012, неизменяемый аудит и доверенный контур БРИКС+.</p>
+
+            <div class="card-tags">
+              <span class="tag-pill">📊 15 страниц</span>
+              <span class="tag-pill">152-ФЗ Zero-PII</span>
+              <span class="tag-pill">ГОСТ Р 34.10</span>
+              <span class="tag-pill">БРИКС+</span>
+              <span class="tag-pill">Аудит</span>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            
+            <a href="viewer.html?doc=shared_docs%2Fwhitepapers%2F05_sovereign_governance_whitepaper.md" class="btn-preview" title="Читать черновик документа во встроенном веб-вьюере">
+              📖 Читать во вьюере
+            </a>
+            <a href="shared_docs/whitepapers/05_sovereign_governance_whitepaper.md" target="_blank" class="btn-pdf" title="Открыть исходный файл Markdown">
+              📝 Исходник .md
+            </a>
+            
+              
+          </div>
+        </article>
+
+        <!-- Card: Whitepaper 06 -->
+        <article class="pres-card is-ready"
+                 data-card
+                 data-ready="true"
+                 data-coming-soon="false"
+                 data-next="false"
+                 data-category="whitepapers"
+                 data-search="белая книга 06: смарт-контракты банка россии и fsm o(1) официальный отзыв на концепцию пкск цб рф: детерминированные автоматы состояний (fsm) o(1), zero-pii, бестерминальность и интеграция с цифровым рублем. 📊 15 страниц банк россии fsm o(1) цифровой рубль экспертный отзыв белая книга · 06 · цб рф">
+          
+          <div>
+            <div class="card-top">
+              <span class="card-marker">БЕЛАЯ КНИГА · 06 · ЦБ РФ</span>
+              <span class="card-status-pill status-ready"><span class="status-dot"></span> Готово (PDF A4)</span>
+            </div>
+
+            <h3 class="card-title">Белая книга 06: Смарт-контракты Банка России и FSM O(1)</h3>
+            <p class="card-subtitle">Официальный отзыв на Концепцию ПКСК ЦБ РФ: детерминированные автоматы состояний (FSM) O(1), Zero-PII, бестерминальность и интеграция с Цифровым рублем.</p>
+
+            <div class="card-tags">
+              <span class="tag-pill">📊 15 страниц</span>
+              <span class="tag-pill">Банк России</span>
+              <span class="tag-pill">FSM O(1)</span>
+              <span class="tag-pill">Цифровой рубль</span>
+              <span class="tag-pill">Экспертный отзыв</span>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            
+            <a href="shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf" target="_blank" class="btn-launch" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #ffffff; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);" title="Открыть официальный полиграфический A4 PDF (15 стр.)">
+              📄 PDF Документ (15 стр.)
+            </a>
+            <a href="viewer.html?doc=shared_docs%2Fwhitepapers%2F06_cbr_smart_contracts_fsm_whitepaper.md" class="btn-preview" title="Читать белую книгу во встроенном веб-вьюере">
+              📖 Вьюер
+            </a>
+            <a href="shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md" target="_blank" class="btn-pdf" title="Открыть исходный файл Markdown">
+              📝 .md
+            </a>
+              
+          </div>
+        </article>
+
+        <!-- Card: Whitepaper DOC -->
+        <article class="pres-card is-draft"
+                 data-card
+                 data-ready="false"
+                 data-coming-soon="false"
+                 data-next="false"
+                 data-category="whitepapers"
+                 data-search="технический документ платформы «турбаза» сводный фундаментальный документ архитектуры распределенных вычислений, суверенных данных и открытого стека airport. архитектура спецификация leaf-branch-trunk airport stack технический документ">
+          
+          <div>
+            <div class="card-top">
+              <span class="card-marker">ТЕХНИЧЕСКИЙ ДОКУМЕНТ</span>
+              <span class="card-status-pill status-draft">📐 В разработке</span>
+            </div>
+
+            <h3 class="card-title">Технический документ платформы «Турбаза»</h3>
+            <p class="card-subtitle">Сводный фундаментальный документ архитектуры распределенных вычислений, суверенных данных и открытого стека AIRport.</p>
+
+            <div class="card-tags">
+              <span class="tag-pill">Архитектура</span>
+              <span class="tag-pill">Спецификация</span>
+              <span class="tag-pill">Leaf-Branch-Trunk</span>
+              <span class="tag-pill">AIRport Stack</span>
+            </div>
+          </div>
+
+          <div class="card-actions">
+            
+            <a href="viewer.html?doc=shared_docs%2F%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D1%8B%20%D0%A2%D1%83%D1%80%D0%B1%D0%B0%D0%B7%D0%B0.md" class="btn-preview" title="Читать черновик документа во встроенном веб-вьюере">
+              📖 Читать во вьюере
+            </a>
+            <a href="shared_docs/Технический документ платформы Турбаза.md" target="_blank" class="btn-pdf" title="Открыть исходный файл Markdown">
+              📝 Исходник .md
+            </a>
+            <a href="shared_docs/Технический документ платформы Турбаза.pdf" target="_blank" class="btn-pdf" title="Открыть PDF">📄 PDF</a>
+              
+          </div>
+        </article>
       </div>
     </section>
 
@@ -2152,8 +2339,8 @@
               return;
             }
           } else if (currentMode === 'featured') {
-            // Featured: show ready presentations OR coming soon applications
-            if (!isReady && !isComingSoon) {
+            // Featured: show ready presentations OR coming soon applications OR whitepapers section
+            if (!isReady && !isComingSoon && cardCat !== 'whitepapers') {
               card.style.display = 'none';
               return;
             }

@@ -233,45 +233,73 @@ const PRESENTATION_METADATA = {
 const WHITEPAPERS = [
   {
     num: '01',
+    marker: 'БЕЛАЯ КНИГА · 01',
     title: 'Белая книга 01: Концептуальный обзор платформы',
-    desc: 'Парадигмальный сдвиг, суверенитет данных, 3-уровневая модель и экономические предпосылки',
-    path: 'shared_docs/whitepapers/01_platform_overview_whitepaper.pdf'
+    desc: 'Парадигмальный сдвиг децентрализации, трехуровневая модель «Лист — Ветка — Ствол», 152-ФЗ Zero-PII и снижение TCO на 90%.',
+    mdPath: 'shared_docs/whitepapers/01_platform_overview_whitepaper.md',
+    pdfPath: 'shared_docs/whitepapers/01_platform_overview_whitepaper.pdf',
+    isReady: false,
+    tags: ['📊 15 страниц', 'Суверенитет', 'Zero-PII', 'TCO -90%', 'Edge Computing']
   },
   {
     num: '02',
+    marker: 'БЕЛАЯ КНИГА · 02',
     title: 'Белая книга 02: Пакет флагманских прикладных решений',
-    desc: 'Архитектура сервисов «КубГолос», «Забота», «Деловой», «УраТур» и локального реестра',
-    path: 'shared_docs/whitepapers/02_applications_suite_whitepaper.pdf'
+    desc: 'Прикладные алгоритмы прямого владения данными: «КубГолос», «Забота», «Деловой», «УраТур», реестр МСП и Branch-шлюзы ЕСИА, СБП, ГИС ЖКХ.',
+    mdPath: 'shared_docs/whitepapers/02_applications_suite_whitepaper.md',
+    pdfPath: 'shared_docs/whitepapers/02_applications_suite_whitepaper.pdf',
+    isReady: false,
+    tags: ['📊 15 страниц', 'КубГолос', 'Забота', 'Деловой', 'Шлюзы ЕСИА/СБП']
   },
   {
     num: '03',
+    marker: 'БЕЛАЯ КНИГА · 03',
     title: 'Белая книга 03: Инженерная спецификация архитектуры',
-    desc: 'Leaf Storage SQLite/Micro-chain, конвейер Branch, маршрутизация P2P, TreeSearch и криптоконтур',
-    path: 'shared_docs/whitepapers/03_engineering_architecture_whitepaper.pdf'
+    desc: 'Реляционная модель AirEntity, встраиваемый SQLite на Листе, Read-Anywhere Write-Self, конвейер Branch, P2P/WebRTC и TreeSearch.',
+    mdPath: 'shared_docs/whitepapers/03_engineering_architecture_whitepaper.md',
+    pdfPath: 'shared_docs/whitepapers/03_engineering_architecture_whitepaper.pdf',
+    isReady: false,
+    tags: ['📊 15 страниц', 'SQLite', 'Branch Pipeline', 'P2P/WebRTC', 'TreeSearch']
   },
   {
     num: '04',
+    marker: 'БЕЛАЯ КНИГА · 04',
     title: 'Белая книга 04: Экосистемный анализ стейкхолдеров',
-    desc: 'Модели выигрыша для граждан, силовых структур, МСП, рекламодателей, AdTech, государства и финтеха',
-    path: 'shared_docs/whitepapers/04_ecosystem_impact_whitepaper.pdf'
+    desc: 'Матрица выигрыша для 10 категорий участников (граждане, бизнес, AdTech, финтех, государство), расчет экономии TCO и 4-фазная миграция.',
+    mdPath: 'shared_docs/whitepapers/04_ecosystem_impact_whitepaper.md',
+    pdfPath: 'shared_docs/whitepapers/04_ecosystem_impact_whitepaper.pdf',
+    isReady: false,
+    tags: ['📊 15 страниц', '10 Участников', 'TCO анализ', 'Экосистема', 'Миграция']
   },
   {
     num: '05',
+    marker: 'БЕЛАЯ КНИГА · 05',
     title: 'Белая книга 05: Суверенное управление и регуляторный контур',
-    desc: '152-ФЗ Zero-PII, ведомственная юрисдикция данных, аудит, неизменяемые журналы и правовые гарантии',
-    path: 'shared_docs/whitepapers/05_sovereign_governance_whitepaper.pdf'
+    desc: 'Юридический комплаенс 152-ФЗ, ведомственная юрисдикция, подписи ГОСТ Р 34.10-2012, неизменяемый аудит и доверенный контур БРИКС+.',
+    mdPath: 'shared_docs/whitepapers/05_sovereign_governance_whitepaper.md',
+    pdfPath: 'shared_docs/whitepapers/05_sovereign_governance_whitepaper.pdf',
+    isReady: false,
+    tags: ['📊 15 страниц', '152-ФЗ Zero-PII', 'ГОСТ Р 34.10', 'БРИКС+', 'Аудит']
   },
   {
     num: '06',
+    marker: 'БЕЛАЯ КНИГА · 06 · ЦБ РФ',
     title: 'Белая книга 06: Смарт-контракты Банка России и FSM O(1)',
-    desc: 'Детерминированные автоматы конечных состояний, микроклиринг и интеграция с Цифровым рублем',
-    path: 'shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf'
+    desc: 'Официальный отзыв на Концепцию ПКСК ЦБ РФ: детерминированные автоматы состояний (FSM) O(1), Zero-PII, бестерминальность и интеграция с Цифровым рублем.',
+    mdPath: 'shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md',
+    pdfPath: 'shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf',
+    isReady: true,
+    tags: ['📊 15 страниц', 'Банк России', 'FSM O(1)', 'Цифровой рубль', 'Экспертный отзыв']
   },
   {
     num: 'DOC',
+    marker: 'ТЕХНИЧЕСКИЙ ДОКУМЕНТ',
     title: 'Технический документ платформы «Турбаза»',
-    desc: 'Сводный фундаментальный документ архитектуры распределенных вычислений и суверенных данных',
-    path: 'shared_docs/Технический документ платформы Турбаза.pdf'
+    desc: 'Сводный фундаментальный документ архитектуры распределенных вычислений, суверенных данных и открытого стека AIRport.',
+    mdPath: 'shared_docs/Технический документ платформы Турбаза.md',
+    pdfPath: 'shared_docs/Технический документ платформы Турбаза.pdf',
+    isReady: false,
+    tags: ['Архитектура', 'Спецификация', 'Leaf-Branch-Trunk', 'AIRport Stack']
   }
 ];
 
@@ -1284,6 +1312,7 @@ function buildPortalHtml(items) {
         <button class="cat-pill" data-cat="applications_presentations">⏳ Скоро: Приложения (${grouped.applications_presentations ? grouped.applications_presentations.length : 0})</button>
         <button class="cat-pill" data-cat="architecture_presentations">⚙️ Архитектура (${grouped.architecture_presentations ? grouped.architecture_presentations.filter(i => i.hasAudio).length : 0}/${grouped.architecture_presentations ? grouped.architecture_presentations.length : 0})</button>
         <button class="cat-pill" data-cat="detailed_overall_impact_presentations">👥 Стейкхолдеры (${grouped.detailed_overall_impact_presentations ? grouped.detailed_overall_impact_presentations.filter(i => i.hasAudio).length : 0}/${grouped.detailed_overall_impact_presentations ? grouped.detailed_overall_impact_presentations.length : 0})</button>
+        <button class="cat-pill" data-cat="whitepapers">📑 Белые книги (${WHITEPAPERS.filter(w => w.isReady).length}/${WHITEPAPERS.length})</button>
       </div>
     </nav>
 
@@ -1393,30 +1422,78 @@ ${catItems.map(item => {
     </main>
 
     <!-- WHITEPAPERS SECTION -->
-    <section class="whitepapers-section" id="whitepapersSection">
-      <div class="section-title-group" style="margin-bottom: 8px;">
-        <span class="section-icon">📑</span>
-        <h2 class="section-title">Пакет Белых Книг (A4 Whitepapers)</h2>
+    <section class="section-block whitepapers-section" id="whitepapersSection">
+      <div class="section-header">
+        <div class="section-title-group">
+          <span class="section-icon">📑</span>
+          <h2 class="section-title">Пакет Белых Книг (A4 Whitepapers)</h2>
+          <span class="section-badge">${WHITEPAPERS.filter(w => w.isReady).length} готово · ${WHITEPAPERS.filter(w => !w.isReady).length} в разработке</span>
+        </div>
+        <p class="section-desc">
+          Официальный пакет 6 публикационных белых книг и генерального технического документа платформы «Турбаза». Белая книга 06 (экспертный отзыв для Банка России) финализирована и доступна в полиграфическом A4 PDF; документы 01–05 находятся в активной подготовке и доступны для чтения во встроенном веб-вьюере и в исходных Markdown-файлах.
+        </p>
       </div>
-      <p class="section-desc">
-        Официальный пакет 6 публикационных белых книг и генерального технического документа платформы «Турбаза» для регуляторов, инвесторов и архитекторов.
-      </p>
 
-      <div class="whitepaper-grid">
-${WHITEPAPERS.map(wp => `
-        <a href="${wp.path}" target="_blank" class="whitepaper-card">
+      <div class="cards-grid">
+${WHITEPAPERS.map(wp => {
+  const isReady = Boolean(wp.isReady);
+  let cardClasses = 'pres-card';
+  if (isReady) cardClasses += ' is-ready';
+  else cardClasses += ' is-draft';
+
+  return `
+        <!-- Card: Whitepaper ${escapeHtml(wp.num)} -->
+        <article class="${cardClasses}"
+                 data-card
+                 data-ready="${isReady ? 'true' : 'false'}"
+                 data-coming-soon="false"
+                 data-next="false"
+                 data-category="whitepapers"
+                 data-search="${escapeHtml((wp.title + ' ' + wp.desc + ' ' + wp.tags.join(' ') + ' ' + wp.marker).toLowerCase())}">
+          
           <div>
-            <div class="wp-header">
-              <span class="wp-num">${wp.num}</span>
-              <div class="wp-title">${escapeHtml(wp.title)}</div>
+            <div class="card-top">
+              <span class="card-marker">${escapeHtml(wp.marker)}</span>
+              ${isReady 
+                ? `<span class="card-status-pill status-ready"><span class="status-dot"></span> Готово (PDF A4)</span>`
+                : `<span class="card-status-pill status-draft">📐 В разработке</span>`
+              }
             </div>
-            <p class="wp-desc" style="margin-top: 8px;">${escapeHtml(wp.desc)}</p>
+
+            <h3 class="card-title">${escapeHtml(wp.title)}</h3>
+            <p class="card-subtitle">${escapeHtml(wp.desc)}</p>
+
+            <div class="card-tags">
+              ${wp.tags.map(t => `<span class="tag-pill">${escapeHtml(t)}</span>`).join('\n              ')}
+            </div>
           </div>
-          <div class="wp-footer">
-            <span>Открыть PDF документ</span>
-            <span>↗</span>
+
+          <div class="card-actions">
+            ${isReady
+              ? `
+            <a href="${wp.pdfPath}" target="_blank" class="btn-launch" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #ffffff; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);" title="Открыть официальный полиграфический A4 PDF (15 стр.)">
+              📄 PDF Документ (15 стр.)
+            </a>
+            <a href="viewer.html?doc=${encodeURIComponent(wp.mdPath)}" class="btn-preview" title="Читать белую книгу во встроенном веб-вьюере">
+              📖 Вьюер
+            </a>
+            <a href="${wp.mdPath}" target="_blank" class="btn-pdf" title="Открыть исходный файл Markdown">
+              📝 .md
+            </a>
+              `
+              : `
+            <a href="viewer.html?doc=${encodeURIComponent(wp.mdPath)}" class="btn-preview" title="Читать черновик документа во встроенном веб-вьюере">
+              📖 Читать во вьюере
+            </a>
+            <a href="${wp.mdPath}" target="_blank" class="btn-pdf" title="Открыть исходный файл Markdown">
+              📝 Исходник .md
+            </a>
+            ${wp.num === 'DOC' ? `<a href="${wp.pdfPath}" target="_blank" class="btn-pdf" title="Открыть PDF">📄 PDF</a>` : ''}
+              `
+            }
           </div>
-        </a>`).join('\n')}
+        </article>`;
+}).join('\n')}
       </div>
     </section>
 
@@ -1468,8 +1545,8 @@ ${WHITEPAPERS.map(wp => `
               return;
             }
           } else if (currentMode === 'featured') {
-            // Featured: show ready presentations OR coming soon applications
-            if (!isReady && !isComingSoon) {
+            // Featured: show ready presentations OR coming soon applications OR whitepapers section
+            if (!isReady && !isComingSoon && cardCat !== 'whitepapers') {
               card.style.display = 'none';
               return;
             }
@@ -1572,6 +1649,20 @@ function generatePortal() {
   fs.writeFileSync(targetPath, html, 'utf8');
   console.log(`[🚀] Sovereign Presentation Portal compiled successfully:`);
   console.log(`     -> ${targetPath}`);
+
+  // Compile offline bundle for viewer.html (enables reading via file:// protocol without CORS errors)
+  const docsBundle = {};
+  for (const wp of WHITEPAPERS) {
+    if (wp.mdPath) {
+      const fullPath = path.join(rootDir, wp.mdPath);
+      if (fs.existsSync(fullPath)) {
+        docsBundle[wp.mdPath] = fs.readFileSync(fullPath, 'utf8');
+      }
+    }
+  }
+  const bundlePath = path.join(rootDir, 'shared_docs', 'docs_bundle.js');
+  fs.writeFileSync(bundlePath, `/** Turbase Offline Docs Bundle — Auto-generated by scripts/generate_portal.js */\nwindow.TURBASE_DOCS_BUNDLE = ${JSON.stringify(docsBundle)};\n`, 'utf8');
+  console.log(`[📑] Offline Docs Bundle compiled: ${bundlePath} (${Object.keys(docsBundle).length} documents)`);
 }
 
 if (require.main === module) {

@@ -131,11 +131,11 @@ pdftoppm -png -r 150 shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepap
 rg "%[A-Za-zА-Яа-я]" shared_docs/whitepapers/
 ```
 
-#### 5. Проверка статуса Git перед коммитом (Правило 5):
+#### 5. Проверка статуса Git перед коммитом (Политика Whitepapers PDF):
 ```bash
-# Убедиться, что в изменениях НЕТ файлов .pdf:
+# Убедиться, что в изменениях присутствуют только разрешенные PDF (например, 06_cbr_smart_contracts_fsm_whitepaper.pdf),
+# а черновики 01–05 не попадают в staging:
 git status
-git ls-files "*.pdf"   # Должно вернуть пустоту!
 ```
 
 ---
