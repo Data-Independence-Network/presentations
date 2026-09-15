@@ -19,6 +19,7 @@ class DeckCoreEngine {
     this.initElements();
     this.bindEvents();
     this.showSlide(1, true);
+    this.fitDeckToViewport();
   }
 
   initElements() {
@@ -30,8 +31,11 @@ class DeckCoreEngine {
     this.btnNotes = document.getElementById('btnNotes');
     this.btnSound = document.getElementById('btnSound') || document.getElementById('btnVoice');
     this.btnOverview = document.getElementById('btnOverview');
+    this.btnMore = document.getElementById('btnMore');
+    this.moreMenuPopover = document.getElementById('moreMenuPopover');
     this.notesDrawer = document.getElementById('notesDrawer');
     this.notesBody = document.getElementById('notesBody') || document.getElementById('notesText');
+    this.companionNotesBody = document.getElementById('companionNotesBody');
     this.overviewModal = document.getElementById('overviewModal');
 
     if (this.audioPlayer) {
@@ -328,12 +332,51 @@ class DeckCoreEngine {
     }
   }
 
+  fitDeckToViewport() {
+    const container = document.getElementById('deckContainer');
+    const viewport = document.querySelector('.presentation-viewport');
+    if (!container || !viewport) return;
+
+    const isPortrait = window.matchMedia('(orientation: portrait) and (max-width: 768px)').matches;
+    const isLandscape = window.matchMedia('(orientation: landscape) and (max-height: 560px)').matches;
+
+    let availW = viewport.clientWidth;
+    let availH = viewport.clientHeight;
+
+    if (isPortrait) {
+      availW = window.innerWidth;
+      availH = Math.round(availW * 9 / 16);
+      viewport.style.width = `${availW}px`;
+      viewport.style.height = `${availH}px`;
+    } else {
+      viewport.style.width = '';
+      viewport.style.height = '';
+      availW = viewport.clientWidth;
+      availH = viewport.clientHeight;
+    }
+
+    if (availW <= 0 || availH <= 0) return;
+
+    const padX = (isPortrait || isLandscape) ? 0 : 32;
+    const padY = (isPortrait || isLandscape) ? 0 : 16;
+
+    const scale = Math.min((availW - padX) / 1920, (availH - padY) / 1080);
+    container.style.transform = `scale(${scale})`;
+  }
+
   updateNotes(slideNum) {
-    if (!this.notesBody) return;
     const activeCard = this.slideCards[slideNum - 1];
-    const notesData = activeCard ? activeCard.getAttribute('data-notes') : '';
-    if (notesData) {
-      this.notesBody.innerHTML = notesData;
+    if (!activeCard) return;
+
+    const notesElem = activeCard.querySelector('.speaker-notes-content');
+    const notesAttr = activeCard.getAttribute('data-notes');
+    const html = notesElem ? notesElem.innerHTML : (notesAttr || '<p style="color:var(--core-text-muted);">Заметки диктора для этого слайда отсутствуют.</p>');
+
+    if (this.notesBody) {
+      this.notesBody.innerHTML = html;
+    }
+    if (this.companionNotesBody) {
+      this.companionNotesBody.innerHTML = html;
     }
   }
 }

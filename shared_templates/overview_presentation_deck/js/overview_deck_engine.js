@@ -19,6 +19,7 @@ class OverviewDeckEngine {
     this.initElements();
     this.bindEvents();
     this.showSlide(1, true);
+    this.fitDeckToViewport();
   }
 
   initElements() {
@@ -33,8 +34,14 @@ class OverviewDeckEngine {
     this.btnOverview = document.getElementById('btnOverview');
     this.btnFullscreen = document.getElementById('btnFullscreen');
     this.btnPrint = document.getElementById('btnPrint');
+    this.btnMore = document.getElementById('btnMore');
+    this.moreMenuPopover = document.getElementById('moreMenuPopover');
+    this.popoverBtnOverview = document.getElementById('popoverBtnOverview');
+    this.popoverBtnFullscreen = document.getElementById('popoverBtnFullscreen');
+    this.popoverBtnPrint = document.getElementById('popoverBtnPrint');
     this.notesDrawer = document.getElementById('notesDrawer');
     this.notesBody = document.getElementById('notesBody');
+    this.companionNotesBody = document.getElementById('companionNotesBody');
     this.btnCloseNotes = document.getElementById('btnCloseNotes');
     this.overviewModal = document.getElementById('overviewModal');
     this.overviewGrid = document.getElementById('overviewGrid');
@@ -66,12 +73,46 @@ class OverviewDeckEngine {
     if (this.btnFullscreen) this.btnFullscreen.addEventListener('click', () => this.toggleFullscreen());
     if (this.btnPrint) this.btnPrint.addEventListener('click', () => window.print());
 
-    // Close modal on outside click
-    if (this.overviewModal) {
-      this.overviewModal.addEventListener('click', (e) => {
-        if (e.target === this.overviewModal) this.toggleOverview();
+    // Mobile More Menu & Popover
+    if (this.btnMore && this.moreMenuPopover) {
+      this.btnMore.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.moreMenuPopover.classList.toggle('open');
+      });
+      document.addEventListener('click', (e) => {
+        if (!this.moreMenuPopover.contains(e.target) && e.target !== this.btnMore) {
+          this.closeMoreMenu();
+        }
       });
     }
+
+    if (this.popoverBtnOverview) {
+      this.popoverBtnOverview.addEventListener('click', () => {
+        this.closeMoreMenu();
+        this.toggleOverview();
+      });
+    }
+
+    if (this.popoverBtnFullscreen) {
+      this.popoverBtnFullscreen.addEventListener('click', () => {
+        this.closeMoreMenu();
+        this.toggleFullscreen();
+      });
+    }
+
+    if (this.popoverBtnPrint) {
+      this.popoverBtnPrint.addEventListener('click', () => {
+        this.closeMoreMenu();
+        window.print();
+      });
+    }
+
+    // Viewport auto-fit listener
+    window.addEventListener('resize', () => this.fitDeckToViewport());
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => this.fitDeckToViewport(), 80);
+      setTimeout(() => this.fitDeckToViewport(), 300);
+    });
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
@@ -397,20 +438,57 @@ class OverviewDeckEngine {
     }
   }
 
+  closeMoreMenu() {
+    if (this.moreMenuPopover) {
+      this.moreMenuPopover.classList.remove('open');
+    }
+  }
+
+  fitDeckToViewport() {
+    const container = document.getElementById('deckContainer');
+    const viewport = document.querySelector('.presentation-viewport');
+    if (!container || !viewport) return;
+
+    const isPortrait = window.matchMedia('(orientation: portrait) and (max-width: 768px)').matches;
+    const isLandscape = window.matchMedia('(orientation: landscape) and (max-height: 560px)').matches;
+
+    let availW = viewport.clientWidth;
+    let availH = viewport.clientHeight;
+
+    if (isPortrait) {
+      availW = window.innerWidth;
+      availH = Math.round(availW * 9 / 16);
+      viewport.style.width = `${availW}px`;
+      viewport.style.height = `${availH}px`;
+    } else {
+      viewport.style.width = '';
+      viewport.style.height = '';
+      availW = viewport.clientWidth;
+      availH = viewport.clientHeight;
+    }
+
+    if (availW <= 0 || availH <= 0) return;
+
+    const padX = (isPortrait || isLandscape) ? 0 : 32;
+    const padY = (isPortrait || isLandscape) ? 0 : 16;
+
+    const scale = Math.min((availW - padX) / 1920, (availH - padY) / 1080);
+    container.style.transform = `scale(${scale})`;
+  }
+
   updateNotes(slideNum) {
-    if (!this.notesBody) return;
     const activeCard = this.slideCards[slideNum - 1];
     if (!activeCard) return;
 
     const notesElem = activeCard.querySelector('.speaker-notes-content');
     const notesAttr = activeCard.getAttribute('data-notes');
+    const html = notesElem ? notesElem.innerHTML : (notesAttr || '<p style="color:var(--text-muted);">Заметки диктора для этого слайда отсутствуют.</p>');
 
-    if (notesElem) {
-      this.notesBody.innerHTML = notesElem.innerHTML;
-    } else if (notesAttr) {
-      this.notesBody.innerHTML = notesAttr;
-    } else {
-      this.notesBody.innerHTML = '<p style="color:var(--text-muted);">Заметки диктора для этого слайда отсутствуют.</p>';
+    if (this.notesBody) {
+      this.notesBody.innerHTML = html;
+    }
+    if (this.companionNotesBody) {
+      this.companionNotesBody.innerHTML = html;
     }
   }
 }
@@ -418,3 +496,4 @@ class OverviewDeckEngine {
 if (typeof window !== 'undefined') {
   window.OverviewDeckEngine = OverviewDeckEngine;
 }
+

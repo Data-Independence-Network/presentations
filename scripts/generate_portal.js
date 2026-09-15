@@ -1208,13 +1208,76 @@ function buildPortalHtml(items) {
       color: var(--text-muted);
     }
 
-    /* Responsive */
+    /* Responsive Adaptation */
     @media (max-width: 900px) {
       .hero-title { font-size: 32px; }
       .cards-grid { grid-template-columns: 1fr; }
       .whitepaper-grid { grid-template-columns: 1fr; }
       .controls-bar { position: static; }
       .search-wrapper { max-width: 100%; width: 100%; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 16px 14px 60px; }
+      .hero-header { padding: 16px 0 20px; margin-bottom: 20px; }
+      .hero-top { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .brand-group { flex-wrap: wrap; gap: 8px; }
+      .hero-title { font-size: 26px !important; line-height: 1.2 !important; }
+      .hero-subtitle { font-size: 14.5px !important; line-height: 1.5 !important; }
+      
+      .stats-row { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+      .stat-card { padding: 12px 14px !important; }
+      .stat-number { font-size: 24px !important; }
+      .stat-label { font-size: 12px !important; }
+      .stat-desc { font-size: 11px !important; }
+
+      .controls-bar { padding: 12px; gap: 12px; }
+      .mode-switch-group {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 3px;
+      }
+      .mode-tab {
+        padding: 8px 12px;
+        font-size: 12.5px;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .search-wrapper { width: 100%; max-width: 100%; }
+      .search-input { font-size: 14px; padding: 10px 12px 10px 36px; }
+
+      .filter-tags-row {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        flex-wrap: nowrap;
+        padding-bottom: 4px;
+      }
+      .filter-tag-pill { flex-shrink: 0; white-space: nowrap; }
+
+      .category-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .category-title { font-size: 20px !important; }
+      .category-desc { font-size: 13px !important; }
+
+      .card-actions { flex-wrap: wrap; gap: 8px; }
+      .btn-card-action {
+        flex: 1 1 calc(50% - 6px);
+        min-height: 44px;
+        justify-content: center;
+        font-size: 13px;
+      }
+      .btn-card-action.btn-accent { flex: 1 1 100%; }
+
+      .portal-footer { padding-top: 24px; margin-top: 40px; }
+      .footer-content {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+        align-items: center;
+      }
     }
   </style>
 </head>
