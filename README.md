@@ -1,28 +1,49 @@
 # Платформа «Турбаза» — Цифровая экосистема прямого владения данными и государственного суверенитета
 ## Полный комплекс презентационных, аналитических и инженерных материалов
 
+<p align="left">
+  <a href="https://data-independence-network.github.io/presentations/"><img src="https://img.shields.io/badge/GitHub%20Pages-Смотреть%20онлайн%20в%201%20клик-success?style=for-the-badge&logo=githubpages&logoColor=white" alt="GitHub Pages"></a>
+  <a href="https://data-independence-network.github.io/presentations/viewer.html"><img src="https://img.shields.io/badge/Белые%20Книги-Веб--вьюер%20Markdown-informational?style=for-the-badge&logo=markdown&logoColor=white" alt="Белые Книги"></a>
+  <a href="https://data-independence-network.github.io/presentations/"><img src="https://img.shields.io/badge/Слайдов-405%20(16:9)-blue?style=for-the-badge" alt="405 слайдов"></a>
+  <a href="https://data-independence-network.github.io/presentations/"><img src="https://img.shields.io/badge/Нейроозвучка-DmitryNeural-purple?style=for-the-badge" alt="Нейроозвучка"></a>
+</p>
+
+> [!IMPORTANT]
+> ### 🌐 САМЫЙ БЫСТРЫЙ СПОСОБ: СМОТРЕТЬ ОНЛАЙН В БРАУЗЕРЕ (1 КЛИК)
+> **Все материалы комплекса опубликованы и доступны прямо в браузере без скачивания и установки:**  
+> 👉 **[Открыть Единый Портал Презентаций «Турбаза» на GitHub Pages](https://data-independence-network.github.io/presentations/)**  
+> 
+> - **🖥️ Интерактивные слайд-деки** с поддержкой десктопа, мобильного ландшафта и портрета.
+> - **🎙️ Синхронная дикторская нейроозвучка** (75 озвученных слайдов, 5 завершённых треков).
+> - **📑 [Встроенный вьюер Белых Книг (Markdown + KaTeX + Mermaid)](https://data-independence-network.github.io/presentations/viewer.html)** с адаптивным мобильным меню.
+
 The Russian Federation is currently rebuilding its information infrastructure, driven by the need for cultural and civilizational survival in the age of AI. The technology stack presented here provides a distributed edge-native data architecture designed to ensure national digital sovereignty while guaranteeing direct information ownership for citizens and businesses. The complete documentation and interactive presentation materials are presented in Russian:
 
 **Отечественная трехуровневая распределенная цифровая платформа прямого владения данными нового поколения** (*Edge Computing, Zero-Knowledge Proofs, Single Source of Truth, 152-ФЗ Zero-PII, экономика API 1/N*).
 
 ---
 
-## ⚡ БЫСТРЫЙ СТАРТ: ПРОСМОТР ПРЕЗЕНТАЦИЙ БЕЗ ГЕНЕРАЦИИ (1 КЛИК)
+## ⚡ БЫСТРЫЙ СТАРТ: КАК СМОТРЕТЬ ПРЕЗЕНТАЦИИ
 
+### Вариант 1 (Самый быстрый, 1 клик): Онлайн на GitHub Pages
+Ничего скачивать, клонировать или запускать не требуется. Просто перейдите по ссылке:  
+👉 **[https://data-independence-network.github.io/presentations/](https://data-independence-network.github.io/presentations/)**
+
+### Вариант 2: Локально на компьютере (офлайн)
 > [!TIP]
-> **Для просмотра презентаций ничего генерировать НЕ нужно!**  
+> **Для локального просмотра ничего генерировать НЕ нужно!**  
 > Все завершённые веб-презентации (`web_deck/index.html`) и студийные аудиодорожки нейроозвучки (`.mp3`) **уже скомпилированы и зафиксированы в репозитории**. Никаких внешних API-ключей, Node.js или фоновых компиляций не требуется.
 
-### 📋 Системные требования для просмотра:
-- **Только Python 3** (уже предустановлен в macOS и большинстве дистрибутивов Linux) для запуска встроенного локального веб-сервера.
+#### 📋 Системные требования для локального просмотра:
+- **Только Python 3** (уже предустановлен в macOS и большинстве дистрибутивов Linux) для встроенного HTTP-сервера.
 - **Любой современный веб-браузер** (Safari, Chrome, Firefox, Edge).
 
-### 🚀 Запуск за 1 секунду:
+#### 🚀 Запуск за 1 секунду:
 В корне репозитория выполните команду:
 ```bash
 ./start_presentation.sh
 ```
-- Скрипт проверит порт (по умолчанию `8080`), при необходимости мягко освободит зависший процесс и автоматически откроет в браузере:  
+- Скрипт автоматически откроет в браузере:  
   👉 **`http://localhost:8080/`** — **Единый портал презентационного комплекса «Турбаза»**.
 - **В портале по умолчанию активен режим «🌟 Только готовые с озвучкой»**: отображаются 5 завершённых треков (75 слайдов с полной синхронной нейроозвучкой):
   1. **Эксплейнер 1**: *Парадигмальный сдвиг и суверенитет данных* (15 слайдов)
