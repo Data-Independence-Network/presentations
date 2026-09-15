@@ -208,6 +208,31 @@ body {
   color: #6ee7b7;
 }
 
+.nav-btn-home {
+  background: rgba(250, 204, 21, 0.12);
+  border-color: rgba(250, 204, 21, 0.35);
+  color: var(--core-gold);
+  text-decoration: none;
+  font-weight: 700;
+}
+.nav-btn-home:hover {
+  background: rgba(250, 204, 21, 0.28);
+  border-color: var(--core-gold);
+  color: #ffffff;
+  box-shadow: 0 0 12px rgba(250, 204, 21, 0.3);
+}
+
+.nav-btn-github {
+  text-decoration: none;
+  color: var(--core-text-muted);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+.nav-btn-github:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+}
+
 /* ==================== SPEAKER NOTES DRAWER ==================== */
 .notes-drawer {
   position: fixed;
