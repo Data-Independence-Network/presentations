@@ -20,6 +20,8 @@ class OverviewDeckEngine {
     this.bindEvents();
     this.showSlide(1, true);
     this.fitDeckToViewport();
+    setTimeout(() => this.fitDeckToViewport(), 50);
+    setTimeout(() => this.fitDeckToViewport(), 200);
   }
 
   initElements() {
@@ -107,10 +109,23 @@ class OverviewDeckEngine {
       });
     }
 
-    // Viewport auto-fit listener
-    window.addEventListener('resize', () => this.fitDeckToViewport());
+    // Viewport auto-fit & responsive controls listener
+    const updateIndicatorText = () => {
+      if (this.counterEl) {
+        const isSideRail = window.matchMedia('(orientation: landscape) and (max-height: 640px), (min-aspect-ratio: 1.2/1) and (max-height: 640px)').matches;
+        this.counterEl.textContent = isSideRail ? `${this.currentSlide}/${this.totalSlides}` : `Слайд ${this.currentSlide} / ${this.totalSlides}`;
+      }
+    };
+
+    window.addEventListener('resize', () => {
+      this.fitDeckToViewport();
+      updateIndicatorText();
+    });
     window.addEventListener('orientationchange', () => {
-      setTimeout(() => this.fitDeckToViewport(), 80);
+      setTimeout(() => {
+        this.fitDeckToViewport();
+        updateIndicatorText();
+      }, 80);
       setTimeout(() => this.fitDeckToViewport(), 300);
     });
 
@@ -156,17 +171,26 @@ class OverviewDeckEngine {
       }
     });
 
-    // Touch swipe support
+    // Touch swipe support (scoped to viewport to prevent conflict with notes scrolling)
     let touchStartX = 0;
-    document.addEventListener('touchstart', (e) => {
+    let touchStartY = 0;
+    const deckVp = document.querySelector('.presentation-viewport');
+    const targetSwipe = deckVp || document;
+
+    targetSwipe.addEventListener('touchstart', (e) => {
       touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
     }, { passive: true });
 
-    document.addEventListener('touchend', (e) => {
+    targetSwipe.addEventListener('touchend', (e) => {
       const touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
       const diffX = touchEndX - touchStartX;
-      if (diffX < -50) this.nextSlide();
-      if (diffX > 50) this.prevSlide();
+      const diffY = touchEndY - touchStartY;
+      if (Math.abs(diffX) > Math.abs(diffY) * 1.3 && Math.abs(diffX) > 40) {
+        if (diffX < 0) this.nextSlide();
+        if (diffX > 0) this.prevSlide();
+      }
     }, { passive: true });
 
     // Expose global methods for Playwright / CLI screenshot capturers
@@ -222,7 +246,8 @@ class OverviewDeckEngine {
 
     // Update controls
     if (this.counterEl) {
-      this.counterEl.textContent = `Слайд ${slideNum} / ${this.totalSlides}`;
+      const isSideRail = window.matchMedia('(orientation: landscape) and (max-height: 640px), (min-aspect-ratio: 1.2/1) and (max-height: 640px)').matches;
+      this.counterEl.textContent = isSideRail ? `${slideNum}/${this.totalSlides}` : `Слайд ${slideNum} / ${this.totalSlides}`;
     }
 
     if (this.progressFillEl) {
@@ -239,6 +264,7 @@ class OverviewDeckEngine {
 
     // Update speaker notes
     this.updateNotes(slideNum);
+    this.fitDeckToViewport();
 
     // Audio Playback
     if (this.audioEnabled && playAudio) {
@@ -449,28 +475,18 @@ class OverviewDeckEngine {
     const viewport = document.querySelector('.presentation-viewport');
     if (!container || !viewport) return;
 
-    const isPortrait = window.matchMedia('(orientation: portrait) and (max-width: 768px)').matches;
-    const isLandscape = window.matchMedia('(orientation: landscape) and (max-height: 560px)').matches;
-
     let availW = viewport.clientWidth;
     let availH = viewport.clientHeight;
 
-    if (isPortrait) {
+    if (availW <= 0 || availH <= 0) {
       availW = window.innerWidth;
-      availH = Math.round(availW * 9 / 16);
-      viewport.style.width = `${availW}px`;
-      viewport.style.height = `${availH}px`;
-    } else {
-      viewport.style.width = '';
-      viewport.style.height = '';
-      availW = viewport.clientWidth;
-      availH = viewport.clientHeight;
+      availH = window.innerHeight;
     }
-
     if (availW <= 0 || availH <= 0) return;
 
-    const padX = (isPortrait || isLandscape) ? 0 : 32;
-    const padY = (isPortrait || isLandscape) ? 0 : 16;
+    const isMobile = window.matchMedia('(orientation: landscape) and (max-height: 640px), (min-aspect-ratio: 1.2/1) and (max-height: 640px), (orientation: portrait) and (max-width: 850px), (max-aspect-ratio: 1.1/1) and (max-width: 850px)').matches;
+    const padX = isMobile ? 0 : 32;
+    const padY = isMobile ? 0 : 16;
 
     const scale = Math.min((availW - padX) / 1920, (availH - padY) / 1080);
     container.style.transform = `scale(${scale})`;

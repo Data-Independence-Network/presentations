@@ -9,9 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- Universal Presentation Engine Chrome (Shared Viewport, Header & Controls) -->
-  <link rel="stylesheet" href="../../../../../shared_templates/deck_core/css/deck_core.css">
+  <link rel="stylesheet" href="../../../../../shared_templates/deck_core/css/deck_core.css?v=20260914_mobile4">
   <!-- Isolated Standalone Presentation Theme & Content -->
-  <link rel="stylesheet" href="deck.css">
+  <link rel="stylesheet" href="deck.css?v=20260914_mobile4">
 
   <!-- Mermaid.js Vector Renderer -->
   <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
@@ -902,6 +902,31 @@ graph TB
     </div>
   </main>
 
+  <!-- Synchronous Viewport Scaling Guard (Zero Delay / Zero Flicker) -->
+  <script>
+    (function() {
+      function fitDeckSync() {
+        var c = document.getElementById('deckContainer');
+        var v = document.querySelector('.presentation-viewport');
+        if (!c || !v) return;
+        var w = v.clientWidth || window.innerWidth;
+        var h = v.clientHeight || window.innerHeight;
+        if (w > 0 && h > 0) {
+          var isMobile = (window.innerWidth <= 850 || window.innerHeight <= 640);
+          var px = isMobile ? 0 : 32, py = isMobile ? 0 : 16;
+          var s = Math.min(Math.max((w - px) / 1920, 0.05), Math.max((h - py) / 1080, 0.05));
+          c.style.transform = 'scale(' + s + ')';
+        }
+      }
+      fitDeckSync();
+      window.addEventListener('resize', fitDeckSync);
+      window.addEventListener('orientationchange', function() {
+        setTimeout(fitDeckSync, 50);
+        setTimeout(fitDeckSync, 200);
+      });
+    })();
+  </script>
+
   <!-- Portrait Companion Notes Reader (Mobile portrait mode) -->
   <div id="portraitCompanionNotes" class="portrait-companion-notes">
     <div class="companion-notes-header">
@@ -944,7 +969,7 @@ graph TB
   </div>
 
   <!-- Universal Presentation Engine (Single Shared Source) -->
-  <script src="../../../../../shared_templates/overview_presentation_deck/js/overview_deck_engine.js"></script>
+  <script src="../../../../../shared_templates/overview_presentation_deck/js/overview_deck_engine.js?v=20260914_mobile4"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       window.deckEngine = new OverviewDeckEngine({

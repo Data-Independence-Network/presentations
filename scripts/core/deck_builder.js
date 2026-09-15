@@ -229,6 +229,8 @@ function compileDeckHtml(presentationDir, options = {}) {
     }
   }
 
+  const cacheBuster = 'v=20260914_mobile4';
+
   let cssLinkTags = '';
   if (localCssFiles.length > 0) {
     // Copy isolated CSS file(s) directly into web_deck/
@@ -239,17 +241,17 @@ function compileDeckHtml(presentationDir, options = {}) {
     });
     cssLinkTags = [
       `  <!-- Universal Presentation Engine Chrome (Shared Viewport, Header & Controls) -->`,
-      `  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">`,
-      ...localCssFiles.map(cssFile => `  <!-- Isolated Standalone Presentation Theme & Content -->\n  <link rel="stylesheet" href="${cssFile}">`)
+      `  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css?${cacheBuster}">`,
+      ...localCssFiles.map(cssFile => `  <!-- Isolated Standalone Presentation Theme & Content -->\n  <link rel="stylesheet" href="${cssFile}?${cacheBuster}">`)
     ].join('\n');
   } else {
     // Fallback for presentations that have not yet migrated to an isolated local stylesheet
     if (presentationDir.includes('platform_overview') || meta.theme === 'platform_overview') {
-      cssLinkTags = `  <!-- Universal Presentation Engine Chrome -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <!-- Platform Overview Design System (Fallback) -->\n  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_theme.css">\n  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_components.css">`;
+      cssLinkTags = `  <!-- Universal Presentation Engine Chrome -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css?${cacheBuster}">\n  <!-- Platform Overview Design System (Fallback) -->\n  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_theme.css?${cacheBuster}">\n  <link rel="stylesheet" href="${platformOverviewRel}/css/platform_overview_components.css?${cacheBuster}">`;
     } else if (presentationDir.includes('detailed_overall_impact') || meta.theme === 'detailed_impact') {
-      cssLinkTags = `  <!-- Universal Presentation Engine Chrome -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <!-- Detailed Impact Presentations Design System (Fallback) -->\n  <link rel="stylesheet" href="${detailedImpactRel}/css/detailed_deck_theme.css">\n  <link rel="stylesheet" href="${detailedImpactRel}/css/detailed_deck_components.css">`;
+      cssLinkTags = `  <!-- Universal Presentation Engine Chrome -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css?${cacheBuster}">\n  <!-- Detailed Impact Presentations Design System (Fallback) -->\n  <link rel="stylesheet" href="${detailedImpactRel}/css/detailed_deck_theme.css?${cacheBuster}">\n  <link rel="stylesheet" href="${detailedImpactRel}/css/detailed_deck_components.css?${cacheBuster}">`;
     } else {
-      cssLinkTags = `  <!-- Universal Presentation Engine Chrome -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css">\n  <!-- Universal Sovereign Overview Design System (Fallback) -->\n  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_base.css">\n  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_components.css">`;
+      cssLinkTags = `  <!-- Universal Presentation Engine Chrome -->\n  <link rel="stylesheet" href="${deckCoreRel}/css/deck_core.css?${cacheBuster}">\n  <!-- Universal Sovereign Overview Design System (Fallback) -->\n  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_base.css?${cacheBuster}">\n  <link rel="stylesheet" href="${sharedTemplatesRel}/css/overview_deck_components.css?${cacheBuster}">`;
     }
   }
 
@@ -375,6 +377,31 @@ ${cssLinkTags}
     </div>
   </main>
 
+  <!-- Synchronous Viewport Scaling Guard (Zero Delay / Zero Flicker) -->
+  <script>
+    (function() {
+      function fitDeckSync() {
+        var c = document.getElementById('deckContainer');
+        var v = document.querySelector('.presentation-viewport');
+        if (!c || !v) return;
+        var w = v.clientWidth || window.innerWidth;
+        var h = v.clientHeight || window.innerHeight;
+        if (w > 0 && h > 0) {
+          var isMobile = (window.innerWidth <= 850 || window.innerHeight <= 640);
+          var px = isMobile ? 0 : 32, py = isMobile ? 0 : 16;
+          var s = Math.min(Math.max((w - px) / 1920, 0.05), Math.max((h - py) / 1080, 0.05));
+          c.style.transform = 'scale(' + s + ')';
+        }
+      }
+      fitDeckSync();
+      window.addEventListener('resize', fitDeckSync);
+      window.addEventListener('orientationchange', function() {
+        setTimeout(fitDeckSync, 50);
+        setTimeout(fitDeckSync, 200);
+      });
+    })();
+  </script>
+
   <!-- Portrait Companion Notes Reader (Mobile portrait mode) -->
   <div id="portraitCompanionNotes" class="portrait-companion-notes">
     <div class="companion-notes-header">
@@ -417,7 +444,7 @@ ${cssLinkTags}
   </div>
 
   <!-- Universal Presentation Engine (Single Shared Source) -->
-  <script src="${sharedTemplatesRel}/js/overview_deck_engine.js"></script>
+  <script src="${sharedTemplatesRel}/js/overview_deck_engine.js?${cacheBuster}"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       window.deckEngine = new OverviewDeckEngine({

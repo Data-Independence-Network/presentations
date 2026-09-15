@@ -587,13 +587,39 @@ body {
   color: #ffffff;
 }
 
+/* ==================== RESPONSIVE ADAPTATION: TABLETS & COMPACT DESKTOPS ==================== */
+@media (max-width: 1200px) and (min-height: 641px) {
+  .header-right .btn-desktop-only span:not(.btn-icon) {
+    display: none;
+  }
+  .header-right .btn-desktop-only {
+    padding: 6px 10px;
+  }
+  .header-left .header-title {
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 1050px) and (min-height: 641px) {
+  .header-left .header-title {
+    display: none !important;
+  }
+  .header-left .nav-btn-home span:not(.btn-icon) {
+    display: none !important;
+  }
+}
+
 /* Portrait Companion Notes Container */
 .portrait-companion-notes {
   display: none;
 }
 
 /* ==================== RESPONSIVE ADAPTATION: LANDSCAPE (SIDE RAIL) ==================== */
-@media (orientation: landscape) and (max-height: 560px) {
+@media (orientation: landscape) and (max-height: 640px),
+       (min-aspect-ratio: 1.2/1) and (max-height: 640px) {
   body {
     flex-direction: row !important;
     height: 100vh !important;
@@ -646,9 +672,13 @@ body {
   }
   .slide-indicator {
     font-size: 11px;
-    padding: 3px 4px;
-    border-radius: 8px;
+    font-weight: 700;
+    padding: 3px 2px;
+    border-radius: 6px;
     white-space: nowrap;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
   }
   .nav-btn-arrow {
     padding: 6px;
@@ -702,7 +732,8 @@ body {
 }
 
 /* ==================== RESPONSIVE ADAPTATION: PORTRAIT (COMPANION READING) ==================== */
-@media (orientation: portrait) and (max-width: 768px) {
+@media (orientation: portrait) and (max-width: 850px),
+       (max-aspect-ratio: 1.1/1) and (max-width: 850px) {
   body {
     flex-direction: column !important;
     height: 100vh !important;
@@ -717,14 +748,14 @@ body {
   }
 
   .header-left {
-    gap: 8px;
+    gap: 6px;
+    flex-shrink: 0;
   }
   .header-left .logo-badge {
-    padding: 4px 8px;
+    padding: 4px 7px;
   }
   .header-left .logo-text {
-    font-size: 12px;
-    letter-spacing: 0.8px;
+    display: none !important;
   }
   .header-left .header-title,
   .header-left .deck-title {
@@ -740,10 +771,17 @@ body {
 
   .header-center {
     gap: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
   }
   .slide-indicator {
     font-size: 12px;
-    padding: 3px 8px;
+    font-weight: 700;
+    padding: 4px 8px;
+    white-space: nowrap !important;
+    text-align: center;
   }
   .nav-btn-arrow {
     padding: 4px 8px;
@@ -751,7 +789,8 @@ body {
   }
 
   .header-right {
-    gap: 6px;
+    gap: 5px;
+    flex-shrink: 0;
   }
   .header-right .nav-btn span:not(.btn-icon) {
     display: none !important;
@@ -837,6 +876,41 @@ body {
 
   .modal-card.wide {
     max-height: 85vh;
+  }
+}
+
+/* ==================== ULTRA-COMPACT MOBILE (≤ 440px) ==================== */
+@media (max-width: 440px) {
+  .presentation-header {
+    padding: 0 4px !important;
+  }
+  .header-left {
+    gap: 3px !important;
+  }
+  .header-left .logo-badge {
+    padding: 3px 5px !important;
+  }
+  .header-left .nav-btn-home {
+    padding: 4px 6px !important;
+    min-width: 26px !important;
+  }
+  .header-center {
+    gap: 2px !important;
+  }
+  .slide-indicator {
+    font-size: 10.5px !important;
+    padding: 2px 4px !important;
+  }
+  .nav-btn-arrow {
+    padding: 3px 5px !important;
+    min-width: 24px !important;
+  }
+  .header-right {
+    gap: 3px !important;
+  }
+  .header-right .nav-btn {
+    padding: 4px 5px !important;
+    min-width: 26px !important;
   }
 }
 
