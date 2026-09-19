@@ -22,7 +22,7 @@
   3. [`09-07_01_Architecture_overview.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-07_01_Architecture_overview.md) — Обзор архитектуры (Лист, Ветка, Ствол, конвейеры синхронизации и СУБД).
   4. [`09-12_01_Smart_Contracts.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-12_01_Smart_Contracts.md) — Смарт-контракты (конечный автомат, микро-цепи, сценарии и защита кошельков).
   5. [`09-19_01_Votecube.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-19_01_Votecube.md) — «КубГолос» (микро-опросы, 3D-взвешивание факторов, суверенные мощности и агрегация).
-  6. [`09-19_02_Sapoto.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-19_02_Sapoto.md) — «Забота» (сеть взаимопомощи, составные конструкции, интеграция с «КубГолосом» и «Деловым»).
+  6. [`09-19_02_Sapoto.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-19_02_Sapoto.md) — «Забота» (сеть взаимопомощи, составные конструкции, интеграция с «КубГолосом» и приложением «Деловой»).
 
 ---
 
