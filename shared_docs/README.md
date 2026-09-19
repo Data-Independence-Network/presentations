@@ -15,10 +15,12 @@
    - `04_ecosystem_impact_whitepaper.md`
    - `05_sovereign_governance_whitepaper.md`
 
-3. **[`comments/`](file:///Users/parents/Documents/presentations/shared_docs/comments/AGENTS.md):**  
+3. **[`comments/`](file:///Users/parents/Documents/presentations/shared_docs/comments/README.md):**  
    Аутентичные авторские заметки разработчика платформы (человеческий текст без участия ИИ), фиксирующие оригинальный архитектурный замысел:
-   - [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) — семантический словарь и предметный указатель меток.
-   - `2026/08-25_01_History_of_technology.md` — история эволюции децентрализованных концепций.
-   - `2026/08-30_01_Who_is_it_for.md` — участники экосистемы и ценность для каждого.
-   - `2026/09-07_01_Architecture_overview.md` — фундаментальный обзор архитектуры (Лист, Ветка, Ствол, очереди и СУБД).
-   - `2026/09-12_01_Smart_Contracts.md` — минимальные FSM смарт-контракты, микро-блокчейны и состояние кошелька.
+   - [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) — семантический словарь и предметный указатель меток (10 архитектурных групп, 156 меток).
+   - [`2026/08-25_01_History_of_technology.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/08-25_01_History_of_technology.md) — история эволюции децентрализованных концепций.
+   - [`2026/08-30_01_Who_is_it_for.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/08-30_01_Who_is_it_for.md) — участники экосистемы и ценность для каждого.
+   - [`2026/09-07_01_Architecture_overview.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-07_01_Architecture_overview.md) — фундаментальный обзор архитектуры (Лист, Ветка, Ствол, очереди и СУБД).
+   - [`2026/09-12_01_Smart_Contracts.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-12_01_Smart_Contracts.md) — минимальные FSM смарт-контракты, микро-блокчейны и состояние кошелька.
+   - [`2026/09-19_01_Votecube.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-19_01_Votecube.md) — «КубГолос»: базовое приложение микро-опросов, 3D-куб и древовидная навигация.
+   - [`2026/09-19_02_Sapoto.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-19_02_Sapoto.md) — «Забота»: сеть взаимопомощи, составные конструкции и открытая репутация.
