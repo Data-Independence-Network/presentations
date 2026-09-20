@@ -14,20 +14,22 @@
 ```mermaid
 graph LR
     VC["<b>КубГолос (VoteCube)</b><br/><code>@votecube/votecube</code><br/>3D-волеизъявление и консенсус"]
-    SAP["<b>Забота (Sapoto.net)</b><br/><code>@sapoto/main</code><br/>Случаи, опыт и взаимная поддержка"]
+    SAP["<b>Забота (Sapoto.net)</b><br/><code>@sapoto/main</code><br/>Случаи, опыт, репутация и взаимопомощь"]
     GG["<b>Деловой (GoGetter)</b><br/><code>@gogetter/main</code> (@airline/tasks)<br/>Органайзер дел и поручений"]
+    CBR["<b>Цифровой рубль (ЦБ РФ)</b><br/>FSM O(1) смарт-контракты<br/>(Whitepaper 06)"]
 
     VC -->|Базовая схема данных| SAP
     SAP -->|Обогащение контекстом| GG
     GG -.->|Замыкание цикла: Опыт| SAP
     SAP -.->|Шкала Результата| VC
+    SAP ==>|ZK-Credit Attestation| CBR
 ```
 
 ### Однонаправленная иерархия схем данных:
 $$\text{КубГолоса (VoteCube)} \longleftarrow \text{Забота (Sapoto)} \longleftarrow \text{Деловой (GoGetter)}$$
 
 1. **`@votecube/votecube`** — абсолютно независимая базовая схема данных: универсальное дерево топиков (`Topic`), абстрактные ситуации (`Situation`), идеи (`Idea`), факторы ($X, Y, Z$), причины (`Reason`), соглашения (`Agreement`) и расчет байесовского консенсуса.
-2. **`@sapoto/main`** — прикладная схема взаимной поддержки: расширяет абстрактные ситуации до Реальных Случаев (`Case`), привязывает треды обсуждений (`Conversation`), масштабирует реплики через страницы (`ReplyPage`), накапливает мультимодальный Опыт («Speak» / «Show») и уточняющие Вопросы.
+2. **`@sapoto/main`** — прикладная схема взаимной поддержки и децентрализованной репутации: расширяет абстрактные ситуации до Реальных Случаев (`Case`), привязывает треды обсуждений (`Conversation`), масштабирует реплики через страницы (`ReplyPage`), накапливает мультимодальный Опыт («Speak» / «Show»), формирует суверенный социальный и кредитный капитал (EBSL) и поставляет ZK-Credit Attestation для FSM смарт-контрактов Цифрового рубля.
 3. **`@gogetter/main` (на базе `@airline/tasks`)** — персональный и семейный исполнительский контур: связывает Реальные Случаи с потенциальными Делами (`Goal`), наделяя их Срочностью и Приоритетом по матрице Эйзенхауэра 2.0, формирует конкретные Задачи (`Task`) и поручения.
 
 ---
@@ -36,8 +38,8 @@ $$\text{КубГолоса (VoteCube)} \longleftarrow \text{Забота (Sapoto
 
 | Приложение | Папка | Ключевые документы | Назначение и предметная область |
 | :--- | :--- | :--- | :--- |
-| **КубГолос (VoteCube)** | [`votecube/`](votecube/) | • [`VoteCube_architecture_and_functionality.md`](votecube/VoteCube_architecture_and_functionality.md)<br/>• [`VoteCube_Ecosystem_Impact_Guide.md`](votecube/VoteCube_Ecosystem_Impact_Guide.md)<br/>• [`README.md`](votecube/README.md)<br/>• [`AGENTS.md`](votecube/AGENTS.md) | Система многомерного 3D-волеизъявления, преодолевающая кризис бинарных голосований («Да/Нет»). Распределение 100 б.п. между 3 факторами, байесовский многошкальный консенсус (Результат / Эксперты / Народ), самозапечатывающиеся страницы `IChildRecordPage`, ZKP-маски и On-Device TreeSearch. |
-| **Забота (Sapoto.net)** | [`sapoto/`](sapoto/) | • [`Sapoto_architecture_and_functionality.md`](sapoto/Sapoto_architecture_and_functionality.md)<br/>• [`Sapoto_Ecosystem_Impact_Guide.md`](sapoto/Sapoto_Ecosystem_Impact_Guide.md)<br/>• [`README.md`](sapoto/README.md)<br/>• [`AGENTS.md`](sapoto/AGENTS.md) | Децентрализованная сеть взаимной поддержки и обмена жизненным опытом на местах. Фиксация Реальных Случаев, структурированные реплики (Идеи, Опыт, Вопросы, Комментарии), мультимодальный опыт («Speak» / «Show») с локальным STT, территориальные и категориальные Ветки, Upstream Category Processing. |
+| **КубГолос (VoteCube)** | [`votecube/`](votecube/) | • [`VoteCube_architecture_and_functionality.md`](votecube/VoteCube_architecture_and_functionality.md)<br/>• [`VoteCube_Ecosystem_Impact_Guide.md`](votecube/VoteCube_Ecosystem_Impact_Guide.md)<br/>• [`README.md`](votecube/README.md)<br/>• [`AGENTS.md`](votecube/AGENTS.md) | Система многомерного 3D-волеизъявления, преодолевающая кризис бинарных голосований («Да/Нет»). Распределение 100 б.п. между 3 факторами, байесовский многошкальный консенсус (Результат / Эксперты / Народ), самозапечатывающиеся страницы `IChildRecordPage`, трехуровневая анонимность Веток и On-Device TreeSearch. |
+| **Забота (Sapoto.net)** | [`sapoto/`](sapoto/) | • [`Sapoto_architecture_and_functionality.md`](sapoto/Sapoto_architecture_and_functionality.md)<br/>• [`Sapoto_Ecosystem_Impact_Guide.md`](sapoto/Sapoto_Ecosystem_Impact_Guide.md)<br/>• [`README.md`](sapoto/README.md)<br/>• [`AGENTS.md`](sapoto/AGENTS.md) | Децентрализованная сеть взаимной поддержки, проверенного опыта и суверенной репутации. Фиксация Случаев, мультимодальный опыт («Speak»/«Show»), математический движок доверия EBSL, народный социальный рейтинг (защита от дистопии) и народный кредитный рейтинг для Цифрового рубля ЦБ РФ (ZK-Credit Attestation, снижение залогов со 150% до 0%, бланковые P2P-займы). |
 | **Деловой (GoGetter)** | [`gogetter/`](gogetter/) | • [`README.md`](gogetter/README.md)<br/>• [`AGENTS.md`](gogetter/AGENTS.md) | Интеллектуальный персональный и семейный органайзер дел, задач и поручений. Матрица Эйзенхауэра 2.0, гравитационные сферы («Gravity Balls»), алгоритм случайного выбора (Serendipity Task), локальный отклик SQLite < 1 мс, семейный контур поручений и Общественная Оболочка (API) внешних сервисов. |
 
 ### Сквозные сервисы экосистемы:
@@ -53,7 +55,7 @@ $$\text{КубГолоса (VoteCube)} \longleftarrow \text{Забота (Sapoto
 1. **Инвариант «Write-Self»:**
    Пользователь никогда не мутирует строки, созданные другим пользователем. Голоса, реплики, задачи и оценки создаются как независимые записи со своим `ActorId`, а агрегаты вычисляются динамически (`@Transient()`).
 2. **Самозапечатывающиеся страницы (`IChildRecordPage`):**
-   Децентрализованное масштабирование коллекций 1:N блоками ~1000 записей (`TopicPage`, `SituationPage`, `ReplyPage`). При заполнении страница криптографически запечатывается и переводится в неизменяемый CAS-кэш.
+   Агрегативные хранилища для масштабирования связей 1:N блоками ~1000 записей (`TopicPage`, `SituationPage`, `ReplyPage`). Хранят лишь «листовую» (списочную) информацию дочерних объектов (название, поля для UI list view) и получают обновления при их редактировании. Использование стандартного механизма хранилищ унифицирует их репликацию и реактивную обработку (`live queries`) на Листах. При заполнении страница криптографически запечатывается и переводится в неизменяемый CAS-кэш.
 3. **Трехуровневая топология (Лист $\to$ Ветка $\to$ Ствол):**
    * **Лист (смартфон/клиент):** 100% пользовательских запросов, локальная база SQLite / AIRport WASM, отклик < 1 мс.
    * **Ветка (район/город/кооператив):** шлюз координации данных без рендеринга HTML (Zero-Rendering), аккумуляция счетчиков в RAM (`EpochBlock extends AirEntity`), mTLS-маршрутизация и ZKP-проверка локальности.
@@ -90,7 +92,7 @@ sequenceDiagram
 
 ---
 
-## 📚 Связанные материалы репозитория
+## 📚 Связанные материалы хранилища
 
 * [**`AGENTS.md`**](AGENTS.md) — Инженерное руководство для агентов по структуре прикладного раздела, стандартам и регламентам.
 * [**Белая книга № 02: Флагманский стек приложений**](../02_applications_suite_whitepaper.md) — Официальный представительский вайтпейпер прикладной серии (15 страниц А4).
