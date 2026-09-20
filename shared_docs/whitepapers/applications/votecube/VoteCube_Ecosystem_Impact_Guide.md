@@ -6,7 +6,7 @@
 *Версия: 1.0 (2026)*  
 *Автор концепции: Артём Владимирович Шамсутдинов*  
 *Базовая среда: Платформа цифрового суверенитета «Турбаза» / Открытый стек AIRport*  
-*Связанные документы: [`VoteCube_Architecture_Specification.md`](VoteCube_Architecture_Specification.md), [`authors_note.txt`](authors_note.txt)*
+*Связанные документы: [`VoteCube_architecture_and_functionality.md`](./VoteCube_architecture_and_functionality.md), [`09-19_01_Votecube.md`](../../../comments/2026/09-19_01_Votecube.md)*
 
 ---
 
