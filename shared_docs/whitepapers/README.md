@@ -19,6 +19,16 @@
 
 ---
 
+## 📱 Прикладной стек и спецификации сервисов (`applications/`)
+
+В дополнение к фундаментальным 15-страничным Белым Книгам в поддиректории [**`applications/`**](applications/README.md) сформирован детализированный комплекс нормативных архитектурных спецификаций и аналитических руководств по системообразующим сервисам экосистемы:
+
+* [**Головной обзор прикладного стека (`applications/README.md`)**](applications/README.md) — Триада системообразующих приложений (КубГолос $\longleftarrow$ Забота $\longleftarrow$ Деловой), однонаправленная иерархия схем данных и сквозной когнитивный конвейер.
+* [**«КубГолос» (`applications/votecube/`)**](applications/votecube/README.md) — 3D-волеизъявление, распределение 100 б.п., Байесовский многошкальный консенсус (Результат / Эксперты / Народ), нормативная спецификация ([`VoteCube_architecture_and_functionality.md`](applications/votecube/VoteCube_architecture_and_functionality.md)) и гайд влияния на 7 уровнях общества ([`VoteCube_Ecosystem_Impact_Guide.md`](applications/votecube/VoteCube_Ecosystem_Impact_Guide.md)).
+* [**«Забота» (`applications/sapoto/`)**](applications/sapoto/README.md) — Сеть взаимной поддержки и обмена жизненным опытом на местах, 4 модальности реплик (Идея, Опыт, Вопрос, Комментарий), мультимодальный опыт («Speak» / «Show»), нормативная спецификация ([`Sapoto_architecture_and_functionality.md`](applications/sapoto/Sapoto_architecture_and_functionality.md)) и потенциал на 7 уровнях ([`Sapoto_Ecosystem_Impact_Guide.md`](applications/sapoto/Sapoto_Ecosystem_Impact_Guide.md)).
+* [**«Деловой» (`applications/gogetter/`)**](applications/gogetter/README.md) — Интеллектуальный органайзер задач и поручений, Матрица Эйзенхауэра 2.0, гравитационные сферы («Gravity Balls»), алгоритм случайного шага (Serendipity Task), композитные внешние ключи, Общественный API и локальная СУБД SQLite с откликом < 1 мс.
+* [**Инженерное руководство прикладного стека (`applications/AGENTS.md`)**](applications/AGENTS.md) — Системные инварианты, правила зависимостей схем и стандарты оформления.
+
 ## 🎨 Стандарты визуального оформления и верстки
 
 При работе с текстом белых книг строго соблюдаются стандарты полиграфической верстки A4:
@@ -81,5 +91,6 @@ pdftoppm -png -r 150 shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepap
 
 ---
 
-## 📖 Инженерное руководство для агентов
-Полное инженерное руководство по структуре кода, стилизации Mermaid, CSS-классам и процедуре внесения изменений описано в файле [**`AGENTS.md`**](AGENTS.md).
+## 📖 Инженерные руководства для агентов
+* Полное инженерное руководство по структуре кода, стилизации Mermaid, CSS-классам и процедуре внесения изменений в Белые Книги описано в файле [**`AGENTS.md`**](AGENTS.md).
+* Инженерные инварианты, правила однонаправленной иерархии схем и стандарты оформления спецификаций прикладного стека вынесены в [**`applications/AGENTS.md`**](applications/AGENTS.md).

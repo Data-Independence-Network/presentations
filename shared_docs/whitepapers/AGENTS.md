@@ -24,6 +24,26 @@
 
 ---
 
+## 📱 Прикладной стек и спецификации сервисов (`applications/`)
+
+В директории [**`applications/`**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/README.md) содержится детальный комплекс нормативных архитектурных спецификаций, DDL-описаний моделей данных и аналитических руководств по триаде системообразующих приложений:
+
+* [**`applications/README.md`**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/README.md) — Обзорный манифест прикладного стека и однонаправленной иерархии схем данных.
+* [**`applications/AGENTS.md`**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/AGENTS.md) — Специализированное инженерное руководство по прикладному стеку, правилам схем и инвариантам.
+* [**«КубГолос» (`applications/votecube/`)**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/README.md) — Многомерное 3D-волеизъявление:
+  - [`VoteCube_architecture_and_functionality.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/VoteCube_architecture_and_functionality.md) — нормативная спецификация (1.0);
+  - [`VoteCube_Ecosystem_Impact_Guide.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/VoteCube_Ecosystem_Impact_Guide.md) — руководство социально-экономического влияния;
+  - [`README.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/README.md) и [`AGENTS.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/AGENTS.md).
+* [**«Забота» (`applications/sapoto/`)**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/README.md) — Децентрализованная сеть взаимной поддержки:
+  - [`Sapoto_architecture_and_functionality.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_architecture_and_functionality.md) — нормативная спецификация (1.0);
+  - [`Sapoto_Ecosystem_Impact_Guide.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_Ecosystem_Impact_Guide.md) — социально-экономический потенциал на 7 уровнях общества;
+  - [`README.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/README.md) и [`AGENTS.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/AGENTS.md).
+* [**«Деловой» (`applications/gogetter/`)**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/gogetter/README.md) — Интеллектуальный органайзер задач и поручений:
+  - [`README.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/gogetter/README.md) — концепция, архитектура задач, Матрица 2.0, гравитационные сферы, Serendipity, Общественный API;
+  - [`AGENTS.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/gogetter/AGENTS.md) — инженерные регламенты и DDL-сущности.
+
+---
+
 ## 📐 Архитектурные и визуальные стандарты (Visual & Layout Invariants)
 
 Любой агент или разработчик, редактирующий существующий вайтпейпер или создающий новый, **ОБЯЗАН строго соблюдать следующие инварианты верстки**:
