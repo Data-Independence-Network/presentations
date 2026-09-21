@@ -3,6 +3,8 @@
 *Семьи · Детские сады · Школы · Фирмы · Соседи · Районы · Регионы*
 
 *Классификация: Децентрализованная социальная взаимопомощь, краудсорсинг практического опыта, народный социальный и кредитный рейтинг, интеграция с Цифровым рублем*  
+*Концептуальный автор платформы и архитектор: Артём Владимирович Шамсутдинов*  
+*Связанные нормативные спецификации: [`Sapoto_Reputation_and_Credit_System_Specification.md`](Sapoto_Reputation_and_Credit_System_Specification.md), [`Sapoto_architecture_and_functionality.md`](Sapoto_architecture_and_functionality.md), [`VoteCube_Ecosystem_Impact_Guide.md`](../votecube/VoteCube_Ecosystem_Impact_Guide.md)*  
 *Проектные хранилища: [`sapoto.net`](file:///Users/parents/Documents/data-independence-network/sapoto.net), [`votecube.com`](file:///Users/parents/Documents/data-independence-network/votecube.com), [`votecube-client-logic`](file:///Users/parents/Documents/data-independence-network/votecube-client-logic)*
 
 ---
@@ -43,6 +45,8 @@
 ## 2. Эволюционная трансформация репутационных и кредитных систем в «Заботе»
 
 Репутационный механизм «Заботы» представляет собой **новое поколение скоринговых и репутационных архитектур**, развивающее достижения классических моделей (FICO, VantageScore, Basel) на базе криптографии доказательств с нулевым разглашением (ZK-Proofs) и суверенных периферийных вычислений:
+
+> ℹ️ *Полная нормативная математическая модель народной кредитной системы, формулы субъективной логики (EBSL), ZK-аттестации для Цифрового рубля, транзитивное поручительство (Multi-Hop Transitive Trust) и балансировка сезонной ликвидности ROSCA подробно специфицированы в отдельном документе: [**`Sapoto_Reputation_and_Credit_System_Specification.md`**](Sapoto_Reputation_and_Credit_System_Specification.md).*
 
 ```mermaid
 graph TD

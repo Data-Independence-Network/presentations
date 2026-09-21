@@ -36,6 +36,7 @@
   - [`README.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/README.md) и [`AGENTS.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/AGENTS.md).
 * [**«Забота» (`applications/sapoto/`)**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/README.md) — Децентрализованная сеть взаимной поддержки:
   - [`Sapoto_architecture_and_functionality.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_architecture_and_functionality.md) — нормативная спецификация (1.0);
+  - [`Sapoto_Reputation_and_Credit_System_Specification.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_Reputation_and_Credit_System_Specification.md) — нормативная спецификация децентрализованной репутации, кредитного рейтинга, транзитивного поручительства и балансировки ROSCA;
   - [`Sapoto_Ecosystem_Impact_Guide.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_Ecosystem_Impact_Guide.md) — социально-экономический потенциал на 7 уровнях общества;
   - [`README.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/README.md) и [`AGENTS.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/AGENTS.md).
 * [**«Деловой» (`applications/gogetter/`)**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/gogetter/README.md) — Интеллектуальный органайзер задач и поручений:
@@ -92,9 +93,10 @@
 
 ## ✍️ Редакционные стандарты и авторская атрибуция
 
-1. **Единый статус автора (Single Author):**
-   * Все материалы разрабатываются от лица автора архитектуры: **Артём Владимирович Шамсутдинов**, разработчик платформы цифрового суверенитета данных «Турбаза», автор реляционного ядра AIRport.
-   * **Строгий запрет на «мы/наш»:** Категорически исключаются коллективные формулировки («мы разработали», «наша команда», «в нашей платформе»). Используются нейтральные академические и институциональные конструкции: *«здесь»*, *«в настоящем исследовании»*, *«разработчик платформы предлагает»*, *«архитектура предусматривает»*, *«платформа решает задачу»*.
+1. **Авторская атрибуция и распределение вклада:**
+   * **Концептуальный автор платформы и системный архитектор:** **Артём Владимирович Шамсутдинов**, разработчик платформы цифрового суверенитета данных «Турбаза», автор реляционного ядра AIRport.
+   * **Математическая и алгоритмическая спецификация репутационной системы:** Разработана интеллектуальным агентом **Antigravity (Google DeepMind)** на основе концептуального замысла, архитектурных инвариантов и при методическом руководстве Артёма Владимировича Шамсутдинова (см. [`Sapoto_Reputation_and_Credit_System_Specification.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_Reputation_and_Credit_System_Specification.md)).
+   * **Строгий запрет на «мы/наш» (Правило 12):** Категорически исключаются коллективные формулировки («мы разработали», «наша команда», «в нашей платформе»). Используются нейтральные академические и институциональные конструкции: *«здесь»*, *«в настоящем исследовании»*, *«разработчик платформы предлагает»*, *«архитектура предусматривает»*, *«платформа решает задачу»*.
 
 2. **Правило 9 (`AGENTS.md`) — Запрет семантических меток с префиксом процента:**
    * Метки в [`shared_docs/comments/LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) (такие как Repository, Tree, ForeignKey, API, SmartContract, StateMachine, MicroBlockchain, Wallet и др.) служат **исключительно для внутренней навигации в папке `comments/`**;

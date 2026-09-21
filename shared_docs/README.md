@@ -8,12 +8,14 @@
    Главный технический вайтпейпер платформы (110+ КБ текста): топология, виртуальные хранилища, трехуровневые составные ключи, Read-Anywhere Write-Self, конвейер Ветки, TreeSearch, FSM смарт-контракты и микро-блокчейны, экономика API 1/N.
 
 2. **[`whitepapers/`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/README.md):**  
-   Комплект из 5 специализированных Белых Книг в формате Markdown и скомпилированных PDF-отчетов:
-   - `01_platform_overview_whitepaper.md`
-   - `02_applications_suite_whitepaper.md`
-   - `03_engineering_architecture_whitepaper.md`
-   - `04_ecosystem_impact_whitepaper.md`
-   - `05_sovereign_governance_whitepaper.md`
+   Комплект из 6 фундаментальных Белых Книг формата А4 (включая отзыв на Концепцию ПКСК Банка России `06_cbr_smart_contracts_fsm_whitepaper.md`), а также специализированный комплекс нормативных спецификаций прикладного стека ([`whitepapers/applications/`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/README.md)):
+   - `01_platform_overview_whitepaper.md` — Смена парадигмы децентрализации и трехуровневая топология
+   - `02_applications_suite_whitepaper.md` — Флагманский стек приложений (КубГолос, Забота, Деловой, УраТур, МСП)
+   - `03_engineering_architecture_whitepaper.md` — Инженерная архитектура ядра (AirEntity, SQLite, AIRport)
+   - `04_ecosystem_impact_whitepaper.md` — Отраслевой и экономический эффект для 10 участников
+   - `05_sovereign_governance_whitepaper.md` — Правовой суверенитет, 152-ФЗ Zero-PII и доверенный контур
+   - `06_cbr_smart_contracts_fsm_whitepaper.md` — Смарт-контракты ЦВЦБ для Банка России: детерминированные FSM O(1)
+   - **Прикладной стек (`whitepapers/applications/`):** нормативные спецификации «КубГолоса» ([`VoteCube_architecture_and_functionality.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/VoteCube_architecture_and_functionality.md)), «Заботы» ([`Sapoto_architecture_and_functionality.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_architecture_and_functionality.md)), нормативная спецификация репутационного и кредитного рейтинга ([`Sapoto_Reputation_and_Credit_System_Specification.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_Reputation_and_Credit_System_Specification.md)) и органайзера «Деловой» ([`gogetter/`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/gogetter/README.md)).
 
 3. **[`comments/`](file:///Users/parents/Documents/presentations/shared_docs/comments/README.md):**  
    Аутентичные авторские заметки разработчика платформы (человеческий текст без участия ИИ), фиксирующие оригинальный архитектурный замысел:

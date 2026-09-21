@@ -19,7 +19,7 @@ Stores foundational, platform-wide technical documentation, whitepapers, cryptog
   - Zero-Knowledge Proof (ZK) verification and Zero-PII compliance models
   - Federated OLAP query mechanics (128-byte client rollups)
   - Database engine architecture and state pruning
-- **`whitepapers/`**: Executive whitepapers for platform overview, applications, engineering architecture, ecosystem impact, and sovereign governance.
+- **`whitepapers/`**: Complete suite of 6 publication-grade A4 Executive Whitepapers (Platform Overview, Applications Suite, Engineering Architecture, Ecosystem Impact, Sovereign Governance, and CBR Smart Contracts FSM) and the dedicated Applications Specifications Suite (`whitepapers/applications/` covering VoteCube, Sapoto, GoGetter, including the normative Reputation and Credit System Specification).
 - **`turbase_presentation_russian_text.md`**: Foundational 30-slide master reference presentation text and narration preceding this workspace.
 - **`generate_tech_doc_pdf.js`**: CLI tool to compile `Технический документ платформы Турбаза.md` into an executive PDF Whitepaper.
 

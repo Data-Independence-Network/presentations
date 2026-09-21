@@ -25,7 +25,11 @@
 
 * [**Головной обзор прикладного стека (`applications/README.md`)**](applications/README.md) — Триада системообразующих приложений (КубГолос $\longleftarrow$ Забота $\longleftarrow$ Деловой), однонаправленная иерархия схем данных и сквозной когнитивный конвейер.
 * [**«КубГолос» (`applications/votecube/`)**](applications/votecube/README.md) — 3D-волеизъявление, распределение 100 б.п., Байесовский многошкальный консенсус (Результат / Эксперты / Народ), нормативная спецификация ([`VoteCube_architecture_and_functionality.md`](applications/votecube/VoteCube_architecture_and_functionality.md)) и гайд влияния на 7 уровнях общества ([`VoteCube_Ecosystem_Impact_Guide.md`](applications/votecube/VoteCube_Ecosystem_Impact_Guide.md)).
-* [**«Забота» (`applications/sapoto/`)**](applications/sapoto/README.md) — Сеть взаимной поддержки и обмена жизненным опытом на местах, 4 модальности реплик (Идея, Опыт, Вопрос, Комментарий), мультимодальный опыт («Speak» / «Show»), нормативная спецификация ([`Sapoto_architecture_and_functionality.md`](applications/sapoto/Sapoto_architecture_and_functionality.md)) и потенциал на 7 уровнях ([`Sapoto_Ecosystem_Impact_Guide.md`](applications/sapoto/Sapoto_Ecosystem_Impact_Guide.md)).
+* [**«Забота» (`applications/sapoto/`)**](applications/sapoto/README.md) — Сеть взаимной поддержки и обмена жизненным опытом на местах:
+  - [`Sapoto_architecture_and_functionality.md`](applications/sapoto/Sapoto_architecture_and_functionality.md) — нормативная спецификация прикладной архитектуры (1.0);
+  - [`Sapoto_Reputation_and_Credit_System_Specification.md`](applications/sapoto/Sapoto_Reputation_and_Credit_System_Specification.md) — нормативная математическая и алгоритмическая спецификация децентрализованной репутации, суверенного кредитного рейтинга, транзитивного поручительства (Multi-Hop Transitive Trust) и балансировки сезонной ликвидности ROSCA;
+  - [`Sapoto_Ecosystem_Impact_Guide.md`](applications/sapoto/Sapoto_Ecosystem_Impact_Guide.md) — социально-экономический потенциал на 7 уровнях общества;
+  - [`README.md`](applications/sapoto/README.md) и [`AGENTS.md`](applications/sapoto/AGENTS.md).
 * [**«Деловой» (`applications/gogetter/`)**](applications/gogetter/README.md) — Интеллектуальный органайзер задач и поручений, Матрица Эйзенхауэра 2.0, гравитационные сферы («Gravity Balls»), алгоритм случайного шага (Serendipity Task), композитные внешние ключи, Общественный API и локальная СУБД SQLite с откликом < 1 мс.
 * [**Инженерное руководство прикладного стека (`applications/AGENTS.md`)**](applications/AGENTS.md) — Системные инварианты, правила зависимостей схем и стандарты оформления.
 
@@ -54,8 +58,9 @@
 
 ## ✍️ Авторская атрибуция и редакторские правила
 
-* **Единый автор:** **Артём Владимирович Шамсутдинов**, разработчик платформы цифрового суверенитета данных «Турбаза», автор реляционного ядра AIRport.
-* **Исключение «мы/наш»:** Не используются местоимения множественного числа от первого лица. Повествование ведется в строгом научно-техническом и институциональном стиле.
+* **Концептуальный автор платформы и системный архитектор:** **Артём Владимирович Шамсутдинов**, разработчик платформы цифрового суверенитета данных «Турбаза», автор реляционного ядра AIRport.
+* **Математическая и алгоритмическая спецификация репутационной системы:** Разработана интеллектуальным агентом **Antigravity (Google DeepMind)** на основе концептуального замысла, архитектурных инвариантов и при методическом руководстве Артёма Владимировича Шамсутдинова (см. [`Sapoto_Reputation_and_Credit_System_Specification.md`](applications/sapoto/Sapoto_Reputation_and_Credit_System_Specification.md)).
+* **Исключение «мы/наш»:** Не используются местоимения множественного числа от первого лица (Правило 12). Повествование ведется в строгом научно-техническом и институциональном стиле.
 * **Политика фиксации PDF в Git:** Завершенные чистовые Белые Книги формата А4 сохраняются в Git в качестве официальных публикационных материалов (на текущий момент Белая книга 06 финализирована и зафиксирована в Git; черновики 01–05 внесены в `.gitignore` поимённо до завершения их доработки).
 
 ---
