@@ -64,10 +64,12 @@
 ### 4. Каркас приложений, модульность и безопасность (Application Framework & Security)
 %Access - Доступ
 %AccessRules - Правила доступа
+%AntiMonopoly - Антимонополия
 %API - Общественная Оболочка
 %App - Приложение
 %Bypass - Обход
 %Composite - Составной
+%Composition - Композиция
 %Construction - Конструкция
 %Cooperation - Взаимодействие
 %Decorator - Декоратор
@@ -78,14 +80,18 @@
 %Interface - Интерфейс приложения
 %Libraries - Библиотеки
 %Logic - Логика
+%Mechanism - Механизм
 %Monopolization - Монополизация
 %ORM - Объектно-реляционное отображение
+%Performance - Производительность
 %Privacy - Конфиденциальность
 %Private - Приватный
 %Required - Необходимый
 %Security - Безопасность
 %Shared - Разделяемый
+%Standard - Стандарт
 %Structure - Структура
+%Template - Шаблон
 
 ### 5. Поиск, навигация и категоризация (Search, Categorization & Indexing)
 %Aggregation - Агрегация
@@ -93,6 +99,7 @@
 %Counter - Счётчик
 %Filter - Фильтрация
 %I18n - Интернационализация
+%Index - Индексация
 %Keyword - Ключевое слово
 %Popular - Популярный
 %Results - Результаты
@@ -100,14 +107,19 @@
 %SearchEngine - Поисковая система
 %Sorting - Сортировка
 %Tag - Тег
+%Theme - Тематика
 %TreeSearch - Обход дерева
 
 ### 6. Смарт-контракты, цифровые деньги и экономика (Smart Contracts, FinTech & Economics)
 %Capacity - Вычислительные мощности
 %Company - Компания
 %Condition - Условие
+%EconomicRating - Экономический рейтинг
 %Economics - Экономика
 %Efficiency - Эффективность
+%Equation - Математическая формула
+%Level1Contract - Контракт первого уровня
+%Level2Contract - Контракт второго уровня
 %Oracle - Оракул
 %Order - Порядок
 %Profitability - Доходность
@@ -130,6 +142,7 @@
 ### 8. Флагманские приложения экосистемы (Flagship Applications & Mechanics)
 #### Базовые системообразующие приложения
 %Foundational - Базовый
+%Goals - Цели
 
 #### «КубГолос» (микро-опросы и взвешивание факторов)
 %Add - Добавление
@@ -140,6 +153,7 @@
 %Idea - Идея
 %Interest - Интерес
 %Poll - Опрос
+%PollGroup - Группа опросов
 %Position - Позиция
 %Reason - Обоснование
 %ViewArea - Видимая площадь
@@ -164,6 +178,7 @@
 %Reputation - Репутация
 %Sapoto - Забота
 %Situation - Ситуация
+%SocialRating - Социальный рейтинг
 %SocialSupport - Социальная поддержка
 %Solution - Решение
 %Thread - Цепочка сообщений
@@ -171,8 +186,14 @@
 %Urgency - Срочность
 
 #### «Деловой» (организатор и задачи)
+%5HnW_Questions - Ключевые вопросы (5W1H)
+%Characteristics - Характеристики
 %Deed - Дело
+%EisenhowerMatrix - Матрица Эйзенхауэра
 %GoGetter - Деловой
+%GravityBalls - Гравитационные шарики
+%Random - Случайность
+%Task - Задача
 
 ### 9. Субъекты, общество и цифровой суверенитет (Society, Sovereignty & Governance)
 %Department - Ведомство
@@ -195,6 +216,7 @@
 
 ## Полный алфавитный словарь (Alphabetical Index)
 
+%5HnW_Questions - Ключевые вопросы (5W1H)
 %Access - Доступ
 %AccessRules - Правила доступа
 %Actor - Субъект
@@ -204,6 +226,7 @@
 %Against - Против
 %Aggregation - Агрегация
 %Analytics - Аналитика
+%AntiMonopoly - Антимонополия
 %API - Общественная Оболочка
 %App - Приложение
 %Branch - Ветка
@@ -214,10 +237,12 @@
 %Case - Случай
 %Category - Категория
 %Change - Изменение
+%Characteristics - Характеристики
 %Child - Дочерний элемент
 %Comments - Комментарии
 %Company - Компания
 %Composite - Составной
+%Composition - Композиция
 %ConcurrentMap - Параллельная карта
 %Condition - Условие
 %Connection - Соединение
@@ -234,10 +259,13 @@
 %DependencyInjection - Внедрение зависимостей
 %DigitalSovereignty - Цифровой суверенитет
 %DisasterRecovery - Аварийное восстановление
+%EconomicRating - Экономический рейтинг
 %Economics - Экономика
 %Efficiency - Эффективность
+%EisenhowerMatrix - Матрица Эйзенхауэра
 %Encapsulate - Инкапсуляция
 %Encryption - Шифрование
+%Equation - Математическая формула
 %Estimation - Оценка
 %Existing - Существующий
 %Experience - Жизненный опыт
@@ -254,7 +282,9 @@
 %Framework - Каркас
 %GenAI - Генеративный ИИ
 %General - Общий
+%Goals - Цели
 %GoGetter - Деловой
+%GravityBalls - Гравитационные шарики
 %Group - Группа
 %GUI - Графический интерфейс
 %Help - Помощь
@@ -262,6 +292,7 @@
 %Id - Идентификатор
 %Idea - Идея
 %Importance - Важность
+%Index - Индексация
 %Infrastructure - Инфраструктура
 %Interest - Интерес
 %Interface - Интерфейс приложения
@@ -271,12 +302,15 @@
 %Join - SQL-соединение
 %Keyword - Ключевое слово
 %Leaf - Лист
+%Level1Contract - Контракт первого уровня
+%Level2Contract - Контракт второго уровня
 %Libraries - Библиотеки
 %List - Список
 %LLM - Большая языковая модель
 %Local - Локальный
 %Logic - Логика
 %LongTermStorage - Долгосрочное хранение
+%Mechanism - Механизм
 %MicroBlockchain - Микро-цепь
 %Modification - Модификация
 %Monopolization - Монополизация
@@ -294,8 +328,10 @@
 %Parent - Родитель
 %ParentBranch - Родительская Ветвь
 %PassThroughConnection - Сквозное соединение
+%Performance - Производительность
 %PersistentQueue - Персистентная очередь
 %Poll - Опрос
+%PollGroup - Группа опросов
 %Popular - Популярный
 %Position - Позиция
 %Priority - Приоритет
@@ -307,6 +343,7 @@
 %PublicData - Общественные данные
 %Questions - Вопросы
 %Queue - Очередь
+%Random - Случайность
 %Reason - Обоснование
 %RecordId - Ключ Записи
 %Region - Регион
@@ -328,15 +365,20 @@
 %Sharing - Распределение
 %Situation - Ситуация
 %SmartContract - Смарт контракт
+%SocialRating - Социальный рейтинг
 %SocialSupport - Социальная поддержка
 %Solution - Решение
 %Sorting - Сортировка
 %Sovereign - Суверенный
 %SQL - SQL
+%Standard - Стандарт
 %StateMachine - Конечный автомат
 %Structure - Структура
 %Synchronization - Синхронизация
 %Tag - Тег
+%Task - Задача
+%Template - Шаблон
+%Theme - Тематика
 %Thread - Цепочка сообщений
 %Training - Тренировка
 %TransactionLog - Журнал изменений

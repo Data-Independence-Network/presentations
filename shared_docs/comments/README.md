@@ -15,7 +15,7 @@
 
 * **[`README.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/README.md)** — настоящий обзорный документ.
 * **[`AGENTS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/AGENTS.md)** — регламенты, правила изоляции меток и инструкции для ИИ-агентов.
-* **[`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md)** — официальный словарь семантических меток: **156 меток в 10 архитектурных группах** + полный алфавитный указатель.
+* **[`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md)** — официальный словарь семантических меток: **177 меток в 10 архитектурных группах** + полный алфавитный указатель.
 * **[`2026/`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/README.md)** — хронологический архив заметок за 2026 год:
   1. [`08-25_01_History_of_technology.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/08-25_01_History_of_technology.md) — История развития технологии (от семейного приложения к интернету данных).
   2. [`08-30_01_Who_is_it_for.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/08-30_01_Who_is_it_for.md) — Для кого задумана Турбаза (целевые аудитории, уровни приватности и децентрализованный ИИ).
@@ -23,6 +23,8 @@
   4. [`09-12_01_Smart_Contracts.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-12_01_Smart_Contracts.md) — Смарт-контракты (конечный автомат, микро-цепи, сценарии и защита кошельков).
   5. [`09-19_01_Votecube.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-19_01_Votecube.md) — «КубГолос» (микро-опросы, 3D-взвешивание факторов, суверенные мощности и агрегация).
   6. [`09-19_02_Sapoto.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-19_02_Sapoto.md) — «Забота» (сеть взаимопомощи, составные конструкции, интеграция с «КубГолосом» и приложением «Деловой»).
+  7. [`09-25_01_Go-Getter.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-25_01_Go-Getter.md) — «Деловой» (задачи, матрица Эйзенхауэра, гравитационные шарики и контракты второго уровня).
+  8. [`09-25_02_Sapoto_social_rating.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-25_02_Sapoto_social_rating.md) — Социальный рейтинг Заботы (индексация случаев, агрегация по темам и регионам).
 
 ---
 
