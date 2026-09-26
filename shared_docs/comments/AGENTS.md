@@ -15,7 +15,7 @@
 shared_docs/comments/
 ├── README.md                 # Обзор базы авторских заметок и навигация для разработчиков
 ├── AGENTS.md                 # Настоящий документ с инструкциями и регламентами для ИИ-агентов
-├── LABELS.md                 # Официальный словарь семантических меток (10 групп, 177 меток)
+├── LABELS.md                 # Официальный словарь семантических меток (10 групп, 196 меток)
 └── 2026/                     # Записи за 2026 год (хронологическая структура)
     ├── README.md             # Обзор и сводный реестр заметок 2026 года
     ├── AGENTS.md             # Индекс записей и ключевые темы за 2026 год
@@ -25,6 +25,7 @@ shared_docs/comments/
     ├── 09-12_01_Smart_Contracts.md         # Смарт-контракты: конечный автомат, внешний контур и кошельки
     ├── 09-19_01_Votecube.md                # «КубГолос»: 3D-взвешивание факторов, опросы и агрегация
     ├── 09-19_02_Sapoto.md                  # «Забота»: сеть взаимопомощи, составные конструкции и репутация
+    ├── 09-20_01_Economic_potential.md      # Экономический потенциал: связка сервисов, проверка сторон и польза данных
     ├── 09-25_01_Go-Getter.md               # «Деловой»: задачи, матрица Эйзенхауэра, шарики и контракты
     └── 09-25_02_Sapoto_social_rating.md   # «Забота»: социальный рейтинг, тематическая и гео-индексация
 ```
@@ -36,22 +37,22 @@ shared_docs/comments/
 ## 🏷️ Семантическая разметка (%Labels)
 Для упрощения навигации и точного поиска фактов ИИ-агентами автор использует систему **семантических меток** (`%Label`), которые ставятся в начале параграфов или непосредственно под заголовками (см. [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md)).
 
-В словаре [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) зарегистрировано **177 меток**, распределённых по **10 архитектурным группам**:
+В словаре [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) зарегистрировано **196 меток**, распределённых по **10 архитектурным группам**:
 
 | № | Архитектурная группа | Описание группы | Кол-во меток | Ключевые метки группы |
 |---|---|---|---|---|
-| **1** | **Сетевая топология и узлы** *(Topology & Networking)* | Трёхзвенная архитектура (Лист $\to$ Ветка $\to$ Ствол), каналы связи, P2P и «интернет данных» | 12 | `%Leaf`, `%Branch`, `%Trunk`, `%ParentBranch`, `%Connection`, `%PassThroughConnection`, `%P2P`, `%Tree` |
-| **2** | **Хранение данных и модель Листа** *(Data Storage & Relational Model)* | Автономные хранилища, трёхколоночная идентификация субъектов, внешние ключи, SQL и версионирование | 19 | `%Repository`, `%RepositoryId`, `%Actor`, `%ActorId`, `%RecordId`, `%ForeignKey`, `%Database`, `%SQL`, `%Join`, `%Schema` |
+| **1** | **Сетевая топология и узлы** *(Topology & Networking)* | Трёхзвенная архитектура (Лист $\to$ Ветка $\to$ Ствол), каналы связи, P2P и «интернет данных» | 13 | `%Leaf`, `%Branch`, `%Trunk`, `%ParentBranch`, `%Connection`, `%PassThroughConnection`, `%P2P`, `%Decentralized`, `%Tree` |
+| **2** | **Хранение данных и модель Листа** *(Data Storage & Relational Model)* | Автономные хранилища, трёхколоночная идентификация субъектов, внешние ключи, SQL и версионирование | 21 | `%Repository`, `%RepositoryId`, `%Actor`, `%ActorId`, `%RecordId`, `%ForeignKey`, `%Database`, `%Storage`, `%Information`, `%SQL`, `%Schema` |
 | **3** | **Конвейер синхронизации Ветки** *(Branch Pipeline & Storage)* | Очередь гарантированной фиксации, параллельная карта памяти, файловый архив, микро-цепи и серверные страницы | 14 | `%PersistentQueue`, `%ConcurrentMap`, `%FileSystem`, `%LongTermStorage`, `%Cache`, `%MicroBlockchain`, `%Page`, `%Synchronization` |
-| **4** | **Каркас приложений и безопасность** *(Framework, Modularity & Security)* | Среда исполнения Листа, DI/ORM, составные конструкции, антимонопольные обходы, изоляция и шифрование | 30 | `%Framework`, `%App`, `%API`, `%Interface`, `%Composite`, `%Composition`, `%AntiMonopoly`, `%Bypass`, `%Mechanism`, `%Performance`, `%Standard`, `%Template` |
+| **4** | **Каркас приложений и безопасность** *(Framework, Modularity & Security)* | Среда исполнения Листа, DI/ORM, составные конструкции, антимонопольные обходы, изоляция и шифрование | 34 | `%Framework`, `%Turbase`, `%App`, `%API`, `%Interface`, `%Composite`, `%Composition`, `%AntiMonopoly`, `%Bypass`, `%Mechanism`, `%System`, `%Performance` |
 | **5** | **Поиск, навигация и категоризация** *(Search, Categorization & Indexing)* | Древовидный поиск, буквенные деревья, рубрикация, фильтры, сортировка и интернационализация | 15 | `%TreeSearch`, `%Search`, `%Keyword`, `%Category`, `%Tag`, `%Index`, `%Theme`, `%Filter`, `%Aggregation`, `%Popular`, `%I18n` |
-| **6** | **Смарт-контракты и экономика** *(Smart Contracts, FinTech & Economics)* | Минимальные FSM-автоматы, кошельки, арендаторы мощностей, самоокупаемость и рекурсивный revenue-sharing | 20 | `%SmartContract`, `%StateMachine`, `%Level1Contract`, `%Level2Contract`, `%Equation`, `%EconomicRating`, `%Condition`, `%Wallet`, `%Proof`, `%RevenueSharing` |
+| **6** | **Смарт-контракты и экономика** *(Smart Contracts, FinTech & Economics)* | Минимальные FSM-автоматы, цифровая валюта, контракты уровней 1-2, проверка сторон и рекурсивный revenue-sharing | 28 | `%SmartContract`, `%StateMachine`, `%DigitalCurrency`, `%Level1Contract`, `%Level2Contract`, `%Party`, `%Verification`, `%Reliability`, `%Exchange`, `%Resource` |
 | **7** | **Пользовательский интерфейс** *(UI & Presentation)* | Компоненты графического интерфейса, экраны и карточки | 5 | `%UI`, `%GUI`, `%Screen`, `%Card`, `%Other` |
-| **8** | **Флагманские приложения** *(Flagship Applications & Mechanics)* | Механики «КубГолоса» (3D-факторы), «Заботы» (случаи, треды, репутация, соцрейтинг), «Делового» (дела, задачи, шарики) и базовых «Целей» | 47 | `%Foundational`, `%Goals`, `%VoteCube`, `%Cube`, `%PollGroup`, `%Sapoto`, `%Case`, `%SocialRating`, `%Reputation`, `%Deed`, `%GoGetter`, `%Task`, `%GravityBalls`, `%EisenhowerMatrix` |
-| **9** | **Общество и суверенитет** *(Society, Sovereignty & Governance)* | Семьи, локальные сообщества, ведомства, региональная привязка и государственный суверенитет | 11 | `%Family`, `%Neighbors`, `%Group`, `%Local`, `%Region`, `%DigitalSovereignty`, `%Sovereign`, `%Department`, `%Service` |
+| **8** | **Флагманские приложения** *(Flagship Applications & Mechanics)* | Механики «КубГолоса» (3D-факторы, обратная связь), «Заботы» (случаи, треды, репутация, соцрейтинг), «Делового» (дела, задачи, отчёты) | 49 | `%Foundational`, `%Goals`, `%VoteCube`, `%Cube`, `%Feedback`, `%PollGroup`, `%Sapoto`, `%Case`, `%SocialRating`, `%Deed`, `%GoGetter`, `%Task`, `%Report` |
+| **9** | **Общество и суверенитет** *(Society, Sovereignty & Governance)* | Семьи, сообщества, локальное общение, ведомства, региональная привязка и государственный суверенитет | 13 | `%Family`, `%Neighbors`, `%Community`, `%Group`, `%Communication`, `%Local`, `%Region`, `%DigitalSovereignty`, `%Sovereign`, `%Department` |
 | **10** | **Децентрализованный ИИ** *(Decentralized AI & ML)* | Периферийный генеративный ИИ, LLM, обучение на размеченных данных Листов и оптимизация вычислений | 4 | `%GenAI`, `%LLM`, `%Training`, `%Optimization` |
 
-Полный список всех 177 меток с подробными русскоязычными описаниями и алфавитным указателем приведён в [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md).
+Полный список всех 196 меток с подробными русскоязычными описаниями и алфавитным указателем приведён в [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md).
 
 ---
 
