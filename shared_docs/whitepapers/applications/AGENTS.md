@@ -29,6 +29,7 @@ shared_docs/whitepapers/applications/
 │   └── AGENTS.md                                     # Инженерные инварианты и правила для Sapoto
 └── gogetter/                                         # «Деловой» (GoGetter)
     ├── GoGetter_architecture_and_functionality.md   # Нормативная архитектурная спецификация (1.0)
+    ├── GoGetter_Ecosystem_Impact_Guide.md            # Руководство социально-экономического влияния
     ├── README.md                                     # Полное концептуальное руководство по прототипу
     └── AGENTS.md                                     # Инженерные инварианты и правила для GoGetter
 ```
