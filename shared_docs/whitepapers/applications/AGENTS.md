@@ -28,7 +28,8 @@ shared_docs/whitepapers/applications/
 │   ├── README.md                                     # Полное концептуальное руководство по прототипу
 │   └── AGENTS.md                                     # Инженерные инварианты и правила для Sapoto
 └── gogetter/                                         # «Деловой» (GoGetter)
-    ├── README.md                                     # Концепция, архитектура задач и интеграции
+    ├── GoGetter_architecture_and_functionality.md   # Нормативная архитектурная спецификация (1.0)
+    ├── README.md                                     # Полное концептуальное руководство по прототипу
     └── AGENTS.md                                     # Инженерные инварианты и правила для GoGetter
 ```
 
@@ -83,7 +84,11 @@ $$\text{КубГолоса (VoteCube)} \longleftarrow \text{Забота (Sapoto
    - Токены из `LABELS.md` (`%Repository`, `%Tree`, `%ForeignKey`, `%API`, `%SmartContract`, `%StateMachine`, `%MicroBlockchain`, `%Wallet` и др.) служат **исключительно для внутренней навигации в папке `comments/`**.
    - **В текстах белых книг, спецификаций и руководств использование префикса процента СТРОЖАЙШЕ ЗАПРЕЩЕНО.**
 4. **Синхронизация с серией презентаций и Белой книгой № 02:**
-   - Все архитектурные сущности, термины и DDL-структуры должны быть согласованы с [`02_applications_suite_whitepaper.md`](../02_applications_suite_whitepaper.md) и каталогом презентаций [`applications_presentations/`](file:///Users/parents/Documents/presentations/applications_presentations/README.md).
+   - Все архитектурные сущности, термины и концепции должны быть согласованы с [`02_applications_suite_whitepaper.md`](../02_applications_suite_whitepaper.md) и каталогом презентаций [`applications_presentations/`](file:///Users/parents/Documents/presentations/applications_presentations/README.md).
+5. **Временный статус DDL-классов и строгий запрет в Whitepapers и презентациях (Draft Approximations Invariant):**
+   - Все программные классы, DDL-структуры таблиц и фрагменты кода в инженерных спецификациях прикладного стека (`applications/`) являются **временными рабочими проектными набросками** (draft approximations) базового инженерного уровня.
+   - **Они КАТЕГОРИЧЕСКИ ЗАПРЕЩЕНЫ к отображению и включению в представительские материалы: официальные Белые Книги (Whitepapers) и слайды презентаций.**
+   - В официальных вайтпейперах и презентациях архитектурные решения раскрываются исключительно на концептуальном уровне: архитектурных принципов, потоков данных, антимонопольной компонуемости и социально-экономических преимуществ.
 
 ---
 
