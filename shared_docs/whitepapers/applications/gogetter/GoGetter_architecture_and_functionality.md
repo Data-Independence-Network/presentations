@@ -336,9 +336,16 @@ classDiagram
     }
     class PollGroup {
         +Deed deed
+        +Task task
         +string name
-        +number totalAgreements
-        +number bayesianConsensus
+        +string description
+        +number calculatedConsensus
+        +number totalVotesCount
+    }
+    class PollGroupPoll {
+        +PollGroup pollGroup
+        +Poll poll
+        +number orderIndex
     }
 
     Goal "1..*" <-- "0..*" DeedGoal : стратегические цели
@@ -348,7 +355,9 @@ classDiagram
     Deed "1" *-- "1" Deed5W1H : когнитивная модель
     Deed "1" o-- "0..*" DeedCase : связь с Заботой
     Task "1" o-- "0..*" TaskExternalLink : внешние ссылки
-    Deed "1" o-- "0..*" PollGroup : опросы КубГолоса
+    Deed "0..1" o-- "0..*" PollGroup : группы опросов Дела
+    Task "0..1" o-- "0..*" PollGroup : группы опросов Задачи
+    PollGroup "1" *-- "1..*" PollGroupPoll : состав опросов (1..N)
 ```
 
 ### 4.2. DDL-спецификация базового уровня (`@airline/tasks`)
@@ -1051,13 +1060,13 @@ export class ContractStage extends AirEntity {
 
 ## 10. Интеграция с «КубГолосом» (VoteCube) и «Заботой» (Sapoto.net)
 
-### 10.1. Группы микро-опросов (PollGroup)
-В отличие от плоских задач, сложные корпоративные или муниципальные Дела требуют согласования мнений коллектива или жителей:
-- К Делу или отдельной Задаче может прикрепляться одна или несколько групп микро-опросов (`PollGroup`).
-- Каждый опрос представляет собой 3D-опрос из «КубГолоса» (`@votecube/votecube`).
-- **Расчет статистики группы опросов:**
-  - На **Листах пользователей** локально рассчитывается персональный консенсус и мера согласия по формулам КубГолоса;
-  - На **серверных Листах обработки данных** предприятий и ведомств выполняется агрегированный расчет сводных распределений для принятия управленческих решений.
+### 10.1. Группы микро-опросов (PollGroup): связывание произвольного числа опросов с Делом или отдельной Задачей
+Архитектурный смысл сущности `PollGroup` («Группа Опросов») заключается в том, что **любое количество микро-опросов «КубГолоса» может быть гибко соединено с определенным Делом в целом либо с отдельной Задачей**:
+- **Гибкая агрегация опросов (1..N):** Вместо жесткого ограничения «один опрос на одну сущность», «Деловой» вводит промежуточную группирующую сущность `PollGroup`. К конкретному Делу (проекту) или к любой входящей в него Задаче (подзадаче, вехе) может быть привязано произвольное количество 3D-опросов «КубГолоса» (`@votecube/votecube`). Это позволяет всесторонне согласовывать многоаспектные решения (например: опрос по бюджету, опрос по срокам, опрос по материалам и опрос по выбору подрядчика).
+- **Связка как с Делом, так и с Задачей:** Поле `deed` заполняется, когда группа опросов относится к Делу в целом; поле `task` заполняется, когда группа опросов привязана к конкретной прикладной Задаче.
+- **Расчет совокупной статистики группы опросов:**
+  - На **Листах пользователей (Leaf):** локально рассчитывается персональный консенсус, мера согласия и степень соответствия группы опросов приоритетам конкретного участника;
+  - На **серверных Листах обработки данных** предприятий, артелей и ведомств выполняется агрегированный расчет сводных многомерных распределений и байесовского консенсуса группы для принятия взвешенных управленческих решений.
 
 ```typescript
 /**
@@ -1067,13 +1076,16 @@ export class ContractStage extends AirEntity {
  */
 
 /**
- * Группа микро-опросов, прикрепленная к Делу
+ * Группа микро-опросов, прикрепляемая к Делу или отдельной Задаче
  */
 @Entity()
 @Table({ name: 'GOGETTER_POLL_GROUPS' })
 export class PollGroup extends AirEntity {
-    @ManyToOne({ target: 'Deed' })
-    deed: Deed;
+    @ManyToOne({ target: 'Deed', nullable: true })
+    deed?: Deed; // Привязка к Делу в целом
+
+    @ManyToOne({ target: 'Task', nullable: true })
+    task?: Task; // Привязка к конкретной Задаче
 
     @Column({ name: 'NAME', nullable: false })
     name: string;
@@ -1081,11 +1093,30 @@ export class PollGroup extends AirEntity {
     @Column({ name: 'DESCRIPTION', nullable: true })
     description?: string;
 
+    @OneToMany({ mappedBy: 'pollGroup' })
+    pollGroupPolls: PollGroupPoll[]; // Набор связанных опросов КубГолоса (1..N)
+
     @Column({ name: 'CALCULATED_CONSENSUS', nullable: true })
     calculatedConsensus?: number; // Байесовский консенсус по группе опросов
 
     @Column({ name: 'TOTAL_VOTES_COUNT', nullable: false })
     totalVotesCount: number;
+}
+
+/**
+ * Соединительная сущность: включение опроса КубГолоса в группу опросов
+ */
+@Entity()
+@Table({ name: 'GOGETTER_POLL_GROUP_POLLS' })
+export class PollGroupPoll extends AirEntity {
+    @ManyToOne({ target: 'PollGroup' })
+    pollGroup: PollGroup;
+
+    @ManyToOne({ target: 'Poll' }) // Опрос из схемы @votecube/votecube
+    poll: Poll;
+
+    @Column({ name: 'ORDER_INDEX', nullable: false })
+    orderIndex: number;
 }
 ```
 
