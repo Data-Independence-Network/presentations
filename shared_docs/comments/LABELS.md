@@ -208,9 +208,12 @@
 %EisenhowerMatrix - Матрица Эйзенхауэра
 %GoGetter - Деловой
 %GravityBalls - Гравитационные шарики
+%Motivation - Мотивация
+%Priority - Приоритет
 %Random - Случайность
 %Report - Отчётность
 %Task - Задача
+%Urgency - Срочность
 
 ### 9. Субъекты, общество и цифровой суверенитет (Society, Sovereignty & Governance)
 %Communication - Общение
@@ -342,6 +345,7 @@
 %Mechanism - Механизм
 %MicroBlockchain - Микро-цепь
 %Modification - Модификация
+%Motivation - Мотивация
 %Monopolization - Монополизация
 %Neighbors - Соседи
 %Nested - Вложенный
