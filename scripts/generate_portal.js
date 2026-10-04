@@ -61,7 +61,7 @@ const PRESENTATION_METADATA = {
     customTitle: 'Парадигмальный сдвиг',
     customSubtitle: 'От платформенного монополизма к владению собственной информацией. Личные автономные хранилища и защита семейных архивов.',
     marker: 'ЭКСПЛЕЙНЕР · ЧАСТЬ 1',
-    tags: ['Суверенитет данных', 'Личные хранилища', 'Ликвидация утечек', 'Защита частных данных']
+    tags: ['Суверенитет данных', 'Личные хранилища', 'Ликвидация утечек', 'Данные у владельца']
   },
   'platform_overview/02_architecture_principles_presentation': {
     customTitle: 'Анатомия и Архитектура платформы',
@@ -73,7 +73,7 @@ const PRESENTATION_METADATA = {
     customTitle: 'Суверенная экономика и смарт-контракты',
     customSubtitle: 'Двухконтурная модель Турбазы, детерминированные автоматы FSM O(1), Цифровой рубль ЦБ РФ и P2P-клиринг.',
     marker: 'ЭКСПЛЕЙНЕР · ЧАСТЬ 3',
-    tags: ['Цифровой рубль', 'FSM O(1)', 'Экономика API 1/N', 'Защита частных данных']
+    tags: ['Цифровой рубль', 'FSM O(1)', 'Экономика API 1/N', 'Данные у владельца']
   },
 
   // --- OVERALL PRESENTATIONS (READY) ---
@@ -128,7 +128,7 @@ const PRESENTATION_METADATA = {
     customTitle: 'Топология и Суверенитет',
     customSubtitle: 'Трёхуровневая топология прямого владения данными (Лист — Ветка — Ствол) и парадигма вычислений на устройствах пользователей.',
     marker: 'АРХИТЕКТУРА · ВЫПУСК 1',
-    tags: ['Лист — Ветка — Ствол', 'Вычисления на устройствах', 'Защита частных данных', 'Децентрализация']
+    tags: ['Лист — Ветка — Ствол', 'Вычисления на устройствах', 'Данные у владельца', 'Децентрализация']
   },
   'architecture_presentations/02_leaf_storage_engine': {
     customTitle: 'Локальное хранилище Leaf',
@@ -239,7 +239,7 @@ const WHITEPAPERS = [
     mdPath: 'shared_docs/whitepapers/01_platform_overview_whitepaper.md',
     pdfPath: 'shared_docs/whitepapers/01_platform_overview_whitepaper.pdf',
     isReady: false,
-    tags: ['📊 15 страниц', 'Суверенитет', 'Защита частных данных', 'TCO -90%', 'Вычисления на устройствах']
+    tags: ['📊 15 страниц', 'Суверенитет', 'Данные у владельца', 'TCO -90%', 'Вычисления на устройствах']
   },
   {
     num: '02',
@@ -285,7 +285,7 @@ const WHITEPAPERS = [
     num: '06',
     marker: 'БЕЛАЯ КНИГА · 06 · ЦБ РФ',
     title: 'Белая книга 06: Смарт-контракты Банка России и FSM O(1)',
-    desc: 'Официальный отзыв на Концепцию ПКСК ЦБ РФ: детерминированные автоматы состояний (FSM) O(1), защита частных данных, бестерминальность и интеграция с Цифровым рублем.',
+    desc: 'Официальный отзыв на Концепцию ПКСК ЦБ РФ: детерминированные автоматы состояний (FSM) O(1), данные у владельца, бестерминальность и интеграция с Цифровым рублем.',
     mdPath: 'shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md',
     pdfPath: 'shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf',
     isReady: true,
@@ -1381,7 +1381,7 @@ function buildPortalHtml(items) {
 
         <div class="stat-card zero-pii">
           <div class="stat-number">100%</div>
-          <div class="stat-label">Автономность и защита частных данных</div>
+          <div class="stat-label">Автономность и данные у владельца</div>
           <div class="stat-desc">Локальная работа без облачных утечек данных</div>
         </div>
       </div>
