@@ -929,7 +929,7 @@ rate: "-9%"
         </div>
         <div class="kpi-card-explainer">
           <div class="kpi-num teal">100%</div>
-          <div class="kpi-label">Соответствие требованиям 152-ФЗ и защите частных данных</div>
+          <div class="kpi-label">Соответствие требованиям 152-ФЗ и принципу «данные у владельца»</div>
         </div>
         <div class="kpi-card-explainer">
           <div class="kpi-num cyan">МИЛЛИОНЫ</div>

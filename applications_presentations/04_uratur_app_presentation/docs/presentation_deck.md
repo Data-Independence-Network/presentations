@@ -690,7 +690,7 @@ rate: "-9%"
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СЛЕПЫЕ СДЕЛКИ</div>
-    <h2 class="slide-title">СЛЕПОЕ БРОНИРОВАНИЕ И БИЛЕТЫ (ЗАЩИТА ЧАСТНЫХ ДАННЫХ)</h2>
+    <h2 class="slide-title">СЛЕПОЕ БРОНИРОВАНИЕ И БИЛЕТЫ (ДАННЫЕ У ВЛАДЕЛЬЦА)</h2>
     <p class="slide-subtitle">Прямое бронирование кемпингов и баз отдыха через Цифровой рубль без раскрытия паспорта</p>
   </div>
 

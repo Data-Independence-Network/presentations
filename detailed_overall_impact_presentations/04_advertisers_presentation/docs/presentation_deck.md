@@ -63,7 +63,7 @@ rate: "-9%"
           <div class="kpi-label">Аппаратное криптографическое доказательство каждого контакта</div>
         </div>
         <div class="kpi-card-explainer">
-          <div class="kpi-num pink">100% ЗАЩИТА ЧАСТНЫХ ДАННЫХ</div>
+          <div class="kpi-num pink">100% ДАННЫЕ У ВЛАДЕЛЬЦА</div>
           <div class="kpi-label">Полный правовой иммунитет от штрафов по 152-ФЗ за сбор баз данных</div>
         </div>
       </div>
