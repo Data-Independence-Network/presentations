@@ -90,7 +90,7 @@
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ЭКСПЛЕЙНЕР &middot; ЧАСТЬ 3 ИЗ 3</div>
     <h1 class="slide-title">СУВЕРЕННАЯ ЭКОНОМИКА ДАННЫХ И СМАРТ-КОНТРАКТОВ</h1>
-    <p class="slide-subtitle">Двухконтурная модель «Турбазы» и будущей системы смарт-контрактов Банка России: детерминированные механизмы состояний FSM O(1) и Zero-PII</p>
+    <p class="slide-subtitle">Двухконтурная модель «Турбазы» и будущей системы смарт-контрактов Банка России: детерминированные механизмы состояний FSM O(1) и защита частных данных</p>
   </div>
 
   <div class="slide-body grid-2col">
@@ -109,7 +109,7 @@
         <div class="feature-card">
           <div class="card-icon">📱</div>
           <h4>Внешний контур на Листьях</h4>
-          <p>Микро-цепи на телефонах: Zero-PII приватность, чеки не покидают семью, ГОСТ-подписи.</p>
+          <p>Микро-цепи на телефонах: приватность, чеки не покидают семью, ГОСТ-подписи.</p>
         </div>
         <div class="feature-card">
           <div class="card-icon">⚖️</div>
@@ -118,7 +118,7 @@
         </div>
         <div class="feature-card">
           <div class="card-icon">🛡️</div>
-          <h4>Защита кошельков (Wrappers)</h4>
+          <h4>Защита кошельков</h4>
           <p>Контрактные оболочки скрывают счета, а сменяемые сессионные прокси защищают при краже телефона.</p>
         </div>
       </div>
@@ -136,7 +136,7 @@
         </div>
         <div class="kpi-card-explainer">
           <div class="kpi-num emerald">100%</div>
-          <div class="kpi-label">Формальная верификация инвариантов баланса без кризиса Bug Bounty</div>
+          <div class="kpi-label">Формальная верификация инвариантов баланса без кризиса поиска уязвимостей за вознаграждение</div>
         </div>
       </div>
     </div>
@@ -202,12 +202,12 @@
     <div class="glass-card accent-teal" style="height: 100%; justify-content: space-between;">
       <div>
         <div class="card-pill-tag teal">РЕШЕНИЕ: ТУРБАЗА + ЦБ РФ</div>
-        <h3 class="card-title">Детерминизм и Zero-PII</h3>
+        <h3 class="card-title">Детерминизм и защита частных данных</h3>
         <p class="card-desc">Разделение ответственности исключает риски обоих миров.</p>
         <ul class="card-bullets">
           <li><strong>Ядро O(1):</strong> только математические расчеты между кошельками без газа</li>
           <li><strong>Турбаза на Листьях:</strong> бизнес-логика исполняется на телефонах участников</li>
-          <li><strong>Справедливое роялти:</strong> алгоритмический сплит дохода между авторами софта</li>
+          <li><strong>Справедливое роялти:</strong> алгоритмический сплит дохода между авторами программ</li>
         </ul>
         <div class="flow-step-row teal" style="margin-top: 10px;">
           <span class="flow-step-num teal">✓</span>
@@ -215,7 +215,7 @@
         </div>
       </div>
       <div class="kpi-chip-footer" style="color: #1de9b6; border-color: rgba(29, 233, 182, 0.3); background: rgba(29, 233, 182, 0.08); padding: 8px 12px; border-radius: 8px; font-size: 18px; font-weight: 800; text-align: center; font-family: var(--font-mono);">
-        🛡️ СЛОЖНОСТЬ O(1) · 0 ₽ ГАЗ · ZERO-PII
+        🛡️ СЛОЖНОСТЬ O(1) · 0 ₽ ГАЗ · ЗАЩИТА ЧАСТНЫХ ДАННЫХ
       </div>
     </div>
   </div>
@@ -249,7 +249,7 @@
         </div>
         <div class="flow-step-row gold">
           <span class="flow-step-num gold">02</span>
-          <span><strong>Zero-PII чистота:</strong> ядро не хранит товарных чеков, составов корзин и личной переписки</span>
+          <span><strong>Чистота от персональных данных:</strong> ядро не хранит товарных чеков, составов корзин и личной переписки</span>
         </div>
         <div class="flow-step-row gold">
           <span class="flow-step-num gold">03</span>
@@ -301,14 +301,14 @@
 
       <div class="fsm-terminal-card" style="margin-top: auto;">
         <div class="fsm-terminal-header">
-          <span>📱 LEAF STORAGE CONTOUR · ТУРБАЗА EDGE</span>
+          <span>📱 LEAF STORAGE CONTOUR · ТУРБАЗА</span>
           <div class="fsm-terminal-controls"><span class="fsm-terminal-dot yellow"></span><span class="fsm-terminal-dot green"></span></div>
         </div>
         <div class="fsm-terminal-body">
-          <span class="fsm-kw">STORAGE:</span> Local SQLite Micro-Chain (Zero-PII)<br/>
+          <span class="fsm-kw">STORAGE:</span> Local SQLite Micro-Chain<br/>
           <span class="fsm-kw">CONSENSUS:</span> Vector ГОСТ Р 34.10-2012 Signatures<br/>
           <span class="fsm-kw">PAYLOAD:</span> Proves State Transition without Revealing Receipt<br/>
-          <span class="fsm-kw">ENCRYPTION:</span> On-Device Data Vault · ГОСТ Р 34.12-2018 (Кузнечик)
+          <span class="fsm-kw">ENCRYPTION:</span> Защищённое хранилище на устройстве · ГОСТ Р 34.12-2018 (Кузнечик)
         </div>
       </div>
     </div>
@@ -530,7 +530,7 @@
         </div>
         <div class="fsm-terminal-body">
           <span class="fsm-fn">onceIn</span>(<span class="fsm-val">86400</span>, <span class="fsm-fn">lte</span>(<span class="fsm-val">300</span>, <span class="fsm-fn">or</span>(<span class="fsm-var">MEAL_A</span>, <span class="fsm-var">MEAL_B</span>)))
-          <span class="fsm-meta">Параметры: Суточный лимит 300 ₽ | Категории: Завтрак / Обед | Zero-PII</span>
+          <span class="fsm-meta">Параметры: Суточный лимит 300 ₽ | Категории: Завтрак / Обед</span>
         </div>
       </div>
 
@@ -575,7 +575,7 @@
           <div class="card-pill-tag gold">КЛЮЧЕВЫЕ ПРЕИМУЩЕСТВА СХЕМЫ</div>
           <h3 class="card-title">Гарантии для Семьи и Школы</h3>
           <ul class="card-bullets">
-            <li><strong>Zero-PII конфиденциальность:</strong> банк и регулятор видят только перевод по коду Б. Состав блюд и калории остаются строго в микро-цепи семьи и школы</li>
+            <li><strong>Конфиденциальность частных данных:</strong> банк и регулятор видят только перевод по коду Б. Состав блюд и калории остаются строго в микро-цепи семьи и школы</li>
             <li><strong>Казначейский надзор:</strong> лимит резервирует право расхода субсидии; в 23:59 неиспользованный остаток обнуляется, исключая нецелевой вывод</li>
             <li><strong>Пассивный носитель и доверенная касса:</strong> школьнику не нужен смартфон &mdash; расчет идет по карте или браслету; доверенная касса школы проводит платеж строго по предикатам</li>
             <li><strong>Осознанный IOU-офлайн:</strong> при сбое связи стороны дают согласие на долговую расписку; локальный FSM кассы валидирует лимит по кэшу</li>
@@ -584,7 +584,7 @@
 
         <div class="fsm-terminal-card gold-border" style="margin-top: 10px; margin-bottom: 10px;">
           <div class="fsm-terminal-header">
-            <span class="gold-title">🛡️ LEAF EDGE PROTOCOL · АНАТОМИЯ ЛИСТА</span>
+            <span class="gold-title">🛡️ АНАТОМИЯ ЛИСТА</span>
             <div class="fsm-terminal-controls"><span class="fsm-terminal-dot green"></span></div>
           </div>
           <div class="fsm-terminal-body">
@@ -595,7 +595,7 @@
         </div>
 
         <div class="kpi-chip-footer" style="color: #ffd600; border-color: rgba(250, 204, 21, 0.3); background: rgba(250, 204, 21, 0.08); padding: 10px 16px; border-radius: 8px; font-size: 20px; font-weight: 800; text-align: center; font-family: var(--font-mono);">
-          ⚡ СЛОЖНОСТЬ КЛИРИНГА: O(1) · ЭКВАЙРИНГ: 0% · ПРИВАТНОСТЬ: ZERO-PII
+          ⚡ СЛОЖНОСТЬ КЛИРИНГА: O(1) · ЭКВАЙРИНГ: 0% · ПРИВАТНОСТЬ: ПОЛНАЯ
         </div>
       </div>
     </div>
@@ -614,7 +614,7 @@
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СЦЕНАРИЙ 02: БЕЗОПАСНАЯ СДЕЛКА</div>
     <h2 class="slide-title">B2B/B2C СДЕЛКА ДЛЯ МСП БЕЗ ТЕРМИНАЛОВ</h2>
-    <p class="slide-subtitle">Синхронизация заказа через микро-цепь, P2P Proof-of-Delivery и мгновенный эскроу-клиринг</p>
+    <p class="slide-subtitle">Синхронизация заказа через микро-цепь, P2P-подтверждение доставки и мгновенный эскроу-клиринг</p>
   </div>
 
   <div class="slide-body grid-2col">
@@ -673,7 +673,7 @@
           <ul class="card-bullets">
             <li><strong>Аппаратная бестерминальность:</strong> ресторану, курьеру и клиенту не нужны банковские POS-терминалы &mdash; все работает в защищенном браузере Турбазы</li>
             <li><strong>0% комиссий маркетплейсов:</strong> ресторатор не отдает 30% агрегатору, сохраняя полную прибыль</li>
-            <li><strong>P2P Proof-of-Delivery:</strong> вектор взаимных подписей сторон служит неопровержимым доказательством выполнения обязательств</li>
+            <li><strong>P2P-подтверждение доставки:</strong> вектор взаимных подписей сторон служит неопровержимым доказательством выполнения обязательств</li>
             <li><strong>Защита от дедлоков:</strong> при срыве срока доставки детерминированный таймаут FSM автоматически возвращает 500 ₽ покупателю</li>
           </ul>
         </div>
@@ -710,7 +710,7 @@
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СЦЕНАРИЙ 03: ЭКОНОМИКА СОФТА</div>
     <h2 class="slide-title">РЕКУРСИВНЫЕ РОЯЛТИ ЧЕРЕЗ SHARE(...)</h2>
-    <p class="slide-subtitle">Справедливое сплитование микроплатежей по Вектору Шепли между авторами софта и пользователем</p>
+    <p class="slide-subtitle">Справедливое сплитование микроплатежей по Вектору Шепли между авторами программ и пользователем</p>
   </div>
 
   <div class="slide-body grid-2col">
@@ -793,7 +793,7 @@
 </div>
 
         <div class="speaker-notes-content" data-slide="8" style="display:none;">
-          Третий сценарий решает фундаментальный кризис открытого программного обеспечения.<br/><br/>В &quot;Турбазе&quot; приложения изначально спроектированы для совместной работы. Программы органично дополняют друг друга, используя открытые схемы данных и Общественные Оболочки API.<br/><br/>Функция share позволяет авторам заранее зафиксировать доли распределения выручки.<br/><br/>Если приложение Д использует модуль В, созданный разработчиками Б и А, и таблицу инженера Г, поступивший доход расщепляется алгоритмически. Десять процентов получает пользователь за внимание, а девяносто процентов прозрачно распределяются по дереву софта.<br/><br/>Дерево автоматически сворачивается в плоский расчет за один шаг, а налоги удерживаются автоматически.
+          Третий сценарий решает фундаментальный кризис открытого программного обеспечения.<br/><br/>В &quot;Турбазе&quot; приложения изначально спроектированы для совместной работы. Программы органично дополняют друг друга, используя открытые схемы данных и Общественные Оболочки API.<br/><br/>Функция share позволяет авторам заранее зафиксировать доли распределения выручки.<br/><br/>Если приложение Д использует модуль В, созданный разработчиками Б и А, и таблицу инженера Г, поступивший доход расщепляется алгоритмически. Десять процентов получает пользователь за внимание, а девяносто процентов прозрачно распределяются по дереву программ.<br/><br/>Дерево автоматически сворачивается в плоский расчет за один шаг, а налоги удерживаются автоматически.
         </div>
       </section>
     
@@ -810,8 +810,8 @@
   <div class="slide-body grid-3col">
     <div class="glass-card accent-teal" style="height: 100%; justify-content: space-between;">
       <div>
-        <div class="card-pill-tag teal">ПРИНЦИП 01: ZERO-PII ТАРГЕТИНГ</div>
-        <h3 class="card-title">Локальный ИИ на Edge</h3>
+        <div class="card-pill-tag teal">ПРИНЦИП 01: ТАРГЕТИНГ БЕЗ ПЕРСОНАЛЬНЫХ ДАННЫХ</div>
+        <h3 class="card-title">Локальный ИИ на устройстве</h3>
         <p class="card-desc">Профиль интересов никогда не передается на серверы корпораций.</p>
         <ul class="card-bullets">
           <li>Компактная нейросеть работает прямо в браузере смартфона</li>
@@ -825,7 +825,7 @@
           <span class="fsm-terminal-dot green"></span>
         </div>
         <div class="fsm-terminal-body">
-          <span class="fsm-kw">STORAGE:</span> Local SQLite vector DB (Zero-PII)<br/>
+          <span class="fsm-kw">STORAGE:</span> Local SQLite vector DB<br/>
           <span class="fsm-kw">INFERENCE:</span> SLM WebNN (0 внешних вызовов)<br/>
           <span class="fsm-kw">PRIVACY:</span> Семейная тайна 100% на устройстве
         </div>
@@ -939,7 +939,7 @@
     <div class="glass-card accent-teal" style="height: 100%; justify-content: space-between;">
       <div>
         <div class="circuit-card-header" style="color: #1de9b6;">
-          <span>🛡️ ГРАЖДАНСКИЙ КОНТУР (152-ФЗ ZERO-PII / СТ. 26 395-1)</span>
+          <span>🛡️ ГРАЖДАНСКИЙ КОНТУР (152-ФЗ / СТ. 26 395-1)</span>
         </div>
         <p class="card-desc">Полная защита номеров счетов и остатков от чужих глаз и приложений.</p>
         <div class="flow-step-row teal">
@@ -962,7 +962,7 @@
 
       <div class="fsm-terminal-card" style="margin-top: auto;">
         <div class="fsm-terminal-header">
-          <span>🛡️ ZERO-PII PROXY WRAPPER · 152-ФЗ</span>
+          <span>🛡️ ПРОКСИ-ОБОЛОЧКА БЕЗ ПЕРСОНАЛЬНЫХ ДАННЫХ · 152-ФЗ</span>
           <span class="fsm-terminal-dot green"></span>
         </div>
         <div class="fsm-terminal-body">
@@ -1083,27 +1083,27 @@
   <div class="slide-body grid-2col">
     <div class="glass-card danger-accent" style="height: 100%; justify-content: space-between;">
       <div>
-        <div class="card-pill-tag red">ЕДИНЫЙ СОЦРЕЙТИНГ (АНТИУТОПИЯ)</div>
-        <h3 class="card-title">Токсичный глобальный балл</h3>
-        <p class="card-desc">Попытки ввести единую оценку благонадежности ведут к цифровому рабству.</p>
+        <div class="card-pill-tag amber">ЕДИНЫЙ СКАЛЯРНЫЙ РЕЙТИНГ</div>
+        <h3 class="card-title">Ограничения одномерного балла</h3>
+        <p class="card-desc">Единый числовой балл сталкивается с естественными ограничениями при оценке многогранной жизни человека.</p>
         <ul class="card-bullets">
-          <li><strong>Произвол монополий:</strong> риск внезапной блокировки или обнуления единого рейтинга</li>
-          <li><strong>Смешение контекстов:</strong> невозможно оценить разные роли человека единой цифрой</li>
-          <li><strong>Индустрия фрода:</strong> процветание черного рынка заказных отзывов и бот-ферм</li>
-          <li><strong>Бесправие гражданина:</strong> невозможность оспорить вердикт непрозрачного алгоритма</li>
+          <li><strong>Смешение сфер:</strong> профессиональные и бытовые качества сложно выразить одним числом</li>
+          <li><strong>Трудность диалога:</strong> закрытые алгоритмы не всегда предоставляют возможность ответа</li>
+          <li><strong>Сложность реабилитации:</strong> давние единичные ошибки могут задерживаться на годы</li>
+          <li><strong>Риски внешних накруток:</strong> попытки манипуляций отзывами на коммерческих площадках</li>
         </ul>
       </div>
 
-      <div class="fsm-terminal-card" style="border-color: rgba(244, 63, 94, 0.45); margin-top: auto;">
-        <div class="fsm-terminal-header" style="color: #fda4af;">
-          <span>⚠️ РИСКИ ЦЕНТРАЛИЗОВАННОГО РЕЙТИНГА</span>
-          <span class="fsm-terminal-dot red"></span>
+      <div class="fsm-terminal-card" style="border-color: rgba(245, 158, 11, 0.45); margin-top: auto;">
+        <div class="fsm-terminal-header" style="color: #fde68a;">
+          <span>ОСОБЕННОСТИ ОДНОМЕРНОГО ПОДХОДА</span>
+          <span class="fsm-terminal-dot yellow"></span>
         </div>
         <div class="fsm-terminal-body">
-          <span class="fsm-kw">МОНОПОЛИЯ:</span> Черный ящик закрытых алгоритмов платформы<br/>
-          <span class="fsm-kw">БОТ-ФЕРМЫ:</span> Скупка фальшивых отзывов за фиатные деньги<br/>
-          <span class="fsm-kw">ДИСКРИМИНАЦИЯ:</span> Единый балл уничтожает репутацию человека<br/>
-          <span class="fsm-kw">VULNERABILITY:</span> 0% защиты от предвзятости центрального оператора
+          <span class="fsm-kw">СМЕШЕНИЕ:</span> Сведение разных сторон личности к одной цифре<br/>
+          <span class="fsm-kw">ОСПАРИВАНИЕ:</span> Затруднённая обратная связь при неточностях<br/>
+          <span class="fsm-kw">НАКРУТКИ:</span> Риски манипуляции оценками на внешнем рынке<br/>
+          <span class="fsm-kw">ЖЕСТКОСТЬ:</span> Необходимость гибких механизмов исправления
         </div>
       </div>
     </div>
@@ -1138,7 +1138,7 @@
         </div>
         <div class="fsm-terminal-body">
           <span class="fsm-kw">VECTORS:</span> T_repair(0.94) ⊕ T_neighbor(0.98) ⊕ T_carpool(0.89)<br/>
-          <span class="fsm-kw">ARBITRAGE:</span> Доказательства и переписка — в Турбазе (Zero-PII)<br/>
+          <span class="fsm-kw">ARBITRAGE:</span> Доказательства и переписка — в Турбазе<br/>
           <span class="fsm-kw">FSM_ROLE:</span> Универсальный шаблон or/and с подписью медиатора<br/>
           <span class="fsm-kw">QUORUM:</span> Доказательное решение с мультиподписью сторон спора
         </div>
@@ -1148,7 +1148,7 @@
 </div>
 
         <div class="speaker-notes-content" data-slide="12" style="display:none;">
-          Как формируется доверие в обществе без централизованных регуляторов?<br/><br/>Единый государственный или корпоративный социальный рейтинг — это опасная антиутопия, ведущая к дискриминации и торговле отзывами.<br/><br/>&quot;Турбаза&quot; опирается на многомерный граф доверия в сети &quot;Забота&quot;. Репутация здесь контекстуальна: мастер по ремонту, добросовестный сосед или надежный попутчик — это совершенно разные доверенные связи.<br/><br/>Поручительства оформляются очно между реальными людьми, исключая бот-фермы.<br/><br/>При возникновении спора вся бизнес-логика арбитража, переписка и доказательства остаются в приложениях и микро-цепях &quot;Турбазы&quot;. В расчетном механизме хранится лишь адрес универсального шаблона функции, а приложения внешнего контура наполняют его смыслом, направляя решение с подписью медиатора.
+          Как эффективно выстроить доверие в цифровой среде?<br/><br/>Традиционные одномерные рейтинги проделали большую работу, но сведение многогранной деятельности человека к единственной цифре неизбежно вызывает сложности.<br/><br/>Платформа &quot;Турбаза&quot; предлагает набор идей, развивающих культуру доверия на основе многомерного графа. В сети &quot;Забота&quot; репутация строго контекстуальна: мастер по ремонту, добросовестный сосед или надёжный попутчик — это независимые направления.<br/><br/>Подтверждения опираются на реальные дела и очные связи между людьми.<br/><br/>При возникновении спора все детали, переписка и доказательства остаются в приложениях участников. А в расчётном контуре используется минимальный механизм состояний, получающий согласованное решение сторон.
         </div>
       </section>
     
@@ -1158,7 +1158,7 @@
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | МАТЕМАТИЧЕСКАЯ НАДЕЖНОСТЬ</div>
-    <h2 class="slide-title">100% ВЕРИФИКАЦИЯ FSM ПРОТИВ КРИЗИСА BUG BOUNTY</h2>
+    <h2 class="slide-title">100% ВЕРИФИКАЦИЯ FSM ПРОТИВ КРИЗИСА ПОИСКА УЯЗВИМОСТЕЙ ЗА ВОЗНАГРАЖДЕНИЕ</h2>
     <p class="slide-subtitle">Математическое доказательство инвариантов баланса и отсутствия дедлоков SMT-сольверами до запуска</p>
   </div>
 
@@ -1167,7 +1167,7 @@
       <div>
         <div class="card-pill-tag red">ТЬЮРИНГ-ПОЛНЫЙ КОД (EVM)</div>
         <h3 class="card-title">Иллюзия надежности аудитов</h3>
-        <p class="card-desc">Программы этичного хакинга (Bug Bounty) не способны гарантировать безопасность.</p>
+        <p class="card-desc">Программы этичного хакинга не способны гарантировать безопасность.</p>
         <ul class="card-bullets">
           <li><strong>Теорема Райса:</strong> семантические свойства произвольного кода алгоритмически неразрешимы</li>
           <li>Бесконечное пространство состояний делает невозможным полный перебор</li>
@@ -1185,7 +1185,7 @@
           <div class="fsm-terminal-body">
             <span class="fsm-kw">RICE_THEOREM:</span> &forall; nontrivial P: semantic P is UNDECIDABLE<br/>
             <span class="fsm-kw">RE-ENTRANCY:</span> The DAO ($60M), Nomad ($190M), Euler ($197M)<br/>
-            <span class="fsm-kw">AUDIT_PARADOX:</span> 82% взломанных контрактов прошли Bug Bounty
+            <span class="fsm-kw">AUDIT_PARADOX:</span> 82% взломанных контрактов прошли поиск уязвимостей за вознаграждение
           </div>
         </div>
         <div class="kpi-chip-footer" style="color: #ff5252; border-color: rgba(255, 82, 82, 0.3); background: rgba(255, 82, 82, 0.08); padding: 8px 14px; border-radius: 8px; font-size: 18px; font-weight: 800; text-align: center; font-family: var(--font-mono); margin-top: 8px;">
@@ -1202,7 +1202,7 @@
         <ul class="card-bullets">
           <li><strong>Доказательство инвариантов:</strong> математически доказано &sum; Assets_In &equiv; &sum; Assets_Out</li>
           <li><strong>Deadlock-freedom:</strong> автоматическое подтверждение отсутствия тупиков в Z3 и TLA+</li>
-          <li><strong>Истинная роль Bug Bounty:</strong> привлечение хакеров только для проверки чипов и ГОСТ-шифров</li>
+          <li><strong>Истинная роль поиска уязвимостей за вознаграждение:</strong> привлечение хакеров только для проверки чипов и ГОСТ-шифров</li>
           <li><strong>Государственный реестр:</strong> математический допуск безопасных шаблонов в ядро ЦБ</li>
         </ul>
       </div>
@@ -1228,7 +1228,7 @@
 </div>
 
         <div class="speaker-notes-content" data-slide="13" style="display:none;">
-          Банк России в своей концепции предлагает привлекать отечественные платформы Bug Bounty для поиска уязвимостей в смарт-контрактах.<br/><br/>Однако мировая практика доказала: программы этичного хакинга бессильны перед Тьюринг-полным кодом. Из-за фундаментальной теоремы Райса проверить все сценарии сложной программы невозможно, и взломы происходят регулярно.<br/><br/>Модель детерминированных механизмов состояний, описанная в белой бумаге автора, решает эту проблему в корне. Пространство состояний FSM конечно и счетно.<br/><br/>До добавления шаблона в государственный реестр автоматические математические анализаторы на сто процентов доказывают строгое сохранение баланса и невозможность зависания средств.<br/><br/>А Bug Bounty привлекается строго для аудита криптографических библиотек ГОСТ.
+          Банк России в своей концепции предлагает привлекать отечественные платформы поиска уязвимостей за вознаграждение в смарт-контрактах.<br/><br/>Однако мировая практика доказала: программы этичного хакинга бессильны перед Тьюринг-полным кодом. Из-за фундаментальной теоремы Райса проверить все сценарии сложной программы невозможно, и взломы происходят регулярно.<br/><br/>Модель детерминированных механизмов состояний, описанная в белой бумаге автора, решает эту проблему в корне. Пространство состояний FSM конечно и счетно.<br/><br/>До добавления шаблона в государственный реестр автоматические математические анализаторы на сто процентов доказывают строгое сохранение баланса и невозможность зависания средств.<br/><br/>А поиск уязвимостей за вознаграждение привлекается строго для аудита криптографических библиотек ГОСТ.
         </div>
       </section>
     
@@ -1250,7 +1250,7 @@
         <ul class="card-bullets">
           <li><strong>Сложность O(1):</strong> пиковая масштабируемость без риска перегрузки ЦОД</li>
           <li><strong>-90% затрат на сервера:</strong> вся сложность и хранение вынесены на Листья</li>
-          <li><strong>161-ФЗ и 152-ФЗ:</strong> безотзывность клиринга и Zero-PII соответствие</li>
+          <li><strong>161-ФЗ и 152-ФЗ:</strong> безотзывность клиринга и соответствие требованиям защиты частных данных</li>
           <li><strong>161-ФЗ SLA:</strong> отклик ядра &lt; 100 мс при миллионах транзакций</li>
         </ul>
       </div>
@@ -1302,17 +1302,17 @@
         <div class="card-pill-tag cyan">ОБЩЕСТВО</div>
         <h3 class="card-title">Гражданин и Семья</h3>
         <ul class="card-bullets">
-          <li><strong>Zero-PII защита:</strong> тайна покупок защищена от агрессивной слежки</li>
+          <li><strong>Защита частных данных:</strong> тайна покупок защищена от агрессивной слежки</li>
           <li><strong>Безопасность кошелька:</strong> защита сбережений при утере смартфона</li>
           <li><strong>Доход за внимание:</strong> реклама окупает личное хранилище данных</li>
           <li><strong>Справедливый доход:</strong> прямое вознаграждение в Цифровых рублях</li>
         </ul>
       </div>
       <div class="metric-highlight-box teal-border">
-        <span class="metric-highlight-val" style="color: #1de9b6;">ZERO-PII</span>
+        <span class="metric-highlight-val" style="color: #1de9b6;">ЧАСТНОЕ ОСТАЁТСЯ ЧАСТНЫМ</span>
         <span class="metric-highlight-lbl">Абсолютная защита личной тайны и чеков</span>
       </div>
-      <div class="kpi-chip-footer" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">⚡ ZERO-PII · ЗАЩИТА СЧЕТОВ</div>
+      <div class="kpi-chip-footer" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3);">⚡ ЗАЩИТА СЧЕТОВ БЕЗ ПЕРСОНАЛЬНЫХ ДАННЫХ</div>
     </div>
   </div>
 </div>
