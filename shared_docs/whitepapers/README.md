@@ -1,6 +1,6 @@
 # Комплект Белых Книг платформы «Турбаза» (Whitepapers Suite)
 
-Данная директория содержит полный комплект из **шести фундаментальных аналитических и научно-технических документов (Whitepapers)**, охватывающих все направления развития платформы «Турбаза».
+Данная директория содержит полный комплект из **шести фундаментальных аналитических и научно-технических документов (Whitepapers)**, охватывающих все направления развития платформы «Турбаза». Седьмая книга (социальный и экономический рейтинги) находится в разработке: утверждены план и справочник исполнителя, текст ещё не написан.
 
 Документы разработаны на основе утвержденных планов презентаций, концептуальных заметок разработчика (`shared_docs/comments/`) и результатов экспертного анализа. Документы оформлены по высшему академическому и представительскому полиграфическому стандарту А4 для демонстрации государственным регуляторам, финансовым институтам и научному сообществу.
 
@@ -10,12 +10,13 @@
 
 | № | Файл исходного текста | Локальный скомпилированный PDF | Направление (Track) | Ключевая тематика | Бюджет |
 | :---: | :--- | :--- | :--- | :--- | :---: |
-| **01** | [`01_platform_overview_whitepaper.md`](01_platform_overview_whitepaper.md) | `01_platform_overview_whitepaper.pdf` | **Обзор платформы** (`platform_overview/`) | Смена парадигмы децентрализации, трехуровневая топология Лист-Ветка-Ствол, Zero-PII и снижение TCO на 90%. | 15 стр. |
+| **01** | [`01_platform_overview_whitepaper.md`](01_platform_overview_whitepaper.md) | `01_platform_overview_whitepaper.pdf` | **Обзор платформы** (`platform_overview/`) | Смена парадигмы децентрализации, трехуровневая топология Лист-Ветка-Ствол, защита частных данных и снижение TCO на 90%. | 15 стр. |
 | **02** | [`02_applications_suite_whitepaper.md`](02_applications_suite_whitepaper.md) | `02_applications_suite_whitepaper.pdf` | **Флагманские приложения** (`applications_presentations/`) | Прикладные алгоритмы: «Деловой», «КубГолос», «Забота», «УраТур», МСП + Branch-шлюзы ЕСИА, СБП и ГИС ЖКХ. | 15 стр. |
-| **03** | [`03_engineering_architecture_whitepaper.md`](03_engineering_architecture_whitepaper.md) | `03_engineering_architecture_whitepaper.pdf` | **Инженерная архитектура** (`architecture_presentations/`) | Модель данных AirEntity, встраиваемый SQLite на Листе, Read-Anywhere Write-Self, Branch Pipeline, P2P, TreeSearch и референс AIRport. | 15 стр. |
+| **03** | [`03_engineering_architecture_whitepaper.md`](03_engineering_architecture_whitepaper.md) | `03_engineering_architecture_whitepaper.pdf` | **Инженерная архитектура** (`architecture_presentations/`) | Модель данных AirEntity, встраиваемый SQLite на Листе, «читай отовсюду, пиши только своё», Branch Pipeline, P2P, TreeSearch и референс AIRport. | 15 стр. |
 | **04** | [`04_ecosystem_impact_whitepaper.md`](04_ecosystem_impact_whitepaper.md) | `04_ecosystem_impact_whitepaper.pdf` | **Отраслевой эффект** (`detailed_overall_impact_presentations/`) | Матрица ценности 10 категорий участников, расчет TCO (экономия сотен млн руб./год) и 4-фазная дорожная карта миграции. | 15 стр. |
-| **05** | [`05_sovereign_governance_whitepaper.md`](05_sovereign_governance_whitepaper.md) | `05_sovereign_governance_whitepaper.pdf` | **Мастер-обзор и суверенитет** (`overall_presentations/`) | Правовое обоснование 152-ФЗ, Zero-PII, подписи ГОСТ Р 34.10-2012, государственные шлюзы и доверенный контур БРИКС+. | 15 стр. |
-| **06** | [`06_cbr_smart_contracts_fsm_whitepaper.md`](06_cbr_smart_contracts_fsm_whitepaper.md) | `06_cbr_smart_contracts_fsm_whitepaper.pdf` | **Смарт-контракты ЦВЦБ и Банк России** (`shared_docs/whitepapers/`) | Официальный отзыв на Концепцию ПКСК ЦБ РФ: детерминированные механизмы состояний (FSM) $O(1)$, Zero-PII, бестерминальность/IOU, Collaborative Apps, 7 вопросов ЦБ и 3-летний план. | 15 стр. |
+| **05** | [`05_sovereign_governance_whitepaper.md`](05_sovereign_governance_whitepaper.md) | `05_sovereign_governance_whitepaper.pdf` | **Мастер-обзор и суверенитет** (`overall_presentations/`) | Правовое обоснование 152-ФЗ, защита частных данных, подписи ГОСТ Р 34.10-2012, государственные шлюзы и доверенный контур БРИКС+. | 15 стр. |
+| **06** | [`06_cbr_smart_contracts_fsm_whitepaper.md`](06_cbr_smart_contracts_fsm_whitepaper.md) | `06_cbr_smart_contracts_fsm_whitepaper.pdf` | **Смарт-контракты ЦВЦБ и Банк России** (`shared_docs/whitepapers/`) | Официальный отзыв на Концепцию ПКСК ЦБ РФ: детерминированные механизмы состояний (FSM) $O(1)$, защита частных данных, бестерминальность/IOU, Collaborative Apps, 7 вопросов ЦБ и 3-летний план. | 15 стр. |
+| **07** | `07_social_economic_ratings_whitepaper.md` *(текст в разработке)* | `07_social_economic_ratings_whitepaper.pdf` | **Социальный и экономический рейтинги** (`shared_docs/whitepapers/`) | Самостоятельная открытая книга без адресата: открытый социальный рейтинг вкладов по темам (КубГолос, Забота, Деловой) и экономический рейтинг Банка России, согласие на проверку, политика оператора темы, параллельные структуры. План: [`ПЛАН_07_Социальный_и_экономический_рейтинги.md`](ПЛАН_07_Социальный_и_экономический_рейтинги.md), справочник исполнителя: [`ИНФОРМАЦИЯ_К_ПЛАНУ_07_Социальный_и_экономический_рейтинги.md`](ИНФОРМАЦИЯ_К_ПЛАНУ_07_Социальный_и_экономический_рейтинги.md). | 15 стр. (план) |
 
 ---
 
@@ -25,12 +26,15 @@
 
 * [**Головной обзор прикладного стека (`applications/README.md`)**](applications/README.md) — Триада системообразующих приложений (КубГолос $\longleftarrow$ Забота $\longleftarrow$ Деловой), однонаправленная иерархия схем данных и сквозной когнитивный конвейер.
 * [**«КубГолос» (`applications/votecube/`)**](applications/votecube/README.md) — 3D-волеизъявление, распределение 100 б.п., Байесовский многошкальный консенсус (Результат / Эксперты / Народ), нормативная спецификация ([`VoteCube_architecture_and_functionality.md`](applications/votecube/VoteCube_architecture_and_functionality.md)) и гайд влияния на 7 уровнях общества ([`VoteCube_Ecosystem_Impact_Guide.md`](applications/votecube/VoteCube_Ecosystem_Impact_Guide.md)).
+  - [`VoteCube_Role_in_Rating_Infrastructure.md`](applications/votecube/VoteCube_Role_in_Rating_Infrastructure.md) — роль «КубГолоса» в системе рейтингов: опросы, счётчики и статистика на Ветках;
 * [**«Забота» (`applications/sapoto/`)**](applications/sapoto/README.md) — Сеть взаимной поддержки и обмена жизненным опытом на местах:
   - [`Sapoto_architecture_and_functionality.md`](applications/sapoto/Sapoto_architecture_and_functionality.md) — нормативная спецификация прикладной архитектуры (1.0);
   - [`Sapoto_Reputation_and_Credit_System_Specification.md`](applications/sapoto/Sapoto_Reputation_and_Credit_System_Specification.md) — нормативная математическая и алгоритмическая спецификация децентрализованной репутации, суверенного кредитного рейтинга, транзитивного поручительства (Multi-Hop Transitive Trust) и балансировки сезонной ликвидности ROSCA;
   - [`Sapoto_Ecosystem_Impact_Guide.md`](applications/sapoto/Sapoto_Ecosystem_Impact_Guide.md) — социально-экономический потенциал на 7 уровнях общества;
+  - [`Sapoto_Role_in_Rating_Infrastructure.md`](applications/sapoto/Sapoto_Role_in_Rating_Infrastructure.md) — роль «Заботы» в системе рейтингов: треды, голосование внутри тредов, страницы;
   - [`README.md`](applications/sapoto/README.md) и [`AGENTS.md`](applications/sapoto/AGENTS.md).
 * [**«Деловой» (`applications/gogetter/`)**](applications/gogetter/README.md) — Интеллектуальный органайзер задач и поручений, Матрица Эйзенхауэра 2.0, гравитационные сферы («Gravity Balls»), алгоритм случайного шага (Serendipity Task), композитные внешние ключи, Общественный API и локальная СУБД SQLite с откликом < 1 мс.
+  - [`GoGetter_Role_in_Rating_Infrastructure.md`](applications/gogetter/GoGetter_Role_in_Rating_Infrastructure.md) — роль «Делового» в системе рейтингов: контракты второго уровня, связь рейтингов, теги;
 * [**Инженерное руководство прикладного стека (`applications/AGENTS.md`)**](applications/AGENTS.md) — Системные инварианты, правила зависимостей схем и стандарты оформления.
 
 ## 🎨 Стандарты визуального оформления и верстки
@@ -61,7 +65,7 @@
 * **Концептуальный автор платформы и системный архитектор:** **Артём Владимирович Шамсутдинов**, разработчик платформы цифрового суверенитета данных «Турбаза», автор реляционного ядра AIRport.
 * **Математическая и алгоритмическая спецификация репутационной системы:** Разработана интеллектуальным агентом **Antigravity (Google DeepMind)** на основе концептуального замысла, архитектурных инвариантов и при методическом руководстве Артёма Владимировича Шамсутдинова (см. [`Sapoto_Reputation_and_Credit_System_Specification.md`](applications/sapoto/Sapoto_Reputation_and_Credit_System_Specification.md)).
 * **Исключение «мы/наш»:** Не используются местоимения множественного числа от первого лица (Правило 12). Повествование ведется в строгом научно-техническом и институциональном стиле.
-* **Политика фиксации PDF в Git:** Завершенные чистовые Белые Книги формата А4 сохраняются в Git в качестве официальных публикационных материалов (на текущий момент Белая книга 06 финализирована и зафиксирована в Git; черновики 01–05 внесены в `.gitignore` поимённо до завершения их доработки).
+* **Политика фиксации PDF в Git:** Завершенные чистовые Белые Книги формата А4 сохраняются в Git в качестве официальных публикационных материалов (на текущий момент Белая книга 06 финализирована и зафиксирована в Git; черновики 01–05 внесены в `.gitignore` поимённо до завершения их доработки; PDF книги 07 по решению автора выпускается и фиксируется в Git после готовности текста).
 
 ---
 
@@ -80,6 +84,7 @@ npm run build-whitepaper-03
 npm run build-whitepaper-04
 npm run build-whitepaper-05
 npm run build-whitepaper-06
+npm run build-whitepaper-07   # доступно после написания текста книги 07
 
 # Или напрямую через npm в папке shared_docs:
 npm --prefix shared_docs run build-06
