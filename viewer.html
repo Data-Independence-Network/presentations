@@ -571,6 +571,11 @@
       width: 100%;
       text-align: center;
     }
+    /* Схемы со своей палитрой (директива init) всегда на тёмной подложке: цвета текста рассчитаны на неё в обеих темах */
+    .mermaid-container.mermaid-styled {
+      background: #0f172a;
+      border-color: #1e293b;
+    }
     .mermaid svg {
       max-width: 100%;
       height: auto;
@@ -1275,7 +1280,7 @@
         // 1. Stash Mermaid code blocks
         const mermaidBlocks = [];
         cleanMd = cleanMd.replace(/```mermaid\s*([\s\S]*?)```/g, (match, code) => {
-          const id = `___MERMAID_PLACEHOLDER_${mermaidBlocks.length}___`;
+          const id = `TURBASEMERMAIDSLOT${mermaidBlocks.length}END`;
           mermaidBlocks.push(code.trim());
           return id;
         });
@@ -1283,7 +1288,7 @@
         // 2. Stash math display blocks ($$...$$)
         const mathBlocks = [];
         cleanMd = cleanMd.replace(/\$\$([\s\S]*?)\$\$/g, (match, code) => {
-          const id = `___MATH_DISPLAY_${mathBlocks.length}___`;
+          const id = `TURBASEMATHDISPLAYSLOT${mathBlocks.length}END`;
           mathBlocks.push(code.trim());
           return id;
         });
@@ -1291,7 +1296,7 @@
         // 3. Stash inline math ($...$)
         const mathInline = [];
         cleanMd = cleanMd.replace(/\$([^\$\n]+?)\$/g, (match, code) => {
-          const id = `___MATH_INLINE_${mathInline.length}___`;
+          const id = `TURBASEMATHINLINESLOT${mathInline.length}END`;
           mathInline.push(code.trim());
           return id;
         });
@@ -1314,21 +1319,22 @@
         }
 
         // 6. Restore Math Display
-        html = html.replace(/___MATH_DISPLAY_(\d+)___/g, (m, idx) => {
+        html = html.replace(/TURBASEMATHDISPLAYSLOT(\d+)END/g, (m, idx) => {
           const formula = mathBlocks[parseInt(idx, 10)];
           return `<div class="math-display">$$${formula}$$</div>`;
         });
 
         // 7. Restore Math Inline
-        html = html.replace(/___MATH_INLINE_(\d+)___/g, (m, idx) => {
+        html = html.replace(/TURBASEMATHINLINESLOT(\d+)END/g, (m, idx) => {
           const formula = mathInline[parseInt(idx, 10)];
           return `<span class="math-inline">$${formula}$</span>`;
         });
 
         // 8. Restore Mermaid Diagrams
-        html = html.replace(/___MERMAID_PLACEHOLDER_(\d+)___/g, (m, idx) => {
+        html = html.replace(/TURBASEMERMAIDSLOT(\d+)END/g, (m, idx) => {
           const code = mermaidBlocks[parseInt(idx, 10)];
-          return `<div class="mermaid-container"><div class="mermaid">${escapeHtml(code)}</div></div>`;
+          const styledClass = /^%%\{\s*init/.test(code) ? ' mermaid-styled' : '';
+          return `<div class="mermaid-container${styledClass}"><div class="mermaid">${escapeHtml(code)}</div></div>`;
         });
 
         // 9. Wrap tables in responsive wrapper
