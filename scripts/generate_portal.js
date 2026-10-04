@@ -29,7 +29,7 @@ const CATEGORIES = {
     title: 'Мастер-обзор экосистемы',
     icon: '🏛️',
     badge: '2 части',
-    desc: 'Стратегические обзоры: 3-уровневая суверенная топология Leaf-Branch-Trunk и экономическая матрица ценности для 6 групп стейкхолдеров'
+    desc: 'Стратегические обзоры: 3-уровневая суверенная топология Лист — Ветка — Ствол и экономическая матрица ценности для 6 групп стейкхолдеров'
   },
   applications_presentations: {
     id: 'applications_presentations',
@@ -61,7 +61,7 @@ const PRESENTATION_METADATA = {
     customTitle: 'Парадигмальный сдвиг',
     customSubtitle: 'От платформенного монополизма к владению собственной информацией. Личные автономные хранилища и защита семейных архивов.',
     marker: 'ЭКСПЛЕЙНЕР · ЧАСТЬ 1',
-    tags: ['Суверенитет данных', 'Личные хранилища', 'Ликвидация утечек', 'Zero-PII']
+    tags: ['Суверенитет данных', 'Личные хранилища', 'Ликвидация утечек', 'Защита частных данных']
   },
   'platform_overview/02_architecture_principles_presentation': {
     customTitle: 'Анатомия и Архитектура платформы',
@@ -73,15 +73,15 @@ const PRESENTATION_METADATA = {
     customTitle: 'Суверенная экономика и смарт-контракты',
     customSubtitle: 'Двухконтурная модель Турбазы, детерминированные автоматы FSM O(1), Цифровой рубль ЦБ РФ и P2P-клиринг.',
     marker: 'ЭКСПЛЕЙНЕР · ЧАСТЬ 3',
-    tags: ['Цифровой рубль', 'FSM O(1)', 'Экономика API 1/N', 'Zero-PII']
+    tags: ['Цифровой рубль', 'FSM O(1)', 'Экономика API 1/N', 'Защита частных данных']
   },
 
   // --- OVERALL PRESENTATIONS (READY) ---
   'overall_presentations/01_sovereign_architecture_presentation': {
     customTitle: 'Архитектура Цифрового Суверенитета',
-    customSubtitle: 'Трёхуровневая распределённая топология Leaf-Branch-Trunk, прямое владение данными и защищённые вычисления.',
+    customSubtitle: 'Трёхуровневая распределённая топология Лист — Ветка — Ствол, прямое владение данными и защищённые вычисления.',
     marker: 'МАСТЕР-ОБЗОР · СИСТЕМА',
-    tags: ['Leaf-Branch-Trunk', '152-ФЗ Zero-PII', 'Криптоконтур', 'Федеративный поиск']
+    tags: ['Лист — Ветка — Ствол', '152-ФЗ', 'Криптоконтур', 'Федеративный поиск']
   },
   'overall_presentations/02_stakeholders_benefits_presentation': {
     customTitle: 'Матрица Ценности для Стейкхолдеров',
@@ -126,9 +126,9 @@ const PRESENTATION_METADATA = {
   // --- ARCHITECTURE (DRAFT) ---
   'architecture_presentations/01_topology_and_sovereignty': {
     customTitle: 'Топология и Суверенитет',
-    customSubtitle: 'Трёхуровневая топология прямого владения данными (Leaf-Branch-Trunk) и парадигма Edge Computing.',
+    customSubtitle: 'Трёхуровневая топология прямого владения данными (Лист — Ветка — Ствол) и парадигма вычислений на устройствах пользователей.',
     marker: 'АРХИТЕКТУРА · ВЫПУСК 1',
-    tags: ['Leaf-Branch-Trunk', 'Edge Computing', 'Zero-PII', 'Децентрализация']
+    tags: ['Лист — Ветка — Ствол', 'Вычисления на устройствах', 'Защита частных данных', 'Децентрализация']
   },
   'architecture_presentations/02_leaf_storage_engine': {
     customTitle: 'Локальное хранилище Leaf',
@@ -200,7 +200,7 @@ const PRESENTATION_METADATA = {
   },
   'detailed_overall_impact_presentations/06_government_infra_presentation': {
     customTitle: 'Государство и Муниципалитеты',
-    customSubtitle: 'Устойчивые госуслуги, разгрузка ЦОД на 80%, 152-ФЗ Zero-PII и непрерывность при любых ЧС.',
+    customSubtitle: 'Устойчивые госуслуги, разгрузка ЦОД на 80%, 152-ФЗ и непрерывность при любых ЧС.',
     marker: 'СТЕЙКХОЛДЕРЫ · ВЫПУСК 6',
     tags: ['Разгрузка ЦОД 80%', 'Непрерывность при ЧС', '152-ФЗ', 'Устойчивость']
   },
@@ -235,11 +235,11 @@ const WHITEPAPERS = [
     num: '01',
     marker: 'БЕЛАЯ КНИГА · 01',
     title: 'Белая книга 01: Концептуальный обзор платформы',
-    desc: 'Парадигмальный сдвиг децентрализации, трехуровневая модель «Лист — Ветка — Ствол», 152-ФЗ Zero-PII и снижение TCO на 90%.',
+    desc: 'Парадигмальный сдвиг децентрализации, трехуровневая модель «Лист — Ветка — Ствол», 152-ФЗ и снижение TCO на 90%.',
     mdPath: 'shared_docs/whitepapers/01_platform_overview_whitepaper.md',
     pdfPath: 'shared_docs/whitepapers/01_platform_overview_whitepaper.pdf',
     isReady: false,
-    tags: ['📊 15 страниц', 'Суверенитет', 'Zero-PII', 'TCO -90%', 'Edge Computing']
+    tags: ['📊 15 страниц', 'Суверенитет', 'Защита частных данных', 'TCO -90%', 'Вычисления на устройствах']
   },
   {
     num: '02',
@@ -275,17 +275,17 @@ const WHITEPAPERS = [
     num: '05',
     marker: 'БЕЛАЯ КНИГА · 05',
     title: 'Белая книга 05: Суверенное управление и регуляторный контур',
-    desc: 'Юридический комплаенс 152-ФЗ, ведомственная юрисдикция, подписи ГОСТ Р 34.10-2012, неизменяемый аудит и доверенный контур БРИКС+.',
+    desc: 'Соблюдение требований 152-ФЗ, ведомственная юрисдикция, подписи ГОСТ Р 34.10-2012, неизменяемый аудит и доверенный контур БРИКС+.',
     mdPath: 'shared_docs/whitepapers/05_sovereign_governance_whitepaper.md',
     pdfPath: 'shared_docs/whitepapers/05_sovereign_governance_whitepaper.pdf',
     isReady: false,
-    tags: ['📊 15 страниц', '152-ФЗ Zero-PII', 'ГОСТ Р 34.10', 'БРИКС+', 'Аудит']
+    tags: ['📊 15 страниц', '152-ФЗ', 'ГОСТ Р 34.10', 'БРИКС+', 'Аудит']
   },
   {
     num: '06',
     marker: 'БЕЛАЯ КНИГА · 06 · ЦБ РФ',
     title: 'Белая книга 06: Смарт-контракты Банка России и FSM O(1)',
-    desc: 'Официальный отзыв на Концепцию ПКСК ЦБ РФ: детерминированные автоматы состояний (FSM) O(1), Zero-PII, бестерминальность и интеграция с Цифровым рублем.',
+    desc: 'Официальный отзыв на Концепцию ПКСК ЦБ РФ: детерминированные автоматы состояний (FSM) O(1), защита частных данных, бестерминальность и интеграция с Цифровым рублем.',
     mdPath: 'shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md',
     pdfPath: 'shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf',
     isReady: true,
@@ -299,7 +299,7 @@ const WHITEPAPERS = [
     mdPath: 'shared_docs/Технический документ платформы Турбаза.md',
     pdfPath: 'shared_docs/Технический документ платформы Турбаза.pdf',
     isReady: false,
-    tags: ['Архитектура', 'Спецификация', 'Leaf-Branch-Trunk', 'AIRport Stack']
+    tags: ['Архитектура', 'Спецификация', 'Лист — Ветка — Ствол', 'AIRport Stack']
   }
 ];
 
@@ -349,7 +349,7 @@ function scanAllPresentations() {
     const title = curated.customTitle || meta.header_subtitle || meta.title || dirName;
     const subtitle = curated.customSubtitle || meta.subtitle || '';
     const marker = curated.marker || (meta.header_title || 'ТУРБАЗА');
-    const tags = curated.tags || ['Архитектура', 'Edge Computing', 'Суверенитет'];
+    const tags = curated.tags || ['Архитектура', 'Вычисления на устройствах', 'Суверенитет'];
 
     items.push({
       dir: rel,
@@ -1339,7 +1339,7 @@ function buildPortalHtml(items) {
           <div class="brand-logo-pill">
             <span>🏔️</span> ТУРБАЗА
           </div>
-          <span class="brand-badge">Sovereign Edge Computing</span>
+          <span class="brand-badge">Суверенные вычисления на устройствах</span>
           <a href="https://github.com/Data-Independence-Network/presentations" target="_blank" rel="noopener noreferrer" class="brand-badge" style="text-decoration: none; color: var(--text-muted); border-color: rgba(255, 255, 255, 0.2);" title="Открыть репозиторий проекта на GitHub">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px;"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
             <span style="margin-left: 6px; font-weight: 600;">GitHub ↗</span>
@@ -1381,7 +1381,7 @@ function buildPortalHtml(items) {
 
         <div class="stat-card zero-pii">
           <div class="stat-number">100%</div>
-          <div class="stat-label">Автономность и Zero-PII</div>
+          <div class="stat-label">Автономность и защита частных данных</div>
           <div class="stat-desc">Локальная работа без облачных утечек данных</div>
         </div>
       </div>
@@ -1611,7 +1611,7 @@ ${WHITEPAPERS.map(wp => {
       <div class="footer-left">
         <span>🏔️ Платформа «Турбаза»</span>
         <span>•</span>
-        <span>Распределённая инфраструктура данных Leaf-Branch-Trunk</span>
+        <span>Распределённая инфраструктура данных Лист — Ветка — Ствол</span>
         <span>•</span>
         <a href="https://github.com/Data-Independence-Network/presentations" target="_blank" rel="noopener noreferrer" style="color: var(--cyan); text-decoration: none; font-weight: 600;">GitHub ↗</a>
       </div>
