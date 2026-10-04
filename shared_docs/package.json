@@ -18,6 +18,8 @@
     "build-whitepaper-05": "npm run build-05",
     "build-06": "node ../scripts/build_whitepaper_pdf.js whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf",
     "build-whitepaper-06": "npm run build-06",
+    "build-07": "node ../scripts/build_whitepaper_pdf.js whitepapers/07_social_economic_ratings_whitepaper.md whitepapers/07_social_economic_ratings_whitepaper.pdf",
+    "build-whitepaper-07": "npm run build-07",
     "build-tech-doc": "node generate_tech_doc_pdf.js"
   }
 }
