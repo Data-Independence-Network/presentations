@@ -226,21 +226,24 @@ async function synthesizeSegment(text, filePath, options = {}) {
   const pitch = options.pitch || '-5Hz';
   const rate = options.rate || '-9%';
 
-  const tts = new EdgeTTS({
-    voice,
-    lang: 'ru-RU',
-    outputFormat: 'audio-24khz-96kbitrate-mono-mp3',
-    pitch,
-    rate,
-    timeout: 30000,
-  });
-
-  for (let attempt = 1; attempt <= 3; attempt++) {
+  for (let attempt = 1; attempt <= 6; attempt++) {
+    const tts = new EdgeTTS({
+      voice,
+      lang: 'ru-RU',
+      outputFormat: 'audio-24khz-96kbitrate-mono-mp3',
+      pitch,
+      rate,
+      timeout: 12000,
+    });
     try {
       await tts.ttsPromise(text, filePath);
-      return true;
+      const fs = require('fs');
+      if (fs.existsSync(filePath) && fs.statSync(filePath).size > 100) {
+        return true;
+      }
+      throw new Error('File empty');
     } catch (err) {
-      if (attempt === 3) {
+      if (attempt === 6) {
         const fatalErr = new Error(
           `\n[❌] FATAL ERROR: Audio synthesis failed for text: "${text.slice(0, 60)}..."\n` +
           `    Reason: ${err.message}\n` +
