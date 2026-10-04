@@ -1,7 +1,7 @@
 # AGENTS.md — 10_migration_roadmap_presentation
 
 ## 🎯 Purpose & Scope
-Contains presentation materials, slides, web deck, audio tracks, and automated build pipelines for **Presentation 10: Дорожная Карта Внедрения и Legacy-мосты: Бесшовный переход к распределенному Edge без остановки процессов** (15 billboard slides).
+Contains presentation materials, slides, web deck, audio tracks, and automated build pipelines for **Presentation 10: Дорожная Карта Внедрения и Legacy-мосты: Бесшовный переход к распределённым вычислениям на устройствах без остановки процессов** (15 billboard slides).
 
 ---
 

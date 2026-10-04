@@ -1,7 +1,7 @@
 # AGENTS.md — 08_fintech_banking_presentation
 
 ## 🎯 Purpose & Scope
-Contains presentation materials, slides, web deck, audio tracks, and automated build pipelines for **Presentation 08: Турбаза для Банков, Финтеха и Операторов Цифрового Рубля: On-Device скоринг, эскроу смарт-контракты и 0% утечек тайны** (15 billboard slides).
+Contains presentation materials, slides, web deck, audio tracks, and automated build pipelines for **Presentation 08: Турбаза для Банков, Финтеха и Операторов Цифрового Рубля: скоринг на устройстве, эскроу смарт-контракты и 0% утечек тайны** (15 billboard slides).
 
 ---
 
