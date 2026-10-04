@@ -13,7 +13,7 @@ The workspace is structured into high-level overview presentations, specialized 
 - **`detailed_overall_impact_presentations/`**: Complete suite of 10 specialized deep-dive presentations for individual ecosystem participants, cross-sector synergies, and phased legacy migration roadmap.
 - **`shared_templates/`**: Shared slide deck templates and design systems (`overview_presentation_deck/`, `platform_overview_deck/`, and detailed impact styling).
 - **`scripts/`**: Global automation and media pipelines (`core/` engines for TTS, slide capture, handout PDF, slide deck PDF, whitepaper PDF, and video generation).
-- **`shared_docs/`**: Master technical documentation, specifications, developer notes (`comments/`), and the **6-Part Executive Whitepapers Suite** (a 7th whitepaper on social and economic ratings is in development) (`shared_docs/whitepapers/`, see dedicated handbook in [`shared_docs/whitepapers/AGENTS.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/AGENTS.md) for publication-grade layout standards, 15-page invariants, KaTeX/Unicode math, and Mermaid rules).
+- **`shared_docs/`**: Master technical documentation, specifications, developer notes (`comments/`), and the **7-Part Executive Whitepapers Suite** (`shared_docs/whitepapers/`, see dedicated handbook in [`shared_docs/whitepapers/AGENTS.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/AGENTS.md) for publication-grade layout standards, 15-page invariants, KaTeX/Unicode math, and Mermaid rules).
 - **`voice_samples/`**: Audio samples and evaluation scripts for neural voice synthesis.
 
 ---
@@ -42,8 +42,8 @@ turbase_benefits_presentation/
 ├── install_regen_dependencies.sh               # Debian/Ubuntu bash installer for Neural TTS regeneration
 ├── shared_docs/                                # Master technical whitepapers & specifications
 │   ├── comments/                               # Human-written developer notes & semantic label index (LABELS.md)
-│   ├── whitepapers/                            # 6 Publication-Grade A4 Whitepapers (see whitepapers/AGENTS.md)
-│   │   ├── 01_platform_overview_whitepaper.md ... 06_cbr_smart_contracts_fsm_whitepaper.md
+│   ├── whitepapers/                            # 7 Publication-Grade A4 Whitepapers (see whitepapers/AGENTS.md)
+│   │   ├── 01_platform_overview_whitepaper.md ... 07_social_economic_ratings_whitepaper.md
 │   │   └── AGENTS.md & README.md
 │   └── Технический документ платформы Турбаза.md # Sovereign architecture whitepaper
 ├── text_to_speech_mcp_Open_API_key.txt         # Required TTS API key file (gitignored)

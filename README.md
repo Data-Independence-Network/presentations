@@ -154,7 +154,7 @@ presentations/
 
 ## 📚 Аналитические Белые Книги (Whitepapers Suite)
 
-В директории [`shared_docs/whitepapers/`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/README.md) доступен полный комплект из 6 публикационных документов и генерального архитектурного документа:
+В директории [`shared_docs/whitepapers/`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/README.md) доступен полный комплект из 7 публикационных документов и генерального архитектурного документа:
 
 | № | Документ | Тематика Белой Книги | Формат |
 | :---: | :--- | :--- | :---: |
@@ -164,7 +164,7 @@ presentations/
 | **04** | [**04_ecosystem_impact_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/04_ecosystem_impact_whitepaper.md) | Отраслевой эффект для 10 категорий участников, расчет TCO и 4 фазы миграции | [PDF](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/04_ecosystem_impact_whitepaper.pdf) |
 | **05** | [**05_sovereign_governance_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/05_sovereign_governance_whitepaper.md) | Правовое обоснование 152-ФЗ, ГОСТ Р 34.10, госинфраструктура и БРИКС+ | [PDF](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/05_sovereign_governance_whitepaper.pdf) |
 | **06** | [**06_cbr_smart_contracts_fsm_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md) | Смарт-контракты Банка России, детерминированные автоматы FSM O(1) и Цифровой рубль | [PDF](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf) |
-| **07** | **07_social_economic_ratings_whitepaper** *(в разработке)* | Социальный и экономический рейтинги: открытый рейтинг вкладов по темам и экономический рейтинг Банка России (утверждены план и справочник исполнителя) | План |
+| **07** | [**07_social_economic_ratings_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/07_social_economic_ratings_whitepaper.md) | Социальный и экономический рейтинги: открытый социальный рейтинг вкладов по темам и экономический рейтинг Банка России | [PDF](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/07_social_economic_ratings_whitepaper.pdf) |
 | **DOC** | **Технический документ платформы «Турбаза»** | Сводный фундаментальный документ архитектуры распределенных вычислений и суверенных данных | [PDF](file:///Users/parents/Documents/presentations/shared_docs/Технический%20документ%20платформы%20Турбаза.pdf) |
 
 ---

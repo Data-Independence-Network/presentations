@@ -4,7 +4,7 @@
   "description": "Turbase Master Whitepapers and Architecture Documentation",
   "private": true,
   "scripts": {
-    "build": "npm run build-01 && npm run build-02 && npm run build-03 && npm run build-04 && npm run build-05 && npm run build-06",
+    "build": "npm run build-01 && npm run build-02 && npm run build-03 && npm run build-04 && npm run build-05 && npm run build-06 && npm run build-07",
     "build-whitepapers": "npm run build",
     "build-01": "node ../scripts/build_whitepaper_pdf.js whitepapers/01_platform_overview_whitepaper.md whitepapers/01_platform_overview_whitepaper.pdf",
     "build-whitepaper-01": "npm run build-01",
