@@ -62,7 +62,7 @@ rate: "-9%"
             <div class="narrative-card">
               <div class="narrative-card-header">
                 <span class="narrative-num">01</span>
-                <span class="narrative-title">Edge Compute на смартфонах</span>
+                <span class="narrative-title">Вычисления на смартфонах</span>
               </div>
               <div class="narrative-text">Перенос реляционной СУБД и логики на <strong>140 млн смартфонов граждан</strong> вместо сверхдорогих супер-ЦОД.</div>
               <div class="narrative-sub">• Полная автономность и работа даже без интернета.</div>
@@ -117,7 +117,7 @@ rate: "-9%"
           <div class="slide-header-content">
             <span class="slide-category-tag" style="color: var(--coral-danger); border-color: rgba(239, 68, 68, 0.5);">Системные вызовы</span>
             <h1 class="slide-title">ТУПИК ЦЕНТРАЛИЗОВАННЫХ ОБЛАКОВ</h1>
-            <p class="slide-subtitle">Три системных кризиса традиционной модели супер-ЦОД и монополий Big Tech</p>
+            <p class="slide-subtitle">Три системных кризиса традиционной модели супер-ЦОД и монополий крупных технологических корпораций</p>
           </div>
           <div class="kpi-badge danger">ПРЕДЕЛ МАСШТАБИРОВАНИЯ ЦОД</div>
         </div>
@@ -218,8 +218,8 @@ rate: "-9%"
 <div class="slide-top-bar">
           <div class="slide-header-content">
             <span class="slide-category-tag">Архитектурный сдвиг</span>
-            <h1 class="slide-title">СМЕНА ПАРАДИГМЫ: EDGE COMPUTE + P2P</h1>
-            <p class="slide-subtitle">Разделение Control Plane и Data Plane с открытыми сквозными схемами данных</p>
+            <h1 class="slide-title">СМЕНА ПАРАДИГМЫ: ВЫЧИСЛЕНИЯ НА УСТРОЙСТВАХ + P2P</h1>
+            <p class="slide-subtitle">Разделение плоскости управления и плоскости данных с открытыми сквозными схемами данных</p>
           </div>
           <div class="kpi-badge">140 МЛН УЗЛОВ СУПЕРКОМПЬЮТЕРА</div>
         </div>
@@ -384,7 +384,7 @@ rate: "-9%"
                 <span class="narrative-num">02</span>
                 <span class="narrative-title">Форумы без спамеров</span>
               </div>
-              <div class="narrative-text">Трехуровневая верификация исключает спам и мошенников на районных форумах «Забота».</div>
+              <div class="narrative-text">Режимы регистрации и подтверждение района исключают спам и мошенников на районных форумах «Забота».</div>
               <div class="narrative-sub">• Безопасная среда для соседей, пожилых родственников и детей.</div>
             </div>
 
@@ -417,7 +417,7 @@ rate: "-9%"
 ### Текст для диктора:
 > > «Главный бенефициар платформы — гражданин. Личные файлы и документы отправляются на Ветку для зашифрованного хранения, расшифровываются исключительно на устройствах пользователя и помещаются в локальную базу данных для работы приложений. 
 > 
-> Трехуровневая верификация и механизм «Землячество» исключают спам-звонки и мошенников: на районных форумах гарантированно общаются только реальные соседи. 
+> Режимы регистрации и механизм «Землячество» исключают спам-звонки и мошенников: на районных форумах гарантированно общаются только реальные соседи. 
 > 
 > При покупках адрес не передается магазинам, а доход от персонализированной рекламы справедливо делится между операторами инфраструктуры, разработчиками приложений и пользователем, автоматически покрывая затраты на хранение данных и принося токены на оплату связи и цифровых сервисов».
 
@@ -513,7 +513,7 @@ rate: "-9%"
             <div class="metrics-row">
               <div class="metric-chip">
                 <div class="metric-chip-value">0 руб.</div>
-                <div class="metric-chip-label">На бэкенд ЦОД</div>
+                <div class="metric-chip-label">На серверную часть ЦОД</div>
               </div>
               <div class="metric-chip">
                 <div class="metric-chip-value gold">0%</div>
@@ -648,7 +648,7 @@ rate: "-9%"
           <div class="slide-header-content">
             <span class="slide-category-tag">Стейкхолдер: Реклама & Маркетинг</span>
             <h1 class="slide-title">РЕКЛАМОДАТЕЛИ: 0% БОТ-СКЛИКИВАНИЯ</h1>
-            <p class="slide-subtitle">Zero-Knowledge AdTech: On-Device AI-таргетинг и решение проблемы отмены cookies</p>
+            <p class="slide-subtitle">Реклама без раскрытия данных: таргетинг на устройстве средствами ИИ и решение проблемы отмены cookies</p>
           </div>
           <div class="kpi-badge emerald">0% СКЛИКИВАНИЯ (CLICK FRAUD)</div>
         </div>
@@ -668,8 +668,8 @@ rate: "-9%"
 
             <div class="content-card-rich blue">
               <div class="card-rich-header">
-                <span class="card-rich-title">🧠 On-Device AI-таргетинг</span>
-                <span class="card-rich-badge" style="background: rgba(2, 132, 199, 0.35); color: var(--cyber-light);">Post-Cookie</span>
+                <span class="card-rich-title">🧠 Таргетинг на устройстве средствами ИИ</span>
+                <span class="card-rich-badge" style="background: rgba(2, 132, 199, 0.35); color: var(--cyber-light);">Без куки</span>
               </div>
               <div class="card-rich-desc">
                 Нейросеть смартфона находит релевантные офферы со 100% точностью.<br>
@@ -701,7 +701,7 @@ rate: "-9%"
             <div class="narrative-card">
               <div class="narrative-card-header">
                 <span class="narrative-num">02</span>
-                <span class="narrative-title">Эра Post-Cookie</span>
+                <span class="narrative-title">Эра без сторонних куки</span>
               </div>
               <div class="narrative-text">Таргетинг работает на клиенте со строгим соблюдением 152-ФЗ о персональных данных без сторонних cookies.</div>
               <div class="narrative-sub">• Полная готовность к мировым регуляторным ограничениям.</div>
@@ -726,7 +726,7 @@ rate: "-9%"
                 <div class="metric-chip-label">Целевой охват</div>
               </div>
               <div class="metric-chip">
-                <div class="metric-chip-value blue">Post-Cookie</div>
+                <div class="metric-chip-value blue">Без куки</div>
                 <div class="metric-chip-label">Стандарт</div>
               </div>
             </div>
@@ -981,7 +981,7 @@ rate: "-9%"
                 <span class="card-rich-badge" style="background: rgba(234, 179, 8, 0.35); color: var(--gold-light);">128 байт/Лист</span>
               </div>
               <div style="font-size: 21px; color: #fff; font-weight: 750;">
-                140 млн Листьев ➔ по <strong style="color: var(--gold-light);">128 байт</strong> ➔ Ветви ➔ Дашборд РФ
+                140 млн Листьев ➔ по <strong style="color: var(--gold-light);">128 байт</strong> ➔ Ветви ➔ Панель показателей РФ
               </div>
               <div class="card-rich-desc">
                 Мониторинг цен и занятости по всей стране собирается в реальном времени.
@@ -1060,7 +1060,7 @@ rate: "-9%"
             <h1 class="slide-title">СТАРТОВЫЙ ЭТАП: ФЛАГМАНСКАЯ ТРИАДА</h1>
             <p class="slide-subtitle">Мгновенный запуск и польза с первого дня без ожидания стороннего ПО</p>
           </div>
-          <div class="kpi-badge emerald">ГОТОВАЯ ТРИАДА DAY 1</div>
+          <div class="kpi-badge emerald">ГОТОВАЯ ТРИАДА ПЕРВОГО ДНЯ</div>
         </div>
 
         <div class="slide-body-grid">
@@ -1261,7 +1261,7 @@ rate: "-9%"
 <div class="slide-top-bar">
           <div class="slide-header-content">
             <span class="slide-category-tag">Инфраструктура & Живучесть</span>
-            <h1 class="slide-title">ЖИВУЧЕСТЬ: GREEN COMPUTING И MESH-СЕТИ</h1>
+            <h1 class="slide-title">ЖИВУЧЕСТЬ: ЭНЕРГОСБЕРЕЖЕНИЕ И ЯЧЕИСТЫЕ СЕТИ</h1>
             <p class="slide-subtitle">Разгрузка энергосетей, автономная связь при ЧС и поддержка бюджетных смартфонов</p>
           </div>
           <div class="kpi-badge emerald">АВТОНОМНОСТЬ В УСЛОВИЯХ ЧС</div>
@@ -1271,7 +1271,7 @@ rate: "-9%"
           <div class="visual-col">
             <div class="content-card-rich emerald">
               <div class="card-rich-header">
-                <span class="card-rich-title">🌱 Green Computing: Микроэнергетика</span>
+                <span class="card-rich-title">🌱 Энергосбережение: Микроэнергетика</span>
                 <span class="card-rich-badge" style="background: var(--emerald-primary); color: #000;">Эко-стандарт</span>
               </div>
               <div class="card-rich-desc">
@@ -1282,7 +1282,7 @@ rate: "-9%"
 
             <div class="content-card-rich blue">
               <div class="card-rich-header">
-                <span class="card-rich-title">📡 Перспективный Mesh (BLE / Wi-Fi)</span>
+                <span class="card-rich-title">📡 Перспективная ячеистая сеть (BLE / Wi-Fi)</span>
                 <span class="card-rich-badge" style="background: rgba(2, 132, 199, 0.35); color: var(--cyber-light);">Перспектива</span>
               </div>
               <div class="card-rich-desc">
@@ -1318,7 +1318,7 @@ rate: "-9%"
                 <span class="narrative-num">02</span>
                 <span class="narrative-title">Перспектива связи при ЧС</span>
               </div>
-              <div class="narrative-text">Mesh-сети будут поддерживать координацию и оповещения при блэкаутах и авариях на вышках связи.</div>
+              <div class="narrative-text">Ячеистые сети будут поддерживать координацию и оповещения при блэкаутах и авариях на вышках связи.</div>
               <div class="narrative-sub">• Автономная работа при стихийных бедствиях и ЧС.</div>
             </div>
 
@@ -1337,7 +1337,7 @@ rate: "-9%"
                 <div class="metric-chip-label">ОЗУ на Листе</div>
               </div>
               <div class="metric-chip">
-                <div class="metric-chip-value gold">Mesh</div>
+                <div class="metric-chip-value gold">Ячеистая сеть</div>
                 <div class="metric-chip-label">Связь в будущем</div>
               </div>
               <div class="metric-chip">
@@ -1353,7 +1353,7 @@ rate: "-9%"
 > 
 > Рассеянные микровычисления разгружают энергосети мегаполисов, устраняя необходимость строительства мегаваттных дата-центров. 
 > 
-> В перспективе в труднодоступных районах Крайнего Севера или в зоне чрезвычайных ситуаций устройства платформы будут формировать автономные локальные Mesh-сети, обеспечивая связь даже при отсутствии интернета. 
+> В перспективе в труднодоступных районах Крайнего Севера или в зоне чрезвычайных ситуаций устройства платформы будут формировать автономные локальные ячеистые сети, обеспечивая связь даже при отсутствии интернета. 
 > 
 > А оптимизированное ядро стабильно работает даже на ультрабюджетных смартфонах с двумя гигабайтами оперативной памяти».
 

@@ -783,7 +783,7 @@ rate: "-9%"
 <div class="slide-content">
           <div class="slide-header">
             <div class="slide-tag security-tag">Национальная безопасность</div>
-            <h2 class="slide-title">Периметр безопасности и 3 уровня локальной регистрации</h2>
+            <h2 class="slide-title">Периметр безопасности и режимы регистрации</h2>
             <p class="slide-subtitle">Превентивный анализ сетевых цепочек и защита от мошенников без нарушения тайны переписки <span class="cite-tag">[12, 13, 14, 15, 16]</span></p>
           </div>
 
@@ -792,18 +792,18 @@ rate: "-9%"
               <div class="tiers-blueprint-container">
                 <div class="tier-security-card tier-1">
                   <div class="tier-header-bar">
-                    <span class="tier-lvl">УРОВЕНЬ 1</span>
+                    <span class="tier-lvl">ПОЛНАЯ АНОНИМНОСТЬ</span>
                     <span class="tier-name">Местный житель района</span>
                   </div>
                   <div class="tier-body-text">
-                    • Фиксация города и района подключения<br>
+                    • Никто не знает пользователя, известен только район<br>
                     • Блокировка массовых спам-звонков из-за рубежа
                   </div>
                 </div>
 
                 <div class="tier-security-card tier-2">
                   <div class="tier-header-bar">
-                    <span class="tier-lvl">УРОВЕНЬ 2</span>
+                    <span class="tier-lvl">СОЦИАЛЬНАЯ АНОНИМНОСТЬ</span>
                     <span class="tier-name">Проверенный земляк (Группа 25)</span>
                   </div>
                   <div class="tier-body-text">
@@ -814,7 +814,7 @@ rate: "-9%"
 
                 <div class="tier-security-card tier-3">
                   <div class="tier-header-bar">
-                    <span class="tier-lvl">УРОВЕНЬ 3</span>
+                    <span class="tier-lvl">ПОИМЁННАЯ РЕГИСТРАЦИЯ</span>
                     <span class="tier-name">Официальный статус (Госслужба / Врачи / Бизнес)</span>
                   </div>
                   <div class="tier-body-text">
@@ -859,7 +859,7 @@ rate: "-9%"
         </div>
 
 ### Текст для диктора:
-> «Для защиты от кибермошенников и экстремистских угроз "Турбаза" реализует трехуровневый периметр безопасности:
+> «Для защиты от кибермошенников и экстремистских угроз "Турбаза" предлагает три режима регистрации: полную анонимность, социальную анонимность и поимённую регистрацию.
 >
 > **Прозрачная карта связей для органов безопасности:** районные узлы фиксируют журнал соединений (кто, с кем и когда связывался), позволяя аналитическим системам пресекать работу зарубежных колл-центров без нарушения тайны переписки.
 >
@@ -1149,7 +1149,7 @@ rate: "-9%"
 <div class="slide-content">
           <div class="slide-header">
             <div class="slide-tag ref-tag">Академический реестр (1/3)</div>
-            <h2 class="slide-title">Реестр первоисточников: Топология, Edge Compute и OLAP</h2>
+            <h2 class="slide-title">Реестр первоисточников: Топология, периферийные вычисления и OLAP</h2>
             <p class="slide-subtitle">Фундаментальные научные публикации по распределенным вычислениям и структурам данных <span class="cite-tag">[1] — [7]</span></p>
           </div>
 
@@ -1166,8 +1166,8 @@ rate: "-9%"
               <tbody>
                 <tr>
                   <td><span class="ref-num">[1]</span></td>
-                  <td><strong>Satyanarayanan, M. (2017)</strong><br/><em>The Emergence of Edge Computing.</em> IEEE Computer.</td>
-                  <td>Edge Computing</td>
+                  <td><strong>Satyanarayanan, M. (2017)</strong><br/><em>The Emergence of вычисления на устройствах пользователей.</em> IEEE Computer.</td>
+                  <td>вычисления на устройствах пользователей</td>
                   <td>Перенос вычислений на периферию для ликвидации узких мест серверов и разгрузки каналов на 80–90%.</td>
                 </tr>
                 <tr>
@@ -1212,7 +1212,7 @@ rate: "-9%"
             <div class="ref-summary-banner">
               <span class="ref-summary-icon">💡</span>
               <div class="ref-summary-text">
-                <strong>Ключевой вывод:</strong> Локальные вычисления на Листьях (Edge &amp; Local-First <span class="cite-tag">[1, 2]</span>) и векторизованный SQL <span class="cite-tag">[6]</span> переносят 90% нагрузки на клиентские процессоры, гарантируя полную автономность и многократное снижение TCO серверов.
+                <strong>Ключевой вывод:</strong> Локальные вычисления на Листьях (на устройствах, локальность прежде всего <span class="cite-tag">[1, 2]</span>) и векторизованный SQL <span class="cite-tag">[6]</span> переносят 90% нагрузки на клиентские процессоры, гарантируя полную автономность и многократное снижение TCO серверов.
               </div>
             </div>
           </div>
@@ -1252,13 +1252,13 @@ rate: "-9%"
                   <td><span class="ref-num">[9]</span></td>
                   <td><strong>Codd, E. F. (1970)</strong><br/><em>Relational Model for Shared Data Banks.</em> CACM.</td>
                   <td>Relational Normalization</td>
-                  <td>Исключение дублирования данных (Single Source of Truth) через внешние реляционные ключи.</td>
+                  <td>Исключение дублирования данных через внешние реляционные ключи.</td>
                 </tr>
                 <tr>
                   <td><span class="ref-num">[10]</span></td>
                   <td><strong>Saltzer, J. H. & Schroeder, M. D. (1975)</strong><br/><em>Protection of Information.</em> IEEE.</td>
                   <td>Least Privilege</td>
-                  <td>Модель прав «Read-Anywhere, Write-Self»: запись разрешена только приложению-создателю схемы.</td>
+                  <td>Модель прав «Читай отовсюду, пиши только своё»: запись разрешена только приложению-создателю схемы.</td>
                 </tr>
                 <tr>
                   <td><span class="ref-num">[11]</span></td>

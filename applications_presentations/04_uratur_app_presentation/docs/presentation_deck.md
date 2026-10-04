@@ -44,7 +44,7 @@ rate: "-9%"
         </div>
         <div class="feature-card">
           <div class="card-icon">📡</div>
-          <h4>BLE Mesh SOS</h4>
+          <h4>Ячеистая связь SOS по BLE</h4>
           <p>Экстренная P2P-связь от смартфона к смартфону без вышек связи.</p>
         </div>
       </div>
@@ -392,7 +392,7 @@ rate: "-9%"
             <span class="m-val teal">в 1 клик</span>
           </div>
           <div class="metric-row">
-            <span class="m-label">Токсичные споры в отзывах:</span>
+            <span class="m-label">Затяжные споры в отзывах:</span>
             <span class="m-val cyan">0% (форк трека)</span>
           </div>
         </div>
@@ -561,7 +561,7 @@ rate: "-9%"
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СПАСЕНИЕ БЕЗ СВЯЗИ</div>
     <h2 class="slide-title">ЭКСТРЕННАЯ P2P-СВЯЗЬ И СПАСЕНИЕ</h2>
-    <p class="slide-subtitle">Технология радиорелейной передачи BLE/Wi-Fi Mesh: сигнал бедствия найдет выход к спасателям</p>
+    <p class="slide-subtitle">Технология радиорелейной передачи по ячеистой сети BLE/Wi-Fi: сигнал бедствия найдет выход к спасателям</p>
   </div>
 
   <div class="slide-body grid-2col">
@@ -690,7 +690,7 @@ rate: "-9%"
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СЛЕПЫЕ СДЕЛКИ</div>
-    <h2 class="slide-title">СЛЕПОЕ БРОНИРОВАНИЕ И БИЛЕТЫ (ZERO-PII)</h2>
+    <h2 class="slide-title">СЛЕПОЕ БРОНИРОВАНИЕ И БИЛЕТЫ (ЗАЩИТА ЧАСТНЫХ ДАННЫХ)</h2>
     <p class="slide-subtitle">Прямое бронирование кемпингов и баз отдыха через Цифровой рубль без раскрытия паспорта</p>
   </div>
 
@@ -738,7 +738,7 @@ rate: "-9%"
 >
 > Позже эти базы данных утекают в открытый доступ, становясь добычей спамеров и мошенников.
 >
-> «УраТур» реализует протокол слепого бронирования на основе криптографии Zero-PII и Цифрового рубля.
+> «УраТур» реализует протокол слепого бронирования на основе принципа «частное остаётся частным» и Цифрового рубля.
 >
 > Средства блокируются в государственном эскроу-контракте. Владелец кемпинга видит железную финансовую гарантию и номер забронированного домика, не получая доступа к паспорту гражданина.
 >
@@ -824,7 +824,7 @@ rate: "-9%"
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ИИ НА ТРОПЕ</div>
-    <h2 class="slide-title">ЛОКАЛЬНЫЙ ТУРИСТИЧЕСКИЙ EDGE AI</h2>
+    <h2 class="slide-title">ЛОКАЛЬНЫЙ ТУРИСТИЧЕСКИЙ ИИ НА УСТРОЙСТВЕ</h2>
     <p class="slide-subtitle">Персональный краевед, ботаник и геолог в смартфоне: нейросеть работает 100% без интернета</p>
   </div>
 
@@ -861,7 +861,7 @@ rate: "-9%"
 
     <div class="visual-panel">
       <div class="ui-mockup-frame">
-        <div class="mockup-header">Edge AI: Находка на высоте 2400м</div>
+        <div class="mockup-header">ИИ на устройстве: находка на высоте 2400м</div>
         <div class="ai-speech-bubble">
           <div class="ai-badge">🤖 Локальный ботаник</div>
           <p><strong>Золотой корень (Родиола розовая):</strong> Редкое лекарственное растение, занесено в Красную книгу. Сбор запрещен. В 100м ниже начинается курумник.</p>
@@ -902,7 +902,7 @@ rate: "-9%"
           <div class="pillar-num purple">-25%</div>
           <div class="pillar-info">
             <h4>Снижение цен для граждан</h4>
-            <p>Ликвидация паразитических комиссий делает путешествия по родной стране доступными для каждой семьи.</p>
+            <p>Ликвидация избыточных комиссий делает путешествия по родной стране доступными для каждой семьи.</p>
           </div>
         </div>
         <div class="pillar-card">
@@ -969,7 +969,7 @@ rate: "-9%"
         <div class="feature-card">
           <div class="card-icon">🛡️</div>
           <h4>Полная защита</h4>
-          <p>P2P Mesh SOS и точные карты спасают в критических ситуациях.</p>
+          <p>P2P-связь SOS и точные карты спасают в критических ситуациях.</p>
         </div>
         <div class="feature-card">
           <div class="card-icon">🤝</div>

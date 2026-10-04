@@ -14,14 +14,14 @@
 
 1. **«Суверенная архитектура прямого владения данными и технологического суверенитета государства»** (`01_sovereign_architecture_presentation`):
    - Комплексный разбор трехуровневой топологии (Лист $\to$ Ветка $\to$ Ствол).
-   - Ликвидация баз-мишеней (Honeypots) и обеспечение 152-ФЗ Zero-PII.
+   - Ликвидация баз-мишеней и обеспечение 152-ФЗ.
    - Гарантия непрерывности работы критических госуслуг при отключении внешнего интернета.
    - Сопровождается архитектурным буклетом `turbase_presentation_visuals.pdf`.
 
 2. **«Комплексный анализ выгод и сценариев запуска для всех участников экосистемы»** (`02_stakeholders_benefits_presentation`):
    - 6-секторная матрица ценности (Граждане, Малый бизнес, AdTech, Банки/Финтех, Государство, Силовые органы).
-   - Объективный анализ Плюсов (PROs), Опасений (CONs) и Инженерных компенсаций (Mitigations).
-   - Сценарии запуска первого дня (Day-1) и экономика совместного использования API 1/N.
+   - Объективный анализ Плюсов, Опасений и Инженерных компенсаций.
+   - Сценарии запуска первого дня и экономика совместного использования API 1/N.
    - Сопровождается аналитическим отчетом `turbase_stakeholders_value_matrix.pdf`.
 
 ---
@@ -31,7 +31,7 @@
 | № | Презентация | Фокус и ключевая тематика | Web Deck | Документация |
 | :---: | :--- | :--- | :---: | :---: |
 | **01** | [**Трехуровневая архитектура прямого владения данными и защищенных вычислений**](file:///Users/parents/Documents/presentations/overall_presentations/01_sovereign_architecture_presentation/README.md) | Главная техническая мастер-презентация платформы «Турбаза». Комплексный стратегический обзор трехуровневой топологии (Лист → Ветка → Ствол),... | [`web_deck/`](file:///Users/parents/Documents/presentations/overall_presentations/01_sovereign_architecture_presentation/generated/outputs/web_deck/index.html) | [README.md](file:///Users/parents/Documents/presentations/overall_presentations/01_sovereign_architecture_presentation/README.md) |
-| **02** | [**Комплексный анализ выгод и сценариев запуска для всех участников экосистемы**](file:///Users/parents/Documents/presentations/overall_presentations/02_stakeholders_benefits_presentation/README.md) | Главная экономическая мастер-презентация платформы «Турбаза». Развернутая матрица ценности для 6 ключевых групп стейкхолдеров (Граждане, Мал... | [`web_deck/`](file:///Users/parents/Documents/presentations/overall_presentations/02_stakeholders_benefits_presentation/generated/outputs/web_deck/index.html) | [README.md](file:///Users/parents/Documents/presentations/overall_presentations/02_stakeholders_benefits_presentation/README.md) |
+| **02** | [**Комплексный анализ выгод и сценариев запуска для всех участников экосистемы**](file:///Users/parents/Documents/presentations/overall_presentations/02_stakeholders_benefits_presentation/README.md) | Главная экономическая мастер-презентация платформы «Турбаза». Развернутая матрица ценности для 6 ключевых групп участников (Граждане, Мал... | [`web_deck/`](file:///Users/parents/Documents/presentations/overall_presentations/02_stakeholders_benefits_presentation/generated/outputs/web_deck/index.html) | [README.md](file:///Users/parents/Documents/presentations/overall_presentations/02_stakeholders_benefits_presentation/README.md) |
 
 ---
 
@@ -55,7 +55,7 @@ http://localhost:8080/overall_presentations/<имя_презентации>/gene
 
 ### Скрипты инкрементальной сборки (`package.json`):
 
-- **Полная сборка всей категории (Offline Rebuild):** `npm run rebuild`
+- **Полная сборка всей категории:** `npm run rebuild`
 - **Полная регенерация с озвучкой (Neural TTS):** `npm run regen`
 - **Точечная сборка отдельных презентаций:**
   - `npm run rebuild-architecture`
@@ -82,4 +82,4 @@ npm run regen-overall
 2. **Инвариант Zero-Overflow:** Верстка каждого слайда гарантирует отсутствие вертикальной прокрутки (`scrollHeight <= clientHeight`) во всех целевых разрешениях.
 3. **Единый источник истины:** Вся структура слайдов, разметка и дикторский текст генерируются строго из `docs/presentation_deck.md`.
 4. **Хранилища (AIR):** Все данные пользователей формируют децентрализованную сеть Автономных Взаимозависимых Хранилищ.
-5. **Авторские заметки как источник замысла:** Все архитектурные концепции, Zero-PII регламенты и экономические механизмы строго отражают авторские заметки разработчика в [`shared_docs/comments/`](file:///Users/parents/Documents/presentations/shared_docs/comments/) ([`09-07_01_Architecture_overview.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-07_01_Architecture_overview.md), [`09-12_01_Smart_Contracts.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-12_01_Smart_Contracts.md)), словарь меток ([`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md)) и мастер-спецификацию [`Технический документ платформы Турбаза.md`](file:///Users/parents/Documents/presentations/shared_docs/%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D1%8B%20%D0%A2%D1%83%D1%80%D0%B1%D0%B0%D0%B7%D0%B0.md).
+5. **Авторские заметки как источник замысла:** Все архитектурные концепции, регламенты защиты частных данных и экономические механизмы строго отражают авторские заметки разработчика в [`shared_docs/comments/`](file:///Users/parents/Documents/presentations/shared_docs/comments/) ([`09-07_01_Architecture_overview.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-07_01_Architecture_overview.md), [`09-12_01_Smart_Contracts.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-12_01_Smart_Contracts.md)), словарь меток ([`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md)) и мастер-спецификацию [`Технический документ платформы Турбаза.md`](file:///Users/parents/Documents/presentations/shared_docs/%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D1%8B%20%D0%A2%D1%83%D1%80%D0%B1%D0%B0%D0%B7%D0%B0.md).
