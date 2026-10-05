@@ -1,22 +1,24 @@
 # AGENTS.md — 03_delovoy_app_presentation
 
 ## 🎯 Purpose & Scope
-Contains presentation materials, slides, web deck, audio tracks, and automated build pipelines for **Presentation 03: «Деловой»: Интеллектуальный персональный органайзер дел, задач и поручений** (15 billboard slides).
+Contains presentation materials, slides, web deck, audio tracks, and automated build pipelines for **Presentation 03: «Деловой»: исполнять и связывать** (15 billboard slides).
+- **Книга-источник:** [Белая книга № 10 «Деловой: исполнять и связывать»](file:///home/anastasiya/Documents/presentations/shared_docs/whitepapers/10_gogetter_whitepaper.md)
+- **Кто что делает:** Автор концепции и системный архитектор — Артём Владимирович Шамсутдинов. Планирование — модель Claude Sonnet 5.5 («Соната 5.5»). Проработка слайдов и дикторского текста — модель Gemini 3.8 Flash.
+- **Статус:** финальная версия концепции (звук не синтезирован), версия 1.0 (2026).
 
 ---
 
 ## 🧭 Architectural Focus & Key Concepts
-- **Semantic Labels Invariant:** Метки в [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) служат внутренней системой индексации базы заметок для связывания начальных знаний платформы агентами. Запрещено использовать метки `%...` в материалах презентации (слайдах, дикторском тексте), так как они затрудняют восприятие.
-- **Focus:** Персональное и семейное управление временем, гравитация приоритетов, локальное хранение в SQLite, внешние связи через составные FK, синхронизация между устройствами пользователя без облачных серверов.
-- **Source of Intent:** Author notes ([`08-30_01_Who_is_it_for.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/08-30_01_Who_is_it_for.md), [`09-07_01_Architecture_overview.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-07_01_Architecture_overview.md)), [`turbase_applications_master_plan.md`](file:///Users/parents/Documents/presentations/applications_presentations/turbase_applications_master_plan.md), and [`02_applications_suite_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/02_applications_suite_whitepaper.md).
-- **Target Audience:** Частные пользователи, семьи, специалисты, руководители проектов.
-- **Narrative Style:** Практичный, дружелюбный, системный тон (`ru-RU-DmitryNeural`, rate -9%, pitch -5Hz).
+- **Semantic Labels Invariant:** Метки в `LABELS.md` служат внутренней системой индексации базы заметок для связывания начальных знаний платформы агентами. Запрещено использовать метки `%...` в материалах презентации (слайдах, дикторском тексте).
+- **Focus:** Одно Дело — одно хранилище на Листе, контракт второго уровня (L2 на устройствах) и контракт первого уровня (L1 в Банке России), независимость социального и экономического рейтингов, мандатный шлюз входящих поручений, префиксные теги и внешние метки, личный слой (матрица приоритетов, экспоненциальное угасание, «Случайный шаг»).
+- **Target Audience:** Частные пользователи, семьи, специалисты, самозанятые мастера, артели, руководители проектов.
+- **Narrative Style:** Практичный, дружелюбный, уважительный тон (`ru-RU-DmitryNeural`, rate -9%, pitch -5Hz, объем 998 слов).
 
 ---
 
 ## 📁 Subdirectory Layout
 - **`docs/presentation_deck.md`**: Canonical 15-slide master source and narration script.
-- **`docs/presentation_outline.md`**: Structural slide outline with timings.
+- **`docs/presentation_outline.md`**: Structural slide outline with timings and passports.
 - **`docs/deck.css`**: Isolated, autonomous stylesheet for this presentation.
 - **`rebuild.js`**: Offline build runner using committed audio assets.
 - **`regenerate.js`**: Incremental smart builder with Neural TTS.
@@ -30,7 +32,10 @@ Contains presentation materials, slides, web deck, audio tracks, and automated b
 npm --prefix applications_presentations run rebuild-03
 node rebuild.js
 
-# Full regeneration with Neural TTS:
+# Full regeneration with Neural TTS (requires API key):
 npm --prefix applications_presentations run regen-03
 node regenerate.js
+
+# Automated compliance & zero-overflow check:
+node scripts/check_decks.js applications_presentations/03_delovoy_app_presentation
 ```
