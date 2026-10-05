@@ -27,7 +27,9 @@ scripts/
 ├── build_slides_pdf.js           # CLI: Build 16:9 slide deck PDF for any presentation directory
 ├── build_whitepaper_pdf.js       # CLI: Build executive analytical Whitepaper PDF from Markdown
 ├── build_video.js                # CLI: Render videos for any presentation directory
-└── build_all.js                  # CLI: Full end-to-end pipeline runner
+├── build_all.js                  # CLI: Full end-to-end pipeline runner
+├── check_decks.js                # CLI: Deck checks (repository rules, word counts, attribution, zero-overflow in Chromium 1920x1080)
+└── check_markdown_mermaid.js     # CLI: Mermaid diagram checks for Markdown documents as rendered by viewer.html
 ```
 
 ---

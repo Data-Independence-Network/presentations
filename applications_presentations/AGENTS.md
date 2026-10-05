@@ -39,8 +39,8 @@ applications_presentations/
 ---
 
 ## ⏱️ Strict Timing & Format Guidelines
-1. **Slide Count:** Exactly **12 slides** per presentation.
-2. **Time Limit:** **9:00 – 10:00 minutes** (target speech pace ~40–45s/slide + pauses).
+1. **Slide Count:** Exactly **15 slides** per presentation.
+2. **Time Limit:** **11:00 – 12:30 minutes** (about 90 spoken words per minute including pauses; 990–1100 words of narration per presentation).
 3. **TTS Engine:** Microsoft Edge Neural TTS (`node-edge-tts`, voice `ru-RU-DmitryNeural`, speed `-9%`, pauses `0.9s` / `1.2s`).
 4. **Deliverables per Track:**
    - Interactive Web Deck (`web_deck/index.html`)
@@ -48,6 +48,8 @@ applications_presentations/
    - 16:9 Landscape Slide Deck PDF (`docs/turbase_app_XX_slides.pdf`)
    - Explainer Whitepaper PDF (`docs/turbase_app_XX_whitepaper.pdf`)
    - 10MB Video (`video_exports/turbase_app_XX_10mb.mp4`)
+5. **Checks before delivery:** `npm --prefix applications_presentations run check-01` (also `check-02`, `check-03`, `check` for 01–03, `check-all` for all five). See root `AGENTS.md`, rule 16, and the plans `ОБЩИЙ_ПЛАН_финальных_версий_презентаций_01-03.md`, `ПЛАН_ФИНАЛ_0N_*.md`.
+
 ---
 
 ## 🏷️ Семантические метки и авторская база знаний
