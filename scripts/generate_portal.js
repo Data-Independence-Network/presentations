@@ -302,6 +302,39 @@ const WHITEPAPERS = [
     tags: ['📊 15 страниц', '2 рейтинга', 'Без единого балла', 'Банк России', 'Согласие', 'Данные у владельца']
   },
   {
+    num: '08',
+    marker: 'БЕЛАЯ КНИГА · 08 · КУБГОЛОС',
+    title: 'Белая книга 08: «КубГолос» — измерять и складывать',
+    desc: 'Форма многофакторной оценки (100 б.п., две метрики), оперативные счётчики на Ветках, блоки эпох, сложение вверх по дереву и три шкалы консенсуса («Народ», «Эксперты», «Результат»).',
+    mdPath: 'shared_docs/whitepapers/08_votecube_whitepaper.md',
+    pdfPath: null,
+    isReady: true,
+    statusText: 'Готово (.md)',
+    tags: ['📝 Формат Markdown', 'КубГолос', '100 б.п.', 'Счётчики', 'Блоки эпох', 'Дерево тем', 'Слепой ретранслятор']
+  },
+  {
+    num: '09',
+    marker: 'БЕЛАЯ КНИГА · 09 · ЗАБОТА',
+    title: 'Белая книга 09: «Забота» — вкладывать и просматривать',
+    desc: 'Самозапечатывающиеся страницы, треды и 4 вида реплик, свидетельства практического Опыта, открытый социальный рейтинг полезных вкладов по темам и защита от накруток.',
+    mdPath: 'shared_docs/whitepapers/09_sapoto_whitepaper.md',
+    pdfPath: null,
+    isReady: true,
+    statusText: 'Готово (.md)',
+    tags: ['📝 Формат Markdown', 'Забота', 'Страницы (Pages)', 'Треды и реплики', 'Свидетельства Опыта', 'Социальный рейтинг', 'Субъективная логика']
+  },
+  {
+    num: '10',
+    marker: 'БЕЛАЯ КНИГА · 10 · ДЕЛОВОЙ',
+    title: 'Белая книга 10: «Деловой» — исполнять и связывать',
+    desc: 'Дело как автономное хранилище и контракт, многомерные теги, группы опросов, мандатный API поручений, контракты второго уровня (L2) и связка двух рейтингов.',
+    mdPath: 'shared_docs/whitepapers/10_gogetter_whitepaper.md',
+    pdfPath: null,
+    isReady: true,
+    statusText: 'Готово (.md)',
+    tags: ['📝 Формат Markdown', 'Деловой', 'Хранилище на Дело', 'Теги и опросы', 'Мандатный API', 'Контракты 2-го уровня', 'Связка рейтингов']
+  },
+  {
     num: 'DOC',
     marker: 'ТЕХНИЧЕСКИЙ ДОКУМЕНТ',
     title: 'Технический документ платформы «Турбаза»',
@@ -1545,11 +1578,11 @@ ${catItems.map(item => {
       <div class="section-header">
         <div class="section-title-group">
           <span class="section-icon">📑</span>
-          <h2 class="section-title">Пакет Белых Книг (A4 Whitepapers)</h2>
+          <h2 class="section-title">Пакет Белых Книг (Whitepapers)</h2>
           <span class="section-badge">${WHITEPAPERS.filter(w => w.isReady).length} готово · ${WHITEPAPERS.filter(w => !w.isReady).length} в разработке</span>
         </div>
         <p class="section-desc">
-          Официальный пакет 7 публикационных белых книг и генерального технического документа платформы «Турбаза». Белые книги 06 (экспертный отзыв для Банка России) и 07 (социальный и экономический рейтинги) финализированы и доступны в полиграфическом A4 PDF; документы 01–05 находятся в активной подготовке и доступны для чтения во встроенном веб-вьюере и в исходных Markdown-файлах.
+          Официальный пакет Белых книг и генерального технического документа платформы «Турбаза». Белые книги 06 (экспертный отзыв для Банка России) и 07 (социальный и экономический рейтинги) финализированы в полиграфическом A4 PDF; трилогия прикладных книг 08 («КубГолос»), 09 («Забота») и 10 («Деловой») выпущена в формате Markdown (.md) и доступна во встроенном вьюере; книги 01–05 находятся в активной подготовке.
         </p>
       </div>
 
@@ -1574,7 +1607,7 @@ ${WHITEPAPERS.map(wp => {
             <div class="card-top">
               <span class="card-marker">${escapeHtml(wp.marker)}</span>
               ${isReady 
-                ? `<span class="card-status-pill status-ready"><span class="status-dot"></span> Готово (PDF A4)</span>`
+                ? `<span class="card-status-pill status-ready"><span class="status-dot"></span> ${escapeHtml(wp.statusText || 'Готово (PDF A4)')}</span>`
                 : `<span class="card-status-pill status-draft">📐 В разработке</span>`
               }
             </div>
@@ -1583,13 +1616,19 @@ ${WHITEPAPERS.map(wp => {
             <p class="card-subtitle">${escapeHtml(wp.desc)}</p>
 
             <div class="card-tags">
-              ${wp.tags.map(t => `<span class="tag-pill">${escapeHtml(t)}</span>`).join('\n              ')}
+              ${wp.tags.map(t => {
+                if (t === '📝 Формат Markdown') {
+                  return `<span class="tag-pill" style="color: #38bdf8; border-color: rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.08);">${escapeHtml(t)}</span>`;
+                }
+                return `<span class="tag-pill">${escapeHtml(t)}</span>`;
+              }).join('\n              ')}
             </div>
           </div>
 
           <div class="card-actions">
             ${isReady
-              ? `
+              ? wp.pdfPath
+                ? `
             <a href="${wp.pdfPath}" target="_blank" class="btn-launch" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #ffffff; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);" title="Открыть официальный полиграфический A4 PDF (15 стр.)">
               📄 PDF Документ (15 стр.)
             </a>
@@ -1599,7 +1638,15 @@ ${WHITEPAPERS.map(wp => {
             <a href="${wp.mdPath}" target="_blank" class="btn-pdf" title="Открыть исходный файл Markdown">
               📝 .md
             </a>
-              `
+                `
+                : `
+            <a href="viewer.html?doc=${encodeURIComponent(wp.mdPath)}" class="btn-launch" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #ffffff; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);" title="Читать белую книгу во встроенном веб-вьюере">
+              📖 Читать во вьюере
+            </a>
+            <a href="${wp.mdPath}" target="_blank" class="btn-pdf" style="background: rgba(56, 189, 248, 0.12); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.35); font-weight: 700;" title="Открыть исходный файл Markdown (.md)">
+              📝 Документ .md
+            </a>
+                `
               : `
             <a href="viewer.html?doc=${encodeURIComponent(wp.mdPath)}" class="btn-preview" title="Читать черновик документа во встроенном веб-вьюере">
               📖 Читать во вьюере
