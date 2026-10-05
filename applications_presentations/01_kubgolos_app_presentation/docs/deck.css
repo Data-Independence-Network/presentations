@@ -1185,7 +1185,67 @@ body {
   line-height: 1.35;
 }
 
-/* Attribution Line (Slide 1) */
+/* Slide 1 Layout & Attribution Bottom Bar */
+.slide-card[data-slide="1"] .slide-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.attribution-bottom-bar {
+  margin-top: auto;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 18px;
+  padding-bottom: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.attribution-credits {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.attribution-spec {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+.whitepaper-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 20px;
+  border-radius: 999px;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1.5px solid var(--cyber-light);
+  color: var(--cyber-light);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.whitepaper-badge:hover {
+  background: rgba(56, 189, 248, 0.3);
+  border-color: #ffffff;
+  color: #ffffff;
+  box-shadow: 0 6px 22px rgba(56, 189, 248, 0.45);
+  transform: translateY(-2px);
+}
+
 .attribution-line {
   font-size: 24px;
   font-weight: 500;
@@ -1210,4 +1270,16 @@ body {
 
 .attribution-panel strong {
   color: var(--gold-primary);
+}
+
+.whitepaper-link {
+  color: var(--cyber-light);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.whitepaper-link:hover {
+  color: #ffffff;
 }

@@ -2,7 +2,7 @@
 
 ## 🎯 Purpose & Scope
 Presentation 01 of the 5-part Flagship Applications Suite: **«КубГолос»: измерять и складывать** (15 billboard slides).
-- **Associated Whitepaper:** [Белая книга № 08 «КубГолос: форма оценки, счётчики и сложение вверх по дереву»](file:///home/anastasiya/Documents/presentations/shared_docs/whitepapers/08_votecube_whitepaper.md)
+- **Associated Whitepaper:** [Белая книга № 08 «КубГолос: форма оценки, счётчики и сложение вверх по дереву»](../../shared_docs/whitepapers/08_votecube_whitepaper.md)
 - **Who does what:** Author & system architect — Artem V. Shamsutdinov. Planning — Claude Sonnet 5.5. Slide & narration elaboration — Gemini 3.8 Flash. Version 1.0 (2026).
 
 ---

@@ -8,7 +8,7 @@ rate: "-9%"
 author: "Артём Владимирович Шамсутдинов"
 planning: "Claude Sonnet 5.5"
 elaboration: "Gemini 3.8 Flash"
-status: "финальная версия, звук не собран"
+status: "финальная версия"
 version: "1.0 (2026)"
 book: "shared_docs/whitepapers/08_votecube_whitepaper.md"
 ---
@@ -41,8 +41,14 @@ book: "shared_docs/whitepapers/08_votecube_whitepaper.md"
     </div>
   </div>
 
-  <div class="attribution-line">
-    Автор: А. В. Шамсутдинов · Планирование: Claude Sonnet 5.5 · Проработка: Gemini 3.8 Flash · Проектная концепция, версия 1.0 (2026)
+  <div class="attribution-bottom-bar">
+    <div class="attribution-credits">
+      Автор: А. В. Шамсутдинов · Планирование: Claude Sonnet 5.5 · Проработка: Gemini 3.8 Flash · Концепция 1.0 (2026)
+    </div>
+    <div class="attribution-spec">
+      Детальная инженерная спецификация:
+      <a href="../../../../../viewer.html?doc=shared_docs/whitepapers/08_votecube_whitepaper.md" class="whitepaper-badge" target="_blank">📄 Белая книга № 08 «КубГолос» ↗</a>
+    </div>
   </div>
 </div>
 
@@ -51,7 +57,7 @@ book: "shared_docs/whitepapers/08_votecube_whitepaper.md"
 > 
 > Система опирается на три основы: оценку с ограниченным бюджетом влияния, счётчики в оперативной памяти и сложение сумм вверх по дереву.
 > 
-> В этой презентации показано устройство платформы и те решения, которые станут общими для всех прикладных сервисов.
+> В этой презентации показано устройство платформы и решения, которые станут общими для всех сервисов. Детальная инженерная спецификация представлена в Белой книге номер восемь.
 
 ---
 
@@ -870,7 +876,7 @@ book: "shared_docs/whitepapers/08_votecube_whitepaper.md"
       </div>
 
       <div class="attribution-panel" style="margin-top: 10px;">
-        <strong>Архитектор:</strong> Артём Владимирович Шамсутдинов. <strong>Планирование:</strong> Claude Sonnet 5.5. <strong>Проработка:</strong> Gemini 3.8 Flash. Концепция 1.0 (2026), «как есть». Белая книга № 08.
+        <strong>Архитектор:</strong> Артём Владимирович Шамсутдинов · <strong>Планирование:</strong> Claude Sonnet 5.5 · <strong>Проработка:</strong> Gemini 3.8 Flash · Концепция 1.0 (2026), «как есть» · <a href="../../../../../viewer.html?doc=shared_docs/whitepapers/08_votecube_whitepaper.md" class="whitepaper-link" target="_blank">Белая книга № 08</a>.
       </div>
     </div>
   </div>
