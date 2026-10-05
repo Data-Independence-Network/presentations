@@ -1,22 +1,32 @@
 # AGENTS.md — 01_kubgolos_app_presentation
 
 ## 🎯 Purpose & Scope
-Contains presentation materials, slides, web deck, audio tracks, and automated build pipelines for **Presentation 01: «КубГолос»: Народная платформа версионных микро-опросов и коллективного разума** (15 billboard slides).
+Presentation 01 of the 5-part Flagship Applications Suite: **«КубГолос»: измерять и складывать** (15 billboard slides).
+- **Associated Whitepaper:** [Белая книга № 08 «КубГолос: форма оценки, счётчики и сложение вверх по дереву»](file:///home/anastasiya/Documents/presentations/shared_docs/whitepapers/08_votecube_whitepaper.md)
+- **Who does what:** Author & system architect — Artem V. Shamsutdinov. Planning — Claude Sonnet 5.5. Slide & narration elaboration — Gemini 3.8 Flash. Version 1.0 (2026).
 
 ---
 
 ## 🧭 Architectural Focus & Key Concepts
-- **Semantic Labels Invariant:** Метки в [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) служат внутренней системой индексации базы заметок для связывания начальных знаний платформы агентами. Запрещено использовать метки `%...` в материалах презентации (слайдах, дикторском тексте), так как они затрудняют восприятие.
-- **Focus:** Локальные социологические срезы «снизу вверх», защита от накруток без деанонимизации, версионные структуры опросов, агрегация результатов на Ветках через TreeSearch.
-- **Source of Intent:** Author notes ([`08-30_01_Who_is_it_for.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/08-30_01_Who_is_it_for.md), [`09-07_01_Architecture_overview.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-07_01_Architecture_overview.md)), [`turbase_applications_master_plan.md`](file:///Users/parents/Documents/presentations/applications_presentations/turbase_applications_master_plan.md), and [`02_applications_suite_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/02_applications_suite_whitepaper.md).
-- **Target Audience:** Гражданские активисты, социологи, муниципальные сообщества, ТСЖ.
-- **Narrative Style:** Демократичный, конструктивный, общественный тон (`ru-RU-DmitryNeural`, rate -9%, pitch -5Hz).
+- **3 Core Contributions:**
+  1. Multidimensional evaluation form with 100 basis points budget per question;
+  2. In-memory streaming counters on Branches with compact epoch blocks;
+  3. Upward tree summation of sums and counts instead of averaging averages.
+- **Strict Invariants:**
+  - Forbidden `%...` labels in slides, notes, or narration (Rule 9).
+  - No collective corporate «мы/наш» (Rule 12).
+  - No source code, DDL, or class names on slides (Rule 13).
+  - Respectful tone, no derogatory words (Rule 14).
+  - Clean Russian speech, no Anglicisms like "VoteCube", "SQLite", etc. (Rule 15).
+  - Strict zero overflow (`scrollHeight <= clientHeight`) at 1920x1080 verified via `scripts/check_decks.js`.
+- **Target Audience:** Citizens, sociologists, municipal services, housing cooperatives, systems engineers.
+- **Narrative Style:** Constructive, institutional, respectful (`ru-RU-DmitryNeural`, rate -9%, pitch -5Hz).
 
 ---
 
 ## 📁 Subdirectory Layout
-- **`docs/presentation_deck.md`**: Canonical 15-slide master source and narration script.
-- **`docs/presentation_outline.md`**: Structural slide outline with timings.
+- **`docs/presentation_deck.md`**: Canonical 15-slide master source and narration script (1002 words).
+- **`docs/presentation_outline.md`**: Structural slide outline with timings and word count table.
 - **`docs/deck.css`**: Isolated, autonomous stylesheet for this presentation.
 - **`rebuild.js`**: Offline build runner using committed audio assets.
 - **`regenerate.js`**: Incremental smart builder with Neural TTS.
@@ -24,13 +34,12 @@ Contains presentation materials, slides, web deck, audio tracks, and automated b
 
 ---
 
-## 🚀 Build Commands
+## 🚀 Build & Verification Commands
 ```bash
-# Offline rebuild:
-npm --prefix applications_presentations run rebuild-01
-node rebuild.js
+# Automated rule and zero-overflow verification:
+npm --prefix applications_presentations run check-01
+node scripts/check_decks.js applications_presentations/01_kubgolos_app_presentation
 
-# Full regeneration with Neural TTS:
-npm --prefix applications_presentations run regen-01
-node regenerate.js
+# Web deck compilation (offline, no TTS):
+node scripts/build_deck_html.js applications_presentations/01_kubgolos_app_presentation
 ```
