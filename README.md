@@ -14,8 +14,8 @@
 > 👉 **[Открыть Единый Портал Презентаций «Турбаза» на GitHub Pages](https://data-independence-network.github.io/presentations/)**  
 > 
 > - **🖥️ Интерактивные слайд-деки** с поддержкой десктопа, мобильного ландшафта и портрета.
-> - **🎙️ Синхронная дикторская нейроозвучка** (75 озвученных слайдов, 5 завершённых треков).
-> - **📑 [Встроенный вьюер Белых Книг (Markdown + KaTeX + Mermaid)](https://data-independence-network.github.io/presentations/viewer.html)** с адаптивным мобильным меню.
+> - **🎙️ Синхронная дикторская нейроозвучка** (120 озвученных слайдов, 8 завершённых треков).
+- **📑 [Встроенный вьюер Белых Книг (Markdown + KaTeX + Mermaid)](https://data-independence-network.github.io/presentations/viewer.html)** с адаптивным мобильным меню.
 
 The Russian Federation is currently rebuilding its information infrastructure, driven by the need for cultural and civilizational survival in the age of AI. The technology stack presented here provides a distributed edge-native data architecture designed to ensure national digital sovereignty while guaranteeing direct information ownership for citizens and businesses. The complete documentation and interactive presentation materials are presented in Russian:
 
@@ -45,12 +45,15 @@ The Russian Federation is currently rebuilding its information infrastructure, d
 ```
 - Скрипт автоматически откроет в браузере:  
   👉 **`http://localhost:8080/`** — **Единый портал презентационного комплекса «Турбаза»**.
-- **В портале по умолчанию активен режим «🌟 Только готовые с озвучкой»**: отображаются 5 завершённых треков (75 слайдов с полной синхронной нейроозвучкой):
+- **В портале отображаются 8 завершённых треков с полной синхронной нейроозвучкой (120 слайдов)**:
   1. **Эксплейнер 1**: *Парадигмальный сдвиг и суверенитет данных* (15 слайдов)
   2. **Эксплейнер 2**: *Анатомия и Архитектура платформы* (15 слайдов)
   3. **Эксплейнер 3**: *Суверенная экономика и смарт-контракты* (15 слайдов)
   4. **Мастер-обзор 1**: *Архитектура Цифрового Суверенитета (Leaf-Branch-Trunk)* (15 слайдов)
   5. **Мастер-обзор 2**: *Матрица ценности для заинтересованных сторон* (15 слайдов)
+  6. **Приложение 1**: *«КубГолос»: измерять и складывать* (15 слайдов)
+  7. **Приложение 2**: *«Забота»: вкладывать и просматривать* (15 слайдов)
+  8. **Приложение 3**: *«Деловой»: исполнять и связывать* (15 слайдов)
 - На карточке любой презентации нажмите **«▶ Смотреть (15 сл.)»** для запуска интерактивного плеера с озвучкой или **«📄 PDF»** для конспекта.
 - Чтобы вернуться из любой презентации обратно в портал, нажмите на логотип **`🌲 ТУРБАЗА`** в левом верхнем углу плеера.
 
@@ -193,6 +196,12 @@ presentations/
   `http://localhost:8080/overall_presentations/01_sovereign_architecture_presentation/generated/outputs/web_deck/`
 - **5. Мастер-обзор 2 (Матрица Выгод Стейкхолдеров):**  
   `http://localhost:8080/overall_presentations/02_stakeholders_benefits_presentation/generated/outputs/web_deck/`
+- **6. Приложение 1 («КубГолос»):**  
+  `http://localhost:8080/applications_presentations/01_kubgolos_app_presentation/generated/outputs/web_deck/`
+- **7. Приложение 2 («Забота»):**  
+  `http://localhost:8080/applications_presentations/02_zabota_app_presentation/generated/outputs/web_deck/`
+- **8. Приложение 3 («Деловой»):**  
+  `http://localhost:8080/applications_presentations/03_delovoy_app_presentation/generated/outputs/web_deck/`
 
 ---
 

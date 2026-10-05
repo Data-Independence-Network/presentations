@@ -233,7 +233,7 @@ async function synthesizeSegment(text, filePath, options = {}) {
       outputFormat: 'audio-24khz-96kbitrate-mono-mp3',
       pitch,
       rate,
-      timeout: 12000,
+      timeout: 60000,
     });
     try {
       await tts.ttsPromise(text, filePath);
@@ -264,8 +264,8 @@ async function generateSlideAudio(slideNum, segmentsOrText, options = {}) {
   const { key, keyFile } = getApiKey(options);
   options = { ...options, apiKey: key, keyFile };
 
-  const outputDir = options.outputDir;
-  const tempDir = options.tempDir;
+  const outputDir = options.outputDir ? path.resolve(options.outputDir) : null;
+  const tempDir = options.tempDir ? path.resolve(options.tempDir) : null;
   const force = options.force || false;
 
   if (outputDir && !fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
@@ -330,7 +330,7 @@ async function generateSlideAudio(slideNum, segmentsOrText, options = {}) {
   }
 
   const concatListFile = path.join(tempDir, `concat_slide_${slideNum}.txt`);
-  const concatContent = concatFiles.map(f => `file '${f}'`).join('\n');
+  const concatContent = concatFiles.map(f => `file '${path.resolve(f)}'`).join('\n');
   fs.writeFileSync(concatListFile, concatContent);
 
   execSync(`ffmpeg -y -f concat -safe 0 -i "${concatListFile}" -c copy "${finalFilePath}"`, { stdio: 'ignore' });

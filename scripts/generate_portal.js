@@ -33,10 +33,10 @@ const CATEGORIES = {
   },
   applications_presentations: {
     id: 'applications_presentations',
-    title: 'Скоро: Флагманские прикладные решения',
+    title: 'Флагманские прикладные решения',
     icon: '🚀',
-    badge: '5 приложений · В фокусе: «КубГолос»',
-    desc: 'Пакет прикладных сервисов экосистемы прямого владения данными. «КубГолос» находится в фокусе первоочередной доработки и подготовки к нейроозвучке первым по списку, далее «Забота» и «Деловой»'
+    badge: '5 приложений',
+    desc: 'Пакет прикладных сервисов экосистемы прямого владения данными: «КубГолос» (одноранговые опросы), «Забота» (взаимопомощь и репутация), «Деловой» (органайзер и L2-контракты), «УраТур» и реестр МСП/ЖКХ.'
   },
   architecture_presentations: {
     id: 'architecture_presentations',
@@ -90,34 +90,37 @@ const PRESENTATION_METADATA = {
     tags: ['6 Стейкхолдеров', 'TCO -85%', 'Игра с + суммой', 'Локальный таргетинг']
   },
 
-  // --- APPLICATIONS (COMING SOON / СКОРО) ---
+  // --- APPLICATIONS ---
   'applications_presentations/01_kubgolos_app_presentation': {
-    customTitle: 'Платформа «КубГолос»',
-    customSubtitle: 'Одноранговые микро-опросы, легитимное голосование и защита мнений в локальных сообществах и коллективах.',
-    marker: 'ПРИЛОЖЕНИЕ · ВЫПУСК 1',
-    tags: ['Микро-опросы', 'Криптография', 'Локальное волеизъявление', 'В фокусе'],
-    isNextInLine: true,
-    whitepaperDoc: 'shared_docs/whitepapers/08_votecube_whitepaper.md'
+    customTitle: '«КубГолос»: измерять и складывать',
+    customSubtitle: 'Многофакторная оценка, потоковые счётчики на Ветках и сложение сумм вверх по дереву без сбора голосов в одном месте.',
+    marker: 'ПРИЛОЖЕНИЕ · 01 · КУБГОЛОС',
+    tags: ['100 б.п.', 'Счётчики', 'Блоки эпох', 'Дерево тем', '3 шкалы согласия'],
+    whitepaperDoc: 'shared_docs/whitepapers/08_votecube_whitepaper.md',
+    isReady: true
   },
   'applications_presentations/02_zabota_app_presentation': {
-    customTitle: 'Платформа «Забота»',
-    customSubtitle: 'Взаимопомощь, открытая децентрализованная репутация и доверенные круги взаимоподдержки жителей.',
-    marker: 'ПРИЛОЖЕНИЕ · ВЫПУСК 2',
-    tags: ['Взаимопомощь', 'Открытая репутация', 'Доверенные круги'],
-    whitepaperDoc: 'shared_docs/whitepapers/09_sapoto_whitepaper.md'
+    customTitle: '«Забота»: вкладывать и просматривать',
+    customSubtitle: 'Самозапечатывающиеся страницы, треды реплик, свидетельства Опыта и открытый социальный рейтинг полезных вкладов по темам.',
+    marker: 'ПРИЛОЖЕНИЕ · 02 · ЗАБОТА',
+    tags: ['Страницы и треды', 'Свидетельства Опыта', 'Социальный рейтинг', 'Субъективная логика'],
+    whitepaperDoc: 'shared_docs/whitepapers/09_sapoto_whitepaper.md',
+    isReady: true
   },
   'applications_presentations/03_delovoy_app_presentation': {
-    customTitle: 'Органайзер «Деловой»',
-    customSubtitle: 'Автономное планирование, локальные календари и P2P-координация задач прямого владения данными без внешних облаков и слежки.',
-    marker: 'ПРИЛОЖЕНИЕ · ВЫПУСК 3',
-    tags: ['Органайзер', 'Локальный Leaf', 'P2P-синхронизация', 'Оффлайн-режим'],
-    whitepaperDoc: 'shared_docs/whitepapers/10_gogetter_whitepaper.md'
+    customTitle: '«Деловой»: исполнять и связывать',
+    customSubtitle: 'Дело как автономное зашифрованное хранилище на Листе, мандатный API поручений, контракты L2 и связка двух рейтингов.',
+    marker: 'ПРИЛОЖЕНИЕ · 03 · ДЕЛОВОЙ',
+    tags: ['Хранилище на Дело', 'Мандатный API', 'Контракты L2', 'Связка двух рейтингов'],
+    whitepaperDoc: 'shared_docs/whitepapers/10_gogetter_whitepaper.md',
+    isReady: true
   },
   'applications_presentations/04_uratur_app_presentation': {
     customTitle: 'Платформа «УраТур»',
-    customSubtitle: 'Автономный навигатор путешествий прямого владения данными и локальные маршруты без грабительских комиссий платформам-монополиям.',
+    customSubtitle: 'Автономный навигатор путешествий прямого владения данными и локальные маршруты с прямыми расчетами без наценок посредников.',
     marker: 'ПРИЛОЖЕНИЕ · ВЫПУСК 4',
-    tags: ['Туризм', '0% комиссии платформ', 'Прямые расчеты', 'P2P']
+    tags: ['Туризм', 'Прямые расчеты', 'Локальные маршруты', 'P2P'],
+    isNextInLine: true
   },
   'applications_presentations/05_local_services_presentation': {
     customTitle: 'Локальные Сервисы и Реестр МСП',
@@ -400,6 +403,11 @@ function scanAllPresentations() {
     const marker = curated.marker || (meta.header_title || 'ТУРБАЗА');
     const tags = curated.tags || ['Архитектура', 'Вычисления на устройствах', 'Суверенитет'];
 
+    const isApp = catKey === 'applications_presentations';
+    const isPresentationReady = isApp 
+      ? (Boolean(curated.isReady) && hasAudio)
+      : hasAudio;
+
     items.push({
       dir: rel,
       dirName,
@@ -409,12 +417,12 @@ function scanAllPresentations() {
       marker,
       tags,
       slidesCount: meta.total_slides || 15,
-      hasAudio,
+      hasAudio: isPresentationReady,
       audioCount,
       hasWebDeck,
       webDeckUrl: hasWebDeck ? `${rel}/generated/outputs/web_deck/index.html` : null,
-      isNextInLine: Boolean(curated.isNextInLine),
-      isComingSoon: catKey === 'applications_presentations',
+      isNextInLine: !isPresentationReady && Boolean(curated.isNextInLine),
+      isComingSoon: !isPresentationReady && isApp,
       whitepaperDoc: curated.whitepaperDoc || null,
       pdfs
     });
@@ -427,13 +435,18 @@ function buildPortalHtml(items) {
   const readyCount = items.filter(i => i.hasAudio).length;
   const totalCount = items.length;
   const draftCount = totalCount - readyCount;
-  const totalAudios = items.reduce((acc, cur) => acc + cur.audioCount, 0);
+  const totalAudios = items.reduce((acc, cur) => acc + (cur.hasAudio ? cur.audioCount : 0), 0);
 
   // Group items by category
   const grouped = {};
   for (const key of Object.keys(CATEGORIES)) {
     grouped[key] = items.filter(i => i.catKey === key);
   }
+
+  const apps = grouped.applications_presentations || [];
+  const comingSoonApps = apps.filter(i => !i.hasAudio);
+  const nextApp = comingSoonApps.find(i => i.isNextInLine) || comingSoonApps[0];
+  const nextAppName = nextApp ? (nextApp.title.includes('«') ? nextApp.title.match(/«[^»]+»/)[0] : nextApp.title) : '';
 
   return `<!DOCTYPE html>
 <html lang="ru">
@@ -1418,9 +1431,9 @@ function buildPortalHtml(items) {
         </div>
 
         <div class="stat-card coming-soon-stat">
-          <div class="stat-number" style="color: var(--gold);">${grouped.applications_presentations ? grouped.applications_presentations.length : 5} <span style="font-size: 14px; font-weight: 800; color: #fde047;">(След: «КубГолос»)</span></div>
+          <div class="stat-number" style="color: var(--gold);">${comingSoonApps.length} ${nextAppName ? `<span style="font-size: 14px; font-weight: 800; color: #fde047;">(След: ${nextAppName})</span>` : ''}</div>
           <div class="stat-label">Раздел «Скоро»</div>
-          <div class="stat-desc">5 флагманских приложений · КубГолос в фокусе</div>
+          <div class="stat-desc">${comingSoonApps.length} прикладных решений · ${nextAppName} в фокусе</div>
         </div>
 
         <div class="stat-card audio-stat">
@@ -1444,7 +1457,7 @@ function buildPortalHtml(items) {
         <div class="mode-switch-group">
           <button class="mode-tab active featured-mode" id="btnModeFeatured" data-mode="featured">
             <span>🌟 Главная: Релизы и «Скоро»</span>
-            <span class="tab-badge">${readyCount + (grouped.applications_presentations ? grouped.applications_presentations.length : 5)}</span>
+            <span class="tab-badge">${readyCount + comingSoonApps.length}</span>
           </button>
           <button class="mode-tab" id="btnModeReady" data-mode="ready">
             <span>🎙️ Только с озвучкой</span>
@@ -1468,7 +1481,7 @@ function buildPortalHtml(items) {
         <button class="cat-pill active" data-cat="all">Все разделы (${totalCount})</button>
         <button class="cat-pill" data-cat="platform_overview">🏔️ Эксплейнеры (${grouped.platform_overview ? grouped.platform_overview.filter(i => i.hasAudio).length : 0}/${grouped.platform_overview ? grouped.platform_overview.length : 0})</button>
         <button class="cat-pill" data-cat="overall_presentations">🏛️ Мастер-обзор (${grouped.overall_presentations ? grouped.overall_presentations.filter(i => i.hasAudio).length : 0}/${grouped.overall_presentations ? grouped.overall_presentations.length : 0})</button>
-        <button class="cat-pill" data-cat="applications_presentations">⏳ Скоро: Приложения (${grouped.applications_presentations ? grouped.applications_presentations.length : 0})</button>
+        <button class="cat-pill" data-cat="applications_presentations">🚀 Приложения (${grouped.applications_presentations ? grouped.applications_presentations.filter(i => i.hasAudio).length : 0}/${grouped.applications_presentations ? grouped.applications_presentations.length : 0})</button>
         <button class="cat-pill" data-cat="architecture_presentations">⚙️ Архитектура (${grouped.architecture_presentations ? grouped.architecture_presentations.filter(i => i.hasAudio).length : 0}/${grouped.architecture_presentations ? grouped.architecture_presentations.length : 0})</button>
         <button class="cat-pill" data-cat="detailed_overall_impact_presentations">👥 Стейкхолдеры (${grouped.detailed_overall_impact_presentations ? grouped.detailed_overall_impact_presentations.filter(i => i.hasAudio).length : 0}/${grouped.detailed_overall_impact_presentations ? grouped.detailed_overall_impact_presentations.length : 0})</button>
         <button class="cat-pill" data-cat="whitepapers">📑 Белые книги (${WHITEPAPERS.filter(w => w.isReady).length}/${WHITEPAPERS.length})</button>
@@ -1551,15 +1564,15 @@ ${catItems.map(item => {
                 ▶ Смотреть (${item.slidesCount} сл.)
               </a>
               ${pdfLink ? `<a href="${pdfLink}" target="_blank" class="btn-pdf" title="Скачать PDF с текстом диктора">📄 PDF</a>` : ''}
-              ${item.whitepaperDoc ? `<a href="viewer.html?doc=${encodeURIComponent(item.whitepaperDoc)}" class="btn-preview" title="Читать соответствующую белую книгу во вьюере">📖 Читать во вьюере</a>` : ''}
+              ${item.whitepaperDoc ? `<a href="viewer.html?doc=${encodeURIComponent(item.whitepaperDoc)}" target="_blank" class="btn-preview" title="Читать соответствующую белую книгу во вьюере">📖 Читать во вьюере</a>` : ''}
                 `
                 : isNext
                   ? `
-              <a href="${item.webDeckUrl}" class="btn-next-launch" title="Предпросмотр слайдов «КубГолос» (в фокусе следующей доработки)">
+              <a href="${item.webDeckUrl}" class="btn-next-launch" title="Предпросмотр слайдов ${escapeHtml(item.title)} (в фокусе следующей доработки)">
                 🚀 Предпросмотр слайдов (${item.slidesCount} сл.)
               </a>
               ${pdfLink ? `<a href="${pdfLink}" target="_blank" class="btn-pdf" title="Скачать PDF">📄 PDF</a>` : ''}
-              ${item.whitepaperDoc ? `<a href="viewer.html?doc=${encodeURIComponent(item.whitepaperDoc)}" class="btn-preview" title="Читать соответствующую белую книгу во вьюере">📖 Читать во вьюере</a>` : ''}
+              ${item.whitepaperDoc ? `<a href="viewer.html?doc=${encodeURIComponent(item.whitepaperDoc)}" target="_blank" class="btn-preview" title="Читать соответствующую белую книгу во вьюере">📖 Читать во вьюере</a>` : ''}
                   `
                   : isComingSoon
                     ? `
@@ -1567,7 +1580,7 @@ ${catItems.map(item => {
                 👁️ Предпросмотр (${item.slidesCount} сл.)
               </a>
               ${pdfLink ? `<a href="${pdfLink}" target="_blank" class="btn-pdf" title="Скачать PDF">📄 PDF</a>` : ''}
-              ${item.whitepaperDoc ? `<a href="viewer.html?doc=${encodeURIComponent(item.whitepaperDoc)}" class="btn-preview" title="Читать соответствующую белую книгу во вьюере">📖 Читать во вьюере</a>` : ''}
+              ${item.whitepaperDoc ? `<a href="viewer.html?doc=${encodeURIComponent(item.whitepaperDoc)}" target="_blank" class="btn-preview" title="Читать соответствующую белую книгу во вьюере">📖 Читать во вьюере</a>` : ''}
                     `
                     : `
               <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента">
@@ -1642,7 +1655,7 @@ ${WHITEPAPERS.map(wp => {
             <a href="${wp.pdfPath}" target="_blank" class="btn-launch" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #ffffff; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);" title="Открыть официальный полиграфический A4 PDF (15 стр.)">
               📄 PDF Документ (15 стр.)
             </a>
-            <a href="viewer.html?doc=${encodeURIComponent(wp.mdPath)}" class="btn-preview" title="Читать белую книгу во встроенном веб-вьюере">
+            <a href="viewer.html?doc=${encodeURIComponent(wp.mdPath)}" target="_blank" class="btn-preview" title="Читать белую книгу во встроенном веб-вьюере">
               📖 Вьюер
             </a>
             <a href="${wp.mdPath}" target="_blank" class="btn-pdf" title="Открыть исходный файл Markdown">
@@ -1650,7 +1663,7 @@ ${WHITEPAPERS.map(wp => {
             </a>
                 `
                 : `
-            <a href="viewer.html?doc=${encodeURIComponent(wp.mdPath)}" class="btn-launch" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #ffffff; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);" title="Читать белую книгу во встроенном веб-вьюере">
+            <a href="viewer.html?doc=${encodeURIComponent(wp.mdPath)}" target="_blank" class="btn-launch" style="background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #ffffff; box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);" title="Читать белую книгу во встроенном веб-вьюере">
               📖 Читать во вьюере
             </a>
             <a href="${wp.mdPath}" target="_blank" class="btn-pdf" style="background: rgba(56, 189, 248, 0.12); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.35); font-weight: 700;" title="Открыть исходный файл Markdown (.md)">
@@ -1662,7 +1675,7 @@ ${WHITEPAPERS.map(wp => {
             </a>` : ''}
                 `
               : `
-            <a href="viewer.html?doc=${encodeURIComponent(wp.mdPath)}" class="btn-preview" title="Читать черновик документа во встроенном веб-вьюере">
+            <a href="viewer.html?doc=${encodeURIComponent(wp.mdPath)}" target="_blank" class="btn-preview" title="Читать черновик документа во встроенном веб-вьюере">
               📖 Читать во вьюере
             </a>
             <a href="${wp.mdPath}" target="_blank" class="btn-pdf" title="Открыть исходный файл Markdown">
