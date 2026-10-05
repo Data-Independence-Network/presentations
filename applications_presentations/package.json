@@ -47,6 +47,11 @@
     "regen-05": "node ../scripts/regenerate.js 05_local_services_presentation",
     "regen-5": "npm run regen-05",
     "regen-app-05": "npm run regen-05",
-    "regen-local-services": "npm run regen-05"
+    "regen-local-services": "npm run regen-05",
+    "check": "node ../scripts/check_decks.js 01_kubgolos_app_presentation 02_zabota_app_presentation 03_delovoy_app_presentation",
+    "check-all": "node ../scripts/check_decks.js 01_kubgolos_app_presentation 02_zabota_app_presentation 03_delovoy_app_presentation 04_uratur_app_presentation 05_local_services_presentation",
+    "check-01": "node ../scripts/check_decks.js 01_kubgolos_app_presentation",
+    "check-02": "node ../scripts/check_decks.js 02_zabota_app_presentation",
+    "check-03": "node ../scripts/check_decks.js 03_delovoy_app_presentation"
   }
 }
