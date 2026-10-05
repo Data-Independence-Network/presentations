@@ -154,10 +154,10 @@ presentations/
 
 ## 📚 Аналитические Белые Книги (Whitepapers Suite)
 
-В директории [`shared_docs/whitepapers/`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/README.md) доступен полный комплект из 7 публикационных документов и генерального архитектурного документа:
+В директории [`shared_docs/whitepapers/`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/README.md) доступен полный комплект из 10 публикационных документов (01–07 в полиграфическом формате А4, 08–10 в формате Markdown для веб-вьюера) и генерального архитектурного документа:
 
 | № | Документ | Тематика Белой Книги | Формат |
-| :---: | :--- | :--- | :---: |
+| :---: | :--- | :--- | :--- | :---: |
 | **01** | [**01_platform_overview_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/01_platform_overview_whitepaper.md) | Смена парадигмы децентрализации, трехуровневая топология и -90% TCO ЦОД | [PDF](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/01_platform_overview_whitepaper.pdf) |
 | **02** | [**02_applications_suite_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/02_applications_suite_whitepaper.md) | Алгоритмический стек 5 флагманских сервисов и Branch-шлюзы ЕСИА/СБП/ГИС ЖКХ | [PDF](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/02_applications_suite_whitepaper.pdf) |
 | **03** | [**03_engineering_architecture_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/03_engineering_architecture_whitepaper.md) | Инженерная архитектура: SQLite на Листе, «читай отовсюду, пиши только своё», P2P, TreeSearch, FSM смарт-контракты | [PDF](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/03_engineering_architecture_whitepaper.pdf) |
@@ -165,6 +165,9 @@ presentations/
 | **05** | [**05_sovereign_governance_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/05_sovereign_governance_whitepaper.md) | Правовое обоснование 152-ФЗ, ГОСТ Р 34.10, госинфраструктура и БРИКС+ | [PDF](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/05_sovereign_governance_whitepaper.pdf) |
 | **06** | [**06_cbr_smart_contracts_fsm_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md) | Смарт-контракты Банка России, детерминированные автоматы FSM O(1) и Цифровой рубль | [PDF](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf) |
 | **07** | [**07_social_economic_ratings_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/07_social_economic_ratings_whitepaper.md) | Социальный и экономический рейтинги: открытый социальный рейтинг вкладов по темам и экономический рейтинг Банка России | [PDF](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/07_social_economic_ratings_whitepaper.pdf) |
+| **08** | [**08_votecube_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/08_votecube_whitepaper.md) | «КубГолос» — измерять и складывать: форма 100 б.п., счётчики на Ветках, блоки эпох, 3 шкалы консенсуса | [Markdown](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/08_votecube_whitepaper.md) |
+| **09** | [**09_sapoto_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/09_sapoto_whitepaper.md) | «Забота» — вкладывать и просматривать: самозапечатывающиеся страницы, треды, свидетельства Опыта, социальный рейтинг | [Markdown](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/09_sapoto_whitepaper.md) |
+| **10** | [**10_gogetter_whitepaper**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/10_gogetter_whitepaper.md) | «Деловой» — исполнять и связывать: Дело как хранилище и контракт, теги, мандатный API, L2, связка рейтингов | [Markdown](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/10_gogetter_whitepaper.md) |
 | **DOC** | **Технический документ платформы «Турбаза»** | Сводный фундаментальный документ архитектуры распределенных вычислений и суверенных данных | [PDF](file:///Users/parents/Documents/presentations/shared_docs/Технический%20документ%20платформы%20Турбаза.pdf) |
 
 ---
