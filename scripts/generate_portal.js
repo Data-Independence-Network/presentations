@@ -96,19 +96,22 @@ const PRESENTATION_METADATA = {
     customSubtitle: 'Одноранговые микро-опросы, легитимное голосование и защита мнений в локальных сообществах и коллективах.',
     marker: 'ПРИЛОЖЕНИЕ · ВЫПУСК 1',
     tags: ['Микро-опросы', 'Криптография', 'Локальное волеизъявление', 'В фокусе'],
-    isNextInLine: true
+    isNextInLine: true,
+    whitepaperDoc: 'shared_docs/whitepapers/08_votecube_whitepaper.md'
   },
   'applications_presentations/02_zabota_app_presentation': {
     customTitle: 'Платформа «Забота»',
     customSubtitle: 'Взаимопомощь, открытая децентрализованная репутация и доверенные круги взаимоподдержки жителей.',
     marker: 'ПРИЛОЖЕНИЕ · ВЫПУСК 2',
-    tags: ['Взаимопомощь', 'Открытая репутация', 'Доверенные круги']
+    tags: ['Взаимопомощь', 'Открытая репутация', 'Доверенные круги'],
+    whitepaperDoc: 'shared_docs/whitepapers/09_sapoto_whitepaper.md'
   },
   'applications_presentations/03_delovoy_app_presentation': {
     customTitle: 'Органайзер «Деловой»',
     customSubtitle: 'Автономное планирование, локальные календари и P2P-координация задач прямого владения данными без внешних облаков и слежки.',
     marker: 'ПРИЛОЖЕНИЕ · ВЫПУСК 3',
-    tags: ['Органайзер', 'Локальный Leaf', 'P2P-синхронизация', 'Оффлайн-режим']
+    tags: ['Органайзер', 'Локальный Leaf', 'P2P-синхронизация', 'Оффлайн-режим'],
+    whitepaperDoc: 'shared_docs/whitepapers/10_gogetter_whitepaper.md'
   },
   'applications_presentations/04_uratur_app_presentation': {
     customTitle: 'Платформа «УраТур»',
@@ -308,6 +311,7 @@ const WHITEPAPERS = [
     desc: 'Форма многофакторной оценки (100 б.п., две метрики), оперативные счётчики на Ветках, блоки эпох, сложение вверх по дереву и три шкалы консенсуса («Народ», «Эксперты», «Результат»).',
     mdPath: 'shared_docs/whitepapers/08_votecube_whitepaper.md',
     pdfPath: null,
+    webDeckUrl: 'applications_presentations/01_kubgolos_app_presentation/generated/outputs/web_deck/index.html',
     isReady: true,
     statusText: 'Готово (.md)',
     tags: ['📝 Формат Markdown', 'КубГолос', '100 б.п.', 'Счётчики', 'Блоки эпох', 'Дерево тем', 'Слепой ретранслятор']
@@ -319,6 +323,7 @@ const WHITEPAPERS = [
     desc: 'Самозапечатывающиеся страницы, треды и 4 вида реплик, свидетельства практического Опыта, открытый социальный рейтинг полезных вкладов по темам и защита от накруток.',
     mdPath: 'shared_docs/whitepapers/09_sapoto_whitepaper.md',
     pdfPath: null,
+    webDeckUrl: 'applications_presentations/02_zabota_app_presentation/generated/outputs/web_deck/index.html',
     isReady: true,
     statusText: 'Готово (.md)',
     tags: ['📝 Формат Markdown', 'Забота', 'Страницы (Pages)', 'Треды и реплики', 'Свидетельства Опыта', 'Социальный рейтинг', 'Субъективная логика']
@@ -330,6 +335,7 @@ const WHITEPAPERS = [
     desc: 'Дело как автономное хранилище и контракт, многомерные теги, группы опросов, мандатный API поручений, контракты второго уровня (L2) и связка двух рейтингов.',
     mdPath: 'shared_docs/whitepapers/10_gogetter_whitepaper.md',
     pdfPath: null,
+    webDeckUrl: 'applications_presentations/03_delovoy_app_presentation/generated/outputs/web_deck/index.html',
     isReady: true,
     statusText: 'Готово (.md)',
     tags: ['📝 Формат Markdown', 'Деловой', 'Хранилище на Дело', 'Теги и опросы', 'Мандатный API', 'Контракты 2-го уровня', 'Связка рейтингов']
@@ -409,6 +415,7 @@ function scanAllPresentations() {
       webDeckUrl: hasWebDeck ? `${rel}/generated/outputs/web_deck/index.html` : null,
       isNextInLine: Boolean(curated.isNextInLine),
       isComingSoon: catKey === 'applications_presentations',
+      whitepaperDoc: curated.whitepaperDoc || null,
       pdfs
     });
   }
@@ -1544,6 +1551,7 @@ ${catItems.map(item => {
                 ▶ Смотреть (${item.slidesCount} сл.)
               </a>
               ${pdfLink ? `<a href="${pdfLink}" target="_blank" class="btn-pdf" title="Скачать PDF с текстом диктора">📄 PDF</a>` : ''}
+              ${item.whitepaperDoc ? `<a href="viewer.html?doc=${encodeURIComponent(item.whitepaperDoc)}" class="btn-preview" title="Читать соответствующую белую книгу во вьюере">📖 Читать во вьюере</a>` : ''}
                 `
                 : isNext
                   ? `
@@ -1551,6 +1559,7 @@ ${catItems.map(item => {
                 🚀 Предпросмотр слайдов (${item.slidesCount} сл.)
               </a>
               ${pdfLink ? `<a href="${pdfLink}" target="_blank" class="btn-pdf" title="Скачать PDF">📄 PDF</a>` : ''}
+              ${item.whitepaperDoc ? `<a href="viewer.html?doc=${encodeURIComponent(item.whitepaperDoc)}" class="btn-preview" title="Читать соответствующую белую книгу во вьюере">📖 Читать во вьюере</a>` : ''}
                   `
                   : isComingSoon
                     ? `
@@ -1558,6 +1567,7 @@ ${catItems.map(item => {
                 👁️ Предпросмотр (${item.slidesCount} сл.)
               </a>
               ${pdfLink ? `<a href="${pdfLink}" target="_blank" class="btn-pdf" title="Скачать PDF">📄 PDF</a>` : ''}
+              ${item.whitepaperDoc ? `<a href="viewer.html?doc=${encodeURIComponent(item.whitepaperDoc)}" class="btn-preview" title="Читать соответствующую белую книгу во вьюере">📖 Читать во вьюере</a>` : ''}
                     `
                     : `
               <button class="btn-locked" disabled title="Презентация находится в стадии подготовки контента">
@@ -1646,6 +1656,10 @@ ${WHITEPAPERS.map(wp => {
             <a href="${wp.mdPath}" target="_blank" class="btn-pdf" style="background: rgba(56, 189, 248, 0.12); color: #7dd3fc; border: 1px solid rgba(56, 189, 248, 0.35); font-weight: 700;" title="Открыть исходный файл Markdown (.md)">
               📝 Документ .md
             </a>
+            ${wp.webDeckUrl ? `
+            <a href="${wp.webDeckUrl}" target="_blank" class="btn-pdf" style="background: rgba(250, 204, 21, 0.12); color: #fde047; border: 1px solid rgba(250, 204, 21, 0.35); font-weight: 700;" title="Открыть интерактивные слайды презентации">
+              📊 Слайды
+            </a>` : ''}
                 `
               : `
             <a href="viewer.html?doc=${encodeURIComponent(wp.mdPath)}" class="btn-preview" title="Читать черновик документа во встроенном веб-вьюере">
