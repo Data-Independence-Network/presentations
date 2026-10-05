@@ -12,9 +12,9 @@ rate: "-9%"
 author: "Артём Владимирович Шамсутдинов"
 planning: "модель Claude Sonnet 5.5"
 elaboration: "модель Gemini 3.8 Flash"
-status: "проектная концепция"
+status: "финальная версия"
 version: "1.0 (2026)"
-book: "Белая книга № 10 «Деловой: исполнять и связывать»"
+book: "shared_docs/whitepapers/10_gogetter_whitepaper.md"
 ---
 
 <!-- slide: 1 -->
@@ -22,55 +22,42 @@ book: "Белая книга № 10 «Деловой: исполнять и св
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ПРИКЛАДНЫЕ СЕРВИСЫ</div>
     <h1 class="slide-title">«ДЕЛОВОЙ»: ИСПОЛНЯТЬ И СВЯЗЫВАТЬ</h1>
-    <p class="slide-subtitle">Органайзер и среда исполнения, в которой данные остаются у человека</p>
+    <p class="slide-subtitle">Органайзер и среда исполнения: данные строго у человека</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="cards-grid-1" style="display: flex; flex-direction: column; gap: 14px;">
-        <div class="benefit-card" style="padding: 16px 20px;">
-          <div class="card-num-badge">ОСНОВА 1</div>
-          <div class="card-title" style="font-size: 26px; margin-bottom: 4px;">Дело в своём хранилище</div>
-          <div class="card-desc" style="font-size: 24px; margin-bottom: 0;">Отдельный ключ и свой контур на Листе.</div>
-        </div>
-        <div class="benefit-card" style="padding: 16px 20px;">
-          <div class="card-num-badge">ОСНОВА 2</div>
-          <div class="card-title" style="font-size: 26px; margin-bottom: 4px;">Контракт на двух уровнях</div>
-          <div class="card-desc" style="font-size: 24px; margin-bottom: 0;">Исполнение на устройствах, расчёты в Банке России.</div>
-        </div>
-        <div class="benefit-card" style="padding: 16px 20px;">
-          <div class="card-num-badge">ОСНОВА 3</div>
-          <div class="card-title" style="font-size: 26px; margin-bottom: 4px;">Связка двух рейтингов</div>
-          <div class="card-desc" style="font-size: 24px; margin-bottom: 0;">Социальный и экономический контуры разделены.</div>
-        </div>
-      </div>
+  <div class="slide-body grid-3col">
+    <div class="benefit-card">
+      <div class="card-num-badge">ОСНОВА 1</div>
+      <div class="card-title">Дело в своём хранилище</div>
+      <div class="card-desc">Свой ключ и защищённый контур на Листе.</div>
     </div>
 
-    <div class="visual-panel">
-      <div class="kpi-vertical-stack">
-        <div class="kpi-card-explainer">
-          <div class="kpi-num gold">5</div>
-          <div class="kpi-label">видов Дела от личного до общественного</div>
-        </div>
-        <div class="kpi-card-explainer">
-          <div class="kpi-num cyan">2</div>
-          <div class="kpi-label">уровня: исполнение и расчёты</div>
-        </div>
-        <div class="kpi-card-explainer">
-          <div class="kpi-num emerald">2</div>
-          <div class="kpi-label">независимых рейтинга без смешивания</div>
-        </div>
-      </div>
+    <div class="benefit-card">
+      <div class="card-num-badge">ОСНОВА 2</div>
+      <div class="card-title">Контракт на двух уровнях</div>
+      <div class="card-desc">Исполнение на устройствах, расчёты в Банке России.</div>
+    </div>
+
+    <div class="benefit-card">
+      <div class="card-num-badge">ОСНОВА 3</div>
+      <div class="card-title">Связка двух рейтингов</div>
+      <div class="card-desc">Социальный и экономический контуры строго разделены.</div>
     </div>
   </div>
 
-  <div class="attribution-line-bottom">
-    Автор: А. В. Шамсутдинов · Планирование: Claude Sonnet 5.5 · Проработка: Gemini 3.8 Flash · Проектная концепция, версия 1.0 (2026)
+  <div class="attribution-bottom-bar">
+    <div class="attribution-credits">
+      Автор: А. В. Шамсутдинов · Планирование: Claude Sonnet 5.5 · Проработка: Gemini 3.8 Flash · Концепция 1.0 (2026)
+    </div>
+    <div class="attribution-spec">
+      Детальная инженерная спецификация:
+      <a href="../../../../../viewer.html?doc=shared_docs/whitepapers/10_gogetter_whitepaper.md" class="whitepaper-badge" target="_blank">📄 Белая книга № 10 «Деловой» ↗</a>
+    </div>
   </div>
 </div>
 
 ### Текст для диктора:
-> Здравствуйте. У каждого человека дела разбросаны по разным программам: личные заметки, семейные поручения, служебные задачи и договорённости с мастерами. Привычные облачные планировщики хорошо синхронизируют задачи внутри одной организации. «Деловой» предлагает принципиально другое устройство: каждое Дело живёт в собственном защищённом хранилище на устройстве гражданина, а при сделках контракт разделяется на два уровня. Три основы сервиса — независимые хранилища на Листе, двухуровневые контракты и два самостоятельных рейтинга, которые никогда не смешиваются между собой.
+> Здравствуйте. У каждого человека дела разбросаны по разным программам: личные заметки, семейные поручения, служебные задачи и договорённости с мастерами. Привычные облачные планировщики хорошо синхронизируют задачи внутри одной организации. «Деловой» предлагает принципиально другое устройство: каждое Дело живёт в собственном защищённом хранилище на устройстве гражданина, а при сделках контракт разделяется на два уровня. Три основы сервиса — независимые хранилища на Листе, двухуровневые контракты и два самостоятельных рейтинга. Детальная инженерная проработка концепций представлена в Белой книге номер десять.
 
 ---
 
@@ -786,7 +773,7 @@ book: "Белая книга № 10 «Деловой: исполнять и св
       </div>
 
       <div class="attribution-panel">
-        <strong>Автор концепции и архитектор:</strong> Артём Владимирович Шамсутдинов. <strong>Планирование:</strong> модель Claude Sonnet 5.5. <strong>Проработка:</strong> модель Gemini 3.8 Flash. Проектная концепция, версия 1.0 (2026), «как есть». Белая книга № 10. Приложение 3 из 5.
+        <strong>Автор концепции и архитектор:</strong> Артём Владимирович Шамсутдинов · <strong>Планирование:</strong> модель Claude Sonnet 5.5 · <strong>Проработка:</strong> модель Gemini 3.8 Flash · Концепция 1.0 (2026), «как есть» · <a href="../../../../../viewer.html?doc=shared_docs/whitepapers/10_gogetter_whitepaper.md" class="whitepaper-link" target="_blank">Белая книга № 10</a>. Приложение 3 из 5.
       </div>
     </div>
   </div>

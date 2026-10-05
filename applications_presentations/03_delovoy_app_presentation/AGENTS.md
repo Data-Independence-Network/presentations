@@ -2,7 +2,7 @@
 
 ## 🎯 Purpose & Scope
 Contains presentation materials, slides, web deck, audio tracks, and automated build pipelines for **Presentation 03: «Деловой»: исполнять и связывать** (15 billboard slides).
-- **Книга-источник:** [Белая книга № 10 «Деловой: исполнять и связывать»](file:///home/anastasiya/Documents/presentations/shared_docs/whitepapers/10_gogetter_whitepaper.md)
+- **Книга-источник:** [Белая книга № 10 «Деловой: исполнять и связывать»](../../shared_docs/whitepapers/10_gogetter_whitepaper.md)
 - **Кто что делает:** Автор концепции и системный архитектор — Артём Владимирович Шамсутдинов. Планирование — модель Claude Sonnet 5.5 («Соната 5.5»). Проработка слайдов и дикторского текста — модель Gemini 3.8 Flash.
 - **Статус:** финальная версия концепции (звук не синтезирован), версия 1.0 (2026).
 
