@@ -239,4 +239,4 @@ graph TD
 ---
 
 *Авторы: Прикладная рабочая группа платформы «Турбаза»*  
-*Спецификации интерфейсов SDK: [shared_docs/](file:///Users/parents/Documents/presentations/shared_docs/)*
+*Спецификации интерфейсов SDK: [shared_docs/](..)*

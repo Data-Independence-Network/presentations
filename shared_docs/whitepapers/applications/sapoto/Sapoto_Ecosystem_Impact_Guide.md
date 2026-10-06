@@ -4,8 +4,8 @@
 
 *Классификация: Децентрализованная социальная взаимопомощь, краудсорсинг практического опыта, открытый социальный рейтинг вкладов, взаимодействие с экономическим рейтингом Банка России, интеграция с Цифровым рублем*  
 *Концептуальный автор платформы и архитектор: Артём Владимирович Шамсутдинов*  
-*Связанные нормативные спецификации: [`Sapoto_Reputation_and_Credit_System_Specification.md`](Sapoto_Reputation_and_Credit_System_Specification.md), [`Sapoto_architecture_and_functionality.md`](Sapoto_architecture_and_functionality.md), [`VoteCube_Ecosystem_Impact_Guide.md`](../votecube/VoteCube_Ecosystem_Impact_Guide.md)*  
-*Проектные хранилища: [`sapoto.net`](file:///Users/parents/Documents/data-independence-network/sapoto.net), [`votecube.com`](file:///Users/parents/Documents/data-independence-network/votecube.com), [`votecube-client-logic`](file:///Users/parents/Documents/data-independence-network/votecube-client-logic)*
+*Связанные нормативные спецификации: [Sapoto_Reputation_and_Credit_System_Specification.md](Sapoto_Reputation_and_Credit_System_Specification.md), [Sapoto_architecture_and_functionality.md](Sapoto_architecture_and_functionality.md), [VoteCube_Ecosystem_Impact_Guide.md](../votecube/VoteCube_Ecosystem_Impact_Guide.md)*  
+*Проектные хранилища: [sapoto.net](https://github.com/data-independence-network/sapoto.net), [votecube.com](https://github.com/data-independence-network/votecube.com), [votecube-client-logic](https://github.com/data-independence-network/votecube-client-logic)*
 
 ---
 
@@ -75,7 +75,7 @@ graph TD
 ```
 
 ### 2.1. Экономический рейтинг и Цифровой рубль
-- В соответствии с [Whitepaper 06 (ПКСК Банка России)](../06_cbr_smart_contracts_fsm_whitepaper.md), расчетное ядро смарт-контрактов ЦБ РФ функционирует как детерминированный автомат $O(1)$.
+- В соответствии с [Whitepaper 06 (ПКСК Банка России)](../../06_cbr_smart_contracts_fsm_whitepaper.md), расчетное ядро смарт-контрактов ЦБ РФ функционирует как детерминированный автомат $O(1)$.
 - Экономический (кредитный) рейтинг вычисляется Банком России по результатам смарт-контрактов, в которых участвовал пользователь, в отдельной системе, без постороннего просмотра. Он используется как современный кредитный рейтинг только с согласия пользователя на конкретное действие, требующее проверки. Банк России работает со структурами, выводящими рейтинг по разрешённым методикам.
 - Участник контракта идентифицируется временной оболочкой, связанной с его кошельком в Банке России (один кошелёк на человека); допустима социальная анонимность: обществу и контрагентам человек не известен, а личность известна только Банку России, и при серьёзном нарушении может быть установлена в судебном порядке.
 - «Забота» не рассчитывает кредитный рейтинг: она предоставляет социальный рейтинг по теме как дополнительный вход проверки (достаточно сообщить Банку России темы или теги контракта) и хранит приватные сведения о проведённой работе вместе с «Деловым».

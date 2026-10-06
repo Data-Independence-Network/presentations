@@ -6,7 +6,7 @@
 
 ## Реестр документов
 
-1. [`UraTur_Public_Tags_and_Index_Cooperatives.md`](UraTur_Public_Tags_and_Index_Cooperatives.md)  
+1. [UraTur_Public_Tags_and_Index_Cooperatives.md](UraTur_Public_Tags_and_Index_Cooperatives.md)  
    **Общественные теги, самобалансирующиеся хронологические деревья и кооперативная индексная сеть в «УраТуре»**  
    *Ключевые темы:*
    - Различие между персональными внешними метками («Деловой») и открытыми общественными тегами («УраТур»);
@@ -20,7 +20,7 @@
 
 ## Связанные разделы экосистемы
 
-- Органайзер и система персональных тегов: [`../../10_gogetter_whitepaper.md`](../../10_gogetter_whitepaper.md)
-- Межприкладные схемы и кооперативная экономика: [`../local_services/`](../local_services/)
-- Сеть взаимной поддержки «Забота»: [`../../09_care_network_whitepaper.md`](../../09_care_network_whitepaper.md)
-- Общественные микроопросы «КубГолос»: [`../../08_qube_voice_whitepaper.md`](../../08_qube_voice_whitepaper.md)
+- Органайзер и система персональных тегов: [../../10_gogetter_whitepaper.md](../../10_gogetter_whitepaper.md)
+- Межприкладные схемы и кооперативная экономика: [../local_services/](../local_services/)
+- Сеть взаимной поддержки «Забота»: [../../09_sapoto_whitepaper.md](../../09_sapoto_whitepaper.md)
+- Общественные микроопросы «КубГолос»: [../../08_votecube_whitepaper.md](../../08_votecube_whitepaper.md)

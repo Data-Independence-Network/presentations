@@ -4,11 +4,11 @@
 
 Данная директория содержит мастер-спецификации, Белые Книги и фундаментальную авторскую базу знаний платформы «Турбаза»:
 
-1. **[`Технический документ платформы Турбаза.md`](file:///Users/parents/Documents/presentations/shared_docs/%D0%A2%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%20%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D1%8B%20%D0%A2%D1%83%D1%80%D0%B1%D0%B0%D0%B7%D0%B0.md):**  
+1. **[Технический документ платформы Турбаза.md](./Технический%20документ%20платформы%20Турбаза.md):**  
    Главный технический вайтпейпер платформы (110+ КБ текста): топология, виртуальные хранилища, трехуровневые составные ключи, «читай отовсюду, пиши только своё», конвейер Ветки, TreeSearch, FSM смарт-контракты и микро-блокчейны, экономика API 1/N.
 
-2. **[`whitepapers/`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/README.md):**  
-   Комплект из 10 фундаментальных Белых Книг (включая полиграфические издания формата А4 01–07 и трилогию прикладных Белых книг 08–10 в формате Markdown для веб-вьюера), а также специализированный комплекс нормативных спецификаций прикладного стека ([`whitepapers/applications/`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/README.md)):
+2. **[whitepapers/](./whitepapers/README.md):**  
+   Комплект из 10 фундаментальных Белых Книг (включая полиграфические издания формата А4 01–07 и трилогию прикладных Белых книг 08–10 в формате Markdown для веб-вьюера), а также специализированный комплекс нормативных спецификаций прикладного стека ([whitepapers/applications/](./whitepapers/applications/README.md)):
    - `01_platform_overview_whitepaper.md` — Смена парадигмы децентрализации и трехуровневая топология
    - `02_applications_suite_whitepaper.md` — Флагманский стек приложений (КубГолос, Забота, Деловой, УраТур, МСП)
    - `03_engineering_architecture_whitepaper.md` — Инженерная архитектура ядра (AirEntity, SQLite, AIRport)
@@ -19,14 +19,14 @@
    - `08_votecube_whitepaper.md` — «КубГолос» — измерять и складывать: форма многофакторной оценки (100 б.п.), счётчики и блоки эпох, сложение вверх, 3 шкалы консенсуса
    - `09_sapoto_whitepaper.md` — «Забота» — вкладывать и просматривать: самозапечатывающиеся страницы, треды, свидетельства Опыта, открытый социальный рейтинг
    - `10_gogetter_whitepaper.md` — «Деловой» — исполнять и связывать: Дело как хранилище и контракт, теги, мандатный API, контракты L2, связка рейтингов
-   - **Прикладной стек (`whitepapers/applications/`):** нормативные спецификации «КубГолоса» ([`VoteCube_architecture_and_functionality.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/VoteCube_architecture_and_functionality.md)), «Заботы» ([`Sapoto_architecture_and_functionality.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_architecture_and_functionality.md)), нормативная спецификация репутационного и кредитного рейтинга ([`Sapoto_Reputation_and_Credit_System_Specification.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_Reputation_and_Credit_System_Specification.md)) и органайзера «Деловой» ([`gogetter/`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/gogetter/README.md)).
+   - **Прикладной стек (`whitepapers/applications/`):** нормативные спецификации «КубГолоса» ([VoteCube_architecture_and_functionality.md](./whitepapers/applications/votecube/VoteCube_architecture_and_functionality.md)), «Заботы» ([Sapoto_architecture_and_functionality.md](./whitepapers/applications/sapoto/Sapoto_architecture_and_functionality.md)), нормативная спецификация репутационного и кредитного рейтинга ([Sapoto_Reputation_and_Credit_System_Specification.md](./whitepapers/applications/sapoto/Sapoto_Reputation_and_Credit_System_Specification.md)) и органайзера «Деловой» ([gogetter/](./whitepapers/applications/gogetter/README.md)).
 
-3. **[`comments/`](file:///Users/parents/Documents/presentations/shared_docs/comments/README.md):**  
+3. **[comments/](./comments/README.md):**  
    Аутентичные авторские заметки разработчика платформы (человеческий текст без участия ИИ), фиксирующие оригинальный архитектурный замысел:
-   - [`LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) — семантический словарь и предметный указатель меток (10 архитектурных групп, 156 меток).
-   - [`2026/08-25_01_History_of_technology.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/08-25_01_History_of_technology.md) — история эволюции децентрализованных концепций.
-   - [`2026/08-30_01_Who_is_it_for.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/08-30_01_Who_is_it_for.md) — участники экосистемы и ценность для каждого.
-   - [`2026/09-07_01_Architecture_overview.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-07_01_Architecture_overview.md) — фундаментальный обзор архитектуры (Лист, Ветка, Ствол, очереди и СУБД).
-   - [`2026/09-12_01_Smart_Contracts.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-12_01_Smart_Contracts.md) — минимальные FSM смарт-контракты, микро-блокчейны и состояние кошелька.
-   - [`2026/09-19_01_Votecube.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-19_01_Votecube.md) — «КубГолос»: базовое приложение микро-опросов, 3D-куб и древовидная навигация.
-   - [`2026/09-19_02_Sapoto.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-19_02_Sapoto.md) — «Забота»: сеть взаимопомощи, составные конструкции и открытая репутация.
+   - [LABELS.md](./comments/LABELS.md) — семантический словарь и предметный указатель меток (10 архитектурных групп, 156 меток).
+   - [2026/08-25_01_History_of_technology.md](./comments/2026/08-25_01_History_of_technology.md) — история эволюции децентрализованных концепций.
+   - [2026/08-30_01_Who_is_it_for.md](./comments/2026/08-30_01_Who_is_it_for.md) — участники экосистемы и ценность для каждого.
+   - [2026/09-07_01_Architecture_overview.md](./comments/2026/09-07_01_Architecture_overview.md) — фундаментальный обзор архитектуры (Лист, Ветка, Ствол, очереди и СУБД).
+   - [2026/09-12_01_Smart_Contracts.md](./comments/2026/09-12_01_Smart_Contracts.md) — минимальные FSM смарт-контракты, микро-блокчейны и состояние кошелька.
+   - [2026/09-19_01_Votecube.md](./comments/2026/09-19_01_Votecube.md) — «КубГолос»: базовое приложение микро-опросов, 3D-куб и древовидная навигация.
+   - [2026/09-19_02_Sapoto.md](./comments/2026/09-19_02_Sapoto.md) — «Забота»: сеть взаимопомощи, составные конструкции и открытая репутация.

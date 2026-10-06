@@ -14,7 +14,7 @@
 * **Целевой хронометраж:** **11:30 – 12:30 минут** (40–45 сек речи на слайд + паузы)
 * **Дикторский голос:** `ru-RU-DmitryNeural` (скорость: -9%, высота: -5Hz, паузы 0.9s / 1.2s)
 * **Целевая аудитория:** Государственные регуляторы (Банк России, Минцифры), финтех-команды, предприниматели МСП, архитекторы ПО и граждане
-* **Центральные источники смыслов:** Авторская заметка разработчика ([`shared_docs/comments/2026/09-12_01_Smart_Contracts.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-12_01_Smart_Contracts.md)) и Научно-практический Whitepaper 06 для Банка России ([`shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md))
+* **Центральные источники смыслов:** Авторская заметка разработчика ([shared_docs/comments/2026/09-12_01_Smart_Contracts.md](../../../shared_docs/comments/2026/09-12_01_Smart_Contracts.md)) и Научно-практический Whitepaper 06 для Банка России ([shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md](../../../shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md))
 
 ---
 

@@ -142,4 +142,4 @@ graph LR
 ---
 
 *Авторы: Аналитический совет по социально-экономическому развитию платформы «Турбаза»*  
-*Материалы отраслевых презентаций: [detailed_overall_impact_presentations/](file:///Users/parents/Documents/presentations/detailed_overall_impact_presentations/)*
+*Материалы отраслевых презентаций: [detailed_overall_impact_presentations/](../../detailed_overall_impact_presentations)*

@@ -229,4 +229,4 @@ sequenceDiagram
 ---
 
 *Авторы: Инженерный совет разработчиков платформы «Турбаза»*  
-*Архитектурное хранилище: [architecture_presentations/](file:///Users/parents/Documents/presentations/architecture_presentations/)*
+*Архитектурное хранилище: [architecture_presentations/](../../architecture_presentations)*

@@ -4,10 +4,10 @@
 > **Автор архитектуры:** Артём Владимирович Шамсутдинов  
 > **Статус:** проектная концепция; сроки реализации не указываются и зависят от материальной поддержки, команды и времени  
 > **Связанные документы:**  
-> • [`../votecube/VoteCube_Role_in_Rating_Infrastructure.md`](../votecube/VoteCube_Role_in_Rating_Infrastructure.md) — шаг 1: «КубГолос»  
-> • [`../sapoto/Sapoto_Role_in_Rating_Infrastructure.md`](../sapoto/Sapoto_Role_in_Rating_Infrastructure.md) — шаг 2: «Забота»  
-> • [`GoGetter_architecture_and_functionality.md`](GoGetter_architecture_and_functionality.md) — разделы 9 и 10  
-> • [`../sapoto/Sapoto_architecture_and_functionality.md`](../sapoto/Sapoto_architecture_and_functionality.md) — разделы 5.3 и 5.4
+> • [../votecube/VoteCube_Role_in_Rating_Infrastructure.md](../votecube/VoteCube_Role_in_Rating_Infrastructure.md) — шаг 1: «КубГолос»  
+> • [../sapoto/Sapoto_Role_in_Rating_Infrastructure.md](../sapoto/Sapoto_Role_in_Rating_Infrastructure.md) — шаг 2: «Забота»  
+> • [GoGetter_architecture_and_functionality.md](GoGetter_architecture_and_functionality.md) — разделы 9 и 10  
+> • [../sapoto/Sapoto_architecture_and_functionality.md](../sapoto/Sapoto_architecture_and_functionality.md) — разделы 5.3 и 5.4
 
 ---
 

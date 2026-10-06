@@ -2,7 +2,7 @@
 
 *Классификация: Нормативная архитектурно-функциональная спецификация прикладного уровня, Data Independence Network (DIN)*  
 *Концептуальный автор платформы и архитектор: Артём Владимирович Шамсутдинов*  
-*Связанные нормативные спецификации: [`Sapoto_Reputation_and_Credit_System_Specification.md`](Sapoto_Reputation_and_Credit_System_Specification.md), [`Sapoto_Ecosystem_Impact_Guide.md`](Sapoto_Ecosystem_Impact_Guide.md), [`VoteCube_architecture_and_functionality.md`](../votecube/VoteCube_architecture_and_functionality.md)*
+*Связанные нормативные спецификации: [Sapoto_Reputation_and_Credit_System_Specification.md](Sapoto_Reputation_and_Credit_System_Specification.md), [Sapoto_Ecosystem_Impact_Guide.md](Sapoto_Ecosystem_Impact_Guide.md), [VoteCube_architecture_and_functionality.md](../votecube/VoteCube_architecture_and_functionality.md)*
 
 ## 1. Концепция и ключевое назначение
 
@@ -307,7 +307,7 @@ $$\text{share}(w_1, \text{Citizen}, \; w_2, \text{HostPortal}, \; w_3, \text{Sof
 - Фиксированная доля дохода ($w_4$) направляется **арендаторам серверных мощностей (Capacity Renters)**, обеспечивая окупаемость шлюзов Веток и CAS-кэширования.
 - Пользователи, добровольно заполнившие обезличенный демографический профиль, получают десятину ($w_1$) — 10% рекламного бюджета.
 
-> ℹ️ *Полный математический вывод вектора Шепли и FSM-расчетов представлен в [Whitepaper 06, раздел 4.3](../06_cbr_smart_contracts_fsm_whitepaper.md).*
+> ℹ️ *Полный математический вывод вектора Шепли и FSM-расчетов представлен в [Whitepaper 06, раздел 4.3](../../06_cbr_smart_contracts_fsm_whitepaper.md).*
 
 ### 6.3. Соблюдение 152-ФЗ: частное остаётся частным, общественное индексируется
 - Вся частная информация (данные о здоровье, семье и быте, личные журналы, семейные и групповые хранилища) хранится в частных хранилищах на Листе пользователя и никогда не попадает на Ветки.

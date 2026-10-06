@@ -141,4 +141,4 @@ graph TD
 ---
 
 *Авторы: Правовой совет и рабочая группа по нормативному регулированию платформы «Турбаза»*  
-*Мастер-обзоры и документы: [overall_presentations/](file:///Users/parents/Documents/presentations/overall_presentations/)*
+*Мастер-обзоры и документы: [overall_presentations/](../../overall_presentations)*

@@ -5,7 +5,7 @@
 *Статус: Общественная архитектурная спецификация*  
 *Классификация: Распределенные системы принятия решений, многомерное волеизъявление, трехуровневая топология данных*  
 *Автор архитектуры: Артём Владимирович Шамсутдинов*  
-*Хранилища проекта: [`votecube.com`](file:///Users/parents/Documents/data-independence-network/votecube.com), [`votecube-client-logic`](file:///Users/parents/Documents/data-independence-network/votecube-client-logic), [`sapoto.net`](file:///Users/parents/Documents/data-independence-network/sapoto.net)*  
+*Хранилища проекта: [votecube.com](https://github.com/data-independence-network/votecube.com), [votecube-client-logic](https://github.com/data-independence-network/votecube-client-logic), [sapoto.net](https://github.com/data-independence-network/sapoto.net)*  
 *Базовая среда: Платформа цифрового суверенитета «Турбаза» / Реляционное ядро [AIRport](https://github.com/beyond-decentralized/AIRport)*
 
 ---

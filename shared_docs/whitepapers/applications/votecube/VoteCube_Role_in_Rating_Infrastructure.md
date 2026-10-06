@@ -4,10 +4,10 @@
 > **Автор архитектуры:** Артём Владимирович Шамсутдинов  
 > **Статус:** проектная концепция; сроки реализации не указываются и зависят от материальной поддержки, команды и времени  
 > **Связанные документы:**  
-> • [`VoteCube_architecture_and_functionality.md`](VoteCube_architecture_and_functionality.md) — нормативная архитектурная спецификация  
-> • [`../sapoto/Sapoto_Role_in_Rating_Infrastructure.md`](../sapoto/Sapoto_Role_in_Rating_Infrastructure.md) — шаг 2: «Забота»  
-> • [`../gogetter/GoGetter_Role_in_Rating_Infrastructure.md`](../gogetter/GoGetter_Role_in_Rating_Infrastructure.md) — шаг 3: «Деловой»  
-> • [`../sapoto/Sapoto_architecture_and_functionality.md`](../sapoto/Sapoto_architecture_and_functionality.md) — раздел 5.3 (социальный рейтинг вкладов) и раздел 5.4 (экономический рейтинг)
+> • [VoteCube_architecture_and_functionality.md](VoteCube_architecture_and_functionality.md) — нормативная архитектурная спецификация  
+> • [../sapoto/Sapoto_Role_in_Rating_Infrastructure.md](../sapoto/Sapoto_Role_in_Rating_Infrastructure.md) — шаг 2: «Забота»  
+> • [../gogetter/GoGetter_Role_in_Rating_Infrastructure.md](../gogetter/GoGetter_Role_in_Rating_Infrastructure.md) — шаг 3: «Деловой»  
+> • [../sapoto/Sapoto_architecture_and_functionality.md](../sapoto/Sapoto_architecture_and_functionality.md) — раздел 5.3 (социальный рейтинг вкладов) и раздел 5.4 (экономический рейтинг)
 
 ---
 

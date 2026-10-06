@@ -2,7 +2,7 @@
 
 *Классификация: Нормативная архитектурно-функциональная спецификация прикладного уровня, Data Independence Network (DIN)*  
 *Концептуальный автор платформы и архитектор: Артём Владимирович Шамсутдинов*  
-*Связанные спецификации: [`../sapoto/Sapoto_architecture_and_functionality.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_architecture_and_functionality.md), [`../votecube/VoteCube_architecture_and_functionality.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/VoteCube_architecture_and_functionality.md), [`../../06_cbr_smart_contracts_fsm_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md)*
+*Связанные спецификации: [../sapoto/Sapoto_architecture_and_functionality.md](../sapoto/Sapoto_architecture_and_functionality.md), [../votecube/VoteCube_architecture_and_functionality.md](../votecube/VoteCube_architecture_and_functionality.md), [../../06_cbr_smart_contracts_fsm_whitepaper.md](../../06_cbr_smart_contracts_fsm_whitepaper.md)*
 
 ---
 
@@ -930,7 +930,7 @@ flowchart TD
 - **Взаимные задачи для участников:** Контракт декомпозируется на согласованный пул задач для всех сторон сделки: задачи Подрядчика (выполнение этапов работ, фотофиксация) и задачи Заказчика (приемка результатов, предоставление доступа к объекту).
 
 ### 9.2. Двухуровневая модель связи с платформой Банка России
-В соответствии с концептуальной моделью смарт-контрактов платформы «Турбаза» и положениями [Белой книги № 06 («Программируемые коммерческие смарт-контракты на базе платформы Цифрового рубля Банка России»)](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md):
+В соответствии с концептуальной моделью смарт-контрактов платформы «Турбаза» и положениями [Белой книги № 06 («Программируемые коммерческие смарт-контракты на базе платформы Цифрового рубля Банка России»)](../../06_cbr_smart_contracts_fsm_whitepaper.md):
 - **Контракт Уровня 1 (Level 1 Public Contract):** Развертывается вне платформы на инфраструктуре смарт-контрактов Цифрового рубля Банка России. Представляет собой детерминированный конечный автомат (FSM) с математической формулой расчетов, логикой условного эскроу-депонирования и правилами сплита платежей.
 - **Контракт Уровня 2 (Level 2 Private Contract в «Деловом»):** Содержит уникальный идентификатор и криптографический хеш контракта Уровня 1 (`cbrContractId`, `contractFormulaHash`).
 - **Синхронизация состояний (FSM State Transitions):** По мере завершения задач в «Деловом» участники подписывают криптографические транзакции смены состояния и направляют их на платформу первого уровня.

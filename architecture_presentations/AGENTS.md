@@ -3,10 +3,10 @@
 > [!IMPORTANT]
 > **Обязательный протокол старта сессии (динамическая тема, ступень и запись):**
 > В самом первом ответе любой новой сессии (до перехода к любым другим задачам) модель (Gemini Flash, Claude Sonnet и др.) **обязана**:
-> 1. Открыть [`sessions/Current_Topic_and_process.md`](sessions/Current_Topic_and_process.md) и динамически определить указанный там текущий файл темы и процесса (привязка выполняется исключительно к указателю в этом файле, без жёсткой фиксации конкретного имени файла темы; тем в указателе может быть одна или несколько).
+> 1. Открыть [Current Topic and process](../sessions/Current_Topic_and_process.md) и динамически определить указанный там текущий файл темы и процесса (привязка выполняется исключительно к указателю в этом файле, без жёсткой фиксации конкретного имени файла темы; тем в указателе может быть одна или несколько).
 > 2. Прочитать актуальный файл темы и извлечь описанные в нём этапы и ступени процесса.
 > 3. Начать первый ответ пользователю с вопроса о том, **какая ступень процесса темы будет использована в этой сессии** (перечислив найденные ступени; если в указателе задано несколько тем — сначала предложить выбор темы и ступени).
-> 4. Не приступать к другим задачам до согласования темы и ступени, и вести запись хода сессии в каталоге `sessions/2026/` в формате `MM-DD_NN_Name_of_session.md` согласно предложенному шаблону.
+> 4. Не приступать к другим задачам до согласования темы и ступени, и вести запись хода сессии в каталоге `sessions/2026/` в формате `MM-DD_NN_Name_of_session.md` согласно эталонному шаблону [session_format_template.md](../sessions/session_format_template.md) (или [10-05_00_session_format_tempate.md](../sessions/2026/10-05_00_session_format_tempate.md)).
 
 ## 🎯 Purpose & Scope
 This directory contains the complete technical presentation suite **«Архитектура платформы Турбаза»** (Architecture Presentations) — a deep-dive 7-part engineering presentation track covering the inner workings of Leaf, Branch, Parent Branch, Trunk, storage engines, application framework, developer libraries, data pipelines, P2P network topology, TreeSearch, and cryptographic / API economic models.
@@ -30,7 +30,7 @@ architecture_presentations/
 ---
 
 ## 📋 Architectural Standards & Conventions
-1. **Author Notes as Source of Intent**: All technical concepts, terminology, and topological models must strictly reflect the human-written author notes in [`shared_docs/comments/`](shared_docs/comments/) (especially [`2026/09-07_01_Architecture_overview.md`](shared_docs/comments/2026/09-07_01_Architecture_overview.md) and [`2026/09-12_01_Smart_Contracts.md`](shared_docs/comments/2026/09-12_01_Smart_Contracts.md)) and [`Технический документ платформы Турбаза.md`](shared_docs/Технический%20документ%20платформы%20Турбаза.md).
+1. **Author Notes as Source of Intent**: All technical concepts, terminology, and topological models must strictly reflect the human-written author notes in [`shared_docs/comments/`](../shared_docs/comments/) (especially [`2026/09-07_01_Architecture_overview.md`](../shared_docs/comments/2026/09-07_01_Architecture_overview.md) and [`2026/09-12_01_Smart_Contracts.md`](../shared_docs/comments/2026/09-12_01_Smart_Contracts.md)) and [`Технический документ платформы Турбаза.md`](../shared_docs/Технический%20документ%20платформы%20Турбаза.md).
 2. **Strict Style Isolation**: All slide styles must be isolated and decoupled to prevent style regression or bleed into other tracks (`overall_presentations/`, `platform_overview/`, etc.).
 3. **Billboard Typography**: Ensure mobile readability on 1920x1080 canvas (titles $\ge 50$px, body $\ge 24$px, cards $\ge 28$px).
 4. **Zero Vertical Overflow**: All slides must fit strictly within 1920x1080 without scrolling (`scrollHeight <= clientHeight`).
@@ -56,7 +56,7 @@ architecture_presentations/
 ---
 
 ## 🏷️ Семантические метки и авторская база знаний
-Метки в [`shared_docs/comments/LABELS.md`](shared_docs/comments/LABELS.md) и комментариях являются системой индексации исключительно внутри базы знаний авторских заметок, предназначенной для того, чтобы сессии и ИИ-агенты могли получить связанную картину начальных знаний платформы.
+Метки в [`shared_docs/comments/LABELS.md`](../shared_docs/comments/LABELS.md) и комментариях являются системой индексации исключительно внутри базы знаний авторских заметок, предназначенной для того, чтобы сессии и ИИ-агенты могли получить связанную картину начальных знаний платформы.
 **Категорически запрещено добавлять метки `%...` вне базы комментариев** (в презентационные слайды, дикторский текст, структуры презентаций, README и программный код), поскольку они загромождают текст и делают чтение и просмотр презентаций труднее.
 
 ---

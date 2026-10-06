@@ -49,8 +49,8 @@
 
 ## 🔑 Ключевые источники смыслов и инварианты
 
-- **Авторская заметка разработчика:** [`shared_docs/comments/2026/09-12_01_Smart_Contracts.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/2026/09-12_01_Smart_Contracts.md);
-- **Экспертный Whitepaper 06 Банка России:** [`shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md);
+- **Авторская заметка разработчика:** [shared_docs/comments/2026/09-12_01_Smart_Contracts.md](../../shared_docs/comments/2026/09-12_01_Smart_Contracts.md);
+- **Экспертный Whitepaper 06 Банка России:** [shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md](../../shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md);
 - **Открытый репозиторий клиентского движка Листьев (AIRport):** [https://github.com/beyond-decentralized/AIRport](https://github.com/beyond-decentralized/AIRport);
 - **Инвариант меток:** Запрещено использовать внутренние семантические метки базы заметок (`%...`) вне `shared_docs/comments/`.
 

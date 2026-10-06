@@ -242,4 +242,4 @@ $$\text{читай отовсюду} \quad \text{И} \quad \text{пиши тол
 ---
 
 *Авторы: Исследовательская группа архитектуры платформы «Турбаза»*  
-*Документация и спецификации: [shared_docs/](file:///Users/parents/Documents/presentations/shared_docs/)*
+*Документация и спецификации: [shared_docs/](..)*

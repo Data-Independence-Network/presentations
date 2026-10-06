@@ -4,10 +4,10 @@
 > **Автор архитектуры:** Артём Владимирович Шамсутдинов  
 > **Статус:** проектная концепция; сроки реализации не указываются и зависят от материальной поддержки, команды и времени  
 > **Связанные документы:**  
-> • [`../votecube/VoteCube_Role_in_Rating_Infrastructure.md`](../votecube/VoteCube_Role_in_Rating_Infrastructure.md) — шаг 1: «КубГолос»  
-> • [`../gogetter/GoGetter_Role_in_Rating_Infrastructure.md`](../gogetter/GoGetter_Role_in_Rating_Infrastructure.md) — шаг 3: «Деловой»  
-> • [`Sapoto_architecture_and_functionality.md`](Sapoto_architecture_and_functionality.md) — разделы 3, 4.3, 5.3, 5.4, 6.1  
-> • [`Sapoto_Reputation_and_Credit_System_Specification.md`](Sapoto_Reputation_and_Credit_System_Specification.md) — математический аппарат и проектные предложения
+> • [../votecube/VoteCube_Role_in_Rating_Infrastructure.md](../votecube/VoteCube_Role_in_Rating_Infrastructure.md) — шаг 1: «КубГолос»  
+> • [../gogetter/GoGetter_Role_in_Rating_Infrastructure.md](../gogetter/GoGetter_Role_in_Rating_Infrastructure.md) — шаг 3: «Деловой»  
+> • [Sapoto_architecture_and_functionality.md](Sapoto_architecture_and_functionality.md) — разделы 3, 4.3, 5.3, 5.4, 6.1  
+> • [Sapoto_Reputation_and_Credit_System_Specification.md](Sapoto_Reputation_and_Credit_System_Specification.md) — математический аппарат и проектные предложения
 
 ---
 

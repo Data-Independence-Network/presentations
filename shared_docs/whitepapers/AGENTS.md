@@ -3,10 +3,10 @@
 > [!IMPORTANT]
 > **Обязательный протокол старта сессии (динамическая тема, ступень и запись):**
 > В самом первом ответе любой новой сессии (до перехода к любым другим задачам) модель (Gemini Flash, Claude Sonnet и др.) **обязана**:
-> 1. Открыть [`sessions/Current_Topic_and_process.md`](file:///Users/parents/Documents/presentations/sessions/Current_Topic_and_process.md) и динамически определить указанный там текущий файл темы и процесса (привязка выполняется исключительно к указателю в этом файле, без жёсткой фиксации конкретного имени файла темы; тем в указателе может быть одна или несколько).
+> 1. Открыть [Current Topic and process](../../sessions/Current_Topic_and_process.md) и динамически определить указанный там текущий файл темы и процесса (привязка выполняется исключительно к указателю в этом файле, без жёсткой фиксации конкретного имени файла темы; тем в указателе может быть одна или несколько).
 > 2. Прочитать актуальный файл темы и извлечь описанные в нём этапы и ступени процесса.
 > 3. Начать первый ответ пользователю с вопроса о том, **какая ступень процесса темы будет использована в этой сессии** (перечислив найденные ступени; если в указателе задано несколько тем — сначала предложить выбор темы и ступени).
-> 4. Не приступать к другим задачам до согласования темы и ступени, и вести запись хода сессии в каталоге `sessions/2026/` в формате `MM-DD_NN_Name_of_session.md` согласно предложенному шаблону.
+> 4. Не приступать к другим задачам до согласования темы и ступени, и вести запись хода сессии в каталоге `sessions/2026/` в формате `MM-DD_NN_Name_of_session.md` согласно эталонному шаблону [session_format_template.md](../../sessions/session_format_template.md) (или [10-05_00_session_format_tempate.md](../../sessions/2026/10-05_00_session_format_tempate.md)).
 
 ## 🎯 Назначение и область применения (Scope)
 Данная директория содержит официальный комплект **Белых Книг (Whitepapers)** платформы цифрового суверенитета и распределенных данных **«Турбаза»** — фундаментальные научно-технические, архитектурные, экономические и регуляторные аналитические доклады, подготовленные для профильных институциональных читателей:
@@ -15,7 +15,7 @@
 * Регуляторов и профильных ведомств (Минцифры, ФСТЭК, ФСБ, ФАС);
 * Корпоративных архитекторов, финтех-разработчиков и академического сообщества.
 
-Каждый документ компилируется из канонического исходного Markdown (`.md`) в представительский публикационный PDF-документ полиграфического качества формата А4 с помощью движка [`scripts/core/whitepaper_pdf_builder.js`](file:///Users/parents/Documents/presentations/scripts/core/whitepaper_pdf_builder.js).
+Каждый документ компилируется из канонического исходного Markdown (`.md`) в представительский публикационный PDF-документ полиграфического качества формата А4 с помощью движка [`scripts/core/whitepaper_pdf_builder.js`](../../scripts/core/whitepaper_pdf_builder.js).
 
 ---
 
@@ -23,40 +23,40 @@
 
 | № | Исходный файл (.md) | Локальный скомпилированный PDF | Ключевая тематика и целевой фокус | Бюджет страниц |
 | :---: | :--- | :--- | :--- | :---: |
-| **01** | [`01_platform_overview_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/01_platform_overview_whitepaper.md) | `01_platform_overview_whitepaper.pdf` | **Смена парадигмы децентрализации:** Трёхуровневая топология («Лист» $\to$ «Ветка» $\to$ «Ствол»), суверенитет данных, 152-ФЗ Zero-PII и снижение TCO серверной инфраструктуры на 90%. | 15 стр. |
-| **02** | [`02_applications_suite_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/02_applications_suite_whitepaper.md) | `02_applications_suite_whitepaper.pdf` | **Флагманский стек приложений:** Прикладная микро-логика («Деловой», «КубГолос», «Забота», «УраТур», МСП) и Branch-адаптеры ЕСИА, СБП и ГИС ЖКХ. | 15 стр. |
-| **03** | [`03_engineering_architecture_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/03_engineering_architecture_whitepaper.md) | `03_engineering_architecture_whitepaper.pdf` | **Инженерная архитектура ядра:** Модель AirEntity, встраиваемый SQLite/WASM на Листе, Read-Anywhere Write-Self, Branch Pipeline, P2P-потоки, TreeSearch и открытое ядро AIRport. | 15 стр. |
-| **04** | [`04_ecosystem_impact_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/04_ecosystem_impact_whitepaper.md) | `04_ecosystem_impact_whitepaper.pdf` | **Отраслевой и экономический эффект:** Матрица ценности 10 категорий участников, расчет TCO (экономия сотен млн руб./год) и 4-фазная дорожная карта миграции. | 15 стр. |
-| **05** | [`05_sovereign_governance_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/05_sovereign_governance_whitepaper.md) | `05_sovereign_governance_whitepaper.pdf` | **Правовой суверенитет и госрегулирование:** Юридический комплаенс 152-ФЗ (минимизация данных), криптография ГОСТ Р 34.10-2012 (63-ФЗ), доверенная госинфраструктура и контур БРИКС+. | 15 стр. |
-| **06** | [`06_cbr_smart_contracts_fsm_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.md) | `06_cbr_smart_contracts_fsm_whitepaper.pdf` | **Смарт-контракты ЦВЦБ для Банка России:** Ответ на консультационный доклад ЦБ РФ по ПКСК: детерминированные механизмы состояний (FSM) $O(1)$, Zero-PII, бестерминальность/IOU, Collaborative Apps, ответы на 7 вопросов ЦБ и 3-летний план. | 15 стр. |
-| **07** | [`07_social_economic_ratings_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/07_social_economic_ratings_whitepaper.md) | `07_social_economic_ratings_whitepaper.pdf` | **Социальный и экономический рейтинги:** самостоятельная открытая книга без адресата; открытый социальный рейтинг полезных вкладов по темам (КубГолос, Забота, Деловой) и защищённый экономический рейтинг на платформе коммерческих смарт-контрактов Банка России; согласие на проверку; политика оператора темы; параллельные структуры; без дат дорожной карты. | 15 стр. |
-| **08** | [`08_votecube_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/08_votecube_whitepaper.md) | — *(веб-вьюер / Markdown)* | **«КубГолос» — измерять и складывать:** форма многофакторной оценки (100 б.п., две метрики), счётчики на Ветках, блоки эпох, сложение вверх по дереву тем, три шкалы консенсуса, слепой ретранслятор. | Markdown (.md) |
-| **09** | [`09_sapoto_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/09_sapoto_whitepaper.md) | — *(веб-вьюер / Markdown)* | **«Забота» — вкладывать и просматривать:** самозапечатывающиеся страницы, треды и 4 вида реплик, свидетельства практического Опыта, открытый социальный рейтинг полезных вкладов по темам, защита от накруток. | Markdown (.md) |
-| **10** | [`10_gogetter_whitepaper.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/10_gogetter_whitepaper.md) | — *(веб-вьюер / Markdown)* | **«Деловой» — исполнять и связывать:** Дело как автономное хранилище и контракт, многомерные теги, группы опросов, мандатный API поручений, контракты второго уровня (L2), связка двух рейтингов. | Markdown (.md) |
+| **01** | [`01_platform_overview_whitepaper.md`](./01_platform_overview_whitepaper.md) | `01_platform_overview_whitepaper.pdf` | **Смена парадигмы децентрализации:** Трёхуровневая топология («Лист» $\to$ «Ветка» $\to$ «Ствол»), суверенитет данных, 152-ФЗ Zero-PII и снижение TCO серверной инфраструктуры на 90%. | 15 стр. |
+| **02** | [`02_applications_suite_whitepaper.md`](./02_applications_suite_whitepaper.md) | `02_applications_suite_whitepaper.pdf` | **Флагманский стек приложений:** Прикладная микро-логика («Деловой», «КубГолос», «Забота», «УраТур», МСП) и Branch-адаптеры ЕСИА, СБП и ГИС ЖКХ. | 15 стр. |
+| **03** | [`03_engineering_architecture_whitepaper.md`](./03_engineering_architecture_whitepaper.md) | `03_engineering_architecture_whitepaper.pdf` | **Инженерная архитектура ядра:** Модель AirEntity, встраиваемый SQLite/WASM на Листе, Read-Anywhere Write-Self, Branch Pipeline, P2P-потоки, TreeSearch и открытое ядро AIRport. | 15 стр. |
+| **04** | [`04_ecosystem_impact_whitepaper.md`](./04_ecosystem_impact_whitepaper.md) | `04_ecosystem_impact_whitepaper.pdf` | **Отраслевой и экономический эффект:** Матрица ценности 10 категорий участников, расчет TCO (экономия сотен млн руб./год) и 4-фазная дорожная карта миграции. | 15 стр. |
+| **05** | [`05_sovereign_governance_whitepaper.md`](./05_sovereign_governance_whitepaper.md) | `05_sovereign_governance_whitepaper.pdf` | **Правовой суверенитет и госрегулирование:** Юридический комплаенс 152-ФЗ (минимизация данных), криптография ГОСТ Р 34.10-2012 (63-ФЗ), доверенная госинфраструктура и контур БРИКС+. | 15 стр. |
+| **06** | [`06_cbr_smart_contracts_fsm_whitepaper.md`](./06_cbr_smart_contracts_fsm_whitepaper.md) | `06_cbr_smart_contracts_fsm_whitepaper.pdf` | **Смарт-контракты ЦВЦБ для Банка России:** Ответ на консультационный доклад ЦБ РФ по ПКСК: детерминированные механизмы состояний (FSM) $O(1)$, Zero-PII, бестерминальность/IOU, Collaborative Apps, ответы на 7 вопросов ЦБ и 3-летний план. | 15 стр. |
+| **07** | [`07_social_economic_ratings_whitepaper.md`](./07_social_economic_ratings_whitepaper.md) | `07_social_economic_ratings_whitepaper.pdf` | **Социальный и экономический рейтинги:** самостоятельная открытая книга без адресата; открытый социальный рейтинг полезных вкладов по темам (КубГолос, Забота, Деловой) и защищённый экономический рейтинг на платформе коммерческих смарт-контрактов Банка России; согласие на проверку; политика оператора темы; параллельные структуры; без дат дорожной карты. | 15 стр. |
+| **08** | [`08_votecube_whitepaper.md`](./08_votecube_whitepaper.md) | — *(веб-вьюер / Markdown)* | **«КубГолос» — измерять и складывать:** форма многофакторной оценки (100 б.п., две метрики), счётчики на Ветках, блоки эпох, сложение вверх по дереву тем, три шкалы консенсуса, слепой ретранслятор. | Markdown (.md) |
+| **09** | [`09_sapoto_whitepaper.md`](./09_sapoto_whitepaper.md) | — *(веб-вьюер / Markdown)* | **«Забота» — вкладывать и просматривать:** самозапечатывающиеся страницы, треды и 4 вида реплик, свидетельства практического Опыта, открытый социальный рейтинг полезных вкладов по темам, защита от накруток. | Markdown (.md) |
+| **10** | [`10_gogetter_whitepaper.md`](./10_gogetter_whitepaper.md) | — *(веб-вьюер / Markdown)* | **«Деловой» — исполнять и связывать:** Дело как автономное хранилище и контракт, многомерные теги, группы опросов, мандатный API поручений, контракты второго уровня (L2), связка двух рейтингов. | Markdown (.md) |
 
 ---
 
 ## 📱 Прикладной стек и спецификации сервисов (`applications/`)
 
-В директории [**`applications/`**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/README.md) содержится детальный комплекс нормативных архитектурных спецификаций, DDL-описаний моделей данных и аналитических руководств по триаде системообразующих приложений:
+В директории [**`applications/`**](./applications/README.md) содержится детальный комплекс нормативных архитектурных спецификаций, DDL-описаний моделей данных и аналитических руководств по триаде системообразующих приложений:
 
-* [**`applications/README.md`**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/README.md) — Обзорный манифест прикладного стека и однонаправленной иерархии схем данных.
-* [**`applications/AGENTS.md`**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/AGENTS.md) — Специализированное инженерное руководство по прикладному стеку, правилам схем и инвариантам.
-* [**«КубГолос» (`applications/votecube/`)**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/README.md) — Многомерное 3D-волеизъявление:
-  - [`VoteCube_architecture_and_functionality.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/VoteCube_architecture_and_functionality.md) — нормативная спецификация (1.0);
-  - [`VoteCube_Ecosystem_Impact_Guide.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/VoteCube_Ecosystem_Impact_Guide.md) — руководство социально-экономического влияния;
-  - [`VoteCube_Role_in_Rating_Infrastructure.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/VoteCube_Role_in_Rating_Infrastructure.md) — роль «КубГолоса» в системе рейтингов;
-  - [`README.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/README.md) и [`AGENTS.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/votecube/AGENTS.md).
-* [**«Забота» (`applications/sapoto/`)**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/README.md) — Децентрализованная сеть взаимной поддержки:
-  - [`Sapoto_architecture_and_functionality.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_architecture_and_functionality.md) — нормативная спецификация (1.0);
-  - [`Sapoto_Reputation_and_Credit_System_Specification.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_Reputation_and_Credit_System_Specification.md) — нормативная спецификация децентрализованной репутации, кредитного рейтинга, транзитивного поручительства и балансировки ROSCA;
-  - [`Sapoto_Ecosystem_Impact_Guide.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_Ecosystem_Impact_Guide.md) — социально-экономический потенциал на 7 уровнях общества;
-  - [`Sapoto_Role_in_Rating_Infrastructure.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_Role_in_Rating_Infrastructure.md) — роль «Заботы» в системе рейтингов;
-  - [`README.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/README.md) и [`AGENTS.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/AGENTS.md).
-* [**«Деловой» (`applications/gogetter/`)**](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/gogetter/README.md) — Интеллектуальный органайзер задач и поручений:
-  - [`GoGetter_Role_in_Rating_Infrastructure.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/gogetter/GoGetter_Role_in_Rating_Infrastructure.md) — роль «Делового» в системе рейтингов;
-  - [`README.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/gogetter/README.md) — концепция, архитектура задач, Матрица 2.0, гравитационные сферы, Serendipity, Общественный API;
-  - [`AGENTS.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/gogetter/AGENTS.md) — инженерные регламенты и DDL-сущности.
+* [**`applications/README.md`**](./applications/README.md) — Обзорный манифест прикладного стека и однонаправленной иерархии схем данных.
+* [**`applications/AGENTS.md`**](./applications/AGENTS.md) — Специализированное инженерное руководство по прикладному стеку, правилам схем и инвариантам.
+* [**«КубГолос» (`applications/votecube/`)**](./applications/votecube/README.md) — Многомерное 3D-волеизъявление:
+  - [`VoteCube_architecture_and_functionality.md`](./applications/votecube/VoteCube_architecture_and_functionality.md) — нормативная спецификация (1.0);
+  - [`VoteCube_Ecosystem_Impact_Guide.md`](./applications/votecube/VoteCube_Ecosystem_Impact_Guide.md) — руководство социально-экономического влияния;
+  - [`VoteCube_Role_in_Rating_Infrastructure.md`](./applications/votecube/VoteCube_Role_in_Rating_Infrastructure.md) — роль «КубГолоса» в системе рейтингов;
+  - [`README.md`](./applications/votecube/README.md) и [`AGENTS.md`](./applications/votecube/AGENTS.md).
+* [**«Забота» (`applications/sapoto/`)**](./applications/sapoto/README.md) — Децентрализованная сеть взаимной поддержки:
+  - [`Sapoto_architecture_and_functionality.md`](./applications/sapoto/Sapoto_architecture_and_functionality.md) — нормативная спецификация (1.0);
+  - [`Sapoto_Reputation_and_Credit_System_Specification.md`](./applications/sapoto/Sapoto_Reputation_and_Credit_System_Specification.md) — нормативная спецификация децентрализованной репутации, кредитного рейтинга, транзитивного поручительства и балансировки ROSCA;
+  - [`Sapoto_Ecosystem_Impact_Guide.md`](./applications/sapoto/Sapoto_Ecosystem_Impact_Guide.md) — социально-экономический потенциал на 7 уровнях общества;
+  - [`Sapoto_Role_in_Rating_Infrastructure.md`](./applications/sapoto/Sapoto_Role_in_Rating_Infrastructure.md) — роль «Заботы» в системе рейтингов;
+  - [`README.md`](./applications/sapoto/README.md) и [`AGENTS.md`](./applications/sapoto/AGENTS.md).
+* [**«Деловой» (`applications/gogetter/`)**](./applications/gogetter/README.md) — Интеллектуальный органайзер задач и поручений:
+  - [`GoGetter_Role_in_Rating_Infrastructure.md`](./applications/gogetter/GoGetter_Role_in_Rating_Infrastructure.md) — роль «Делового» в системе рейтингов;
+  - [`README.md`](./applications/gogetter/README.md) — концепция, архитектура задач, Матрица 2.0, гравитационные сферы, Serendipity, Общественный API;
+  - [`AGENTS.md`](./applications/gogetter/AGENTS.md) — инженерные регламенты и DDL-сущности.
 
 ---
 
@@ -110,11 +110,11 @@
 
 1. **Авторская атрибуция и распределение вклада:**
    * **Концептуальный автор платформы и системный архитектор:** **Артём Владимирович Шамсутдинов**, разработчик платформы цифрового суверенитета данных «Турбаза», автор реляционного ядра AIRport.
-   * **Математическая и алгоритмическая спецификация репутационной системы:** Разработана интеллектуальным агентом **Antigravity (Google DeepMind)** на основе концептуального замысла, архитектурных инвариантов и при методическом руководстве Артёма Владимировича Шамсутдинова (см. [`Sapoto_Reputation_and_Credit_System_Specification.md`](file:///Users/parents/Documents/presentations/shared_docs/whitepapers/applications/sapoto/Sapoto_Reputation_and_Credit_System_Specification.md)).
+   * **Математическая и алгоритмическая спецификация репутационной системы:** Разработана интеллектуальным агентом **Antigravity (Google DeepMind)** на основе концептуального замысла, архитектурных инвариантов и при методическом руководстве Артёма Владимировича Шамсутдинова (см. [`Sapoto_Reputation_and_Credit_System_Specification.md`](./applications/sapoto/Sapoto_Reputation_and_Credit_System_Specification.md)).
    * **Строгий запрет на «мы/наш» (Правило 12):** Категорически исключаются коллективные формулировки («мы разработали», «наша команда», «в нашей платформе»). Используются нейтральные академические и институциональные конструкции: *«здесь»*, *«в настоящем исследовании»*, *«разработчик платформы предлагает»*, *«архитектура предусматривает»*, *«платформа решает задачу»*.
 
 2. **Правило 9 (`AGENTS.md`) — Запрет семантических меток с префиксом процента:**
-   * Метки в [`shared_docs/comments/LABELS.md`](file:///Users/parents/Documents/presentations/shared_docs/comments/LABELS.md) (такие как Repository, Tree, ForeignKey, API, SmartContract, StateMachine, MicroBlockchain, Wallet и др.) служат **исключительно для внутренней навигации в папке `comments/`**;
+   * Метки в [`shared_docs/comments/LABELS.md`](../comments/LABELS.md) (такие как Repository, Tree, ForeignKey, API, SmartContract, StateMachine, MicroBlockchain, Wallet и др.) служат **исключительно для внутренней навигации в папке `comments/`**;
    * **В тексте Белых Книг использование префикса процента перед терминами СТРОЖАЙШЕ ЗАПРЕЩЕНО.** Все понятия должны быть изложены литературным русским и общепринятым техническим языком.
 
 3. **Правило 5 (`AGENTS.md`) и `.gitignore` — Запрет коммита PDF-файлов в Git:**

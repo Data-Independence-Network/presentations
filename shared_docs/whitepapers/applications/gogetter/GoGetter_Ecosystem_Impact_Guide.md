@@ -5,8 +5,8 @@
 
 *Классификация: Автономный органайзер личных, семейных и деловых задач, преодоление прокрастинации, кинетическая физическая модель гравитационных сфер, смарт-контракты Уровня 2 (L2), открытый мандатный API поручений, интеграция с Цифровым рублем Банка России*  
 *Концептуальный автор платформы и архитектор: Артём Владимирович Шамсутдинов*  
-*Связанные нормативные спецификации: [`GoGetter_architecture_and_functionality.md`](GoGetter_architecture_and_functionality.md), [`README.md`](README.md), [`Sapoto_Ecosystem_Impact_Guide.md`](../sapoto/Sapoto_Ecosystem_Impact_Guide.md), [`VoteCube_Ecosystem_Impact_Guide.md`](../votecube/VoteCube_Ecosystem_Impact_Guide.md), [Белая книга Банка России № 06](../../06_cbr_smart_contracts_fsm_whitepaper.md)*  
-*Проектные хранилища: [`gogetter`](file:///Users/parents/Documents/data-independence-network/gogetter), [`sapoto.net`](file:///Users/parents/Documents/data-independence-network/sapoto.net), [`votecube.com`](file:///Users/parents/Documents/data-independence-network/votecube.com)*
+*Связанные нормативные спецификации: [GoGetter_architecture_and_functionality.md](GoGetter_architecture_and_functionality.md), [README.md](README.md), [Sapoto_Ecosystem_Impact_Guide.md](../sapoto/Sapoto_Ecosystem_Impact_Guide.md), [VoteCube_Ecosystem_Impact_Guide.md](../votecube/VoteCube_Ecosystem_Impact_Guide.md), [Белая книга Банка России № 06](../../06_cbr_smart_contracts_fsm_whitepaper.md)*  
+*Проектные хранилища: [gogetter](https://github.com/data-independence-network/gogetter), [sapoto.net](https://github.com/data-independence-network/sapoto.net), [votecube.com](https://github.com/data-independence-network/votecube.com)*
 
 ---
 
