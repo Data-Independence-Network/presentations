@@ -2,4 +2,13 @@
 
 В данной директории сосредоточены материалы дознания, архитектурные исследования и концептуальный базис для подготовки официальной Белой Книги и презентации о **Сообществе приложений и Локальном реестре сервисов МСП и ЖКХ** (`applications_presentations/05_local_services_presentation/`):
 
-- **[`Local_Services_Cross_App_Schemas_and_Virtual_Joins.md`](Local_Services_Cross_App_Schemas_and_Virtual_Joins.md)** — Исследовательский документ дознания: межприложенческие схемы данных, таблицы-расширения с композитными внешними ключами, динамические виртуальные таблицы в оперативных соединениях (In-Memory Joins) на Листе и ролевая криптографическая изоляция полей.
+1. **[`Local_Services_Cross_App_Schemas_and_Virtual_Joins.md`](Local_Services_Cross_App_Schemas_and_Virtual_Joins.md)** — Исследовательский документ дознания: межприложенческие схемы данных, таблицы-расширения с композитными внешними ключами, динамические виртуальные таблицы в оперативных соединениях (In-Memory Joins) на Листе и ролевая криптографическая изоляция полей.
+2. **[`Local_Services_Cooperative_Economy_and_L1_Contracts.md`](Local_Services_Cooperative_Economy_and_L1_Contracts.md)** — Исследовательский документ дознания: кооперативная экономика экосистемы, правовая модель участия граждан без статуса ИП (п. 4 ст. 420 НК РФ, ФЗ № 41-ФЗ, Закон РФ № 3085-1), многоуровневая федерация («Кооператив кооперативов»), ограничение комбинаторной сложности FSM смарт-контрактов L1 Банка России и международное межгосударственное масштабирование.
+
+---
+
+## Связанные разделы экосистемы
+
+- Органайзер и каркас композиции модулей: [`../../10_gogetter_whitepaper.md`](../../10_gogetter_whitepaper.md)
+- Общественные теги и индексные кооперативы «УраТур»: [`../uratur/UraTur_Public_Tags_and_Index_Cooperatives.md`](../uratur/UraTur_Public_Tags_and_Index_Cooperatives.md)
+- Экономика API и архитектура криптографии: [`../../07_cryptography_and_api_economy_whitepaper.md`](../../07_cryptography_and_api_economy_whitepaper.md)
