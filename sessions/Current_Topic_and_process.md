@@ -2,7 +2,7 @@
 
 Можно бы будете использовать тему записанную в следующем файле, начиная с вопроса о какой ступени в процессе процесса темы будет эта сессия, пожалуйста?  Тема записана в:
 
-  shared_docs/comments/2026/10-05_00_Strawman_and_process.md
+  shared_docs/comments/2026/10-05_01_Rework_VoteCube_Sapoto_and_GoGetter_presentations.md
 
 а предложенный формат сессии записан в:
 
