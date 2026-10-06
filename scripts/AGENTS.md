@@ -1,5 +1,9 @@
 # AGENTS.md — Global Media & Pipeline Scripts
 
+> [!IMPORTANT]
+> **Текущая тема, рабочий процесс и запись сессий:**
+> Всегда необходимо использовать [`sessions/Current_Topic_and_process.md`](file:///Users/parents/Documents/presentations/sessions/Current_Topic_and_process.md) для установления ступени темы сессии и записи самой сессии. Тема и процесс работы, а также предложенный формат записи находятся в этом файле.
+
 ## 🎯 Purpose & Scope
 This directory hosts the shared core engine and top-level automation CLI scripts for all presentation tracks across the repository (`01_sovereign_architecture_presentation`, `02_stakeholders_benefits_presentation`, and all 10 tracks under `detailed_overall_impact_presentations/`).
 

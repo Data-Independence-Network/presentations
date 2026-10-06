@@ -1,5 +1,9 @@
 # AGENTS.md — shared_templates/overview_presentation_deck
 
+> [!IMPORTANT]
+> **Текущая тема, рабочий процесс и запись сессий:**
+> Всегда необходимо использовать [`sessions/Current_Topic_and_process.md`](file:///Users/parents/Documents/presentations/sessions/Current_Topic_and_process.md) для установления ступени темы сессии и записи самой сессии. Тема и процесс работы, а также предложенный формат записи находятся в этом файле.
+
 ## 🎯 Purpose & Scope
 Stores the shared design system, billboard typography rules, frame layout CSS, and interactive navigation/audio synchronization engine for all **Overview Presentations** (`overall_presentations/`).
 

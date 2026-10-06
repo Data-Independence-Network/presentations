@@ -1,5 +1,9 @@
 # AGENTS.md — 04_advertisers_presentation
 
+> [!IMPORTANT]
+> **Текущая тема, рабочий процесс и запись сессий:**
+> Всегда необходимо использовать [`sessions/Current_Topic_and_process.md`](file:///Users/parents/Documents/presentations/sessions/Current_Topic_and_process.md) для установления ступени темы сессии и записи самой сессии. Тема и процесс работы, а также предложенный формат записи находятся в этом файле.
+
 ## 🎯 Purpose & Scope
 Contains presentation materials, slides, web deck, audio tracks, and automated build pipelines for **Presentation 04: Турбаза для Рекламодателей и Брендов: 100% релевантный таргетинг на устройстве, рост конверсий в 3–4 раза и честная атрибуция** (15 billboard slides).
 

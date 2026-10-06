@@ -1,5 +1,9 @@
 # AGENTS.md — applications_presentations
 
+> [!IMPORTANT]
+> **Текущая тема, рабочий процесс и запись сессий:**
+> Всегда необходимо использовать [`sessions/Current_Topic_and_process.md`](file:///Users/parents/Documents/presentations/sessions/Current_Topic_and_process.md) для установления ступени темы сессии и записи самой сессии. Тема и процесс работы, а также предложенный формат записи находятся в этом файле.
+
 ## 🎯 Purpose & Scope
 This directory hosts the presentation suite for the **5 Flagship Core Applications of the «Турбаза» Ecosystem**:
 - **01. «КубГолос»** (`01_kubgolos_app_presentation/`): Bottom-up peer micro-poll platform with versioned poll trees and 0% bot manipulation.

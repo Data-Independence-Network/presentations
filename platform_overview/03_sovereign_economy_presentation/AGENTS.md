@@ -1,5 +1,9 @@
 # AGENTS.md — 03_sovereign_economy_presentation
 
+> [!IMPORTANT]
+> **Текущая тема, рабочий процесс и запись сессий:**
+> Всегда необходимо использовать [`sessions/Current_Topic_and_process.md`](file:///Users/parents/Documents/presentations/sessions/Current_Topic_and_process.md) для установления ступени темы сессии и записи самой сессии. Тема и процесс работы, а также предложенный формат записи находятся в этом файле.
+
 ## 🎯 Purpose & Scope
 Contains presentation materials, slides, web deck, audio tracks, and automated build pipelines for **Presentation 03: Справедливая экономика данных и ИИ: Экономика API (1/N), Цифровой рубль и Децентрализованный ИИ для общества** (15 billboard slides).
 

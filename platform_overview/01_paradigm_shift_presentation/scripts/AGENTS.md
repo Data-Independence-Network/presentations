@@ -1,5 +1,9 @@
 # AGENTS.md — Scripts for 01_paradigm_shift_presentation
 
+> [!IMPORTANT]
+> **Текущая тема, рабочий процесс и запись сессий:**
+> Всегда необходимо использовать [`sessions/Current_Topic_and_process.md`](file:///Users/parents/Documents/presentations/sessions/Current_Topic_and_process.md) для установления ступени темы сессии и записи самой сессии. Тема и процесс работы, а также предложенный формат записи находятся в этом файле.
+
 ## 🎯 Purpose & Scope
 This directory contains dedicated CLI scripts for building, generating, and rendering all media assets for **Часть 1: Манифест и Смена парадигмы** (`platform_overview/01_paradigm_shift_presentation/`).
 

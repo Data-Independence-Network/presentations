@@ -1,5 +1,9 @@
 # AGENTS.md — 02_stakeholders_benefits_presentation/docs
 
+> [!IMPORTANT]
+> **Текущая тема, рабочий процесс и запись сессий:**
+> Всегда необходимо использовать [`sessions/Current_Topic_and_process.md`](file:///Users/parents/Documents/presentations/sessions/Current_Topic_and_process.md) для установления ступени темы сессии и записи самой сессии. Тема и процесс работы, а также предложенный формат записи находятся в этом файле.
+
 ## 🎯 Purpose & Scope
 Houses the analytical whitepapers, stakeholder value matrices, speaker narration scripts, and compiled PDF deliverables for the **Stakeholder Benefits Presentation**.
 

@@ -1,5 +1,9 @@
 # AGENTS.md — architecture_presentations
 
+> [!IMPORTANT]
+> **Текущая тема, рабочий процесс и запись сессий:**
+> Всегда необходимо использовать [`sessions/Current_Topic_and_process.md`](file:///Users/parents/Documents/presentations/sessions/Current_Topic_and_process.md) для установления ступени темы сессии и записи самой сессии. Тема и процесс работы, а также предложенный формат записи находятся в этом файле.
+
 ## 🎯 Purpose & Scope
 This directory contains the complete technical presentation suite **«Архитектура платформы Турбаза»** (Architecture Presentations) — a deep-dive 7-part engineering presentation track covering the inner workings of Leaf, Branch, Parent Branch, Trunk, storage engines, application framework, developer libraries, data pipelines, P2P network topology, TreeSearch, and cryptographic / API economic models.
 

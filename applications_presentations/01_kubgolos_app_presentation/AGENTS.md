@@ -1,5 +1,9 @@
 # AGENTS.md — 01_kubgolos_app_presentation
 
+> [!IMPORTANT]
+> **Текущая тема, рабочий процесс и запись сессий:**
+> Всегда необходимо использовать [`sessions/Current_Topic_and_process.md`](file:///Users/parents/Documents/presentations/sessions/Current_Topic_and_process.md) для установления ступени темы сессии и записи самой сессии. Тема и процесс работы, а также предложенный формат записи находятся в этом файле.
+
 ## 🎯 Purpose & Scope
 Presentation 01 of the 5-part Flagship Applications Suite: **«КубГолос»: измерять и складывать** (15 billboard slides).
 - **Associated Whitepaper:** [Белая книга № 08 «КубГолос: форма оценки, счётчики и сложение вверх по дереву»](../../shared_docs/whitepapers/08_votecube_whitepaper.md)

@@ -1,5 +1,9 @@
 # AGENTS.md — Installation & Dependency Provisioning Scripts
 
+> [!IMPORTANT]
+> **Текущая тема, рабочий процесс и запись сессий:**
+> Всегда необходимо использовать [`sessions/Current_Topic_and_process.md`](file:///Users/parents/Documents/presentations/sessions/Current_Topic_and_process.md) для установления ступени темы сессии и записи самой сессии. Тема и процесс работы, а также предложенный формат записи находятся в этом файле.
+
 ## 🎯 Purpose & Scope
 This directory contains automated environment setup and dependency provisioning scripts for the **Turbase Sovereign Presentation Suite**.
 

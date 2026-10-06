@@ -1,5 +1,9 @@
 # AGENTS.md — 06_government_infra_presentation
 
+> [!IMPORTANT]
+> **Текущая тема, рабочий процесс и запись сессий:**
+> Всегда необходимо использовать [`sessions/Current_Topic_and_process.md`](file:///Users/parents/Documents/presentations/sessions/Current_Topic_and_process.md) для установления ступени темы сессии и записи самой сессии. Тема и процесс работы, а также предложенный формат записи находятся в этом файле.
+
 ## 🎯 Purpose & Scope
 Contains presentation materials, slides, web deck, audio tracks, and automated build pipelines for **Presentation 06: Турбаза для Государства, Муниципалитетов и Опорной Сети: Устойчивые госуслуги, разгрузка ЦОД на 80% и непрерывность при ЧС** (15 billboard slides).
 

@@ -1,5 +1,9 @@
 # AGENTS.md — 07_cryptography_and_api_economy
 
+> [!IMPORTANT]
+> **Текущая тема, рабочий процесс и запись сессий:**
+> Всегда необходимо использовать [`sessions/Current_Topic_and_process.md`](file:///Users/parents/Documents/presentations/sessions/Current_Topic_and_process.md) для установления ступени темы сессии и записи самой сессии. Тема и процесс работы, а также предложенный формат записи находятся в этом файле.
+
 ## 🎯 Purpose & Scope
 Contains the presentation deck, interactive slide player, handout PDF, and build pipeline for **Presentation 07: Криптографический контур и экономика совместного использования API** (13 high-density engineering slides).
 

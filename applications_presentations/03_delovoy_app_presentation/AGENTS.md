@@ -1,5 +1,9 @@
 # AGENTS.md — 03_delovoy_app_presentation
 
+> [!IMPORTANT]
+> **Текущая тема, рабочий процесс и запись сессий:**
+> Всегда необходимо использовать [`sessions/Current_Topic_and_process.md`](file:///Users/parents/Documents/presentations/sessions/Current_Topic_and_process.md) для установления ступени темы сессии и записи самой сессии. Тема и процесс работы, а также предложенный формат записи находятся в этом файле.
+
 ## 🎯 Purpose & Scope
 Contains presentation materials, slides, web deck, audio tracks, and automated build pipelines for **Presentation 03: «Деловой»: исполнять и связывать** (15 billboard slides).
 - **Книга-источник:** [Белая книга № 10 «Деловой: исполнять и связывать»](../../shared_docs/whitepapers/10_gogetter_whitepaper.md)
