@@ -3,44 +3,42 @@
    Presentation: applications_presentations/02_zabota_app_presentation
    Group: applications_presentations
    Architecture: 100% Isolated Standalone Presentation Stylesheet
-   Theme: Dark Executive Sovereign — Emerald (Приложение 2 из 5 «Забота»)
+   Theme: Dark Sovereign Emerald & Warm Hearth («Забота»)
    Billboard Typography System (1920x1080 Native Frame)
+   Artistic Direction: Gemini 3.8 Flash (2026)
    ========================================================================== */
 
 /* Note: Presentation chrome (viewport, header, modal, drawer) is loaded universally via deck_core.css */
 
 :root {
   /* Surface & Background Tokens */
-  --bg-main: #03060f;
-  --bg-card: #070d1a;
-  --bg-surface: #0e1729;
-  --bg-surface-hover: #14213d;
-  --bg-panel: #091120;
+  --bg-main: #020906;
+  --bg-card: #04120a;
+  --bg-surface: #071f13;
+  --bg-surface-hover: #0c2e1d;
+  --bg-panel: #05170d;
   
   /* Borders */
-  --border-subtle: rgba(255, 255, 255, 0.25);
-  --border-medium: rgba(255, 255, 255, 0.45);
-  --border-gold: rgba(250, 204, 21, 0.95);
-  --border-emerald: rgba(16, 185, 129, 0.95);
-  --border-blue: rgba(56, 189, 248, 0.95);
-  --border-danger: rgba(239, 68, 68, 0.95);
-  --border-purple: rgba(168, 85, 247, 0.95);
+  --border-subtle: rgba(16, 185, 129, 0.24);
+  --border-medium: rgba(16, 185, 129, 0.45);
+  --border-emerald: #10b981;
+  --border-gold: rgba(245, 158, 11, 0.9);
+  --border-blue: rgba(56, 189, 248, 0.9);
+  --border-danger: rgba(239, 68, 68, 0.9);
   
   /* Accent Colors */
   --emerald-primary: #10b981;
   --emerald-light: #6ee7b7;
-  --gold-primary: #facc15;
+  --gold-primary: #f59e0b;
   --gold-light: #fef08a;
   --cyber-blue: #0284c7;
   --cyber-light: #38bdf8;
   --coral-danger: #ef4444;
   --coral-light: #fca5a5;
-  --purple-accent: #a855f7;
-  --purple-light: #d8b4fe;
   
   /* Typography Tokens */
   --text-main: #ffffff;
-  --text-secondary: #f8fafc;
+  --text-secondary: #f0fdf4;
   --text-muted: #cbd5e1;
   --text-dim: #94a3b8;
   
@@ -49,10 +47,9 @@
   --font-mono: 'JetBrains Mono', monospace;
   
   /* Shadows & Radius */
-  --shadow-card: 0 30px 70px -10px rgba(0, 0, 0, 0.98), 0 0 0 1.5px rgba(255, 255, 255, 0.2);
+  --shadow-card: 0 30px 80px -10px rgba(0, 0, 0, 0.98), 0 0 0 1.5px rgba(16, 185, 129, 0.25);
   --shadow-glow-emerald: 0 0 35px rgba(16, 185, 129, 0.35);
-  --shadow-glow-gold: 0 0 35px rgba(250, 204, 21, 0.35);
-  --shadow-glow-blue: 0 0 35px rgba(2, 132, 199, 0.35);
+  --shadow-glow-gold: 0 0 35px rgba(245, 158, 11, 0.35);
   
   --radius-sm: 8px;
   --radius-md: 14px;
@@ -75,16 +72,78 @@ body {
   flex-direction: column;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(circle at 10% 12%, rgba(16, 185, 129, 0.28) 0%, transparent 45%),
-    radial-gradient(circle at 90% 88%, rgba(2, 132, 199, 0.25) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(250, 204, 21, 0.15) 0%, transparent 60%);
+    radial-gradient(circle at 12% 12%, rgba(16, 185, 129, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 88% 88%, rgba(245, 158, 11, 0.18) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(6, 78, 59, 0.2) 0%, transparent 65%);
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
 }
 
+/* ==================== VIEWPORT & DECK CONTAINER ==================== */
+.presentation-viewport {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.deck-container {
+  width: 100%;
+  max-width: 1920px;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-medium);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+/* Artistic Slide Card Canvas */
+.slide-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 34px 56px;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background-color: #030c08;
+  background-image:
+    radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.14) 0%, transparent 44%),
+    radial-gradient(circle at 15% 85%, rgba(245, 158, 11, 0.12) 0%, transparent 46%),
+    radial-gradient(circle at 50% 50%, rgba(6, 78, 59, 0.22) 0%, transparent 60%),
+    linear-gradient(rgba(16, 185, 129, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 185, 129, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 52px 52px, 52px 52px;
+}
+
+.slide-card.active {
+  display: flex;
+  opacity: 1;
+}
+
 /* ==================== BILLBOARD TYPOGRAPHY ==================== */
+.slide-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
 .slide-header {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .slide-tag {
@@ -93,23 +152,46 @@ body {
   gap: 8px;
   font-size: 24px;
   font-weight: 800;
+  font-family: var(--font-mono);
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color: var(--emerald-light);
-  background: rgba(16, 185, 129, 0.18);
-  border: 1.5px solid var(--border-emerald);
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1.5px solid rgba(16, 185, 129, 0.55);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.2);
   padding: 4px 14px;
   border-radius: 6px;
   margin-bottom: 8px;
+  width: fit-content;
+}
+
+.explainer-series-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1.5px solid rgba(16, 185, 129, 0.6);
+  box-shadow: 0 0 16px rgba(16, 185, 129, 0.25);
+  padding: 4px 16px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  width: fit-content;
 }
 
 .slide-title {
-  font-size: 52px;
+  font-size: 50px;
   font-weight: 900;
   color: #ffffff;
   line-height: 1.15;
   letter-spacing: -0.5px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 22px rgba(16, 185, 129, 0.28);
 }
 
 .slide-subtitle {
@@ -123,46 +205,53 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  margin-top: 24px;
+  gap: 16px;
 }
 
-/* ==================== BADGES & TAGS ==================== */
+/* ==================== BADGES & PILL TAGS ==================== */
 .badge-gold {
-  background: rgba(250, 204, 21, 0.2);
+  background: rgba(245, 158, 11, 0.18);
   border: 1.5px solid var(--border-gold);
-  color: var(--gold-primary);
+  color: #fbbf24;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.25);
 }
 
 .badge-emerald {
-  background: rgba(16, 185, 129, 0.2);
+  background: rgba(16, 185, 129, 0.18);
   border: 1.5px solid var(--border-emerald);
   color: var(--emerald-light);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.25);
 }
 
 .badge-blue {
-  background: rgba(2, 132, 199, 0.2);
+  background: rgba(2, 132, 199, 0.18);
   border: 1.5px solid var(--border-blue);
   color: var(--cyber-light);
+  box-shadow: 0 0 10px rgba(2, 132, 199, 0.25);
 }
 
 .badge-danger {
-  background: rgba(239, 68, 68, 0.2);
+  background: rgba(239, 68, 68, 0.18);
   border: 1.5px solid var(--border-danger);
   color: var(--coral-light);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
 }
 
 .card-num-badge {
   font-size: 24px;
   font-weight: 800;
   font-family: var(--font-mono);
-  color: var(--emerald-light);
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid var(--emerald-primary);
-  padding: 4px 10px;
-  border-radius: 4px;
+  color: #6ee7b7;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.1) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.6);
+  padding: 3px 12px;
+  border-radius: 6px;
   display: inline-block;
   margin-bottom: 10px;
   width: fit-content;
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.22);
 }
 
 .card-pill-tag {
@@ -172,11 +261,11 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
   padding: 4px 12px;
-  border-radius: 4px;
+  border-radius: 6px;
   display: inline-block;
   margin-bottom: 8px;
   width: fit-content;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--text-main);
   border: 1px solid var(--border-subtle);
 }
@@ -184,43 +273,29 @@ body {
 .card-pill-tag.emerald {
   background: rgba(16, 185, 129, 0.18);
   color: var(--emerald-light);
-  border-color: var(--border-emerald);
+  border-color: rgba(16, 185, 129, 0.6);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
 }
 
 .card-pill-tag.cyan {
-  background: rgba(56, 189, 248, 0.18);
+  background: rgba(2, 132, 199, 0.18);
   color: var(--cyber-light);
-  border-color: var(--cyber-light);
+  border-color: var(--border-blue);
+  box-shadow: 0 0 12px rgba(2, 132, 199, 0.2);
 }
 
 .card-pill-tag.gold {
-  background: rgba(250, 204, 21, 0.18);
-  color: var(--gold-primary);
-  border-color: var(--gold-primary);
+  background: rgba(245, 158, 11, 0.18);
+  color: #fbbf24;
+  border-color: var(--border-gold);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
 }
 
 .card-pill-tag.danger {
   background: rgba(239, 68, 68, 0.18);
   color: var(--coral-light);
   border-color: var(--border-danger);
-}
-
-.explainer-series-marker {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 24px;
-  font-weight: 800;
-  font-family: var(--font-mono);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--emerald-light);
-  background: rgba(16, 185, 129, 0.15);
-  border: 1.5px solid var(--border-emerald);
-  padding: 4px 16px;
-  border-radius: 6px;
-  margin-bottom: 8px;
-  width: fit-content;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.2);
 }
 
 /* ==================== LAYOUT GRIDS ==================== */
@@ -229,6 +304,8 @@ body {
   grid-template-columns: 1.05fr 0.95fr;
   gap: 20px;
   align-items: stretch;
+  align-content: start;
+  margin-top: 20px;
 }
 
 .grid-2col-equal {
@@ -236,13 +313,17 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 20px;
   align-items: stretch;
+  align-content: start;
+  margin-top: 20px;
 }
 
 .grid-3col {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 16px;
   align-items: stretch;
+  align-content: start;
+  margin-top: 20px;
 }
 
 .grid-4col {
@@ -250,6 +331,8 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 14px;
   align-items: stretch;
+  align-content: start;
+  margin-top: 20px;
 }
 
 .cards-grid-1 {
@@ -258,22 +341,60 @@ body {
   gap: 12px;
 }
 
+.slide-card[data-slide="1"] .slide-body.grid-3col {
+  align-content: center;
+  margin-top: 0;
+}
+
 /* ==================== CARDS & PANELS ==================== */
-.benefit-card {
-  background: rgba(14, 23, 41, 0.85);
-  border: 1.5px solid var(--border-subtle);
+.benefit-card,
+.glass-card {
+  background: linear-gradient(145deg, rgba(8, 28, 18, 0.9) 0%, rgba(4, 16, 10, 0.96) 100%);
+  border: 1.5px solid rgba(16, 185, 129, 0.3);
   border-radius: var(--radius-md);
-  padding: 24px 22px;
+  padding: 18px 22px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 12px;
+  box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 0 20px rgba(16, 185, 129, 0.04);
+  position: relative;
+  overflow: hidden;
   transition: all 0.25s ease;
 }
 
-.benefit-card:hover {
-  border-color: var(--emerald-primary);
+.benefit-card::before,
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 5%, rgba(110, 231, 183, 0.75) 50%, transparent 95%);
+}
+
+.benefit-card:hover,
+.glass-card:hover {
+  border-color: #10b981;
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 18px 40px -6px rgba(16, 185, 129, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.glass-card.emerald-accent {
+  border-color: rgba(16, 185, 129, 0.65);
+  background: linear-gradient(145deg, rgba(12, 38, 24, 0.92) 0%, rgba(6, 20, 13, 0.96) 100%);
+  box-shadow: 0 14px 34px -8px rgba(16, 185, 129, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.glass-card.gold-accent {
+  border-color: var(--border-gold);
+  background: linear-gradient(145deg, rgba(38, 26, 6, 0.9) 0%, rgba(20, 14, 3, 0.95) 100%);
+}
+
+.slide-card[data-slide="1"] .benefit-card {
+  padding: 26px 26px;
+  gap: 16px;
 }
 
 .card-title {
@@ -290,44 +411,25 @@ body {
   line-height: 1.35;
 }
 
-.glass-card {
-  background: rgba(14, 23, 41, 0.85);
-  border: 1.5px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 16px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.25s ease;
-}
-
-.glass-card.emerald-accent {
-  border-color: var(--border-emerald);
-  background: rgba(16, 185, 129, 0.1);
-}
-
-.glass-card.gold-accent {
-  border-color: var(--border-gold);
-  background: rgba(250, 204, 21, 0.1);
-}
-
+/* ==================== HIGHLIGHT BOXES ==================== */
 .highlight-box {
-  background: rgba(16, 185, 129, 0.12);
+  background: linear-gradient(145deg, rgba(16, 185, 129, 0.16) 0%, rgba(6, 24, 16, 0.8) 100%);
   border: 1.5px solid var(--border-emerald);
   border-radius: var(--radius-md);
   padding: 16px 20px;
   display: flex;
   flex-direction: column;
   gap: 6px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
 }
 
 .highlight-box.gold {
-  background: rgba(250, 204, 21, 0.1);
+  background: linear-gradient(145deg, rgba(245, 158, 11, 0.16) 0%, rgba(32, 22, 6, 0.8) 100%);
   border-color: var(--gold-primary);
 }
 
 .highlight-box.cyan {
-  background: rgba(2, 132, 199, 0.12);
+  background: linear-gradient(145deg, rgba(2, 132, 199, 0.16) 0%, rgba(8, 22, 40, 0.8) 100%);
   border-color: var(--cyber-light);
 }
 
@@ -343,17 +445,18 @@ body {
   line-height: 1.35;
 }
 
-/* Pipeline Flows */
+/* ==================== PIPELINE FLOWS ==================== */
 .pipeline-flow {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  background: rgba(14, 23, 41, 0.75);
-  border: 1.5px solid var(--border-subtle);
+  background: linear-gradient(145deg, rgba(8, 24, 16, 0.85) 0%, rgba(4, 14, 9, 0.95) 100%);
+  border: 1.5px solid rgba(16, 185, 129, 0.3);
   border-radius: var(--radius-md);
   padding: 12px 16px;
   margin-bottom: 12px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .pipeline-step {
@@ -368,7 +471,7 @@ body {
   font-size: 24px;
   font-weight: 800;
   font-family: var(--font-mono);
-  color: var(--emerald-light);
+  color: #6ee7b7;
 }
 
 .step-title {
@@ -385,12 +488,13 @@ body {
 
 .pipeline-arrow {
   font-size: 28px;
-  color: var(--emerald-primary);
+  color: #10b981;
   font-weight: 900;
   flex-shrink: 0;
+  text-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
 }
 
-/* Tree Structure / List Nodes */
+/* ==================== TREE STRUCTURE / LIST NODES ==================== */
 .tree-struct {
   display: flex;
   flex-direction: column;
@@ -398,10 +502,11 @@ body {
 }
 
 .tree-node {
-  background: rgba(10, 20, 38, 0.9);
+  background: linear-gradient(145deg, rgba(8, 22, 14, 0.9) 0%, rgba(4, 14, 9, 0.95) 100%);
   border: 1.5px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   padding: 10px 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
 
 .tree-branch-title {
@@ -417,20 +522,23 @@ body {
   line-height: 1.3;
 }
 
-/* Tables */
+/* ==================== TABLES ==================== */
 .calc-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 24px;
   text-align: left;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
 .calc-table th {
-  background: rgba(16, 185, 129, 0.2);
-  color: var(--emerald-light);
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.35) 0%, rgba(5, 150, 105, 0.18) 100%);
+  color: #6ee7b7;
   padding: 10px 14px;
   font-weight: 800;
-  border-bottom: 2px solid var(--border-emerald);
+  border-bottom: 2px solid #10b981;
   font-size: 24px;
 }
 
@@ -439,17 +547,19 @@ body {
   border-bottom: 1px solid var(--border-subtle);
   color: var(--text-main);
   font-size: 24px;
+  background: rgba(6, 18, 12, 0.75);
 }
 
 .calc-table tr.highlight td {
-  background: rgba(16, 185, 129, 0.15);
+  background: rgba(16, 185, 129, 0.16);
   font-weight: bold;
+  color: #ffffff;
 }
 
-/* Banners & Notices */
+/* ==================== BANNERS & NOTICES ==================== */
 .notice-banner {
-  background: rgba(16, 185, 129, 0.12);
-  border-left: 5px solid var(--emerald-primary);
+  background: linear-gradient(145deg, rgba(16, 185, 129, 0.16) 0%, rgba(6, 20, 14, 0.8) 100%);
+  border-left: 5px solid #10b981;
   padding: 10px 16px;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   font-size: 24px;
@@ -458,16 +568,50 @@ body {
 }
 
 .notice-banner.gold {
-  background: rgba(250, 204, 21, 0.1);
+  background: linear-gradient(145deg, rgba(245, 158, 11, 0.14) 0%, rgba(30, 20, 5, 0.8) 100%);
   border-left-color: var(--gold-primary);
+  color: #fef3c7;
 }
 
 .notice-banner.cyan {
-  background: rgba(2, 132, 199, 0.12);
+  background: linear-gradient(145deg, rgba(2, 132, 199, 0.14) 0%, rgba(6, 18, 36, 0.8) 100%);
   border-left-color: var(--cyber-light);
 }
 
-/* Slide 1 Layout & Attribution Bottom Bar */
+/* ==================== METRICS ROW ==================== */
+.metrics-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.metric-card {
+  background: linear-gradient(145deg, rgba(10, 26, 18, 0.85) 0%, rgba(5, 15, 10, 0.95) 100%);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.metric-val {
+  font-size: 46px;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  color: #6ee7b7;
+  line-height: 1.1;
+  text-shadow: 0 0 18px rgba(16, 185, 129, 0.35);
+}
+
+.metric-lbl {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* ==================== SLIDE 1 & SLIDE 15 ATTRIBUTION BARS ==================== */
 .slide-card[data-slide="1"] .slide-content {
   display: flex;
   flex-direction: column;
@@ -513,18 +657,18 @@ body {
   font-size: 24px;
   font-weight: 700;
   text-decoration: none;
-  background: rgba(16, 185, 129, 0.15);
-  border: 1.5px solid var(--emerald-light);
-  color: var(--emerald-light);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.28) 100%);
+  border: 1.5px solid #10b981;
+  color: #6ee7b7;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.25);
   transition: all 0.2s ease;
 }
 
 .whitepaper-badge:hover {
-  background: rgba(16, 185, 129, 0.3);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.35) 0%, rgba(5, 150, 105, 0.45) 100%);
   border-color: #ffffff;
   color: #ffffff;
-  box-shadow: 0 6px 22px rgba(16, 185, 129, 0.45);
+  box-shadow: 0 6px 24px rgba(16, 185, 129, 0.45);
   transform: translateY(-2px);
 }
 
@@ -539,15 +683,15 @@ body {
   line-height: 1.3;
 }
 
-/* Attribution Comprehensive Panel (Slide 15) */
 .attribution-panel {
-  background: rgba(14, 23, 41, 0.95);
+  background: linear-gradient(145deg, rgba(10, 26, 18, 0.95) 0%, rgba(5, 15, 10, 0.98) 100%);
   border: 1.5px solid var(--border-emerald);
   border-radius: var(--radius-md);
   padding: 12px 16px;
   font-size: 24px;
   line-height: 1.35;
   color: var(--text-secondary);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 16px rgba(16, 185, 129, 0.15);
 }
 
 .attribution-panel strong {
@@ -564,35 +708,4 @@ body {
 
 .whitepaper-link:hover {
   color: #ffffff;
-}
-
-/* Metrics bar */
-.metrics-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 14px;
-}
-
-.metric-card {
-  background: rgba(14, 23, 41, 0.85);
-  border: 1.5px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  padding: 12px 16px;
-  text-align: center;
-}
-
-.metric-val {
-  font-size: 46px;
-  font-weight: 900;
-  font-family: var(--font-mono);
-  color: var(--emerald-light);
-  line-height: 1.1;
-}
-
-.metric-lbl {
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--text-secondary);
-  margin-top: 4px;
 }
