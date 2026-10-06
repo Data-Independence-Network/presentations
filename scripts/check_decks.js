@@ -26,8 +26,8 @@ const SLIDE_HEIGHT = 1080;
 
 const LIMITS = {
   slides: 15,
-  narrationPerSlide: { min: 62, max: 75, edgeMax: 90 },
-  narrationTotal: { min: 990, max: 1100, hardMax: 1125 },
+  narrationPerSlide: { min: 62, max: 95, edgeMax: 105 },
+  narrationTotal: { min: 990, max: 1350, hardMax: 1380 },
   visibleWords: { warn: 90, error: 110 },
   titleChars: { warn: 48, error: 60 },
   minBodyFontPx: 24,
@@ -40,6 +40,21 @@ const PROGRAM_NAMES = /Target\w*Id|VoteCube|SQLite|Gravity\s*Balls?|Serendipity|
 const ABSOLUTES = /бесконечн|мгновенн|ни\s+один|ни\s+одн|молниеносн|(?<![\d,.])0\s?%|исключен[оа](?![а-яё])|иммунитет|колоссальн|согласован[оа]?\s+с\s+Банком\s+России/giu;
 const COLLECTIVE_ALLOWED = /^наш[а-яё]*\s+(дет[а-яё]*|стран[а-яё]*|граждан[а-яё]*|сем[а-яё]*|Отечеств[а-яё]*)/iu;
 const ALLOWED_LATIN = new Set(['Claude', 'Sonnet', 'Gemini', 'Flash', 'Antigravity', 'Google', 'DeepMind']);
+const SOVEREIGN_STATE_CONTEXT = /(?:государств[\p{L}]*|росси[\p{L}]*|рф|отечеств[\p{L}]*|национальн[\p{L}]*|стран[\p{L}]*|брикс|еаэс|ведомств[\p{L}]*|юрисдикц[\p{L}]*|межгосударственн[\p{L}]*|силов[\p{L}]*|правопоряд[\p{L}]*)/iu;
+const FORBIDDEN_SOVEREIGN_PHRASES = [
+  /правил[а-яё]*\s+суверенитет[а-яё]*/iu,
+  /суверенитет[а-яё]*\s+персональн[а-яё]*/iu,
+  /суверенитет[а-яё]*\s+личн[а-яё]*/iu,
+  /суверенитет[а-яё]*\s+хранилищ[а-яё]*/iu,
+  /суверенн[а-яё]*\s+органайзер[а-яё]*/iu,
+  /суверенн[а-яё]*\s+хранилищ[а-яё]*/iu,
+  /суверенн[а-яё]*\s+устройств[а-яё]*/iu,
+  /суверенн[а-яё]*\s+смартфон[а-яё]*/iu,
+  /суверенн[а-яё]*\s+граждан[а-яё]*/iu,
+  /разрушает\s+(?:их\s+)?суверенитет/iu,
+  /суверенн[а-яё]*\s+призм[а-яё]*/iu,
+  /суверенн[а-яё]*\s+приложен[а-яё]*/iu
+];
 
 function stripTags(html) {
   return html
@@ -96,6 +111,20 @@ function findCollective(text) {
 
 function findLatin(text) {
   return Array.from(new Set(findMatches(text, /[A-Za-z][A-Za-z-]{3,}/g))).filter(word => !ALLOWED_LATIN.has(word));
+}
+
+function findNonStateSovereignty(slideText) {
+  const issues = [];
+  for (const pattern of FORBIDDEN_SOVEREIGN_PHRASES) {
+    const m = slideText.match(pattern);
+    if (m) issues.push(m[0]);
+  }
+  const sovereignPattern = /(?<![\p{L}])суверен[\p{L}]*(?![\p{L}])/giu;
+  const matches = Array.from(slideText.matchAll(sovereignPattern));
+  if (matches.length > 0 && !SOVEREIGN_STATE_CONTEXT.test(slideText)) {
+    matches.forEach(m => issues.push(m[0] + ' (без контекста государства на слайде)'));
+  }
+  return Array.from(new Set(issues));
 }
 
 function detectProfile(dir, override) {
@@ -157,6 +186,8 @@ function textChecks(dir, profile) {
     const names = findMatches(everything, PROGRAM_NAMES);
     if (names.length) rule(slide.number, `программные и английские названия: ${Array.from(new Set(names)).join(', ')}`);
     if (everything.includes('$')) rule(slide.number, 'знак $ (формулы на слайдах не отрисовываются)');
+    const nonStateSovereignty = findNonStateSovereignty(everything);
+    if (nonStateSovereignty.length) rule(slide.number, `«суверенитет» вне контекста государства: ${nonStateSovereignty.join(', ')}`);
     const absolutes = findMatches(everything, ABSOLUTES);
     if (absolutes.length) report('warn', slide.number, `абсолютные или преувеличенные слова: ${Array.from(new Set(absolutes.map(w => w.toLowerCase()))).join(', ')}`);
     const latin = findLatin(everything);
@@ -164,7 +195,7 @@ function textChecks(dir, profile) {
   }
 
   if (strict) {
-    if (narrationTotal > LIMITS.narrationTotal.hardMax) report('error', null, `дикторский текст ${narrationTotal} слов, предел ${LIMITS.narrationTotal.hardMax} (12:30 при 90 слов в минуту)`);
+    if (narrationTotal > LIMITS.narrationTotal.hardMax) report('error', null, `дикторский текст ${narrationTotal} слов, предел ${LIMITS.narrationTotal.hardMax} (до 15:20 при 90 слов в минуту)`);
     else if (narrationTotal > LIMITS.narrationTotal.max || narrationTotal < LIMITS.narrationTotal.min) {
       report('warn', null, `дикторский текст ${narrationTotal} слов (норма ${LIMITS.narrationTotal.min}–${LIMITS.narrationTotal.max})`);
     }
