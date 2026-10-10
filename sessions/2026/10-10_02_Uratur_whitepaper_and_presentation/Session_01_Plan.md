@@ -74,10 +74,10 @@
 > 2. По завершении группы дел модель отмечает всю группу `[x]`.
 > 3. **Последним обязательным делом в каждой группе является фиксация всех результатов в Git.**
 
-### [ ] Группа задач 1. Подготовка каталога и анализ исходных материалов
-- [ ] **Дело 1.1:** Провести глубокий анализ исходных материалов ([10_05_01_Age_restrictions.md](../../../shared_docs/comments/2026/10_05_01_Age_restrictions.md), [10-06_01_Urarun-Uratur_History.md](../../../shared_docs/comments/2026/10-06_01_Urarun-Uratur_History.md), [GoGetter_Ecosystem_Impact_Guide.md](../../../shared_docs/whitepapers/applications/gogetter/GoGetter_Ecosystem_Impact_Guide.md), [UraTur_Public_Tags_and_Index_Cooperatives.md](../../../shared_docs/whitepapers/applications/uratur/UraTur_Public_Tags_and_Index_Cooperatives.md)).
-- [ ] **Дело 1.2:** Выполнить ревизию каталога [shared_docs/whitepapers/applications/uratur/](../../../shared_docs/whitepapers/applications/uratur/) и обновить [README.md](../../../shared_docs/whitepapers/applications/uratur/README.md) с регистрацией планируемых документов.
-- [ ] **Дело 1.3 (Фиксация в Git):** Сохранение в Git результатов Группы 1 (`git add shared_docs/whitepapers/applications/uratur/ && git commit -m "docs(session-01): группа 1 — аудит и актуализация реестра базы знаний УраТур"`).
+### [x] Группа задач 1. Подготовка каталога и анализ исходных материалов
+- [x] **Дело 1.1:** Провести глубокий анализ исходных материалов ([10_05_01_Age_restrictions.md](../../../shared_docs/comments/2026/10_05_01_Age_restrictions.md), [10-06_01_Urarun-Uratur_History.md](../../../shared_docs/comments/2026/10-06_01_Urarun-Uratur_History.md), [GoGetter_Ecosystem_Impact_Guide.md](../../../shared_docs/whitepapers/applications/gogetter/GoGetter_Ecosystem_Impact_Guide.md), [UraTur_Public_Tags_and_Index_Cooperatives.md](../../../shared_docs/whitepapers/applications/uratur/UraTur_Public_Tags_and_Index_Cooperatives.md)).
+- [x] **Дело 1.2:** Выполнить ревизию каталога [shared_docs/whitepapers/applications/uratur/](../../../shared_docs/whitepapers/applications/uratur/) и обновить [README.md](../../../shared_docs/whitepapers/applications/uratur/README.md) с регистрацией планируемых документов.
+- [x] **Дело 1.3 (Фиксация в Git):** Сохранение в Git результатов Группы 1 (`git add shared_docs/whitepapers/applications/uratur/ && git commit -m "docs(session-01): группа 1 — аудит и актуализация реестра базы знаний УраТур"`).
 
 ---
 
