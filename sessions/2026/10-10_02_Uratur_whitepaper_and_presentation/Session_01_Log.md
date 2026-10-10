@@ -33,7 +33,7 @@
 - **Созданные / изменённые файлы:**
   - [shared_docs/whitepapers/applications/uratur/README.md](../../../shared_docs/whitepapers/applications/uratur/README.md)
 - **Фиксация в Git:**
-  - Хэш коммита: будет зафиксирован после завершения группы
+  - Хэш коммита: `816ed52`
   - Сообщение: `docs(session-01): группа 1 — аудит и актуализация реестра базы знаний УраТур`
 
 ---

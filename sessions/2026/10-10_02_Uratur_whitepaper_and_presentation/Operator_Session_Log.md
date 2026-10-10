@@ -111,7 +111,7 @@
   - [shared_docs/whitepapers/applications/uratur/README.md](../../../shared_docs/whitepapers/applications/uratur/README.md)
   - [Current_Topic_and_process.md](../../Current_Topic_and_process.md)
 - **Фиксация в Git (Commit Checkpoint):**
-  - **Хэш коммита:** будет зафиксирован сразу после коммита
+  - **Хэш коммита:** `816ed52`
   - **Сообщение коммита:** `docs(session-01): шаг 3 оператора и группа 1 — аудит базы знаний и запуск интервью УраТура`
   - **Связь с автономными процессами:** Завершена Группа 1 Ступени 1, начато интервью Группы 2.
 
