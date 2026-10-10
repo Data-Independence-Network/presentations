@@ -50,7 +50,7 @@
   - [01_Child_Protection_Architecture.md](../../../shared_docs/whitepapers/applications/uratur/01_Child_Protection_Architecture.md)
   - [02_Uratur_Family_Age_Differentiation.md](../../../shared_docs/whitepapers/applications/uratur/02_Uratur_Family_Age_Differentiation.md)
 - **Фиксация в Git:**
-  - Хэш коммита: будет зафиксирован после git commit
+  - Хэш коммита: `53e06fc`
   - Сообщение: `docs(session-01): группа 2 — документы по защите детей и семейной дифференциации УраТура`
 
 ---

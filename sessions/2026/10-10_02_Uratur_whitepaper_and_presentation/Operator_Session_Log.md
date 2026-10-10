@@ -154,7 +154,7 @@
   - [shared_docs/whitepapers/applications/uratur/01_Child_Protection_Architecture.md](../../../shared_docs/whitepapers/applications/uratur/01_Child_Protection_Architecture.md)
   - [shared_docs/whitepapers/applications/uratur/02_Uratur_Family_Age_Differentiation.md](../../../shared_docs/whitepapers/applications/uratur/02_Uratur_Family_Age_Differentiation.md)
 - **Фиксация в Git (Commit Checkpoint):**
-  - **Хэш коммита:** будет зафиксирован сразу после коммита
+  - **Хэш коммита:** `53e06fc`
   - **Сообщение коммита:** `docs(session-01): группа 2 — документы по защите детей и семейной дифференциации УраТура`
   - **Связь с автономными процессами:** Завершена Группа 2 Ступени 1, начато интервью Группы 3.
 
