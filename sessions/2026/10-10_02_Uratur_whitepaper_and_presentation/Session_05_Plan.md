@@ -73,11 +73,11 @@
 
 ---
 
-### [ ] Группа задач 3. Стилизация deck.css и проверка Zero-Overflow
-- [ ] **Дело 3.1:** Настроить цветовую схему, биллборд-типографику и разметку карточек в [deck.css](../../../applications_presentations/04_uratur_app_presentation/docs/deck.css).
-- [ ] **Дело 3.2:** Запустить проверку структуры `node scripts/check_decks.js applications_presentations/04_uratur_app_presentation --no-browser`.
-- [ ] **Дело 3.3:** Устранить любые выявленные замечания по тексту или разметке.
-- [ ] **Дело 3.4 (Фиксация в Git):** Сохранение результатов Группы 3 в Git (`git add applications_presentations/04_uratur_app_presentation/docs/deck.css && git commit -m "docs(session-05): группа 3 — isolated-стили deck.css и валидация колоды УраТур"`).
+### [x] Группа задач 3. Стилизация deck.css и проверка Zero-Overflow
+- [x] **Дело 3.1:** Настроить цветовую схему, биллборд-типографику и разметку карточек в [deck.css](../../../applications_presentations/04_uratur_app_presentation/docs/deck.css).
+- [x] **Дело 3.2:** Запустить проверку структуры `node scripts/check_decks.js applications_presentations/04_uratur_app_presentation --no-browser` и проверку в браузере Playwright.
+- [x] **Дело 3.3:** Устранить любые выявленные замечания по тексту или разметке (0 ошибок, 0 предупреждений, 0 переполнений).
+- [x] **Дело 3.4 (Фиксация в Git):** Сохранение результатов Группы 3 в Git (`git add applications_presentations/04_uratur_app_presentation/docs/deck.css && git commit -m "docs(session-05): группа 3 — isolated-стили deck.css и валидация колоды УраТур"`).
 
 ---
 

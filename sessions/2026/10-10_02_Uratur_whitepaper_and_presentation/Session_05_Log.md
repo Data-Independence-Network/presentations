@@ -51,17 +51,22 @@
 - **Созданные / изменённые файлы:**
   - [presentation_deck.md](../../../applications_presentations/04_uratur_app_presentation/docs/presentation_deck.md)
 - **Фиксация в Git:**
+  - Хэш коммита: `8225305`
   - Сообщение: `docs(session-05): группа 2 — разметка 15 слайдов presentation_deck.md УраТур`
 
 ---
 
-### Группа задач 3. Стилизация deck.css и проверка Zero-Overflow
+### [x] Группа задач 3. Стилизация deck.css и проверка Zero-Overflow
 - **Действия и рассуждения:**
-  [Настройка стилей, запуск тестов проверки верстки]
+  1. Разработана полностью автономная и изолированная таблица стилей [deck.css](../../../applications_presentations/04_uratur_app_presentation/docs/deck.css) в строгом соответствии с концепцией двухслойной архитектуры (без затрагивания `deck_core.css`).
+  2. Использована авторская палитра «Тёмный суверенный аметист и изумрудные горные тропы» (`#a855f7`, `#d8b4fe`, `#10b981`, `#6ee7b7`, акценты `#f59e0b`, `#ef4444`, фон `#04060f`).
+  3. Все элементы интерфейса выстроены в биллборд-масштабе: заголовки 50px, подзаголовки 26px, все карточки, бейджи, плашки и подписи $\ge 24$px.
+  4. Проведено автоматическое тестирование через `node scripts/check_decks.js applications_presentations/04_uratur_app_presentation --profile=applications` в безголовом браузере Chromium (Playwright 1920×1080):
+     - Вердикт: `Ошибок: 0; предупреждений: 0; замечаний нет`.
+     - Все 15 слайдов строго удовлетворяют инварианту Zero-Overflow (`scrollHeight <= clientHeight`).
 - **Созданные / изменённые файлы:**
   - [deck.css](../../../applications_presentations/04_uratur_app_presentation/docs/deck.css)
 - **Фиксация в Git:**
-  - Хэш коммита: `...`
   - Сообщение: `docs(session-05): группа 3 — isolated-стили deck.css и валидация колоды УраТур`
 
 ---
