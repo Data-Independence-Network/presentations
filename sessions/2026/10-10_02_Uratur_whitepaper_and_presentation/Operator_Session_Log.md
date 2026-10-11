@@ -382,6 +382,71 @@
   - **Сообщение коммита:** `docs(operator): фиксация успешного завершения Ступени 03 (белая книга 11 УраТур)`
   - **Связь с автономными процессами:** Ступень 3 закрыта в полном объеме, пакет подготовлен к Ступени 4.
 
+---
+
+### Шаг 12. Развёрнутая атрибуция моделей в Белой книге № 11 и успешное завершение Ступени 5 (веб-колода «УраТур»)
+- **Запрос оператора:**
+  > «Отличная работа спасибо. В книге shared_docs/whitepapers/11_uratur_whitepaper.md не указана атрибуция вклада моделей и в создание этой книги и работы проведенной в ступенях 1-3 плана и общей планировки процесса. Можно вы укажите её в соответствии с правилами проекта, пожалуйста?
+  >
+  > После этого можно вы перейдёте к работе над ступенью пять общего плана презентации УраТур пожалуйста?»
+- **Ход рассуждения модели (Gemini 3.8 Flash):**
+  1. **Часть 1. Развёрнутая творческая и исследовательская атрибуция моделей:**
+     - В [11_uratur_whitepaper.md](../../../shared_docs/whitepapers/11_uratur_whitepaper.md) в блоке титульных метаданных и вводном разделе развёрнуто зафиксирован вклад моделей в соответствии с правилами проекта:
+       - *Автор концепции и архитектор платформы «Турбаза»:* Артём Владимирович Шамсутдинов;
+       - *Общее стратегическое планирование и методология процесса:* модель Gemini 3.8 Flash ([Overall_Plan.md](./Overall_Plan.md));
+       - *Ступень 1 (Интервью и первичная база знаний):* модель Gemini 3.8 Flash (создание аналитических материалов в `shared_docs/whitepapers/applications/uratur/`);
+       - *Ступень 2 (Модули, план и аналитический справочник):* модель Claude Sonnet 5.5 (проработка `ПЛАН_11_Уратур.md`, `ИНФОРМАЦИЯ_К_ПЛАНУ_11_Уратур.md` и документа 04 в соавторстве с Gemini 3.8 Flash);
+       - *Ступень 3 (Издательская компиляция и литературная верстка Белой книги № 11):* модель Gemini 3.8 Flash.
+     - Соответствующая атрибуция синхронизирована в сводном реестре [shared_docs/whitepapers/README.md](../../../shared_docs/whitepapers/README.md).
+     - Результаты зафиксированы коммитом `d13cc36`.
+  2. **Часть 2. Переход к Ступени 5 мастер-плана (Сборка веб-презентации «УраТур»):**
+     - Проверен статус предшествующей Ступени 4: детальный мастер-сценарий [ПЛАН_ФИНАЛ_04_УраТур.md](../../../applications_presentations/ПЛАН_ФИНАЛ_04_УраТур.md) был успешно спроектирован Claude Sonnet 5.5 и сохранён в коммите `9afdc47`.
+     - **Группа задач 1 (Очерк структуры presentation_outline.md):**
+       - Проведён анализ расхождений с черновыми файлами `04_uratur_app_presentation`: исключены все рудименты BLE-маяков, локальных нейросетей и комиссий монополий;
+       - Сформирован актуальный структурный очерк на 15 слайдов с единой драматургической линией и паспортом;
+       - Фиксация в Git: коммит `7732024`.
+     - **Группа задач 2 (Разметка 15 слайдов presentation_deck.md):**
+       - Полная переработка файла разметки [presentation_deck.md](../../../applications_presentations/04_uratur_app_presentation/docs/presentation_deck.md) на 15 слайдов строго по Белой книге № 11;
+       - Строгий контроль текстовых лимитов: видимый текст на слайдах $\le 90$ слов (предел 110), дикторский текст откалиброван в границах 62–95 слов на слайд (всего 1009 слов при норме 990–1350);
+       - Исключены корпоративные местоимения («мы/наш»), опасные паттерны «0%» и неразрешённая латиница;
+       - Фиксация в Git: коммит `8225305`.
+     - **Группа задач 3 (Isolated-стили deck.css и верификация Zero-Overflow):**
+       - Разработана автономная таблица стилей [deck.css](../../../applications_presentations/04_uratur_app_presentation/docs/deck.css) в авторской теме «Тёмный суверенный аметист и изумрудные горные тропы» (`#a855f7 / #10b981 / #04060f`);
+       - Строго соблюдены биллборд-масштабы: заголовки 50px, подзаголовки 26px, все карточки, метки и бейджи $\ge 24$px;
+       - Запущен браузерный тест Playwright на разрешении 1920×1080 через `check_decks.js`: получен вердикт `Ошибок: 0; предупреждений: 0; замечаний нет; scrollHeight <= clientHeight` на всех 15 слайдах;
+       - Фиксация в Git: коммит `ffad55c`.
+     - **Группа задач 4 (Метаданные, проверка набора, чеклист и завершение ступени):**
+       - Обновлены файлы [README.md](../../../applications_presentations/04_uratur_app_presentation/README.md) и [AGENTS.md](../../../applications_presentations/04_uratur_app_presentation/AGENTS.md);
+       - В [package.json](../../../applications_presentations/package.json) добавлена цель `check-04` и обновлена общая команда `npm run check`;
+       - Тестирование всего флагманского набора (`npm --prefix applications_presentations run check`) подтвердило идеальное состояние 4 презентаций (01, 02, 03, 04): 0 ошибок, 0 предупреждений;
+       - Заполнен и утверждён чеклист [Session_05_Checklist.md](./Session_05_Checklist.md) с вердиктом `[x] Принято без замечаний`;
+       - В мастер-плане [Overall_Plan.md](./Overall_Plan.md) Ступень 05 отмечена как `[x] Завершена`;
+       - Заполнен протокол [Session_05_Log.md](./Session_05_Log.md) и план [Session_05_Plan.md](./Session_05_Plan.md);
+       - Фиксация в Git: коммит `b0f3f6f`.
+- **Выполненные действия и результат:**
+  - В Белой книге № 11 и общем реестре зафиксирована подробная авторская атрибуция всех участников;
+  - Ступень 05 генерального плана успешно и полностью завершена;
+  - Интерактивная 15-слайдовая веб-колода презентации «УраТур» собрана, стилизована и полностью верифицирована без переполнений и предупреждений;
+  - Пакет задач готов к переходу на **Ступень 6** (Лирическое обогащение, дикторский текст, озвучивание нейросетью Edge Neural TTS и художественное оформление).
+- **Затронутые файлы:**
+  - [shared_docs/whitepapers/11_uratur_whitepaper.md](../../../shared_docs/whitepapers/11_uratur_whitepaper.md)
+  - [shared_docs/whitepapers/README.md](../../../shared_docs/whitepapers/README.md)
+  - [applications_presentations/04_uratur_app_presentation/docs/presentation_outline.md](../../../applications_presentations/04_uratur_app_presentation/docs/presentation_outline.md)
+  - [applications_presentations/04_uratur_app_presentation/docs/presentation_deck.md](../../../applications_presentations/04_uratur_app_presentation/docs/presentation_deck.md)
+  - [applications_presentations/04_uratur_app_presentation/docs/deck.css](../../../applications_presentations/04_uratur_app_presentation/docs/deck.css)
+  - [applications_presentations/04_uratur_app_presentation/README.md](../../../applications_presentations/04_uratur_app_presentation/README.md)
+  - [applications_presentations/04_uratur_app_presentation/AGENTS.md](../../../applications_presentations/04_uratur_app_presentation/AGENTS.md)
+  - [applications_presentations/package.json](../../../applications_presentations/package.json)
+  - [Session_05_Plan.md](./Session_05_Plan.md)
+  - [Session_05_Checklist.md](./Session_05_Checklist.md)
+  - [Session_05_Log.md](./Session_05_Log.md)
+  - [Overall_Plan.md](./Overall_Plan.md)
+  - [Operator_Session_Log.md](./Operator_Session_Log.md)
+- **Фиксация в Git (Commit Checkpoint):**
+  - **Хэш коммита:** `abd5c43`
+  - **Сообщение коммита:** `docs(operator): фиксация завершения Ступени 05 (веб-колода 04 УраТур)`
+  - **Связь с автономными процессами:** Ступень 5 закрыта, пакет подготовлен к Ступени 6.
+
 
 
 
