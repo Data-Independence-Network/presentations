@@ -1,6 +1,6 @@
 # Комплект Белых Книг платформы «Турбаза» (Whitepapers Suite)
 
-Данная директория содержит комплект из **десяти фундаментальных аналитических и научно-технических документов (Whitepapers)**, охватывающих все направления развития платформы «Турбаза» (книги 01–07 оформлены по представительскому полиграфическому стандарту А4, книги 08–10 — в интерактивном формате Markdown для веб-вьюера).
+Данная директория содержит комплект из **одиннадцати фундаментальных аналитических и научно-технических документов (Whitepapers)**, охватывающих все направления развития платформы «Турбаза» (книги 01–07 оформлены по представительскому полиграфическому стандарту А4, книги 08–11 — в интерактивном формате Markdown для веб-вьюера).
 
 Документы разработаны на основе утвержденных планов презентаций, концептуальных заметок разработчика (`shared_docs/comments/`) и результатов экспертного анализа. Документы оформлены для демонстрации государственным регуляторам, финансовым институтам и научному сообществу.
 
@@ -9,7 +9,7 @@
 ## 📚 Состав комплекта
 
 | № | Файл исходного текста | Локальный скомпилированный PDF / Формат | Направление (Track) | Ключевая тематика | Бюджет |
-| :---: | :--- | :--- | :--- | :--- | :---: |
+| :---: | :--- | :--- | :--- | :--- | :--- :--- |
 | **01** | [01_platform_overview_whitepaper.md](01_platform_overview_whitepaper.md) | `01_platform_overview_whitepaper.pdf` | **Обзор платформы** (`platform_overview/`) | Смена парадигмы децентрализации, трехуровневая топология Лист-Ветка-Ствол, данные у владельца и снижение TCO на 90%. | 15 стр. |
 | **02** | [02_applications_suite_whitepaper.md](02_applications_suite_whitepaper.md) | `02_applications_suite_whitepaper.pdf` | **Флагманские приложения** (`applications_presentations/`) | Прикладные алгоритмы: «Деловой», «КубГолос», «Забота», «УраТур», МСП + Branch-шлюзы ЕСИА, СБП и ГИС ЖКХ. | 15 стр. |
 | **03** | [03_engineering_architecture_whitepaper.md](03_engineering_architecture_whitepaper.md) | `03_engineering_architecture_whitepaper.pdf` | **Инженерная архитектура** (`architecture_presentations/`) | Модель данных AirEntity, встраиваемый SQLite на Листе, «читай отовсюду, пиши только своё», Branch Pipeline, P2P, TreeSearch и референс AIRport. | 15 стр. |
@@ -20,6 +20,7 @@
 | **08** | [08_votecube_whitepaper.md](08_votecube_whitepaper.md) | — *(веб-вьюер / Markdown)* | **«КубГолос»** (`shared_docs/whitepapers/`) | «КубГолос» — измерять и складывать: форма многофакторной оценки (100 б.п., две метрики), счётчики на Ветках, блоки эпох, сложение вверх по дереву тем, 3 шкалы консенсуса, слепой ретранслятор. | Markdown (.md) |
 | **09** | [09_sapoto_whitepaper.md](09_sapoto_whitepaper.md) | — *(веб-вьюер / Markdown)* | **«Забота»** (`shared_docs/whitepapers/`) | «Забота» — вкладывать и просматривать: самозапечатывающиеся страницы, треды и 4 вида реплик, свидетельства практического Опыта, открытый социальный рейтинг полезных вкладов по темам, защита от накруток. | Markdown (.md) |
 | **10** | [10_gogetter_whitepaper.md](10_gogetter_whitepaper.md) | — *(веб-вьюер / Markdown)* | **«Деловой»** (`shared_docs/whitepapers/`) | «Деловой» — исполнять и связывать: Дело как автономное хранилище и контракт, многомерные теги, группы опросов, мандатный API поручений, контракты второго уровня (L2), связка двух рейтингов. | Markdown (.md) |
+| **11** | [11_uratur_whitepaper.md](11_uratur_whitepaper.md) | — *(веб-вьюер / Markdown)* | **«УраТур»** (`shared_docs/whitepapers/`) | «УраТур» — находить, беречь и сопровождать: возрастная защита $A_{\text{eff}}$, общественные теги, Leapfrog Triejoin, статистический конвейер (Тоблер, EMA, свет), гибрид с Яндекс Картами, 7 уровней общества. | Markdown (.md) |
 
 ---
 
@@ -27,7 +28,7 @@
 
 В дополнение к фундаментальным 15-страничным Белым Книгам в поддиректории [**`applications/`**](applications/README.md) сформирован детализированный комплекс нормативных архитектурных спецификаций и аналитических руководств по системообразующим сервисам экосистемы:
 
-* [**Головной обзор прикладного стека (`applications/README.md`)**](applications/README.md) — Триада системообразующих приложений (КубГолос $\longleftarrow$ Забота $\longleftarrow$ Деловой), однонаправленная иерархия схем данных и сквозной когнитивный конвейер.
+* [**Головной обзор прикладного стека (`applications/README.md`)**](applications/README.md) — Квартет системообразующих приложений (КубГолос $\longleftrightarrow$ Забота $\longleftrightarrow$ Деловой $\longleftrightarrow$ УраТур), однонаправленная иерархия схем данных и сквозной когнитивный конвейер.
 * [**«КубГолос» (`applications/votecube/`)**](applications/votecube/README.md) — 3D-волеизъявление, распределение 100 б.п., Байесовский многошкальный консенсус (Результат / Эксперты / Народ), нормативная спецификация ([VoteCube_architecture_and_functionality.md](applications/votecube/VoteCube_architecture_and_functionality.md)) и гайд влияния на 7 уровнях общества ([VoteCube_Ecosystem_Impact_Guide.md](applications/votecube/VoteCube_Ecosystem_Impact_Guide.md)).
   - [VoteCube_Role_in_Rating_Infrastructure.md](applications/votecube/VoteCube_Role_in_Rating_Infrastructure.md) — роль «КубГолоса» в системе рейтингов: опросы, счётчики и статистика на Ветках;
 * [**«Забота» (`applications/sapoto/`)**](applications/sapoto/README.md) — Сеть взаимной поддержки и обмена жизненным опытом на местах:
@@ -38,6 +39,15 @@
   - [README.md](applications/sapoto/README.md) и [AGENTS.md](applications/sapoto/AGENTS.md).
 * [**«Деловой» (`applications/gogetter/`)**](applications/gogetter/README.md) — Интеллектуальный органайзер задач и поручений, Матрица Эйзенхауэра 2.0, гравитационные сферы («Gravity Balls»), алгоритм случайного шага (Serendipity Task), композитные внешние ключи, Общественный API и локальная СУБД SQLite с откликом < 1 мс.
   - [GoGetter_Role_in_Rating_Infrastructure.md](applications/gogetter/GoGetter_Role_in_Rating_Infrastructure.md) — роль «Делового» в системе рейтингов: контракты второго уровня, связь рейтингов, теги;
+* [**«УраТур» (`applications/uratur/`)**](applications/uratur/README.md) — Автономный семейный планировщик туризма и бережного природопользования:
+  - [01_Child_Protection_Architecture.md](applications/uratur/01_Child_Protection_Architecture.md) — архитектура возрастной защиты детей на уровне ядра СУБД Листа;
+  - [02_Uratur_Family_Age_Differentiation.md](applications/uratur/02_Uratur_Family_Age_Differentiation.md) — семейная дифференциация, порог по младшему и мульти-хранилищная декомпозиция;
+  - [03_Yandex_Maps_Integration.md](applications/uratur/03_Yandex_Maps_Integration.md) — гибридная интеграция с Яндекс Картами при сохранении тайны частных треков;
+  - [04_Статистические_программные_модули_УраТура.md](applications/uratur/04_Статистические_программные_модули_УраТура.md) — статистический конвейер расчёта ходового времени Тоблера, темпа EMA и захода солнца;
+  - [05_Uratur_History_and_Evolution.md](applications/uratur/05_Uratur_History_and_Evolution.md) — 19-летняя история замысла: от Urarun и симуляции НСНК к мирному спутнику туриста;
+  - [UraTur_Ecosystem_Impact_Guide.md](applications/uratur/UraTur_Ecosystem_Impact_Guide.md) — социально-экономический потенциал на 7 уровнях общества;
+  - [UraTur_Public_Tags_and_Index_Cooperatives.md](applications/uratur/UraTur_Public_Tags_and_Index_Cooperatives.md) — кооперативная сеть общественных тегов и прыжковое пересечение (Leapfrog Triejoin);
+  - [README.md](applications/uratur/README.md);
 * [**Инженерное руководство прикладного стека (`applications/AGENTS.md`)**](applications/AGENTS.md) — Системные инварианты, правила зависимостей схем и стандарты оформления.
 
 ## 🎨 Стандарты визуального оформления и верстки

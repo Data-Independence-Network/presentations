@@ -33,12 +33,13 @@
 | **08** | [`08_votecube_whitepaper.md`](./08_votecube_whitepaper.md) | — *(веб-вьюер / Markdown)* | **«КубГолос» — измерять и складывать:** форма многофакторной оценки (100 б.п., две метрики), счётчики на Ветках, блоки эпох, сложение вверх по дереву тем, три шкалы консенсуса, слепой ретранслятор. | Markdown (.md) |
 | **09** | [`09_sapoto_whitepaper.md`](./09_sapoto_whitepaper.md) | — *(веб-вьюер / Markdown)* | **«Забота» — вкладывать и просматривать:** самозапечатывающиеся страницы, треды и 4 вида реплик, свидетельства практического Опыта, открытый социальный рейтинг полезных вкладов по темам, защита от накруток. | Markdown (.md) |
 | **10** | [`10_gogetter_whitepaper.md`](./10_gogetter_whitepaper.md) | — *(веб-вьюер / Markdown)* | **«Деловой» — исполнять и связывать:** Дело как автономное хранилище и контракт, многомерные теги, группы опросов, мандатный API поручений, контракты второго уровня (L2), связка двух рейтингов. | Markdown (.md) |
+| **11** | [`11_uratur_whitepaper.md`](./11_uratur_whitepaper.md) | — *(веб-вьюер / Markdown)* | **«УраТур» — находить, беречь и сопровождать:** возрастная защита $A_{\text{eff}}$, общественные теги, Leapfrog Triejoin, статистический конвейер (Тоблер, EMA, свет), гибрид с Яндекс Картами, 7 уровней общества. | Markdown (.md) |
 
 ---
 
 ## 📱 Прикладной стек и спецификации сервисов (`applications/`)
 
-В директории [**`applications/`**](./applications/README.md) содержится детальный комплекс нормативных архитектурных спецификаций, DDL-описаний моделей данных и аналитических руководств по триаде системообразующих приложений:
+В директории [**`applications/`**](./applications/README.md) содержится детальный комплекс нормативных архитектурных спецификаций, DDL-описаний моделей данных и аналитических руководств по квартету системообразующих приложений:
 
 * [**`applications/README.md`**](./applications/README.md) — Обзорный манифест прикладного стека и однонаправленной иерархии схем данных.
 * [**`applications/AGENTS.md`**](./applications/AGENTS.md) — Специализированное инженерное руководство по прикладному стеку, правилам схем и инвариантам.
@@ -57,6 +58,15 @@
   - [`GoGetter_Role_in_Rating_Infrastructure.md`](./applications/gogetter/GoGetter_Role_in_Rating_Infrastructure.md) — роль «Делового» в системе рейтингов;
   - [`README.md`](./applications/gogetter/README.md) — концепция, архитектура задач, Матрица 2.0, гравитационные сферы, Serendipity, Общественный API;
   - [`AGENTS.md`](./applications/gogetter/AGENTS.md) — инженерные регламенты и DDL-сущности.
+* [**«УраТур» (`applications/uratur/`)**](./applications/uratur/README.md) — Автономный семейный планировщик туризма и бережного природопользования:
+  - [`01_Child_Protection_Architecture.md`](./applications/uratur/01_Child_Protection_Architecture.md) — архитектура возрастной защиты детей на уровне ядра СУБД Листа;
+  - [`02_Uratur_Family_Age_Differentiation.md`](./applications/uratur/02_Uratur_Family_Age_Differentiation.md) — семейная дифференциация, порог по младшему и мульти-хранилищная декомпозиция;
+  - [`03_Yandex_Maps_Integration.md`](./applications/uratur/03_Yandex_Maps_Integration.md) — гибридная интеграция с Яндекс Картами при сохранении тайны частных треков;
+  - [`04_Статистические_программные_модули_УраТура.md`](./applications/uratur/04_Статистические_программные_модули_УраТура.md) — статистический конвейер расчёта ходового времени Тоблера, темпа EMA и захода солнца;
+  - [`05_Uratur_History_and_Evolution.md`](./applications/uratur/05_Uratur_History_and_Evolution.md) — 19-летняя история замысла: от Urarun и симуляции НСНК к мирному спутнику туриста;
+  - [`UraTur_Ecosystem_Impact_Guide.md`](./applications/uratur/UraTur_Ecosystem_Impact_Guide.md) — социально-экономический потенциал на 7 уровнях общества;
+  - [`UraTur_Public_Tags_and_Index_Cooperatives.md`](./applications/uratur/UraTur_Public_Tags_and_Index_Cooperatives.md) — кооперативная сеть общественных тегов и прыжковое пересечение (Leapfrog Triejoin);
+  - [`README.md`](./applications/uratur/README.md).
 
 ---
 
