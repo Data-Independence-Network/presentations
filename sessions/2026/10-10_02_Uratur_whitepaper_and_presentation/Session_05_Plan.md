@@ -58,10 +58,10 @@
 > 2. По завершении группы дел модель отмечает всю группу `[x]`.
 > 3. **Последним обязательным делом в каждой группе является сохранение всех результатов в Git.**
 
-### [ ] Группа задач 1. Ревизия существующих файлов и согласование структуры
-- [ ] **Дело 1.1:** Проанализировать текущее состояние файлов в `applications_presentations/04_uratur_app_presentation/docs/` и сопоставить с [ПЛАН_ФИНАЛ_04_УраТур.md](../../../applications_presentations/ПЛАН_ФИНАЛ_04_УраТур.md).
-- [ ] **Дело 1.2:** Обновить тематический очерк [presentation_outline.md](../../../applications_presentations/04_uratur_app_presentation/docs/presentation_outline.md) на 15 слайдов.
-- [ ] **Дело 1.3 (Фиксация в Git):** Сохранение результатов Группы 1 в Git (`git add applications_presentations/04_uratur_app_presentation/docs/presentation_outline.md && git commit -m "docs(session-05): группа 1 — очерк структуры презентации УраТур на 15 слайдов"`).
+### [x] Группа задач 1. Ревизия существующих файлов и согласование структуры
+- [x] **Дело 1.1:** Проанализировать текущее состояние файлов в `applications_presentations/04_uratur_app_presentation/docs/` и сопоставить с [ПЛАН_ФИНАЛ_04_УраТур.md](../../../applications_presentations/ПЛАН_ФИНАЛ_04_УраТур.md).
+- [x] **Дело 1.2:** Обновить тематический очерк [presentation_outline.md](../../../applications_presentations/04_uratur_app_presentation/docs/presentation_outline.md) на 15 слайдов.
+- [x] **Дело 1.3 (Фиксация в Git):** Сохранение результатов Группы 1 в Git (`git add applications_presentations/04_uratur_app_presentation/docs/presentation_outline.md && git commit -m "docs(session-05): группа 1 — очерк структуры презентации УраТур на 15 слайдов"`).
 
 ---
 
