@@ -49,7 +49,7 @@
   - [deck.css](../../../applications_presentations/04_uratur_app_presentation/docs/deck.css)
   - [presentation_deck.md](../../../applications_presentations/04_uratur_app_presentation/docs/presentation_deck.md)
 - **Фиксация в Git:**
-  - Хэш коммита: фиксируется коммитом Группы 2
+  - Хэш коммита: `0e0ee32`
   - Сообщение: `docs(session-06): группа 2 — художественное оформление слайдов и авторская атрибуция Gemini Flash`
 
 ---
