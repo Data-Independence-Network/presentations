@@ -200,7 +200,7 @@
   - [shared_docs/whitepapers/applications/uratur/05_Uratur_History_and_Evolution.md](../../../shared_docs/whitepapers/applications/uratur/05_Uratur_History_and_Evolution.md)
   - [shared_docs/whitepapers/applications/uratur/UraTur_logo.png](../../../shared_docs/whitepapers/applications/uratur/UraTur_logo.png)
 - **Фиксация в Git (Commit Checkpoint):**
-  - **Хэш коммита:** будет зафиксирован сразу после коммита
+  - **Хэш коммита:** `3bed44e`
   - **Сообщение коммита:** `docs(session-01): группа 3 — Яндекс Карты, экосистемный гид и историческое развитие УраТура`
   - **Связь с автономными процессами:** Завершена Группа 3 Ступени 1, переход к финальной Группе 4 (верификация и закрытие ступени).
 

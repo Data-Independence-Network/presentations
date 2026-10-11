@@ -72,7 +72,7 @@
   - [05_Uratur_History_and_Evolution.md](../../../shared_docs/whitepapers/applications/uratur/05_Uratur_History_and_Evolution.md)
   - [UraTur_logo.png](../../../shared_docs/whitepapers/applications/uratur/UraTur_logo.png) (добавлен автором)
 - **Фиксация в Git:**
-  - Хэш коммита: будет зафиксирован после git commit
+  - Хэш коммита: `3bed44e`
   - Сообщение: `docs(session-01): группа 3 — Яндекс Карты, экосистемный гид и историческое развитие УраТура`
 
 ---
