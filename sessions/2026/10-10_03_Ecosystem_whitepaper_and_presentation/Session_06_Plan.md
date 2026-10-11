@@ -42,7 +42,8 @@
 ### 3.2. Входные материалы
 - [ПЛАН_12_Экосистема.md](../../../shared_docs/whitepapers/ПЛАН_12_Экосистема.md)
 - [ИНФОРМАЦИЯ_К_ПЛАНУ_12_Экосистема.md](../../../shared_docs/whitepapers/ИНФОРМАЦИЯ_К_ПЛАНУ_12_Экосистема.md)
-- Все исследовательские отчёты из каталогов `repositories/` и `organizations/`.
+- Все исследовательские отчёты из каталогов `repositories/` и `organizations/`;
+- [Local_Services_Cross_App_Code_Implementation_in_AIRport_and_AIRline.md](../../../shared_docs/whitepapers/applications/local_services/Local_Services_Cross_App_Code_Implementation_in_AIRport_and_AIRline.md) — читать вместе с поправками справочника (раздел 8.14, расхождения Р25–Р34); в книге взаимодействие приложений — глава 6 (подразделы 6.2–6.5), среда исполнения и AssemblyScript — подраздел 8.5 главы 8.
 
 ### 3.3. Целевой документ
 - [12_ecosystem_whitepaper.md](../../../shared_docs/whitepapers/12_ecosystem_whitepaper.md)

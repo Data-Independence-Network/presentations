@@ -41,6 +41,7 @@
   - [Local_Services_Cooperative_Economy_and_L1_Contracts.md](../../../shared_docs/whitepapers/applications/local_services/Local_Services_Cooperative_Economy_and_L1_Contracts.md);
   - [Local_Services_Cross_App_Schemas_and_Virtual_Joins.md](../../../shared_docs/whitepapers/applications/local_services/Local_Services_Cross_App_Schemas_and_Virtual_Joins.md);
 - Синергия приложений: [presentation_outline.md](../../../applications_presentations/05_local_services_presentation/docs/presentation_outline.md);
+- Исследование реализации взаимодействия приложений в коде: [Local_Services_Cross_App_Code_Implementation_in_AIRport_and_AIRline.md](../../../shared_docs/whitepapers/applications/local_services/Local_Services_Cross_App_Code_Implementation_in_AIRport_and_AIRline.md) (добавлено по указанию автора 11 октября 2026 года; сверено выборочно с кодом `AIRroot`);
 - Системные модули анализа данных: [04_Статистические_программные_модули_УраТура.md](../../../shared_docs/whitepapers/applications/uratur/04_Статистические_программные_модули_УраТура.md) (раздел 6 о выводе библиотек `@turbase/*` на системный уровень ядра).
 
 ### 3.3. Ключевые архитектурные положения Белой книги № 12
