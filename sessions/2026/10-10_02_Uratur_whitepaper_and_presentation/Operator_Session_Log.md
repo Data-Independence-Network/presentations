@@ -248,7 +248,7 @@
   - [shared_docs/whitepapers/applications/uratur/05_Uratur_History_and_Evolution.md](../../../shared_docs/whitepapers/applications/uratur/05_Uratur_History_and_Evolution.md)
   - [Operator_Session_Log.md](./Operator_Session_Log.md)
 - **Фиксация в Git (Commit Checkpoint):**
-  - **Хэш коммита:** будет зафиксирован сразу после коммита
+  - **Хэш коммита:** `0bb87a2`
   - **Сообщение коммита:** `docs(uratur): уточнение генезиса концепции AR-шлема из симуляции НСНК`
   - **Связь с автономными процессами:** База знаний Ступени 1 полностью выверена и подтверждена автором.
 
