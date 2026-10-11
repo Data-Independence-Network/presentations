@@ -67,11 +67,11 @@
 
 ---
 
-### [ ] Группа задач 3. Синтез нейроаудио и автоматическая верификация Zero-Overflow
-- [ ] **Дело 3.1:** Выполнить генерацию мастер-аудиофайлов в `applications_presentations/04_uratur_app_presentation/generated/artifacts/audio/` голосом `ru-RU-DmitryNeural`.
-- [ ] **Дело 3.2:** Запустить сборку и проверку `node scripts/check_decks.js applications_presentations/04_uratur_app_presentation`.
-- [ ] **Дело 3.3:** Убедиться в полном отсутствии вертикальных переполнений (Zero-Overflow: 0 пикселей переполнения на всех 15 слайдах при 1920×1080).
-- [ ] **Дело 3.4 (Фиксация в Git):** Сохранение результатов Группы 3 в Git (`git add applications_presentations/04_uratur_app_presentation/generated/artifacts/audio/ && git commit -m "feat(session-06): группа 3 — синтез мастер-аудио и проверка Zero-Overflow УраТур"`).
+### [x] Группа задач 3. Синтез нейроаудио и автоматическая верификация Zero-Overflow
+- [x] **Дело 3.1:** Выполнить генерацию мастер-аудиофайлов в `applications_presentations/04_uratur_app_presentation/generated/artifacts/audio/` голосом `ru-RU-DmitryNeural`.
+- [x] **Дело 3.2:** Запустить сборку и проверку `node scripts/check_decks.js applications_presentations/04_uratur_app_presentation`.
+- [x] **Дело 3.3:** Убедиться в полном отсутствии вертикальных переполнений (Zero-Overflow: 0 пикселей переполнения на всех 15 слайдах при 1920×1080).
+- [x] **Дело 3.4 (Фиксация в Git):** Сохранение результатов Группы 3 в Git (`git add applications_presentations/04_uratur_app_presentation/generated/artifacts/audio/ && git commit -m "feat(session-06): группа 3 — синтез мастер-аудио и проверка Zero-Overflow УраТур"`).
 
 ---
 

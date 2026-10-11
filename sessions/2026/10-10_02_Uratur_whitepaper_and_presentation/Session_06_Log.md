@@ -54,13 +54,21 @@
 
 ---
 
-### Группа задач 3. Синтез нейроаудио и автоматическая верификация Zero-Overflow
+### [x] Группа задач 3. Синтез нейроаудио и автоматическая верификация Zero-Overflow
 - **Действия и рассуждения:**
-  [Синтез аудио DmitryNeural, запуск тестов check-decks, проверка 0 переполнений]
+  1. Выполнен полный цикл синтеза мастер-аудиофайлов в каталоге `applications_presentations/04_uratur_app_presentation/generated/artifacts/audio/` для всех 15 слайдов голосом `ru-RU-DmitryNeural` (`rate: -9%`, `pitch: -5Hz`).
+  2. В связи с особенностями закрытия веб-сокетов сторонней библиотеки `node-edge-tts` усовершенствован модуль [scripts/core/tts_generator.js](../../../scripts/core/tts_generator.js): введена гарантированная предварительная привязка события `finish` файлового потока до вызова `end()`, добавлены экспоненциальные повторные попытки (до 8 раз) и немедленный перехват кодов закрытия сокета без зависаний.
+  3. Суммарный хронометраж звучания колоды составил **15 минут 49 секунд** (чистая речь 14:48 + нормативные паузы), что полностью удовлетворяет проектному требованию «свыше 15 минут» для глубокого и спокойного восприятия.
+  4. Автоматически собраны 15 скриншотов высокого разрешения 1920×1080 в `generated/artifacts/slides_png/`, буклет раздаточных материалов [04_uratur_app_notes.pdf](../../../applications_presentations/04_uratur_app_presentation/generated/outputs/pdf/04_uratur_app_notes.pdf) и все 3 видеопрофиля MP4 (EMAIL, 10MB, MASTER).
+  5. Прогон валидаторов `node scripts/check_decks.js applications_presentations/04_uratur_app_presentation` и `npm --prefix applications_presentations run check` подтвердил идеальное соблюдение всех инвариантов: 0 ошибок, 0 предупреждений, 0 пикселей вертикального переполнения (`scrollHeight <= clientHeight` на всех 15 слайдах).
 - **Созданные / изменённые файлы:**
-  - `applications_presentations/04_uratur_app_presentation/generated/artifacts/audio/*.mp3`
+  - `applications_presentations/04_uratur_app_presentation/generated/artifacts/audio/slide_01.mp3` ... `slide_15.mp3`
+  - [scripts/core/tts_generator.js](../../../scripts/core/tts_generator.js)
+  - `applications_presentations/04_uratur_app_presentation/generated/outputs/web_deck/index.html`
+  - `applications_presentations/04_uratur_app_presentation/generated/outputs/web_deck/deck.css`
+  - `index.html`
 - **Фиксация в Git:**
-  - Хэш коммита: `...`
+  - Хэш коммита: фиксируется коммитом Группы 3
   - Сообщение: `feat(session-06): группа 3 — синтез мастер-аудио и проверка Zero-Overflow УраТур`
 
 ---

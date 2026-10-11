@@ -226,27 +226,112 @@ async function synthesizeSegment(text, filePath, options = {}) {
   const pitch = options.pitch || '-5Hz';
   const rate = options.rate || '-9%';
 
-  for (let attempt = 1; attempt <= 6; attempt++) {
+  for (let attempt = 1; attempt <= 8; attempt++) {
     const tts = new EdgeTTS({
       voice,
       lang: 'ru-RU',
       outputFormat: 'audio-24khz-96kbitrate-mono-mp3',
       pitch,
       rate,
-      timeout: 60000,
+      timeout: 45000,
     });
     try {
-      await tts.ttsPromise(text, filePath);
-      const fs = require('fs');
+      const _wsConnect = await tts._connectWebSocket();
+      await new Promise((resolve, reject) => {
+        const audioStream = fs.createWriteStream(filePath);
+        let finished = false;
+        let timeout = setTimeout(() => {
+          if (!finished) {
+            finished = true;
+            try { _wsConnect.close(); } catch (e) {}
+            reject(new Error('Timed out'));
+          }
+        }, 45000);
+
+        audioStream.on('finish', () => {
+          if (!finished) {
+            finished = true;
+            clearTimeout(timeout);
+            try { _wsConnect.close(); } catch (e) {}
+            resolve();
+          }
+        });
+
+        audioStream.on('error', err => {
+          if (!finished) {
+            finished = true;
+            clearTimeout(timeout);
+            try { _wsConnect.close(); } catch (e) {}
+            reject(err);
+          }
+        });
+
+        _wsConnect.on('error', err => {
+          if (!finished) {
+            finished = true;
+            clearTimeout(timeout);
+            try { audioStream.end(); } catch (e) {}
+            reject(err);
+          }
+        });
+
+        _wsConnect.on('close', (code, reason) => {
+          if (!finished) {
+            setTimeout(() => {
+              if (!finished) {
+                finished = true;
+                clearTimeout(timeout);
+                if (fs.existsSync(filePath) && fs.statSync(filePath).size > 100) {
+                  resolve();
+                } else {
+                  reject(new Error(`WebSocket closed (${code})`));
+                }
+              }
+            }, 300);
+          }
+        });
+
+        _wsConnect.on('message', (data, isBinary) => {
+          if (isBinary) {
+            const separator = 'Path:audio\r\n';
+            const index = data.indexOf(separator);
+            if (index !== -1) {
+              const audioData = data.subarray(index + separator.length);
+              audioStream.write(audioData);
+            }
+          } else {
+            const message = data.toString();
+            if (message.includes('Path:turn.end')) {
+              audioStream.end();
+            }
+          }
+        });
+
+        const requestId = crypto.randomBytes(16).toString('hex');
+        const escapedText = text.replace(/[<>&"']/g, c => {
+          switch (c) {
+            case '<': return '&lt;';
+            case '>': return '&gt;';
+            case '&': return '&amp;';
+            case '"': return '&quot;';
+            case "'": return '&apos;';
+            default: return c;
+          }
+        });
+        const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="ru-RU"><voice name="${voice}"><prosody rate="${rate}" pitch="${pitch}" volume="default">${escapedText}</prosody></voice></speak>`;
+        _wsConnect.send(`X-RequestId:${requestId}\r\nContent-Type:application/ssml+xml\r\nPath:ssml\r\n\r\n` + ssml);
+      });
+
       if (fs.existsSync(filePath) && fs.statSync(filePath).size > 100) {
         return true;
       }
       throw new Error('File empty');
     } catch (err) {
-      if (attempt === 6) {
+      const reason = err ? (err.message || String(err)) : 'unknown';
+      if (attempt === 8) {
         const fatalErr = new Error(
           `\n[❌] FATAL ERROR: Audio synthesis failed for text: "${text.slice(0, 60)}..."\n` +
-          `    Reason: ${err.message}\n` +
+          `    Reason: ${reason}\n` +
           `    Key file verified: ${options.keyFile || 'text_to_speech_mcp_Open_API_key.txt'}\n` +
           `    Stopping all audio synthesis and halting parent build pipelines immediately.\n`
         );
@@ -254,7 +339,8 @@ async function synthesizeSegment(text, filePath, options = {}) {
         fatalErr.originalError = err;
         throw fatalErr;
       }
-      await new Promise(r => setTimeout(r, 1500));
+      console.warn(`[⚠️] Segment synthesis attempt ${attempt}/8 failed (${reason}), retrying in ${(attempt * 2)}s...`);
+      await new Promise(r => setTimeout(r, attempt * 2000));
     }
   }
 }
@@ -321,7 +407,7 @@ async function generateSlideAudio(slideNum, segmentsOrText, options = {}) {
     
     await synthesizeSegment(seg.text, segFile, options);
     concatFiles.push(segFile);
-    await new Promise(r => setTimeout(r, 350));
+    await new Promise(r => setTimeout(r, 600));
 
     if (seg.pauseAfter > 0) {
       const silenceFile = ensureSilenceClip(seg.pauseAfter, tempDir);
