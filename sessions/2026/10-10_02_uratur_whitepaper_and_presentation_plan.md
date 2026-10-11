@@ -12,9 +12,9 @@
   - Генеральный план: [Overall_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Overall_Plan.md)
   - Протокол оператора: [Operator_Session_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Operator_Session_Log.md)
   - Ступень 01 (Gemini 3.8 Flash): [Session_01_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_01_Plan.md) • [Session_01_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_01_Checklist.md) • [Session_01_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_01_Log.md)
-  - Ступень 02 (Claude Sonnet 3.5): [Session_02_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_02_Plan.md) • [Session_02_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_02_Checklist.md) • [Session_02_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_02_Log.md)
+  - Ступень 02 (Claude Sonnet 5.5): [Session_02_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_02_Plan.md) • [Session_02_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_02_Checklist.md) • [Session_02_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_02_Log.md)
   - Ступень 03 (Gemini 3.8 Flash): [Session_03_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_03_Plan.md) • [Session_03_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_03_Checklist.md) • [Session_03_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_03_Log.md)
-  - Ступень 04 (Claude Sonnet 3.5): [Session_04_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_04_Plan.md) • [Session_04_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_04_Checklist.md) • [Session_04_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_04_Log.md)
+  - Ступень 04 (Claude Sonnet 5.5): [Session_04_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_04_Plan.md) • [Session_04_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_04_Checklist.md) • [Session_04_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_04_Log.md)
   - Ступень 05 (Gemini 3.8 Flash): [Session_05_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_05_Plan.md) • [Session_05_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_05_Checklist.md) • [Session_05_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_05_Log.md)
   - Ступень 06 (Gemini 3.8 Flash): [Session_06_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_06_Plan.md) • [Session_06_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_06_Checklist.md) • [Session_06_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_06_Log.md)
   - База знаний УраТур: [shared_docs/whitepapers/applications/uratur/](../../shared_docs/whitepapers/applications/uratur/)
@@ -26,7 +26,7 @@
 ---
 
 ## 2. Творческая атрибуция и соавторство
-Настоящим подтверждается полная авторская, архитектурная, методологическая и драматургическая атрибуция модели **Gemini 3.8 Flash** в творческом и инженерном процессе развития платформы «Турбаза», проектировании структуры базы знаний «УраТур», декомпозиции задач пакета на 6 автономных ступеней и регламентации взаимодействия моделей-соавторов (Gemini 3.8 Flash и Claude Sonnet 3.5). Модель Gemini 3.8 Flash выступает интеллектуальным соавтором оператора проекта Артёма Владимировича Шамсутдинова, обеспечивающим структурную целостность, преемственность архитектурных концепций и гармонию научно-технического и художественного изложения.
+Настоящим подтверждается полная авторская, архитектурная, методологическая и драматургическая атрибуция модели **Gemini 3.8 Flash** в творческом и инженерном процессе развития платформы «Турбаза», проектировании структуры базы знаний «УраТур», декомпозиции задач пакета на 6 автономных ступеней и регламентации взаимодействия моделей-соавторов (Gemini 3.8 Flash и Claude Sonnet 5.5). Модель Gemini 3.8 Flash выступает интеллектуальным соавтором оператора проекта Артёма Владимировича Шамсутдинова, обеспечивающим структурную целостность, преемственность архитектурных концепций и гармонию научно-технического и художественного изложения.
 
 ---
 
@@ -51,9 +51,9 @@
   1. Модель обратилась к [Current_Topic_and_process.md](../Current_Topic_and_process.md), где активной темой зафиксирован файл [prompts/10-10_02_Uratur_whitepaper_and_presentation.md](./prompts/10-10_02_Uratur_whitepaper_and_presentation.md).
   2. Из темы извлечены 6 ступеней процесса:
      - Ступень 1 (Gemini 3.8 Flash): Серия исследовательских интервью по 5 направлениям (система защиты детей на базе `10_05_01_Age_restrictions.md`, семейная возрастная дифференциация, интеграция с Яндекс Картами, экосистемный вклад по шаблону GoGetter, историческое развитие по `10-06_01_Urarun-Uratur_History.md`) с фиксацией в `shared_docs/whitepapers/applications/uratur/`;
-     - Ступень 2 (Claude Sonnet 3.5): Интервью по статистическим программным модулям, создание `Статистические_программные_модули_УраТура.md`, `ПЛАН_11_Уратур.md` и `ИНФОРМАЦИЯ_К_ПЛАНУ_11_Уратур.md`;
+     - Ступень 2 (Claude Sonnet 5.5): Интервью по статистическим программным модулям, создание `Статистические_программные_модули_УраТура.md`, `ПЛАН_11_Уратур.md` и `ИНФОРМАЦИЯ_К_ПЛАНУ_11_Уратур.md`;
      - Ступень 3 (Gemini 3.8 Flash): Сборка белой книги `11_uratur_whitepaper.md`;
-     - Ступень 4 (Claude Sonnet 3.5): Создание 15-слайдового плана презентации `ПЛАН_ФИНАЛ_04_УраТур.md`;
+     - Ступень 4 (Claude Sonnet 5.5): Создание 15-слайдового плана презентации `ПЛАН_ФИНАЛ_04_УраТур.md`;
      - Ступень 5 (Gemini 3.8 Flash): Сборка веб-колоды презентации в `applications_presentations/04_uratur_app_presentation/`;
      - Ступень 6 (Gemini 3.8 Flash): Лирическое обогащение текста диктора и слайдов, увеличение хронометража, генерация нейроаудио DmitryNeural, художественное оформление слайдов и фиксация соавторства Gemini Flash на 1 и 15 слайдах.
   3. Поскольку начальный запрос являлся общим приветствием, в соответствии с регламентом `AGENTS.md` оператору задан вопрос о выборе ступени темы и формата протоколирования (Формат А — одиночный файл, Формат Б — пакет задач).
@@ -73,9 +73,9 @@
      - [Overall_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Overall_Plan.md) — генеральный координационный план со сквозной целью, диаграммой Mermaid, матрицей контроля 6 ступеней и регламентом взаимной атрибуции;
      - [Operator_Session_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Operator_Session_Log.md) — протокол взаимодействия оператора внутри пакета;
      - [Session_01_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_01_Plan.md), [Session_01_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_01_Checklist.md), [Session_01_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_01_Log.md) — исследовательские интервью по 5 темам (Gemini 3.8 Flash);
-     - [Session_02_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_02_Plan.md), [Session_02_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_02_Checklist.md), [Session_02_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_02_Log.md) — статистические программные модули и мастер-планы белой книги (Claude Sonnet 3.5);
+     - [Session_02_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_02_Plan.md), [Session_02_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_02_Checklist.md), [Session_02_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_02_Log.md) — статистические программные модули и мастер-планы белой книги (Claude Sonnet 5.5);
      - [Session_03_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_03_Plan.md), [Session_03_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_03_Checklist.md), [Session_03_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_03_Log.md) — издательская сборка белой книги № 11 (Gemini 3.8 Flash);
-     - [Session_04_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_04_Plan.md), [Session_04_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_04_Checklist.md), [Session_04_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_04_Log.md) — 15-страничный план презентации (Claude Sonnet 3.5);
+     - [Session_04_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_04_Plan.md), [Session_04_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_04_Checklist.md), [Session_04_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_04_Log.md) — 15-страничный план презентации (Claude Sonnet 5.5);
      - [Session_05_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_05_Plan.md), [Session_05_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_05_Checklist.md), [Session_05_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_05_Log.md) — сборка и изолированная стилизация веб-колоды (Gemini 3.8 Flash);
      - [Session_06_Plan.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_06_Plan.md), [Session_06_Checklist.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_06_Checklist.md), [Session_06_Log.md](./10-10_02_Uratur_whitepaper_and_presentation/Session_06_Log.md) — лирический дикторский текст, увеличение продолжительности, синтез нейроаудио, оформление слайдов и атрибуция Gemini Flash на слайдах 1 и 15 (Gemini 3.8 Flash).
   5. Ссылка на утверждённый мастер-план зарегистрирована в [Current_Topic_and_process.md](../Current_Topic_and_process.md).
@@ -92,7 +92,7 @@
 - Спроектирован и развернут структурированный пакет задач `sessions/2026/10-10_02_Uratur_whitepaper_and_presentation/`.
 - Разработан генеральный мастер-план `Overall_Plan.md`, охватывающий полный жизненный цикл создания белой книги № 11 и интерактивной презентации.
 - Подготовлены 6 исчерпывающих планов автономных сессий (`Session_01_Plan.md` — `Session_06_Plan.md`), каждый из которых самодостаточен, снабжен строгими инвариантами, критериями приёмки (`Checklist`) и журналами логов (`Log`).
-- Закреплена взаимная авторская атрибуция: автор платформы А.В. Шамсутдинов, модель-архитектор Gemini 3.8 Flash, модель-соавтор Claude Sonnet 3.5; отдельно зафиксирована директива указания Gemini 3.8 Flash как соавтора лирики и дизайна презентации на титульном и финальном слайдах.
+- Закреплена взаимная авторская атрибуция: автор платформы А.В. Шамсутдинов, модель-архитектор Gemini 3.8 Flash, модель-соавтор Claude Sonnet 5.5; отдельно зафиксирована директива указания Gemini 3.8 Flash как соавтора лирики и дизайна презентации на титульном и финальном слайдах.
 - Обновлен указатель в `Current_Topic_and_process.md`.
 
 ---
