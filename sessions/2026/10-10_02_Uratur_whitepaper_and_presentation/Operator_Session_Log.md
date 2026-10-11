@@ -268,7 +268,7 @@
   - [shared_docs/whitepapers/applications/uratur/05_Uratur_History_and_Evolution.md](../../../shared_docs/whitepapers/applications/uratur/05_Uratur_History_and_Evolution.md)
   - [Operator_Session_Log.md](./Operator_Session_Log.md)
 - **Фиксация в Git (Commit Checkpoint):**
-  - **Хэш коммита:** будет зафиксирован сразу после коммита
+  - **Хэш коммита:** `49ba4a5`
   - **Сообщение коммита:** `docs(uratur): 19 лет замыслу — фиксация первой идеи создания программы автора`
   - **Связь с автономными процессами:** Ступень 1 обогащена подлинным историческим контекстом и полностью готова к Ступени 2.
 
