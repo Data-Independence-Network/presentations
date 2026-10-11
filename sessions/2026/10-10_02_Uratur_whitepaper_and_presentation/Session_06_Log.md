@@ -35,19 +35,21 @@
 - **Созданные / изменённые файлы:**
   - [presentation_deck.md](../../../applications_presentations/04_uratur_app_presentation/docs/presentation_deck.md)
 - **Фиксация в Git:**
-  - Хэш коммита: фиксируется коммитом Группы 1
+  - Хэш коммита: `cd677cb`
   - Сообщение: `docs(session-06): группа 1 — лирический дикторский текст и расширение хронометража УраТур`
 
 ---
 
-### Группа задач 2. Художественное оформление слайдов и интеграция плашек авторства
+### [x] Группа задач 2. Художественное оформление слайдов и интеграция плашек авторства
 - **Действия и рассуждения:**
-  [Художественное оформление карточек, палитры в deck.css, добавление авторской атрибуции на слайдах 1 и 15]
+  1. Выполнена художественная доводка таблиц стилей в [deck.css](../../../applications_presentations/04_uratur_app_presentation/docs/deck.css): усилена глубина теней и неоновых подсветок уральской природы (аметистовый сумрак `#04060f`, хвойные изумрудные тона `#10b981`, золотистый янтарь `#f59e0b`).
+  2. На Слайде 1 (титульном) и Слайде 15 (паспортном) в файле [presentation_deck.md](../../../applications_presentations/04_uratur_app_presentation/docs/presentation_deck.md) и в стилях `deck.css` оформлена и закреплена обязательная авторская атрибуция модели Gemini 3.8 Flash как соавтора лирической драматургии и художественного оформления (вместе с автором концепции А.В. Шамсутдиновым и моделью Claude Sonnet 5.5).
+  3. В браузерном тестировании через Playwright (`node scripts/check_decks.js applications_presentations/04_uratur_app_presentation`) подтверждено сохранение полного отсутствия переполнений (Zero-Overflow, `scrollHeight <= clientHeight`) при разрешении 1920×1080.
 - **Созданные / изменённые файлы:**
   - [deck.css](../../../applications_presentations/04_uratur_app_presentation/docs/deck.css)
   - [presentation_deck.md](../../../applications_presentations/04_uratur_app_presentation/docs/presentation_deck.md)
 - **Фиксация в Git:**
-  - Хэш коммита: `...`
+  - Хэш коммита: фиксируется коммитом Группы 2
   - Сообщение: `docs(session-06): группа 2 — художественное оформление слайдов и авторская атрибуция Gemini Flash`
 
 ---
