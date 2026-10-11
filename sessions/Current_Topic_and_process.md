@@ -15,7 +15,7 @@
 Ниже указан актуальный файл темы (оператор может изменить путь на любой другой файл или указать список из нескольких файлов):
 
 - **Файл активной темы и процесса:**
-  [10-10_03_Ecosystem_whitepaper_and_presentation](./2026/prompts/10-10_03_Ecosystem_whitepaper_and_presentation.md)
+  [10-10_03_Ecosystem_whitepaper_and_presentation-Overall_Plan](./2026/10-10_03_Ecosystem_whitepaper_and_presentation/Overall_Plan.md)
 - **Активный генеральный мастер-план пакета задач:**
   [Overall_Plan.md](./2026/10-10_03_Ecosystem_whitepaper_and_presentation/Overall_Plan.md)
 
