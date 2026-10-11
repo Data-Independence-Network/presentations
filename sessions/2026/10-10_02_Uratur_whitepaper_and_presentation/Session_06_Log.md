@@ -15,7 +15,7 @@
 - **План сессии:** [Session_06_Plan.md](./Session_06_Plan.md)
 - **Чеклист приёмки:** [Session_06_Checklist.md](./Session_06_Checklist.md)
 - **Мастер-план:** [Overall_Plan.md](./Overall_Plan.md)
-- **Статус выполнения:** `[ ] В работе (Gemini 3.8 Flash)`
+- **Статус выполнения:** `[x] Завершена успешно (Gemini 3.8 Flash)`
 
 ---
 
@@ -68,23 +68,41 @@
   - `applications_presentations/04_uratur_app_presentation/generated/outputs/web_deck/deck.css`
   - `index.html`
 - **Фиксация в Git:**
-  - Хэш коммита: фиксируется коммитом Группы 3
+  - Хэш коммита: `fc18773`
   - Сообщение: `feat(session-06): группа 3 — синтез мастер-аудио и проверка Zero-Overflow УраТур`
 
 ---
 
-### Группа задач 4. Итоговая приёмка, оформление лога и завершение пакета задач
+### [x] Группа задач 4. Итоговая приёмка, оформление лога и завершение пакета задач
 - **Действия и рассуждения:**
-  [Финальная сводка метрик, заполнение чеклиста, отметка в Overall_Plan.md]
+  1. Выверены все количественные и качественные метрики созданной презентации «УраТур»:
+     - Количество слайдов: ровно 15 (все 15 оформлены в соответствии с Белой книгой № 11);
+     - Объем дикторского текста: 1393 слова (от 91 до 102 слов на слайд);
+     - Хронометраж звучания видео: **15 минут 49 секунд** (> 15 минут);
+     - Объем видимого текста на слайдах: $\le 90$ слов на слайд (предел 110 слов);
+     - Статус верификации `check-decks`: 0 ошибок, 0 предупреждений, 0 переполнений (`scrollHeight <= clientHeight`);
+     - Проверка всего набора флагманских приложений (`npm --prefix applications_presentations run check`): 4 презентации (01, 02, 03, 04) прошли со статусом 0 ошибок, 0 предупреждений.
+  2. Заполнен и утвержден контрольный чеклист [Session_06_Checklist.md](./Session_06_Checklist.md) с вердиктом `[x] Принято без замечаний`.
+  3. В мастер-плане [Overall_Plan.md](./Overall_Plan.md) Ступень 06 отмечена как `[x] Завершена`, а весь пакет задач переведен в статус `[x] Завершён полностью`.
+  4. Зафиксировано и сохранено чистое состояние рабочей директории в Git.
+- **Созданные / изменённые файлы:**
+  - [Session_06_Checklist.md](./Session_06_Checklist.md)
+  - [Session_06_Plan.md](./Session_06_Plan.md)
+  - [Overall_Plan.md](./Overall_Plan.md)
+  - [Session_06_Log.md](./Session_06_Log.md)
 - **Фиксация в Git:**
-  - Хэш коммита: `...`
+  - Хэш коммита: фиксируется финальным коммитом Группы 4
   - Сообщение: `docs(session-06): завершение Ступени 06 — презентация 04 УраТур полностью завершена и озвучена`
 
 ---
 
-## 4. Сводный реестр созданных артефактов
-- `applications_presentations/04_uratur_app_presentation/docs/presentation_deck.md`
-- `applications_presentations/04_uratur_app_presentation/docs/deck.css`
-- `applications_presentations/04_uratur_app_presentation/generated/artifacts/audio/*.mp3`
-- `applications_presentations/04_uratur_app_presentation/generated/outputs/web_deck/index.html`
-- `Overall_Plan.md` (отметка завершения)
+## 4. Сводный реестр созданных и обновлённых артефактов
+- Разметка колоды с лирическим текстом: [presentation_deck.md](../../../applications_presentations/04_uratur_app_presentation/docs/presentation_deck.md)
+- Изолированная таблица стилей: [deck.css](../../../applications_presentations/04_uratur_app_presentation/docs/deck.css)
+- Комплект мастер-аудиодорожек: `applications_presentations/04_uratur_app_presentation/generated/artifacts/audio/slide_01.mp3` ... `slide_15.mp3`
+- Интерактивная веб-колода: [index.html](../../../applications_presentations/04_uratur_app_presentation/generated/outputs/web_deck/index.html)
+- Буклет раздаточных материалов: [04_uratur_app_notes.pdf](../../../applications_presentations/04_uratur_app_presentation/generated/outputs/pdf/04_uratur_app_notes.pdf)
+- Генеральный координационный мастер-план: [Overall_Plan.md](./Overall_Plan.md)
+- План автономной сессии 06: [Session_06_Plan.md](./Session_06_Plan.md)
+- Контрольный лист верификации: [Session_06_Checklist.md](./Session_06_Checklist.md)
+- Протокол сессии: [Session_06_Log.md](./Session_06_Log.md)
