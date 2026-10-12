@@ -97,7 +97,7 @@
   - [Session_05_Plan.md](./Session_05_Plan.md) • [Session_05_Checklist.md](./Session_05_Checklist.md) • [Session_05_Log.md](./Session_05_Log.md)
   - [Current_Topic_and_process.md](../../Current_Topic_and_process.md)
 - **Фиксация в Git (Commit Checkpoint):**
-  - **Хэш коммита:** `609f017`
+  - **Хэш коммита:** `67ecf10`
   - **Сообщение коммита:** `docs(session): 10-12_01 шаг 2 — создание мастер-плана и планов автономных сессий пакета задач`
   - **Связь с автономными процессами:** Заложена основа для старта Ступени 01
 
@@ -108,7 +108,7 @@
 | Шаг | Хэш коммита | Сообщение коммита | Изменённые файлы | Статус проверки |
 | :---: | :---: | :--- | :--- | :---: |
 | 1 | — | *(первый ответ, запрос выбора формата)* | — | ✓ ОК |
-| 2 | `609f017` | `docs(session): 10-12_01 шаг 2 — создание мастер-плана и планов автономных сессий пакета задач` | `Overall_Plan.md`, `Operator_Session_Log.md`, `Session_0X_*.md`, `Current_Topic_and_process.md` | ✓ ОК |
+| 2 | `67ecf10` | `docs(session): 10-12_01 шаг 2 — создание мастер-плана и планов автономных сессий пакета задач` | `Overall_Plan.md`, `Operator_Session_Log.md`, `Session_0X_*.md`, `Current_Topic_and_process.md` | ✓ ОК |
 
 ---
 
