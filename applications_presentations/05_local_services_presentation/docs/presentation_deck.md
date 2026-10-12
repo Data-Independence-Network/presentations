@@ -1,1015 +1,792 @@
 ---
 presentation_id: "05_local_services_presentation"
 title: "Платформа «Турбаза»"
-subtitle: "Локальный реестр МСП и ЖКХ: Прикладная синергия экосистемы Турбазы"
+subtitle: "Экосистема: хранилища, неограниченное число приложений, общие модули и кооперативный строй"
 header_title: "ТУРБАЗА"
-header_subtitle: "Реестр МСП и Синергия"
+header_subtitle: "Экосистема платформы"
 theme: "platform_overview"
 total_slides: 15
 voice: "ru-RU-DmitryNeural"
 pitch: "-5Hz"
 rate: "-9%"
+author: "Артём Владимирович Шамсутдинов"
+planning: "Claude Sonnet 5.5"
+elaboration: "Gemini 3.8 Flash"
+status: "финальная веб-колода"
+version: "1.0 (2026)"
+book: "shared_docs/whitepapers/12_ecosystem_whitepaper.md"
 ---
 
 <!-- slide: 1 -->
 <div class="slide-content">
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ПРИКЛАДНЫЕ СЕРВИСЫ</div>
-    <h1 class="slide-title">РЕЕСТР МСП И ПРИКЛАДНАЯ СИНЕРГИЯ</h1>
-    <p class="slide-subtitle">Замыкание экосистемы: локальные услуги, прозрачное ЖКХ и сквозная интеграция пяти приложений</p>
+    <h1 class="slide-title">ЭКОСИСТЕМА ПЛАТФОРМЫ «ТУРБАЗА»</h1>
+    <p class="slide-subtitle">Справедливое владение данными и независимая разработка: открытый протокол для неограниченного числа приложений</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="key-callout ruby">
-        <strong>Законченный контур доверенной цифровой среды:</strong>
-        <p>Пятое приложение серии объединяет самозанятых, мастеров ЖКХ и жителей района. <strong>Пять приложений работают как единый оркестр</strong> без серверов и посредников.</p>
-      </div>
-
-      <div class="feature-cards-grid">
-        <div class="feature-card">
-          <div class="card-icon">⚡</div>
-          <h4>Поиск за 2 мс</h4>
-          <p>Районная Ветка хранит локальный индекс мастеров в радиусе 500м.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🪙</div>
-          <h4>0% эквайринга</h4>
-          <p>Прямой расчет в Цифровом рубле со смарт-контрактом эскроу.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🏢</div>
-          <h4>Прозрачное ЖКХ</h4>
-          <p>Открытый учет заявок жильцов, прозрачные сметы и контроль работ.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🔄</div>
-          <h4>Синергия 5 сервисов</h4>
-          <p>Сквозной обмен данными через локальный SQLite на Листе.</p>
-        </div>
-      </div>
+  <div class="slide-body grid-3col">
+    <div class="benefit-card ruby">
+      <div class="card-num-badge">ОСНОВА 1</div>
+      <div class="card-title">Малые хранилища</div>
+      <div class="card-desc">Данные принадлежат человеку и шифруются на его персональном устройстве.</div>
     </div>
 
-    <div class="visual-panel">
-      <div class="kpi-vertical-stack">
-        <div class="kpi-card-explainer">
-          <div class="kpi-num ruby">2 МС</div>
-          <div class="kpi-label">Скорость отклика локального каталога услуг</div>
-        </div>
-        <div class="kpi-card-explainer">
-          <div class="kpi-num teal">0%</div>
-          <div class="kpi-label">Комиссий монопольным агрегаторам услуг</div>
-        </div>
-        <div class="kpi-card-explainer">
-          <div class="kpi-num emerald">5 ИЗ 5</div>
-          <div class="kpi-label">Служб готовы к повседневной эксплуатации</div>
-        </div>
-      </div>
+    <div class="benefit-card indigo">
+      <div class="card-num-badge">ОСНОВА 2</div>
+      <div class="card-title">Свобода композиции</div>
+      <div class="card-desc">Соединение схем и интерфейсов без изменения чужого исходного кода.</div>
+    </div>
+
+    <div class="benefit-card emerald">
+      <div class="card-num-badge">ОСНОВА 3</div>
+      <div class="card-title">Кооперативный строй</div>
+      <div class="card-desc">Артели разработчиков, инфраструктурные союзы и десятина за внимание.</div>
+    </div>
+  </div>
+
+  <div class="metric-ribbon">
+    <div class="ribbon-item">
+      <span class="ribbon-val">12</span>
+      <span class="ribbon-lbl">Белых книг</span>
+    </div>
+    <div class="ribbon-item">
+      <span class="ribbon-val">ЯДРО</span>
+      <span class="ribbon-lbl">открытый протокол</span>
+    </div>
+    <div class="ribbon-item">
+      <span class="ribbon-val">10%</span>
+      <span class="ribbon-lbl">доли внимания гражданам</span>
+    </div>
+  </div>
+
+  <div class="attribution-bottom-bar">
+    <div class="attribution-credits">
+      Автор: А. В. Шамсутдинов · Архитектура: Claude Sonnet 5.5, Gemini 3.8 Flash · Версия 1.0 (2026)
+    </div>
+    <div class="attribution-spec">
+      <a href="../../../../../viewer.html?doc=shared_docs/whitepapers/12_ecosystem_whitepaper.md" class="whitepaper-badge" target="_blank">📄 Белая книга № 12 «Экосистема» ↗</a>
     </div>
   </div>
 </div>
 
 ### Текст для диктора:
-> Здравствуйте! В заключительной, пятой презентации прикладной серии представлен локальный реестр малого бизнеса и ЖКХ, а также показана полная синергия всей экосистемы Турбазы.
->
-> До сих пор малый бизнес и жильцы многоквартирных домов были разделены монополиями агрегаторов, забиравших до тридцати процентов с каждого вызова мастера.
->
-> Реестр МСП Турбазы возвращает экономику в руки соседей: поиск проверенного мастера занимает две миллисекунды, расчеты идут напрямую в Цифровых рублях, а пять приложений работают как единое целое.
->
-> Давайте посмотрим, как замыкается прикладной контур отечественной платформы прямого владения данными.
+> Приветствуем зрителей. Настоящая презентация завершает двенадцатитомный цикл исследований отечественной платформы «Турбаза». Под эгидой открытого проекта «После Децентрализации» создано технологическое основание, воплощающее девиз: «Справедливое владение данными и независимая разработка программного обеспечения». Платформа доказывает: современному обществу не нужны монопольные серверные посредники. Личная информация хранится на устройствах граждан в малых автономных хранилищах, независимые приложения свободно соединяются на Листе, а справедливое вознаграждение распределяется через прозрачные кооперативные институты.
 
 ---
 
 <!-- slide: 2 -->
 <div class="slide-content">
   <div class="slide-header">
-    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | КРИЗИС АГРЕГАТОРОВ</div>
-    <h2 class="slide-title">БАРЬЕРЫ МАЛОГО БИЗНЕСА И ЖКХ</h2>
-    <p class="slide-subtitle">Почему существующие платформы услуг выкачивают деньги из городов и разоряют самозанятых</p>
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ПРИКЛАДНЫЕ СЕРВИСЫ</div>
+    <h1 class="slide-title">ОТ МОНОПОЛИЙ К СВОБОДНОЙ ЭКОСИСТЕМЕ</h1>
+    <p class="slide-subtitle">Пределы облачной централизации и пять начальных прикладных полигонов платформы</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="problem-box">
-        <h4>🚨 Пороки коммерческих сервисов услуг:</h4>
-        <ul class="clean-list-tight">
-          <li><strong>Грабительские комиссии до 30%:</strong> Агрегаторы наживаются на труде сантехников, электриков и репетиторов.</li>
-          <li><strong>Непрозрачность ЖКХ и ТСЖ:</strong> Сметы завышаются, а заявки жителей на ремонт подъезда теряются в бюрократии.</li>
-          <li><strong>Фальшивые отзывы и боты:</strong> Монополии продают платный приоритет в выдаче фирмам-однодневкам.</li>
-          <li><strong>Утечки баз клиентов:</strong> Персональные данные и адреса граждан регулярно сливаются для навязчивого спама.</li>
-        </ul>
+  <div class="slide-body grid-2col-split">
+    <div class="content-panel">
+      <div class="panel-tag">ИЗ ПРЕДЫДУЩИХ ЧАСТЕЙ</div>
+      <div class="concept-item">
+        <span class="concept-bullet">1</span>
+        <span><b>Лист, Ветка, Ствол:</b> данные у владельца.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">2</span>
+        <span><b>Хранилище:</b> единица данных со своим ключом.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">3</span>
+        <span><b>КубГолос:</b> многофакторное согласие.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">4</span>
+        <span><b>Забота:</b> проверенный опыт взаимопомощи.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">5</span>
+        <span><b>Деловой и УраТур:</b> планы и пространство.</span>
       </div>
     </div>
 
-    <div class="visual-panel">
-      <div class="comparison-dual-cards">
-        <div class="card-negative">
-          <div class="card-status-badge red">КОММЕРЧЕСКИЙ АГРЕГАТОР</div>
-          <div class="card-metric-bad">-30% ДОХОДА</div>
-          <p>Поборы, навязывание платных подписок и слежка за клиентами.</p>
-        </div>
-        <div class="card-positive">
-          <div class="card-status-badge ruby">РЕЕСТР ТУРБАЗЫ</div>
-          <div class="card-metric-good">100% МАСТЕРУ</div>
-          <p>Прямой заказ, нулевая комиссия и верификация соседями дома.</p>
-        </div>
+    <div class="content-panel">
+      <div class="panel-tag">ПРИКЛАДНАЯ СИНЕРГИЯ</div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Пять сервисов:</b> согласие, опыт, планы, навигация и местный подряд.</span>
       </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Защита человека:</b> личные сведения не передаются коммерческим витринам.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Свобода созидания:</b> независимость от правил закрытых магазинов приложений.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Масштаб:</b> открытый протокол для тысяч независимых сервисов.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="metric-ribbon">
+    <div class="ribbon-item">
+      <span class="ribbon-val">5 ИЗ 5</span>
+      <span class="ribbon-lbl">исследованных приложений</span>
+    </div>
+    <div class="ribbon-item">
+      <span class="ribbon-val">ЛИСТ</span>
+      <span class="ribbon-lbl">точка соединения</span>
+    </div>
+    <div class="ribbon-item">
+      <span class="ribbon-val">СОЮЗ</span>
+      <span class="ribbon-lbl">независимых авторов</span>
     </div>
   </div>
 </div>
 
 ### Текст для диктора:
-> Сегодня малый бизнес шаговой доступности находится в критической зависимости от цифровых платформ-монополистов.
->
-> Частный сантехник или электрик вынужден отдавать до трети своего чека агрегатору, иначе его профиль просто опустят на самое дно выдачи.
->
-> С другой стороны, жители дома страдают от непрозрачности управляющих компаний: заявки на устранение протечек висят неделями, а отчетность по расходованию средств остается тайной за семью печатями.
->
-> При этом персональные данные заказчиков и их домашние адреса ежедневно утекают в руки мошенников.
->
-> Платформа Турбаза предлагает альтернативу: прозрачный и справедливый локальный рынок без паразитических посредников.
+> В традиционных облаках данные человека разделены между закрытыми базами корпораций, а независимые разработчики зависят от правил коммерческих витрин. «Турбаза» меняет архитектурный порядок. Четыре флагманских приложения — «КубГолос», «Забота», «Деловой» и «УраТур» — доказали состоятельность модели в измерении согласия, передаче опыта, управлении делами и навигации. Пятый сервис — каталог услуг малого бизнеса и ЖКХ — демонстрирует прикладную синергию: неограниченное число независимых решений может взаимодействовать как единый слаженный оркестр на устройстве гражданина.
 
 ---
 
 <!-- slide: 3 -->
 <div class="slide-content">
   <div class="slide-header">
-    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ЛОКАЛЬНЫЙ РЕЕСТР</div>
-    <h2 class="slide-title">ПОИСК МАСТЕРА ЗА 2 МИЛЛИСЕКУНДЫ</h2>
-    <p class="slide-subtitle">Районный каталог услуг на узлах Ветки: мгновенный поиск в радиусе 500 метров</p>
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | АРХИТЕКТУРА ХРАНИЛИЩ</div>
+    <h1 class="slide-title">ХРАНИЛИЩЕ: ЕДИНИЦА ВЛАДЕНИЯ И ДАННЫХ</h1>
+    <p class="slide-subtitle">Малое реляционное хранилище, трёхкомпонентный ключ записи и локальный журнал Листа</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="key-callout ruby">
-        <strong>Шаговая доступность и мгновенный отклик:</strong>
-        <p>Индекс доступных специалистов хранится на районной Ветке. Поиск сантехника или репетитора в соседнем доме занимает менее двух миллисекунд.</p>
-      </div>
-
-      <div class="feature-cards-grid">
-        <div class="feature-card">
-          <div class="card-icon">📍</div>
-          <h4>Радиус 500 метров</h4>
-          <p>Мастер живет рядом и может прийти на помощь за 10 минут.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">⚡</div>
-          <h4>Мгновенный запрос</h4>
-          <p>Локальный поиск в районной Ветке без медленных облачных баз.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🛡️</div>
-          <h4>Землячество</h4>
-          <p>Подтвержденный факт проживания специалиста в данном районе.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">📜</div>
-          <h4>Квалификация</h4>
-          <p>Дипломы и допуски к электросетям проверены криптографически.</p>
-        </div>
-      </div>
+  <div class="slide-body grid-3col">
+    <div class="benefit-card ruby">
+      <div class="card-num-badge">СТРУКТУРА</div>
+      <div class="card-title">Четвёрка хранилища</div>
+      <div class="card-desc">Глобальный номер, список участников, симметричный ключ 256 бит и упорядоченный журнал.</div>
     </div>
 
-    <div class="visual-panel">
-      <div class="kpi-vertical-stack">
-        <div class="kpi-card-explainer">
-          <div class="kpi-num ruby">2 МС</div>
-          <div class="kpi-label">Локальный поиск специалиста в районе</div>
-        </div>
-        <div class="kpi-card-explainer">
-          <div class="kpi-num teal">&lt; 15 МИН</div>
-          <div class="kpi-label">Среднее время прибытия мастера на вызов</div>
-        </div>
-        <div class="kpi-card-explainer">
-          <div class="kpi-num cyan">0 КБ</div>
-          <div class="kpi-label">Утечек домашних адресов жителей наружу</div>
-        </div>
-      </div>
+    <div class="benefit-card indigo">
+      <div class="card-num-badge">АДРЕСАЦИЯ</div>
+      <div class="card-title">Составной ключ</div>
+      <div class="card-desc">Каждая строка адресуется тройкой: хранилище, автор и локальный номер автора.</div>
     </div>
+
+    <div class="benefit-card emerald">
+      <div class="card-num-badge">ПУТЬ ЗАПИСИ</div>
+      <div class="card-title">Локальный Лист</div>
+      <div class="card-desc">Проверка прав, локальная транзакция СУБД, дельты и раздельные шифрпакеты в сеть.</div>
+    </div>
+  </div>
+
+  <div class="summary-box ruby-subtle">
+    <strong>Гарантия атомарности на Листе:</strong> Многохранилищное действие фиксируется атомарно в СУБД устройства (патент США 10 902 016 B2); межсерверные блокировки исключены.
   </div>
 </div>
 
 ### Текст для диктора:
-> Зачем ждать вызова мастера через столичный колл-центр полдня, если отличный специалист живет в соседнем подъезде?
->
-> Локальный реестр Турбазы развернут на районных узлах Ветки. Каталог услуг синхронизируется в пределах микрорайона.
->
-> Когда у жильца срывает кран, приложение находит свободного сантехника в радиусе пятисот метров за две миллисекунды.
->
-> Специалист видит срочный сигнал и может прийти на помощь буквально через десять минут в домашних тапочках.
->
-> При этом адрес жителя передается напрямую на устройство мастера без сохранения на внешних серверах.
+> Фундаментом экосистемы выступает не глобальная база данных, а малое автономное хранилище. Каждое хранилище обслуживает конкретную задачу или группу участников, обладает собственным журналом изменений и изолированным симметричным ключом. Любая запись в таблицах адресуется тройкой координат. Любое комплексное действие пользователя фиксируется атомарно в локальной базе Листа, а в сеть уходит как семейство независимых пакетов. Межхранилищные транзакции на серверах физически отсутствуют, исключая необходимость в медленных двухфазных протоколах синхронизации.
 
 ---
 
 <!-- slide: 4 -->
 <div class="slide-content">
   <div class="slide-header">
-    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ЦИФРОВОЙ РУБЛЬ</div>
-    <h2 class="slide-title">РАСЧЕТЫ В ЦИФРОВОМ РУБЛЕ (0% КОМИССИЙ)</h2>
-    <p class="slide-subtitle">Прямой смарт-контракт эскроу: 100% оплаты мастеру, 0% банковского эквайринга</p>
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ТЕОРЕМЫ МАСШТАБИРУЕМОСТИ</div>
+    <h1 class="slide-title">ДОКАЗАТЕЛЬСТВО МАСШТАБИРУЕМОСТИ СЕТИ</h1>
+    <p class="slide-subtitle">Полное отсутствие межсерверных блокировок и линейный рост производительности</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="key-callout ruby">
-        <strong>Честные и безопасные расчеты без посредников:</strong>
-        <p>Использование платформы Цифрового рубля Банка России позволяет исключить торговый эквайринг и гарантировать стопроцентную безопасность сделки.</p>
-      </div>
-
-      <div class="pillar-cards-stack">
-        <div class="pillar-card">
-          <div class="pillar-num ruby">01</div>
-          <div class="pillar-info">
-            <h4>Резервирование в эскроу</h4>
-            <p>Деньги заказчика замораживаются в защищенном смарт-контракте при вызове мастера.</p>
-          </div>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-num teal">02</div>
-          <div class="pillar-info">
-            <h4>Приемка работ по QR-коду</h4>
-            <p>После выполнения ремонта жилец сканирует QR-код мастера, подтверждая высокое качество.</p>
-          </div>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-num emerald">03</div>
-          <div class="pillar-info">
-            <h4>Мгновенная выплата 100%</h4>
-            <p>Средства поступают мастеру без 3% банковского эквайринга и без 20% платформенного сбора.</p>
-          </div>
-        </div>
-      </div>
+  <div class="slide-body grid-3col">
+    <div class="benefit-card emerald">
+      <div class="card-num-badge">УТВЕРЖДЕНИЕ 3</div>
+      <div class="card-title">Без блокировок</div>
+      <div class="card-desc">Граф взаимного ожидания блокировок между независимыми хранилищами тождественно пуст.</div>
     </div>
 
-    <div class="visual-panel">
-      <div class="escrow-preview-box">
-        <div class="escrow-header">🔒 СМАРТ-КОНТРАКТ СДЕЛКИ</div>
-        <div class="escrow-flow">
-          <div class="e-step">Жилец (Заказ)</div>
-          <div class="e-arrow">⟶ Цифровой рубль Эскроу ⟶</div>
-          <div class="e-step">Мастер (100%)</div>
-        </div>
-        <p class="escrow-note">Экономия: 0% комиссии агрегатора + 0% эквайринга банка. Мастер получает всю заработанную сумму!</p>
-      </div>
+    <div class="benefit-card indigo">
+      <div class="card-num-badge">УТВЕРЖДЕНИЕ 5</div>
+      <div class="card-title">Линейный рост</div>
+      <div class="card-desc">Пропускная способность сети растёт пропорционально числу добавляемых узлов Веток.</div>
     </div>
+
+    <div class="benefit-card ruby">
+      <div class="card-num-badge">ЗАЩИТА КАНАЛОВ</div>
+      <div class="card-title">Страницы коллекций</div>
+      <div class="card-desc">Самозапечатывающиеся страницы по тысяче проекций и буфер событий на сервере Ветки.</div>
+    </div>
+  </div>
+
+  <div class="summary-box emerald-subtle">
+    <strong>Математический базис:</strong> Численные оценки представляют собой строгие проектные ориентиры; проверка на нагрузочных стендах предусмотрена дорожной картой.
   </div>
 </div>
 
 ### Текст для диктора:
-> Финансовые расчеты в реестре Турбазы построены на базе государственной платформы Цифрового рубля.
->
-> Это полностью устраняет банковский торговый эквайринг, экономя три процента на каждой транзакции, и полностью исключает наценки агрегаторов.
->
-> В момент вызова мастера сумма блокируется в безопасном смарт-контракте эскроу.
->
-> Специалист спокоен: деньги зарезервированы. Жилец спокоен: оплата спишется только после того, как работа будет выполнена качественно.
->
-> Приемка происходит в одно касание: жилец сканирует QR-код на экране мастера, и Цифровые рубли мгновенно зачисляются на счет специалиста.
+> Традиционные распределённые базы данных деградируют под нагрузкой из-за взаимных блокировок. В «Турбазе» запись в одном хранилище никогда не требует захвата ресурсов в другом. Математически доказано: совокупная пропускная способность экосистемы растёт линейно с добавлением районных узлов Веток. Нагрузка на клиентское устройство зависит только от тех хранилищ, в которых участвует сам гражданин. Для массовых событий применяются самозапечатывающиеся страницы коллекций, что предотвращает перегрузку отдельных каналов синхронизации.
 
 ---
 
 <!-- slide: 5 -->
 <div class="slide-content">
   <div class="slide-header">
-    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | АВТОМАТИЗАЦИЯ ЖКХ</div>
-    <h2 class="slide-title">АВТОМАТИЗАЦИЯ ЖКХ И ТСЖ</h2>
-    <p class="slide-subtitle">Прозрачные сметы, открытый журнал заявок дома и народный контроль капремонта</p>
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | КРИПТОГРАФИЧЕСКИЙ БАЗИС</div>
+    <h1 class="slide-title">БЕЗОПАСНОСТЬ И МОДЕЛЬ ДОВЕРИЯ</h1>
+    <p class="slide-subtitle">Топология недоверенных узлов, криптографические гарантии и открытый реестр рисков</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="key-callout ruby">
-        <strong>Полный порядок в домовом хозяйстве:</strong>
-        <p>Каждая заявка на ремонт лифта или замену лампочки регистрируется в открытом журнале дома с защитой от удаления и подделки.</p>
-      </div>
-
-      <div class="feature-cards-grid">
-        <div class="feature-card">
-          <div class="card-icon">📋</div>
-          <h4>Журнал заявок</h4>
-          <p>Жители видят статус всех обращений по подъезду и дому в реальном времени.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🔍</div>
-          <h4>Прозрачные сметы</h4>
-          <p>Цены на материалы и работы сопоставляются с открытым рынком района.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🏗️</div>
-          <h4>Контроль капремонта</h4>
-          <p>Поэтапная приемка работ советом дома с фотофиксацией этапов.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🗳️</div>
-          <h4>Голосование жильцов</h4>
-          <p>Легитимные решения собственников жилья через связку с «КубГолосом».</p>
-        </div>
-      </div>
+  <div class="slide-body grid-3col">
+    <div class="benefit-card ruby">
+      <div class="card-num-badge">ТОПОЛОГИЯ</div>
+      <div class="card-title">Зоны доверия</div>
+      <div class="card-desc">Лист гражданина хранит ключи и открытый текст; Ветка и Ствол видят только шифртекст по ГОСТ.</div>
     </div>
 
-    <div class="visual-panel">
-      <div class="ui-mockup-frame">
-        <div class="mockup-header">Дом 12, Подъезд 3 | Открытые заявки</div>
-        <div class="task-row done">
-          <span class="chk">✅</span>
-          <span class="t-title">Замена светильников на LED 4 этаж</span>
-          <span class="t-assignee">Электрик: Алексей М.</span>
-        </div>
-        <div class="task-row active">
-          <span class="chk">⏳</span>
-          <span class="t-title">Регулировка доводчика входной двери</span>
-          <span class="t-assignee">В работе у мастера</span>
-        </div>
-      </div>
+    <div class="benefit-card emerald">
+      <div class="card-num-badge">ТЕОРЕМЫ</div>
+      <div class="card-title">Три гарантии</div>
+      <div class="card-desc">Конфиденциальность перед сервером, подлинность авторов и ветвление ключей при исключении.</div>
     </div>
+
+    <div class="benefit-card indigo">
+      <div class="card-num-badge">ОТКРЫТЫЙ СТАТУС</div>
+      <div class="card-title">Реестр рисков</div>
+      <div class="card-desc">Постквантовая доставка ключей и аудит ядра открыто зафиксированы в перечне задач.</div>
+    </div>
+  </div>
+
+  <div class="summary-box indigo-subtle">
+    <strong>Академическая честность:</strong> Платформа открыто называет принятые криптографические допущения и не выдаёт перспективные инженерные задачи за завершённые.
   </div>
 </div>
 
 ### Текст для диктора:
-> Модуль ЖКХ платформы Турбаза наводит идеальный порядок в управлении многоквартирными домами.
->
-> Заявки жителей на починку кровли, уборку или ремонт домофона больше не исчезают в недрах диспетчерских служб.
->
-> Каждый житель дома видит открытый журнал заявок: кто назначен мастером, какие материалы закуплены и когда завершатся работы.
->
-> Сметы расходов формируются открыто, исключая коррупционные наценки и приписки.
->
-> А решения о выборе подрядчика на капитальный ремонт принимаются на честных электронных голосованиях жильцов.
+> Модель безопасности «Турбазы» бескомпромиссна: промежуточные серверы Веток и национальный Ствол считаются недоверенными для содержимого. Они оперируют исключительно шифртекстом, не имея ключей доступа. Криптографически доказано: исключённый участник не может прочесть новые записи, а при стирании ключа данные становятся вычислительно недоступными. Платформа соблюдает строгую академическую честность: открытые инженерные вопросы — такие как внедрение постквантовых алгоритмов инкапсуляции ключей — открыто зафиксированы в реестре задач и не выдаются за завершённые.
 
 ---
 
 <!-- slide: 6 -->
 <div class="slide-content">
   <div class="slide-header">
-    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | РЕПУТАЦИОННЫЙ ЩИТ</div>
-    <h2 class="slide-title">РЕПУТАЦИОННЫЙ ЩИТ ЗЕМЛЯЧЕСТВА</h2>
-    <p class="slide-subtitle">Репутация мастера проверена соседями: исключение фирм-однодневок и накрученных рейтингов</p>
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СВЯЗЫВАНИЕ ХРАНИЛИЩ</div>
+    <h1 class="slide-title">ВНЕШНИЕ КЛЮЧИ И АРХИТЕКТУРА СНИМКОВ</h1>
+    <p class="slide-subtitle">Связывание изолированных хранилищ через транзитивное замыкание локальных снимков</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="key-callout ruby">
-        <strong>Доверие строится на реальных делах:</strong>
-        <p>Рейтинг специалиста основан на открытом стандарте «Заботы». Оставить отзыв может только реальный сосед после подтвержденного факта приемки.</p>
+  <div class="slide-body grid-2col-split">
+    <div class="content-panel">
+      <div class="panel-tag">ЦЕПОЧКА СНИМКА</div>
+      <div class="concept-item">
+        <span class="concept-bullet">1</span>
+        <span><b>Задача:</b> запись в хранилище планов Листа.</span>
       </div>
-
-      <div class="pillar-cards-stack">
-        <div class="pillar-card">
-          <div class="pillar-num ruby">01</div>
-          <div class="pillar-info">
-            <h4>Невозможность бот-накруток</h4>
-            <p>Отзыв без крипто-квитанции об оплате и приемке работы блокируется алгоритмом на корню.</p>
-          </div>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-num teal">02</div>
-          <div class="pillar-info">
-            <h4>Соседские рекомендации</h4>
-            <p>Вы видите, кто именно из соседей вашего дома рекомендовал этого мастера.</p>
-          </div>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-num emerald">03</div>
-          <div class="pillar-info">
-            <h4>Пожизненный репутационный след</h4>
-            <p>Мастер дорожит своим добрым именем в районе, работая на совесть.</p>
-          </div>
-        </div>
+      <div class="concept-item">
+        <span class="concept-bullet">2</span>
+        <span><b>Внешний ключ:</b> тройка координат внешней сметы.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">3</span>
+        <span><b>Снимок сметы:</b> внедрённая копия на момент связи.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">4</span>
+        <span><b>Спецификация:</b> сохранение исходных договорённостей.</span>
       </div>
     </div>
 
-    <div class="visual-panel">
-      <div class="master-card-preview">
-        <div class="master-header">
-          <div class="avatar-box">👨‍🔧</div>
-          <div class="master-info">
-            <div class="master-name">Сергей Д. (ул. Мира, дом 8)</div>
-            <div class="master-spec">Специалист по ремонту бытовой техники</div>
-          </div>
-        </div>
-        <div class="master-badges">
-          <span class="badge green">⭐ Оценка: 4.96 (64 соседа)</span>
-          <span class="badge blue">Гарантия: 12 месяцев</span>
-        </div>
-        <div class="master-quote">«Отремонтировал стиральную машину соседке с 3 этажа за 1.5 часа. Честная цена за запчасти!»</div>
+    <div class="content-panel">
+      <div class="panel-tag">СИСТЕМНЫЕ СВОЙСТВА</div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Быстрый показ:</b> экран наполняется из локальной базы без задержек.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Фоновое чтение:</b> асинхронное получение свежих ревизий.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Неизменяемость:</b> защита условий уже заключённого договора.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Без конфликтов:</b> отсутствие каскадных коллизий версий.</span>
       </div>
     </div>
+  </div>
+
+  <div class="summary-box ruby-subtle">
+    <strong>Юридическая устойчивость:</strong> Снимок фиксирует состояние внешнего мира на момент соглашения: изменение чужих прейскурантов не меняет утверждённую смету.
   </div>
 </div>
 
 ### Текст для диктора:
-> Сколько раз людям приходилось сталкиваться с недобросовестными мастерами по объявлениям на столбах или с накрученными отзывами в интернете?
->
-> Репутационный щит Землячества защищает жителей от халтурщиков и мошенников.
->
-> Рейтинг мастера невозможно накрутить ботами или купить за деньги. Отзыв имеет право оставить только житель района, оплативший конкретную выполненную заявку.
->
-> Вы прямо видите: «этого специалиста рекомендует староста второго подъезда и жильцы пятого этажа».
->
-> Мастер понимает, что живет и работает рядом с соседями, и относится к своему труду с максимальной ответственностью и гордостью.
+> Как связать данные разных приложений, если они лежат в изолированных хранилищах? «Турбаза» решает эту проблему через транзитивное замыкание снимков. Когда задача в органайзере ссылается на смету мастера из другого хранилища, в задачу внедряется точная копия связанной записи на момент создания связи. Пользователь видит заполненный экран сразу из локальной базы Листа. При этом сохраняется историческая неизменяемость: последующие правки во внешнем каталоге не могут задним числом изменить условия уже заключённого договора.
 
 ---
 
 <!-- slide: 7 -->
 <div class="slide-content">
   <div class="slide-header">
-    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | АВТОНОМНАЯ CRM</div>
-    <h2 class="slide-title">АВТОНОМНАЯ CRM МАСТЕРА НА ЛИСТЕ</h2>
-    <p class="slide-subtitle">База клиентов и история заказов в личном Хранилище: защита от рейдерства и блокировок</p>
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | КОМПОЗИЦИЯ ПРИЛОЖЕНИЙ</div>
+    <h1 class="slide-title">НЕОГРАНИЧЕННАЯ ЭКОСИСТЕМА ПРИЛОЖЕНИЙ</h1>
+    <p class="slide-subtitle">Архитектурное правило автономности схем: таблицы-расширения и открытые вызовы</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="key-callout ruby">
-        <strong>Полное владение клиентской базой:</strong>
-        <p>Малый бизнес не должен зависеть от прихотей американских облачных CRM, блокирующих аккаунты без объяснения причин.</p>
-      </div>
-
-      <div class="feature-cards-grid">
-        <div class="feature-card">
-          <div class="card-icon">🗄️</div>
-          <h4>Личная база на Листе</h4>
-          <p>Все контакты клиентов и история заказов хранятся в зашифрованном SQLite на телефоне.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🛡️</div>
-          <h4>Защита от рейдерства</h4>
-          <p>Конкуренты не могут украсть базу клиентов: она не лежит на внешних серверах.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">📈</div>
-          <h4>Финансовая аналитика</h4>
-          <p>Автоматический подсчет доходов, налогов и расходов на запчасти прямо на устройстве.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🔄</div>
-          <h4>P2P-резервирование</h4>
-          <p>Шифрованные бэкапы между личными устройствами мастера.</p>
-        </div>
-      </div>
+  <div class="slide-body grid-3col">
+    <div class="benefit-card indigo">
+      <div class="card-num-badge">ПРАВИЛО СХЕМ</div>
+      <div class="card-title">Таблицы-расширения</div>
+      <div class="card-desc">Новые сервисы не вторгаются в чужие таблицы, а объявляют внешние ключи.</div>
     </div>
 
-    <div class="visual-panel">
-      <div class="kpi-vertical-stack">
-        <div class="kpi-card-explainer">
-          <div class="kpi-num ruby">100%</div>
-          <div class="kpi-label">Контроль клиентской базы у самого мастера</div>
-        </div>
-        <div class="kpi-card-explainer">
-          <div class="kpi-num teal">0 РУБ</div>
-          <div class="kpi-label">Ежемесячных подписок за облачные CRM-системы</div>
-        </div>
-        <div class="kpi-card-explainer">
-          <div class="kpi-num cyan">&lt; 1 МС</div>
-          <div class="kpi-label">Мгновенный локальный доступ к карточке клиента</div>
-        </div>
-      </div>
+    <div class="benefit-card emerald">
+      <div class="card-num-badge">ЧТЕНИЕ</div>
+      <div class="card-title">Соединение на Листе</div>
+      <div class="card-desc">Локальная реляционная СУБД объединяет таблицы нескольких приложений с фильтрацией.</div>
     </div>
+
+    <div class="benefit-card ruby">
+      <div class="card-num-badge">ЗАПИСЬ</div>
+      <div class="card-title">Открытые вызовы</div>
+      <div class="card-desc">Изменение данных выполняется только через открытый программный фасад автора.</div>
+    </div>
+  </div>
+
+  <div class="summary-box indigo-subtle">
+    <strong>Автоматическая генерация связей:</strong> Инструмент сборки автоматически создаёт три колонки внешнего ключа: зависимость между сервисами объявляется одной строкой.
   </div>
 </div>
 
 ### Текст для диктора:
-> Для любого малого предпринимателя или самозанятого мастера клиентская база — это главный жизненный актив.
->
-> Когда зарубежные сервисы внезапно блокируют доступ российским пользователям, бизнес теряет годы упорного труда.
->
-> В реестре Турбазы каждый мастер получает бесплатную и полноценную автономную CRM-систему, работающую прямо на его смартфоне или планшете.
->
-> База заказчиков, расписание вызовов и финансовая аналитика хранятся в личном изолированном хранилище.
->
-> Никаких ежемесячных абонентских плат, никакого риска рейдерского слива базы и полная уверенность в завтрашнем дне.
+> Платформа «Турбаза» спроектирована для поддержки неограниченного числа приложений. Главное правило экосистемы гласит: новые приложения никогда не вторгаются в схемы существующих сервисов. Разработчик создаёт собственные таблицы, связывая их с базовыми сущностями через трёхкомпонентные внешние ключи. Чтение данных объединено на Листе: локальная СУБД быстро выполняет реляционные соединения таблиц разных сервисов. При этом запись строго инкапсулирована: изменить данные приложения можно только через его открытый фасад, гарантируя соблюдение авторских правил и целостность бизнес-логики.
 
 ---
 
 <!-- slide: 8 -->
 <div class="slide-content">
   <div class="slide-header">
-    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ПРИКЛАДНАЯ СИНЕРГИЯ</div>
-    <h2 class="slide-title">СКВОЗНОЙ СЦЕНАРИЙ СИНЕРГИИ: 5 ИЗ 5</h2>
-    <p class="slide-subtitle">Как пять приложений образуют гармоничный цикл повседневной цифровой жизни гражданина</p>
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СИНТЕЗ ИНТЕРФЕЙСОВ</div>
+    <h1 class="slide-title">СИНТЕЗ МОДУЛЕЙ И ИНТЕРФЕЙСОВ</h1>
+    <p class="slide-subtitle">Ортогональный синтез: строгий граф логических модулей и свободная компоновка экранов</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="key-callout ruby">
-        <strong>Единая симфония приложений:</strong>
-        <p>Пользователю не нужно переключаться между десятком несовместимых сервисов. Данные перетекают между приложениями мгновенно через единую шину Листа.</p>
+  <div class="slide-body grid-2col-split">
+    <div class="content-panel">
+      <div class="panel-tag">СТРОГИЕ МОДУЛИ</div>
+      <div class="concept-item">
+        <span class="concept-bullet">1</span>
+        <span><b>Однонаправленный граф:</b> темы, беседы, задачи и маршруты.</span>
       </div>
-
-      <div class="chain-steps-box">
-        <div class="c-step"><span class="c-num green">1</span> <strong>Забота:</strong> Просьба о помощи или рекомендация мастера в подъезде.</div>
-        <div class="c-step"><span class="c-num red">2</span> <strong>Реестр МСП:</strong> Вызов специалиста и безопасное резервирование эскроу.</div>
-        <div class="c-step"><span class="c-num yellow">3</span> <strong>Деловой:</strong> Автоматическое планирование визита мастера в органайзере.</div>
-        <div class="c-step"><span class="c-num blue">4</span> <strong>КубГолос:</strong> Народная 3D-оценка работы и голосование за благоустройство.</div>
-        <div class="c-step"><span class="c-num purple">5</span> <strong>УраТур:</strong> Планирование совместного похода на выходные после ремонта.</div>
+      <div class="concept-item">
+        <span class="concept-bullet">2</span>
+        <span><b>Изоляция зависимостей:</b> базовый сервис не зависит от надстроек.</span>
       </div>
-    </div>
-
-    <div class="visual-panel">
-      <div class="pentagon-synergy-box">
-        <div class="pent-title">5 ПРИКЛАДНЫХ ФЛАГМАНОВ</div>
-        <div class="pent-links">
-          <span class="p-app green">🤝 Забота</span> ⟷
-          <span class="p-app red">🛠️ Реестр МСП</span> ⟷
-          <span class="p-app yellow">📋 Деловой</span>
-        </div>
-        <div class="pent-links">
-          <span class="p-app blue">🎲 КубГолос</span> ⟷
-          <span class="p-app purple">🏔️ УраТур</span>
-        </div>
-        <div class="pent-note">Все работают с единым хранилищем SQLite на устройстве!</div>
+      <div class="concept-item">
+        <span class="concept-bullet">3</span>
+        <span><b>Устойчивость ядра:</b> обновление надстройки не ломает базовый модуль.</span>
       </div>
     </div>
+
+    <div class="content-panel">
+      <div class="panel-tag">СВОБОДНЫЕ ИНТЕРФЕЙСЫ</div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Прямая композиция:</b> экран вызывает методы разных сервисов без транзакции.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Модуль-координатор:</b> общая локальная транзакция для нескольких баз.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Творчество артелей:</b> создание экранов под любые отраслевые задачи.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="summary-box emerald-subtle">
+    <strong>Свобода независимой разработки:</strong> Пользовательский интерфейс адаптируется под специфику конкретного мастера, семьи или предприятия без изменений в коде ядра.
   </div>
 </div>
 
 ### Текст для диктора:
-> Главная сила платформы прямого владения данными проявляется в сквозных пользовательских сценариях.
->
-> Посмотрите, как естественно соединяются все пять приложений в повседневной жизни семьи.
->
-> Всё начинается в «Заботе», где жительница делится контактом проверенного сантехника.
->
-> В один клик открывается карточка в «Реестре МСП», где вызывается мастер и резервируется оплата.
->
-> Визит мастера тут же появляется в календаре органайзера «Деловой».
->
-> После успешного ремонта качество оценивается в «КубГолосе», повышая рейтинг мастера.
->
-> А на сэкономленные деньги семья в «УраТуре» выбирает маршрут для поездки на выходные.
+> Фундаментальным архитектурным достижением платформы выступает ортогональный синтез логических модулей и пользовательских интерфейсов. В ядре логические модули образуют строгий однонаправленный граф: «Деловой» не зависит от «УраТура». Однако пользовательский интерфейс полностью свободен от этого ограничения. Экран Листа может одновременно объединять любые логические модули — напрямую или через транзакционную оболочку-координатор. Это открывает безграничное пространство для творческих артелей: малые команды создают удобные прикладные интерфейсы под конкретные жизненные задачи, не требуя изменений в базовом коде.
 
 ---
 
 <!-- slide: 9 -->
 <div class="slide-content">
   <div class="slide-header">
-    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СВЯЗКА ЗАБОТА — МСП</div>
-    <h2 class="slide-title">СВЯЗКА: «ЗАБОТА» ⟷ «РЕЕСТР МСП»</h2>
-    <p class="slide-subtitle">От соседской взаимопомощи — к профессиональному заказу: плавный бесшовный переход</p>
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ПРИКЛАДНАЯ СИНЕРГИЯ</div>
+    <h1 class="slide-title">ЛОКАЛЬНЫЙ РЕЕСТР МСП И ЖКХ</h1>
+    <p class="slide-subtitle">Сквозной жизненный сценарий: взаимодействие пяти приложений в бытовом заказе</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="key-callout ruby">
-        <strong>Определить масштаб и решить задачу:</strong>
-        <p>Если бытовая ситуация из «Заботы» требует профессионального оборудования или сертификации, она в один тап конвертируется в коммерческую заявку.</p>
+  <div class="slide-body grid-2col-split">
+    <div class="content-panel">
+      <div class="panel-tag">ЦЕПОЧКА ПОДРЯДА</div>
+      <div class="concept-item">
+        <span class="concept-bullet">1</span>
+        <span><b>Забота:</b> поиск мастера по рекомендациям соседей в районе.</span>
       </div>
-
-      <div class="feature-cards-grid">
-        <div class="feature-card">
-          <div class="card-icon">🔄</div>
-          <h4>Конвертация ситуации</h4>
-          <p>«Капает кран» в «Заботе» превращается в официальный заказ мастеру.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">⭐</div>
-          <h4>Экспорт рекомендаций</h4>
-          <p>Благодарности соседей сразу видны в профессиональном профиле мастера.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">⚡</div>
-          <h4>Без заполнения анкет</h4>
-          <p>Все фото поломки и аудиосообщения передаются в заявку автоматически.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🔒</div>
-          <h4>Полная приватность</h4>
-          <p>ПДн не выходят за пределы локальной связи между жильцом и мастером.</p>
-        </div>
+      <div class="concept-item">
+        <span class="concept-bullet">2</span>
+        <span><b>Реестр МСП:</b> каталог специалистов на районной Ветке.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">3</span>
+        <span><b>Деловой:</b> задача подряда с эскроу в цифровом рубле.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">4</span>
+        <span><b>КубГолос:</b> опрос о качестве после подтверждения оплаты.</span>
       </div>
     </div>
 
-    <div class="visual-panel">
-      <div class="bridge-card">
-        <div class="bridge-header">МОСТ «ЗАБОТА» ⟷ «РЕЕСТР МСП»</div>
-        <div class="bridge-flow">
-          <div class="b-box green">🤝 Забота: «Течет труба под раковиной»</div>
-          <div class="b-arrow">⬇ Кнопка: [Вызвать мастера из реестра]</div>
-          <div class="b-box red">🛠️ Реестр МСП: Заявка №4812 (Мастер Алексей)</div>
-        </div>
-        <p class="bridge-footer">Никакого повторного описания проблемы: данные подхватываются через общую схему AirEntity!</p>
+    <div class="content-panel">
+      <div class="panel-tag">СФЕРА ЖКХ</div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Журнал заявок:</b> открытый учёт обращений жильцов подъезда.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Прозрачные сметы:</b> контроль расходов управляющих организаций.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Карты сетей:</b> офлайн-доступ к схемам для аварийных бригад.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>База мастера:</b> клиенты хранятся в личном хранилище мастера.</span>
       </div>
     </div>
+  </div>
+
+  <div class="summary-box ruby-subtle">
+    <strong>Экономика района:</strong> Пять приложений работают синхронно, защищая персональные данные сторон и сохраняя заработанные средства внутри местного сообщества.
   </div>
 </div>
 
 ### Текст для диктора:
-> Часто граница между бескорыстной соседской помощью и профессиональным ремонтом очень тонка.
->
-> Сосед по площадке может помочь советом или перекрыть вентиль, но замену изношенной трубы должен делать сертифицированный мастер.
->
-> В «Заботе» предусмотрен моментальный переход: жилец просто нажимает кнопку «Вызвать мастера».
->
-> Все фото поломки, ранее прикрепленные к ситуации, автоматически подгружаются в форму заказа в Реестре МСП.
->
-> Никаких повторных звонков, долгих объяснений и потерянного времени — мастер уже видит масштаб задачи и необходимые детали.
+> Практическая синергия экосистемы раскрывается в сквозном сценарии «Локального реестра сервисов МСП и ЖКХ». Соседская рекомендация из «Заботы» превращается в поиск мастера шаговой доступности на районной Ветке. Принятый заказ автоматически формирует задачу в «Деловом» с безопасным резервированием средств в цифровых рублях. Мастер видит смету в своём хранилище, а жилец после приёмки оценивает результат через трёхфакторный опрос «КубГолоса». Пять приложений работают синхронно, защищая персональные данные сторон и сохраняя заработанные средства внутри местного сообщества.
 
 ---
 
 <!-- slide: 10 -->
 <div class="slide-content">
   <div class="slide-header">
-    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СВЯЗКА МСП — ДЕЛОВОЙ</div>
-    <h2 class="slide-title">СВЯЗКА: «РЕЕСТР МСП» ⟷ «ДЕЛОВОЙ»</h2>
-    <p class="slide-subtitle">Автоматическое расписание и напоминания: ни одна заявка и ни одна минута не будут потеряны</p>
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СИСТЕМНЫЕ БИБЛИОТЕКИ</div>
+    <h1 class="slide-title">ОБЩИЕ МОДУЛИ И СРЕДА ИСПОЛНЕНИЯ</h1>
+    <p class="slide-subtitle">Вывод алгоритмов в системные библиотеки ядра и стратегия компиляции в WebAssembly</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="key-callout ruby">
-        <strong>Безупречное управление временем для обеих сторон:</strong>
-        <p>Подтвержденный вызов мгновенно проецируется на гравитационные орбиты органайзера «Деловой» как у мастера, так и у клиента.</p>
+  <div class="slide-body grid-2col-split">
+    <div class="content-panel">
+      <div class="panel-tag">БИБЛИОТЕКИ ЯДРА</div>
+      <div class="concept-item">
+        <span class="concept-bullet">1</span>
+        <span><b>Статистика:</b> анализ плотностей и темпа по территории.</span>
       </div>
-
-      <div class="pillar-cards-stack">
-        <div class="pillar-card">
-          <div class="pillar-num ruby">01</div>
-          <div class="pillar-info">
-            <h4>У мастера: Оптимальный маршрут</h4>
-            <p>«Деловой» выстраивает график вызовов по подъездам, экономя до 1.5 часов на переездах между домами.</p>
-          </div>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-num teal">02</div>
-          <div class="pillar-info">
-            <h4>У заказчика: Точное напоминание</h4>
-            <p>Умное оповещение за 30 минут до визита с возможностью перенести встречу в один тап.</p>
-          </div>
-        </div>
+      <div class="concept-item">
+        <span class="concept-bullet">2</span>
+        <span><b>Контроль планов:</b> отслеживание отставаний и сценарии замены.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">3</span>
+        <span><b>Кэш схем:</b> сохранение офлайн-подложек в буферных зонах.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">4</span>
+        <span><b>Пересечение тегов:</b> алгоритм быстрого поиска по меткам.</span>
       </div>
     </div>
 
-    <div class="visual-panel">
-      <div class="ui-mockup-frame">
-        <div class="mockup-header">Органайзер «Деловой» | План мастера</div>
-        <div class="task-row active">
-          <span class="chk">⏰ 14:00</span>
-          <span class="t-title">Дом 12, кв. 45: Ремонт крана</span>
-          <span class="t-assignee">Эскроу: 2 500 ₽</span>
-        </div>
-        <div class="task-row">
-          <span class="chk">⏰ 15:30</span>
-          <span class="t-title">Дом 14, кв. 12: Замена автомата</span>
-          <span class="t-assignee">Эскроу: 1 800 ₽</span>
-        </div>
+    <div class="content-panel">
+      <div class="panel-tag">РАЗВИТИЕ СРЕДЫ</div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>TypeScript:</b> действующий прототип Листа и инструмент верификации.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Аннотации типов:</b> явное описание контрактов общих модулей.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>WebAssembly:</b> компиляция для максимального быстродействия.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Дорожная карта:</b> поддержка миллионов устройств граждан.</span>
       </div>
     </div>
+  </div>
+
+  <div class="summary-box indigo-subtle">
+    <strong>Этапы внедрения:</strong> Компиляция в WebAssembly представляет собой проектируемое направление развития платформы; проверка модулей выполняется на TypeScript.
   </div>
 </div>
 
 ### Текст для диктора:
-> Как часто вызовы мастеров срываются из-за непунктуальности или банальной забывчивости?
->
-> Связка Реестра МСП и органайзера «Деловой» полностью решает проблему координации.
->
-> В ту же секунду, когда мастер подтверждает заявку, событие появляется на физической орбите его дел в органайзере.
->
-> «Деловой» автоматически рассчитывает время на перемещение между соседними домами и формирует оптимальный дневной график.
->
-> Заказчик получает деликатное напоминание за полчаса до визита, и встреча проходит вовремя и без лишнего стресса.
+> Алгоритмы, успешно доказавшие надёжность в прикладных сервисах, выводятся в общесистемные библиотеки ядра «Турбазы». Модули пространственной статистики, контроля выполнения планов, кэширования схем и прыжкового пересечения тегов становятся доступны любому новому приложению. Исходный код ядра и прототипов написан на TypeScript: это не только действующий прототип Листа на JavaScript, но и среда рантайм-проверки приложений разработчиками. В дальнейшем аннотации к общим типам позволят автоматически компилировать решения в AssemblyScript для максимальной производительности на миллионах пользовательских устройств.
 
 ---
 
 <!-- slide: 11 -->
 <div class="slide-content">
   <div class="slide-header">
-    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СВЯЗКА МСП — КУБГОЛОС</div>
-    <h2 class="slide-title">СВЯЗКА: «РЕЕСТР МСП» ⟷ «КУБГОЛОС»</h2>
-    <p class="slide-subtitle">Многофакторная оценка выполненных работ: объективный вердикт качества по трем осям</p>
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ЭКОНОМИКА ИНФРАСТРУКТУРЫ</div>
+    <h1 class="slide-title">ТРЁХУРОВНЕВЫЕ РАСЧЁТЫ И УЗЛЫ</h1>
+    <p class="slide-subtitle">Иерархическое агрегирование платежей и самоокупаемость общественных серверов</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="key-callout ruby">
-        <strong>Глубокая обратная связь вместо примитивных 5 звезд:</strong>
-        <p>После приемки работ заказчик поворачивает 3D-куб VoteCube, оценивая три независимых критерия качества работы специалиста.</p>
+  <div class="slide-body grid-2col-split">
+    <div class="content-panel">
+      <div class="panel-tag">ИЕРАРХИЯ ПЛАТЕЖЕЙ</div>
+      <div class="concept-item">
+        <span class="concept-bullet">1</span>
+        <span><b>Контур Банка России:</b> контракт делит платёж строго на 4–8 частей.</span>
       </div>
-
-      <div class="factor-cube-preview">
-        <div class="factor-axis">
-          <span class="axis-badge x">Фактор X</span>
-          <div class="axis-desc"><strong>Техническое качество:</strong> Надежность монтажа, отсутствие протечек и брака.</div>
-        </div>
-        <div class="factor-axis">
-          <span class="axis-badge y">Фактор Y</span>
-          <div class="axis-desc"><strong>Пунктуальность и чистота:</strong> Приход вовремя, уборка мусора после ремонта.</div>
-        </div>
-        <div class="factor-axis">
-          <span class="axis-badge z">Фактор Z</span>
-          <div class="axis-desc"><strong>Справедливость цены:</strong> Соответствие предварительной смете без доплат.</div>
-        </div>
+      <div class="concept-item">
+        <span class="concept-bullet">2</span>
+        <span><b>Клиринг Веток:</b> распределение средств между кооперативами.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">3</span>
+        <span><b>Реестры артелей:</b> выплаты конечным авторам и удержание налога.</span>
       </div>
     </div>
 
-    <div class="visual-panel">
-      <div class="ui-mockup-frame">
-        <div class="mockup-header">⭐ Народный профиль мастера в приложении</div>
-        <div class="master-rating-breakdown" style="padding: 16px; background: rgba(244, 63, 94, 0.08); border: 1px solid rgba(244, 63, 94, 0.25); border-radius: 12px; display: flex; flex-direction: column; gap: 10px;">
-          <div style="font-size: 15px; font-weight: 700; color: #ffffff;">Оценка 52 выполненных заказов в районе:</div>
-          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
-            <span>🔧 Качество монтажа:</span>
-            <span style="font-weight: 700; color: #34d399;">98% (отлично)</span>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
-            <span>🧹 Чистота на объекте:</span>
-            <span style="font-weight: 700; color: #38bdf8;">95% (убирает мусор)</span>
-          </div>
-          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px;">
-            <span>📋 Честность сметы:</span>
-            <span style="font-weight: 700; color: #fbbf24;">100% (без доплат)</span>
-          </div>
-          <div style="margin-top: 4px; padding: 6px; background: rgba(244, 63, 94, 0.15); border-radius: 6px; font-size: 13px; text-align: center; color: #fb7185; font-weight: 600;">
-            Статус: «Народный мастер квартала»
-          </div>
-        </div>
+    <div class="content-panel">
+      <div class="panel-tag">ДОМАШНИЙ УЗЕЛ</div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Затраты:</b> питание и связь требуют 250–550 рублей в месяц.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Окупаемость:</b> 400–900 платных запросов в сутки по пять копеек.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Социальный доступ:</b> до 100 запросов в день бесплатно для жителей.</span>
       </div>
     </div>
+  </div>
+
+  <div class="summary-box emerald-subtle">
+    <strong>Масштабируемость расчётов:</strong> Иерархическое разделение платежей защищает смарт-контракты Банка России от перегрузки, гарантируя прозрачность выплат авторам.
   </div>
 </div>
 
 ### Текст для диктора:
-> Привычные оценки в пять звезд в коммерческих сервисах давно обесценились: они не объясняют, что именно было хорошо, а что плохо.
->
-> В связке с «КубГолосом» оценка работы мастера становится трехмерной и информативной.
->
-> Жилец за несколько секунд оценивает три оси: безупречность самого ремонта, аккуратность и чистоту в квартире, а также честность сметы.
->
-> Соседи по подъезду видят детальный факторный профиль специалиста.
->
-> Это мотивирует мастеров работать чисто, бережно и открыто, формируя подлинную элиту добросовестного труда в наших городах.
+> Прямое расщепление микроплатежей между сотнями тысяч участников перегрузило бы расчётный контур цифрового рубля Банка России. «Турбаза» применяет трёхуровневую иерархию: смарт-контракт верхнего уровня имеет строго константную сложность, направляя средства консолидированному пулу федерации, а распределение по конечным авторам происходит во внутренних реестрах кооперативов. Сеть общественных узлов также экономически самодостаточна: эксплуатационные затраты домашнего микросервера составляют двести пятьдесят — пятьсот пятьдесят рублей в месяц и компенсируются микроплатежами коммерческих запросов и фондом развития.
 
 ---
 
 <!-- slide: 12 -->
 <div class="slide-content">
   <div class="slide-header">
-    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СВЯЗКА МСП — УРАТУР</div>
-    <h2 class="slide-title">СВЯЗКА: «РЕЕСТР МСП» ⟷ «УРАТУР»</h2>
-    <p class="slide-subtitle">Баланс труда и отдыха: заработанные Цифровые рубли направляются на доступный туризм</p>
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | КООПЕРАТИВНЫЙ СТРОЙ</div>
+    <h1 class="slide-title">КООПЕРАТИВНЫЕ ИНСТИТУТЫ ЭКОСИСТЕМЫ</h1>
+    <p class="slide-subtitle">Правовая модель защиты участников: артели разработчиков и потребительский союз граждан</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="key-callout ruby">
-        <strong>Заслуженный отдых и открытие страны:</strong>
-        <p>Честный труд должен вознаграждаться качественным отдыхом. Заработав средства в реестре, специалист в один клик выбирает семейное путешествие.</p>
+  <div class="slide-body grid-2col-split">
+    <div class="content-panel">
+      <div class="panel-tag">ТРИАДА РАЗРАБОТЧИКОВ</div>
+      <div class="concept-item">
+        <span class="concept-bullet">1</span>
+        <span><b>Артель (41-ФЗ):</b> доход по трудовому вкладу и неделимый фонд.</span>
       </div>
-
-      <div class="feature-cards-grid">
-        <div class="feature-card">
-          <div class="card-icon">🏕️</div>
-          <h4>Готовые маршруты</h4>
-          <p>Поездка на озеро или в горы на 2 дня по проверенным народным трекам.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🪙</div>
-          <h4>Прямая оплата</h4>
-          <p>Оплата гостевого дома заработанными Цифровыми рублями без комиссий.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🤝</div>
-          <h4>Профессиональный бартер</h4>
-          <p>Возможность помочь туристической базе ремонтом в зачет проживания.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">👨‍👩‍👧‍👦</div>
-          <h4>Семейная радость</h4>
-          <p>Чек-листы сборов снаряжения готовы в «Деловом» за пару минут.</p>
-        </div>
+      <div class="concept-item">
+        <span class="concept-bullet">2</span>
+        <span><b>Ассоциация:</b> технический комитет и сертификация интерфейсов.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">3</span>
+        <span><b>Потребительский союз:</b> владение серверами без налога на добавленную стоимость.</span>
       </div>
     </div>
 
-    <div class="visual-panel">
-      <div class="benefit-cards-stack">
-        <div class="benefit-card">
-          <div class="b-icon">🌄</div>
-          <div class="b-text">
-            <h4>Экономический круговорот</h4>
-            <p>Деньги, заработанные в городе, идут на поддержку экотуризма в родном регионе.</p>
-          </div>
-        </div>
-        <div class="benefit-card">
-          <div class="b-icon">🔋</div>
-          <div class="b-text">
-            <h4>Восстановление сил</h4>
-            <p>Мастер возвращается с новыми силами для любимого дела.</p>
-          </div>
-        </div>
+    <div class="content-panel">
+      <div class="panel-tag">УЗЛЫ И ГРАЖДАНЕ</div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Владельцы серверов:</b> аренда оборудования без открытия ИП.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Союз граждан:</b> собрание уполномоченных и комитет цифровой этики.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Защита от монополий:</b> принцип «один пайщик — один голос».</span>
       </div>
     </div>
+  </div>
+
+  <div class="summary-box ruby-subtle">
+    <strong>Правовой щит созидателей:</strong> Институты кооперативного права России защищают независимых инженеров и владельцев домашних серверов от диктата корпораций.
   </div>
 </div>
 
 ### Текст для диктора:
-> Человек работает не ради абстрактных цифр на экране, а ради счастья и здоровья своей семьи.
->
-> Замкнув производственный цикл недели, мастер открывает приложение «УраТур».
->
-> Все заработанные в Цифровых рублях средства готовы к использованию без потерь на банковских комиссиях.
->
-> Семья выбирает проверенный маршрут на реку или в горы, бронирует домик на природе и отправляется в путь по автономным офлайн-картам.
->
-> Так доверенная экосистема прямого владения данными гармонизирует труд и отдых, делая жизнь каждого человека наполненной и защищенной.
+> Независимые участники беззащитны перед корпорациями в одиночку. Платформа опирается на выверенную кооперативную модель законодательства России. Разработчики объединяются в производственные артели и ассоциации стандартов, сохраняя права на программы в неделимом фонде. Владельцы оборудования сдают мощности в аренду кооперативу без необходимости регистрировать индивидуальное предпринимательство и без обременительных страховых взносов. Граждане формируют потребительский союз с институтом выборных уполномоченных, контролируя соблюдение этических регламентов и блокируя попытки олигархизации правил платформы.
 
 ---
 
 <!-- slide: 13 -->
 <div class="slide-content">
   <div class="slide-header">
-    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | API-ЭКОНОМИКА</div>
-    <h2 class="slide-title">API-ЭКОНОМИКА (1/N) ДЛЯ РАЗРАБОТЧИКОВ</h2>
-    <p class="slide-subtitle">Честная монетизация специализированных отраслевых модулей: парикмахерские, ателье, пекарни</p>
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | СПРАВЕДЛИВЫЙ ДИВИДЕНД</div>
+    <h1 class="slide-title">РЕКЛАМНАЯ ДЕСЯТИНА: ДИВИДЕНД ЗА ВНИМАНИЕ</h1>
+    <p class="slide-subtitle">Платформенная норма: перечисление десяти процентов выручки гражданину без скрытого профилирования</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="key-callout ruby">
-        <strong>Открытый рынок программных модулей:</strong>
-        <p>ИТ-команды могут создавать узкоспециализированные надстройки поверх открытых схем Турбазы и получать роялти $1/N$ с каждого вызова API.</p>
-      </div>
-
-      <div class="feature-cards-grid">
-        <div class="feature-card">
-          <div class="card-icon">🥖</div>
-          <h4>Модуль для пекарен</h4>
-          <p>Учет партий свежего хлеба и предзаказ горячей выпечки жителями дома.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">✂️</div>
-          <h4>Модуль салонов красоты</h4>
-          <p>Интерактивная запись к местным парикмахерам и мастерам маникюра.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🚗</div>
-          <h4>Модуль автосервисов</h4>
-          <p>Электронная диагностическая карта и подбор проверенных автозапчастей.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">⚖️</div>
-          <h4>Клиринг 1/N</h4>
-          <p>Автоматическое перечисление роялти авторам программного кода.</p>
-        </div>
-      </div>
+  <div class="slide-body grid-3col">
+    <div class="benefit-card emerald">
+      <div class="card-num-badge">РАСПРЕДЕЛЕНИЕ</div>
+      <div class="card-title">Десятина 10%</div>
+      <div class="card-desc">Девяносто частей авторам кода, десять частей гражданину за уделённое внимание.</div>
     </div>
 
-    <div class="visual-panel">
-      <div class="ui-mockup-frame">
-        <div class="mockup-header">⚖️ Клиринг API: Распределение 5 ₽ за вызов</div>
-        <div class="api-clearing-card" style="padding: 16px; background: rgba(244, 63, 94, 0.08); border: 1px solid rgba(244, 63, 94, 0.25); border-radius: 12px; display: flex; flex-direction: column; gap: 8px;">
-          <div style="font-size: 15px; font-weight: 700; color: #ffffff; margin-bottom: 4px;">Заказ через интерфейс местной пекарни:</div>
-          <div style="display: flex; justify-content: space-between; font-size: 14px; padding: 6px 10px; background: rgba(255,255,255,0.04); border-radius: 6px;">
-            <span>🥖 Разработчик UI пекарни:</span>
-            <span style="font-weight: 700; color: #fb7185;">2.5 ₽ (50%)</span>
-          </div>
-          <div style="display: flex; justify-content: space-between; font-size: 14px; padding: 6px 10px; background: rgba(255,255,255,0.04); border-radius: 6px;">
-            <span>📦 Автор отраслевой схемы:</span>
-            <span style="font-weight: 700; color: #38bdf8;">1.5 ₽ (30%)</span>
-          </div>
-          <div style="display: flex; justify-content: space-between; font-size: 14px; padding: 6px 10px; background: rgba(255,255,255,0.04); border-radius: 6px;">
-            <span>🌿 Узел районной Ветки:</span>
-            <span style="font-weight: 700; color: #34d399;">1.0 ₽ (20%)</span>
-          </div>
-          <div style="margin-top: 4px; font-size: 12px; color: #94a3b8; text-align: center;">Мгновенный расчет за 0.05 сек в Цифровом рубле</div>
-        </div>
-      </div>
+    <div class="benefit-card indigo">
+      <div class="card-num-badge">ПРИВАТНОСТЬ</div>
+      <div class="card-title">Локальный замер</div>
+      <div class="card-desc">Внимание оценивается на Листе без утечки профиля; слепой маркер подтверждает человека.</div>
     </div>
+
+    <div class="benefit-card ruby">
+      <div class="card-num-badge">ОРИЕНТИР</div>
+      <div class="card-title">Честный микродоход</div>
+      <div class="card-desc">При пятидесяти миллионах пайщиков выплата составит от десятков до сотен рублей в месяц.</div>
+    </div>
+  </div>
+
+  <div class="summary-box emerald-subtle">
+    <strong>Уважение к человеку:</strong> Десятина — это не замена заработной платы, а алгоритмическое признание гражданина полноправным хозяином цифрового пространства.
   </div>
 </div>
 
 ### Текст для диктора:
-> Турбаза — это не закрытая корпоративная кормушка, а открытая среда для тысяч независимых ИТ-разработчиков России.
->
-> Любая команда программистов может создать удобный интерфейс для районной пекарни, автосервиса или парикмахерской, опираясь на готовые схемы данных платформы.
->
-> За каждый полезный вызов интерфейса разработчик автоматически получает микро-роялти один на эн через клиринг платформы.
->
-> Программистам больше не нужно годами искать венчурных инвесторов или продаваться ИТ-гигантам: их труд оплачивается справедливо и напрямую рынком.
+> В традиционных медиа внимание человека бесплатно присваивается корпорациями. «Турбаза» нормативно закрепляет платформенную десятину: десять процентов рекламного бюджета направляются непосредственно гражданину, а девяносто процентов распределяются по дереву программных модулей. Внимание подтверждается локально на Листе без утечки личного профиля, а слепой шлюз подтверждает личность гражданина без раскрытия персональных сведений. Это честный микродоход — от десятков до сотен рублей в месяц, — трансформирующий пользователя из бесправного объекта рекламы в совладельца открытой экосистемы.
 
 ---
 
 <!-- slide: 14 -->
 <div class="slide-content">
   <div class="slide-header">
-    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | МАКРОЭФФЕКТ</div>
-    <h2 class="slide-title">МАКРОЭКОНОМИЧЕСКИЙ ЭФФЕКТ ДЛЯ СТРАНЫ</h2>
-    <p class="slide-subtitle">Возрождение городской экономики: капитал остается дома, ускоряя товарооборот на +35%</p>
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ЭКОНОМИКА БУДУЩЕГО</div>
+    <h1 class="slide-title">ГОРИЗОНТ 20–40 ЛЕТ: РЕАЛИСТИЧНЫЙ БАЛАНС</h1>
+    <p class="slide-subtitle">Пятикомпонентный портфель дохода семьи и содействующая роль платформы в экономике</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="key-callout ruby">
-        <strong>Кровь экономики должна питать регионы:</strong>
-        <p>Отказ от посредников возвращает колоссальные финансовые потоки в микрорайоны и города, давая мощный импульс отечественному предпринимательству.</p>
+  <div class="slide-body grid-2col-split">
+    <div class="content-panel">
+      <div class="panel-tag">ПОРТФЕЛЬ ДОХОДА</div>
+      <div class="concept-item">
+        <span class="concept-bullet">1</span>
+        <span><b>Базовый труд:</b> сокращённая основная занятость.</span>
       </div>
-
-      <div class="pillar-cards-stack">
-        <div class="pillar-card">
-          <div class="pillar-num ruby">+35%</div>
-          <div class="pillar-info">
-            <h4>Рост локального товарооборота</h4>
-            <p>Деньги, сэкономленные на агрегаторах, тратятся на реальные товары и услуги внутри района.</p>
-          </div>
-        </div>
-        <div class="pillar-card">
-          <div class="pillar-num teal">0%</div>
-          <div class="pillar-info">
-            <h4>Нулевая налоговая бюрократия</h4>
-            <p>Прозрачная фискализация самозанятых через смарт-контракты без тонн бумажных отчетов.</p>
-          </div>
-        </div>
+      <div class="concept-item">
+        <span class="concept-bullet">2</span>
+        <span><b>Проекты артелей:</b> участие в кооперативных объединениях.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">3</span>
+        <span><b>Аренда узлов:</b> отдача от личных аппаратных мощностей.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">4</span>
+        <span><b>Десятина и кассы:</b> дивиденд внимания и взаимопомощь.</span>
       </div>
     </div>
 
-    <div class="visual-panel">
-      <div class="kpi-vertical-stack">
-        <div class="kpi-card-explainer">
-          <div class="kpi-num ruby">0 РУБ</div>
-          <div class="kpi-label">Вывода капитала в зарубежные офшоры агрегаторов</div>
-        </div>
-        <div class="kpi-card-explainer">
-          <div class="kpi-num teal">100%</div>
-          <div class="kpi-label">Соответствие требованиям 152-ФЗ и принципу «данные у владельца»</div>
-        </div>
-        <div class="kpi-card-explainer">
-          <div class="kpi-num cyan">МИЛЛИОНЫ</div>
-          <div class="kpi-label">Счастливых семей и уверенных в будущем мастеров</div>
-        </div>
+    <div class="content-panel">
+      <div class="panel-tag">ГРАНИЦЫ РОЛИ</div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Без иллюзий:</b> сохранение роли государства, науки, медицины и индустрии.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Реализм:</b> большинство людей планеты не будет обслуживать серверы.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Неравномерность:</b> самозанятость развивается в регионах с разной скоростью.</span>
       </div>
     </div>
+  </div>
+
+  <div class="summary-box indigo-subtle">
+    <strong>Созидательная миссия:</strong> Платформа содействует всем людям, предоставляя надёжный инструмент независимым созидателям и кооперативным объединениям.
   </div>
 </div>
 
 ### Текст для диктора:
-> Макроэкономический эффект от внедрения платформы Турбаза простирается далеко за рамки отдельных квартир.
->
-> Сотни миллиардов рублей, которые раньше ежегодно выкачивались в офшоры владельцами монопольных тревел-сервисов и бирж услуг, остаются в карманах граждан России.
->
-> Товарооборот внутри микрорайонов вырастает на тридцать пять процентов.
->
-> Самозанятые граждане получают честный, легальный и уважительный статус, работая в прозрачной правовой среде Цифрового рубля без налогового кошмара.
->
-> Так рождается сильная, самодостаточная и технологически суверенная Россия.
+> Через двадцать — сорок лет роботизация изменит рынок рутинного труда. Платформа предлагает сбалансированную модель: материальная устойчивость семьи опирается на портфель из пяти источников — сокращённую основную занятость, локальные проекты артелей, доход от личных мощностей, рекламный дивиденд и кассы взаимопомощи. При этом важно подчеркнуть: «Турбаза» не претендует на тотальное переустройство общества. Индустрия, наука и государственные институты сохранят свои формы. Задача платформы — помочь всем гражданам, предоставив надёжный инструмент независимым созидателям и кооперативным объединениям.
 
 ---
 
 <!-- slide: 15 -->
 <div class="slide-content">
   <div class="slide-header">
-    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ИТОГИ И МОСТ</div>
-    <h2 class="slide-title">ИТОГИ ПРИКЛАДНОЙ СЕРИИ: 5 ИЗ 5</h2>
-    <p class="slide-subtitle">Прикладной контур завершен: мост к 7-частной глубокой инженерной архитектуре Турбазы</p>
+    <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | ЗАВЕРШЕНИЕ ЦИКЛА</div>
+    <h1 class="slide-title">ИТОГИ ДВЕНАДЦАТИ БЕЛЫХ КНИГ</h1>
+    <p class="slide-subtitle">Технологический суверенитет Отечества и международный открытый реляционный протокол</p>
   </div>
 
-  <div class="slide-body grid-2col">
-    <div class="info-panel">
-      <div class="key-callout ruby">
-        <strong>Полная готовность к массовой жизни:</strong>
-        <p>Пять приложений доказали: распределенная архитектура прямого владения данными — это не теоретическая мечта, а готовое и практичное решение для каждого гражданина.</p>
+  <div class="slide-body grid-2col-split">
+    <div class="content-panel">
+      <div class="panel-tag">СВОД МОНОГРАФИЙ</div>
+      <div class="concept-item">
+        <span class="concept-bullet">1</span>
+        <span><b>Книги 01–07:</b> архитектура, смарт-контракты и суверенитет.</span>
       </div>
-
-      <div class="feature-cards-grid">
-        <div class="feature-card">
-          <div class="card-icon">📋</div>
-          <h4>«Деловой»</h4>
-          <p>Личные и семейные приоритеты, орбиты и случайный шаг.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🎲</div>
-          <h4>«КубГолос»</h4>
-          <p>3D-опросы, версионные деревья и защита от ботов.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🤝</div>
-          <h4>«Забота»</h4>
-          <p>Взаимовыручка, подъездные поручения и репутация дел.</p>
-        </div>
-        <div class="feature-card">
-          <div class="card-icon">🏔️</div>
-          <h4>«УраТур»</h4>
-          <p>Офлайн-планер, народные тропы и P2P-спасение.</p>
-        </div>
+      <div class="concept-item">
+        <span class="concept-bullet">2</span>
+        <span><b>Книги 08–11:</b> согласие, опыт, планы и навигация троп.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">3</span>
+        <span><b>Книга 12:</b> экосистема, хранилища и кооперативный строй.</span>
       </div>
     </div>
 
-    <div class="visual-panel">
-      <div class="bridge-arch-box">
-        <div class="arch-box-header">🏛️ СЛЕДУЮЩИЙ ЭТАП: АРХИТЕКТУРА</div>
-        <p>Прикладная серия из 5 презентаций завершена. Приглашаем погрузиться в фундаментальную инженерную архитектуру:</p>
-        <div class="arch-badge-track">7 ГЛУБОКИХ АРХИТЕКТУРНЫХ РЕЛИЗОВ</div>
-        <p class="arch-sub">Топология, Движок Листа, SDK, Конвейер Ветки, P2P/Роутинг, TreeSearch, Криптография и API-экономика.</p>
+    <div class="content-panel">
+      <div class="panel-tag">ЧЕТЫРЕ ИТОГА</div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Человеку:</b> тайна частной жизни и владение собственной информацией.</span>
       </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Разработчику:</b> творческая свобода и честные плоды созидания.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Отечеству:</b> лидерство создателя эталонного ядра и суверенитет.</span>
+      </div>
+      <div class="concept-item">
+        <span class="concept-bullet">✓</span>
+        <span><b>Миру:</b> открытый протокол суверенных деревьев данных государств.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="attribution-bottom-bar">
+    <div class="attribution-credits">
+      Автор: А. В. Шамсутдинов · Архитектура: Claude Sonnet 5.5, Gemini 3.8 Flash · Версия 1.0 (2026)
+    </div>
+    <div class="attribution-spec">
+      <a href="../../../../../viewer.html?doc=shared_docs/whitepapers/12_ecosystem_whitepaper.md" class="whitepaper-badge" target="_blank">📄 Белая книга № 12 «Экосистема» ↗</a>
     </div>
   </div>
 </div>
 
 ### Текст для диктора:
-> Завершая цикл презентаций флагманских приложений, можно с уверенностью констатировать: прикладной контур отечественной платформы Турбаза полностью сформирован и готов к эксплуатации.
->
-> Пять ключевых сервисов — «Деловой», «КубГолос», «Забота», «УраТур» и «Реестр МСП» — доказали жизнеспособность распределенной архитектуры нулевого доверия.
->
-> Это не просто приложения — это новый уклад жизни, возвращающий гражданам приватность, безопасность, экономическую свободу и тепло добрососедства.
->
-> А для тех, кто хочет досконально понять инженерное устройство каждого слоя платформы, подготовлен фундаментальный курс из семи глубоких архитектурных презентаций.
->
-> Благодарим за внимание и добро пожаловать в технологическое будущее суверенной России!
+> Двенадцать Белых книг платформы «Турбаза» сформировали целостный, математически строгий и институционально зрелый фундамент доверенных распределённых вычислений. Цикл флагманских прикладных решений полностью завершён. Платформа возвращает человеку неприкосновенность частной жизни, содействует творческой свободе независимых разработчиков и обеспечивает цифровой суверенитет Отечества как первого создателя открытого эталонного ядра. Этот протокол открыт всему миру: сообщества любых стран могут создавать собственные национальные деревья данных, утверждая принципы справедливого владения информацией и независимого созидательного труда. Спасибо за внимание.
