@@ -57,9 +57,9 @@ flowchart TD
 | Ступень | Название ступени | Назначенная модель | План | Лог | Чеклист | Статус |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
 | **01** | Интеграция Белых Книг 11 и 12 в индексную страницу | Gemini 3.8 Flash | [Session_01_Plan.md](./Session_01_Plan.md) | [Session_01_Log.md](./Session_01_Log.md) | [Session_01_Checklist.md](./Session_01_Checklist.md) | `[x]` Завершена |
-| **02** | Посекционная информация о перспективах и приглашение сообщества | Gemini 3.8 Flash | [Session_02_Plan.md](./Session_02_Plan.md) | [Session_02_Log.md](./Session_02_Log.md) | [Session_02_Checklist.md](./Session_02_Checklist.md) | `[ ]` Не начата |
+| **02** | Посекционная информация о перспективах и приглашение сообщества | Claude Sonnet 5.5 | [Session_02_Plan.md](./Session_02_Plan.md) | [Session_02_Log.md](./Session_02_Log.md) | [Session_02_Checklist.md](./Session_02_Checklist.md) | `[x]` Завершена |
 | **03** | Ревизия маркировки и статусов всех презентаций и белых бумаг | Gemini 3.8 Flash | [Session_03_Plan.md](./Session_03_Plan.md) | [Session_03_Log.md](./Session_03_Log.md) | [Session_03_Checklist.md](./Session_03_Checklist.md) | `[ ]` Не начата |
-| **04** | Обновление корневого README.md платформы и манифест открытой разработки | Gemini 3.8 Flash | [Session_04_Plan.md](./Session_04_Plan.md) | [Session_04_Log.md](./Session_04_Log.md) | [Session_04_Checklist.md](./Session_04_Checklist.md) | `[ ]` Не начата |
+| **04** | Обновление корневого README.md платформы и манифест открытой разработки | Claude Sonnet 5.5 | [Session_04_Plan.md](./Session_04_Plan.md) | [Session_04_Log.md](./Session_04_Log.md) | [Session_04_Checklist.md](./Session_04_Checklist.md) | `[ ]` Не начата |
 | **05** | Сквозная приёмка, валидация относительных путей и финализация | Gemini 3.8 Flash | [Session_05_Plan.md](./Session_05_Plan.md) | [Session_05_Log.md](./Session_05_Log.md) | [Session_05_Checklist.md](./Session_05_Checklist.md) | `[ ]` Не начата |
 
 ---
