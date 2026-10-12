@@ -12,7 +12,7 @@
   - [detailed_overall_impact_presentations/turbase_detailed_impact_presentations_master_plan.md](../../../detailed_overall_impact_presentations/turbase_detailed_impact_presentations_master_plan.md)
   - [applications_presentations/README.md](../../../applications_presentations/README.md)
   - [shared_docs/whitepapers/README.md](../../../shared_docs/whitepapers/README.md)
-- **Статус ступени:** `[ ]` Не начата
+- **Статус ступени:** `[x]` Завершена
 
 ---
 
@@ -29,17 +29,17 @@
 ## 3. Сгруппированный список задач
 
 ### Группа 1. Ревизия статусов в архитектурных презентациях
-- [ ] 1.1. Обновить таблицы в [architecture_presentations/README.md](../../../architecture_presentations/README.md) с явной маркировкой выпусков 01 и 07 (Завершены с нейроозвучкой) и выпусков 02–06 (Концептуальный проект, открыт для создания прототипов сообществом)
-- [ ] 1.2. Внести аналогичные отметки статуса в мастер-план [architecture_presentations/turbase_architecture_presentations_master_plan.md](../../../architecture_presentations/turbase_architecture_presentations_master_plan.md)
-- [ ] 1.3. Сохранить изменения в Git: `docs(arch): 10-12_01 ступень 3 — ревизия статусов инженерной серии архитектуры`
+- [x] 1.1. Обновить таблицы в [architecture_presentations/README.md](../../../architecture_presentations/README.md) с явной маркировкой выпусков 01 и 07 (Завершены с нейроозвучкой) и выпусков 02–06 (Концептуальный проект, открыт для создания прототипов сообществом)
+- [x] 1.2. Внести аналогичные отметки статуса в мастер-план [architecture_presentations/turbase_architecture_presentations_master_plan.md](../../../architecture_presentations/turbase_architecture_presentations_master_plan.md)
+- [x] 1.3. Сохранить изменения в Git: `docs(arch): 10-12_01 ступень 3 — ревизия статусов инженерной серии архитектуры` (`6c6e66e`)
 
 ### Группа 2. Ревизия статусов прикладных и отраслевых презентаций
-- [ ] 2.1. Проверить маркировку всех 5 презентаций в [applications_presentations/README.md](../../../applications_presentations/README.md) как полностью завершённых со звуком
-- [ ] 2.2. Обновить таблицы в [detailed_overall_impact_presentations/README.md](../../../detailed_overall_impact_presentations/README.md) и мастер-плане [detailed_overall_impact_presentations/turbase_detailed_impact_presentations_master_plan.md](../../../detailed_overall_impact_presentations/turbase_detailed_impact_presentations_master_plan.md) с фиксацией открытого статуса для юрисдикционной доработки
-- [ ] 2.3. Сохранить изменения в Git: `docs(impact): 10-12_01 ступень 3 — ревизия статусов прикладных и отраслевых презентаций`
+- [x] 2.1. Проверить маркировку всех 5 презентаций в [applications_presentations/README.md](../../../applications_presentations/README.md) как полностью завершённых со звуком
+- [x] 2.2. Обновить таблицы в [detailed_overall_impact_presentations/README.md](../../../detailed_overall_impact_presentations/README.md) и мастер-плане [detailed_overall_impact_presentations/turbase_detailed_impact_presentations_master_plan.md](../../../detailed_overall_impact_presentations/turbase_detailed_impact_presentations_master_plan.md) с фиксацией открытого статуса для юрисдикционной доработки
+- [x] 2.3. Сохранить изменения в Git: `docs(impact): 10-12_01 ступень 3 — ревизия статусов прикладных и отраслевых презентаций` (`69c200c`)
 
 ### Группа 3. Ревизия статусов Белых Книг и финализация
-- [ ] 3.1. Уточнить статусы документов в [shared_docs/whitepapers/README.md](../../../shared_docs/whitepapers/README.md)
-- [ ] 3.2. Заполнить [Session_03_Checklist.md](./Session_03_Checklist.md) и [Session_03_Log.md](./Session_03_Log.md)
-- [ ] 3.3. Отметить выполнение ступени в [Overall_Plan.md](./Overall_Plan.md)
-- [ ] 3.4. Сохранить финальный коммит ступени в Git: `docs(session): 10-12_01 ступень 3 — финализация ревизии маркировки презентаций и белых бумаг`
+- [x] 3.1. Уточнить статусы документов в [shared_docs/whitepapers/README.md](../../../shared_docs/whitepapers/README.md)
+- [x] 3.2. Заполнить [Session_03_Checklist.md](./Session_03_Checklist.md) и [Session_03_Log.md](./Session_03_Log.md)
+- [x] 3.3. Отметить выполнение ступени в [Overall_Plan.md](./Overall_Plan.md)
+- [x] 3.4. Сохранить финальный коммит ступени в Git: `docs(session): 10-12_01 ступень 3 — финализация ревизии маркировки презентаций и белых бумаг`
