@@ -1,4 +1,7 @@
 # Платформа «Турбаза» — Цифровая экосистема прямого владения данными и государственного суверенитета
+
+This repository presents platform Turbase and is geared towards implementation in Russian  Federation and is partially complete for continuation of work during platform implementation.  Developers from around the world are invited to fork this repository, translate it and adopt to their needs.
+
 ## Полный комплекс презентационных, аналитических и инженерных материалов
 
 <p align="left">
