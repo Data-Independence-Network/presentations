@@ -167,7 +167,7 @@
   - [Overall_Plan.md](./Overall_Plan.md)
   - [Operator_Session_Log.md](./Operator_Session_Log.md)
 - **Фиксация в Git (Commit Checkpoint):**
-  - **Хэш коммита:** `PENDING_STEP4_COMMIT`
+  - **Хэш коммита:** `e6352cc`
   - **Сообщение коммита:** `docs(session): 10-12_01 шаг 4 — успешное завершение Ступени 02 пакета задач`
   - **Связь с автономными процессами:** Ступень 02 завершена, открыт путь к выполнению Ступени 03
 
@@ -180,7 +180,7 @@
 | 1 | — | *(первый ответ, запрос выбора формата)* | — | ✓ ОК |
 | 2 | `67ecf10` | `docs(session): 10-12_01 шаг 2 — создание мастер-плана и планов автономных сессий пакета задач` | `Overall_Plan.md`, `Operator_Session_Log.md`, `Session_0X_*.md`, `Current_Topic_and_process.md` | ✓ ОК |
 | 3 | `1ca707e` | `docs(session): 10-12_01 шаг 3 — успешное завершение Ступени 01 пакета задач` | `Session_01_*.md`, `Overall_Plan.md`, `Operator_Session_Log.md` | ✓ ОК |
-| 4 | `PENDING_STEP4_COMMIT` | `docs(session): 10-12_01 шаг 4 — успешное завершение Ступени 02 пакета задач` | `Session_02_*.md`, `Overall_Plan.md`, `Operator_Session_Log.md` | ✓ ОК |
+| 4 | `e6352cc` | `docs(session): 10-12_01 шаг 4 — успешное завершение Ступени 02 пакета задач` | `Session_02_*.md`, `Overall_Plan.md`, `Operator_Session_Log.md` | ✓ ОК |
 
 ---
 
