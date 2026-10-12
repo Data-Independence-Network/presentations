@@ -2,9 +2,9 @@
 ## Фундаментальный 7-серийный технический комплекс глубокого инженерного погружения (105 слайдов)
 
 > **Категория директории:** `architecture_presentations/`  
-> **Количество презентаций:** 7 | **Всего слайдов:** 105  
+> **Количество презентаций:** 7 (2 завершены со студийным аудио, 5 концептуальных проектов открыты для прототипов) | **Всего слайдов:** 105  
 > **Визуальный стиль:** Инженерный Чертеж (#0b0f19, Циан, Изумруд, Лайм, Янтарь, Ультрамарин, Аметист, Золото)  
-> **Озвучка:** Microsoft Edge Neural TTS (`ru-RU-DmitryNeural`, темп `-9%`, тон `-5Hz`)  
+> **Озвучка:** Microsoft Edge Neural TTS (`ru-RU-DmitryNeural`, выпуски 01 и 07 зафиксированы в Git)  
 > **Мастер-план направления:** [turbase_architecture_presentations_master_plan.md](./turbase_architecture_presentations_master_plan.md)  
 
 ---
@@ -26,15 +26,15 @@
 
 ## 🧭 Каталог презентаций серии
 
-| № | Презентация | Фокус и ключевая тематика | Web Deck | Документация |
-| :---: | :--- | :--- | :---: | :---: |
-| **01** | [**Выпуск 1: Трехуровневая топология прямого владения данными и парадигма вычислений на устройствах пользователей**](./01_topology_and_sovereignty/README.md) | Глубокий технический разбор четырехуровневой древовидной иерархии платформы «Турбаза» (Лист → Ветка → Родительская Ветвь → Ствол), архитекту... | [web_deck/](./01_topology_and_sovereignty/generated/outputs/web_deck/index.html) | [README.md](./01_topology_and_sovereignty/README.md) |
-| **02** | [**Выпуск 2: Архитектура узла «Лист»: СУБД, трехколоночная модель и составные ключи**](./02_leaf_storage_engine/README.md) | Анализ внутреннего устройства узла «Лист»: использование единой встраиваемой реляционной СУБД SQLite в режиме WAL, модель виртуальных хранил... | [web_deck/](./02_leaf_storage_engine/generated/outputs/web_deck/index.html) | [README.md](./02_leaf_storage_engine/README.md) |
-| **03** | [**Выпуск 3: Каркас приложений и инструментарий разработчика**](./03_app_framework_and_sdk/README.md) | Исследование архитектуры прикладного каркаса и Turbase SDK. Освещение фундаментального контракта «Читай отовсюду, пиши только своё», пе... | [web_deck/](./03_app_framework_and_sdk/generated/outputs/web_deck/index.html) | [README.md](./03_app_framework_and_sdk/README.md) |
-| **04** | [**Выпуск 4: Архитектура узла «Ветка»: конвейер данных и надежность хранения**](./04_branch_pipeline_and_storage/README.md) | Подробное описание архитектуры промежуточного узла «Ветка»: трехстадийный конвейер обработки данных (PersistentQueue → ConcurrentMap → FileS... | [web_deck/](./04_branch_pipeline_and_storage/generated/outputs/web_deck/index.html) | [README.md](./04_branch_pipeline_and_storage/README.md) |
-| **05** | [**Выпуск 5: Сетевая маршрутизация, P2P и сквозные соединения**](./05_routing_p2p_and_passthrough/README.md) | Разбор сетевого стека платформы: использование хранилищ в качестве асинхронного сигнального сервера для установки WebRTC P2P-соединений, OID... | [web_deck/](./05_routing_p2p_and_passthrough/generated/outputs/web_deck/index.html) | [README.md](./05_routing_p2p_and_passthrough/README.md) |
-| **06** | [**Выпуск 6: Древовидный глобальный поиск (TreeSearch) и федеративная аналитика**](./06_tree_search_and_analytics/README.md) | Презентация технологии глобального поиска TreeSearch: многоуровневая индексация по древовидной топологии, конфиденциальный поиск на клиентск... | [web_deck/](./06_tree_search_and_analytics/generated/outputs/web_deck/index.html) | [README.md](./06_tree_search_and_analytics/README.md) |
-| **07** | [**Выпуск 7: Криптографический контур, смарт-контракты и экономика API**](./07_cryptography_and_api_economy/README.md) | Финальный выпуск инженерной серии: криптографический периметр ГОСТ Р 34.12/34.10, постквантовая защита (PQC), минимальные FSM смарт-контракты, микро-блокчейны и экономика API... | [web_deck/](./07_cryptography_and_api_economy/generated/outputs/web_deck/index.html) | [README.md](./07_cryptography_and_api_economy/README.md) |
+| № | Презентация | Фокус и ключевая тематика | Web Deck | Статус готовности |
+| :---: | :--- | :--- | :---: | :--- |
+| **01** | [**Выпуск 1: Трехуровневая топология прямого владения данными и парадигма вычислений на устройствах пользователей**](./01_topology_and_sovereignty/README.md) | Глубокий технический разбор четырехуровневой древовидной иерархии платформы «Турбаза» (Лист → Ветка → Родительская Ветвь → Ствол), архитектурные плоскости данных и управления. | [web_deck/](./01_topology_and_sovereignty/generated/outputs/web_deck/index.html) | **Завершена** (со студийной озвучкой DmitryNeural) |
+| **02** | [**Выпуск 2: Архитектура узла «Лист»: СУБД, трехколоночная модель и составные ключи**](./02_leaf_storage_engine/README.md) | Анализ внутреннего устройства узла «Лист»: использование единой встраиваемой реляционной СУБД SQLite в режиме WAL, модель виртуальных хранилищ, 3-колоночный ключ, Bridge Entities. | [web_deck/](./02_leaf_storage_engine/generated/outputs/web_deck/index.html) | *Концептуальный проект* (открыт для создания прототипов сообществом) |
+| **03** | [**Выпуск 3: Каркас приложений и инструментарий разработчика**](./03_app_framework_and_sdk/README.md) | Исследование архитектуры прикладного каркаса и Turbase SDK. Освещение фундаментального контракта «Читай отовсюду, пиши только своё», песочница безопасности, декораторы и ORM. | [web_deck/](./03_app_framework_and_sdk/generated/outputs/web_deck/index.html) | *Концептуальный проект* (открыт для создания прототипов сообществом) |
+| **04** | [**Выпуск 4: Архитектура узла «Ветка»: конвейер данных и надежность хранения**](./04_branch_pipeline_and_storage/README.md) | Подробное описание архитектуры промежуточного узла «Ветка»: трехстадийный конвейер обработки данных (PersistentQueue → ConcurrentMap → FileSystem), In-Memory аккумуляторы, очистка логов. | [web_deck/](./04_branch_pipeline_and_storage/generated/outputs/web_deck/index.html) | *Концептуальный проект* (открыт для создания прототипов сообществом) |
+| **05** | [**Выпуск 5: Сетевая маршрутизация, P2P и сквозные соединения**](./05_routing_p2p_and_passthrough/README.md) | Разбор сетевого стека платформы: использование хранилищ в качестве асинхронного сигнального сервера для установки WebRTC P2P-соединений, OIDC, PassThroughConnection. | [web_deck/](./05_routing_p2p_and_passthrough/generated/outputs/web_deck/index.html) | *Концептуальный проект* (открыт для создания прототипов сообществом) |
+| **06** | [**Выпуск 6: Древовидный глобальный поиск (TreeSearch) и федеративная аналитика**](./06_tree_search_and_analytics/README.md) | Презентация технологии глобального поиска TreeSearch: многоуровневая индексация по древовидной топологии, конфиденциальный поиск на устройствах пользователей, аварийное восстановление. | [web_deck/](./06_tree_search_and_analytics/generated/outputs/web_deck/index.html) | *Концептуальный проект* (открыт для создания прототипов сообществом) |
+| **07** | [**Выпуск 7: Криптографический контур, смарт-контракты и экономика API**](./07_cryptography_and_api_economy/README.md) | Финальный выпуск инженерной серии: криптографический периметр ГОСТ Р 34.12/34.10, постквантовая защита (PQC), минимальные FSM смарт-контракты, микро-блокчейны и экономика API... | [web_deck/](./07_cryptography_and_api_economy/generated/outputs/web_deck/index.html) | **Завершена** (со студийной озвучкой DmitryNeural) |
 
 ---
 
