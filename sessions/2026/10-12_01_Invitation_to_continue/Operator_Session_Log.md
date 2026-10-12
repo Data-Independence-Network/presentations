@@ -267,6 +267,30 @@
   - **Сообщение коммита:** `docs(session): 10-12_01 ступень 5 — успешное завершение сквозной приёмки и валидации`
   - **Связь с автономными процессами:** Все 5 ступеней пакета завершены, пакет закрыт
 
+### Шаг 8. Интеграция Белых Книг 11 и 12 в index.html и viewer.html
+- **Запрос оператора:**
+  > «Отличная работа, спасибо.  Можно вы добавите белые бумаги 11 и 12 в index.html, пожалуйста?»
+- **Ход рассуждения модели (Gemini 3.8 Flash / Claude Sonnet 5.5):**
+  1. Оператор запросил интеграцию новых Белых Книг № 11 («УраТур») и № 12 («Экосистема») в главный портал презентационного комплекса [index.html](../../../index.html).
+  2. Выполнен комплекс доработок веб-портала и интерактивного вьюера:
+     - В [index.html](../../../index.html) в раздел Whitepapers внедрены полноценные карточки для Белой Книги 11 и Белой Книги 12 со статусом `Готово (.md)`, тегами, поисковыми атрибутами `data-search`, кнопками перехода во вьюер (`📖 Читать во вьюере`), исходным файлам `.md` и слайдам;
+     - В заголовке секции Белых Книг актуализированы бейдж (`7 готово · 5 проектов`) и текстовое описание (12 книг + 1 технический документ, 7 готовых, 5 концептуальных проектов);
+     - В панели фильтров обновлена плашка раздела: `📑 Белые книги (7/13)`;
+     - В карточках приложений 04 («УраТур») и 05 («Локальный реестр / Экосистема») добавлены кнопки быстрого перехода к соответствующим Белым Книгам 11 и 12 во вьюере;
+     - В [viewer.html](../../../viewer.html) добавлены пункты в выпадающий список `#docSelector` и записи в конфигурационный объект `DOCS_CONFIG` для мгновенной загрузки Белых Книг 11 и 12;
+     - Проверена работоспособность ссылок и соблюдение Правила 12 (без местоимений «мы/наш»).
+  3. Сохранено в Git: коммит `d494cee`.
+- **Выполненные действия и результат:**
+  Портал [index.html](../../../index.html) и вьюер [viewer.html](../../../viewer.html) полностью синхронизированы со всеми 7 готовыми Белыми Книгами.
+- **Затронутые файлы:**
+  - [index.html](../../../index.html)
+  - [viewer.html](../../../viewer.html)
+  - [Operator_Session_Log.md](./Operator_Session_Log.md)
+- **Фиксация в Git (Commit Checkpoint):**
+  - **Хэш коммита:** `d494cee`
+  - **Сообщение коммита:** `feat(portal): добавление Белых Книг 11 и 12 в index.html и viewer.html`
+  - **Связь с автономными процессами:** Интеграция в портал завершена
+
 ---
 
 ## 5. Сводный реестр контрольных коммитов диалога
@@ -279,7 +303,8 @@
 | 4 | `e6352cc` | `docs(session): 10-12_01 шаг 4 — успешное завершение Ступени 02 пакета задач` | `Session_02_*.md`, `Overall_Plan.md`, `Operator_Session_Log.md` | ✓ ОК |
 | 5 | `ce86499` | `docs(session): 10-12_01 шаг 5 — успешное завершение Ступени 03 пакета задач` | `Session_03_*.md`, `Overall_Plan.md`, `Operator_Session_Log.md` | ✓ ОК |
 | 6 | `f930d49`, `1ab0201`, `2236f0f` | `docs(readme): 10-12_01 ступень 4 — обновление корневого README, статусов и манифеста открытой разработки` | `README.md`, `applications_presentations/README.md`, `architecture_presentations/*`, `shared_docs/whitepapers/README.md`, `Session_04_*.md`, `Overall_Plan.md`, `Operator_Session_Log.md` | ✓ ОК |
-| 7 | `e088e35` | `docs(session): 10-12_01 ступень 5 — успешное завершение сквозной приёмки и валидации` | `Session_05_*.md`, `Overall_Plan.md`, `Operator_Session_Log.md` | ✓ ОК |
+| 7 | `e088e35`, `3ca6b20` | `docs(session): 10-12_01 ступень 5 — успешное завершение сквозной приёмки и валидации` | `Session_05_*.md`, `Overall_Plan.md`, `Operator_Session_Log.md` | ✓ ОК |
+| 8 | `d494cee` | `feat(portal): добавление Белых Книг 11 и 12 в index.html и viewer.html` | `index.html`, `viewer.html`, `Operator_Session_Log.md` | ✓ ОК |
 
 ---
 
@@ -303,6 +328,9 @@
 - **Чеклисты приёмки ступеней:** [Session_01_Checklist.md](./Session_01_Checklist.md) – [Session_05_Checklist.md](./Session_05_Checklist.md)
 - **Указатель активного плана:** [Current_Topic_and_process.md](../../Current_Topic_and_process.md)
 - **Корневой документ платформы:** [README.md](../../../README.md)
+- **Портал и вьюер экосистемы:**
+  - [index.html](../../../index.html)
+  - [viewer.html](../../../viewer.html)
 - **Белые Книги (индексные страницы):**
   - [shared_docs/whitepapers/README.md](../../../shared_docs/whitepapers/README.md)
   - [shared_docs/whitepapers/applications/README.md](../../../shared_docs/whitepapers/applications/README.md)
@@ -314,5 +342,6 @@
   - [architecture_presentations/turbase_architecture_presentations_master_plan.md](../../../architecture_presentations/turbase_architecture_presentations_master_plan.md)
   - [detailed_overall_impact_presentations/README.md](../../../detailed_overall_impact_presentations/README.md)
   - [detailed_overall_impact_presentations/turbase_detailed_impact_presentations_master_plan.md](../../../detailed_overall_impact_presentations/turbase_detailed_impact_presentations_master_plan.md)
+
 
 
