@@ -2,9 +2,9 @@
 ## 5 начальных сервисов повседневной цифровой жизни: «Деловой», «КубГолос», «Забота», «УраТур» и «Локальный реестр МСП и ЖКХ» (75 слайдов)
 
 > **Категория директории:** `applications_presentations/`  
-> **Количество презентаций:** 5 | **Всего слайдов:** 75  
+> **Количество презентаций:** 5 (все 5 завершены со студийным аудио в Git) | **Всего слайдов:** 75  
 > **Визуальный стиль:** Прикладной Спектр (Янтарь, Циан, Изумруд, Аметист, Коралл)  
-> **Озвучка:** Microsoft Edge Neural TTS (`ru-RU-DmitryNeural`, темп `-9%`, тон `-5Hz`)  
+> **Озвучка:** Microsoft Edge Neural TTS (`ru-RU-DmitryNeural`, все 5 дорожек зафиксированы в Git)  
 > **Мастер-план направления:** [turbase_applications_master_plan.md](./turbase_applications_master_plan.md)  
 
 ---
@@ -24,13 +24,13 @@
 
 ## 🧭 Каталог презентаций серии
 
-| № | Презентация | Фокус и ключевая тематика | Web Deck | Документация |
-| :---: | :--- | :--- | :---: | :---: |
-| **01** | [**«КубГолос»: измерять и складывать**](./01_kubgolos_app_presentation/README.md) | Многофакторная оценка, потоковые счётчики на Ветках и сложение сумм вверх по дереву без сбора голосов в одном месте | [web_deck/](./01_kubgolos_app_presentation/generated/outputs/web_deck/index.html) | [README.md](./01_kubgolos_app_presentation/README.md) |
-| **02** | [**«Забота»: вкладывать и просматривать**](./02_zabota_app_presentation/README.md) | Самозапечатывающиеся страницы, треды реплик, свидетельства Опыта и открытый социальный рейтинг полезных вкладов по темам | [web_deck/](./02_zabota_app_presentation/generated/outputs/web_deck/index.html) | [README.md](./02_zabota_app_presentation/README.md) |
-| **03** | [**«Деловой»: исполнять и связывать**](./03_delovoy_app_presentation/README.md) | Дело как автономное зашифрованное хранилище на Листе, мандатный API поручений, контракты L2 и связка двух рейтингов | [web_deck/](./03_delovoy_app_presentation/generated/outputs/web_deck/index.html) | [README.md](./03_delovoy_app_presentation/README.md) |
-| **04** | [**«УраТур»: Автономный туристический планер и путеводитель по стране и миру**](./04_uratur_app_presentation/README.md) | Демонстрация туристического планера «УраТур», рожденного из синергии базовых приложений: сборы от «Делового», народные тропы от «КубГолоса» ... | [web_deck/](./04_uratur_app_presentation/generated/outputs/web_deck/index.html) | [README.md](./04_uratur_app_presentation/README.md) |
-| **05** | [**Локальный реестр МСП и ЖКХ: Прикладная синергия экосистемы Турбазы**](./05_local_services_presentation/README.md) | Показ сквозной экономической синергии всех 5 приложений экосистемы: каталог местных мастеров и локальных предприятий шаговой доступности, ра... | [web_deck/](./05_local_services_presentation/generated/outputs/web_deck/index.html) | [README.md](./05_local_services_presentation/README.md) |
+| № | Презентация | Фокус и ключевая тематика | Web Deck | Статус готовности |
+| :---: | :--- | :--- | :---: | :--- |
+| **01** | [**«КубГолос»: измерять и складывать**](./01_kubgolos_app_presentation/README.md) | Многофакторная оценка, потоковые счётчики на Ветках и сложение сумм вверх по дереву без сбора голосов в одном месте | [web_deck/](./01_kubgolos_app_presentation/generated/outputs/web_deck/index.html) | **Завершена** (со студийной озвучкой DmitryNeural) |
+| **02** | [**«Забота»: вкладывать и просматривать**](./02_zabota_app_presentation/README.md) | Самозапечатывающиеся страницы, треды реплик, свидетельства Опыта и открытый социальный рейтинг полезных вкладов по темам | [web_deck/](./02_zabota_app_presentation/generated/outputs/web_deck/index.html) | **Завершена** (со студийной озвучкой DmitryNeural) |
+| **03** | [**«Деловой»: исполнять и связывать**](./03_delovoy_app_presentation/README.md) | Дело как автономное зашифрованное хранилище на Листе, мандатный API поручений, контракты L2 и связка двух рейтингов | [web_deck/](./03_delovoy_app_presentation/generated/outputs/web_deck/index.html) | **Завершена** (со студийной озвучкой DmitryNeural) |
+| **04** | [**«УраТур»: Автономный туристический планер и путеводитель по стране и миру**](./04_uratur_app_presentation/README.md) | Демонстрация туристического планера «УраТур», рожденного из синергии базовых приложений: сборы от «Делового», народные тропы от «КубГолоса» ... | [web_deck/](./04_uratur_app_presentation/generated/outputs/web_deck/index.html) | **Завершена** (со студийной озвучкой DmitryNeural) |
+| **05** | [**Локальный реестр МСП и ЖКХ: Прикладная синергия экосистемы Турбазы**](./05_local_services_presentation/README.md) | Показ сквозной экономической синергии всех 5 приложений экосистемы: каталог местных мастеров и локальных предприятий шаговой доступности, ра... | [web_deck/](./05_local_services_presentation/generated/outputs/web_deck/index.html) | **Завершена** (со студийной озвучкой DmitryNeural) |
 
 ---
 
