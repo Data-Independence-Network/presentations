@@ -575,11 +575,26 @@
   2. Задачи выполняются строго по трём группам [Session_08_Plan.md](./Session_08_Plan.md):
      - **Группа 1:** Разметка всех 15 слайдов в `presentation_deck.md` с семантическими контейнерами, точным текстом карточек и дикторским текстом;
      - **Группа 2:** Биллборд-стилизация в изолированном `deck.css` (палитра рубиновый коралл, розовое золото, индиго и изумруд, шрифты $\ge 24$px);
-     - **Группа 3:** Автоматическая верификация Zero-Overflow через `node scripts/check_decks.js`, обновление `presentation_outline.md`, `README.md`, `AGENTS.md`, чекбоксов в чеклисте и планах, коммиты в Git.
-  3. Начинается поэтапная реализация Ступени 08.
+     - **Группа 3:** Автоматическая верификация Zero-Overflow через `node scripts/check_decks.js`, обновление сопутствующей документации, планов, чеклистов и коммиты в Git.
+  3. Проведена полная инженерная сборка и стилизация:
+     - 15 слайдов с семантической разметкой карточек, инфографикой, девизом Beyond Decentralized, метриками и соавторской атрибуцией А.В. Шамсутдинова, Claude Sonnet 5.5 и Gemini 3.8 Flash;
+     - Вёрстка в deck.css с соблюдением двухуровневой изоляции стилей (Layer 1: universal chrome, Layer 2: isolated content);
+     - Проверка в Playwright (1920x1080) скриптом `node scripts/check_decks.js`: 0 ошибок, 0 переполнений, 0 предупреждений по размерам шрифтов;
+     - Обновлены чеклист [Session_08_Checklist.md](./Session_08_Checklist.md), план [Session_08_Plan.md](./Session_08_Plan.md), мастер-план [Overall_Plan.md](./Overall_Plan.md) (Ступень 08 отмечена как завершённая `[x]`).
 - **Выполненные действия и результат:**
-  Старт реализации Ступени 08.
+  Веб-колода презентации Экосистемы полностью собрана, стилизована и протестирована на Zero-Overflow (0 ошибок). Ступень 08 успешно завершена.
 - **Затронутые файлы:**
+  - [applications_presentations/05_local_services_presentation/docs/presentation_deck.md](../../../applications_presentations/05_local_services_presentation/docs/presentation_deck.md)
+  - [applications_presentations/05_local_services_presentation/docs/deck.css](../../../applications_presentations/05_local_services_presentation/docs/deck.css)
+  - [applications_presentations/05_local_services_presentation/docs/presentation_outline.md](../../../applications_presentations/05_local_services_presentation/docs/presentation_outline.md)
+  - [applications_presentations/05_local_services_presentation/README.md](../../../applications_presentations/05_local_services_presentation/README.md)
+  - [applications_presentations/05_local_services_presentation/AGENTS.md](../../../applications_presentations/05_local_services_presentation/AGENTS.md)
   - [Session_08_Plan.md](./Session_08_Plan.md)
+  - [Session_08_Checklist.md](./Session_08_Checklist.md)
   - [Session_08_Log.md](./Session_08_Log.md)
+  - [Overall_Plan.md](./Overall_Plan.md)
   - [Operator_Session_Log.md](./Operator_Session_Log.md)
+- **Коммиты в Git:**
+  - `bd7ff4a` — `feat(session-08): группа 1 — разметка 15 слайдов презентации Экосистемы`
+  - `91b7da7` — `feat(session-08): группа 2 — изолированная биллборд-стилизация deck.css и документация презентации`
+  - `62e0914` — `feat(session-08): группа 3 — завершение Ступени 08 и zero-overflow верификация презентации`
