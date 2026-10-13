@@ -13,7 +13,7 @@
   - [shared_docs/comments/2026/09-12_01_Smart_Contracts.md](../../../shared_docs/comments/2026/09-12_01_Smart_Contracts.md)
   - [shared_docs/comments/2026/10-12_05_Why_social_rating.md](../../../shared_docs/comments/2026/10-12_05_Why_social_rating.md)
   - [shared_docs/comments/2026/10-12_03_Why_Data_sovereignty.md](../../../shared_docs/comments/2026/10-12_03_Why_Data_sovereignty.md)
-- **Статус ступени:** `[ ]` Не начата
+- **Статус ступени:** `[x]` Завершена
 
 ---
 
@@ -32,23 +32,23 @@
 
 ## 3. Сгруппированный список задач
 
-### [ ] Группа 1. Разработка русскоязычного манифеста и реестра адаптации
-- [ ] 1.1. Изучить концептуальные заметки автора (`10-11_01_Future_papers_and_presentations.md`, `09-12_01_Smart_Contracts.md`, `10-12_05_Why_social_rating.md`, `10-12_03_Why_Data_sovereignty.md`);
-- [ ] 1.2. Создать [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md) со структурой:
+### [x] Группа 1. Разработка русскоязычного манифеста и реестра адаптации
+- [x] 1.1. Изучить концептуальные заметки автора (`10-11_01_Future_papers_and_presentations.md`, `09-12_01_Smart_Contracts.md`, `10-12_05_Why_social_rating.md`, `10-12_03_Why_Data_sovereignty.md`);
+- [x] 1.2. Создать [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md) со структурой:
   - 1. Статус авторского вклада и завершение теоретического этапа;
   - 2. Переход к этапу прототипирования и приглашение участников ассоциации «Турбаза»;
   - 3. Реестр завершённых вводных презентаций платформы (пункты а–ж);
   - 4. Реестр Белых Книг, предложенных для практической доработки и прототипирования (пункты з–и);
   - 5. Принцип суверенной адаптации и технологический водораздел (инвариант Листа vs национальная Ветка);
-- [ ] 1.3. Сохранить изменения в Git: `docs(manifest): 10-12_02 ступень 2 — создание русскоязычного манифеста`
+- [x] 1.3. Сохранить изменения в Git: `docs(manifest): 10-12_02 ступень 2 — создание русскоязычного манифеста`
 
-### [ ] Группа 2. Разработка англоязычного манифеста (Author Contribution Manifest EN)
-- [ ] 2.1. Перевести и адаптировать положения манифеста в академическом англоязычном стиле в файле [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md);
-- [ ] 2.2. Синхронизировать структуру реестров (пункты a–i), ссылочный аппарат и авторские комментарии;
-- [ ] 2.3. Сохранить изменения в Git: `docs(manifest): 10-12_02 ступень 2 — создание англоязычного манифеста`
+### [x] Группа 2. Разработка англоязычного манифеста (Author Contribution Manifest EN)
+- [x] 2.1. Перевести и адаптировать положения манифеста в академическом англоязычном стиле в файле [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md);
+- [x] 2.2. Синхронизировать структуру реестров (пункты a–i), ссылочный аппарат и авторские комментарии;
+- [x] 2.3. Сохранить изменения в Git: `docs(manifest): 10-12_02 ступень 2 — создание англоязычного манифеста`
 
-### [ ] Группа 3. Сквозная верификация ссылок и финализация ступени
-- [ ] 3.1. Проверить работоспособность всех ссылок на web_deck, whitepapers, comments и директории презентаций;
-- [ ] 3.2. Заполнить чеклист [Session_02_Checklist.md](./Session_02_Checklist.md) и лог [Session_02_Log.md](./Session_02_Log.md);
-- [ ] 3.3. Отметить выполнение ступени в [Overall_Plan.md](./Overall_Plan.md);
-- [ ] 3.4. Зафиксировать финализацию ступени коммитом в Git: `docs(session-02): завершение Ступени 02 — двуязычные манифесты`
+### [x] Группа 3. Сквозная верификация ссылок и финализация ступени
+- [x] 3.1. Проверить работоспособность всех ссылок на web_deck, whitepapers, comments и директории презентаций;
+- [x] 3.2. Заполнить чеклист [Session_02_Checklist.md](./Session_02_Checklist.md) и лог [Session_02_Log.md](./Session_02_Log.md);
+- [x] 3.3. Отметить выполнение ступени в [Overall_Plan.md](./Overall_Plan.md);
+- [x] 3.4. Зафиксировать финализацию ступени коммитом в Git: `docs(session-02): завершение Ступени 02 — двуязычные манифесты`
