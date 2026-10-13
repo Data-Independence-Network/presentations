@@ -129,4 +129,5 @@
   - [Overall_Plan.md](./Overall_Plan.md)
   - [Operator_Session_Log.md](./Operator_Session_Log.md)
 - **Фиксация в Git (Commit Checkpoint):**
-  - **Хэш коммита:** будет зафиксирован контрольным коммитом Шага 3.
+  - **Хэш коммита:** `dcbbc43`
+  - **Сообщение:** `docs(session-01): завершение Ступени 01 — техническое руководство docs/REPOSITORY_GUIDE.md`
