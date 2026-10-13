@@ -15,9 +15,9 @@
 Ниже указан актуальный файл темы (оператор может изменить путь на любой другой файл или указать список из нескольких файлов):
 
 - **Файл активной темы и процесса:**
-  [10-12_01_Invitation_to_continue](./2026/prompts/10-12_01_Invitation_to_continue.md)
+  [Cleanup README and index](./2026/prompts/10-12_02_Cleanup_README_and_index.md)
 - **Активный генеральный мастер-план пакета задач:**
-  [Overall_Plan.md](./2026/10-12_01_Invitation_to_continue/Overall_Plan.md)
+  [Cleanup README and index](./2026/prompts/10-12_02_Cleanup_README_and_index.md)
 
 *(Примечание: модель определяет файл темы динамически из этого раздела, без жёсткой привязки к конкретному имени файла; тем может быть одна или несколько).*
 
