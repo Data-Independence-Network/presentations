@@ -73,7 +73,7 @@ flowchart TD
 | **02** | Создание двуязычных манифестов авторского вклада и реестров адаптации (RU / EN) | Claude Sonnet 5.5 | [Session_02_Plan.md](./Session_02_Plan.md) | [Session_02_Log.md](./Session_02_Log.md) | [Session_02_Checklist.md](./Session_02_Checklist.md) | `[x]` Завершена |
 | **03** | Ревизия и оптимизация главного README.md (ссылка на витрину, TL;DR RU/EN, манифесты) | Claude Sonnet 5.5 | [Session_03_Plan.md](./Session_03_Plan.md) | [Session_03_Log.md](./Session_03_Log.md) | [Session_03_Checklist.md](./Session_03_Checklist.md) | `[x]` Завершена |
 | **04** | Актуализация статусов в витрине `index.html` («В разработке» $\to$ «Для адаптации») | Gemini 3.8 Flash | [Session_04_Plan.md](./Session_04_Plan.md) | [Session_04_Log.md](./Session_04_Log.md) | [Session_04_Checklist.md](./Session_04_Checklist.md) | `[x]` Завершена |
-| **05** | Сквозная приёмка, аудит относительных путей, тесты и закрытие пакета | Gemini 3.8 Flash | [Session_05_Plan.md](./Session_05_Plan.md) | [Session_05_Log.md](./Session_05_Log.md) | [Session_05_Checklist.md](./Session_05_Checklist.md) | `[ ]` Не начата |
+| **05** | Сквозная приёмка, аудит относительных путей, тесты и закрытие пакета | Gemini 3.8 Flash | [Session_05_Plan.md](./Session_05_Plan.md) | [Session_05_Log.md](./Session_05_Log.md) | [Session_05_Checklist.md](./Session_05_Checklist.md) | `[x]` Завершена |
 
 ---
 
