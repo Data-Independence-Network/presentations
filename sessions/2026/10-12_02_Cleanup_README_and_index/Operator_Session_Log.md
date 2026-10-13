@@ -242,4 +242,5 @@
   - [Overall_Plan.md](./Overall_Plan.md)
   - [Operator_Session_Log.md](./Operator_Session_Log.md)
 - **Фиксация в Git (Commit Checkpoint):**
-  - Будет зафиксирована в коммите завершения Ступени 04.
+  - **Хэш коммита:** `07ba169`
+  - **Сообщение:** `fix(portal): 10-12_02 завершение Ступени 04 — актуализация статусов витрины index.html`
