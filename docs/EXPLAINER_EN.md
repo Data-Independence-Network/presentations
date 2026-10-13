@@ -58,7 +58,7 @@ The patent for autonomous interdependent storage technology (**US10902016B2**) w
 - **Why It Exists:** To prevent multinational technology conglomerates from monopolizing or patent-locking this open edge-storage architectural pattern;
 - **Jurisdictional Limit:** The patent has legal force strictly within the United States of America;
 - **Unrestricted Global Development:** The patent **imposes zero restrictions** on open-source forks, sovereign software development, sandbox testing, or production deployment across the Russian Federation, EAEU, BRICS+, European Union, or any other global jurisdiction;
-- **Open Invitation:** Independent developers and institutions worldwide are actively encouraged to fork this repository and build sovereign, localized implementations.
+- **Fork & Translation:** Developers and future member states of the international Turbase Association are invited to fork the repository, translate materials into national languages, and build sovereign implementations.
 
 ---
 
@@ -102,14 +102,13 @@ The conceptual and analytical specifications of the following two Whitepapers ar
 
 ---
 
-## 6. How to Fork, Prototype, and Adapt
+## 6. Fork, Translation & Sovereign Adaptation
 
-Engineering institutions, open-source contributors, and national digital ministries are invited to:
-1. **Fork the Repository:** Clone the repository on GitHub to establish a sovereign development environment;
-2. **Prototype the Leaf Engine:** Build lightweight client-side SQLite/AIRport runtimes in TypeScript, Rust, Go, Kotlin, or Swift;
-3. **Build Branch Gateways:** Implement sovereign Branch servers tailored to domestic identity providers, data laws, and banking APIs;
-4. **Benchmark Empirical TCO:** Measure real-world latency, energy efficiency, and server infrastructure cost savings compared to traditional cloud setups;
-5. **Publish Sovereign Whitepapers:** Fill empirical benchmark sections in drafts of Whitepapers 01–05 and publish national revisions.
+Developers and future member states of the international Turbase Association are invited to:
+1. **Fork & Translate:** Fork the repository and translate materials into the languages of developer nations and association participants;
+2. **Leaf Prototype:** Build client-side SQLite/AIRport runtimes in TypeScript, Rust, Go, Kotlin, or Swift;
+3. **Branch Gateways:** Develop sovereign server adapters tailored to national data laws, e-ID, and payment rails;
+4. **Benchmarks & Publications:** Measure cloud TCO reduction and publish localized editions of Whitepapers.
 
 ---
 

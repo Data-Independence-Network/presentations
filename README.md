@@ -15,8 +15,8 @@
 
 | Документ / Document | Язык / Language | Описание / Summary |
 | :--- | :---: | :--- |
-| [**English Explainer**](./docs/EXPLAINER_EN.md) | 🇬🇧 English | Core architecture, author contribution status, defensive US patent, and sovereign adaptation guide |
-| [**Разъяснение проекта**](./docs/EXPLAINER_RU.md) | 🇷🇺 Русский | Суть платформы, статус авторского вклада, защитный патент США и руководство по суверенной адаптации |
+| [**English Explainer**](./docs/EXPLAINER_EN.md) | 🇬🇧 English | Platform core, author contribution, defensive patent, fork & translation guide |
+| [**Разъяснение проекта**](./docs/EXPLAINER_RU.md) | 🇷🇺 Русский | Суть платформы, авторский вклад, защитный патент, форк и перевод на языки участников |
 
 ---
 
@@ -60,11 +60,9 @@
 
 ## 📜 Завершение авторского вклада и материалы для суверенной адаптации
 
-Авторский вклад **Артёма Владимировича Шамсутдинова** в концептуальную документацию платформы полностью завершён — зафиксированы все ключевые теоретические модели, архитектурные чертежи и правовые механизмы. В процессе работы выявлены прикладные детали, требующие перехода к созданию действующих программных прототипов перед их последующим документированием.
+Авторский вклад **Артёма Владимировича Шамсутдинова** в теоретическую документацию платформы полностью завершён (см. [[Future papers and presentations](./shared_docs/comments/2026/10-11_01_Future_papers_and_presentations.md)]). Разработчикам и будущим участникам международной ассоциации «Турбаза» рекомендуется делать форк репозитория, переводить материалы на национальные языки и создавать суверенные прототипы под местное законодательство.
 
-Поскольку архитектура серверного контура («Ветки») будет различаться от страны к стране в зависимости от национального законодательства, платёжных систем и регуляторных стандартов, дальнейшая разработка прототипов рекомендуется участникам Ассоциации «Турбаза» в соответствующих юрисдикциях (подробнее см. комментарий [[Future papers and presentations](./shared_docs/comments/2026/10-11_01_Future_papers_and_presentations.md)]).
-
-Подробные разъяснения сути платформы, авторского вклада, назначения защитного патента США US10902016B2, разделения неизменного ядра «Листа» и суверенной вариативности «Ветки», а также реестры адаптации представлены в двух официальных документах:
+Подробные разъяснения сути платформы, авторского вклада, защитного патента США US10902016B2, инварианта «Листа» и суверенной вариативности «Ветки» представлены в официальных документах:
 
 - 🇷🇺 **[Разъяснение проекта и руководство по суверенной адаптации (на русском языке)](./docs/EXPLAINER_RU.md)**
 - 🇬🇧 **[English Explainer and Sovereign Adaptation Guide (in English)](./docs/EXPLAINER_EN.md)**
@@ -73,11 +71,12 @@
 1. **Завершённые вводные и флагманские презентации (со студийной нейроозвучкой DmitryNeural):**
    - [«Парадигмальный сдвиг и суверенитет данных»](https://data-independence-network.github.io/presentations/platform_overview/01_paradigm_shift_presentation/generated/outputs/web_deck/index.html) — базовое введение в смену парадигмы децентрализации;
    - [«Анатомия и Архитектура платформы»](https://data-independence-network.github.io/presentations/platform_overview/02_architecture_principles_presentation/generated/outputs/web_deck/index.html) — базовое введение в архитектуру (основа для [инженерной адаптации](./architecture_presentations/README.md));
-   - [«Суверенная экономика и смарт-контракты»](https://data-independence-network.github.io/presentations/applications_presentations/03_delovoy_app_presentation/generated/outputs/web_deck/index.html) — контракты и организация деятельности ([Белая Книга 10](https://data-independence-network.github.io/presentations/viewer.html?doc=shared_docs%2Fwhitepapers%2F10_gogetter_whitepaper.md)).
+   - [«Суверенная экономика и смарт-контракты»](https://data-independence-network.github.io/presentations/platform_overview/03_sovereign_economy_presentation/generated/outputs/web_deck/index.html) — экономика API 1/N и FSM смарт-контракты ([бонды Банка России](https://data-independence-network.github.io/presentations/viewer.html?doc=shared_docs%2Fwhitepapers%2F06_cbr_smart_contracts_fsm_whitepaper.pdf), [рейтинги вкладов](https://data-independence-network.github.io/presentations/viewer.html?doc=shared_docs%2Fwhitepapers%2F07_social_economic_ratings_whitepaper.pdf));
    - [«Архитектура Цифрового Суверенитета»](https://data-independence-network.github.io/presentations/overall_presentations/01_sovereign_architecture_presentation/generated/outputs/web_deck/index.html) — трехуровневая топология и правовой суверенитет;
    - [«Матрица ценности для стейкхолдеров»](https://data-independence-network.github.io/presentations/overall_presentations/02_stakeholders_benefits_presentation/generated/outputs/web_deck/index.html) — системный анализ выгод для участников (основа для [отраслевой адаптации](./detailed_overall_impact_presentations/README.md));
    - [«КубГолос»: измерять и складывать](https://data-independence-network.github.io/presentations/applications_presentations/01_kubgolos_app_presentation/generated/outputs/web_deck/index.html) — системообразующий сервис ([Белая Книга 08](https://data-independence-network.github.io/presentations/viewer.html?doc=shared_docs%2Fwhitepapers%2F08_votecube_whitepaper.md));
-   - [«Деловой»: исполнять и связывать](   - [«Забота»: вкладывать и просматривать](https://data-independence-network.github.io/presentations/applications_presentations/02_zabota_app_presentation/generated/outputs/web_deck/index.html) — открытый социальный опыт ([Белая Книга 09](https://data-independence-network.github.io/presentations/viewer.html?doc=shared_docs%2Fwhitepapers%2F09_sapoto_whitepaper.md));
+   - [«Забота»: вкладывать и просматривать](https://data-independence-network.github.io/presentations/applications_presentations/02_zabota_app_presentation/generated/outputs/web_deck/index.html) — открытый социальный опыт ([Белая Книга 09](https://data-independence-network.github.io/presentations/viewer.html?doc=shared_docs%2Fwhitepapers%2F09_sapoto_whitepaper.md));
+   - [«Деловой»: исполнять и связывать](https://data-independence-network.github.io/presentations/applications_presentations/03_delovoy_app_presentation/generated/outputs/web_deck/index.html) — контракты и организация деятельности ([Белая Книга 10](https://data-independence-network.github.io/presentations/viewer.html?doc=shared_docs%2Fwhitepapers%2F10_gogetter_whitepaper.md)).
 2. **Материалы прикладных систем для суверенной адаптации:**
    - **Белая Книга 11:** [«УраТур — автономное планирование путешествий»](https://data-independence-network.github.io/presentations/viewer.html?doc=shared_docs%2Fwhitepapers%2F11_uratur_whitepaper.md) (презентация оставлена для суверенной адаптации);
    - **Белая Книга 12:** [«Экосистема приложений прямого владения данными»](https://data-independence-network.github.io/presentations/viewer.html?doc=shared_docs%2Fwhitepapers%2F12_ecosystem_whitepaper.md) (презентация оставлена для суверенной адаптации).
