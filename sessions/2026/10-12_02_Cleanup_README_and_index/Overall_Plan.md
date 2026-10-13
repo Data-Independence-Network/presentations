@@ -69,7 +69,7 @@ flowchart TD
 
 | Ступень | Название ступени | Назначенная модель | План | Лог | Чеклист | Статус |
 | :---: | :--- | :---: | :---: | :---: | :---: | :---: |
-| **01** | Вынесение технического руководства по репозиторию в `docs/REPOSITORY_GUIDE.md` | Gemini 3.8 Flash | [Session_01_Plan.md](./Session_01_Plan.md) | [Session_01_Log.md](./Session_01_Log.md) | [Session_01_Checklist.md](./Session_01_Checklist.md) | `[ ]` Не начата |
+| **01** | Вынесение технического руководства по репозиторию в `docs/REPOSITORY_GUIDE.md` | Gemini 3.8 Flash | [Session_01_Plan.md](./Session_01_Plan.md) | [Session_01_Log.md](./Session_01_Log.md) | [Session_01_Checklist.md](./Session_01_Checklist.md) | `[x]` Завершена |
 | **02** | Создание двуязычных манифестов авторского вклада и реестров адаптации (RU / EN) | Claude Sonnet 5.5 | [Session_02_Plan.md](./Session_02_Plan.md) | [Session_02_Log.md](./Session_02_Log.md) | [Session_02_Checklist.md](./Session_02_Checklist.md) | `[ ]` Не начата |
 | **03** | Ревизия и оптимизация главного README.md (ссылка на витрину, TL;DR RU/EN, манифесты) | Claude Sonnet 5.5 | [Session_03_Plan.md](./Session_03_Plan.md) | [Session_03_Log.md](./Session_03_Log.md) | [Session_03_Checklist.md](./Session_03_Checklist.md) | `[ ]` Не начата |
 | **04** | Актуализация статусов в витрине `index.html` («В разработке» $\to$ «Для адаптации») | Gemini 3.8 Flash | [Session_04_Plan.md](./Session_04_Plan.md) | [Session_04_Log.md](./Session_04_Log.md) | [Session_04_Checklist.md](./Session_04_Checklist.md) | `[ ]` Не начата |
