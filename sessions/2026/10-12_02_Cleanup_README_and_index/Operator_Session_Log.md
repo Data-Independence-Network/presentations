@@ -270,4 +270,5 @@
   - [Overall_Plan.md](./Overall_Plan.md)
   - [Operator_Session_Log.md](./Operator_Session_Log.md)
 - **Фиксация в Git (Commit Checkpoint):**
-  - Будет зафиксирована в финальном коммите пакета.
+  - **Хэш коммита:** `c4b5985`
+  - **Сообщение:** `docs(session-05): завершение пакета 10-12_02_Cleanup_README_and_index — сквозная приёмка`
