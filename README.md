@@ -69,15 +69,8 @@ The Russian Federation is currently rebuilding its information infrastructure, d
 
 ---
 
-### 🛠️ Когда нужны установочные скрипты зависимостей?
-Скрипты установки требуются **ТОЛЬКО** в случае, если вы хотите модифицировать слайды, экспортировать MP4-видео или перезаписать нейроозвучку:
-
-1. **[./install_build_dependencies.sh](./install_build_dependencies.sh) — Базовое окружение офлайн-сборки:**
-   - **Что устанавливает:** `Node.js`, `npm`, `Playwright` + Chromium, `FFmpeg` и системные шрифты (PT Astra Sans/Mono).
-   - **Зачем нужно:** Для запуска команды `npm run rebuild-all` (автономный экспорт слайдов в PNG, генерация раздаточных PDF и сборка MP4-видео с использованием уже закоммиченного мастер-аудио **без обращения к внешним API**).
-2. **[./install_regen_dependencies.sh](./install_regen_dependencies.sh) — Синтез новой речи через Neural TTS:**
-   - **Что устанавливает:** Библиотеку `node-edge-tts` для нейросинтеза русской речи (`ru-RU-DmitryNeural`).
-   - **Зачем нужно:** Только при редактировании текста диктора в слайдах для синтеза нового звука через `npm run regen-overall`. Требует рабочий API-ключ в файле `text_to_speech_mcp_Open_API_key.txt`.
+> [!NOTE]
+> Скрипты установки системных зависимостей сборки (`install_build_dependencies.sh`, `install_regen_dependencies.sh`), экспорт видео и синтез новой нейроозвучки вынесены в специализированное [Руководство по репозиторию](./docs/REPOSITORY_GUIDE.md).
 
 ---
 
@@ -148,19 +141,7 @@ The Russian Federation is currently rebuilding its information infrastructure, d
 
 ## 📁 Структура хранилища
 
-```
-presentations/
-├── platform_overview/                          # 3 концептуальных эксплейнера (Базовый обзор и смена парадигмы)
-├── applications_presentations/                 # 5 флагманских сервисов («Деловой», «КубГолос», «Забота», «УраТур», МСП)
-├── architecture_presentations/                 # 7 выпусков глубокой инженерной архитектуры (Топология, Лист, СУБД, Ветка, P2P, TreeSearch, FSM смарт-контракты)
-├── overall_presentations/                      # 2 мастер-презентации верхнего уровня + Whitepaper Blueprints
-├── detailed_overall_impact_presentations/      # 10 специализированных отраслевых презентаций по заинтересованным сторонам
-├── shared_docs/                                # Мастер-спецификации платформы, Белые Книги и база заметок разработчика (LABELS.md)
-├── shared_templates/                           # Эталонные дизайн-системы и шаблоны слайдов
-├── scripts/                                    # Глобальный движок сборки (Playwright, TTS, FFmpeg, PDF, HTML)
-├── package.json                                # Корневой диспетчер сборки (NPM Workspaces)
-└── start_presentation.sh                       # Локальный веб-сервер для интерактивного просмотра
-```
+Подробная файловая структура хранилища, описание директорий и двухслойная архитектура стилей представлены в [Руководстве по репозиторию](./docs/REPOSITORY_GUIDE.md).
 
 ---
 
@@ -187,105 +168,6 @@ presentations/
 Все Markdown-версии Белых Книг доступны для чтения в веб-браузере через интерактивный [Веб-вьюер Markdown](https://data-independence-network.github.io/presentations/viewer.html) с автоматическим рендерингом формул KaTeX и диаграмм Mermaid.
 
 ---
-
-## 🚀 Запуск единого портала презентаций
-
-Запустите локальный сервер в корне хранилища:
-```bash
-./start_presentation.sh
-```
-
-Сервер автоматически откроет главную страницу каталога:
-👉 **`http://localhost:8080/`**
-
-Прямые ссылки на готовые треки со звуком:
-- **1. Эксплейнер 1 (Смена парадигмы):**  
-  `http://localhost:8080/platform_overview/01_paradigm_shift_presentation/generated/outputs/web_deck/`
-- **2. Эксплейнер 2 (Анатомия и Архитектура):**  
-  `http://localhost:8080/platform_overview/02_architecture_principles_presentation/generated/outputs/web_deck/`
-- **3. Эксплейнер 3 (Суверенная экономика и смарт-контракты):**  
-  `http://localhost:8080/platform_overview/03_sovereign_economy_presentation/generated/outputs/web_deck/`
-- **4. Мастер-обзор 1 (Архитектура Цифрового Суверенитета):**  
-  `http://localhost:8080/overall_presentations/01_sovereign_architecture_presentation/generated/outputs/web_deck/`
-- **5. Мастер-обзор 2 (Матрица Выгод Стейкхолдеров):**  
-  `http://localhost:8080/overall_presentations/02_stakeholders_benefits_presentation/generated/outputs/web_deck/`
-- **6. Приложение 1 («КубГолос»):**  
-  `http://localhost:8080/applications_presentations/01_kubgolos_app_presentation/generated/outputs/web_deck/`
-- **7. Приложение 2 («Забота»):**  
-  `http://localhost:8080/applications_presentations/02_zabota_app_presentation/generated/outputs/web_deck/`
-- **8. Приложение 3 («Деловой»):**  
-  `http://localhost:8080/applications_presentations/03_delovoy_app_presentation/generated/outputs/web_deck/`
-
----
-
-## 🛠️ Установка зависимостей (Debian / Ubuntu / macOS)
-
-### 1. Установка базового окружения сборки:
-Устанавливает `ffmpeg`, `python3`, системные шрифты, `Node.js`, `npm`, `playwright` и headless Chromium:
-```bash
-./install_build_dependencies.sh
-# или через npm:
-npm run install:build
-```
-
-### 2. Установка окружения с синтезом речи (Neural TTS):
-Настраивает голосовой синтез `node-edge-tts` и проверяет файл API-ключа `text_to_speech_mcp_Open_API_key.txt`:
-```bash
-./install_regen_dependencies.sh
-# или через npm:
-npm run install:regen
-```
-
----
-
-## ⚡ Автоматизация и сборка (NPM Workspaces)
-
-### 🔨 Сборка целых направлений презентаций (Offline Rebuild, без затрат API):
-```bash
-# Серия Platform Overview (3 части):
-npm run rebuild-platform-overview
-
-# Флагманские приложения (5 сервисов):
-npm run rebuild-apps
-
-# Инженерная архитектура (7 выпусков):
-npm run rebuild-arch
-
-# Мастер-презентации и архитектурные отчеты:
-npm run rebuild-overall
-
-# Детальный анализ заинтересованных сторон (10 презентаций):
-npm run rebuild-impact
-
-# Все Белые Книги (Whitepapers PDF):
-npm run build-whitepapers
-
-# Глобальная сборка абсолютно всех презентаций хранилища:
-npm run rebuild-all
-```
-
-### 🎙️ Регенерация с синтезом новой речи через Neural TTS (требует ключ):
-```bash
-npm run regen-platform-overview
-npm run regen-apps
-npm run regen-arch
-npm run regen-overall
-npm run regen-impact
-npm run regenerate-all
-```
-
----
-
-## 🔒 Ключевые архитектурные инварианты хранилища
-
-1. **Автономия стилей (Strict Style Isolation):**  
-   Каждая из 27 презентаций автономна и владеет собственной изолированной таблицей стилей в папке `docs/`. Презентации физически не зависят от общих runtime-стилей, исключая кросс-регрессии при правках.
-2. **Инвариант нулевого переполнения (Zero-Overflow Invariant):**  
-   Каждый из 405 слайдов протестирован в Playwright (1920x1080) и гарантирует строгое условие `scrollHeight <= clientHeight` — полное отсутствие вертикальных полос прокрутки.
-3. **Единый источник истины:**  
-   Разметка слайдов, графические карточки и дикторский текст генерируются строго из `docs/presentation_deck.md`.
-4. **Философия Автономных Хранилищ (AIR):**  
-   Вся терминология данных строго отражает авторскую концепцию децентрализованных хранилищ: личные данные гражданина и семьи хранятся на локальном кремнии в реляционном виде (SQLite) и никогда не аккумулируются на внешних серверах.
 
 ---
 
@@ -342,4 +224,11 @@ npm run regenerate-all
    - Проектирование и реализация шлюзов под регуляторные стандарты суверенных юрисдикций.
 
 Форкайте репозиторий, создавайте прототипы, исследуйте распределённые архитектуры и вносите вклад в построение независимого цифрового суверенитета прямого владения данными!
+
+---
+
+## 🛠️ Техническое руководство по репозиторию
+
+Подробная инженерная информация об устройстве Git-репозитория, файловой структуре, скриптах установки системных зависимостей (`install_build_dependencies.sh`, `install_regen_dependencies.sh`), командах автоматизации и сборки NPM Workspaces (`rebuild-*`, `regen-*`, `check-decks`), а также ключевых архитектурных инвариантах вынесена в специализированный документ:  
+👉 **[Руководство по архитектуре, сборке и инструментарию репозитория (docs/REPOSITORY_GUIDE.md)](./docs/REPOSITORY_GUIDE.md)**
 
