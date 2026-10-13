@@ -17,7 +17,7 @@
 - **Файл активной темы и процесса:**
   [Cleanup README and index](./2026/prompts/10-12_02_Cleanup_README_and_index.md)
 - **Активный генеральный мастер-план пакета задач:**
-  [Cleanup README and index](./2026/prompts/10-12_02_Cleanup_README_and_index.md)
+  [Генеральный план группы задач: 10-12_02_Cleanup_README_and_index](./2026/10-12_02_Cleanup_README_and_index/Overall_Plan.md)
 
 *(Примечание: модель определяет файл темы динамически из этого раздела, без жёсткой привязки к конкретному имени файла; тем может быть одна или несколько).*
 
