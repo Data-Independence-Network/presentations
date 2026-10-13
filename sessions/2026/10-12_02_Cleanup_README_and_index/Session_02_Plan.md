@@ -2,12 +2,12 @@
 
 ## 1. Паспорт сессии
 - **Идентификатор ступени:** `10-12_02_Session_02`
-- **Название ступени:** Создание двуязычных манифестов авторского вклада и реестров адаптации (`docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md` и `docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md`)
+- **Название ступени:** Создание двуязычных манифестов авторского вклада и реестров адаптации (`docs/EXPLAINER_RU.md` и `docs/EXPLAINER_EN.md`)
 - **Назначенная модель-исполнитель:** Claude Sonnet 5.5
 - **Генеральный план группы задач:** [Overall_Plan.md](./Overall_Plan.md)
 - **Целевые файлы:**
-  - [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md) (создаваемый файл)
-  - [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md) (создаваемый файл)
+  - [docs/EXPLAINER_RU.md](../../../docs/EXPLAINER_RU.md) (создаваемый файл)
+  - [docs/EXPLAINER_EN.md](../../../docs/EXPLAINER_EN.md) (создаваемый файл)
 - **Базовые источники и концептуальные заметки:**
   - [shared_docs/comments/2026/10-11_01_Future_papers_and_presentations.md](../../../shared_docs/comments/2026/10-11_01_Future_papers_and_presentations.md)
   - [shared_docs/comments/2026/09-12_01_Smart_Contracts.md](../../../shared_docs/comments/2026/09-12_01_Smart_Contracts.md)
@@ -18,13 +18,13 @@
 ---
 
 ## 2. Цели и критерии приёмки
-1. Сформировать официальный документ на русском языке [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md), подробно раскрывающий:
+1. Сформировать официальный документ на русском языке [docs/EXPLAINER_RU.md](../../../docs/EXPLAINER_RU.md), подробно раскрывающий:
    - Полное завершение авторского теоретического вклада создателя платформы Артёма Владимировича Шамсутдинова (вся имеющаяся концептуальная информация зафиксирована);
    - Необходимость перехода от теоретизирования к созданию практических прототипов перед дальнейшим документированием;
    - Рекомендацию разработки прототипов институтами и разработчиками суверенных государств — участников ассоциации «Турбаза» (серверная архитектура Ветки и нормативная база различаются от страны к стране согласно заметке автора [Future papers and presentations](../../../shared_docs/comments/2026/10-11_01_Future_papers_and_presentations.md));
    - Подробный реестр готовых презентаций (а–ж: Парадигмальный сдвиг, Анатомия и архитектура, Суверенная экономика, Архитектура Цифрового Суверенитета, Матрица ценности, КубГолос, Забота, Деловой) и белых книг для адаптации (з–и: БК 11 «УраТур», БК 12 «Экосистема»);
    - Разъяснение принципа суверенной адаптации материалов под национальную специфику;
-2. Создать аутентичный эквивалент на английском языке [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md);
+2. Создать аутентичный эквивалент на английском языке [docs/EXPLAINER_EN.md](../../../docs/EXPLAINER_EN.md);
 3. Проверить 100% относительных ссылок на фактическое существование целевых файлов и интерактивных страниц;
 4. Строго соблюдать инвариант отсутствия местоимений «мы/наш».
 
@@ -34,7 +34,7 @@
 
 ### [x] Группа 1. Разработка русскоязычного манифеста и реестра адаптации
 - [x] 1.1. Изучить концептуальные заметки автора (`10-11_01_Future_papers_and_presentations.md`, `09-12_01_Smart_Contracts.md`, `10-12_05_Why_social_rating.md`, `10-12_03_Why_Data_sovereignty.md`);
-- [x] 1.2. Создать [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md) со структурой:
+- [x] 1.2. Создать [docs/EXPLAINER_RU.md](../../../docs/EXPLAINER_RU.md) со структурой:
   - 1. Статус авторского вклада и завершение теоретического этапа;
   - 2. Переход к этапу прототипирования и приглашение участников ассоциации «Турбаза»;
   - 3. Реестр завершённых вводных презентаций платформы (пункты а–ж);
@@ -43,7 +43,7 @@
 - [x] 1.3. Сохранить изменения в Git: `docs(manifest): 10-12_02 ступень 2 — создание русскоязычного манифеста`
 
 ### [x] Группа 2. Разработка англоязычного манифеста (Author Contribution Manifest EN)
-- [x] 2.1. Перевести и адаптировать положения манифеста в академическом англоязычном стиле в файле [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md);
+- [x] 2.1. Перевести и адаптировать положения манифеста в академическом англоязычном стиле в файле [docs/EXPLAINER_EN.md](../../../docs/EXPLAINER_EN.md);
 - [x] 2.2. Синхронизировать структуру реестров (пункты a–i), ссылочный аппарат и авторские комментарии;
 - [x] 2.3. Сохранить изменения в Git: `docs(manifest): 10-12_02 ступень 2 — создание англоязычного манифеста`
 

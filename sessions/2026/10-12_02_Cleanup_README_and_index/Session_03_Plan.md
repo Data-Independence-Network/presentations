@@ -8,8 +8,8 @@
 - **Целевые файлы:**
   - [README.md](../../../README.md) (модифицируемый файл)
   - [docs/REPOSITORY_GUIDE.md](../../../docs/REPOSITORY_GUIDE.md) (ссылка в конце)
-  - [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md) (ссылка в теле)
-  - [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md) (ссылка в теле)
+  - [docs/EXPLAINER_RU.md](../../../docs/EXPLAINER_RU.md) (ссылка в теле)
+  - [docs/EXPLAINER_EN.md](../../../docs/EXPLAINER_EN.md) (ссылка в теле)
   - [index.html](../../../index.html) (ссылка в начале)
 - **Статус ступени:** `[x]` Завершена
 

@@ -22,8 +22,8 @@
 - **Указатель темы и процесса:** [Current_Topic_and_process.md](../../Current_Topic_and_process.md)
 - **Целевые материалы пакета:**
   - Техническое руководство по репозиторию: [docs/REPOSITORY_GUIDE.md](../../../docs/REPOSITORY_GUIDE.md)
-  - Авторский вклад и реестр суверенной адаптации (RU): [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md)
-  - Авторский вклад и реестр суверенной адаптации (EN): [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md)
+  - Авторский вклад и реестр суверенной адаптации (RU): [docs/EXPLAINER_RU.md](../../../docs/EXPLAINER_RU.md)
+  - Авторский вклад и реестр суверенной адаптации (EN): [docs/EXPLAINER_EN.md](../../../docs/EXPLAINER_EN.md)
   - Главный README платформы: [README.md](../../../README.md)
   - Главная витрина презентаций и белых бумаг: [index.html](../../../index.html)
 - **Текущий статус плана:** Планы ступеней сформированы (готов к исполнению)
@@ -48,7 +48,7 @@
    - ж. «Деловой: исполнять и связывать» — системообразующее приложение и его детальная проработка ([Белая книга 10](../../../shared_docs/whitepapers/10_gogetter_whitepaper.md));
    - з. Белая книга 11 «УраТур» — автономное планирование путешествий ([Белая книга 11](../../../shared_docs/whitepapers/11_uratur_whitepaper.md)), презентация оставлена для суверенной доработки;
    - и. Белая книга 12 «Экосистема приложений прямого владения данными» ([Белая книга 12](../../../shared_docs/whitepapers/12_ecosystem_whitepaper.md)), презентация оставлена для суверенной доработки.
-   Все документы и презентации подлежат суверенной доработке государств-участников под свою специфику. Оформление выполняется в двух файлах: [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md) и [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md) с полной проверкой кликабельности и истинности ссылок.
+   Все документы и презентации подлежат суверенной доработке государств-участников под свою специфику. Оформление выполняется в двух файлах: [docs/EXPLAINER_RU.md](../../../docs/EXPLAINER_RU.md) и [docs/EXPLAINER_EN.md](../../../docs/EXPLAINER_EN.md) с полной проверкой кликабельности и истинности ссылок.
 5. **Лаконичный главный README.md платформы:** Размещение ссылки на [index.html](../../../index.html) презентаций и белых бумаг, лаконичного двуязычного блока «TL;DR» (RU / EN), прямых ссылок на два манифеста авторского вклада и ссылки на техническое руководство в конце документа.
 6. **Актуализация статусов витрины index.html:** Замена всех маркеров «В разработке» на «Для адаптации» в коде [index.html](../../../index.html).
 

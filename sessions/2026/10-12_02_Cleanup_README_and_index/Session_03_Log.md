@@ -27,8 +27,8 @@
   - Сквозная связность через внешние ключи и открытый социальный рейтинг вкладов.
 - Сформулирован блок **«TL;DR: Executive Summary»** на английском языке для международного академического и открытого сообщества контрибьюторов и форков;
 - Сформирован раздел завершения авторского документирования со ссылками на оба официальных манифеста:
-  - [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_RU.md)
-  - [docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md](../../../docs/AUTHOR_CONTRIBUTION_AND_SOVEREIGN_ADAPTATION_EN.md)
+  - [docs/EXPLAINER_RU.md](../../../docs/EXPLAINER_RU.md)
+  - [docs/EXPLAINER_EN.md](../../../docs/EXPLAINER_EN.md)
 
 ### Группа 2: Рефакторинг и очистка главного README.md
 - Заменены тяжелые устаревшие секции настройки звука в браузерах и избыточные текстовые простыни;
