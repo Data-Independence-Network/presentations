@@ -328,5 +328,5 @@
   - [Overall_Plan.md](./Overall_Plan.md)
   - [Operator_Session_Log.md](./Operator_Session_Log.md)
 - **Фиксация в Git (Commit Checkpoint):**
-  - **Хэш коммита:** *будет зафиксирован при коммите*
-  - **Сообщение:** `docs(readme): вынесение краткой таблицы эксплейнеров в начало README.md и расширение EXPLAINER`
+  - **Хэш коммита:** `6a10f07`
+  - **Сообщение:** `docs(readme): вынесение краткой таблицы эксплейнеров в начало README.md и расширение формата EXPLAINER`
