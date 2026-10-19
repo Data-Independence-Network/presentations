@@ -1,0 +1,121 @@
+<script lang="ts">
+
+	interface Props {
+		onclick?: (event: MouseEvent) => void;
+		classes?: string;
+		styles?: string;
+	}
+
+	let { classes = '', styles = '', onclick }: Props = $props();
+
+</script>
+
+<svg
+		class="{classes}"
+		height="50"
+		{onclick}
+		style="{styles}"
+		width="50"
+>
+	<g>
+		<circle
+				cx="25"
+				cy="25"
+				fill="#FFFFFF"
+				r="23"
+				stroke="#000"
+				stroke-width="3"
+		/>
+		<rect
+				fill="#000"
+				height="9"
+				stroke="#000"
+				stroke-width="3"
+				width="9"
+				x="20.5"
+				y="6.5"
+		/>
+		<rect
+				fill="#000"
+				height="9"
+				stroke="#000"
+				stroke-width="3"
+				width="9"
+				x="10.5"
+				y="28"
+		/>
+		<rect
+				fill="#000"
+				height="9"
+				stroke="#000"
+				stroke-width="3"
+				width="9"
+				x="30.5"
+				y="28"
+		/>
+		<line
+				stroke="#000"
+				stroke-width="2"
+				x1="11"
+				x2="39"
+				y1="22"
+				y2="22"
+		/>
+		<line
+				stroke="#000"
+				stroke-width="2"
+				x1="25"
+				x2="25"
+				y1="17"
+				y2="22"
+		/>
+		<line
+				stroke="#000"
+				stroke-width="2"
+				x1="15"
+				x2="15"
+				y1="22"
+				y2="27"
+		/>
+		<line
+				stroke="#000"
+				stroke-width="2"
+				x1="35"
+				x2="35"
+				y1="22"
+				y2="27"
+		/>
+		<line
+				stroke="#000"
+				stroke-width="2"
+				x1="3"
+				x2="5"
+				y1="22"
+				y2="22"
+		/>
+		<line
+				stroke="#000"
+				stroke-width="2"
+				x1="7"
+				x2="9"
+				y1="22"
+				y2="22"
+		/>
+		<line
+				stroke="#000"
+				stroke-width="2"
+				x1="41"
+				x2="43"
+				y1="22"
+				y2="22"
+		/>
+		<line
+				stroke="#000"
+				stroke-width="2"
+				x1="45"
+				x2="47"
+				y1="22"
+				y2="22"
+		/>
+	</g>
+</svg>

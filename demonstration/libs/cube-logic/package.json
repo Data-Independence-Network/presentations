@@ -1,0 +1,34 @@
+{
+  "name": "@votecube/cube-logic",
+  "version": "0.0.1",
+  "dependencies": {
+    "@airport/direction-indicator": "0.0.1",
+    "@votecube/model": "workspace:*"
+  },
+  "devDependencies": {
+    "@airport/taxiway": "0.0.1",
+    "@rollup/plugin-commonjs": "^25.0.1",
+    "@rollup/plugin-node-resolve": "~15.1.0",
+    "rollup-plugin-typescript2": "~0.34.1",
+    "rollup": "^3.25.0",
+    "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2",
+    "ts-node": "^8.3.0",
+    "ts-patch": "^3.0.2",
+    "typescript": "~5.1.3",
+    "tslib": "^2.5.3"
+  },
+  "main": "dist/esm/cube-logic.index.mjs",
+  "module": "dist/esm/cube-logic.index.mjs",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c ./rollup.config.mjs",
+    "clean-build": "rollup -c ./rollup.config.mjs --config-clean",
+    "dev": "rollup -c ./rollup.config.mjs -w",
+    "prepare": "ts-patch install -s"
+  },
+  "types": "dist/esm/cube-logic.index.d.ts"
+}

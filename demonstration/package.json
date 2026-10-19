@@ -1,0 +1,40 @@
+{
+  "name": "demonstration",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter @votecube/public-ui dev",
+    "build": "pnpm -r build",
+    "check": "pnpm -r check"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "pnpm": {
+    "overrides": {
+      "@airbridge/validate": "link:../../beyond-decentralized/AIRroot/AIRbridge/validate",
+      "@airport/air-traffic-control": "link:../../beyond-decentralized/AIRroot/AIRport/apis/air-traffic-control",
+      "@airport/airgate": "link:../../beyond-decentralized/AIRroot/AIRport/libs/airgate",
+      "@airport/autopilot": "link:../../beyond-decentralized/AIRroot/AIRport/libs/autopilot",
+      "@airport/aviation-communication": "link:../../beyond-decentralized/AIRroot/AIRport/apis/aviation-communication",
+      "@airport/direction-indicator": "link:../../beyond-decentralized/AIRroot/AIRport/libs/direction-indicator",
+      "@airport/final-approach": "link:../../beyond-decentralized/AIRroot/AIRport/schemas/final-approach",
+      "@airport/fuel-hydrant-system": "link:../../beyond-decentralized/AIRroot/AIRport/libs/fuel-hydrant-system",
+      "@airport/ground-control": "link:../../beyond-decentralized/AIRroot/AIRport/apis/ground-control",
+      "@airport/holding-pattern": "link:../../beyond-decentralized/AIRroot/AIRport/schemas/holding-pattern",
+      "@airport/pressurization": "link:../../beyond-decentralized/AIRroot/AIRport/libs/pressurization",
+      "@airport/runway": "link:../../beyond-decentralized/AIRroot/AIRport/generators/runway",
+      "@airport/sequence": "link:../../beyond-decentralized/AIRroot/AIRport/databases/sequence",
+      "@airport/takeoff": "link:../../beyond-decentralized/AIRroot/AIRport/generators/takeoff",
+      "@airport/tarmaq-dao": "link:../../beyond-decentralized/AIRroot/AIRport/ORMs/tarmaq/dao",
+      "@airport/tarmaq-entity": "link:../../beyond-decentralized/AIRroot/AIRport/ORMs/tarmaq/entity",
+      "@airport/tarmaq-query": "link:../../beyond-decentralized/AIRroot/AIRport/ORMs/tarmaq/query",
+      "@airport/taxiway": "link:../../beyond-decentralized/AIRroot/AIRport/generators/taxiway",
+      "@airport/terminal": "link:../../beyond-decentralized/AIRroot/AIRport/engines/terminal",
+      "@airport/terminal-map": "link:../../beyond-decentralized/AIRroot/AIRport/apis/terminal-map",
+      "@airport/tower": "link:../../beyond-decentralized/AIRroot/AIRport/engines/tower",
+      "@airport/travel-document-checkpoint": "link:../../beyond-decentralized/AIRroot/AIRport/schemas/travel-document-checkpoint",
+      "@airport/web-tower": "link:../../beyond-decentralized/AIRroot/AIRport/platforms/web-tower"
+    }
+  }
+}

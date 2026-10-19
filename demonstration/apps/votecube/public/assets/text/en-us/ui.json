@@ -1,0 +1,353 @@
+{
+  "UI": {
+    "Factor": {
+      "Info": {
+        "name": {
+          "info": "A short name for this Factor.  Factor is a particular aspect of an Idea that is being considered.",
+          "label": "Factor Name",
+          "errors": {
+            "required": "Factor Name is required",
+            "minLength": "Factor Name must be at least 5 characters long"
+          }
+        },
+        "color": {
+          "errors": {
+            "required": "Factor Color is required"
+          }
+        }
+      },
+      "List": {
+        "category": {
+          "label": "Select the Category",
+          "errors": {
+            "required": "Category is required"
+          }
+        },
+        "labels": {
+          "label": "Select Tags"
+        }
+      }
+    },
+    "Feedback": {
+      "category": {
+        "info": "Please enter the Category for your feedback",
+        "label": "Category",
+        "errors": {
+          "required": "A comment is required",
+          "minLength": "Comment must be at least 3 characters long"
+        }
+      },
+      "comment": {
+        "info": "Please enter your Comment",
+        "label": "Comment",
+        "errors": {
+          "required": "A comment is required",
+          "minLength": "Comment must be at least 3 characters long"
+        }
+      }
+    },
+    "Account": {
+      "SignIn": {
+        "username": {
+          "info": "Please enter your username",
+          "label": "Username",
+          "errors": {
+            "required": "Username is required",
+            "minLength": "Username must be at least 5 characters long",
+            "username": "Username can only have A-Z a-z 0-9 - _ in it"
+          }
+        },
+        "password": {
+          "info": "Please enter your password",
+          "label": "Password",
+          "errors": {
+            "required": "Password is required",
+            "minLength": "Password must be at least 12 characters long",
+            "password": "Password must have at least one of A-Z, a-z, 0-9, !@#$%^&*"
+          }
+        },
+        "passwordCheck": {
+          "info": "Please re-enter your password",
+          "label": "Re-enter password",
+          "errors": {
+            "required": "Password is required",
+            "minLength": "Password must be at least 12 characters long",
+            "passwordMismatch": "Password does not match"
+          }
+        }
+      },
+      "SignUp": {
+        "userName": {
+          "info": "Please enter your username",
+          "label": "Username",
+          "errors": {
+            "required": "Username is required",
+            "minLength": "Username must be at least 3 characters long"
+          }
+        },
+        "email": {
+          "info": "Please enter your email",
+          "label": "Email",
+          "errors": {
+            "required": "Email is required",
+            "email": "Invalid Email address"
+          }
+        },
+        "birthMonth": {
+          "info": "Please enter your month of birth",
+          "label": "Month of Birth",
+          "errors": {
+            "required": "Month of Birth is required"
+          }
+        },
+        "continent": {
+          "info": "Please enter Continent of residence",
+          "label": "Continent",
+          "errors": {
+            "required": "Continent is required"
+          }
+        },
+        "country": {
+          "info": "Please enter Country of residence",
+          "label": "Country",
+          "errors": {
+            "required": "Country is required"
+          }
+        },
+        "state": {
+          "info": "Please enter State of residence",
+          "label": "State",
+          "errors": {
+            "required": "State is required"
+          }
+        },
+        "city": {
+          "info": "Please enter City of residence",
+          "label": "City",
+          "errors": {
+            "required": "City is required"
+          }
+        }
+      }
+    },
+    "Idea": {
+      "List": {
+        "search": {
+          "info": "Search for Ideas or use the filter in the top-right menu",
+          "label": "Find Ideas"
+        },
+        "category": {
+          "info": "Pick a Category to focus your results",
+          "label": "Pick a Category"
+        }
+      },
+      "MainInfo": {
+        "ageGroups": {
+          "info": "Select Age Group(s) for which this Idea applies",
+          "label": "Age Group(s)",
+          "errors": {
+            "required": "An age group is required"
+          }
+        },
+        "ageSuitability": {
+          "errors": {}
+        },
+        "labels": {
+          "info": "Select Labels(s) that apply to this Idea",
+          "label": "Labels",
+          "errors": {
+            "required": "At least one label is required"
+          }
+        },
+        "name": {
+          "info": "Select the name for this Idea",
+          "label": "Idea Name",
+          "errors": {
+            "required": "Idea Name is required",
+            "minLength": "Idea Name must be at least 3 characters long"
+          }
+        },
+        "factors": {
+          "info": "Select the Factors of the Idea",
+          "error": "All 3 Factors are required"
+        },
+        "locations": {
+          "info": "Select the location(s) of the Idea (Continent(s), Country(ies), State(s), City(ies))",
+          "error": "Correct location information is required"
+        },
+        "timeframe": {
+          "info": "Select the Start and End dates for the Idea",
+          "error": "Correct time-frame information is required"
+        },
+        "category": {
+          "info": "Select the defining Category of this Idea",
+          "label": "Category",
+          "errors": {
+            "required": "Idea Category is required"
+          }
+        }
+      },
+      "Outcomes": {
+        "A": {
+          "info": "What is the Outcome of this Idea in case A.",
+          "label": "Outcome A",
+          "errors": {
+            "required": "Outcome A is required",
+            "minLength": "Outcome A must be at least 5 characters long"
+          }
+        },
+        "B": {
+          "info": "What is the Outcome of the Idea in case B.",
+          "label": "Outcome B",
+          "errors": {
+            "required": "Outcome B is required",
+            "minLength": "Outcome B must be at least 5 characters long"
+          }
+        }
+      },
+      "Factors": {
+        "1": {
+          "label": "Select 1st Factor",
+          "error": {
+            "message": "1st Factor is required"
+          }
+        },
+        "2": {
+          "label": "Select 2nd Factor",
+          "error": {
+            "message": "2nd Factor is required"
+          }
+        },
+        "3": {
+          "label": "Select 3rd Factor",
+          "error": {
+            "message": "3rd Factor is required"
+          }
+        }
+      },
+      "Labels": {
+        "labels": {
+          "info": "Select matching Tag(s) for this Idea",
+          "label": "Tag(s)"
+        }
+      },
+      "Locations": {
+        "cities": {
+          "info": "Select one or more Cities to which this Idea will apply",
+          "label": "City(ies)"
+        },
+        "continents": {
+          "info": "Select one or more Continents to which this Idea will apply",
+          "label": "Continent(s)",
+          "errors": {
+            "required": "Continent is required"
+          }
+        },
+        "countries": {
+          "info": "Select one or more Countries to which this Idea will apply",
+          "label": "Country(ies)"
+        },
+        "error": "Idea Geography is required",
+        "states": {
+          "info": "Select one or more States to which this Idea will apply",
+          "label": "State(s)"
+        }
+      },
+      "Positions": {
+        "A": {
+          "info": "The Position for Outcome A for this Factor.",
+          "label": "Position A",
+          "errors": {
+            "required": "Position A is required",
+            "minLength": "Position A must be at least 5 characters long"
+          }
+        },
+        "B": {
+          "info": "The Position for Outcome B for this Factor.",
+          "label": "Position B",
+          "errors": {
+            "required": "Position B is required",
+            "minLength": "Position B must be at least 5 characters long"
+          }
+        }
+      },
+      "Timeframe": {
+        "startDate": {
+          "info": "Select the date when solving this Idea starts",
+          "label": "Start Date",
+          "errors": {
+            "required": "Start Date is required",
+            "format": "Start Date is invalid",
+            "min": "Start Date must be greater than today"
+          }
+        },
+        "endDate": {
+          "info": "Select the last date when this Idea open for Agreements",
+          "label": "End Date",
+          "errors": {
+            "required": "End Date is required",
+            "format": "End Date is invalid",
+            "min": "End Date must be greater than today",
+            "greaterThanOrEquals": "End Date must be on or after Start Date"
+          }
+        },
+        "error": "Idea Time Frame is required"
+      }
+    },
+    "Common": {
+      "Field": {
+        "Datepicker": {
+          "month": {
+            "0": "January",
+            "1": "February",
+            "2": "March",
+            "3": "April",
+            "4": "May",
+            "5": "June",
+            "6": "July",
+            "7": "August",
+            "8": "September",
+            "9": "October",
+            "10": "November",
+            "11": "December"
+          },
+          "weekDayOrder": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "shortWeekDay": {
+            "0": "Su",
+            "1": "Mo",
+            "2": "Tu",
+            "3": "We",
+            "4": "Th",
+            "5": "Fr",
+            "6": "Sa"
+          },
+          "dateInput": {
+            "placeholder": {
+              "month": " M",
+              "date": " D",
+              "year": "YYYY"
+            },
+            "separator": "/"
+          }
+        }
+      }
+    },
+    "Forum": {
+      "post": {
+        "info": "Please enter an opinion",
+        "label": "Enter your opinion",
+        "errors": {
+          "required": "An opinion is required"
+        }
+      }
+    }
+  }
+}

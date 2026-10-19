@@ -1,0 +1,24 @@
+{
+  "name": "@votecube/ui-components",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    "./src/*": "./src/*"
+  },
+  "files": [
+    "src"
+  ],
+  "dependencies": {
+    "@airport/direction-indicator": "0.0.1",
+    "@votecube/model": "workspace:*",
+    "@votecube/ui-controls": "workspace:*",
+    "@votecube/ui-logic": "workspace:*",
+    "@votecube/vc-logic": "workspace:*"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "svelte": "^5.0.0"
+  }
+}

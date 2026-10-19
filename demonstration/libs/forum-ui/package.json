@@ -1,0 +1,23 @@
+{
+  "name": "@votecube/forum-ui",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    "./src/*": "./src/*"
+  },
+  "files": [
+    "src"
+  ],
+  "dependencies": {
+    "@airport/direction-indicator": "0.0.1",
+    "@votecube/forms": "workspace:*",
+    "@votecube/ui-controls": "workspace:*",
+    "@votecube/ui-logic": "workspace:*"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "svelte": "^5.0.0"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@votecube/ui-controls",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    "./src/*": "./src/*"
+  },
+  "files": [
+    "src"
+  ],
+  "dependencies": {
+    "@votecube/forms": "workspace:*",
+    "@votecube/model": "workspace:*",
+    "@votecube/ui-logic": "workspace:*"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "svelte": "^5.0.0"
+  }
+}

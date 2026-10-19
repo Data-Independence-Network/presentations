@@ -1,0 +1,60 @@
+{
+  "name": "@votecube/votecube",
+  "version": "0.0.1",
+  "airport": {
+    "domain": "localhost:8000",
+    "application": "@votecube/votecube"
+  },
+  "dependencies": {
+    "@airbridge/validate": "0.0.1",
+    "@airport/air-traffic-control": "0.0.1",
+    "@airport/airgate": "0.0.1",
+    "@airport/autopilot": "0.0.1",
+    "@airport/aviation-communication": "0.0.1",
+    "@airport/direction-indicator": "0.0.1",
+    "@airport/final-approach": "0.0.1",
+    "@airport/ground-control": "0.0.1",
+    "@airport/holding-pattern": "0.0.1",
+    "@airport/tarmaq-dao": "0.0.1",
+    "@airport/tarmaq-entity": "0.0.1",
+    "@airport/tarmaq-query": "0.0.1",
+    "@airport/terminal-map": "0.0.1",
+    "@airport/tower": "0.0.1",
+    "@airport/travel-document-checkpoint": "0.0.1",
+    "@airport/web-tower": "0.0.1"
+  },
+  "devDependencies": {
+    "@airport/runway": "0.0.1",
+    "@airport/taxiway": "0.0.1",
+    "@rollup/plugin-commonjs": "^25.0.1",
+    "@rollup/plugin-node-resolve": "~15.1.0",
+    "@types/node": "^18.11.15",
+    "fs-extra": "^10.1.0",
+    "rollup": "^3.25.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-delete": "^2.0.0",
+    "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "~0.34.1",
+    "ts-node": "^8.3.0",
+    "ts-patch": "^3.0.2",
+    "tslib": "^2.5.3",
+    "typescript": "~5.1.3"
+  },
+  "main": "dist/cjs/votecube.index.js",
+  "module": "dist/esm/votecube.index.mjs",
+  "browser": "dist/esm/votecube.index.mjs",
+  "app": "dist/app/bundle.mjs",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node generate.mjs && rollup -c ./rollup.config.mjs",
+    "clean-build": "node generate.mjs && rollup -c ./rollup.config.mjs --config-clean",
+    "dev": "node generate.mjs && rollup -c ./rollup.config.mjs -w",
+    "generate": "node generate.mjs",
+    "prepare": "ts-patch install -s"
+  },
+  "types": "dist/esm/votecube.index.d.ts"
+}
