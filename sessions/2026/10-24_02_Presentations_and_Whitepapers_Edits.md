@@ -774,6 +774,33 @@
 4. **Git-гигиена:**
    - Полный нейтралитет к индексу Git: команды `git add` и `git restore --staged` не вызывались.
 
+### Шаг 26: Ревизия и полная актуализация всех PDF-документов презентаций и белых книг
+
+**Запрос оператора:**
+> «Отличная работа, спасибо. По моему PDF файлы страниц и текста диктора небыли обновлены. Можно вы проверите так ли это воссоздадите PDF файлы всех презентаций заново если нужно, пожалуйста?»
+
+**Ход рассуждений и архитектурные решения:**
+1. **Анализ состояния существующих PDF-артефактов:**
+   - Проверка временных меток и метаданных файлов в каталогах `generated/outputs/pdf/` подтвердила наблюдение оператора: все бинарные PDF-файлы альбомов слайдов (`*_slides.pdf`) и раздаточных материалов с дикторским текстом (`*_notes.pdf`) датировались 14 сентября — 11 октября 2026 года.
+   - В результате многочисленные смысловые и визуальные обновления, сделанные в ходе недавних шагов (исправление терминологии «МСП», частных меток, тематических рейтингов, воссозданной эмблемы «УраТура», карточного интерфейса «КубГолоса» и бюджета заботы на Слайде 03), не были отражены в PDF-документах.
+   - Белые книги 01–07 в `shared_docs/whitepapers/` также требовали актуализации в части формулировок и схем.
+
+2. **Создание сквозного конвейера генерации PDF:**
+   - Разработан и развернут единый CLI-скрипт [`scripts/build_all_presentation_pdfs.js`](../../scripts/build_all_presentation_pdfs.js), автоматизирующий полный цикл пересборки для любой группы или всей совокупности презентаций:
+     1. Компиляция свежего HTML веб-колоды (`compileDeckHtml`) из мастер-файла `presentation_deck.md`;
+     2. Захват полноразмерных скриншотов всех 15 слайдов (1920×1080) через Playwright Chromium (`captureSlides`) с изоляцией от элементов управления;
+     3. Сборка 16:9 Landscape альбома слайдов (`buildSlidesPdf`) в высоком разрешении;
+     4. Сборка A4 исполнительского буклета сопровождения (`buildHandoutPdf`) с синхронизацией актуального текста диктора;
+     5. Автоматическая генерация связанных документов-спутников: архитектурного альбома `turbase_presentation_visuals.pdf` и матрицы заинтересованных сторон `turbase_stakeholders_value_matrix.pdf`.
+
+3. **Результаты пересборки:**
+   - **Все 9 ключевых презентаций платформы:** успешно обновлены все альбомы слайдов и буклеты заметок (суммарно 36 PDF-файлов с учётом алиасов).
+   - **Сопровождающие документы:** обновлены `turbase_presentation_visuals.pdf` (0.96 МБ) и `turbase_stakeholders_value_matrix.pdf` (1.13 МБ).
+   - **Пакет белых книг платформы:** через `npm run build-whitepapers` заново скомпилированы все 7 официальных белых книг (01–07) в формате A4 PDF со свежими формулами KaTeX и векторными диаграммами Mermaid.
+
+4. **Git-гигиена:**
+   - Полный нейтралитет к индексу Git сохранён: команды `git add` и `git restore --staged` не вызывались.
+
 ### Сводная таблица метрик
 | Объект / Презентация | Объём (слайдов) | Слов дикторского текста | Изменённые слайды / Хронометраж | Стиль оформления | Статус проверки |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -794,6 +821,35 @@
 | **09_cross_synergies_presentation** | 15 | 1308 | Слайды 03, 11 (текст) | Детальный Синергия (Индиго) | ✓ 0 ошибок, 0 переполнений |
 
 ### Сводный реестр сгенерированных итоговых файлов
+- **Сгенерированные PDF слайдов и заметок презентаций:**
+  - [01_kubgolos_slides.pdf](../../applications_presentations/01_kubgolos_app_presentation/generated/outputs/pdf/01_kubgolos_slides.pdf) (8.08 МБ, 16:9 Landscape)
+  - [01_kubgolos_notes.pdf](../../applications_presentations/01_kubgolos_app_presentation/generated/outputs/pdf/01_kubgolos_notes.pdf) (8.70 МБ, A4 Handout)
+  - [02_zabota_slides.pdf](../../applications_presentations/02_zabota_app_presentation/generated/outputs/pdf/02_zabota_slides.pdf) (10.48 МБ, 16:9 Landscape)
+  - [02_zabota_notes.pdf](../../applications_presentations/02_zabota_app_presentation/generated/outputs/pdf/02_zabota_notes.pdf) (11.08 МБ, A4 Handout)
+  - [03_delovoy_slides.pdf](../../applications_presentations/03_delovoy_app_presentation/generated/outputs/pdf/03_delovoy_slides.pdf) (10.24 МБ, 16:9 Landscape)
+  - [03_delovoy_notes.pdf](../../applications_presentations/03_delovoy_app_presentation/generated/outputs/pdf/03_delovoy_notes.pdf) (10.84 МБ, A4 Handout)
+  - [04_uratur_slides.pdf](../../applications_presentations/04_uratur_app_presentation/generated/outputs/pdf/04_uratur_slides.pdf) (6.08 МБ, 16:9 Landscape)
+  - [04_uratur_notes.pdf](../../applications_presentations/04_uratur_app_presentation/generated/outputs/pdf/04_uratur_notes.pdf) (6.69 МБ, A4 Handout)
+  - [01_sovereign_architecture_slides.pdf](../../overall_presentations/01_sovereign_architecture_presentation/generated/outputs/pdf/01_sovereign_architecture_slides.pdf) (3.69 МБ, 16:9 Landscape)
+  - [01_sovereign_architecture_notes.pdf](../../overall_presentations/01_sovereign_architecture_presentation/generated/outputs/pdf/01_sovereign_architecture_notes.pdf) (4.36 МБ, A4 Handout)
+  - [turbase_presentation_visuals.pdf](../../overall_presentations/01_sovereign_architecture_presentation/generated/outputs/pdf/turbase_presentation_visuals.pdf) (0.96 МБ, A4 Visuals Blueprint)
+  - [02_stakeholders_benefits_slides.pdf](../../overall_presentations/02_stakeholders_benefits_presentation/generated/outputs/pdf/02_stakeholders_benefits_slides.pdf) (4.73 МБ, 16:9 Landscape)
+  - [02_stakeholders_benefits_notes.pdf](../../overall_presentations/02_stakeholders_benefits_presentation/generated/outputs/pdf/02_stakeholders_benefits_notes.pdf) (5.35 МБ, A4 Handout)
+  - [turbase_stakeholders_value_matrix.pdf](../../overall_presentations/02_stakeholders_benefits_presentation/generated/outputs/pdf/turbase_stakeholders_value_matrix.pdf) (1.13 МБ, A4 Whitepaper)
+  - [01_paradigm_shift_slides.pdf](../../platform_overview/01_paradigm_shift_presentation/generated/outputs/pdf/01_paradigm_shift_slides.pdf) (4.57 МБ, 16:9 Landscape)
+  - [01_paradigm_shift_notes.pdf](../../platform_overview/01_paradigm_shift_presentation/generated/outputs/pdf/01_paradigm_shift_notes.pdf) (5.20 МБ, A4 Handout)
+  - [02_architecture_principles_slides.pdf](../../platform_overview/02_architecture_principles_presentation/generated/outputs/pdf/02_architecture_principles_slides.pdf) (4.58 МБ, 16:9 Landscape)
+  - [02_architecture_principles_notes.pdf](../../platform_overview/02_architecture_principles_presentation/generated/outputs/pdf/02_architecture_principles_notes.pdf) (5.23 МБ, A4 Handout)
+  - [03_sovereign_economy_slides.pdf](../../platform_overview/03_sovereign_economy_presentation/generated/outputs/pdf/03_sovereign_economy_slides.pdf) (4.30 МБ, 16:9 Landscape)
+  - [03_sovereign_economy_notes.pdf](../../platform_overview/03_sovereign_economy_presentation/generated/outputs/pdf/03_sovereign_economy_notes.pdf) (4.96 МБ, A4 Handout)
+- **Сгенерированные PDF белых книг платформы:**
+  - [01_platform_overview_whitepaper.pdf](../../shared_docs/whitepapers/01_platform_overview_whitepaper.pdf) (0.76 МБ)
+  - [02_applications_suite_whitepaper.pdf](../../shared_docs/whitepapers/02_applications_suite_whitepaper.pdf) (0.77 МБ)
+  - [03_engineering_architecture_whitepaper.pdf](../../shared_docs/whitepapers/03_engineering_architecture_whitepaper.pdf) (0.83 МБ)
+  - [04_ecosystem_impact_whitepaper.pdf](../../shared_docs/whitepapers/04_ecosystem_impact_whitepaper.pdf) (0.57 МБ)
+  - [05_sovereign_governance_whitepaper.pdf](../../shared_docs/whitepapers/05_sovereign_governance_whitepaper.pdf) (0.51 МБ)
+  - [06_cbr_smart_contracts_fsm_whitepaper.pdf](../../shared_docs/whitepapers/06_cbr_smart_contracts_fsm_whitepaper.pdf) (0.95 МБ)
+  - [07_social_economic_ratings_whitepaper.pdf](../../shared_docs/whitepapers/07_social_economic_ratings_whitepaper.pdf) (0.85 МБ)
 - **Аудиофайлы (.mp3):**
   - [01_kubgolos/slide_03.mp3](../../applications_presentations/01_kubgolos_app_presentation/generated/artifacts/audio/slide_03.mp3) (740.0 КБ, 63.1 с, `ru-RU-DmitryNeural`)
   - [01_kubgolos/slide_07.mp3](../../applications_presentations/01_kubgolos_app_presentation/generated/artifacts/audio/slide_07.mp3) (630.9 КБ, 53.8 с, `ru-RU-DmitryNeural`)

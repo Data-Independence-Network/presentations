@@ -39,7 +39,11 @@ shared_docs/whitepapers/05_sovereign_governance_whitepaper.pdf
 
 # Finalized Public Deliverables (Tracked in Git for GitHub Pages distribution)
 !shared_docs/Технический документ платформы Турбаза.pdf
-!platform_overview/01_paradigm_shift_presentation/generated/outputs/pdf/01_paradigm_shift_manifesto.pdf
+!applications_presentations/01_kubgolos_app_presentation/generated/outputs/pdf/01_kubgolos_notes.pdf
+!applications_presentations/02_zabota_app_presentation/generated/outputs/pdf/02_zabota_notes.pdf
+!applications_presentations/03_delovoy_app_presentation/generated/outputs/pdf/03_delovoy_notes.pdf
+!applications_presentations/04_uratur_app_presentation/generated/outputs/pdf/04_uratur_notes.pdf
+!platform_overview/01_paradigm_shift_presentation/generated/outputs/pdf/01_paradigm_shift_notes.pdf
 !platform_overview/02_architecture_principles_presentation/generated/outputs/pdf/02_architecture_principles_notes.pdf
 !platform_overview/03_sovereign_economy_presentation/generated/outputs/pdf/03_sovereign_economy_notes.pdf
 !overall_presentations/01_sovereign_architecture_presentation/generated/outputs/pdf/01_sovereign_architecture_notes.pdf
