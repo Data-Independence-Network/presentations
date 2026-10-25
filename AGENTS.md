@@ -102,7 +102,17 @@ turbase_benefits_presentation/
 5. **Never commit binary videos (`*.mp4`), PDFs (`*.pdf`), cache files (`.build_cache.json`), or temporary segment folders**: All deliverables and video builds are 100% deterministic and generated via build scripts.
 6. **Preserve Relative Path Conventions**: All scripts within presentation subdirectories use relative traversal (`path.join(__dirname, '..', ...)`).
 7. **Typography & Mobile Readability Priority**: Presentation slides must adhere to the high-contrast billboard typography scale (Slide titles $\ge 50$px, body copy $\ge 24$px, cards $\ge 28$px) for readability on small mobile screens.
-8. **Git Hygiene**: When adding or moving files, ensure related assets and documentation are committed with clean, categorized messages.
+8. **Git Hygiene & Workflow Invariant (Полный нейтралитет модели к индексу Git — запрет на индексацию и деиндексацию):**
+   - **Исключительная прерогатива оператора над индексом и коммитами:** В текущем и будущем процессе разработки управление состоянием индекса Git (`staging`) и фиксация коммитов выполняются исключительно оператором.
+   - **Строгий запрет для моделей и агентов:** Моделям и агентам категорически запрещено как-либо вмешиваться в состояние индекса Git — запрещено выполнять `git add` / `git stage`, а также категорически запрещено выполнять `git restore --staged` / `git reset`.
+   - **Жизненный цикл изменений в проекте:**
+     1. Оператор делает запрос;
+     2. Модель вносит изменения и добавления в рабочие файлы;
+     3. Оператор (при необходимости) проверяет изменения и индексирует их (`git add`);
+     4. В редких случаях оператор вносит небольшие авторские правки;
+     5. Процесс повторяется для группы связанных задач;
+     6. Оператор сохраняет накопленные изменения в Git единым логическим коммитом.
+   - **Обоснование и цели регламента:** Сохранение файлов в Git с каждым отдельным ответом модели было важно на этапе первоначального создания презентаций и белых книг. Сейчас идёт этап доработки материалов, где группы мелких изменений сохраняются вместе, чтобы не засорять историю Git. В этих группах изменения модели и оператора естественным образом объединяются для достижения наилучшего финального продукта. В дальнейшем при создании демонстраций платформо-образующих приложений и «Аэропорта» демонстрационная логика сущностей будет написана оператором отдельно от интерфейсной логики, и разделение авторства будет зафиксировано автоматически. Никакого вмешательства модели в индексацию или деиндексацию файлов не требуется.
 9. **Developer Notes & Semantic Labels (`shared_docs/comments/`)**:
    - **Internal Indexing System for Foundational Knowledge:** Notes in `shared_docs/comments/` are human-written records representing the developer's original vision, rationale, and conceptual evolution without AI. The semantic labels in [LABELS.md](./shared_docs/comments/LABELS.md) (`%Repository`, `%Tree`, `%ForeignKey`, `%API`, `%SmartContract`, `%StateMachine`, `%MicroBlockchain`, `%Wallet`, etc.) serve **exclusively as an internal indexing and semantic navigation system within the comments knowledge base**, enabling LLM sessions and agents to form a coherent, linked mental model of foundational platform knowledge.
    - **Strict Prohibition Outside Comments Base:** Agents and developers must **NEVER add or use these `%...` labels outside `shared_docs/comments/`** (do not use them in presentation decks, slide notes, narration texts, outlines, whitepapers, READMEs, or code). Outside the comments knowledge base, raw label tokens clutter the text, degrade visual presentation, and make reading and viewing slides substantially harder.

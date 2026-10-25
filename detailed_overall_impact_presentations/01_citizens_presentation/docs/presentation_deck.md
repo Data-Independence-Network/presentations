@@ -827,7 +827,7 @@ rate: "-9%"
   <div class="slide-header">
     <div class="hero-stakeholder-badge">[ 👤 УЧАСТНИК 01: ГРАЖДАНЕ И СЕМЬИ ]</div>
     <h2 class="slide-title">ЭКОНОМИЧЕСКИЙ ЭФФЕКТ ДЛЯ СЕМЬИ</h2>
-    <p class="slide-subtitle">Количественная финансовая отдача: ликвидация скрытых поборов и прямые выплаты гражданину</p>
+    <p class="slide-subtitle">Количественная финансовая отдача: ликвидация скрытых комиссий и прямые выплаты гражданину</p>
   </div>
 
   <div class="slide-body grid-2col">

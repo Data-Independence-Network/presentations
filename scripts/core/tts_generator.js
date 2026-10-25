@@ -589,9 +589,11 @@ async function generateSlideAudio(slideNum, segmentsOrText, options = {}) {
     const seg = segments[idx];
     const segFile = path.join(tempDir, `s${slideNum}_seg${idx}.mp3`);
     
-    await synthesizeSegment(seg.text, segFile, options);
+    if (!fs.existsSync(segFile) || fs.statSync(segFile).size <= 100) {
+      await synthesizeSegment(seg.text, segFile, options);
+      await new Promise(r => setTimeout(r, 1500));
+    }
     concatFiles.push(segFile);
-    await new Promise(r => setTimeout(r, 600));
 
     if (seg.pauseAfter > 0) {
       const silenceFile = ensureSilenceClip(seg.pauseAfter, tempDir);
