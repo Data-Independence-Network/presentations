@@ -766,7 +766,7 @@ flowchart TD
 ## 12. Что станет базовым модулем; границы роли; открытые вопросы
 
 ### 12.1. Каталог выводимых платформенных модулей
-Приложение «УраТур» спроектировано как прикладной полигон платформы «Турбаза». Семь ключевых алгоритмических и инфраструктурных решений, успешно отработанных на задачах навигации и семейного туризма, абстрагируются в универсальные системные модули ядра:
+Приложение «УраТур» проектируется как прикладной исследовательский полигон платформы «Турбаза». Семь ключевых алгоритмических и инфраструктурных решений, исследуемых на задачах навигации и семейного туризма, абстрагируются в универсальные системные модули ядра:
 
 ```mermaid
 %%{init: {"theme":"base","themeVariables":{"background":"#0f172a","fontFamily":"Arial, Helvetica, sans-serif","fontSize":"15px","primaryColor":"#1e3a8a","primaryTextColor":"#ffffff","primaryBorderColor":"#93c5fd","secondaryColor":"#14532d","tertiaryColor":"#1e293b","lineColor":"#64748b","textColor":"#94a3b8","mainBkg":"#1e3a8a","nodeBorder":"#93c5fd","clusterBkg":"#1e293b","clusterBorder":"#475569","titleColor":"#cbd5e1","edgeLabelBackground":"#1e293b"},"themeCSS":"foreignObject *{font-family:Arial,Helvetica,sans-serif !important}","flowchart":{"curve":"basis","htmlLabels":true,"nodeSpacing":26,"rankSpacing":40,"padding":12,"useMaxWidth":true}}}%%

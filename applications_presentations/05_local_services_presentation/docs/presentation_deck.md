@@ -592,7 +592,7 @@ book: "shared_docs/whitepapers/12_ecosystem_whitepaper.md"
   <div class="slide-header">
     <div class="explainer-series-marker">🏔️ ПЛАТФОРМА ТУРБАЗА | КООПЕРАТИВНЫЙ СТРОЙ</div>
     <h1 class="slide-title">КООПЕРАТИВНЫЕ ИНСТИТУТЫ ЭКОСИСТЕМЫ</h1>
-    <p class="slide-subtitle">Правовая модель защиты участников: артели разработчиков и потребительский союз граждан</p>
+    <p class="slide-subtitle">Правовая модель защиты участников: артели разработчиков (41-ФЗ) и потребительские общества (3085-1)</p>
   </div>
 
   <div class="slide-body grid-2col-split">
@@ -608,7 +608,7 @@ book: "shared_docs/whitepapers/12_ecosystem_whitepaper.md"
       </div>
       <div class="concept-item">
         <span class="concept-bullet">3</span>
-        <span><b>Потребительский союз:</b> владение серверами без налога на добавленную стоимость.</span>
+        <span><b>Потребительские общества (3085-1):</b> владение серверами без налога на добавленную стоимость.</span>
       </div>
     </div>
 
@@ -620,7 +620,7 @@ book: "shared_docs/whitepapers/12_ecosystem_whitepaper.md"
       </div>
       <div class="concept-item">
         <span class="concept-bullet">✓</span>
-        <span><b>Союз граждан:</b> собрание уполномоченных и комитет цифровой этики.</span>
+        <span><b>Совет пайщиков:</b> собрание уполномоченных и комитет цифровой этики.</span>
       </div>
       <div class="concept-item">
         <span class="concept-bullet">✓</span>
@@ -662,7 +662,7 @@ book: "shared_docs/whitepapers/12_ecosystem_whitepaper.md"
 
     <div class="benefit-card ruby">
       <div class="card-num-badge">ПАРТНЁРСТВО</div>
-      <div class="card-title">Союз с индустрией</div>
+      <div class="card-title">Партнёрство с индустрией</div>
       <div class="card-desc">Приглашение современных сетей для дистрибуции между территориальными Ветками.</div>
     </div>
   </div>
