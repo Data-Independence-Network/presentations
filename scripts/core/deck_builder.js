@@ -468,3 +468,22 @@ module.exports = {
   parseSlides,
   compileDeckHtml
 };
+
+if (require.main === module) {
+  const args = process.argv.slice(2);
+  if (args.length === 0) {
+    console.error('Usage: node scripts/core/deck_builder.js <presentation_dir_path>');
+    process.exit(1);
+  }
+  const targetDir = path.resolve(args[0]);
+  const webDeckDir = path.join(targetDir, 'generated', 'outputs', 'web_deck');
+  if (!fs.existsSync(webDeckDir)) {
+    fs.mkdirSync(webDeckDir, { recursive: true });
+  }
+  try {
+    compileDeckHtml(targetDir, { outputDir: webDeckDir });
+  } catch (err) {
+    console.error('[❌] Deck compilation error:', err.message);
+    process.exit(1);
+  }
+}

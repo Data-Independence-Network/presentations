@@ -420,6 +420,18 @@ async function synthesizeSegment(text, filePath, options = {}) {
 
   for (let attempt = 1; attempt <= 8; attempt++) {
     try {
+      if (EdgeTTS) {
+        try {
+          const tts = new EdgeTTS({ voice, rate, pitch });
+          await tts.ttsPromise(text, filePath);
+          if (fs.existsSync(filePath) && fs.statSync(filePath).size > 100) {
+            return true;
+          }
+        } catch (edgeErr) {
+          // Fallback to direct WebSocket implementation
+        }
+      }
+
       const _wsConnect = await connectEdgeTtsWebSocket('audio-24khz-96kbitrate-mono-mp3');
       await new Promise((resolve, reject) => {
         const audioStream = fs.createWriteStream(filePath);
