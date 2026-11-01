@@ -265,11 +265,6 @@
       color: var(--text-main);
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
     }
-    .mode-tab.active.ready-mode {
-      background: rgba(16, 185, 129, 0.2);
-      color: #34d399;
-      border: 1px solid rgba(16, 185, 129, 0.45);
-    }
     .mode-tab.active.featured-mode {
       background: rgba(250, 204, 21, 0.16);
       color: #fde047;
@@ -283,10 +278,6 @@
       font-size: 12px;
       font-family: var(--font-mono);
       font-weight: 700;
-    }
-    .mode-tab.active.ready-mode .tab-badge {
-      background: var(--emerald);
-      color: #070b14;
     }
     .mode-tab.active.featured-mode .tab-badge {
       background: var(--gold);
@@ -975,9 +966,9 @@
       <!-- KEY METRICS ROW -->
       <div class="stats-row">
         <div class="stat-card ready-stat">
-          <div class="stat-number">8 <span style="font-size: 16px; font-weight: 600;">/ 27</span></div>
-          <div class="stat-label">Озвучено и готово</div>
-          <div class="stat-desc">Завершённые презентации с дикторским звуком</div>
+          <div class="stat-number">10 <span style="font-size: 16px; font-weight: 600;">/ 27</span></div>
+          <div class="stat-label">Озвучено</div>
+          <div class="stat-desc">Презентации с дикторским звуком</div>
         </div>
 
         <div class="stat-card coming-soon-stat">
@@ -987,7 +978,7 @@
         </div>
 
         <div class="stat-card audio-stat">
-          <div class="stat-number">120</div>
+          <div class="stat-number">150</div>
           <div class="stat-label">Слайдов с аудио</div>
           <div class="stat-desc">Синхронная нейроозвучка (Edge DmitryNeural)</div>
         </div>
@@ -1008,10 +999,6 @@
           <button class="mode-tab active featured-mode" id="btnModeFeatured" data-mode="featured">
             <span>🌟 Главная: Релизы и сервисы</span>
             <span class="tab-badge">10</span>
-          </button>
-          <button class="mode-tab" id="btnModeReady" data-mode="ready">
-            <span>🎙️ Только с озвучкой</span>
-            <span class="tab-badge">8</span>
           </button>
           <button class="mode-tab" id="btnModeAll" data-mode="all">
             <span>📋 Вся дорожная карта</span>
@@ -1447,7 +1434,7 @@
                 <span class="card-status-pill status-draft">📐 Для адаптации</span>
               </div>
 
-              <h3 class="card-title">Локальные Сервисы и Реестр МСП</h3>
+              <h3 class="card-title">Экосистема платформы «Турбаза»</h3>
               <p class="card-subtitle">Районная экономика, локальные каталоги услуг и независимая кооперация малого бизнеса.</p>
 
               <div class="card-tags">
@@ -2700,7 +2687,6 @@
   <script>
     (function() {
       const btnModeFeatured = document.getElementById('btnModeFeatured');
-      const btnModeReady = document.getElementById('btnModeReady');
       const btnModeAll = document.getElementById('btnModeAll');
       const searchInput = document.getElementById('searchInput');
       const categoryPills = document.querySelectorAll('.cat-pill');
@@ -2709,7 +2695,7 @@
       const filterNotice = document.getElementById('filterNotice');
       const matchingCount = document.getElementById('matchingCount');
 
-      let currentMode = 'featured'; // 'featured' (default: ready + coming soon applications), 'ready' (strictly only with audio), 'all' (entire roadmap)
+      let currentMode = 'featured'; // 'featured' (default: ready + coming soon applications), 'all' (entire roadmap)
       let currentCategory = 'all';
       let searchQuery = '';
 
@@ -2723,13 +2709,7 @@
           const searchData = card.getAttribute('data-search') || '';
 
           // 1. Mode check:
-          if (currentMode === 'ready') {
-            // Strictly audio-ready only
-            if (!isReady) {
-              card.style.display = 'none';
-              return;
-            }
-          } else if (currentMode === 'featured') {
+          if (currentMode === 'featured') {
             // Featured: show ready presentations OR coming soon applications OR whitepapers section
             if (!isReady && !isComingSoon && cardCat !== 'whitepapers') {
               card.style.display = 'none';
@@ -2777,15 +2757,6 @@
       btnModeFeatured.addEventListener('click', () => {
         currentMode = 'featured';
         btnModeFeatured.classList.add('active', 'featured-mode');
-        btnModeReady.classList.remove('active', 'ready-mode');
-        btnModeAll.classList.remove('active');
-        updateView();
-      });
-
-      btnModeReady.addEventListener('click', () => {
-        currentMode = 'ready';
-        btnModeReady.classList.add('active', 'ready-mode');
-        btnModeFeatured.classList.remove('active', 'featured-mode');
         btnModeAll.classList.remove('active');
         updateView();
       });
@@ -2794,7 +2765,6 @@
         currentMode = 'all';
         btnModeAll.classList.add('active');
         btnModeFeatured.classList.remove('active', 'featured-mode');
-        btnModeReady.classList.remove('active', 'ready-mode');
         updateView();
       });
 

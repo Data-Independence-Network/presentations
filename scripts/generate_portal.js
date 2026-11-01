@@ -123,7 +123,7 @@ const PRESENTATION_METADATA = {
     isNextInLine: true
   },
   'applications_presentations/05_local_services_presentation': {
-    customTitle: 'Локальные Сервисы и Реестр МСП',
+    customTitle: 'Экосистема платформы «Турбаза»',
     customSubtitle: 'Районная экономика, локальные каталоги услуг и независимая кооперация малого бизнеса.',
     marker: 'ПРИЛОЖЕНИЕ · ЭКОСИСТЕМА',
     tags: ['Реестр МСП', 'Районная экономика', 'Прямая кооперация']
@@ -1426,8 +1426,8 @@ function buildPortalHtml(items) {
       <div class="stats-row">
         <div class="stat-card ready-stat">
           <div class="stat-number">${readyCount} <span style="font-size: 16px; font-weight: 600;">/ ${totalCount}</span></div>
-          <div class="stat-label">Озвучено и готово</div>
-          <div class="stat-desc">Завершённые презентации с дикторским звуком</div>
+          <div class="stat-label">Озвучено</div>
+          <div class="stat-desc">Презентации с дикторским звуком</div>
         </div>
 
         <div class="stat-card coming-soon-stat">
