@@ -335,7 +335,7 @@ graph TD
         </div>
         <div class="content-card">
           <h4>Регулярный выпуск блоков эпох (EpochBlock)</h4>
-          <p>По расписанию шлюз фиксирует агрегированное состояние счетчиков в виде сущности <code>EpochBlock extends AirEntity</code>, транслируемой Листьям через стандартный WAL.</p>
+          <p>По расписанию шлюз фиксирует 4 базовые величины (+/− веса и голоса) в виде сущности <code>EpochBlock extends AirEntity</code> (150–180 байт), устраняя проблему усреднения.</p>
         </div>
         <div class="content-card">
           <h4>Мгновенная отдача без I/O (Latency = 0 мс)</h4>
