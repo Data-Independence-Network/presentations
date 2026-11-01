@@ -332,10 +332,6 @@ ${cssLinkTags}
         <span class="logo-icon">🏔️</span>
         <span class="logo-text">${escapeHtml(meta.header_title || 'ТУРБАЗА')}</span>
       </a>
-      <a href="${portalRel}" class="nav-btn nav-btn-home" title="Вернуться на главную страницу (Портал)">
-        <span class="btn-icon">🏠</span>
-        <span>Главная</span>
-      </a>
       <span class="header-title">${escapeHtml(meta.header_subtitle)}</span>
     </div>
     <div class="header-center">
